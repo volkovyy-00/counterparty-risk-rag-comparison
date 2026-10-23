@@ -10,6 +10,7 @@ Data-quality problems are logged to data_quality.md - never silently fixed.
 import argparse
 import hashlib
 import json
+import re
 import threading
 import time
 from datetime import date, datetime
@@ -24,6 +25,7 @@ TICKER_MAP_URL = "https://www.sec.gov/files/company_tickers.json"
 SUBMISSIONS_URL = "https://data.sec.gov/submissions/CIK{cik:010d}.json"
 ARCHIVE_URL = "https://www.sec.gov/Archives/edgar/data/{cik}/{acc_nodash}/{doc}"
 RAW_DIR = config.DATA_DIR / "raw" / "sec"
+CORPORATE_ACTION = re.compile(r"(?i)[^.]{0,200}\b(spin-?off|spun off|separation of|split-?off)\b[^.]{0,200}\.")
 
 
 class SecClient:
@@ -122,6 +124,15 @@ def main():
         elif body and len(body) < 8000:
             log.add("WARN", "item1a_short", ticker, f"only {len(body):,} characters - incomplete or cross-referenced?")
 
+        fye = sub.get("fiscalYearEnd", "")
+        if fye and fye != "1231":
+            log.add("INFO", "non_calendar_fiscal_year", ticker,
+                    f"fiscal year ends {fye[:2]}/{fye[2:]} (MM/DD); period {filing['reportDate']}")
+        action = CORPORATE_ACTION.search(body)
+        if action:
+            log.add("INFO", "corporate_action_mentioned", ticker,
+                    f"Item 1A mentions: \"{' '.join(action.group(0).split())[:240]}\"")
+
         item_file = f"item1a/{ticker}.txt"
         (corpus_dir / item_file).write_text(body)
         rows.append({"ticker": ticker, "company": sub.get("name", entry["title"]), "cik": cik, "form": filing["form"],
@@ -129,6 +140,11 @@ def main():
                      "fiscal_year_end": sub.get("fiscalYearEnd", ""), "url": url, "item1a_chars": len(body),
                      "item1a_file": item_file if body else "", "source": "sec_edgar"})
         print(f"  {sub.get('name')} {filing['form']} {acc} period {filing['reportDate']} - Item 1A {len(body):,} chars")
+
+    # ---- reminders from groups.yaml (facts to double-check; nothing is changed)
+    for t, note in config.GROUP_NOTES.items():
+        if t in tickers:
+            log.add("INFO", "group_note", t, note)
 
     # ---- checks across the whole set
     if rows:
