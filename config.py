@@ -60,6 +60,9 @@ SEC_MAX_RPS = min(float(env("SEC_MAX_RPS", "5")), 10.0)
 # openai    : OpenAI, or any OpenAI-compatible server via OPENAI_BASE_URL (Ollama, vLLM, ...)
 # azure     : Azure OpenAI (AZURE_OPENAI_ENDPOINT, AZURE_OPENAI_API_KEY, OPENAI_API_VERSION)
 LLM_PROVIDER = env("LLM_PROVIDER", "anthropic")
+# Some environments store the key under a generic name; the SDK reads ANTHROPIC_API_KEY.
+if LLM_PROVIDER == "anthropic" and not env("ANTHROPIC_API_KEY") and env("API_KEY", "").startswith("sk-ant-"):
+    os.environ["ANTHROPIC_API_KEY"] = os.environ["API_KEY"]
 LLM_MODEL = env("LLM_MODEL", "claude-opus-5-5" if LLM_PROVIDER == "anthropic" else "gpt-4.1-mini")
 # Sampling temperature is sent to OpenAI-style providers only ("none" = don't send).
 # Current Anthropic models accept only their default sampling, so it is never sent there.
