@@ -1,0 +1,12 @@
+# Local Neo4j for the demo - works with no internet once the image is pulled.
+# APOC core ships inside the image; the GraphRAG entity resolvers need it.
+services:
+  neo4j:
+    image: neo4j:5.26-community
+    ports: ["7474:7474", "7687:7687"]
+    environment:
+      NEO4J_AUTH: neo4j/demo-password
+      NEO4J_PLUGINS: '["apoc"]'
+    volumes: ["neo4j-data:/data"]
+volumes:
+  neo4j-data:

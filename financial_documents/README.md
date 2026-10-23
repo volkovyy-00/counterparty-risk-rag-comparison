@@ -20,6 +20,7 @@ This repository contains all code, data, and notebooks for the Neo4j GraphRAG wo
     - `form10k-sample/`: Example 10-K filings for graph ingestion
 - `Additional_Info/` — (Optional) Additional scripts and explained notebooks
 - `.env.sample` — Template for required environment variables
+- `counterparty_risk/` — Self-contained prototype comparing plain RAG, GraphRAG and taxonomy-first extraction on one question over 10-K Item 1A (see its README)
 
 ---
 
