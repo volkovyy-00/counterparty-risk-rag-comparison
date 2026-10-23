@@ -1,50 +1,21 @@
-# Hand-labelled ground truth: which taxonomy categories each company's Item 1A
-# gives at least one dedicated risk factor to (a mention in passing does not count).
+# Hand-labelled key: for each company, which taxonomy leaves its Item 1A gives at
+# least one dedicated risk factor to (a mention in passing does not count).
 #
-# STATUS: DRAFT. These labels were drafted with label_helper.py and a read of the
-# filings' risk-factor headings. Before quoting any eval number on stage, check
-# every row against the filing it was labelled against and set status: verified.
-# Labels describe what is IN THE DOCUMENT, whatever ticker the source data puts on it.
+# A PERSON fills this in with label_tool.py (or by editing below). No code and no
+# model writes labels. label_tool.py sets status: verified only when every
+# (company, leaf) cell has been decided, and records the labeller's initials and
+# the accession numbers labelled against. Until then every screen that shows
+# P/R/F1 carries a "DRAFT KEY - not for slides" banner.
+#
+# Format per corpus:
+#   status: unlabelled | draft | verified
+#   labels: {TICKER: {yes: [CATEGORY.leaf, ...], no: [CATEGORY.leaf, ...]}}
 corpora:
   edgar_latest:
-    status: draft
-    labelled_against: "latest 10-K per ticker as of 2026-10 - re-check the accession numbers in data/corpus/edgar_latest/manifest.csv after fetching"
-    exposures:
-      AAPL: [MACRO_DEMAND, RATES_FX_FUNDING, SUPPLY_CHAIN, CUSTOMER_CONCENTRATION, COMPETITION_DISRUPTION, CYBER_IT,
-             PRIVACY_DATA, REGULATION_LEGAL, GEOPOLITICAL_TRADE, CLIMATE_NATCAT, TALENT_LABOR, IP_TECH_RIGHTS, TAX, STRATEGY_MA]
-      MSFT: [MACRO_DEMAND, RATES_FX_FUNDING, SUPPLY_CHAIN, COMPETITION_DISRUPTION, CYBER_IT, PRIVACY_DATA, REGULATION_LEGAL,
-             GEOPOLITICAL_TRADE, CLIMATE_NATCAT, TALENT_LABOR, IP_TECH_RIGHTS, AI_EMERGING_TECH, TAX, STRATEGY_MA]
-      NVDA: [MACRO_DEMAND, RATES_FX_FUNDING, SUPPLY_CHAIN, CUSTOMER_CONCENTRATION, COMPETITION_DISRUPTION, CYBER_IT,
-             PRIVACY_DATA, REGULATION_LEGAL, GEOPOLITICAL_TRADE, CLIMATE_NATCAT, TALENT_LABOR, IP_TECH_RIGHTS,
-             AI_EMERGING_TECH, TAX, STRATEGY_MA]
-      AMZN: [MACRO_DEMAND, RATES_FX_FUNDING, SUPPLY_CHAIN, COMPETITION_DISRUPTION, CYBER_IT, PRIVACY_DATA, REGULATION_LEGAL,
-             GEOPOLITICAL_TRADE, CLIMATE_NATCAT, TALENT_LABOR, IP_TECH_RIGHTS, TAX, STRATEGY_MA]
-      GOOGL: [MACRO_DEMAND, RATES_FX_FUNDING, SUPPLY_CHAIN, COMPETITION_DISRUPTION, CYBER_IT, PRIVACY_DATA, REGULATION_LEGAL,
-              GEOPOLITICAL_TRADE, CLIMATE_NATCAT, TALENT_LABOR, IP_TECH_RIGHTS, AI_EMERGING_TECH, TAX, STRATEGY_MA]
-      INTC: [MACRO_DEMAND, RATES_FX_FUNDING, SUPPLY_CHAIN, CUSTOMER_CONCENTRATION, COMPETITION_DISRUPTION, CYBER_IT,
-             REGULATION_LEGAL, GEOPOLITICAL_TRADE, CLIMATE_NATCAT, TALENT_LABOR, IP_TECH_RIGHTS, TAX, STRATEGY_MA]
-      PYPL: [MACRO_DEMAND, RATES_FX_FUNDING, CUSTOMER_CONCENTRATION, COMPETITION_DISRUPTION, CYBER_IT, PRIVACY_DATA,
-             REGULATION_LEGAL, GEOPOLITICAL_TRADE, TALENT_LABOR, IP_TECH_RIGHTS, TAX, STRATEGY_MA]
-      PCG: [RATES_FX_FUNDING, CYBER_IT, REGULATION_LEGAL, CLIMATE_NATCAT, TALENT_LABOR]
-      MCD: [MACRO_DEMAND, RATES_FX_FUNDING, SUPPLY_CHAIN, CUSTOMER_CONCENTRATION, COMPETITION_DISRUPTION, CYBER_IT,
-            PRIVACY_DATA, REGULATION_LEGAL, GEOPOLITICAL_TRADE, CLIMATE_NATCAT, TALENT_LABOR, IP_TECH_RIGHTS, TAX]
-      AIG: [MACRO_DEMAND, RATES_FX_FUNDING, CUSTOMER_CONCENTRATION, COMPETITION_DISRUPTION, CYBER_IT, PRIVACY_DATA,
-            REGULATION_LEGAL, GEOPOLITICAL_TRADE, CLIMATE_NATCAT, TALENT_LABOR, TAX, STRATEGY_MA]
-
-  workshop_sample:
-    status: draft
-    labelled_against: "PDFs in ../data/form10k-sample, labelled by document content (tickers as Company_Filings.csv gives them)"
-    exposures:
-      AMZN: [MACRO_DEMAND, RATES_FX_FUNDING, SUPPLY_CHAIN, COMPETITION_DISRUPTION, CYBER_IT, PRIVACY_DATA, REGULATION_LEGAL,
-             GEOPOLITICAL_TRADE, CLIMATE_NATCAT, TALENT_LABOR, IP_TECH_RIGHTS, TAX, STRATEGY_MA]
-      NVDA: [MACRO_DEMAND, RATES_FX_FUNDING, SUPPLY_CHAIN, CUSTOMER_CONCENTRATION, COMPETITION_DISRUPTION, CYBER_IT,
-             PRIVACY_DATA, REGULATION_LEGAL, GEOPOLITICAL_TRADE, CLIMATE_NATCAT, TALENT_LABOR, IP_TECH_RIGHTS,
-             AI_EMERGING_TECH, TAX, STRATEGY_MA]
-      AAPL: []          # file is Verde Bio Holdings' 10-K: "not required to provide" risk factors
-      PYPL: [MACRO_DEMAND, RATES_FX_FUNDING, CUSTOMER_CONCENTRATION, COMPETITION_DISRUPTION, CYBER_IT, PRIVACY_DATA,
-             REGULATION_LEGAL, GEOPOLITICAL_TRADE, CLIMATE_NATCAT, TALENT_LABOR, IP_TECH_RIGHTS, TAX, STRATEGY_MA]
-      INTC: [MACRO_DEMAND, RATES_FX_FUNDING, SUPPLY_CHAIN, CUSTOMER_CONCENTRATION, COMPETITION_DISRUPTION, CYBER_IT,
-             PRIVACY_DATA, REGULATION_LEGAL, GEOPOLITICAL_TRADE, CLIMATE_NATCAT, TALENT_LABOR, IP_TECH_RIGHTS, TAX,
-             STRATEGY_MA]  # file is Apple's FY2023 10-K, labelled INTC in the CSV
-      PCG: [RATES_FX_FUNDING, CYBER_IT, PRIVACY_DATA, REGULATION_LEGAL, CLIMATE_NATCAT, TALENT_LABOR]
-      MSFT: [MACRO_DEMAND, RATES_FX_FUNDING, GEOPOLITICAL_TRADE, TALENT_LABOR]  # Item 1A truncated to ~3.6k chars
+    group: auto_semis
+    taxonomy_version: 2
+    status: unlabelled
+    labeller: ""
+    labelled_at: ""
+    accessions: {}
+    labels: {}

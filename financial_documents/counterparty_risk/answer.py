@@ -1,70 +1,103 @@
-"""The answer format shared by all three approaches, plus shared checks."""
-import re
+"""The one output contract shared by every approach: a list of claims.
 
-import yaml
+    {company, category, leaf, quote, source_ref, risk}
 
+company    : ticker of the company exposed (must be in the group)
+category   : taxonomy category id
+leaf       : taxonomy leaf id, CATEGORY.leaf
+quote      : copied verbatim from the cited source - checked by verify.py
+source_ref : the excerpt the quote comes from (chunk id, graph chunk id or window id)
+risk       : short human-readable label (free text, shown only)
+
+Approaches differ in how they retrieve and reason, not in what they return.
+"""
 import config
+import taxonomy
 
-TAXONOMY = yaml.safe_load((config.ROOT / "taxonomy.yaml").read_text())["categories"]
-CATEGORY_IDS = [c["id"] for c in TAXONOMY]
-CATEGORY_NAMES = {c["id"]: c["name"] for c in TAXONOMY}
+CLAIM_PROPERTIES = {
+    "risk": {"type": "string", "description": "Short label for the risk, 2-6 words."},
+    "company": {"type": "string", "description": "Ticker of the exposed company, exactly as given."},
+    "category": {"type": "string", "enum": taxonomy.CATEGORY_IDS},
+    "leaf": {"type": "string", "enum": taxonomy.LEAF_IDS},
+    "quote": {"type": "string", "description": "15-50 words copied exactly from the cited excerpt."},
+    "source_ref": {"type": "string", "description": "Id of the excerpt the quote is copied from."},
+}
 
-# Strict JSON schema for the free-text approaches (1 and 2).
-SHARED_RISKS_SCHEMA = {
+CLAIMS_SCHEMA = {
     "type": "object",
     "additionalProperties": False,
-    "required": ["summary", "shared_risks"],
+    "required": ["summary", "claims"],
     "properties": {
         "summary": {"type": "string", "description": "Two or three sentences answering the question."},
-        "shared_risks": {
+        "claims": {
             "type": "array",
-            "items": {
-                "type": "object",
-                "additionalProperties": False,
-                "required": ["risk", "tickers", "citations"],
-                "properties": {
-                    "risk": {"type": "string", "description": "Short name of the shared risk."},
-                    "tickers": {"type": "array", "items": {"type": "string"}},
-                    "citations": {"type": "array", "items": {"type": "string"},
-                                  "description": "Chunk ids, exactly as given in the context."},
-                },
-            },
+            "items": {"type": "object", "additionalProperties": False,
+                      "required": list(CLAIM_PROPERTIES), "properties": CLAIM_PROPERTIES},
         },
     },
 }
 
-
-def check_citations(shared_risks, chunks_by_id, tickers):
-    """Each (risk, ticker) claim counts as supported if a cited chunk comes from that ticker's filing."""
-    claims = supported = 0
-    unknown_tickers, unknown_chunks = set(), set()
-    for risk in shared_risks:
-        cited = [chunks_by_id[c] for c in risk["citations"] if c in chunks_by_id]
-        unknown_chunks |= {c for c in risk["citations"] if c not in chunks_by_id}
-        cited_tickers = {c["ticker"] for c in cited}
-        for t in risk["tickers"]:
-            if t not in tickers:
-                unknown_tickers.add(t)
-            claims += 1
-            supported += t in cited_tickers
-    return {"claims": claims, "supported_claims": supported,
-            "support_rate": round(supported / claims, 3) if claims else None,
-            "unknown_tickers": sorted(unknown_tickers), "unknown_citations": sorted(unknown_chunks)}
+CLAIM_RULES = (
+    "Return claims: one claim per (company, risk) the excerpts support. For each claim give the company's ticker, "
+    "the taxonomy category and leaf ids from the list below, a quote of 15-50 words copied EXACTLY, character for "
+    "character, from ONE excerpt of THAT company, and the id of that excerpt as source_ref. "
+    "A company may appear in a claim only if one of its own excerpts supports it. Do not invent text. "
+    "Prefer risks that two or more companies share.\n\nTaxonomy (use only these ids):\n"
+)
 
 
-def shared_only(shared_risks):
-    return [r for r in shared_risks if len(set(r["tickers"])) >= config.MIN_SHARED]
+def system_prompt(intro):
+    return f"{intro}\n\n{CLAIM_RULES}{taxonomy.prompt_listing()}"
 
 
-def _keyword_pattern(keyword):
-    stem = keyword.rstrip("*")
-    tail = "" if keyword.endswith("*") else r"\b"
-    return re.compile(rf"\b{re.escape(stem)}{tail}", re.I)
+def shared_leaves(claims, level="leaf", min_shared=None):
+    """{label: sorted tickers} for labels claimed for at least `min_shared` companies."""
+    min_shared = min_shared or config.MIN_SHARED
+    out = {}
+    for c in claims:
+        out.setdefault(c[level], set()).add(c["company"])
+    return {k: sorted(v) for k, v in out.items() if len(v) >= min_shared}
 
 
-_KEYWORDS = {c["id"]: [_keyword_pattern(k) for k in c.get("keywords", [])] for c in TAXONOMY}
+def shared_risks(claims, n_companies):
+    """Leaf-level answer table: shared leaves ranked specific-first (generic = >=80% of companies)."""
+    rows = []
+    for leaf, tickers in shared_leaves(claims).items():
+        own = [c for c in claims if c["leaf"] == leaf]
+        rows.append({"leaf": leaf, "category": taxonomy.category_of(leaf), "risk": taxonomy.leaf_name(leaf),
+                     "tickers": tickers, "claims": len(own),
+                     "generic": len(tickers) >= 0.8 * n_companies,
+                     "cross_industry": len({config.INDUSTRY.get(t, "other") for t in tickers}) > 1})
+    return sorted(rows, key=lambda r: (r["generic"], -len(r["tickers"]), -r["claims"], r["leaf"]))
 
 
-def categories_for(text):
-    """Deterministic keyword mapping of a free-text risk name onto taxonomy ids (eval only)."""
-    return [cid for cid, patterns in _KEYWORDS.items() if any(p.search(text) for p in patterns)]
+def matrix(claims, tickers, level="category"):
+    """{label: {ticker: number of accepted claims}} - the heatmap values."""
+    labels = taxonomy.CATEGORY_IDS if level == "category" else taxonomy.LEAF_IDS
+    m = {label: {t: 0 for t in tickers} for label in labels}
+    for c in claims:
+        if c["company"] in tickers:
+            m[c[level]][c["company"]] += 1
+    return m
+
+
+def finalise(result, filings):
+    """Apply the shared verifier and build the answer every approach is scored on."""
+    from verify import dedupe, verify_claims
+
+    tickers = [f["ticker"] for f in filings]
+    accepted, rejected, stats = verify_claims(result["raw_claims"], filings, result.get("sources"))
+    accepted = dedupe(accepted)
+    shared = shared_risks(accepted, len(tickers))
+    if result.get("summary") is None:  # computed answer (taxonomy-first)
+        specific = [r for r in shared if not r["generic"]]
+        top = ", ".join(f"{r['risk']} ({len(r['tickers'])} of {len(tickers)})" for r in specific[:4])
+        result["summary"] = (f"{len(shared)} taxonomy leaves are shared by at least {config.MIN_SHARED} of the "
+                             f"{len(tickers)} counterparties; {len(specific)} of them are specific "
+                             f"(fewer than 80% of companies). Most widely shared specific risks: {top or 'none'}.")
+    result.update(
+        claims=accepted, rejected=rejected, verification=stats, shared_risks=shared,
+        companies_covered=sorted({t for r in shared for t in r["tickers"]}),
+        matrix={"category": matrix(accepted, tickers, "category"), "leaf": matrix(accepted, tickers, "leaf")},
+    )
+    return result

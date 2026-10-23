@@ -2,7 +2,6 @@
 import csv
 import json
 import re
-import unicodedata
 from dataclasses import asdict, dataclass
 
 import config
@@ -102,19 +101,9 @@ def chunks_for(filings, size, overlap):
 
 
 # --------------------------------------------------------------------------- verbatim checks
-_TYPOGRAPHY = str.maketrans({"‘": "'", "’": "'", "“": '"', "”": '"',
-                             "–": "-", "—": "-", " ": " ", "•": " "})
-
-
-def normalise(text):
-    """Make a quote comparable to the source: same characters, collapsed whitespace."""
-    text = unicodedata.normalize("NFKC", text).translate(_TYPOGRAPHY)
-    return re.sub(r"\s+", " ", text).strip()
-
-
 def find_quote(quote, source):
-    """Character offset of `quote` in `source` (after normalisation), or -1."""
-    q = normalise(quote)
-    if len(q) < 20:
-        return -1  # too short to count as evidence
-    return normalise(source).find(q)
+    """Start offset of `quote` in `source` (typography/whitespace tolerant), or -1. See verify.locate."""
+    from verify import locate
+
+    span = locate(quote, source)
+    return span[0] if span else -1

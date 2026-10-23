@@ -19,7 +19,7 @@ from neo4j import GraphDatabase
 
 import config
 import llm
-from answer import SHARED_RISKS_SCHEMA, check_citations, shared_only
+from answer import CLAIMS_SCHEMA, system_prompt
 from corpus import load_corpus
 
 SCHEMA = {"node_types": [{"label": "RiskFactor", "properties": [{"name": "name", "type": "STRING"}],
@@ -39,7 +39,7 @@ WHERE size(tickers) >= $min_shared
 MATCH (r)-[:FROM_CHUNK]->(ch:Chunk)-[:FROM_DOCUMENT]->(d:Document)
 WITH r, tickers, d.ticker AS ticker, collect(ch)[0] AS first
 WITH r, tickers, collect({chunk_id: ticker + '-g' + toString(first.index), ticker: ticker,
-                          text: left(first.text, 600)}) AS evidence
+                          text: first.text}) AS evidence
 RETURN r.name AS risk, tickers, evidence
 ORDER BY size(tickers) DESC, risk
 LIMIT $limit
@@ -54,7 +54,7 @@ WHERE c1 <> c2
 MATCH (r)-[:FROM_CHUNK]->(rc:Chunk)-[:FROM_DOCUMENT]->(rd:Document)
 RETURN r.name AS risk, collect(DISTINCT c1.ticker) + collect(DISTINCT c2.ticker) AS tickers,
        collect(DISTINCT {chunk_id: rd.ticker + '-g' + toString(rc.index), ticker: rd.ticker,
-                         text: left(rc.text, 600)})[0..3] AS evidence
+                         text: rc.text})[0..3] AS evidence
 """
 
 LINK_COMPANIES_CYPHER = """
@@ -66,10 +66,9 @@ MATCH (d)<-[:FROM_DOCUMENT]-(:Chunk)<-[:FROM_CHUNK]-(r:RiskFactor)
 MERGE (c)-[:FACES_RISK]->(r)
 """
 
-SYSTEM = (
-    "You are a credit risk analyst. You are given risk factors that a knowledge graph shows are shared by "
-    "several companies, each with source excerpts labelled [id] TICKER. Group near-duplicates, keep the "
-    "ticker lists exactly as the graph gives them, and cite excerpt ids for every risk."
+SYSTEM = system_prompt(
+    "You are a credit risk analyst. A knowledge graph lists risk factors that several companies share, each "
+    "with source excerpts labelled [id] TICKER. Turn them into claims: quote each company's own excerpt."
 )
 
 
@@ -117,11 +116,12 @@ def build(reset=False):
             meta = {k: f[k] for k in ("ticker", "company", "cik", "accession", "url")}
             asyncio.run(pipeline.run_async(text=f["text"], document_metadata=meta))
 
+        exact = _count(drv, "MATCH (r:RiskFactor) RETURN count(r) AS n")  # after exact-name resolution
+        resolved = exact
         if config.GRAPH_RESOLVER == "fuzzy":
-            before = _count(drv, "MATCH (r:RiskFactor) RETURN count(r) AS n")
             asyncio.run(FuzzyMatchResolver(drv, neo4j_database=config.NEO4J_DATABASE).run())
-            after = _count(drv, "MATCH (r:RiskFactor) RETURN count(r) AS n")
-            print(f"  fuzzy resolution: {before} -> {after} RiskFactor nodes")
+            resolved = _count(drv, "MATCH (r:RiskFactor) RETURN count(r) AS n")
+            print(f"  fuzzy resolution: {exact} -> {resolved} RiskFactor nodes")
         drv.execute_query(LINK_COMPANIES_CYPHER, database_=config.NEO4J_DATABASE)
         create_vector_index(drv, name="chunkEmbeddings", label="Chunk", embedding_property="embedding",
                             dimensions=config.EMBED_DIMENSIONS, similarity_fn="cosine",
@@ -129,7 +129,8 @@ def build(reset=False):
 
     stats = graph_stats(drv)
     record = {"corpus": config.CORPUS, "model": config.LLM_MODEL, "resolver": config.GRAPH_RESOLVER,
-              "chunk_chars": config.GRAPH_CHUNK_CHARS, "usage": llm.METER.summary("graph.build"), "graph": stats}
+              "chunk_chars": config.GRAPH_CHUNK_CHARS, "usage": llm.METER.summary("graph.build"), "graph": stats,
+              "risk_factors_exact": exact, "risk_factors_resolved": resolved}
     config.RESULTS_DIR.mkdir(exist_ok=True)
     (config.RESULTS_DIR / f"graph_build_{config.CORPUS}.json").write_text(json.dumps(record, indent=2))
     print(json.dumps(record, indent=2))
@@ -171,31 +172,30 @@ def run(question, filings):
         raise SystemExit("Graph is empty: run `python approach2_graphrag.py build --reset` first.")
     with llm.METER.track("graph.ask"):
         rows = _traverse(drv, question)
-        # Short local ids for the prompt; map back to Neo4j chunk ids afterwards.
-        local, lines = {}, []
+        # Each evidence chunk once, under its graph chunk id (e.g. NVDA-g7); risks refer to the ids.
+        sources, lines = {}, []
         for row in rows:
-            ev_ids = []
+            ids = []
             for e in row["evidence"]:
-                key = f"G{len(local) + 1}"
-                local[key] = {"chunk_id": e["chunk_id"], "ticker": e["ticker"], "text": e["text"]}
-                ev_ids.append(key)
-                lines.append(f"[{key}] {e['ticker']}: {e['text']}")
-            lines.append(f"RISK '{row['risk']}' shared by {', '.join(row['tickers'])}; evidence {', '.join(ev_ids)}\n")
+                if e["chunk_id"] not in sources:
+                    sources[e["chunk_id"]] = e["text"]
+                    lines.append(f"[{e['chunk_id']}] {e['ticker']}\n{e['text']}\n")
+                ids.append(e["chunk_id"])
+            lines.append(f"RISK '{row['risk']}' shared by {', '.join(row['tickers'])}; evidence {', '.join(ids)}\n")
         context = "\n".join(lines) if rows else "(the traversal found no shared risk factors)"
         reply = llm.chat(SYSTEM, f"Question: {question}\n\nGraph results:\n{context}",
-                         schema=SHARED_RISKS_SCHEMA, schema_name="shared_risks")
-    tickers = {f["ticker"] for f in filings}
+                         schema=CLAIMS_SCHEMA, schema_name="claims")
     stats = graph_stats(drv)
     drv.close()
     return {
         "approach": "2_graphrag",
         "summary": reply["summary"],
-        "shared_risks": shared_only(reply["shared_risks"]),
-        "citation_check": check_citations(reply["shared_risks"], local, tickers),
+        "raw_claims": reply["claims"],
+        "sources": sources,
         "stages": {"build": "graph.build", "ask": "graph.ask"},
         "details": {"mode": config.GRAPH_MODE, "traversal_rows": len(rows), "graph": stats,
+                    "evidence_chunks": len(sources),
                     "traversal": [{"risk": r["risk"], "tickers": r["tickers"]} for r in rows]},
-        "evidence": {k: v["text"][:300] for k, v in local.items()},
     }
 
 
@@ -211,4 +211,4 @@ if __name__ == "__main__":
         print(json.dumps(graph_stats(driver()), indent=2))
     else:
         result = run(config.QUESTION, load_corpus())
-        print(json.dumps({k: result[k] for k in ("summary", "shared_risks", "citation_check")}, indent=2))
+        print(json.dumps({k: result[k] for k in ("summary", "raw_claims")}, indent=2))
