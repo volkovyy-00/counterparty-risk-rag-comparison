@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Counterparty Risk Demo</title>
+<style>
+:root {
+  --bg:#ffffff; --fg:#111111; --muted:#4a4a4a; --line:#bdbdbd; --panel:#f3f4f6; --accent:#0b4f9c;
+  --auto:#0072b2; --semis:#d55e00; --mark:#ffe066; --bad:#8a1c1c; --good:#0b4f9c; --grey:#9a9a9a; --banner:#7a0000;
+}
+:root[data-theme="dark"] {
+  --bg:#121212; --fg:#f2f2f2; --muted:#c4c4c4; --line:#555; --panel:#1e1e1e; --accent:#7fb2ff;
+  --auto:#56b4e9; --semis:#ffa64d; --mark:#806600; --bad:#ff8a8a; --good:#7fb2ff; --grey:#777; --banner:#ff6b6b;
+}
+* { box-sizing:border-box; }
+html, body { margin:0; height:100%; background:var(--bg); color:var(--fg); overflow:hidden;
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif; }
+#viewport { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:var(--bg); }
+#stage { width:1920px; height:1080px; flex:none; position:relative; transform-origin:center center; background:var(--bg);
+  font-size:26px; line-height:1.35; }
+header.bar { height:76px; display:flex; align-items:center; justify-content:space-between; padding:0 48px;
+  border-bottom:2px solid var(--line); }
+header.bar .title { font-size:38px; font-weight:700; }
+header.bar .meta { font-size:22px; color:var(--muted); text-align:right; }
+.screen { position:absolute; top:76px; left:0; right:0; bottom:0; padding:28px 48px; overflow:hidden; }
+h2 { font-size:44px; margin:0 0 18px; line-height:1.2; }
+h3 { font-size:36px; margin:0 0 12px; }
+.muted { color:var(--muted); }
+.small { font-size:23px; }
+.mono { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; }
+.row { display:flex; gap:28px; }
+.col { flex:1; min-width:0; }
+.panel { background:var(--panel); border:2px solid var(--line); padding:20px 24px; border-radius:6px; }
+.tag { display:inline-block; padding:1px 10px; border:2px solid currentColor; border-radius:4px; font-size:22px; font-weight:700; }
+.tag.auto { color:var(--auto); } .tag.semis { color:var(--semis); } .tag.other { color:var(--muted); }
+table { border-collapse:collapse; font-size:24px; }
+th, td { text-align:left; padding:8px 14px; border-bottom:1px solid var(--line); vertical-align:top; }
+th { font-weight:700; border-bottom:2px solid var(--fg); }
+tr.click { cursor:pointer; } tr.click:hover td { background:var(--panel); }
+button { font:inherit; font-size:24px; padding:6px 16px; border:2px solid var(--fg); background:var(--bg); color:var(--fg);
+  border-radius:4px; cursor:pointer; }
+button.on { background:var(--fg); color:var(--bg); }
+a { color:var(--accent); }
+.banner { position:absolute; left:0; right:0; top:0; z-index:5; text-align:center; font-size:30px; font-weight:800;
+  color:#fff; background:var(--banner); padding:6px; letter-spacing:.5px; }
+.fixture { position:absolute; left:0; right:0; bottom:0; z-index:6; text-align:center; font-size:26px; font-weight:800;
+  color:#000; background:repeating-linear-gradient(45deg,#ffd400,#ffd400 20px,#fff 20px,#fff 40px); padding:6px; }
+.badge { display:inline-block; font-size:24px; font-weight:800; padding:4px 14px; border:3px solid var(--fg); border-radius:4px; }
+.badge.live { border-color:var(--good); color:var(--good); }
+/* screen 1 */
+.question { font-size:52px; font-weight:700; line-height:1.2; margin:6px 0 26px; }
+.tiles { display:grid; grid-template-columns:repeat(5, 1fr); gap:18px; }
+.tile { border:2px solid var(--line); border-radius:6px; padding:14px 18px; height:168px; overflow:hidden; }
+.tile .acc { font-size:20px; white-space:nowrap; }
+.tile .tk { font-size:40px; font-weight:800; }
+.tile .nm { font-size:22px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.tile .fp { font-size:22px; color:var(--muted); }
+.chips { display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
+.chip { border:2px solid var(--line); border-radius:20px; padding:2px 16px; font-size:23px; }
+/* screen 2 */
+.counts { display:flex; gap:28px; margin:6px 0 14px; }
+.count b { font-size:56px; display:block; line-height:1; }
+.issue { padding:8px 0; border-bottom:1px solid var(--line); font-size:24px; }
+.issue .ck { font-weight:700; }
+.sev { font-weight:800; font-size:20px; border:2px solid currentColor; padding:0 6px; margin-right:8px; border-radius:3px; }
+.sev.ERROR { color:var(--bad); } .sev.WARN { color:var(--semis); } .sev.INFO { color:var(--muted); }
+/* coverage strip */
+.strip { display:flex; gap:10px; margin:6px 0 16px; }
+.strip div { flex:1; text-align:center; padding:8px 0; border:3px solid var(--line); font-weight:800; font-size:26px; border-radius:4px; }
+.strip div.in { background:var(--fg); color:var(--bg); border-color:var(--fg); }
+.strip div.out { color:var(--grey); border-style:dashed; }
+/* heatmap */
+.hm { border-collapse:separate; border-spacing:3px; font-size:22px; }
+.hm td, .hm th { border:none; padding:0; }
+.hm th.col { font-size:22px; text-align:center; padding-bottom:4px; width:86px; }
+.hm td.lab { padding-right:12px; white-space:nowrap; font-size:22px; max-width:520px; overflow:hidden; text-overflow:ellipsis; }
+.hm td.lab.generic { color:var(--grey); }
+.hm td.cell { width:86px; height:40px; text-align:center; font-weight:700; cursor:pointer; border-radius:3px; }
+.hm td.cell.zero { background:transparent; outline:1px solid var(--line); cursor:default; }
+.hm tr.generic td.cell:not(.zero) { filter:grayscale(100%); }
+.legend { display:flex; align-items:center; gap:4px; font-size:22px; }
+.legend span { width:40px; height:22px; display:inline-block; }
+/* drawer */
+#drawer { position:absolute; top:76px; right:0; bottom:0; width:860px; background:var(--bg); border-left:3px solid var(--fg);
+  z-index:10; padding:24px 30px; display:none; overflow:auto; font-size:24px; }
+#drawer.open { display:block; }
+#drawer .ctx { white-space:pre-wrap; font-size:23px; line-height:1.5; border:1px solid var(--line); padding:14px; margin:10px 0; }
+#drawer mark, #fulltext mark { background:var(--mark); color:inherit; font-weight:600; }
+#drawer .claim { border-top:2px solid var(--line); padding-top:12px; margin-top:12px; }
+#fulltext { position:absolute; inset:76px 0 0 0; background:var(--bg); z-index:20; padding:30px 60px; overflow:auto;
+  white-space:pre-wrap; font-size:24px; line-height:1.55; display:none; }
+#fulltext.open { display:block; }
+/* timer */
+#timer { position:absolute; right:24px; bottom:24px; z-index:30; background:var(--fg); color:var(--bg); padding:10px 18px;
+  font-size:26px; border-radius:6px; display:none; min-width:420px; }
+#timer.open { display:block; }
+#timer .t { font-size:44px; font-weight:800; }
+.keys { position:absolute; left:48px; bottom:10px; font-size:20px; color:var(--muted); }
+svg text { font-family:inherit; }
+.best { font-weight:800; text-decoration:underline; text-decoration-thickness:3px; text-underline-offset:5px; }
+.gov { display:grid; grid-template-columns: 0.85fr 0.85fr 1.5fr; gap:22px; height:880px; }
+.gov .panel { overflow:hidden; font-size:23px; }
+.verdict { font-size:34px; font-weight:800; margin:8px 0; }
+.verdict.rejected { color:var(--bad); }
+.planted { font-weight:800; font-size:20px; border:2px dashed var(--fg); padding:2px 8px; display:inline-block; margin-bottom:8px; }
+.diff td { font-size:21px; padding:4px 8px; }
+.diff tr.changed td { font-weight:700; }
+</style>
+</head>
+<body>
+<div id="viewport"><div id="stage">
+  <header class="bar"><div class="title" id="title"></div><div class="meta" id="meta"></div></header>
+  <div id="screen" class="screen"></div>
+  <div id="drawer"></div>
+  <div id="fulltext"></div>
+  <div id="timer"></div>
+  <div class="keys" id="keys">1-7 screens · G governance · T timer · D dark · Esc close</div>
+</div></div>
+<script>
+const DATA = /*__DATA__*/null;
+const BEATS = [
+  {n:1, title:"Question and scoring rule", start:0, end:45},
+  {n:2, title:"Data-quality gate", start:45, end:90},
+  {n:3, title:"Approach 1 - plain RAG", start:90, end:180},
+  {n:4, title:"Approach 2 - GraphRAG", start:180, end:270},
+  {n:5, title:"Approach 3 - taxonomy-first", start:270, end:390},
+  {n:6, title:"Scorecard", start:390, end:495},
+  {n:7, title:"Decision", start:495, end:540},
+];
+const NAMES = {"1_plain_rag":"Approach 1 · plain RAG", "2_graphrag":"Approach 2 · GraphRAG",
+  "3_taxonomy_first":"Approach 3 · taxonomy-first", "0_long_context":"Control · long context"};
+const VIRIDIS = ["#440154","#482878","#3e4989","#31688e","#26828e","#1f9e89","#35b779","#6ece58","#b5de2b","#fde725"];
+const S = { screen:1, hmLevel:"category", hideGeneric:false, live:null, server:false, timerStart:null, gov:{} };
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const pct = x => x == null ? "n/a" : Math.round(x * 100) + "%";
+const f2 = x => x == null ? "n/a" : x.toFixed(2);
+const short = (s, n) => (s = String(s ?? "")).length > n ? s.slice(0, n - 1) + "…" : s;
+const tickers = () => DATA.filings.map(f => f.ticker);
+const industry = t => (DATA.filings.find(f => f.ticker === t) || {}).industry || "other";
+const leafName = id => id.split(".")[1].replace(/_/g, " ");
+const keyVerified = () => DATA.meta.key_status === "verified";
+
+function fit() {
+  const s = Math.min(innerWidth / 1920, innerHeight / 1080);
+  $("stage").style.transform = `scale(${s})`;
+}
+addEventListener("resize", fit);
+
+function header(title) {
+  $("title").textContent = title;
+  const m = DATA.meta;
+  $("meta").innerHTML = `model: <span class="mono">${esc(m.model)}</span> · run ${esc(m.created_at.slice(0,16).replace("T"," "))} UTC<br>` +
+    `key: <b>${esc(m.key_status)}</b>${m.labeller ? " (" + esc(m.labeller) + ")" : ""} · group ${esc(m.group)}`;
+}
+function banners(showDraft) {
+  let h = "";
+  if (showDraft && !keyVerified()) h += `<div class="banner">DRAFT KEY – not for slides (ground truth: ${esc(DATA.meta.key_status)})</div>`;
+  if (DATA.meta.fixture) h += `<div class="fixture">TEST FIXTURE – fake model output, not results</div>`;
+  return h;
+}
+
+/* ------------------------------------------------------------------ claims, quotes */
+function claimRows(claims, max, approach) {
+  const shown = claims.slice(0, max);
+  const rows = shown.map((c, i) => `<tr class="click" data-claim="${approach}|${i}">
+    <td><span class="tag ${industry(c.company)}">${esc(c.company)}</span></td>
+    <td class="mono small">${esc(leafName(c.leaf))}</td><td class="small">“${esc(short(c.quote, 110))}”</td></tr>`).join("");
+  const more = claims.length > max ? `<tr><td colspan="3" class="muted small">+ ${claims.length - max} more verified claims</td></tr>` : "";
+  return `<table style="width:100%"><tr><th>Company</th><th>Leaf</th><th>Verbatim quote (click)</th></tr>${rows}${more}</table>`;
+}
+function context(c, pad = 420) {
+  const text = DATA.texts[c.company] || "";
+  if (c.start == null || !text) return esc(c.quote);
+  const a = Math.max(0, c.start - pad), b = Math.min(text.length, c.end + pad);
+  return (a > 0 ? "…" : "") + esc(text.slice(a, c.start)) + "<mark>" + esc(text.slice(c.start, c.end)) + "</mark>" +
+    esc(text.slice(c.end, b)) + (b < text.length ? "…" : "");
+}
+function edgarLink(c) {
+  const f = DATA.filings.find(x => x.ticker === c.company) || {};
+  if (!f.url || !String(f.url).startsWith("http")) return "";
+  const w = c.quote.replace(/[“”]/g, '"').replace(/[‘’]/g, "'").replace(/\s+/g, " ").trim().split(" ");
+  const enc = s => encodeURIComponent(s).replace(/-/g, "%2D");
+  const frag = w.length <= 10 ? enc(w.join(" ")) : enc(w.slice(0, 5).join(" ")) + "," + enc(w.slice(-5).join(" "));
+  return `${f.url}#:~:text=${frag}`;
+}
+function openClaims(title, claims, approach) {
+  const d = $("drawer");
+  const f = c => DATA.filings.find(x => x.ticker === c.company) || {};
+  d.innerHTML = `<button onclick="closeDrawer()" style="float:right">Close (Esc)</button><h3>${esc(title)}</h3>
+    <div class="muted small">${esc(NAMES[approach] || approach)} · ${claims.length} verified claim${claims.length === 1 ? "" : "s"} · quote located verbatim in the company's own Item 1A</div>` +
+    claims.map((c, i) => `<div class="claim"><b>${esc(c.company)}</b> · <span class="mono">${esc(c.leaf)}</span>
+      <div class="small muted">10-K ${esc(f(c).accession)} · Item 1A characters ${c.start}–${c.end}${c.fallback ? " · label from keyword fallback" : ""}</div>
+      <div class="ctx">${context(c)}</div>
+      ${edgarLink(c) ? `<a href="${esc(edgarLink(c))}" target="_blank" rel="noopener">Open on SEC EDGAR at this quote</a> · ` : ""}
+      <a href="#" data-full="${approach}|${i}">Local copy (offline)</a></div>`).join("");
+  d.classList.add("open");
+  d._claims = claims;
+}
+function closeDrawer() { $("drawer").classList.remove("open"); $("fulltext").classList.remove("open"); }
+function openFull(c) {
+  const text = DATA.texts[c.company] || "";
+  const ft = $("fulltext");
+  ft.innerHTML = `<button onclick="document.getElementById('fulltext').classList.remove('open')" style="position:sticky;top:0;float:right">Back (Esc)</button>` +
+    `<h3>${esc(c.company)} – Item 1A (local copy)</h3>` + esc(text.slice(0, c.start)) + `<mark id="hit">${esc(text.slice(c.start, c.end))}</mark>` + esc(text.slice(c.end));
+  ft.classList.add("open");
+  document.getElementById("hit").scrollIntoView({block: "center"});
+}
+
+/* ------------------------------------------------------------------ screen 1 */
+function screen1() {
+  header("1 · Question and scoring rule");
+  const r = DATA.scoring_rule, m = DATA.meta;
+  const predates = r.committed_at && new Date(r.committed_at) < new Date(m.created_at);
+  const tiles = DATA.filings.map(f => `<div class="tile"><div class="tk">${esc(f.ticker)} <span class="tag ${f.industry}">${esc(f.industry)}</span></div>
+    <div class="nm">${esc(f.company)}</div><div class="fp">period ${esc(f.report_date || "?")} · filed ${esc(f.filing_date || "?")}</div>
+    <div class="fp acc">${f.url && f.url.startsWith("http") ? `<a href="${esc(f.url)}" target="_blank" rel="noopener">10-K ${esc(f.accession)}</a>` : "10-K " + esc(f.accession)}</div></div>`).join("");
+  return `<div class="question">${esc(m.question)}</div><div class="tiles">${tiles}</div>
+    <div class="panel" style="margin-top:26px"><h3>Scoring rule – fixed before the run</h3>
+    <div class="chips">${r.bullets.map(b => `<span class="chip">${esc(b.title)}</span>`).join("")}</div>
+    <div style="margin-top:14px">SCORING_RULE.md committed <b>${esc((r.committed_at || "not committed").replace("T", " ").slice(0, 16))}</b>
+     <span class="mono">${esc((r.sha || "").slice(0, 7))}</span> · results recorded <b>${esc(m.created_at.replace("T", " ").slice(0, 16))}</b> UTC ·
+     ${predates ? "<b>rule predates results ✓</b>" : "<b style='color:var(--bad)'>rule does NOT predate results ✗</b>"}</div></div>`;
+}
+
+/* ------------------------------------------------------------------ screen 2 */
+function screen2() {
+  header("2 · Data-quality gate – before any answer is trusted");
+  const ed = DATA.dq.edgar, ws = DATA.dq.workshop;
+  const n = s => ed.filter(i => i.severity === s).length;
+  const order = {ERROR:0, WARN:1, INFO:2};
+  const pick = ed.slice().sort((a, b) => order[a.severity] - order[b.severity]).slice(0, 8);
+  const pri = {document_identity:0, ticker_mismatch:1, duplicate_company:2, file_missing:3, mixed_years:4, file_unreferenced:5};
+  const wsPick = ws.slice().sort((a, b) => (pri[a.check] ?? 9) - (pri[b.check] ?? 9)).slice(0, 6);
+  const item = i => `<div class="issue"><span class="sev ${i.severity}">${i.severity}</span><span class="ck">${esc(i.check)}</span> · <b>${esc(short(i.subject, 40))}</b><br>
+    <span class="small muted">${esc(short(i.detail, 150))}</span></div>`;
+  return `<div class="row"><div class="col panel" style="height:900px"><h3>SEC EDGAR set – ${DATA.filings.length} filings</h3>
+    <div class="counts"><div class="count"><b>${n("ERROR")}</b>errors</div><div class="count"><b>${n("WARN")}</b>warnings</div><div class="count"><b>${n("INFO")}</b>notes</div></div>
+    ${pick.map(item).join("") || "<div class='muted'>no findings</div>"}
+    <div class="small muted" style="margin-top:8px">Logged, never auto-fixed. Full list: results/data_quality_edgar_latest.md</div></div>
+    <div class="col panel" style="height:900px"><h3>Same gate, the workshop sample</h3>
+    <div class="small muted" style="margin-bottom:6px">The public sample this demo started from – caught before any model saw it.</div>
+    ${wsPick.map(item).join("")}</div></div>`;
+}
+
+/* ------------------------------------------------------------------ screen 3 */
+function rag() { return S.live && S.live.result ? S.live.result : DATA.approaches["1_plain_rag"]; }
+function screen3() {
+  header("3 · Approach 1 – plain RAG");
+  const r = rag();
+  if (!r || r.error) return `<h2>Approach 1 did not run</h2><div>${esc(r && r.error)}</div>`;
+  const inCtx = new Set(r.details.tickers_in_retrieved_context);
+  const strip = tickers().map(t => `<div class="${inCtx.has(t) ? "in" : "out"}">${esc(t)}</div>`).join("");
+  const rec = (S.live && S.live.recorded_at) || r.details.answer_recorded_at || DATA.meta.created_at;
+  const badge = S.live && S.live.mode === "live" ? `<span class="badge live">LIVE ${esc(S.live.seconds)}s</span>`
+    : `<span class="badge">CACHED (recorded ${esc(String(rec).replace("T", " ").slice(0, 16))})</span>`;
+  const v = r.verification;
+  return `<div class="row" style="align-items:center"><div class="col"><b>Top-${r.details.top_k} chunks came from ${inCtx.size} of ${tickers().length} companies</b>
+     <span class="muted small">(filled = in the model's context)</span></div>
+     <div>${badge} ${S.server && S.server.live ? `<button id="liveBtn" onclick="runLive()">${S.live && S.live.running ? "running…" : "Run live (R)"}</button>` : ""}</div></div>
+    <div class="strip">${strip}</div>
+    <div class="panel small" style="margin-bottom:14px">${esc(short(r.summary, 420))}</div>
+    <div class="row"><div class="col">${claimRows(r.claims, 7, "1_plain_rag")}</div>
+    <div style="width:430px" class="panel small"><b>Verifier</b><br>${v.accepted} of ${v.claims} claims verified<br>
+     ${v.rejected_quote} quotes rejected<br>${v.rejected_label} labels rejected<br>${v.not_in_cited_source} not in the cited chunk<br><br>
+     <b>Companies in shared claims:</b> ${r.companies_covered.length} of ${tickers().length}<br>
+     <span class="muted">A company that was never retrieved cannot be linked to anyone.</span>
+     ${S.live && S.live.note ? `<br><br><span class="muted">${esc(S.live.note)}</span>` : ""}</div></div>`;
+}
+async function runLive() {
+  if (!S.server || !S.server.live || (S.live && S.live.running)) return;
+  S.live = {running: true}; render();
+  const ctl = new AbortController(); const timer = setTimeout(() => ctl.abort(), 23000);
+  try {
+    const res = await (await fetch("api/live_rag", {method: "POST", signal: ctl.signal})).json();
+    S.live = res;
+  } catch (e) { S.live = {mode: "cached", note: "live call did not return in time - showing the recorded answer"}; }
+  clearTimeout(timer); render();
+}
+
+/* ------------------------------------------------------------------ screen 4 */
+function layoutGraph(g, W, H) {
+  const comps = g.nodes.filter(n => n.type === "Company");
+  let risks = g.nodes.filter(n => n.type === "RiskFactor" && n.degree >= 2);
+  const hiddenSingles = g.nodes.filter(n => n.type === "RiskFactor" && n.degree < 2).length;
+  const generic = risks.filter(n => n.generic);
+  if (S.hideGeneric) risks = risks.filter(n => !n.generic);
+  const left = comps.filter(c => c.industry !== "semis"), right = comps.filter(c => c.industry === "semis");
+  const pos = {};
+  const place = (arr, x) => arr.forEach((c, i) => pos[c.id] = {x, y: 70 + (H - 140) * (arr.length === 1 ? .5 : i / (arr.length - 1))});
+  place(left, 110); place(right, W - 110);
+  const nb = {};
+  g.edges.forEach(e => (nb[e.target] = nb[e.target] || []).push(e.source));
+  risks.forEach(r => {
+    const ps = (nb[r.id] || []).map(s => pos[s]).filter(Boolean);
+    pos[r.id] = {x: ps.reduce((a, p) => a + p.x, 0) / ps.length, y: ps.reduce((a, p) => a + p.y, 0) / ps.length};
+    pos[r.id].x = Math.min(W - 330, Math.max(330, pos[r.id].x + (ps.length > 0 && ps.every(p => p.x < W / 2) ? 200 : ps.every(p => p.x > W / 2) ? -200 : 0)));
+  });
+  const rad = r => 10 + 5 * r.degree;
+  for (let it = 0; it < 300; it++) {           // deterministic overlap relaxation
+    for (let i = 0; i < risks.length; i++) for (let j = i + 1; j < risks.length; j++) {
+      const a = pos[risks[i].id], b = pos[risks[j].id];
+      let dx = b.x - a.x, dy = b.y - a.y, d = Math.hypot(dx, dy) || 0.01;
+      const min = rad(risks[i]) + rad(risks[j]) + 34;
+      if (d < min) { const k = (min - d) / 2 / d; if (d === 0.01) { dx = 0; dy = 1; }
+        a.x -= dx * k * .6; a.y -= dy * k; b.x += dx * k * .6; b.y += dy * k; }
+    }
+    risks.forEach(r => { const p = pos[r.id]; p.x = Math.min(W - 300, Math.max(300, p.x)); p.y = Math.min(H - 30, Math.max(30, p.y)); });
+  }
+  return {comps, risks, pos, rad, hiddenSingles, generic};
+}
+function screen4() {
+  header("4 · Approach 2 – GraphRAG (Neo4j as the graph store)");
+  const g = DATA.graph, r = DATA.approaches["2_graphrag"];
+  if (!g) return `<h2>No exported graph</h2><div>results/demo_run/graph.json is missing – run export_graph.py after the build.</div>`;
+  const W = 1290, H = 900;
+  const L = layoutGraph(g, W, H);
+  const shown = new Set(L.risks.map(x => x.id));
+  const edges = g.edges.filter(e => shown.has(e.target)).map(e => {
+    const a = L.pos[e.source], b = L.pos[e.target];
+    return `<line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="var(--line)" stroke-width="2"/>`; }).join("");
+  const risks = L.risks.map(n => { const p = L.pos[n.id]; const cross = n.industries.includes("auto") && n.industries.includes("semis");
+    return `<g><circle cx="${p.x}" cy="${p.y}" r="${L.rad(n)}" fill="${n.generic ? "var(--grey)" : "var(--fg)"}" ${cross ? 'stroke="var(--mark)" stroke-width="6"' : ""}/>
+      <text x="${p.x}" y="${p.y - L.rad(n) - 6}" text-anchor="middle" font-size="21" fill="var(--fg)" paint-order="stroke" stroke="var(--bg)" stroke-width="7">${esc(short(n.label, 30))} (${n.degree})</text></g>`; }).join("");
+  const comps = L.comps.map(n => { const p = L.pos[n.id];
+    return `<g><rect x="${p.x - 70}" y="${p.y - 24}" width="140" height="48" rx="6" fill="var(--bg)" stroke="var(--${n.industry === "semis" ? "semis" : "auto"})" stroke-width="4"/>
+      <text x="${p.x}" y="${p.y + 9}" text-anchor="middle" font-size="26" font-weight="800" fill="var(--fg)">${esc(n.label)}</text></g>`; }).join("");
+  const res = g.resolution || {}, mg = g.most_generic || {};
+  const crossN = L.risks.filter(n => n.industries.includes("auto") && n.industries.includes("semis")).length;
+  return `<div class="row"><svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">${edges}${risks}${comps}
+      <text x="110" y="30" text-anchor="middle" font-size="22" fill="var(--muted)">autos</text>
+      <text x="${W - 110}" y="30" text-anchor="middle" font-size="22" fill="var(--muted)">semis</text></svg>
+    <div class="col small"><button class="${S.hideGeneric ? "on" : ""}" onclick="S.hideGeneric=!S.hideGeneric;render()">Hide generic (≥80% of companies) – H</button>
+     <div class="panel" style="margin-top:14px"><b>Entity resolution</b><br>RiskFactor nodes: <b>${res.risk_factors_exact ?? "?"}</b> exact-name → <b>${res.risk_factors_resolved ?? "?"}</b> after ${esc(res.resolver || "?")} merge</div>
+     <div class="panel" style="margin-top:14px"><b>Most generic node</b><br>“${esc(mg.label || "?")}” links ${mg.companies ?? "?"} of ${tickers().length} companies (${pct(mg.share)})</div>
+     <div class="panel" style="margin-top:14px">Shown: ${L.risks.length} shared risk nodes · ${crossN} link autos ↔ semis (outlined)<br>
+      <span class="muted">${L.hiddenSingles} single-company nodes hidden${S.hideGeneric ? ` · ${L.generic.length} generic hidden` : ""}</span></div>
+     ${r && !r.error ? `<div class="panel" style="margin-top:14px"><b>Answer claims</b>: ${r.verification.accepted} of ${r.verification.claims} verified ·
+       <a href="#" onclick="openClaims('Approach 2 – verified claims', DATA.approaches['2_graphrag'].claims, '2_graphrag');return false">open quotes</a></div>` : ""}
+    </div></div>`;
+}
+
+/* ------------------------------------------------------------------ screen 5 */
+function colour(v, max) {
+  if (!v) return null;
+  const i = Math.min(VIRIDIS.length - 1, Math.round((v / Math.max(max, 1)) * (VIRIDIS.length - 1)));
+  return {bg: VIRIDIS[i], fg: i >= 6 ? "#000" : "#fff"};
+}
+function heatRows(r, level) {
+  const m = r.matrix[level], T = tickers(), n = T.length;
+  const rows = Object.keys(m).map(label => {
+    const k = T.filter(t => m[label][t] > 0).length;
+    const total = T.reduce((a, t) => a + m[label][t], 0);
+    const inds = new Set(T.filter(t => m[label][t] > 0).map(industry));
+    return {label, k, total, generic: k >= 0.8 * n, cross: inds.has("auto") && inds.has("semis")};
+  });
+  const rank = x => x.k >= 2 ? (x.generic ? 1 : 0) : 2;
+  return rows.filter(x => level === "category" || x.k >= 2)
+    .sort((a, b) => rank(a) - rank(b) || b.k - a.k || b.total - a.total || a.label.localeCompare(b.label));
+}
+function screen5() {
+  header("5 · Approach 3 – taxonomy-first: company × " + (S.hmLevel === "category" ? "category" : "leaf"));
+  const r = DATA.approaches["3_taxonomy_first"];
+  if (!r || r.error) return `<h2>Approach 3 did not run</h2><div>${esc(r && r.error)}</div>`;
+  const T = tickers(), level = S.hmLevel, m = r.matrix[level];
+  const all = heatRows(r, level), MAXROWS = 19, rows = all.slice(0, MAXROWS);
+  const max = Math.max(1, ...rows.flatMap(x => T.map(t => m[x.label][t])));
+  const names = Object.fromEntries(DATA.taxonomy.categories.map(c => [c.id, c.name]));
+  const label = x => level === "category" ? `${esc(short(names[x.label], 40))}` : `<span class="mono">${esc(short(x.label.replace(".", " · "), 46))}</span>`;
+  const body = rows.map(x => `<tr class="${x.generic ? "generic" : ""}"><td class="lab ${x.generic ? "generic" : ""}">${label(x)}${x.cross ? " ↔" : ""}${x.generic ? " (generic)" : ""}</td>` +
+    T.map(t => { const v = m[x.label][t], c = colour(v, max);
+      return c ? `<td class="cell" style="background:${c.bg};color:${c.fg}" data-cell="${esc(x.label)}|${t}">${v}</td>` : `<td class="cell zero"></td>`; }).join("") + `</tr>`).join("");
+  const head = `<tr><th></th>${T.map(t => `<th class="col"><span class="tag ${industry(t)}" style="font-size:20px">${esc(t)}</span></th>`).join("")}</tr>`;
+  const cross = heatRows(r, "leaf").filter(x => x.cross && !x.generic).slice(0, 5);
+  const ml = r.matrix.leaf;
+  const crossHtml = cross.map(x => { const a = T.filter(t => ml[x.label][t] > 0 && industry(t) !== "semis"), s = T.filter(t => ml[x.label][t] > 0 && industry(t) === "semis");
+    return `<div style="margin-bottom:10px"><span class="mono">${esc(leafName(x.label))}</span><br><b>${a.join(" ")}</b> ↔ <b>${s.join(" ")}</b></div>`; }).join("");
+  const legend = VIRIDIS.filter((_, i) => i % 2 === 0).map(c => `<span style="background:${c}"></span>`).join("");
+  return `<div class="row"><div><table class="hm">${head}${body}</table>
+      ${all.length > MAXROWS ? `<div class="small muted">+ ${all.length - MAXROWS} more ${level === "leaf" ? "shared leaves" : "rows"} (ranked lower)</div>` : ""}</div>
+    <div class="col small"><button class="${level === "leaf" ? "on" : ""}" onclick="S.hmLevel=S.hmLevel==='leaf'?'category':'leaf';render()">Leaf level – L</button>
+     <div class="legend" style="margin:14px 0">0 ${legend} ${max} risk factors (number in each cell)</div>
+     <div class="panel"><b>Where autos and semis connect</b> (specific leaves, both industries)<br><br>${crossHtml || "<span class='muted'>none</span>"}</div>
+     <div class="panel" style="margin-top:14px">${r.verification.accepted} of ${r.verification.claims} claims verified · ${r.verification.rejected_quote} quotes rejected ·
+       ${r.verification.rejected_label} labels rejected<br><span class="muted">Click a cell for every quote. Greyed = generic (≥80% of companies), ranked below specific shared risks.</span></div>
+    </div></div>`;
+}
+
+/* ------------------------------------------------------------------ screen 6 */
+function screen6() {
+  header("6 · Scorecard – same rule, same verifier, same key");
+  const card = DATA.scorecard, cols = card.columns.filter(c => DATA.approaches[c]);
+  const order = ["1_plain_rag", "2_graphrag", "3_taxonomy_first", "0_long_context"].filter(c => cols.includes(c));
+  const R = card.rows, nF = tickers().length;
+  const usage = u => !u ? "n/a" : !(u.llm_calls || u.embed_calls) ? "no model call" : `${((u.input_tokens + u.output_tokens) / 1000).toFixed(0)}k tok · ${u.cost_usd == null ? "n/a" : "$" + u.cost_usd.toFixed(2)} · ${u.latency_s == null ? "not live" : Math.round(u.latency_s) + "s"}`;
+  const prf = x => x ? `${f2(x.precision)} / ${f2(x.recall)} / <b>${f2(x.f1)}</b>` : "n/a";
+  const defs = [
+    ["P / R / F1 – category", "category_prf", prf, x => x && x.f1, "max"],
+    ["P / R / F1 – leaf", "leaf_prf", prf, x => x && x.f1, "max"],
+    ["Quote coverage", "quote_coverage", pct, x => x, "max"],
+    ["Quotes rejected", "quotes_rejected", x => x ?? "n/a", x => x, "min"],
+    ["Rerun consistency (Jaccard)", "rerun_jaccard_leaf", f2, x => x, "max"],
+    ["Companies covered", "companies_covered", x => x == null ? "n/a" : `${x} of ${nF}`, x => x, "max"],
+    ["Build: tokens · cost · time", "build", usage, x => x && x.cost_usd, "min"],
+    ["Ask: tokens · cost · time", "ask", usage, x => x && x.cost_usd, "min"],
+  ];
+  const err = c => DATA.approaches[c] && DATA.approaches[c].error;
+  const body = defs.map(([label, key, fmt, val, dir]) => {
+    const vals = order.filter(c => !err(c) && c !== "0_long_context").map(c => val((R[key] || {})[c])).filter(v => v != null);
+    const best = vals.length > 1 ? (dir === "max" ? Math.max(...vals) : Math.min(...vals)) : null;
+    return `<tr><td><b>${label}</b></td>` + order.map(c => {
+      if (err(c)) return `<td class="muted small">${esc(short(err(c), 40))}</td>`;
+      const raw = (R[key] || {})[c], v = val(raw);
+      let txt = fmt(raw);
+      if (key === "rerun_jaccard_leaf" && raw == null) txt = `n/a (${(R.reruns || {})[c] || 1} run)`;
+      const isBest = best != null && v === best && c !== "0_long_context";
+      return `<td class="${isBest ? "best" : ""}">${txt}</td>`; }).join("") + `</tr>`;
+  }).join("");
+  return `${!keyVerified() ? "<div style='height:44px'></div>" : ""}<table style="width:100%;font-size:26px"><tr><th>Metric</th>${order.map(c => `<th>${esc(NAMES[c])}</th>`).join("")}</tr>${body}</table>
+    <div class="small muted" style="margin-top:16px">Best value per row underlined and bold (control column excluded). P/R/F1 over shared (company, label) pairs vs the hand-labelled key (${esc(DATA.meta.key_status)}).
+    Cost from pricing.yaml (checked ${esc(DATA.meta.pricing_checked)}). Latency: live wall clock only. Model ${esc(DATA.meta.model)}, effort ${esc(DATA.meta.effort || "-")}, run ${esc(DATA.meta.created_at.slice(0, 10))}.</div>`;
+}
+
+/* ------------------------------------------------------------------ screen 7 */
+function screen7() {
+  header("7 · Decision");
+  const d = DATA.decision;
+  return `${!keyVerified() ? "<div style='height:44px'></div>" : ""}<h2>When to use which</h2>
+    ${["1_plain_rag", "2_graphrag", "3_taxonomy_first"].map(k => `<div class="panel" style="margin-bottom:14px;font-size:30px">${esc(d.when_to_use[k])}</div>`).join("")}
+    <h2 style="margin-top:30px">What I would take to a risk committee</h2>
+    <div class="panel" style="font-size:32px;border-width:4px;border-color:var(--fg)">${esc(d.recommendation)}</div>
+    <div class="muted" style="margin-top:18px">${esc(d.caveat)}</div>`;
+}
+
+/* ------------------------------------------------------------------ governance */
+async function gov(kind) {
+  S.gov[kind] = {running: true}; render();
+  let res = null;
+  if (S.server) { try { res = await (await fetch("api/governance/" + kind, {method: "POST"})).json(); res._live = true; } catch (e) { res = null; } }
+  if (!res && DATA.governance) { res = Object.assign({}, DATA.governance[{fabricated:"fabricated", offtaxonomy:"off_taxonomy", audit:"audit"}[kind]]); res._live = false; }
+  S.gov[kind] = res || {error: "no governance data"}; render();
+}
+function screenG() {
+  header("G · Governance – run live, offline, no model call");
+  const a = S.gov.fabricated, b = S.gov.offtaxonomy, c = S.gov.audit;
+  const how = x => x && !x.running ? `<div class="small muted">${x._live ? "ran now in Python (verify.py)" : "precomputed (no server)"}</div>` : "";
+  const pa = !a ? `<button onclick="gov('fabricated')">Run (F)</button>` : a.running ? "running…" : `${how(a)}<span class="planted">${esc(a.label)}</span>
+    <div><b>${esc(a.company)}</b> · <span class="mono small">${esc(a.leaf)}</span></div><div class="small">Planted paraphrase: “${esc(short(a.planted_quote, 240))}”</div>
+    <div class="verdict ${a.verdict}">${esc(a.verdict.toUpperCase())}</div><div>${esc(a.reason || "")}</div>
+    <div class="small" style="margin-top:10px"><b>Closest real sentence</b> (similarity ${pct(a.similarity)}):<br>“${esc(short(a.closest_real_sentence, 260))}”</div>`;
+  const pb = !b ? `<button onclick="gov('offtaxonomy')">Run (O)</button>` : b.running ? "running…" : `${how(b)}<span class="planted">${esc(b.label)}</span>
+    <div>Label: <span class="mono">${esc(b.category)}</span> / <span class="mono small">${esc(b.leaf)}</span></div>
+    <div class="verdict ${b.verdict}">${esc(b.verdict.toUpperCase())}</div><div>${esc(b.reason || "")}</div>
+    <div class="small" style="margin-top:10px">Checked by: <b>code validator</b> (check “${esc(b.check)}”), against taxonomy v${b.taxonomy_version}: ${b.categories} categories, ${b.leaves} leaves –
+    independent of whether the provider enforces the JSON-schema enum.</div><div class="small muted" style="margin-top:8px">${esc(b.note)}</div>`;
+  let pc = !c ? `<button onclick="gov('audit')">Run (A)</button>` : c.running ? "running…" : "";
+  if (c && !c.running) {
+    if (!c.available) pc = `${how(c)}<div class="muted">${esc(c.reason)}</div>`;
+    else {
+      const val = v => v == null ? "–" : Array.isArray(v) ? v.join(", ") : /^[0-9a-f]{40,64}$/.test(String(v)) ? String(v).slice(0, 10) + "…" : String(v).replace("T", " ").replace("Z", "");
+      const rows = c.manifest_rows.filter(r => r.field !== "label").map(r => `<tr class="${r.changed ? "changed" : ""}"><td class="mono">${esc(r.field.replace("prompt_sha256.3_taxonomy_first", "prompt sha256 (appr. 3)"))}</td><td>${esc(short(val(r.a), 22))}</td><td>${esc(short(val(r.b), 22))}</td><td>${r.changed ? "≠" : "="}</td></tr>`).join("");
+      const cells = c.changed_cells.category, flips = cells.filter(x => x.flip);
+      pc = `${how(c)}<div class="small">Run A: ${esc(c.a.label || "")} · Run B: ${esc(c.b.label || "")}</div><table class="diff"><tr><th>field</th><th>run A</th><th>run B</th><th></th></tr>${rows}</table>
+        <div style="margin-top:10px"><b>${cells.length}</b> category cells changed (${flips.length} flipped exposed ↔ not); <b>${c.changed_cells.leaf.length}</b> leaf cells changed</div>
+        <div class="small">${cells.slice(0, 6).map(x => `${esc(x.ticker)} · ${esc(x.label)}: ${x.a} → ${x.b}${x.flip ? " (flip)" : ""}`).join("<br>")}</div>`;
+    }
+  }
+  return `<div class="gov"><div class="panel"><h3>(a) Fabricated quote</h3>${pa}</div><div class="panel"><h3>(b) Off-taxonomy label</h3>${pb}</div>
+    <div class="panel"><h3>(c) Audit trail</h3>${pc}</div></div>`;
+}
+
+/* ------------------------------------------------------------------ timer */
+function tick() {
+  const t = $("timer");
+  if (!t.classList.contains("open") || S.timerStart == null) return;
+  const s = Math.floor((Date.now() - S.timerStart) / 1000);
+  const beat = BEATS.find(b => s < b.end) || BEATS[BEATS.length - 1];
+  const mm = x => `${Math.floor(x / 60)}:${String(x % 60).padStart(2, "0")}`;
+  const onBeat = S.screen === beat.n ? "on plan" : (S.screen < beat.n ? "behind" : "ahead");
+  t.innerHTML = `<div class="t">${mm(s)} / 9:00</div>Beat ${beat.n} · ${esc(beat.title)} · ${mm(beat.start)}–${mm(beat.end)}<br>screen ${S.screen}: <b>${onBeat}</b>`;
+}
+setInterval(tick, 500);
+
+/* ------------------------------------------------------------------ render + keys */
+function render() {
+  const fn = {1:screen1, 2:screen2, 3:screen3, 4:screen4, 5:screen5, 6:screen6, 7:screen7, G:screenG}[S.screen];
+  $("screen").innerHTML = fn() + banners(S.screen === 6 || S.screen === 7);
+  tick();
+}
+document.addEventListener("click", e => {
+  const cl = e.target.closest("[data-claim]");
+  if (cl) { const [ap, i] = cl.dataset.claim.split("|"); const src = ap === "1_plain_rag" ? rag() : DATA.approaches[ap];
+    const c = src.claims[+i]; openClaims(`${c.company} · ${leafName(c.leaf)}`, [c], ap); return; }
+  const cell = e.target.closest("[data-cell]");
+  if (cell) { const [label, t] = cell.dataset.cell.split("|"); const lvl = label.includes(".") ? "leaf" : "category";
+    const cs = DATA.approaches["3_taxonomy_first"].claims.filter(c => c.company === t && c[lvl] === label);
+    openClaims(`${t} · ${lvl === "leaf" ? leafName(label) : label}`, cs, "3_taxonomy_first"); return; }
+  const full = e.target.closest("[data-full]");
+  if (full) { e.preventDefault(); const i = +full.dataset.full.split("|")[1]; openFull($("drawer")._claims[i]); }
+});
+document.addEventListener("keydown", e => {
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
+  const k = e.key;
+  if (k === "Escape") { if ($("fulltext").classList.contains("open")) $("fulltext").classList.remove("open"); else closeDrawer(); return; }
+  if (/^[1-7]$/.test(k)) { S.screen = +k; closeDrawer(); render(); return; }
+  const K = k.toUpperCase();
+  if (K === "G") { S.screen = "G"; closeDrawer(); render(); }
+  else if (K === "D") { const r = document.documentElement; r.dataset.theme = r.dataset.theme === "dark" ? "light" : "dark"; render(); }
+  else if (K === "T") { if (e.shiftKey) S.timerStart = Date.now(); else { if (S.timerStart == null) S.timerStart = Date.now(); $("timer").classList.toggle("open"); } tick(); }
+  else if (K === "H" && S.screen === 4) { S.hideGeneric = !S.hideGeneric; render(); }
+  else if (K === "L" && S.screen === 5) { S.hmLevel = S.hmLevel === "leaf" ? "category" : "leaf"; render(); }
+  else if (K === "R" && S.screen === 3) runLive();
+  else if (S.screen === "G" && K === "F") gov("fabricated");
+  else if (S.screen === "G" && K === "O") gov("offtaxonomy");
+  else if (S.screen === "G" && K === "A") gov("audit");
+});
+async function boot() {
+  fit();
+  const p = new URLSearchParams(location.search);
+  if (p.get("screen")) S.screen = /^[1-7]$/.test(p.get("screen")) ? +p.get("screen") : p.get("screen");
+  if (p.get("theme") === "dark") document.documentElement.dataset.theme = "dark";
+  if (p.get("leaf")) S.hmLevel = "leaf";
+  if (p.get("hide")) S.hideGeneric = true;
+  if (location.protocol.startsWith("http")) {
+    try { S.server = await (await fetch("api/status")).json(); } catch (e) { S.server = false; }
+  }
+  render();
+  if (p.get("gov")) for (const g of p.get("gov").split(",")) await gov(g);
+  if (p.get("cell")) { const el = document.querySelector("[data-cell]"); if (el) el.click(); }
+  if (p.get("timer")) { S.timerStart = Date.now() - (+p.get("timer")) * 1000; $("timer").classList.add("open"); tick(); }
+  document.body.dataset.ready = "1";
+}
+boot();
+</script>
+</body>
+</html>

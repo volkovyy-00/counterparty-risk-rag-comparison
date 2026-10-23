@@ -1,0 +1,15 @@
+# Screen 7. One line per approach on when to use it, then the recommendation.
+# {placeholders} are filled from results/demo_run/scorecard.json by build_demo.py, e.g.
+#   {3_taxonomy_first.leaf_f1}  {1_plain_rag.companies_covered}  {2_graphrag.quote_coverage}
+#   {3_taxonomy_first.rerun_jaccard}  {3_taxonomy_first.build_cost}  {1_plain_rag.ask_cost}
+# DRAFT until the real run is frozen and the key is verified: re-read every line against the numbers.
+when_to_use:
+  1_plain_rag: "Plain RAG - one question about one or two documents, when a fast answer matters more than coverage."
+  2_graphrag: "GraphRAG - exploring links you did not know to ask about; the graph is only as good as entity resolution."
+  3_taxonomy_first: "Taxonomy-first - repeatable, comparable answers across a portfolio, scored against a fixed list."
+recommendation: >-
+  For a risk committee: taxonomy-first. Leaf-level F1 {3_taxonomy_first.leaf_f1} vs {1_plain_rag.leaf_f1} (RAG) and
+  {2_graphrag.leaf_f1} (GraphRAG); every claim traceable to a verbatim quote ({3_taxonomy_first.quote_coverage}
+  coverage); rerun Jaccard {3_taxonomy_first.rerun_jaccard}. Cost sits in the build ({3_taxonomy_first.build_cost}),
+  not in each question.
+caveat: "The taxonomy is the model of the business: a person owns it, versions it and reviews what falls into OTHER."
