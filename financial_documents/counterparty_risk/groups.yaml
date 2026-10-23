@@ -1,0 +1,57 @@
+# Counterparty groups. Select one with GROUP=<name>; TICKERS=... overrides the list.
+#
+#   industry : used only to colour tiles and to find cross-industry links
+#              (a leaf shared by at least one company from each industry).
+#   notes    : facts to double-check, logged by fetch_10k.py as INFO data-quality
+#              notes. They are reminders, not corrections: nothing is changed.
+default: auto_semis
+
+groups:
+  auto_semis:
+    description: US-listed auto makers, auto suppliers and auto-exposed chip makers (the demo group).
+    companies:
+      GM: auto
+      F: auto
+      TSLA: auto
+      APTV: auto
+      BWA: auto
+      LEA: auto
+      NXPI: semis
+      MCHP: semis
+      "ON": semis  # quoted: bare ON is a YAML boolean
+      TXN: semis
+    notes:
+      MCHP: "Microchip's fiscal year ends in March; its latest 10-K covers a different period from the calendar-year filers."
+      BWA: "BorgWarner spun off PHINIA Inc. in 2023; check that comparisons with older filings use the post-spin company."
+      APTV: "Aptiv has announced a separation of its Electrical Distribution Systems business; check whether the 10-K used describes the company before or after it."
+      NXPI: "NXP Semiconductors N.V. is a Dutch company that files a 10-K with the SEC; check the fiscal period against the others."
+
+  semis_tech:
+    description: Alternative group - chip makers and large tech buyers of chips (not shown on stage).
+    companies:
+      AAPL: tech
+      NVDA: semis
+      INTC: semis
+      AMD: semis
+      QCOM: semis
+      MU: semis
+      TXN: semis
+      AVGO: semis
+      AMZN: tech
+      TSLA: auto
+    notes: {}
+
+  legacy_mixed:
+    description: The ten names the workshop sample intends to cover (tech, payments, utility, restaurants, insurance).
+    companies:
+      AAPL: tech
+      MSFT: tech
+      NVDA: semis
+      AMZN: tech
+      GOOGL: tech
+      INTC: semis
+      PYPL: payments
+      PCG: utility
+      MCD: restaurants
+      AIG: insurance
+    notes: {}

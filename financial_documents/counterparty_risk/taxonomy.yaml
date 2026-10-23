@@ -2,107 +2,340 @@
 # Written for this demo from a general credit-analysis viewpoint; it is not any
 # institution's internal taxonomy. Edit freely - ids are what the code uses.
 #
-#   id          : stable identifier (used in the LLM JSON schema enum)
-#   name        : label shown in results
-#   description : what belongs here (given to the LLM)
-#   credit_lens : why a credit analyst cares (shown in results, not used by code)
-#   keywords    : lower-case whole words/phrases (a trailing * matches any ending) used ONLY to map free-text answers from
-#                 approaches 1 and 2 onto categories for the eval, and by
-#                 label_helper.py. Never used to produce approach 3's answer.
-version: 1
+# Two levels, both closed lists, both validated in code (validate.py):
+#   category  : id, name, description (given to the LLM), credit_lens (shown only)
+#   leaves    : 2-5 per category. The full leaf id is CATEGORY.leaf, e.g. SUPPLY_CHAIN.semiconductor_supply
+#
+# keywords (category and leaf): lower-case words/phrases, a trailing * matches any ending.
+# Used ONLY (a) to map a free-text claim onto the taxonomy when an approach returns no
+# valid id (reported as "keyword fallback"), and (b) by label_helper.py to point a human
+# labeller at candidate sentences. Never used to produce approach 3's answer.
+version: 2
 categories:
   - id: MACRO_DEMAND
     name: Macroeconomic conditions and demand
-    description: Recession, inflation, consumer or enterprise spending, cyclical demand, pricing pressure.
+    description: Recession, inflation, consumer or enterprise spending, cyclical end markets, inventory corrections.
     credit_lens: Revenue and margin volatility through the cycle.
     keywords: [macroeconomic, economic conditions, recession, inflation, consumer spending, demand, economic downturn]
+    leaves:
+      - id: cyclical_demand
+        description: Demand falls with the economic cycle or in specific end markets.
+        keywords: [economic downturn, recession, cyclical, end market*, consumer spending, demand for our products]
+      - id: inflation_costs
+        description: Inflation raises costs or squeezes margins.
+        keywords: [inflation*, rising costs, cost increases]
+      - id: vehicle_production_volumes
+        description: Revenue depends on how many vehicles are produced or sold (OEM build rates, auto sales).
+        keywords: [vehicle production, production volumes, light vehicle, build rates, vehicle sales, automotive production]
+      - id: inventory_correction
+        description: Customers or distributors build up or run down inventory, causing order swings.
+        keywords: [inventory correction, excess inventory, channel inventory, inventory levels, destocking]
 
   - id: RATES_FX_FUNDING
     name: Interest rates, FX and funding
-    description: Interest-rate moves, foreign-exchange exposure, access to capital markets, liquidity, debt service, credit ratings, investment portfolio values.
+    description: Interest-rate moves, foreign-exchange exposure, access to capital, liquidity, debt service, credit ratings, pensions, captive finance.
     credit_lens: Refinancing risk and cash-flow coverage of debt.
     keywords: [interest rate, foreign exchange, currency, liquidity, capital markets, indebtedness, credit rating, funding, refinanc*]
+    leaves:
+      - id: interest_rates
+        description: Changes in interest rates affect demand, financing cost or asset values.
+        keywords: [interest rate*]
+      - id: fx_exposure
+        description: Currency movements affect revenue, costs or reported results.
+        keywords: [foreign currency, foreign exchange, currency exchange, exchange rate*]
+      - id: liquidity_funding
+        description: Access to credit or capital markets, debt covenants, indebtedness, liquidity.
+        keywords: [liquidity, indebtedness, capital markets, credit facilit*, covenant*, refinanc*, access to capital]
+      - id: credit_ratings
+        description: A downgrade of the company's credit rating raises funding cost or limits access.
+        keywords: [credit rating*, downgrade*]
+      - id: pension_finance_obligations
+        description: Pension and retiree obligations or a captive finance arm's credit and residual-value risk.
+        keywords: [pension*, postretirement, retiree, residual value*, automotive financing, captive finance, credit losses]
 
   - id: SUPPLY_CHAIN
     name: Supply chain and supplier concentration
-    description: Dependence on key suppliers or manufacturers, component shortages, logistics, single-source or geographic concentration of production.
+    description: Dependence on suppliers, component shortages (incl. chips), single sources, own plant disruption, outsourced manufacturing, logistics.
     credit_lens: Operating disruption and working-capital stress.
     keywords: [supply chain, supplier*, manufactur*, component*, shortage, logistics, single source, foundry]
+    leaves:
+      - id: semiconductor_supply
+        description: Shortages or allocation of semiconductors and electronic components.
+        keywords: [semiconductor shortage*, chip shortage*, supply of semiconductors, semiconductors, microchip*, electronic components]
+      - id: single_source
+        description: Dependence on a single or limited number of suppliers for key inputs.
+        keywords: [single source*, sole source*, single-source*, sole-source*, limited number of suppliers]
+      - id: manufacturing_disruption
+        description: Disruption, capacity limits or yield problems at the company's own plants or fabs.
+        keywords: [manufacturing facilit*, production disruption*, yield*, capacity, fab*, plant*]
+      - id: outsourced_manufacturing
+        description: Reliance on foundries, contract manufacturers or assembly and test subcontractors.
+        keywords: [foundr*, contract manufactur*, third-party manufactur*, subcontract*, outsourc*]
+      - id: logistics
+        description: Transport, freight and logistics disruption.
+        keywords: [logistics, freight, shipping, transportation]
 
   - id: CUSTOMER_CONCENTRATION
     name: Customer, partner and counterparty concentration
-    description: Reliance on a few customers, distributors, franchisees, partners or platforms; counterparty credit exposure.
+    description: Reliance on a few customers, OEMs, distributors, dealers or partners; customer credit exposure.
     credit_lens: Revenue concentration and second-order default risk.
     keywords: [customer concentration, significant customer*, key customers, partner*, franchise*, distributor*, counterparty]
+    leaves:
+      - id: auto_oem_customers
+        description: Revenue depends on automotive OEMs (vehicle makers) as customers.
+        keywords: [automotive customers, oem*, original equipment manufacturer*, automakers, vehicle manufacturers]
+      - id: key_customer_dependence
+        description: A small number of customers account for a large share of revenue.
+        keywords: [significant customer*, largest customer*, key customers, small number of customers, customer concentration]
+      - id: distributor_channel
+        description: Reliance on distributors or channel partners.
+        keywords: [distributor*, distribution partners, channel partner*]
+      - id: dealer_network
+        description: Reliance on independent dealers or a direct-sales network.
+        keywords: [dealer*, dealership*]
+      - id: customer_credit
+        description: Customers or partners may fail to pay or go bankrupt.
+        keywords: [credit risk, bankruptcy of, financial distress, inability to pay, receivable*]
 
   - id: COMPETITION_DISRUPTION
     name: Competition and technological disruption
-    description: Competitive intensity, new entrants, pricing competition, rapid technology change, product obsolescence.
+    description: Competitive intensity, price pressure, new entrants, rapid technology change, product obsolescence.
     credit_lens: Erosion of market position and long-term cash flows.
     keywords: [competition, competitive, competitor*, new entrants, technological change, obsole*, disruptive]
+    leaves:
+      - id: price_competition
+        description: Competitors force prices or margins down.
+        keywords: [pricing pressure, price reductions, price competition, competitive pricing, price down*]
+      - id: new_entrants
+        description: New or lower-cost entrants, including state-supported competitors.
+        keywords: [new entrants, new competitors, chinese competitors, lower-cost competitors]
+      - id: technology_change
+        description: Rapid technology change or product transitions make products obsolete.
+        keywords: [technological change*, obsole*, new technolog*, product transitions]
 
   - id: CYBER_IT
     name: Cybersecurity and IT resilience
-    description: Cyber-attacks, data breaches, system outages, reliance on IT infrastructure and third-party technology.
+    description: Cyber-attacks, data breaches, IT outages, and security of connected products.
     credit_lens: Sudden loss events, remediation cost and liability.
     keywords: [cyber*, security breach, data breach, hacking, ransomware, malware, outage, information technology systems]
+    leaves:
+      - id: cyberattack_breach
+        description: Cyber-attacks or breaches of the company's systems.
+        keywords: [cyber*, ransomware, malware, security breach*, hack*]
+      - id: it_system_failure
+        description: Failure or disruption of IT systems, including third-party providers.
+        keywords: [information technology systems, system failure*, outage*, it systems, enterprise resource planning]
+      - id: product_cybersecurity
+        description: Security of connected vehicles, devices or chips the company sells.
+        keywords: [connected vehicle*, vehicle cybersecurity, product security, security vulnerabilit*, over-the-air]
 
   - id: PRIVACY_DATA
     name: Privacy and data protection
-    description: Laws and obligations on personal data (e.g. GDPR, CCPA), data-localisation, misuse of customer data.
+    description: Laws and obligations on personal data, data localisation, misuse of customer data.
     credit_lens: Fines, restrictions on business model.
     keywords: [privacy, data protection, personal data, personal information, gdpr]
+    leaves:
+      - id: privacy_regulation
+        description: Privacy and data-protection laws and their enforcement.
+        keywords: [privacy law*, data protection, gdpr, ccpa, personal information protection]
+      - id: customer_data_use
+        description: Collection and use of customer or vehicle data, and its misuse.
+        keywords: [personal data, personal information, customer data, vehicle data]
 
   - id: REGULATION_LEGAL
     name: Regulation, litigation and legal
-    description: Industry regulation, antitrust and competition law, licensing, litigation, investigations, compliance costs.
+    description: Industry and product regulation, litigation, investigations, anti-corruption, government incentives and their conditions.
     credit_lens: Fines, forced business changes, contingent liabilities.
     keywords: [regulat*, litigation, legal proceedings, antitrust, competition law, investigation*, compliance, lawsuit*]
+    leaves:
+      - id: litigation_investigations
+        description: Lawsuits, government investigations and legal proceedings.
+        keywords: [litigation, lawsuit*, legal proceedings, investigation*, class action*]
+      - id: product_regulation
+        description: Regulation of the products themselves (vehicle safety standards, chip or product compliance).
+        keywords: [safety standards, nhtsa, regulatory requirements, homologation, product regulation*]
+      - id: government_incentives
+        description: Dependence on government incentives, subsidies or grants, and conditions attached to them.
+        keywords: [incentive*, subsid*, grant*, chips act, inflation reduction act, tax credit*]
+      - id: anti_corruption_compliance
+        description: Anti-corruption, sanctions compliance and other conduct rules.
+        keywords: [anti-corruption, fcpa, bribery, anti-bribery, compliance with laws]
 
   - id: GEOPOLITICAL_TRADE
     name: Geopolitics, trade and export controls
-    description: Tariffs, sanctions, export controls, conflicts, international operations and political instability, China/Taiwan exposure.
+    description: Tariffs, export controls, sanctions, conflicts, China exposure and international operations.
     credit_lens: Market access, supply disruption, stranded assets.
     keywords: [geopolitic*, tariff*, trade, export control, sanction*, international operations, china, taiwan, war, conflict]
+    leaves:
+      - id: tariffs
+        description: Tariffs and trade disputes raise costs or limit sales.
+        keywords: [tariff*, trade war*, trade dispute*, duties, trade polic*]
+      - id: export_controls
+        description: Export controls or licensing limits on selling products or technology.
+        keywords: [export control*, export restriction*, entity list, export licens*]
+      - id: china_exposure
+        description: Dependence on China (or Taiwan) for sales, supply or operations.
+        keywords: [china, chinese, prc, taiwan]
+      - id: conflict_sanctions
+        description: Wars, conflicts, sanctions and political instability.
+        keywords: [ukraine, russia, israel, middle east, conflict*, war, sanction*, political instability]
+      - id: international_operations
+        description: General risks of operating in many countries.
+        keywords: [international operations, operations outside the united states, global operations, foreign operations]
 
   - id: CLIMATE_NATCAT
     name: Climate, natural catastrophes and physical risk
-    description: Wildfires, extreme weather, pandemics and other catastrophes; physical and transition climate risk; environmental liabilities.
+    description: Extreme weather and natural disasters, pandemics, and climate-related disclosure or stakeholder pressure.
     credit_lens: Tail-loss events and long-dated asset impairment.
     keywords: [climate, wildfire, weather, natural disaster, catastroph*, pandemic, earthquake, environmental]
+    leaves:
+      - id: natural_disasters_weather
+        description: Natural disasters and extreme weather that disrupt operations or suppliers.
+        keywords: [natural disaster*, extreme weather, earthquake*, flood*, hurricane*, wildfire*, typhoon*]
+      - id: pandemic_health
+        description: Pandemics and public-health crises.
+        keywords: [pandemic*, covid*, epidemic*, public health]
+      - id: climate_disclosure_esg
+        description: Climate-change regulation of disclosures, ESG expectations of stakeholders.
+        keywords: [climate change, sustainability, esg, greenhouse gas, climate-related]
 
   - id: TALENT_LABOR
     name: Talent, key people and labour
-    description: Attracting and retaining staff and executives, labour costs, unionisation, workforce disruption.
+    description: Key personnel, skilled talent, labour relations and unions, labour costs.
     credit_lens: Execution capacity and cost base.
     keywords: [key personnel, talent, employee*, retain, labor, labour, workforce, union*]
+    leaves:
+      - id: key_personnel
+        description: Dependence on a few executives or key people.
+        keywords: [key personnel, key employees, executive officers, chief executive, elon musk]
+      - id: skilled_talent
+        description: Attracting and retaining skilled engineers and staff.
+        keywords: [attract and retain, skilled, talent, engineers, qualified personnel]
+      - id: labor_relations_unions
+        description: Unions, collective bargaining, strikes and work stoppages.
+        keywords: [union*, collective bargaining, strike*, work stoppage*, labor dispute*, uaw]
 
   - id: IP_TECH_RIGHTS
     name: Intellectual property
-    description: Protecting patents, trademarks and trade secrets; infringement claims; licensing dependence.
+    description: Protecting patents, trade secrets and other IP; infringement claims by others.
     credit_lens: Franchise value and litigation exposure.
     keywords: [intellectual property, patent*, trademark*, trade secret, infringement, licens*]
+    leaves:
+      - id: ip_protection
+        description: The company may not be able to protect its own IP.
+        keywords: [protect our intellectual property, trade secret*, patents may not, misappropriat*]
+      - id: ip_infringement_claims
+        description: Others claim the company infringes their IP.
+        keywords: [infringement claim*, claims of infringement, infring*]
 
   - id: AI_EMERGING_TECH
-    name: AI and emerging-technology risk
-    description: Development, use or regulation of artificial intelligence and similar emerging technologies, including reputational and legal risks of AI.
+    name: AI, autonomy and emerging technology
+    description: Development, use or regulation of AI, autonomous driving and similar emerging technologies.
     credit_lens: New investment burden and regulatory uncertainty.
-    keywords: [artificial intelligence, ai, generative ai, machine learning]
+    keywords: [artificial intelligence, ai, generative ai, machine learning, autonomous, self-driving]
+    leaves:
+      - id: ai_development_use
+        description: Developing or using AI in products or operations.
+        keywords: [artificial intelligence, ai, machine learning, generative ai]
+      - id: autonomous_driving
+        description: Development, safety or regulation of autonomous or assisted driving.
+        keywords: [autonomous, self-driving, driver assist*, adas, autopilot, full self-driving, robotaxi]
+      - id: ai_regulation
+        description: New laws and rules on AI.
+        keywords: [ai regulation, regulation of artificial intelligence, ai act]
 
   - id: TAX
     name: Tax
     description: Changes in tax law, disputes with tax authorities, global minimum tax, effective tax rate volatility.
     credit_lens: Cash tax shocks.
     keywords: [tax, taxes, taxation]
+    leaves:
+      - id: tax_law_changes
+        description: Changes in tax laws or rates, including the global minimum tax.
+        keywords: [tax law*, tax legislation, tax rate*, global minimum tax, pillar two, oecd]
+      - id: tax_audits_disputes
+        description: Tax audits, disputes and uncertain tax positions.
+        keywords: [tax audit*, tax authorit*, examination*, uncertain tax]
 
   - id: STRATEGY_MA
     name: Strategy, acquisitions and investments
-    description: Acquisitions, divestitures, integration, strategic investments, new-business execution.
+    description: Acquisitions and integration, divestitures and spin-offs, restructuring, joint ventures.
     credit_lens: Leverage events and integration risk.
     keywords: [acquisition*, merger, divestiture, strategic investment, integration, joint venture]
+    leaves:
+      - id: acquisitions_integration
+        description: Buying and integrating other businesses.
+        keywords: [acquisition*, integrat*, merger*]
+      - id: divestitures_spinoffs
+        description: Selling or spinning off businesses.
+        keywords: [divest*, spin-off, spinoff, separation, disposition*]
+      - id: restructuring
+        description: Restructuring, plant closures and cost-reduction programmes.
+        keywords: [restructuring, cost reduction*, plant closure*, footprint]
+      - id: joint_ventures_investments
+        description: Joint ventures, alliances and strategic investments.
+        keywords: [joint venture*, alliance*, strategic investment*, equity investment*]
+
+  - id: PRODUCT_SAFETY_RECALL
+    name: Product safety, recalls and warranty
+    description: Product defects, recalls, warranty claims and product liability.
+    credit_lens: Sudden cash outflows and reputational damage.
+    keywords: [recall*, warranty, product liability, defect*, quality]
+    leaves:
+      - id: recalls
+        description: Product or vehicle recalls and field actions.
+        keywords: [recall*, field action*]
+      - id: warranty_costs
+        description: Warranty claims and reserves.
+        keywords: [warranty]
+      - id: product_liability_defects
+        description: Product defects, quality problems and product-liability claims.
+        keywords: [product liability, defect*, quality issue*, quality problem*]
+
+  - id: EMISSIONS_EV_TRANSITION
+    name: Emissions rules and the EV transition
+    description: Emissions and fuel-economy rules, the pace of EV adoption, battery supply and cost, charging infrastructure.
+    credit_lens: Capital intensity and stranded internal-combustion assets.
+    keywords: [emission*, fuel economy, electric vehicle*, ev, evs, battery, batteries, charging]
+    leaves:
+      - id: emissions_regulation
+        description: Emissions, fuel-economy and greenhouse-gas rules for products.
+        keywords: [emission*, fuel economy, cafe, greenhouse gas]
+      - id: ev_adoption_pace
+        description: Uncertain pace of EV demand or adoption, and the investment it needs.
+        keywords: [electric vehicle*, ev adoption, evs, transition to electric, electrification]
+      - id: battery_supply_cost
+        description: Battery cells and their supply and cost.
+        keywords: [battery, batteries, battery cell*]
+      - id: charging_infrastructure
+        description: Availability of charging infrastructure.
+        keywords: [charging, supercharger*, charging infrastructure]
+
+  - id: COMMODITY_INPUTS
+    name: Commodity and input costs
+    description: Prices and availability of raw materials, energy and critical minerals.
+    credit_lens: Margin squeeze and supply interruption.
+    keywords: [raw material*, commodit*, steel, aluminum, copper, energy cost*, lithium, rare earth*]
+    leaves:
+      - id: raw_material_prices
+        description: Prices of steel, aluminium, copper, resin and similar inputs.
+        keywords: [raw material*, commodit*, steel, aluminum, copper, resin*]
+      - id: energy_costs
+        description: Cost or availability of energy, gas and electricity.
+        keywords: [energy cost*, energy price*, natural gas, electricity, energy supply]
+      - id: critical_minerals
+        description: Lithium, nickel, cobalt, rare earths, gallium and other critical minerals.
+        keywords: [lithium, nickel, cobalt, rare earth*, gallium, germanium, critical mineral*]
 
   - id: OTHER
     name: Other (securities, governance, general)
-    description: Stock-price volatility, share structure, governance, anything that does not fit the categories above.
+    description: Stock-price volatility, share structure, governance, financial reporting and controls, anything that does not fit above.
     credit_lens: Usually low credit relevance.
     keywords: [stock price, share price, common stock, dividend]
+    leaves:
+      - id: stock_governance
+        description: Share price volatility, dividends, buybacks, governance and anti-takeover provisions.
+        keywords: [stock price, share price, common stock, dividend*, repurchase*, anti-takeover]
+      - id: reporting_controls
+        description: Financial reporting, internal controls, accounting estimates and impairments.
+        keywords: [internal control*, impairment*, goodwill, accounting estimate*, financial reporting]

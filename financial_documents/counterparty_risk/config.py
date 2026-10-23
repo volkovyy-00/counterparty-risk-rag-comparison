@@ -5,6 +5,7 @@ Nothing here is secret by default; keys are read from the environment only.
 import os
 from pathlib import Path
 
+import yaml
 from dotenv import load_dotenv
 
 ROOT = Path(__file__).resolve().parent
@@ -21,12 +22,22 @@ QUESTION = env(
     "QUESTION",
     "What industry risks connect these counterparties, and which counterparties share each one?",
 )
-# Same ten names the workshop sample intends to cover, with correct tickers.
+# Groups live in groups.yaml (GROUP=auto_semis by default); TICKERS=... overrides the list.
+_GROUPS = yaml.safe_load((ROOT / "groups.yaml").read_text())
+GROUP = env("GROUP", _GROUPS["default"])
+if GROUP not in _GROUPS["groups"]:
+    raise SystemExit(f"GROUP={GROUP!r} is not in groups.yaml ({', '.join(_GROUPS['groups'])})")
+_group = _GROUPS["groups"][GROUP]
+for _key in ("companies", "notes"):
+    if any(not isinstance(k, str) for k in (_group.get(_key) or {})):  # e.g. unquoted ON parses as True
+        raise SystemExit(f"groups.yaml {GROUP}.{_key}: quote every ticker that YAML reads as a non-string")
 TICKERS = [
     t.strip().upper()
-    for t in env("TICKERS", "AAPL,MSFT,NVDA,AMZN,GOOGL,INTC,PYPL,PCG,MCD,AIG").split(",")
+    for t in env("TICKERS", ",".join(_group["companies"])).split(",")
     if t.strip()
 ]
+INDUSTRY = {t: _group["companies"].get(t, "other") for t in TICKERS}  # ticker -> industry label
+GROUP_NOTES = _group.get("notes") or {}
 MIN_SHARED = int(env("MIN_SHARED", "2"))  # "shared" = faced by at least this many companies
 
 # --- Corpus -----------------------------------------------------------------
@@ -45,16 +56,25 @@ SEC_USER_AGENT = env("SEC_USER_AGENT")
 SEC_MAX_RPS = min(float(env("SEC_MAX_RPS", "5")), 10.0)
 
 # --- LLM provider -----------------------------------------------------------
+# anthropic : Anthropic Messages API (ANTHROPIC_API_KEY)
 # openai    : OpenAI, or any OpenAI-compatible server via OPENAI_BASE_URL (Ollama, vLLM, ...)
 # azure     : Azure OpenAI (AZURE_OPENAI_ENDPOINT, AZURE_OPENAI_API_KEY, OPENAI_API_VERSION)
-# anthropic : Anthropic Messages API (ANTHROPIC_API_KEY); embeddings still use EMBED_PROVIDER
-LLM_PROVIDER = env("LLM_PROVIDER", "openai")
-LLM_MODEL = env("LLM_MODEL", "gpt-4.1-mini")
-LLM_TEMPERATURE = env("LLM_TEMPERATURE", "0")  # "none" = don't send (some models only allow default)
+LLM_PROVIDER = env("LLM_PROVIDER", "anthropic")
+LLM_MODEL = env("LLM_MODEL", "claude-opus-5-5" if LLM_PROVIDER == "anthropic" else "gpt-4.1-mini")
+# Sampling temperature is sent to OpenAI-style providers only ("none" = don't send).
+# Current Anthropic models accept only their default sampling, so it is never sent there.
+LLM_TEMPERATURE = env("LLM_TEMPERATURE", "0")
+LLM_EFFORT = env("LLM_EFFORT", "low")  # Anthropic output_config.effort: low | medium | high | xhigh | max
+# strict : the provider enforces the JSON schema (OpenAI strict mode, Anthropic output_config.format)
+# json   : schema is only described in the prompt (local models); the code validator still applies
+LLM_STRUCTURED = env("LLM_STRUCTURED", "strict")
 LLM_CONCURRENCY = int(env("LLM_CONCURRENCY", "4"))
-EMBED_PROVIDER = env("EMBED_PROVIDER", "openai" if LLM_PROVIDER == "anthropic" else LLM_PROVIDER)
-EMBED_MODEL = env("EMBED_MODEL", "text-embedding-3-small")
-EMBED_DIMENSIONS = int(env("EMBED_DIMENSIONS", "1536"))
+LLM_TIMEOUT_S = float(env("LLM_TIMEOUT_S", "600"))
+# local  : fastembed (ONNX, runs on CPU, no key; the model is downloaded once from Hugging Face)
+# openai / azure : embeddings API
+EMBED_PROVIDER = env("EMBED_PROVIDER", "local" if LLM_PROVIDER == "anthropic" else LLM_PROVIDER)
+EMBED_MODEL = env("EMBED_MODEL", "BAAI/bge-small-en-v1.5" if EMBED_PROVIDER == "local" else "text-embedding-3-small")
+EMBED_DIMENSIONS = int(env("EMBED_DIMENSIONS", "384" if EMBED_PROVIDER == "local" else "1536"))
 
 # readwrite : use cached responses when present, call the API otherwise (default)
 # replay    : never call the API; fail on a cache miss (offline demo)
