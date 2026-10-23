@@ -1,0 +1,16 @@
+# USD per 1 million tokens. Used only to turn token counts into a cost estimate.
+# Prices change: check your provider's pricing page before quoting any number.
+# Figures below were last checked 2026-10 against public price listings; a model
+# that is missing here shows "n/a" for cost instead of a guess.
+gpt-4.1-mini:
+  input: 0.40
+  output: 1.60
+gpt-4o-mini:
+  input: 0.15
+  output: 0.60
+gpt-5-mini:
+  input: 0.25
+  output: 2.00
+text-embedding-3-small:
+  input: 0.02
+  output: 0.0

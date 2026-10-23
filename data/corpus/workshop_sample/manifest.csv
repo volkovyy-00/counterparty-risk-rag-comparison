@@ -1,0 +1,8 @@
+ticker,company,cik,form,accession,filing_date,report_date,fiscal_year_end,url,item1a_chars,item1a_file,source
+AMZN,AMAZON,1018724,10-K,0001018724-23-000004,,,,workshop:data/form10k-sample/0001018724-23-000004.pdf,55632,item1a/AMZN.txt,workshop_csv_as_labelled
+NVDA,NVIDIA CORPORATION,1045810,10-K,0001045810-23-000017,,,,workshop:data/form10k-sample/0001045810-23-000017.pdf,87703,item1a/NVDA.txt,workshop_csv_as_labelled
+AAPL,APPLE INC,1490054,10-K,0001096906-23-001489,,,,workshop:data/form10k-sample/0001096906-23-001489.pdf,163,item1a/AAPL.txt,workshop_csv_as_labelled
+PYPL,PAYPAL,1633917,10-K,0001633917-23-000033,,,,workshop:data/form10k-sample/0001633917-23-000033.pdf,83746,item1a/PYPL.txt,workshop_csv_as_labelled
+INTC,APPLE INC,320193,10-K,0000320193-23-000106,,,,workshop:data/form10k-sample/0000320193-23-000106.pdf,67854,item1a/INTC.txt,workshop_csv_as_labelled
+PCG,PG&E CORP,75488,10-K,0001004980-23-000029,,,,workshop:data/form10k-sample/0001004980-23-000029.pdf,97173,item1a/PCG.txt,workshop_csv_as_labelled
+MSFT,MICROSOFT CORP,789019,10-K,0000950170-23-035122,,,,workshop:data/form10k-sample/0000950170-23-035122.pdf,3629,item1a/MSFT.txt,workshop_csv_as_labelled

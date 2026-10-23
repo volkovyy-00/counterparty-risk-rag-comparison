@@ -1,0 +1,108 @@
+# Fixed industry-risk taxonomy for corporate counterparties (illustrative, public).
+# Written for this demo from a general credit-analysis viewpoint; it is not any
+# institution's internal taxonomy. Edit freely - ids are what the code uses.
+#
+#   id          : stable identifier (used in the LLM JSON schema enum)
+#   name        : label shown in results
+#   description : what belongs here (given to the LLM)
+#   credit_lens : why a credit analyst cares (shown in results, not used by code)
+#   keywords    : lower-case whole words/phrases (a trailing * matches any ending) used ONLY to map free-text answers from
+#                 approaches 1 and 2 onto categories for the eval, and by
+#                 label_helper.py. Never used to produce approach 3's answer.
+version: 1
+categories:
+  - id: MACRO_DEMAND
+    name: Macroeconomic conditions and demand
+    description: Recession, inflation, consumer or enterprise spending, cyclical demand, pricing pressure.
+    credit_lens: Revenue and margin volatility through the cycle.
+    keywords: [macroeconomic, economic conditions, recession, inflation, consumer spending, demand, economic downturn]
+
+  - id: RATES_FX_FUNDING
+    name: Interest rates, FX and funding
+    description: Interest-rate moves, foreign-exchange exposure, access to capital markets, liquidity, debt service, credit ratings, investment portfolio values.
+    credit_lens: Refinancing risk and cash-flow coverage of debt.
+    keywords: [interest rate, foreign exchange, currency, liquidity, capital markets, indebtedness, credit rating, funding, refinanc*]
+
+  - id: SUPPLY_CHAIN
+    name: Supply chain and supplier concentration
+    description: Dependence on key suppliers or manufacturers, component shortages, logistics, single-source or geographic concentration of production.
+    credit_lens: Operating disruption and working-capital stress.
+    keywords: [supply chain, supplier*, manufactur*, component*, shortage, logistics, single source, foundry]
+
+  - id: CUSTOMER_CONCENTRATION
+    name: Customer, partner and counterparty concentration
+    description: Reliance on a few customers, distributors, franchisees, partners or platforms; counterparty credit exposure.
+    credit_lens: Revenue concentration and second-order default risk.
+    keywords: [customer concentration, significant customer*, key customers, partner*, franchise*, distributor*, counterparty]
+
+  - id: COMPETITION_DISRUPTION
+    name: Competition and technological disruption
+    description: Competitive intensity, new entrants, pricing competition, rapid technology change, product obsolescence.
+    credit_lens: Erosion of market position and long-term cash flows.
+    keywords: [competition, competitive, competitor*, new entrants, technological change, obsole*, disruptive]
+
+  - id: CYBER_IT
+    name: Cybersecurity and IT resilience
+    description: Cyber-attacks, data breaches, system outages, reliance on IT infrastructure and third-party technology.
+    credit_lens: Sudden loss events, remediation cost and liability.
+    keywords: [cyber*, security breach, data breach, hacking, ransomware, malware, outage, information technology systems]
+
+  - id: PRIVACY_DATA
+    name: Privacy and data protection
+    description: Laws and obligations on personal data (e.g. GDPR, CCPA), data-localisation, misuse of customer data.
+    credit_lens: Fines, restrictions on business model.
+    keywords: [privacy, data protection, personal data, personal information, gdpr]
+
+  - id: REGULATION_LEGAL
+    name: Regulation, litigation and legal
+    description: Industry regulation, antitrust and competition law, licensing, litigation, investigations, compliance costs.
+    credit_lens: Fines, forced business changes, contingent liabilities.
+    keywords: [regulat*, litigation, legal proceedings, antitrust, competition law, investigation*, compliance, lawsuit*]
+
+  - id: GEOPOLITICAL_TRADE
+    name: Geopolitics, trade and export controls
+    description: Tariffs, sanctions, export controls, conflicts, international operations and political instability, China/Taiwan exposure.
+    credit_lens: Market access, supply disruption, stranded assets.
+    keywords: [geopolitic*, tariff*, trade, export control, sanction*, international operations, china, taiwan, war, conflict]
+
+  - id: CLIMATE_NATCAT
+    name: Climate, natural catastrophes and physical risk
+    description: Wildfires, extreme weather, pandemics and other catastrophes; physical and transition climate risk; environmental liabilities.
+    credit_lens: Tail-loss events and long-dated asset impairment.
+    keywords: [climate, wildfire, weather, natural disaster, catastroph*, pandemic, earthquake, environmental]
+
+  - id: TALENT_LABOR
+    name: Talent, key people and labour
+    description: Attracting and retaining staff and executives, labour costs, unionisation, workforce disruption.
+    credit_lens: Execution capacity and cost base.
+    keywords: [key personnel, talent, employee*, retain, labor, labour, workforce, union*]
+
+  - id: IP_TECH_RIGHTS
+    name: Intellectual property
+    description: Protecting patents, trademarks and trade secrets; infringement claims; licensing dependence.
+    credit_lens: Franchise value and litigation exposure.
+    keywords: [intellectual property, patent*, trademark*, trade secret, infringement, licens*]
+
+  - id: AI_EMERGING_TECH
+    name: AI and emerging-technology risk
+    description: Development, use or regulation of artificial intelligence and similar emerging technologies, including reputational and legal risks of AI.
+    credit_lens: New investment burden and regulatory uncertainty.
+    keywords: [artificial intelligence, ai, generative ai, machine learning]
+
+  - id: TAX
+    name: Tax
+    description: Changes in tax law, disputes with tax authorities, global minimum tax, effective tax rate volatility.
+    credit_lens: Cash tax shocks.
+    keywords: [tax, taxes, taxation]
+
+  - id: STRATEGY_MA
+    name: Strategy, acquisitions and investments
+    description: Acquisitions, divestitures, integration, strategic investments, new-business execution.
+    credit_lens: Leverage events and integration risk.
+    keywords: [acquisition*, merger, divestiture, strategic investment, integration, joint venture]
+
+  - id: OTHER
+    name: Other (securities, governance, general)
+    description: Stock-price volatility, share structure, governance, anything that does not fit the categories above.
+    credit_lens: Usually low credit relevance.
+    keywords: [stock price, share price, common stock, dividend]
