@@ -1,6 +1,6 @@
 """The three governance moments - offline, deterministic, no model call.
 
-    python governance.py        # -> results/demo_run/governance.json (the fallback the page shows
+    python src/governance.py        # -> results/demo_run/governance.json (the fallback the page shows
                                 #    if it is opened without serve.py)
 
 (a) fabricated : a planted, clearly labelled paraphrase of a real Item 1A sentence

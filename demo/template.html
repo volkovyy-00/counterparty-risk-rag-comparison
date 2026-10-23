@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Counterparty Risk Demo</title>
+<link rel="icon" href="data:,">
 <style>
 :root {
   --bg:#ffffff; --fg:#111111; --muted:#4a4a4a; --line:#bdbdbd; --panel:#f3f4f6; --accent:#0b4f9c;
@@ -437,7 +438,7 @@ function screen7() {
 async function gov(kind) {
   S.gov[kind] = {running: true}; render();
   let res = null;
-  if (S.server) { try { res = await (await fetch("api/governance/" + kind, {method: "POST"})).json(); res._live = true; } catch (e) { res = null; } }
+  if (S.server) { try { res = await (await fetch("api/governance/" + kind, {method: "POST"})).json(); if (res.error) res = null; else res._live = true; } catch (e) { res = null; } }
   if (!res && DATA.governance) { res = Object.assign({}, DATA.governance[{fabricated:"fabricated", offtaxonomy:"off_taxonomy", audit:"audit"}[kind]]); res._live = false; }
   S.gov[kind] = res || {error: "no governance data"}; render();
 }

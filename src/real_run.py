@@ -1,12 +1,12 @@
 """Produce results/demo_run/ from a real run - the only step that spends money. Run it once, then freeze.
 
-    python real_run.py                    # checks + cost estimate, then STOPS if the estimate is over $5
-    python real_run.py --confirm-usd 25   # runs if the estimate is at or below $25
+    python src/real_run.py                    # checks + cost estimate, then STOPS if the estimate is over $5
+    python src/real_run.py --confirm-usd 25   # runs if the estimate is at or below $25
 
 Steps: fetch 10-Ks (if not fetched yet) -> estimate cost -> build graph -> run 1,2,3,L
 and freeze -> export graph -> audit run B (approach 3, prompt v2.1) -> reruns 2 and 3
 (cache off) -> governance fixtures -> build demo/index.html -> screenshots.
-Every model call is cached, so `LLM_CACHE=replay python run_all.py` reproduces run A offline.
+Every model call is cached, so `LLM_CACHE=replay python src/run_all.py` reproduces run A offline.
 """
 import argparse
 import os
@@ -47,7 +47,7 @@ def main():
     args = parser.parse_args()
     have_corpus = preflight()
     if not have_corpus:
-        step("Fetch latest 10-K per ticker from SEC EDGAR (cached on disk)", "fetch_10k.py")
+        step("Fetch latest 10-K per ticker from SEC EDGAR (cached on disk)", "src/fetch_10k.py")
 
     import estimate_cost
     from corpus import load_corpus
@@ -59,18 +59,18 @@ def main():
         raise SystemExit(f"\nEstimated ${est['total_usd']:.2f} is over ${budget:.2f}. Nothing was spent. "
                          f"Re-run with --confirm-usd {est['total_usd'] * 1.3:.0f} to go ahead (30% headroom).")
 
-    step("Build the knowledge graph (approach 2)", "approach2_graphrag.py", "build", "--reset")
-    step("Run A: approaches 1, 2, 3 and the long-context control; freeze", "run_all.py", "--approaches", "1,2,3,L",
+    step("Build the knowledge graph (approach 2)", "src/approach2_graphrag.py", "build", "--reset")
+    step("Run A: approaches 1, 2, 3 and the long-context control; freeze", "src/run_all.py", "--approaches", "1,2,3,L",
          "--freeze", "--label", "run A (prompt taxonomy-v2.0)")
-    step("Export the graph for offline use", "export_graph.py")
-    step("Run B for the audit trail: approach 3 with prompt v2.1", "run_all.py", "--approaches", "3",
+    step("Export the graph for offline use", "src/export_graph.py")
+    step("Run B for the audit trail: approach 3 with prompt v2.1", "src/run_all.py", "--approaches", "3",
          "--out", str(config.RESULTS_DIR / "demo_run" / "audit" / "run_b"), "--label", "run B (prompt taxonomy-v2.1)",
          env={"TAXO_PROMPT_VERSION": "taxonomy-v2.1"})
     if args.reruns:
-        step(f"Rerun consistency: {args.reruns} more runs per approach, cache off", "rerun.py",
+        step(f"Rerun consistency: {args.reruns} more runs per approach, cache off", "src/rerun.py",
              "--approaches", "1,2,3", "--n", str(args.reruns))
-    step("Governance fixtures (no model call)", "governance.py")
-    step("Build the demo page", "build_demo.py")
+    step("Governance fixtures (no model call)", "src/governance.py")
+    step("Build the demo page", "src/build_demo.py")
     if not args.skip_screenshots:
         step("Screenshots (visual fallback)", "demo/screenshots.py")
     print("\nDone. Check results/demo_run/comparison.md, then commit results/demo_run/, cache/ and data/corpus/.")

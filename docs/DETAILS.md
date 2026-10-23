@@ -1,6 +1,6 @@
 # Details
 
-Reference material for the [demo script](README.md).
+Reference material for the [demo script](../README.md).
 
 ## Outputs (`results/demo_run/` - what the demo shows)
 
@@ -40,11 +40,11 @@ Reference material for the [demo script](README.md).
 | `SEC_USER_AGENT` / `SEC_MAX_RPS` | - / `5` | "Name email"; capped at SEC's 10 requests/second |
 | `LIVE_TIMEOUT_S` | `20` | deadline of the live step |
 
-Prices for the cost figures live in `pricing.yaml` with the date they were checked. Check them before quoting a number.
+Prices for the cost figures live in `config/pricing.yaml` with the date they were checked. Check them before quoting a number.
 
 ## The workshop sample, audited
 
-`python prepare_workshop_sample.py` downloads the Neo4j genai-workshop sample data (pinned commit, into the git-ignored
+`python src/prepare_workshop_sample.py` downloads the Neo4j genai-workshop sample data (pinned commit, into the git-ignored
 `data/raw/workshop/`), checks `Company_Filings.csv` against its PDFs and against `Asset_Manager_Holdings.csv`, then builds `CORPUS=workshop_sample` **with the CSV labels unchanged**.
 Full log: `results/data_quality_workshop_sample.md`. Highlights:
 
@@ -70,12 +70,13 @@ Full log: `results/data_quality_workshop_sample.md`. Highlights:
 
 ## Files
 
-`fetch_10k.py` · `prepare_workshop_sample.py` · `approach0_long_context.py` · `approach1_rag.py` · `approach2_graphrag.py` ·
+`src/`: `fetch_10k.py` · `prepare_workshop_sample.py` · `approach0_long_context.py` · `approach1_rag.py` · `approach2_graphrag.py` ·
 `approach3_taxonomy.py` · `answer.py` (contract) · `verify.py` (verifier + validator) · `evaluate.py` (scoring) ·
 `manifest.py` · `run_all.py` · `rerun.py` · `export_graph.py` · `governance.py` · `estimate_cost.py` · `real_run.py` ·
-`label_helper.py` · `label_tool.py` · `build_demo.py` · `serve.py` · `demo/` (page template, screenshots) ·
-`check_secrets.py` · `llm.py` (one metered, cached client) · `groups.yaml` · `taxonomy.yaml` · `ground_truth.yaml` ·
-`pricing.yaml` · `tests/` (offline; `tests/fake_llm.py` is a test stand-in, never a result)
+`label_helper.py` · `label_tool.py` · `build_demo.py` · `serve.py` · `check_secrets.py` · `llm.py` (one metered, cached client) ·
+`config.py`, `corpus.py`, `item1a.py`, `taxonomy.py`.
+`config/`: `groups.yaml` · `taxonomy.yaml` · `ground_truth.yaml` · `pricing.yaml`.
+`demo/` (page template, label tool, screenshots) · `tests/` (offline; `tests/fake_llm.py` is a test stand-in, never a result)
 
 ## References
 

@@ -1,6 +1,6 @@
 """Audit the workshop's sample data and turn its PDFs into an offline corpus.
 
-    python prepare_workshop_sample.py
+    python src/prepare_workshop_sample.py
 
 Downloads the sample data of the Apache-2.0 Neo4j genai-workshop (financial_documents/data,
 pinned to one commit) into data/raw/workshop/ - not stored in this repo - then checks

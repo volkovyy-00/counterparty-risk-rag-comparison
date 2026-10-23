@@ -1,6 +1,6 @@
 """Step 1: download the latest 10-K for each ticker from SEC EDGAR and cut out Item 1A.
 
-    SEC_USER_AGENT="Your Name your.email@example.com" python fetch_10k.py
+    SEC_USER_AGENT="Your Name your.email@example.com" python src/fetch_10k.py
 
 Follows SEC fair-access rules: a declared User-Agent, at most SEC_MAX_RPS
 requests per second (default 5, never above 10), back-off on 429/503, and every

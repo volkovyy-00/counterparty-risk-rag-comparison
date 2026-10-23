@@ -15,7 +15,7 @@ import yaml
 
 import config
 
-_PRICES = yaml.safe_load((config.ROOT / "pricing.yaml").read_text()) or {}
+_PRICES = yaml.safe_load((config.CONFIG_DIR / "pricing.yaml").read_text()) or {}
 PRICES_CHECKED = str(_PRICES.pop("checked", "unknown"))
 
 

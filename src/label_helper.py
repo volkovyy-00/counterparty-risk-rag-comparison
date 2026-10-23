@@ -1,6 +1,6 @@
 """Help a person hand-label ground_truth.yaml: candidate sentences per (company, leaf).
 
-    python label_helper.py      # results/labelling_worksheet_<corpus>.md + labelling_candidates_<corpus>.json
+    python src/label_helper.py      # results/labelling_worksheet_<corpus>.md + labelling_candidates_<corpus>.json
 
 For every company and every taxonomy leaf it lists up to three Item 1A sentences
 that contain the leaf's keywords, best first, with their character offsets. This

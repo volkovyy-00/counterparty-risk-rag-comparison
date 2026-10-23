@@ -7,7 +7,7 @@ from types import SimpleNamespace
 
 import pytest
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 import config  # noqa: E402
 import llm  # noqa: E402
@@ -87,7 +87,7 @@ def test_taxonomy_v2_is_closed_and_two_level():
 def test_groups_default_is_auto_semis():
     import yaml
 
-    groups = yaml.safe_load((config.ROOT / "groups.yaml").read_text())
+    groups = yaml.safe_load((config.CONFIG_DIR / "groups.yaml").read_text())
     assert groups["default"] == "auto_semis"
     assert list(groups["groups"]["auto_semis"]["companies"]) == \
         ["GM", "F", "TSLA", "APTV", "BWA", "LEA", "NXPI", "MCHP", "ON", "TXN"]

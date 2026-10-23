@@ -12,7 +12,7 @@ import yaml
 import config
 import taxonomy
 
-GT_PATH = config.ROOT / "ground_truth.yaml"
+GT_PATH = config.CONFIG_DIR / "ground_truth.yaml"
 
 
 def load_ground_truth(corpus=None):

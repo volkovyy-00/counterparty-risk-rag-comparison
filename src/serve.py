@@ -1,7 +1,7 @@
 """Serve the demo on localhost (stdlib only). Never needs Neo4j; needs the network only with --live.
 
-    python serve.py              # offline: page + governance checks (no model call)
-    python serve.py --live       # also enables the one live step: plain-RAG ask (1 embedding + 1 chat call)
+    python src/serve.py              # offline: page + governance checks (no model call)
+    python src/serve.py --live       # also enables the one live step: plain-RAG ask (1 embedding + 1 chat call)
 
 The live step has a hard LIVE_TIMEOUT_S (20 s) deadline. On timeout or any error
 it returns the recorded answer from results/demo_run/ with mode "cached", and the
@@ -120,7 +120,10 @@ def make_handler(live):
                 return self._json(live.ask() if live else {"mode": "cached", "note": "live step not enabled",
                                                            "result": None})
             if self.path.startswith("/api/governance/"):
-                return self._json(governance_check(self.path.rsplit("/", 1)[-1]))
+                try:
+                    return self._json(governance_check(self.path.rsplit("/", 1)[-1]))
+                except (Exception, SystemExit) as exc:  # e.g. no corpus: the page shows its precomputed copy
+                    return self._json({"error": str(exc)})
             self.send_error(404)
     return Handler
 

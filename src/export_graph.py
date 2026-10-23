@@ -1,6 +1,6 @@
 """Export the GraphRAG graph to JSON so the demo never needs Neo4j at runtime.
 
-    python export_graph.py                       # -> results/demo_run/graph.json
+    python src/export_graph.py                       # -> results/demo_run/graph.json
 
 Nodes: Company and RiskFactor (with degree = number of companies facing it).
 Edges: FACES_RISK, each with the evidence chunk ids it came from.

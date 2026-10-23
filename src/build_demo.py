@@ -1,7 +1,7 @@
 """Build the offline demo page: demo/index.html with every number and quote inlined as JSON.
 
-    python build_demo.py                       # from results/demo_run/
-    python build_demo.py --run DIR --fixture   # a test fixture (fake model) - shown with a banner
+    python src/build_demo.py                       # from results/demo_run/
+    python src/build_demo.py --run DIR --fixture   # a test fixture (fake model) - shown with a banner
 
 No network, no Neo4j: the graph comes from results/demo_run/graph.json.
 """

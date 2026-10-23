@@ -1,7 +1,7 @@
 """Approach 2 - GraphRAG with Neo4j, built on the workshop's SimpleKGPipeline.
 
-    python approach2_graphrag.py build --reset   # once, before the demo (LLM-heavy)
-    python approach2_graphrag.py ask             # what the runner calls
+    python src/approach2_graphrag.py build --reset   # once, before the demo (LLM-heavy)
+    python src/approach2_graphrag.py ask             # what the runner calls
 
 Graph:  (Company)-[:FACES_RISK]->(RiskFactor)-[:FROM_CHUNK]->(Chunk)-[:FROM_DOCUMENT]->(Document)
         Chunks are cited as TICKER-g<index>, e.g. NVDA-g7.
@@ -174,7 +174,7 @@ def _traverse(drv, question):
 def run(question, filings):
     drv = driver()
     if _count(drv, "MATCH (r:RiskFactor) RETURN count(r) AS n") == 0:
-        raise SystemExit("Graph is empty: run `python approach2_graphrag.py build --reset` first.")
+        raise SystemExit("Graph is empty: run `python src/approach2_graphrag.py build --reset` first.")
     with llm.METER.track("graph.ask"):
         rows = _traverse(drv, question)
         # Each evidence chunk once, under its graph chunk id (e.g. NVDA-g7); risks refer to the ids.

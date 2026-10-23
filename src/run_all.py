@@ -1,9 +1,9 @@
 """Run the approaches on the same question, verify every claim with the same code, score them.
 
-    python run_all.py                          # approaches 1,2,3 + long-context control (L)
-    python run_all.py --approaches 1,3         # without Neo4j
-    python run_all.py --freeze                 # also copy the run to results/demo_run/ (what the demo shows)
-    python run_all.py --show                   # print the last comparison (no network, no Neo4j)
+    python src/run_all.py                          # approaches 1,2,3 + long-context control (L)
+    python src/run_all.py --approaches 1,3         # without Neo4j
+    python src/run_all.py --freeze                 # also copy the run to results/demo_run/ (what the demo shows)
+    python src/run_all.py --show                   # print the last comparison (no network, no Neo4j)
 
 Writes results/runs/<stamp>_<corpus>/ and results/latest/.
 """

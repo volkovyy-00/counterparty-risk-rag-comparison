@@ -8,7 +8,8 @@ from pathlib import Path
 import yaml
 from dotenv import load_dotenv
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
+CONFIG_DIR = ROOT / "config"
 load_dotenv(ROOT / ".env")
 
 
@@ -23,7 +24,7 @@ QUESTION = env(
     "What industry risks connect these counterparties, and which counterparties share each one?",
 )
 # Groups live in groups.yaml (GROUP=auto_semis by default); TICKERS=... overrides the list.
-_GROUPS = yaml.safe_load((ROOT / "groups.yaml").read_text())
+_GROUPS = yaml.safe_load((CONFIG_DIR / "groups.yaml").read_text())
 GROUP = env("GROUP", _GROUPS["default"])
 if GROUP not in _GROUPS["groups"]:
     raise SystemExit(f"GROUP={GROUP!r} is not in groups.yaml ({', '.join(_GROUPS['groups'])})")

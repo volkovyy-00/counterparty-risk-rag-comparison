@@ -1,6 +1,6 @@
 """Scan for secrets before every commit: tracked files, cache/ and results/.
 
-    python check_secrets.py        # exit 1 and list findings if anything looks like a key
+    python src/check_secrets.py        # exit 1 and list findings if anything looks like a key
 
 Uses gitleaks when it is installed (make check-secrets), and always runs this
 regex scan as well. The local Neo4j default password is allowed by name only.
@@ -10,7 +10,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 PATTERNS = {
     "anthropic key": r"sk-ant-[A-Za-z0-9_\-]{20,}",
     "openai key": r"sk-(?:proj-)?[A-Za-z0-9_\-]{32,}",

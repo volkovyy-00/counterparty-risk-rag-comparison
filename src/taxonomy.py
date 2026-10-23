@@ -6,7 +6,7 @@ import yaml
 
 import config
 
-_PATH = config.ROOT / "taxonomy.yaml"
+_PATH = config.CONFIG_DIR / "taxonomy.yaml"
 _RAW = _PATH.read_text()
 _DOC = yaml.safe_load(_RAW)
 

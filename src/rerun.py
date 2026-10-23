@@ -1,6 +1,6 @@
 """Rerun consistency: independent repeat runs with the LLM cache OFF.
 
-    python rerun.py --approaches 1,2,3 --n 2     # adds runs 2 and 3 next to the frozen run 1
+    python src/rerun.py --approaches 1,2,3 --n 2     # adds runs 2 and 3 next to the frozen run 1
 
 The frozen run in results/demo_run/ is run 1. Each extra run calls the model
 again (cache off, nothing written to the cache) and stores only its verified
@@ -28,7 +28,7 @@ def main():
     parser.add_argument("--n", type=int, default=2, help="extra runs per approach (run 1 is the frozen run)")
     args = parser.parse_args()
     if not (DEMO_RUN / "manifest.json").exists():
-        raise SystemExit("No frozen run in results/demo_run/ - run `python run_all.py --freeze` first.")
+        raise SystemExit("No frozen run in results/demo_run/ - run `python src/run_all.py --freeze` first.")
     filings = load_corpus()
     keys = [k.strip().upper() for k in args.approaches.split(",")]
     for key in keys:

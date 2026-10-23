@@ -1,6 +1,6 @@
 """Estimate what a real run will cost BEFORE any model call, and gate runs over a budget.
 
-    python estimate_cost.py                 # print the estimate for the full freeze (see real_run.py)
+    python src/estimate_cost.py                 # print the estimate for the full freeze (see real_run.py)
 
 Input tokens: measured with the provider's token-counting endpoint when a key is
 set (Anthropic count_tokens, no model call), otherwise characters / 4 - the

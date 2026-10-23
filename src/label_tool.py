@@ -1,6 +1,6 @@
 """Hand-label the ground-truth key in a browser - a person decides every cell.
 
-    python label_tool.py            # opens http://localhost:8765 (stdlib only, offline)
+    python src/label_tool.py            # opens http://localhost:8765 (stdlib only, offline)
 
 For each company and each taxonomy leaf: read the candidate sentences (keyword
 hits from label_helper.py, a pointer only), search the full Item 1A if needed,

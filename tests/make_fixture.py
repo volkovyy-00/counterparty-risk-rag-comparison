@@ -12,7 +12,7 @@ from pathlib import Path
 
 from _pytest.monkeypatch import MonkeyPatch
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path[:0] = [str(Path(__file__).resolve().parents[1] / "src"), str(Path(__file__).resolve().parents[1])]
 
 import config  # noqa: E402
 import llm  # noqa: E402
