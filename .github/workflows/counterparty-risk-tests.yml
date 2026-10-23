@@ -1,0 +1,26 @@
+# Offline tests for financial_documents/counterparty_risk only. Needs no secrets:
+# the tests use a fake model and skip the Neo4j test when NEO4J_PASSWORD is unset.
+name: counterparty-risk offline tests
+
+on:
+  push:
+    paths: ["financial_documents/counterparty_risk/**", ".github/workflows/counterparty-risk-tests.yml"]
+  pull_request:
+    paths: ["financial_documents/counterparty_risk/**", ".github/workflows/counterparty-risk-tests.yml"]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: financial_documents/counterparty_risk
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python check_secrets.py
+      - run: python -m pytest tests -q

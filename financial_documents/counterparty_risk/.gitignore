@@ -3,3 +3,7 @@ __pycache__/
 .pytest_cache/
 data/raw/
 results/runs/
+demo/index.html
+demo/fallback/*.mp4
+*.mp4
+cache/models/

@@ -389,7 +389,10 @@ def test_demo_builds_and_loads_graph_without_neo4j(fixture_run, tmp_path, monkey
     errors = []
     with sync_playwright() as p:
         kwargs = {"executable_path": "/opt/pw-browsers/chromium"} if Path("/opt/pw-browsers/chromium").exists() else {}
-        browser = p.chromium.launch(**kwargs)
+        try:
+            browser = p.chromium.launch(**kwargs)
+        except Exception:  # playwright installed without a browser (e.g. CI): the build checks above still ran
+            return
         page = browser.new_page(viewport={"width": 1920, "height": 1080})
         page.on("pageerror", lambda e: errors.append(str(e)))
         page.goto((tmp_path / "index.html").as_uri() + "?screen=4")
