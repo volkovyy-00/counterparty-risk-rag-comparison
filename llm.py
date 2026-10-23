@@ -16,6 +16,7 @@ import yaml
 import config
 
 _PRICES = yaml.safe_load((config.ROOT / "pricing.yaml").read_text()) or {}
+PRICES_CHECKED = str(_PRICES.pop("checked", "unknown"))
 
 
 class CacheMiss(RuntimeError):
@@ -30,6 +31,7 @@ class Meter:
         self._lock = threading.Lock()
         self._local = threading.local()
         self.stages = defaultdict(lambda: defaultdict(float))
+        self.served_models = set()  # model ids the provider reported (cached records included)
 
     @property
     def stage(self):
@@ -55,18 +57,22 @@ class Meter:
         finally:
             self._local.stage = previous
 
-    def add(self, stage, model, input_tokens, output_tokens, cached, kind):
-        price = _PRICES.get(model)
+    def add(self, stage, model, input_tokens, output_tokens, cached, kind, latency_s=0.0,
+            cache_write_tokens=0, cache_read_tokens=0):
+        """input_tokens excludes prompt-cache writes/reads, which are counted and priced separately."""
         with self._lock:
             s = self.stages[stage]
             s[f"{kind}_calls"] += 1
             s["cached_calls"] += 1 if cached else 0
-            s["input_tokens"] += input_tokens
+            s["input_tokens"] += input_tokens + cache_write_tokens + cache_read_tokens
+            s["prompt_cache_read_tokens"] += cache_read_tokens
             s["output_tokens"] += output_tokens
-            if price is None:
+            s["recorded_latency_s"] += latency_s  # as measured when the call was made live
+            cost = price_usd(model, input_tokens, output_tokens, cache_write_tokens, cache_read_tokens)
+            if cost is None:
                 s["unpriced_calls"] += 1
             else:
-                s["cost_usd"] += (input_tokens * price["input"] + output_tokens * price["output"]) / 1e6
+                s["cost_usd"] += cost
 
     def summary(self, *stages):
         out = defaultdict(float)
@@ -79,16 +85,27 @@ class Meter:
 METER = Meter()
 
 
+def price_usd(model, input_tokens, output_tokens, cache_write_tokens=0, cache_read_tokens=0):
+    """Cost from pricing.yaml, or None if the model is not priced there."""
+    price = _PRICES.get(model)
+    if price is None:
+        return None
+    return (input_tokens * price["input"] + output_tokens * price["output"]
+            + cache_write_tokens * price.get("cache_write", price["input"])
+            + cache_read_tokens * price.get("cache_read", price["input"])) / 1e6
+
+
 # --------------------------------------------------------------------------- cache
 def _cache_path(kind, payload):
     key = hashlib.sha256(json.dumps(payload, sort_keys=True).encode()).hexdigest()
     return config.CACHE_DIR / kind / key[:2] / f"{key}.json"
 
 
-def _cache_get(path):
-    if config.LLM_CACHE != "off" and path.exists():
+def _cache_get(path, mode=None):
+    mode = mode or config.LLM_CACHE
+    if mode != "off" and path.exists():
         return json.loads(path.read_text())
-    if config.LLM_CACHE == "replay":
+    if mode == "replay":
         raise CacheMiss(
             f"LLM_CACHE=replay but no cached response at {config.rel(path)}. "
             "Run once online with LLM_CACHE=readwrite to record it."
@@ -96,8 +113,8 @@ def _cache_get(path):
     return None
 
 
-def _cache_put(path, record):
-    if config.LLM_CACHE == "off":
+def _cache_put(path, record, mode=None):
+    if (mode or config.LLM_CACHE) == "off":
         return
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(record, indent=1))
@@ -112,7 +129,8 @@ def _client(provider):
         if provider == "openai":
             from openai import OpenAI
 
-            _clients[provider] = OpenAI(base_url=config.env("OPENAI_BASE_URL"), max_retries=4)
+            _clients[provider] = OpenAI(base_url=config.env("OPENAI_BASE_URL"), max_retries=4,
+                                        timeout=config.LLM_TIMEOUT_S)
         elif provider == "azure":
             from openai import AzureOpenAI
 
@@ -120,9 +138,13 @@ def _client(provider):
         elif provider == "anthropic":
             import anthropic
 
-            _clients[provider] = anthropic.Anthropic(max_retries=4)
+            _clients[provider] = anthropic.Anthropic(max_retries=4, timeout=config.LLM_TIMEOUT_S)
+        elif provider == "local":
+            from fastembed import TextEmbedding
+
+            _clients[provider] = TextEmbedding(model_name=config.EMBED_MODEL)
         else:
-            raise ValueError(f"Unknown provider {provider!r} (use openai, azure or anthropic)")
+            raise ValueError(f"Unknown provider {provider!r} (use anthropic, openai, azure; local for embeddings)")
     return _clients[provider]
 
 
@@ -131,80 +153,123 @@ def _temperature():
     return None if str(t).lower() == "none" else float(t)
 
 
-def _call_chat(system, user, schema, schema_name):
+def _json_instruction(schema):
+    return ("\n\nReply with a single JSON object and nothing else. It must match this JSON schema:\n"
+            + json.dumps(schema))
+
+
+def _parse_json(text):
+    text = text.strip()
+    if text.startswith("```"):
+        text = text.split("\n", 1)[1].rsplit("```", 1)[0]
+    return json.loads(text)
+
+
+def _call_chat(system, user, schema, schema_name, timeout=None):
+    """One provider call. Returns (content, usage dict, served model id)."""
     provider, model = config.LLM_PROVIDER, config.LLM_MODEL
-    temperature = _temperature()
+    strict = schema is not None and config.LLM_STRUCTURED == "strict"
+    if schema is not None and not strict:
+        system += _json_instruction(schema)
+    client = _client(provider)
+    if timeout:
+        client = client.with_options(timeout=timeout, max_retries=0)
+
     if provider == "anthropic":
-        kwargs = dict(model=model, max_tokens=8000, system=system,
-                      messages=[{"role": "user", "content": user}])
-        if temperature is not None:
-            kwargs["temperature"] = temperature
-        if schema:
-            kwargs["tools"] = [{"name": schema_name, "description": "Return the answer.", "input_schema": schema}]
-            kwargs["tool_choice"] = {"type": "tool", "name": schema_name}
-        resp = _client(provider).messages.create(**kwargs)
-        if schema:
-            content = next(b.input for b in resp.content if b.type == "tool_use")
-        else:
-            content = "".join(b.text for b in resp.content if b.type == "text")
-        return content, resp.usage.input_tokens, resp.usage.output_tokens
+        # Current Claude models: no sampling parameters, no forced tool_choice. Structured output
+        # goes through output_config.format; the system prompt is marked for prompt caching
+        # because the taxonomy prompt repeats on every call.
+        output_config = {"effort": config.LLM_EFFORT}
+        if strict:
+            output_config["format"] = {"type": "json_schema", "schema": schema}
+        with client.messages.stream(
+                model=model, max_tokens=32000, output_config=output_config,
+                system=[{"type": "text", "text": system, "cache_control": {"type": "ephemeral"}}],
+                messages=[{"role": "user", "content": user}]) as stream:
+            resp = stream.get_final_message()
+        if resp.stop_reason in ("refusal", "max_tokens"):
+            raise RuntimeError(f"{model} stopped with stop_reason={resp.stop_reason}; nothing was cached")
+        text = "".join(b.text for b in resp.content if b.type == "text")
+        u = resp.usage
+        usage = {"input_tokens": u.input_tokens, "output_tokens": u.output_tokens,
+                 "cache_write_tokens": u.cache_creation_input_tokens or 0,
+                 "cache_read_tokens": u.cache_read_input_tokens or 0}
+        return (_parse_json(text) if schema else text), usage, resp.model
 
     kwargs = dict(model=model, messages=[{"role": "system", "content": system},
                                          {"role": "user", "content": user}])
-    if temperature is not None:
-        kwargs["temperature"] = temperature
-    if schema:
+    if _temperature() is not None:
+        kwargs["temperature"] = _temperature()
+    if strict:
         kwargs["response_format"] = {"type": "json_schema",
                                      "json_schema": {"name": schema_name, "strict": True, "schema": schema}}
-    resp = _client(provider).chat.completions.create(**kwargs)
+    resp = client.chat.completions.create(**kwargs)
     text = resp.choices[0].message.content or ""
-    content = json.loads(text) if schema else text
-    return content, resp.usage.prompt_tokens, resp.usage.completion_tokens
+    usage = {"input_tokens": resp.usage.prompt_tokens, "output_tokens": resp.usage.completion_tokens}
+    return (_parse_json(text) if schema else text), usage, resp.model
 
 
 # --------------------------------------------------------------------------- public API
-def chat(system, user, schema=None, schema_name="answer"):
-    """Return the model's reply: a dict when `schema` is given, else a string."""
-    request = {"provider": config.LLM_PROVIDER, "model": config.LLM_MODEL,
-               "temperature": config.LLM_TEMPERATURE, "system": system, "user": user,
-               "schema": schema}
-    path = _cache_path("chat", request)
-    record = _cache_get(path)
+def request_key(system, user, schema=None):
+    return {"provider": config.LLM_PROVIDER, "model": config.LLM_MODEL,
+            "temperature": None if config.LLM_PROVIDER == "anthropic" else config.LLM_TEMPERATURE,
+            "effort": config.LLM_EFFORT if config.LLM_PROVIDER == "anthropic" else None,
+            "structured": config.LLM_STRUCTURED, "system": system, "user": user, "schema": schema}
+
+
+def chat(system, user, schema=None, schema_name="answer", cache=None, timeout=None, return_record=False):
+    """Return the model's reply: a dict when `schema` is given, else a string.
+
+    cache   : override LLM_CACHE for this call (the live demo step uses "off")
+    timeout : seconds, no retries (the live demo step); default = LLM_TIMEOUT_S with retries
+    """
+    path = _cache_path("chat", request_key(system, user, schema))
+    record = _cache_get(path, cache)
     cached = record is not None
     if not cached:
         start = time.perf_counter()
-        content, tokens_in, tokens_out = _call_chat(system, user, schema, schema_name)
-        record = {"model": config.LLM_MODEL, "content": content, "input_tokens": tokens_in,
-                  "output_tokens": tokens_out, "latency_s": round(time.perf_counter() - start, 3),
-                  "recorded_at": time.strftime("%Y-%m-%dT%H:%M:%S")}
-        _cache_put(path, record)
-    METER.add(METER.stage, record["model"], record["input_tokens"], record["output_tokens"], cached, "llm")
-    return record["content"]
+        content, usage, served = _call_chat(system, user, schema, schema_name, timeout)
+        record = {"model": config.LLM_MODEL, "served_model": served, "content": content, **usage,
+                  "latency_s": round(time.perf_counter() - start, 3),
+                  "recorded_at": time.strftime("%Y-%m-%dT%H:%M:%S%z")}
+        _cache_put(path, record, cache)
+    METER.served_models.add(record.get("served_model") or f"unknown:{record['model']}")
+    METER.add(METER.stage, record["model"], record["input_tokens"], record["output_tokens"], cached, "llm",
+              record.get("latency_s", 0.0), record.get("cache_write_tokens", 0), record.get("cache_read_tokens", 0))
+    return (record["content"], dict(record, cached=cached)) if return_record else record["content"]
 
 
-def embed(texts, batch_size=96):
+def embed(texts, batch_size=96, cache=None):
     """Embed a list of strings; each text is cached individually."""
     vectors, todo = [None] * len(texts), []
     for i, text in enumerate(texts):
         path = _cache_path("embed", {"provider": config.EMBED_PROVIDER, "model": config.EMBED_MODEL,
                                      "dimensions": config.EMBED_DIMENSIONS, "text": text})
-        record = _cache_get(path)
+        record = _cache_get(path, cache)
         if record is None:
             todo.append((i, path))
         else:
             vectors[i] = record["vector"]
-            METER.add(METER.stage, config.EMBED_MODEL, record["tokens"], 0, True, "embed")
+            METER.add(METER.stage, config.EMBED_MODEL, record["tokens"], 0, True, "embed", record.get("latency_s", 0.0))
 
     for start in range(0, len(todo), batch_size):
         batch = todo[start:start + batch_size]
-        resp = _client(config.EMBED_PROVIDER).embeddings.create(
-            model=config.EMBED_MODEL, input=[texts[i] for i, _ in batch],
-            dimensions=config.EMBED_DIMENSIONS)
-        tokens_each = resp.usage.prompt_tokens / max(len(batch), 1)  # API reports the batch total
-        for (i, path), item in zip(batch, resp.data):
-            vectors[i] = item.embedding
-            _cache_put(path, {"model": config.EMBED_MODEL, "tokens": tokens_each, "vector": item.embedding})
-            METER.add(METER.stage, config.EMBED_MODEL, tokens_each, 0, False, "embed")
+        t0 = time.perf_counter()
+        if config.EMBED_PROVIDER == "local":  # fastembed: no API, no token bill
+            embedded = [v.tolist() for v in _client("local").embed([texts[i] for i, _ in batch])]
+            tokens_each = 0
+        else:
+            resp = _client(config.EMBED_PROVIDER).embeddings.create(
+                model=config.EMBED_MODEL, input=[texts[i] for i, _ in batch],
+                dimensions=config.EMBED_DIMENSIONS)
+            embedded = [item.embedding for item in resp.data]
+            tokens_each = resp.usage.prompt_tokens / max(len(batch), 1)  # API reports the batch total
+        latency_each = (time.perf_counter() - t0) / max(len(batch), 1)
+        for (i, path), vector in zip(batch, embedded):
+            vectors[i] = vector
+            _cache_put(path, {"model": config.EMBED_MODEL, "tokens": tokens_each, "vector": vector,
+                              "latency_s": latency_each}, cache)
+            METER.add(METER.stage, config.EMBED_MODEL, tokens_each, 0, False, "embed", latency_each)
     return vectors
 
 
@@ -237,3 +302,37 @@ def graphrag_adapters():
                 return embed([text])[0]
 
     return MeteredLLM(model_name=config.LLM_MODEL), MeteredEmbedder()
+
+
+def count_tokens(system, user):
+    """Input tokens the provider would bill for this prompt (Anthropic count_tokens; cached).
+
+    Returns None for providers without a counting endpoint - callers must say "not measured"
+    rather than estimate.
+    """
+    if config.LLM_PROVIDER != "anthropic":
+        return None
+    path = _cache_path("count", {"model": config.LLM_MODEL, "system": system, "user": user})
+    record = _cache_get(path)
+    if record is None:
+        resp = _client("anthropic").messages.count_tokens(
+            model=config.LLM_MODEL, system=system, messages=[{"role": "user", "content": user}])
+        record = {"model": config.LLM_MODEL, "input_tokens": resp.input_tokens,
+                  "recorded_at": time.strftime("%Y-%m-%dT%H:%M:%S%z")}
+        _cache_put(path, record)
+    return record["input_tokens"]
+
+
+def context_window():
+    """The model's input limit from the provider's Models API (cached), or LLM_CONTEXT_TOKENS."""
+    if config.env("LLM_CONTEXT_TOKENS"):
+        return int(config.env("LLM_CONTEXT_TOKENS"))
+    if config.LLM_PROVIDER != "anthropic":
+        return None
+    path = _cache_path("model_info", {"model": config.LLM_MODEL})
+    record = _cache_get(path)
+    if record is None:
+        info = _client("anthropic").models.retrieve(config.LLM_MODEL)
+        record = {"model": config.LLM_MODEL, "max_input_tokens": getattr(info, "max_input_tokens", None)}
+        _cache_put(path, record)
+    return record["max_input_tokens"]

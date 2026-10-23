@@ -1,16 +1,29 @@
-# USD per 1 million tokens. Used only to turn token counts into a cost estimate.
-# Prices change: check your provider's pricing page before quoting any number.
-# Figures below were last checked 2026-10 against public price listings; a model
-# that is missing here shows "n/a" for cost instead of a guess.
+# USD per 1 million tokens. Used only to turn token counts into a cost figure.
+# checked: the date these prices were last compared with the provider's public price list.
+# A model missing here shows "n/a" for cost instead of a guess. Check before quoting any number.
+checked: "2026-10-06"   # Anthropic rows: Anthropic model table of that date; OpenAI rows: 2026-10
+claude-opus-5-5:
+  input: 4.00
+  output: 20.00
+  cache_write: 5.00      # 1.25 x input (5-minute prompt cache)
+  cache_read: 0.20
+claude-sonnet-5-5:
+  input: 2.00
+  output: 10.00
+  cache_write: 2.50
+  cache_read: 0.20
+claude-haiku-5-5:        # prompts up to 100K tokens; longer prompts are priced higher
+  input: 0.10
+  output: 0.50
 gpt-4.1-mini:
   input: 0.40
   output: 1.60
 gpt-4o-mini:
   input: 0.15
   output: 0.60
-gpt-5-mini:
-  input: 0.25
-  output: 2.00
 text-embedding-3-small:
   input: 0.02
+  output: 0.0
+BAAI/bge-small-en-v1.5:  # runs locally via fastembed
+  input: 0.0
   output: 0.0
