@@ -1,5 +1,7 @@
 # GraphRAG Workshops
 
+> **This fork** adds [`financial_documents/counterparty_risk/`](financial_documents/counterparty_risk/): one counterparty-risk question answered three ways (plain RAG, GraphRAG, taxonomy-first) on public 10-K filings. Forked from [neo4j-product-examples/genai-workshop](https://github.com/neo4j-product-examples/genai-workshop) (`financial_documents`, Apache-2.0) - see [NOTICE](NOTICE).
+
 This repository contains two GraphRAG workshops: **Talent** and **Customers+Products**. Each workshop provides notebooks, data, and resources for hands-on exercises.
 
 ## Workshops

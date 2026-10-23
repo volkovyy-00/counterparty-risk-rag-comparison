@@ -1,0 +1,10 @@
+counterparty-risk-rag-comparison
+
+This repository is a fork of neo4j-product-examples/genai-workshop
+(https://github.com/neo4j-product-examples/genai-workshop). The
+financial_documents workshop, including its sample data, is licensed under the
+Apache License, Version 2.0; see financial_documents/LICENSE.
+
+financial_documents/counterparty_risk/ was added in this fork. It uses public
+SEC EDGAR filings and the workshop's Apache-2.0 sample data only. It contains
+no proprietary data, and the views expressed are the author's own.
