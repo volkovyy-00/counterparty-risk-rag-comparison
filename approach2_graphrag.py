@@ -82,7 +82,8 @@ def _count(drv, query="MATCH (n) RETURN count(n) AS n"):
     return drv.execute_query(query, database_=config.NEO4J_DATABASE).records[0]["n"]
 
 
-def build(reset=False):
+def build(reset=False, record=True):
+    """Build the graph. record=False (reruns, restores) keeps results/graph_build_<corpus>.json as it is."""
     from neo4j_graphrag.components.resolver import FuzzyMatchResolver
     from neo4j_graphrag.components.text_splitters.fixed_size_splitter import FixedSizeSplitter
     from neo4j_graphrag.experimental.pipeline.kg_builder import SimpleKGPipeline
@@ -99,6 +100,7 @@ def build(reset=False):
         print(f"--reset: deleting all {existing} nodes")
         with drv.session(database=config.NEO4J_DATABASE) as session:  # IN TRANSACTIONS needs auto-commit
             session.run("MATCH (n) CALL (n) { DETACH DELETE n } IN TRANSACTIONS OF 5000 ROWS").consume()
+    drv.execute_query("DROP INDEX chunkEmbeddings IF EXISTS", database_=config.NEO4J_DATABASE)  # dims may change
 
     with llm.METER.track("graph.build"):
         graph_llm, embedder = llm.graphrag_adapters()
@@ -128,6 +130,9 @@ def build(reset=False):
                             neo4j_database=config.NEO4J_DATABASE)
 
     stats = graph_stats(drv)
+    if not record:
+        drv.close()
+        return stats
     record = {"corpus": config.CORPUS, "model": config.LLM_MODEL, "resolver": config.GRAPH_RESOLVER,
               "chunk_chars": config.GRAPH_CHUNK_CHARS, "usage": llm.METER.summary("graph.build"), "graph": stats,
               "risk_factors_exact": exact, "risk_factors_resolved": resolved}
