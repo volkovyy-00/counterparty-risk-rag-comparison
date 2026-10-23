@@ -1,0 +1,14 @@
+counterparty-risk-rag-comparison
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Third-party material:
+- data/corpus/workshop_sample/ and results/data_quality_workshop_sample.md are
+  derived from the sample data of neo4j-product-examples/genai-workshop
+  (financial_documents/data, https://github.com/neo4j-product-examples/genai-workshop),
+  licensed under the Apache License, Version 2.0. prepare_workshop_sample.py
+  downloads that data at a pinned commit; it is not stored in this repository.
+- Approach 2 uses the neo4j-graphrag library (SimpleKGPipeline) as a dependency,
+  following the pattern of that workshop.
+- Filings are public documents from SEC EDGAR.
+
+No proprietary data. The views expressed are the author's own.

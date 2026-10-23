@@ -44,8 +44,8 @@ Prices for the cost figures live in `pricing.yaml` with the date they were check
 
 ## The workshop sample, audited
 
-`python prepare_workshop_sample.py` checks `../data/Company_Filings.csv` against its PDFs and against
-`../data/Asset_Manager_Holdings.csv`, then builds `CORPUS=workshop_sample` **with the CSV labels unchanged**.
+`python prepare_workshop_sample.py` downloads the Neo4j genai-workshop sample data (pinned commit, into the git-ignored
+`data/raw/workshop/`), checks `Company_Filings.csv` against its PDFs and against `Asset_Manager_Holdings.csv`, then builds `CORPUS=workshop_sample` **with the CSV labels unchanged**.
 Full log: `results/data_quality_workshop_sample.md`. Highlights:
 
 - **Duplicate company**: two `APPLE INC` rows (CIK 1490054 and 320193).
@@ -94,4 +94,4 @@ Full log: `results/data_quality_workshop_sample.md`. Highlights:
 
 ## License
 
-Derived from the Apache-2.0 Neo4j genai-workshop; see `../LICENSE` and `../../NOTICE`. This folder adds new files only.
+Apache-2.0; see `LICENSE` and `NOTICE` (the workshop sample data used for the audit is Apache-2.0, from the Neo4j genai-workshop).

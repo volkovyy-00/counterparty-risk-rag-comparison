@@ -1,0 +1,21 @@
+# Offline tests. Needs no secrets: the tests use a fake model and skip the
+# Neo4j test when NEO4J_PASSWORD is unset.
+name: offline tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python check_secrets.py
+      - run: python -m pytest tests -q

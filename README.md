@@ -13,15 +13,15 @@ output contract**, then checked by **one verifier** and scored by **one rule** (
 | 3 | Taxonomy-first | the model labels each risk factor with a fixed id (`taxonomy.yaml` v2) and a quote; code counts | same |
 | L | Control: long context | all ten Item 1A sections in one call, if they fit | same |
 
-The data is public: SEC EDGAR filings and the Apache-2.0 workshop sample in `../data`. There is no proprietary
-data, and the views are the author's own.
+The data is public: SEC EDGAR filings, plus the Apache-2.0 sample data of the Neo4j
+[genai-workshop](https://github.com/neo4j-product-examples/genai-workshop) for the data-quality audit (see
+[NOTICE](NOTICE)). There is no proprietary data, and the views are the author's own.
 
 ---
 
 ## On stage (offline, ~10 s to start)
 
 ```bash
-cd financial_documents/counterparty_risk
 pip install -r requirements.txt
 make demo            # or ./demo.sh - builds demo/index.html from results/demo_run/ and opens it
 make demo-live       # same, plus the one live step (plain-RAG ask; 20 s deadline, then the recorded answer)
@@ -66,6 +66,6 @@ make test             # offline; uses a test-only fake model that can never be f
 NEO4J_PASSWORD=... make test   # also builds and exports a small graph
 ```
 
-CI: `.github/workflows/counterparty-risk-tests.yml` runs these tests offline. It needs no secrets.
+CI: `.github/workflows/tests.yml` runs these tests offline. It needs no secrets.
 
 Settings, outputs, design decisions, limits and references: [DETAILS.md](DETAILS.md).

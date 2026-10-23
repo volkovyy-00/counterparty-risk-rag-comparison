@@ -1,4 +1,4 @@
-# One-command entry points. Run from financial_documents/counterparty_risk/.
+# One-command entry points. Run from the repository root.
 PY ?= python
 PORT ?= 8000
 

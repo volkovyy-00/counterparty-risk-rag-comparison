@@ -2,10 +2,12 @@
 
     python prepare_workshop_sample.py
 
-Checks ../data/Company_Filings.csv against the PDFs in ../data/form10k-sample
-and against ../data/Asset_Manager_Holdings.csv (a second source in the same
-repo). Every problem is reported; the corpus keeps the CSV's labels exactly as
-they are, so you can show what a pipeline does with them.
+Downloads the sample data of the Apache-2.0 Neo4j genai-workshop (financial_documents/data,
+pinned to one commit) into data/raw/workshop/ - not stored in this repo - then checks
+Company_Filings.csv against the PDFs in form10k-sample/ and against
+Asset_Manager_Holdings.csv (a second source in the same workshop). Every problem is
+reported; the corpus keeps the CSV's labels exactly as they are, so you can show what a
+pipeline does with them.
 """
 import csv
 import re
@@ -18,10 +20,31 @@ import config
 from corpus import QualityLog, write_manifest
 from item1a import SMALLER_REPORTING
 
-WORKSHOP = config.ROOT.parent
-FILINGS_CSV = WORKSHOP / "data" / "Company_Filings.csv"
-HOLDINGS_CSV = WORKSHOP / "data" / "Asset_Manager_Holdings.csv"
-PDF_DIR = WORKSHOP / "data" / "form10k-sample"
+WORKSHOP_COMMIT = "e9ecdf307c7811d763d756bea89674dee5011fe0"  # neo4j-product-examples/genai-workshop
+WORKSHOP_URL = ("https://raw.githubusercontent.com/neo4j-product-examples/genai-workshop/"
+                f"{WORKSHOP_COMMIT}/financial_documents/data/")
+WORKSHOP_FILES = ["Company_Filings.csv", "Asset_Manager_Holdings.csv"] + [
+    f"form10k-sample/{n}.pdf" for n in (
+        "0000320193-23-000106", "0000950170-23-035122", "0001004980-23-000029", "0001018724-23-000004",
+        "0001045810-23-000017", "0001096906-23-001489", "0001633917-23-000033", "0001652044-16-000012")]
+WORKSHOP = config.DATA_DIR / "raw" / "workshop"
+FILINGS_CSV = WORKSHOP / "Company_Filings.csv"
+HOLDINGS_CSV = WORKSHOP / "Asset_Manager_Holdings.csv"
+PDF_DIR = WORKSHOP / "form10k-sample"
+
+
+def download_workshop_data():
+    """Fetch the workshop's sample files once (pinned commit); skipped if already on disk."""
+    import requests
+
+    for name in WORKSHOP_FILES:
+        path = WORKSHOP / name
+        if not path.exists():
+            resp = requests.get(WORKSHOP_URL + name, timeout=60)
+            resp.raise_for_status()
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(resp.content)
+            print(f"  downloaded {name}")
 ACCESSION = re.compile(r"^\d{10}-\d{2}-\d{6}$")
 NAME_STOPWORDS = {"INC", "CORP", "CORPORATION", "HLDGS", "GROUP", "CO", "THE"}
 
@@ -70,6 +93,7 @@ def first_name_token(name):
 
 
 def main():
+    download_workshop_data()
     log = QualityLog("Data quality - workshop sample (Company_Filings.csv + form10k-sample PDFs)")
     with FILINGS_CSV.open(newline="") as f:
         filings = list(csv.DictReader(f))
