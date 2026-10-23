@@ -2,60 +2,70 @@
 
 > **What industry risks connect these counterparties, and which counterparties share each one?**
 
-Ten public companies, their latest 10-K **Item 1A Risk Factors** from SEC EDGAR, and three ways to answer:
+Ten US-listed companies: six in autos and four in semiconductors (`GROUP=auto_semis` in `groups.yaml`). Each
+company's latest 10-K, **Item 1A Risk Factors**, from SEC EDGAR. The question is answered three ways under **one
+output contract**, then checked by **one verifier** and scored by **one rule** ([SCORING_RULE.md](SCORING_RULE.md)):
 
-| # | Approach | The LLM does... | Code does... |
+| # | Approach | Retrieval and reasoning | Returns |
 |---|---|---|---|
-| 1 | **Plain RAG** | answer from the top-k retrieved chunks | chunk, embed, retrieve |
-| 2 | **GraphRAG** (Neo4j, workshop `SimpleKGPipeline`) | extract `RiskFactor` nodes; summarise the traversal | link companies by provenance; find risks shared by 2+ companies |
-| 3 | **Taxonomy-first** | map each risk factor to a fixed id in `taxonomy.yaml` + verbatim quote | reject quotes not in the source; build company x category matrix; rank |
+| 1 | Plain RAG | top-k vector retrieval, one call | claims `{company, category, leaf, quote, source_ref}` |
+| 2 | GraphRAG (Neo4j as the graph store, workshop `SimpleKGPipeline`) | graph traversal of risks shared by 2+ companies | same |
+| 3 | Taxonomy-first | the model labels each risk factor with a fixed id (`taxonomy.yaml` v2) and a quote; code counts | same |
+| L | Control: long context | all ten Item 1A sections in one call, if they fit | same |
 
-Public data only: SEC EDGAR filings and the Apache-2.0 workshop sample in `../data`. No proprietary data.
+The data is public: SEC EDGAR filings and the Apache-2.0 workshop sample in `../data`. There is no proprietary
+data, and the views are the author's own.
 
 ---
 
-## 0. Set up (once, ~5 min)
+## On stage (offline, ~10 s to start)
 
 ```bash
 cd financial_documents/counterparty_risk
 pip install -r requirements.txt
-cp .env.sample .env            # set SEC_USER_AGENT, OPENAI_API_KEY (or another provider)
-docker compose up -d           # local Neo4j with APOC  (or point NEO4J_URI at Aura)
-python -m pytest tests -q      # offline self-test, no API key needed
+make demo            # or ./demo.sh - builds demo/index.html from results/demo_run/ and opens it
+make demo-live       # same, plus the one live step (plain-RAG ask; 20 s deadline, then the recorded answer)
 ```
 
-## 1. The day before (online)
+Keys: **1–7** switch screens, **G** governance, **T** timer, **D** dark theme, **Esc** closes a panel. Inside screens:
+**R** runs the live RAG ask (screen 3), **H** hides generic nodes (4), **L** switches to the leaf level (5), and
+**F/O/A** run the governance checks (G). The beat-by-beat script is in [REHEARSAL.md](REHEARSAL.md).
+
+Fallbacks: no Wi-Fi → `make demo`. No Neo4j → nothing changes, because the graph comes from
+`results/demo_run/graph.json`. No browser → open the PNGs in `demo/fallback/` (`make screenshots`).
+
+## Producing the frozen run (once, online – this is the only step that spends money)
 
 ```bash
-python fetch_10k.py                          # 10-Ks + Item 1A + data-quality log     ~1 min
-python approach2_graphrag.py build --reset   # knowledge graph (deletes ALL nodes)   ~10-20 min
-python run_all.py                            # all three, records the LLM cache      ~3-5 min
-python label_helper.py                       # then check ground_truth.yaml, set status: verified
-LLM_CACHE=replay python run_all.py           # rehearse with Wi-Fi OFF
+cp .env.sample .env       # SEC_USER_AGENT, ANTHROPIC_API_KEY (or another provider); never commit .env
+docker compose up -d      # local Neo4j with APOC
+make estimate             # prints the cost estimate; nothing is called
+make real-run             # stops if the estimate is over $5
+make real-run ARGS="--confirm-usd 25"
+make label                # a person labels the key in the browser -> ground_truth.yaml, status: verified
+make build-demo           # rebuild after labelling: P/R/F1 lose the DRAFT banner
+make check-secrets && git add results/demo_run cache data/corpus && git commit
 ```
 
-Times are estimates for 10 filings with `gpt-4.1-mini`; your first run writes the real ones to `results/`.
+`real_run.py` does the following in order:
 
-## 2. On stage
+1. Fetches the 10-Ks, respecting SEC fair-access rules and logging data-quality issues without fixing them.
+2. Builds the graph.
+3. Runs approaches 1, 2, 3 and L, then freezes the result into `results/demo_run/`.
+4. Exports the graph.
+5. Records run B for the audit trail.
+6. Adds 2 more runs with the cache off for the rerun-consistency figure.
+7. Builds the governance fixtures, the page and the screenshots.
+
+Every model call is cached, so `LLM_CACHE=replay python run_all.py` reproduces run A with zero API calls.
+
+## Tests
 
 ```bash
-python run_all.py                  # ~seconds: every call is a cache hit
-cat results/data_quality_edgar_latest.md
+make test             # offline; uses a test-only fake model that can never be frozen into results/demo_run/
+NEO4J_PASSWORD=... make test   # also builds and exports a small graph
 ```
 
-## 3. If the conference Wi-Fi fails
+CI: `.github/workflows/counterparty-risk-tests.yml` runs these tests offline. It needs no secrets.
 
-| Level | Command | Needs |
-|---|---|---|
-| A | `LLM_CACHE=replay python run_all.py` | cache from step 1, local Neo4j (graph is kept in the Docker volume) |
-| B | `LLM_CACHE=replay python run_all.py --approaches 1,3` | cache only - no Neo4j |
-| C | `python run_all.py --show` | nothing - prints the last saved comparison |
-
-Copy `cache/`, `data/corpus/` and `results/` to the demo laptop (or commit them).
-`replay` never calls an API and stops on a cache miss; it never makes up an answer.
-
----
-
-**Results** land in `results/latest/comparison.md` (plus one JSON per approach, the taxonomy matrix and
-rejected quotes). Settings are environment variables, listed in [DETAILS.md](DETAILS.md) with the data-quality
-findings, design decisions, known limits and references.
+Settings, outputs, design decisions, limits and references: [DETAILS.md](DETAILS.md).
