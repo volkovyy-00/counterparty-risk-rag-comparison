@@ -21,8 +21,10 @@ def load_ground_truth(corpus=None):
     section = (doc.get("corpora") or {}).get(corpus or config.CORPUS)
     if not section or not section.get("labels"):
         return None
-    yes = {t: set(v.get("yes") or []) for t, v in section["labels"].items()}
-    decided = {t: set(v.get("yes") or []) | set(v.get("no") or []) for t, v in section["labels"].items()}
+    # A hand-edited file may have unquoted yes:/no: keys, which YAML reads as booleans.
+    get = lambda v, key: set(v.get(key) or v.get(key == "yes") or [])  # noqa: E731
+    yes = {str(t): get(v, "yes") for t, v in section["labels"].items()}
+    decided = {str(t): get(v, "yes") | get(v, "no") for t, v in section["labels"].items()}
     return {"status": section.get("status", "draft"), "labeller": section.get("labeller", ""),
             "labelled_at": section.get("labelled_at", ""), "accessions": section.get("accessions", {}),
             "taxonomy_version": section.get("taxonomy_version"), "yes": yes, "decided": decided}

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ground-truth labelling</title>
+<style>
+  :root { --bg:#fff; --fg:#111; --muted:#555; --line:#ccc; --yes:#1f4e9c; --no:#6b6b6b; --hl:#fff2a8; --focus:#e8eefc; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:16px/1.45 system-ui, sans-serif; background:var(--bg); color:var(--fg); }
+  header { position:sticky; top:0; background:var(--bg); border-bottom:1px solid var(--line); padding:10px 16px; z-index:2; }
+  h1 { font-size:20px; margin:0 0 6px; }
+  .tabs button { margin:2px; padding:4px 10px; border:1px solid var(--line); background:#f6f6f6; cursor:pointer; }
+  .tabs button.on { background:var(--fg); color:var(--bg); }
+  .tabs .done { font-size:12px; color:var(--muted); }
+  main { display:grid; grid-template-columns: 1fr 380px; gap:16px; padding:12px 16px; }
+  .cat { font-weight:700; margin:18px 0 4px; }
+  .row { border:1px solid var(--line); padding:8px 10px; margin:6px 0; }
+  .row.focus { background:var(--focus); }
+  .row .id { font-family:ui-monospace, monospace; font-size:14px; }
+  .row .desc { color:var(--muted); font-size:14px; }
+  .cand { font-size:14px; margin:4px 0 0 0; padding-left:10px; border-left:3px solid var(--line); }
+  .btns button { min-width:64px; padding:4px 10px; margin-right:6px; border:2px solid var(--line); background:#fff; cursor:pointer; font-weight:700; }
+  .btns button.yes.on { background:var(--yes); border-color:var(--yes); color:#fff; }
+  .btns button.no.on { background:var(--no); border-color:var(--no); color:#fff; }
+  aside { position:sticky; top:110px; align-self:start; max-height:calc(100vh - 130px); overflow:auto; border:1px solid var(--line); padding:10px; }
+  aside input { width:100%; padding:6px; font-size:15px; }
+  .hit { font-size:14px; margin:8px 0; }
+  mark { background:var(--hl); }
+  footer { padding:16px; border-top:1px solid var(--line); }
+  .status { font-weight:700; }
+  .muted { color:var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Ground-truth labelling - <span id="corpus"></span> <span class="status" id="status"></span></h1>
+  <div class="muted">Yes = this company's Item 1A gives the risk at least one dedicated risk factor (a passing mention is No).
+    Candidate sentences are keyword hits, not suggestions. Keys: <b>J/K</b> move, <b>Y/N</b> decide, <b>/</b> search.</div>
+  <div class="tabs" id="tabs"></div>
+  <div id="progress" class="muted"></div>
+</header>
+<main>
+  <section id="rows"></section>
+  <aside>
+    <b>Search this company's Item 1A</b>
+    <input id="q" placeholder="e.g. tariff, recall, single source">
+    <div id="hits" class="muted">Type at least 3 characters.</div>
+  </aside>
+</main>
+<footer>
+  Initials <input id="initials" size="6"> <button id="verify">Mark verified</button>
+  <span id="msg" class="muted"></span>
+</footer>
+<script>
+let S, cur, focusIdx = 0;
+const $ = id => document.getElementById(id);
+const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+async function load() {
+  S = await (await fetch('/api/state')).json();
+  cur = S.filings[0].ticker;
+  $('corpus').textContent = `${S.corpus} (${S.group})`;
+  $('initials').value = S.labeller || '';
+  render();
+}
+function decided(t) { return Object.keys(S.labels[t] || {}).length; }
+function render() {
+  const total = S.leaves.length;
+  $('status').textContent = `status: ${S.status}`;
+  $('tabs').innerHTML = S.filings.map(f =>
+    `<button class="${f.ticker === cur ? 'on' : ''}" data-t="${f.ticker}">${f.ticker}
+     <span class="done">${decided(f.ticker)}/${total}</span></button>`).join('');
+  const all = S.filings.reduce((n, f) => n + decided(f.ticker), 0);
+  const f = S.filings.find(x => x.ticker === cur);
+  $('progress').textContent = `${all} of ${S.filings.length * total} cells decided. ${f.company} - 10-K ${f.accession}, period ${f.report_date || '?'}`;
+  let html = '', lastCat = '';
+  S.leaves.forEach((leaf, i) => {
+    if (leaf.category !== lastCat) { html += `<div class="cat">${leaf.category} - ${esc(leaf.category_name)}</div>`; lastCat = leaf.category; }
+    const v = (S.labels[cur] || {})[leaf.id];
+    const c = S.candidates[cur][leaf.id];
+    const cands = c.top.map(x => `<div class="cand">${esc(x.text)}</div>`).join('') ||
+      '<div class="cand muted">no keyword hit - search the text if you think it applies</div>';
+    html += `<div class="row ${i === focusIdx ? 'focus' : ''}" data-i="${i}">
+      <div class="btns"><button class="yes ${v === 'yes' ? 'on' : ''}" data-v="yes">Yes</button><button class="no ${v === 'no' ? 'on' : ''}" data-v="no">No</button>
+      <span class="id">${leaf.id}</span> <span class="muted">(${c.count} keyword hits)</span></div>
+      <div class="desc">${esc(leaf.description)}</div>${cands}</div>`;
+  });
+  $('rows').innerHTML = html;
+}
+async function set(i, v) {
+  const leaf = S.leaves[i].id;
+  S.labels[cur] = S.labels[cur] || {};
+  S.labels[cur][leaf] = v;
+  render();
+  await persist(false);
+}
+async function persist(verify) {
+  const r = await (await fetch('/api/save', {method: 'POST', body: JSON.stringify({labels: S.labels, initials: $('initials').value, verify})})).json();
+  if (r.ok) { S.status = r.status; $('msg').textContent = `saved (${r.decided}/${r.total}, ${r.status})`; render(); }
+  else $('msg').textContent = r.error;
+}
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-t]');
+  if (t) { cur = t.dataset.t; focusIdx = 0; render(); search(); return; }
+  const b = e.target.closest('[data-v]');
+  if (b) { const row = b.closest('.row'); focusIdx = +row.dataset.i; set(focusIdx, b.dataset.v); }
+});
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT') { if (e.key === 'Escape') e.target.blur(); return; }
+  const k = e.key.toLowerCase();
+  if (k === 'j' || k === 'k') { focusIdx = Math.max(0, Math.min(S.leaves.length - 1, focusIdx + (k === 'j' ? 1 : -1))); render();
+    document.querySelector('.row.focus').scrollIntoView({block: 'center'}); }
+  if (k === 'y') { set(focusIdx, 'yes'); focusIdx = Math.min(S.leaves.length - 1, focusIdx + 1); }
+  if (k === 'n') { set(focusIdx, 'no'); focusIdx = Math.min(S.leaves.length - 1, focusIdx + 1); }
+  if (k === '/') { e.preventDefault(); $('q').focus(); }
+});
+function search() {
+  const q = $('q').value.trim();
+  if (q.length < 3) { $('hits').textContent = 'Type at least 3 characters.'; return; }
+  const text = S.texts[cur], low = text.toLowerCase(), ql = q.toLowerCase();
+  let out = [], i = low.indexOf(ql);
+  while (i >= 0 && out.length < 30) {
+    const a = Math.max(0, i - 160), b = Math.min(text.length, i + q.length + 160);
+    out.push(`<div class="hit">...${esc(text.slice(a, i))}<mark>${esc(text.slice(i, i + q.length))}</mark>${esc(text.slice(i + q.length, b))}...</div>`);
+    i = low.indexOf(ql, i + q.length);
+  }
+  $('hits').innerHTML = out.length ? `${out.length}${out.length === 30 ? '+' : ''} matches` + out.join('') : 'no match';
+}
+$('q').addEventListener('input', search);
+$('verify').addEventListener('click', () => persist(true));
+load();
+</script>
+</body>
+</html>

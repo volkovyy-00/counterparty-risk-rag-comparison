@@ -329,3 +329,26 @@ def test_fetch_10k_logs_quality_issues(tmp_path, monkeypatch):
     manifest = load_corpus(tmp_path / "data/corpus/edgar_latest")
     assert [f["ticker"] for f in manifest] == ["GOOGL", "GOOG", "MCHP"]  # reported, not de-duplicated
     assert manifest[0]["text"].startswith("Supply chain risk.")
+
+
+# --------------------------------------------------------------------------- labelling tool
+def test_label_tool_saves_draft_and_verifies_only_when_complete(offline, tmp_path, monkeypatch):
+    import evaluate
+    import label_tool
+
+    gt = tmp_path / "ground_truth.yaml"
+    gt.write_text("# header comment kept\ncorpora: {}\n")
+    monkeypatch.setattr(label_tool, "GT_PATH", gt)
+    monkeypatch.setattr(evaluate, "GT_PATH", gt)
+    one = {"NVDA": {"TAX.tax_law_changes": "yes", "TAX.tax_audits_disputes": "no"}}
+    assert not label_tool.save(one, "AB", True, offline)["ok"]  # incomplete: cannot verify
+    assert label_tool.save(one, "AB", False, offline)["status"] == "draft"
+    assert gt.read_text().startswith("# header comment kept")
+    key = evaluate.load_ground_truth("workshop_sample")
+    assert key["status"] == "draft" and key["yes"]["NVDA"] == {"TAX.tax_law_changes"}
+    full = {f["ticker"]: {leaf: "no" for leaf in taxonomy.LEAF_IDS} for f in offline}
+    assert not label_tool.save(full, "", True, offline)["ok"]  # initials required
+    done = label_tool.save(full, "AB", True, offline)
+    assert done["ok"] and done["status"] == "verified"
+    key = evaluate.load_ground_truth("workshop_sample")
+    assert key["labeller"] == "AB" and key["accessions"]["NVDA"] == "0001045810-23-000017"
