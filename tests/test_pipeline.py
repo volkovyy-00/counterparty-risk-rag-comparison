@@ -352,3 +352,85 @@ def test_label_tool_saves_draft_and_verifies_only_when_complete(offline, tmp_pat
     assert done["ok"] and done["status"] == "verified"
     key = evaluate.load_ground_truth("workshop_sample")
     assert key["labeller"] == "AB" and key["accessions"]["NVDA"] == "0001045810-23-000017"
+
+
+# --------------------------------------------------------------------------- demo page, server, governance
+@pytest.fixture(scope="module")
+def fixture_run(tmp_path_factory):
+    """A complete fake-model run (no graph unless Neo4j is configured)."""
+    from tests import make_fixture
+
+    return make_fixture.make(tmp_path_factory.mktemp("fx") / "run", with_graph=False)
+
+
+def test_demo_builds_and_loads_graph_without_neo4j(fixture_run, tmp_path, monkeypatch):
+    import build_demo
+
+    graph = {"nodes": [{"id": "c:GM", "type": "Company", "label": "GM", "industry": "auto", "degree": 1},
+                       {"id": "c:ON", "type": "Company", "label": "ON", "industry": "semis", "degree": 1},
+                       {"id": "r:0", "type": "RiskFactor", "label": "Chip supply", "degree": 2, "share": 1.0,
+                        "generic": True, "industries": ["auto", "semis"]}],
+             "edges": [{"source": "c:GM", "target": "r:0"}, {"source": "c:ON", "target": "r:0"}],
+             "resolution": {"resolver": "fuzzy", "risk_factors_exact": 3, "risk_factors_resolved": 1}}
+    (fixture_run / "graph.json").write_text(json.dumps(graph))
+    monkeypatch.setattr(config, "NEO4J_URI", "bolt://127.0.0.1:1")  # nothing listens: must not be needed
+    monkeypatch.setattr(config, "NEO4J_PASSWORD", None)
+    with pytest.raises(SystemExit, match="not real model output"):
+        build_demo.build(fixture_run, tmp_path / "x.html")  # fake runs need --fixture
+    data = build_demo.build(fixture_run, tmp_path / "index.html", fixture=True)
+    assert data["graph"]["resolution"]["risk_factors_exact"] == 3 and data["meta"]["fixture"]
+    html = (tmp_path / "index.html").read_text()
+    assert "/*__DATA__*/null" not in html and "TEST FIXTURE" in html
+    assert "cdn" not in html.lower() and "<script src" not in html  # nothing loaded from the network
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        return
+    errors = []
+    with sync_playwright() as p:
+        kwargs = {"executable_path": "/opt/pw-browsers/chromium"} if Path("/opt/pw-browsers/chromium").exists() else {}
+        browser = p.chromium.launch(**kwargs)
+        page = browser.new_page(viewport={"width": 1920, "height": 1080})
+        page.on("pageerror", lambda e: errors.append(str(e)))
+        page.goto((tmp_path / "index.html").as_uri() + "?screen=4")
+        page.wait_for_selector("body[data-ready='1']")
+        assert "3</b> exact-name" in page.inner_html("#screen")
+        browser.close()
+    assert not errors
+
+
+def test_live_step_falls_back_to_cache_within_the_deadline(fixture_run, monkeypatch):
+    import time
+
+    import approach1_rag
+    import serve
+
+    live = serve.Live(fixture_run)
+    live.index, live.filings = ([], None), []
+    monkeypatch.setattr(approach1_rag, "ask", lambda *a, **k: time.sleep(5))
+    start = time.perf_counter()
+    res = live.ask(timeout=0.5)
+    assert time.perf_counter() - start < 2
+    assert res["mode"] == "cached" and "no answer within" in res["note"] and res["recorded_at"]
+
+    def boom(*a, **k):
+        raise ConnectionError("no network")
+    monkeypatch.setattr(approach1_rag, "ask", boom)
+    assert live.ask(timeout=5)["mode"] == "cached"
+    assert serve.LIVE_TIMEOUT_S == 20
+
+
+def test_governance_moments_are_deterministic_offline(fixture_run, monkeypatch):
+    import governance
+
+    monkeypatch.setattr(config, "CORPUS", "workshop_sample")
+    monkeypatch.setattr(config, "CORPUS_DIR", WORKSHOP_CORPUS)
+    monkeypatch.setattr(llm, "_call_chat", lambda *a, **k: (_ for _ in ()).throw(AssertionError("model called")))
+    runs = [json.dumps(governance.run_all(fixture_run), sort_keys=True) for _ in range(3)]
+    assert runs[0] == runs[1] == runs[2]
+    out = json.loads(runs[0])
+    assert out["fabricated"]["verdict"] == "rejected" and out["fabricated"]["closest_real_sentence"]
+    assert out["off_taxonomy"]["verdict"] == "rejected" and out["off_taxonomy"]["check"] == "label"
+    assert "SUPPLY_GEOPOLITICS" in out["off_taxonomy"]["reason"]
+    assert out["audit"]["available"]
+    assert any(r["field"] == "taxonomy_prompt_version" and r["changed"] for r in out["audit"]["manifest_rows"])
