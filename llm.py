@@ -142,7 +142,9 @@ def _client(provider):
         elif provider == "local":
             from fastembed import TextEmbedding
 
-            _clients[provider] = TextEmbedding(model_name=config.EMBED_MODEL)
+            # Model files are kept under cache/models (git-ignored) so the live step works offline later.
+            _clients[provider] = TextEmbedding(model_name=config.EMBED_MODEL,
+                                               cache_dir=str(config.CACHE_DIR / "models"))
         else:
             raise ValueError(f"Unknown provider {provider!r} (use anthropic, openai, azure; local for embeddings)")
     return _clients[provider]
