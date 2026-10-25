@@ -2,7 +2,7 @@
   "corpus": "edgar_latest",
   "model": "claude-opus-5-5",
   "prompt_version": "graph-v2",
-  "prompt_sha256": "fcf8007ec3e99ad659ddd03169dacf9ac6d43b608b6b315a66ddb77f751bf803",
+  "prompt_sha256": "3f02af0914b6f8a483a16e9341a06da9f68a353223167cc1005fdccdde721a68",
   "resolver": "llm",
   "chunk_chars": 6000,
   "tickers": [
@@ -11,53 +11,53 @@
     "TXN"
   ],
   "usage": {
-    "llm_calls": 61.0,
-    "cached_calls": 207.0,
-    "input_tokens": 175677.0,
-    "prompt_cache_read_tokens": 105658.0,
-    "output_tokens": 36673.0,
-    "recorded_latency_s": 416.189466,
-    "cost_usd": 1.047089,
-    "embed_calls": 171.0,
-    "wall_clock_s": 86.899331
+    "llm_calls": 73.0,
+    "cached_calls": 26.0,
+    "input_tokens": 189520.0,
+    "prompt_cache_read_tokens": 118795.0,
+    "output_tokens": 40068.0,
+    "recorded_latency_s": 455.505316,
+    "cost_usd": 1.121647,
+    "embed_calls": 179.0,
+    "wall_clock_s": 217.543438
   },
   "usage_by_stage": {
     "graph.build": {
       "llm_calls": 36.0,
-      "cached_calls": 72.0,
-      "input_tokens": 151305.0,
-      "prompt_cache_read_tokens": 89088.0,
-      "output_tokens": 30258.0,
-      "recorded_latency_s": 314.883437,
-      "cost_usd": 0.882982,
+      "cached_calls": 25.0,
+      "input_tokens": 157461.0,
+      "prompt_cache_read_tokens": 94560.0,
+      "output_tokens": 33137.0,
+      "recorded_latency_s": 319.809312,
+      "cost_usd": 0.945076,
       "embed_calls": 36.0,
-      "wall_clock_s": 0.452133
+      "wall_clock_s": 83.714775
     },
     "graph.resolve": {
-      "embed_calls": 135.0,
-      "cached_calls": 135.0,
-      "input_tokens": 24372.0,
-      "prompt_cache_read_tokens": 16570.0,
-      "output_tokens": 6415.0,
-      "recorded_latency_s": 101.306029,
-      "cost_usd": 0.164107,
-      "llm_calls": 25.0,
-      "wall_clock_s": 86.447198
+      "embed_calls": 143.0,
+      "cached_calls": 1.0,
+      "input_tokens": 32059.0,
+      "prompt_cache_read_tokens": 24235.0,
+      "output_tokens": 6931.0,
+      "recorded_latency_s": 135.696004,
+      "cost_usd": 0.176571,
+      "llm_calls": 37.0,
+      "wall_clock_s": 133.828663
     }
   },
   "graph": {
     "companies": 3,
     "chunks": 36,
-    "risk_factors": 103,
-    "faces_risk": 121,
-    "risk_factors_shared": 15
+    "risk_factors": 112,
+    "faces_risk": 140,
+    "risk_factors_shared": 23
   },
-  "risk_factors_exact": 135,
-  "risk_factors_resolved": 103,
-  "mentions": 135,
+  "risk_factors_exact": 143,
+  "risk_factors_resolved": 112,
+  "mentions": 152,
   "mentions_rejected": 0,
   "verification_rate": 1.0,
-  "merges_approved": 20,
-  "merges_rejected": 209,
-  "drivers": 98
+  "merges_approved": 25,
+  "merges_rejected": 261,
+  "drivers": 97
 }

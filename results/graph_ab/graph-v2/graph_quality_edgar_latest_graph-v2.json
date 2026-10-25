@@ -3,31 +3,31 @@
  "resolver": "llm",
  "filings": 3,
  "quote_verification_rate": 1.0,
- "paragraph_coverage": 0.8376,
- "mentions": 135,
+ "paragraph_coverage": 0.8899,
+ "mentions": 152,
  "mentions_rejected": 0,
  "mentions_per_filing": {
-  "GM": 48,
-  "NXPI": 63,
-  "TXN": 24
+  "GM": 59,
+  "NXPI": 64,
+  "TXN": 29
  },
- "canonical_risk_factors": 103,
- "singleton_share": 0.8544,
- "shared_specific": 12,
- "shared_specific_cross_industry": 4,
- "generic_risk_factors": 3,
+ "canonical_risk_factors": 112,
+ "singleton_share": 0.7946,
+ "shared_specific": 18,
+ "shared_specific_cross_industry": 7,
+ "generic_risk_factors": 5,
  "most_generic": {
-  "name": "Skilled engineering talent attraction and retention",
+  "name": "Supplier dependence and supply disruption",
   "companies": 3
  },
  "examples_shared_specific": [
-  "Data privacy regulation compliance costs",
-  "IP infringement claims and misappropriation",
-  "Labor union disputes and work stoppages",
-  "Pandemic and public health crisis disruption",
-  "Cyclical semiconductor demand volatility"
+  "Data privacy regulatory compliance costs",
+  "Joint venture partner dependence",
+  "Labor relations and work stoppages",
+  "Low-cost Asian competitor pricing pressure",
+  "Pandemic operational disruption"
  ],
- "shared_drivers": 6,
+ "shared_drivers": 5,
  "examples_shared_drivers": [
   "China (GM, NXPI, TXN)",
   "United States (GM, NXPI, TXN)",
@@ -36,24 +36,24 @@
   "artificial intelligence (GM, NXPI)"
  ],
  "resolution": {
-  "names_exact": 135,
-  "components": 20,
-  "merges_approved": 20,
-  "merges_rejected_llm": 209,
-  "merges_rejected_rule": 0
+  "names_exact": 143,
+  "components": 28,
+  "merges_approved": 25,
+  "merges_rejected_llm": 260,
+  "merges_rejected_rule": 1
  },
  "tokens_and_cost": {
   "graph.build": {
-   "input_tokens": 151305,
-   "output_tokens": 30258,
+   "input_tokens": 157461,
+   "output_tokens": 33137,
    "llm_calls": 36,
-   "cost_usd": 0.883
+   "cost_usd": 0.9451
   },
   "graph.resolve": {
-   "input_tokens": 24372,
-   "output_tokens": 6415,
-   "llm_calls": 25,
-   "cost_usd": 0.1641
+   "input_tokens": 32059,
+   "output_tokens": 6931,
+   "llm_calls": 37,
+   "cost_usd": 0.1766
   }
  }
 }

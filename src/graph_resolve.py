@@ -1,9 +1,9 @@
 """Entity resolution for GraphRAG v2: extract first, then resolve.
 
 1. Normalise risk names (case, "risks related to ...", plural head noun) and merge exact matches.
-2. Merge candidates: embedding neighbours (cosine >= GRAPH_SIM_MIN, top GRAPH_SIM_TOPK) united with
+2. Merge candidates: embedding neighbours of the names (cosine >= GRAPH_SIM_MIN, top GRAPH_SIM_TOPK) united with
    RapidFuzz token_set_ratio >= GRAPH_LEX_MIN. Connected components larger than GRAPH_COMPONENT_MAX are split
-   by raising the cosine threshold locally (chains otherwise make one mega-cluster).
+   by raising the cosine threshold locally (chains otherwise make one mega-cluster); lexical pairs stay joined.
 3. GRAPH_RESOLVER=llm: one call per multi-member component decides which members are the same driver AND the
    same mechanism of harm. A code rule then refuses known opposite pairs (supplier vs customer concentration...).
    exact: step 1 only. fuzzy: WRatio >= 0.8 on names (the library resolver's rule), for comparison.
@@ -150,7 +150,8 @@ def split_large(members, pairs, cos, start):
     thr = start + 0.02
     while thr <= 0.99:
         local = {m: k for k, m in enumerate(members)}
-        keep = [(local[a], local[b]) for a, b in pairs if a in local and b in local and cos[a, b] >= thr]
+        keep = [(local[a], local[b]) for (a, b), s in pairs.items() if a in local and b in local
+                and (cos[a, b] >= thr or s["lex"] >= config.GRAPH_LEX_MIN)]  # near-identical names stay together
         parts = [[members[k] for k in comp] for comp in _components(len(members), keep)]
         if all(len(p) <= limit for p in parts):
             return parts
@@ -216,8 +217,9 @@ def resolve_risks(mentions, filings, resolver=None):
                   for comp in _components(len(norm), pairs)]
     else:
         first = {k: sorted(keys[k], key=lambda m: m["id"])[0] for k in norm}
-        texts = [f"{display[i]} — {first[k].get('detail', '')}" for i, k in enumerate(norm)]
-        pairs, cos = candidate_pairs(texts, display)
+        # Candidates from the names alone: risk_name is worded to compare across companies, while the
+        # company-specific detail would pull neighbours apart. The LLM still sees the detail.
+        pairs, cos = candidate_pairs(display, display)
         comps = []
         for comp in _components(len(norm), list(pairs)):
             comps += split_large(comp, pairs, cos, config.GRAPH_SIM_MIN) if len(comp) > 1 else [comp]
