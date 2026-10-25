@@ -95,9 +95,23 @@ NEO4J_DATABASE = env("NEO4J_DATABASE", "neo4j")
 RAG_CHUNK_CHARS = int(env("RAG_CHUNK_CHARS", "1500"))
 RAG_CHUNK_OVERLAP = int(env("RAG_CHUNK_OVERLAP", "200"))
 RAG_TOP_K = int(env("RAG_TOP_K", "12"))
-GRAPH_CHUNK_CHARS = int(env("GRAPH_CHUNK_CHARS", "4000"))
-GRAPH_CHUNK_OVERLAP = int(env("GRAPH_CHUNK_OVERLAP", "200"))
-GRAPH_RESOLVER = env("GRAPH_RESOLVER", "fuzzy")  # exact | fuzzy
+# graph-v1-workshop : the workshop's SimpleKGPipeline prompt and fuzzy resolver (kept as the A/B baseline)
+# graph-v2          : own extractor - paragraph chunks, structured output, verified quotes, LLM-checked merges
+GRAPH_PROMPT_VERSION = env("GRAPH_PROMPT_VERSION", "graph-v2")
+if GRAPH_PROMPT_VERSION not in ("graph-v1-workshop", "graph-v2"):
+    raise SystemExit(f"GRAPH_PROMPT_VERSION={GRAPH_PROMPT_VERSION!r}: use graph-v1-workshop or graph-v2")
+GRAPH_CHUNK_CHARS = int(env("GRAPH_CHUNK_CHARS", "4000"))  # v1 (character splitter)
+GRAPH_CHUNK_OVERLAP = int(env("GRAPH_CHUNK_OVERLAP", "200"))  # v1
+GRAPH_V2_CHUNK_CHARS = int(env("GRAPH_V2_CHUNK_CHARS", "6000"))  # v2: whole paragraphs packed up to this, no overlap
+# exact | fuzzy (RapidFuzz WRatio >= 0.8, the library's resolver) | llm (candidates, then an LLM decides, v2 only)
+GRAPH_RESOLVER = env("GRAPH_RESOLVER", "llm" if GRAPH_PROMPT_VERSION == "graph-v2" else "fuzzy")
+GRAPH_SIM_MIN = float(env("GRAPH_SIM_MIN", "0.80"))  # embedding cosine for merge candidates
+GRAPH_SIM_TOPK = int(env("GRAPH_SIM_TOPK", "8"))
+GRAPH_LEX_MIN = int(env("GRAPH_LEX_MIN", "90"))  # RapidFuzz token_set_ratio for merge candidates
+GRAPH_COMPONENT_MAX = int(env("GRAPH_COMPONENT_MAX", "25"))  # larger candidate groups are split before the LLM sees them
+GENERIC_SHARE = float(env("GENERIC_SHARE", "0.8"))  # generic = faced by at least this share of companies
+GRAPH_COMPANY_LINKS = env("GRAPH_COMPANY_LINKS", "0") == "1"  # named supplier/customer edges (off by default)
+GRAPH_AB_TICKERS = [t.strip().upper() for t in env("GRAPH_AB_TICKERS", "GM,NXPI,TXN").split(",") if t.strip()]
 GRAPH_MODE = env("GRAPH_MODE", "global")  # global traversal | vector_seeded (workshop pattern)
 TAXO_WINDOW_CHARS = int(env("TAXO_WINDOW_CHARS", "12000"))
 

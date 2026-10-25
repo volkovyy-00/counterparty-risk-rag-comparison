@@ -41,6 +41,14 @@ def git_state():
             "dirty": bool(git("status", "--porcelain", "--", "."))}
 
 
+def _graph_v2_hash(ask_system, claims):
+    import graph_resolve
+    import graph_v2
+
+    return sha256(ask_system + graph_v2.SYSTEM_V2 + json.dumps(graph_v2.MENTIONS_SCHEMA, sort_keys=True)
+                  + graph_resolve.RESOLVE_SYSTEM + graph_resolve.DRIVER_SYSTEM + claims)
+
+
 def prompt_hashes():
     import approach0_long_context
     import approach1_rag
@@ -52,7 +60,8 @@ def prompt_hashes():
     return {
         "0_long_context": sha256(approach0_long_context.SYSTEM + claims),
         "1_plain_rag": sha256(approach1_rag.SYSTEM + claims),
-        "2_graphrag": sha256(approach2_graphrag.SYSTEM + approach2_graphrag.EXTRACTION_INSTRUCTION + claims),
+        "2_graphrag": sha256(approach2_graphrag.SYSTEM + approach2_graphrag.EXTRACTION_INSTRUCTION + claims)
+        if config.GRAPH_PROMPT_VERSION == "graph-v1-workshop" else _graph_v2_hash(approach2_graphrag.SYSTEM, claims),
         "3_taxonomy_first": sha256(approach3_taxonomy.system() + json.dumps(approach3_taxonomy.SCHEMA, sort_keys=True)),
     }
 
@@ -83,7 +92,9 @@ def build(filings, approaches, label=""):
         "approaches": approaches,
         "knobs": {"rag_top_k": config.RAG_TOP_K, "rag_chunk_chars": config.RAG_CHUNK_CHARS,
                   "graph_chunk_chars": config.GRAPH_CHUNK_CHARS, "graph_resolver": config.GRAPH_RESOLVER,
-                  "graph_mode": config.GRAPH_MODE, "taxo_window_chars": config.TAXO_WINDOW_CHARS,
+                  "graph_mode": config.GRAPH_MODE, "graph_prompt_version": config.GRAPH_PROMPT_VERSION,
+                  "graph_v2_chunk_chars": config.GRAPH_V2_CHUNK_CHARS, "graph_sim_min": config.GRAPH_SIM_MIN,
+                  "generic_share": config.GENERIC_SHARE, "taxo_window_chars": config.TAXO_WINDOW_CHARS,
                   "min_shared": config.MIN_SHARED},
         "pricing_checked": llm.PRICES_CHECKED,
         "git": git_state(),

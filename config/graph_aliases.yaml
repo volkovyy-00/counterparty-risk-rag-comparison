@@ -1,0 +1,17 @@
+# ExposureDriver aliases for GraphRAG v2 (approach 2): canonical name -> other spellings.
+# Applied before exact matching; only leftover near-duplicates go to the LLM. Public, generic names only.
+China: [PRC, People's Republic of China, mainland China, the PRC, Chinese]
+Taiwan: [Republic of China (Taiwan), Taiwanese]
+United States: [U.S., US, USA, United States of America, the United States]
+European Union: [EU, the European Union, Europe]
+TSMC: [Taiwan Semiconductor Manufacturing Company, Taiwan Semiconductor Manufacturing Company Limited, Taiwan Semiconductor]
+Inflation Reduction Act: [IRA, the Inflation Reduction Act, Inflation Reduction Act of 2022]
+CHIPS Act: [CHIPS and Science Act, the CHIPS Act, CHIPS and Science Act of 2022]
+Section 232 tariffs: [Section 232, Section 232 of the Trade Expansion Act]
+Section 301 tariffs: [Section 301, Section 301 of the Trade Act]
+CAFE standards: [CAFE, Corporate Average Fuel Economy standards, Corporate Average Fuel Economy]
+GHG standards: [greenhouse gas emission standards, GHG emission standards, greenhouse gas standards]
+USMCA: [United States-Mexico-Canada Agreement]
+rare earth elements: [rare earths, rare earth materials, rare earth minerals]
+electric vehicles: [EVs, EV, electric vehicle]
+artificial intelligence: [AI]
