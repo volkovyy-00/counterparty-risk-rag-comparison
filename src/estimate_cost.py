@@ -32,7 +32,6 @@ def _tokens(system, user, measure):
 def estimate(filings, reruns=2, audit_run=True, measure=True):
     import approach0_long_context as a0
     import approach1_rag as a1
-    import approach2_graphrag as a2
     import approach3_taxonomy as a3
 
     measured = []

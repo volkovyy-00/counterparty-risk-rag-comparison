@@ -20,7 +20,6 @@ import asyncio
 import hashlib
 import json
 import logging
-import re
 
 from neo4j import GraphDatabase
 
@@ -28,7 +27,7 @@ import config
 import llm
 from answer import CLAIMS_SCHEMA, system_prompt
 from corpus import load_corpus
-from verify import edgar_fragment_url
+from verify import locate
 
 SCHEMA = {"node_types": [{"label": "RiskFactor", "properties": [{"name": "name", "type": "STRING"}],
                           "description": "A risk the filing company says could harm its business."}],
@@ -341,15 +340,19 @@ def _rank_v2(rows):
     return specific, generic
 
 
-def _paragraph(text, start):
-    """The paragraph of `text` that contains character `start` (blank-line separated)."""
-    a = text.rfind("\n\n", 0, start)
-    b = text.find("\n\n", start)
-    return text[a + 2 if a >= 0 else 0: b if b >= 0 else len(text)].strip()
+def _paragraph(spans, text, start):
+    """The paragraph (as cut by graph_v2.paragraphs, so never longer than a v2 chunk) containing `start`."""
+    for s, e in spans:
+        if s <= start < e:
+            return text[s:e].strip()
+    return text[max(0, start - 400):start + 400].strip()
 
 
 def _run_v2(drv, question, filings):
+    import graph_v2
+
     texts = {f["ticker"]: f["text"] for f in filings}
+    spans = {t: graph_v2.paragraphs(text) for t, text in texts.items()}
     if config.GRAPH_MODE == "vector_seeded":
         from neo4j_graphrag.retrievers import VectorCypherRetriever
 
@@ -372,7 +375,10 @@ def _run_v2(drv, question, filings):
 
     def cite(e, whole_paragraph):
         start = int(e["span"].split(":")[0])
-        body = _paragraph(texts[e["ticker"]], start) if whole_paragraph else e["quote"]
+        body = _paragraph(spans[e["ticker"]], texts[e["ticker"]], start) if whole_paragraph else e["quote"]
+        cited = sources.get(e["chunk_id"], "")
+        if not whole_paragraph and cited and locate(body, cited):  # already in a cited paragraph
+            return e["chunk_id"]
         if (e["chunk_id"], body) not in seen:
             seen.add((e["chunk_id"], body))
             sources[e["chunk_id"]] = (sources[e["chunk_id"]] + "\n\n" + body) if e["chunk_id"] in sources else body

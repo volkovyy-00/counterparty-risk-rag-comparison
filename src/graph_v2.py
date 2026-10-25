@@ -72,11 +72,12 @@ def graph_chunks(filing, size=None):
                            "start": cur[0][0], "end": cur[-1][1], "heading": cur_heading,
                            "text": text[cur[0][0]:cur[-1][1]]})
 
-    for start, end in paragraphs(text):
+    for start, end in paragraphs(text, size):
         par = text[start:end]
         if _is_subheading(par) and "risk" in par.lower() and not par.lower().startswith("item 1a"):
             heading = par.strip()
-        if cur and end - cur[0][0] > size:
+        only_headings = all(_is_subheading(text[s:e]) for s, e in cur)  # never a chunk of headings alone
+        if cur and end - cur[0][0] > size and not only_headings:
             flush()
             cur = []
         if not cur:

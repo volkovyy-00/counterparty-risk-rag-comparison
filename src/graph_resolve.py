@@ -79,6 +79,13 @@ def normalise_name(name):
     return " ".join(words)
 
 
+def display_name(name):
+    """A name as shown on screen: without "Risks related to ..." and with a capital first letter."""
+    s = re.sub(r"^(the\s+)?(risks?|exposure)\s+(of|from|to|in|related to|relating to|associated with|regarding)\s+",
+               "", name.strip(), flags=re.I)
+    return s[:1].upper() + s[1:] if s else name
+
+
 # --------------------------------------------------------------------------- candidates
 class _UF:
     def __init__(self, n):
@@ -244,7 +251,7 @@ def resolve_risks(mentions, filings, resolver=None):
         tickers = sorted({m["ticker"] for m in members})
         n = len(tickers)
         boiler = sum(m.get("specificity") == "boilerplate" for m in members) / len(members)
-        rf = {"id": f"rf{k}", "name": g["canonical_name"] or names.most_common(1)[0][0],
+        rf = {"id": f"rf{k}", "name": g["canonical_name"] or display_name(names.most_common(1)[0][0]),
               "definition": g["definition"], "aliases": sorted(names), "mention_ids": sorted(m["id"] for m in members),
               "tickers": tickers, "n_companies": n,
               "industries": sorted({config.INDUSTRY.get(t, "other") for t in tickers}),
