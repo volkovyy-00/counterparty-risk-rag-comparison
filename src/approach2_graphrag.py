@@ -2,6 +2,7 @@
 
     python src/approach2_graphrag.py build --reset   # once, before the demo (LLM-heavy)
     python src/approach2_graphrag.py ask             # what the runner calls
+    python src/approach2_graphrag.py load --reset --snapshot <file>   # reload a saved v2 graph, no model call
 
 graph-v1-workshop - the workshop's SimpleKGPipeline pattern, kept unchanged as the A/B baseline:
     (Company)-[:FACES_RISK]->(RiskFactor)-[:FROM_CHUNK]->(Chunk)-[:FROM_DOCUMENT]->(Document)
@@ -20,6 +21,7 @@ import asyncio
 import hashlib
 import json
 import logging
+from pathlib import Path
 
 from neo4j import GraphDatabase
 
@@ -273,7 +275,20 @@ def _build_v2(drv, filings):
                  "rejected": len(rejected)})
     config.RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     snapshot_path().write_text(json.dumps(snap, indent=1))
+    _load_v2(drv, snap, filings, chunks, vectors)
+    a = snap["audit"]
+    print(f"  resolution ({config.GRAPH_RESOLVER}): {a['mentions']} mentions -> {a['names_exact']} names -> "
+          f"{a['risk_factors']} RiskFactors; {len(a['merges_approved'])} merges approved, "
+          f"{len(a['merges_rejected'])} rejected")
+    total = len(accepted) + len(rejected)
+    return {"risk_factors_exact": a["names_exact"], "risk_factors_resolved": a["risk_factors"],
+            "mentions": a["mentions"], "mentions_rejected": len(rejected),
+            "verification_rate": round(len(accepted) / total, 4) if total else None,
+            "merges_approved": len(a["merges_approved"]), "merges_rejected": len(a["merges_rejected"]),
+            "drivers": len(snap["drivers"])}
 
+
+def _load_v2(drv, snap, filings, chunks, vectors):
     by_ticker = {f["ticker"]: f for f in filings}
     params = {
         "docs": [{"ticker": f["ticker"], "company": f["company"], "cik": f.get("cik", ""), "accession": f["accession"],
@@ -287,16 +302,30 @@ def _build_v2(drv, filings):
     }
     for query in V2_LOAD:
         drv.execute_query(query, params, database_=config.NEO4J_DATABASE)
-    a = snap["audit"]
-    print(f"  resolution ({config.GRAPH_RESOLVER}): {a['mentions']} mentions -> {a['names_exact']} names -> "
-          f"{a['risk_factors']} RiskFactors; {len(a['merges_approved'])} merges approved, "
-          f"{len(a['merges_rejected'])} rejected")
-    total = len(accepted) + len(rejected)
-    return {"risk_factors_exact": a["names_exact"], "risk_factors_resolved": a["risk_factors"],
-            "mentions": a["mentions"], "mentions_rejected": len(rejected),
-            "verification_rate": round(len(accepted) / total, 4) if total else None,
-            "merges_approved": len(a["merges_approved"]), "merges_rejected": len(a["merges_rejected"]),
-            "drivers": len(snap["drivers"])}
+
+
+def load_snapshot(path, reset=False):
+    """Reload a graph-v2 snapshot into Neo4j (e.g. the A/B winner) with no model call: chunk texts come from the
+    corpus, embeddings from the local model."""
+    from neo4j_graphrag.indexes import create_vector_index
+
+    snap = json.loads(Path(path).read_text())
+    if snap.get("prompt_version") != "graph-v2" or "chunks" not in snap:
+        raise SystemExit(f"{path} is not a graph-v2 build snapshot")
+    filings = [f for f in load_corpus() if f["ticker"] in snap["tickers"]]
+    text = {f["ticker"]: f["text"] for f in filings}
+    chunks = [dict(c, text=text[c["ticker"]][c["start"]:c["end"]]) for c in snap["chunks"]]
+    vectors = llm.embed([c["text"] for c in chunks])
+    drv = driver()
+    _reset(drv, reset)
+    _load_v2(drv, snap, filings, chunks, vectors)
+    create_vector_index(drv, name="chunkEmbeddings", label="Chunk", embedding_property="embedding",
+                        dimensions=config.EMBED_DIMENSIONS, similarity_fn="cosine",
+                        neo4j_database=config.NEO4J_DATABASE)
+    stats = graph_stats(drv)
+    drv.close()
+    print(f"loaded {path}: {json.dumps(stats)}")
+    return stats
 
 
 def graph_stats(drv):
@@ -348,11 +377,32 @@ def _paragraph(spans, text, start):
     return text[max(0, start - 400):start + 400].strip()
 
 
-def _run_v2(drv, question, filings):
-    import graph_v2
+class Citer:
+    """Evidence blocks for an ask prompt: each quote's paragraph (or the bare quote), cited as [chunk_id] TICKER.
+    `sources` maps chunk ids to the cited text, for the verifier's in-cited-source check."""
 
-    texts = {f["ticker"]: f["text"] for f in filings}
-    spans = {t: graph_v2.paragraphs(text) for t, text in texts.items()}
+    def __init__(self, filings):
+        import graph_v2
+
+        self.texts = {f["ticker"]: f["text"] for f in filings}
+        self.spans = {t: graph_v2.paragraphs(text) for t, text in self.texts.items()}
+        self.sources, self.blocks, self.seen = {}, [], set()
+
+    def cite(self, e, whole_paragraph=True):
+        """e: {ticker, chunk_id, span "start:end", quote}. Returns the chunk id to cite."""
+        start = int(e["span"].split(":")[0])
+        body = _paragraph(self.spans[e["ticker"]], self.texts[e["ticker"]], start) if whole_paragraph else e["quote"]
+        cited = self.sources.get(e["chunk_id"], "")
+        if not whole_paragraph and cited and locate(body, cited):  # already in a cited paragraph
+            return e["chunk_id"]
+        if (e["chunk_id"], body) not in self.seen:
+            self.seen.add((e["chunk_id"], body))
+            self.sources[e["chunk_id"]] = (cited + "\n\n" + body) if cited else body
+            self.blocks.append(f"[{e['chunk_id']}] {e['ticker']}\n{body}\n")
+        return e["chunk_id"]
+
+
+def _run_v2(drv, question, filings):
     if config.GRAPH_MODE == "vector_seeded":
         from neo4j_graphrag.retrievers import VectorCypherRetriever
 
@@ -370,20 +420,8 @@ def _run_v2(drv, question, filings):
     specific, generic = _rank_v2(rows)
     drivers = [dict(r) for r in drv.execute_query(SHARED_DRIVERS_CYPHER, min_shared=config.MIN_SHARED,
                                                   database_=config.NEO4J_DATABASE).records]
-    sources, blocks, lines = {}, [], []
-    seen = set()
-
-    def cite(e, whole_paragraph):
-        start = int(e["span"].split(":")[0])
-        body = _paragraph(spans[e["ticker"]], texts[e["ticker"]], start) if whole_paragraph else e["quote"]
-        cited = sources.get(e["chunk_id"], "")
-        if not whole_paragraph and cited and locate(body, cited):  # already in a cited paragraph
-            return e["chunk_id"]
-        if (e["chunk_id"], body) not in seen:
-            seen.add((e["chunk_id"], body))
-            sources[e["chunk_id"]] = (sources[e["chunk_id"]] + "\n\n" + body) if e["chunk_id"] in sources else body
-            blocks.append(f"[{e['chunk_id']}] {e['ticker']}\n{body}\n")
-        return e["chunk_id"]
+    citer, lines = Citer(filings), []
+    cite = citer.cite
 
     for r in specific:
         ids = [cite(e, True) for e in sorted(r["evidence"], key=lambda e: e["ticker"])]
@@ -399,7 +437,8 @@ def _run_v2(drv, question, filings):
         for d in drivers:
             uses = "; ".join(f"{u['risk']} ({u['ticker']})" for u in sorted(d["uses"], key=lambda u: u["ticker"]))
             lines.append(f"DRIVER '{d['driver']}' ({d['type']}) shared by {', '.join(d['tickers'])}: {uses}")
-    context = "\n".join(blocks) + "\n" + "\n".join(lines) if rows else "(the traversal found no shared risk factors)"
+    sources = citer.sources
+    context = "\n".join(citer.blocks) + "\n" + "\n".join(lines) if rows else "(the traversal found no shared risk factors)"
     reply = llm.chat(SYSTEM, f"Question: {question}\n\nGraph results:\n{context}",
                      schema=CLAIMS_SCHEMA, schema_name="claims")
     traversal = [{"risk": r["risk"], "tickers": r["tickers"], "generic": r["generic"],
@@ -454,13 +493,17 @@ def run(question, filings):
 if __name__ == "__main__":
     logging.basicConfig(level=logging.WARNING)
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("command", choices=["build", "ask", "stats"])
+    parser.add_argument("command", choices=["build", "load", "ask", "stats"])
+    parser.add_argument("--snapshot", help="load: a graph-v2 snapshot file, e.g. results/graph_ab/graph-v2/"
+                                           "graph_snapshot_edgar_latest_graph-v2.json")
     parser.add_argument("--reset", action="store_true", help="delete ALL nodes in the target database first")
     parser.add_argument("--tickers", help="build from this subset only, e.g. GM,NXPI,TXN (the graph A/B)")
     args = parser.parse_args()
     if args.command == "build":
         wanted = set(args.tickers.upper().split(",")) if args.tickers else None
         build(args.reset, filings=[f for f in load_corpus() if not wanted or f["ticker"] in wanted])
+    elif args.command == "load":
+        load_snapshot(args.snapshot or snapshot_path(), args.reset)
     elif args.command == "stats":
         print(json.dumps(graph_stats(driver()), indent=2))
     else:
