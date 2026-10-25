@@ -24,7 +24,8 @@ APPROACHES = {"L": ("0_long_context", "Control: long context"), "1": ("1_plain_r
               "2": ("2_graphrag", "Approach 2 - GraphRAG"), "3": ("3_taxonomy_first", "Approach 3 - taxonomy-first")}
 LATEST = config.RESULTS_DIR / "latest"
 DEMO_RUN = config.RESULTS_DIR / "demo_run"
-KEEP_ON_FREEZE = ("reruns", "audit", "graph.json", "graph_qa.json", "governance.json")  # produced by other steps
+KEEP_ON_FREEZE = ("reruns", "audit", "graph.json", "graph_qa.json", "governance.json",  # produced by other steps
+                  "estimates.json", "spend.json")
 
 
 def _module(key):
@@ -79,7 +80,7 @@ def scorecard(run_dir):
             "quote_coverage": v["quote_coverage"], "quotes_rejected": v["rejected_quote"],
             "labels_rejected": v["rejected_label"], "keyword_fallback": v["keyword_fallback"],
             "claims": v["claims"],
-            "rerun_jaccard_leaf": rerun_consistency(claim_sets) if len(claim_sets) >= 3 else None,
+            "rerun_jaccard_leaf": rerun_consistency(claim_sets) if len(claim_sets) >= 2 else None,
             "reruns": len(claim_sets),
             "companies_covered": len(r["companies_covered"]),
             "build": r["usage"]["build"], "ask": r["usage"]["ask"],

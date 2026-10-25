@@ -34,7 +34,7 @@ test:
 estimate:
 	$(PY) src/estimate_cost.py
 
-real-run:                         ## spends money: prints the estimate and stops if it is over $$5
+real-run:                         ## spends money: ARGS="--stage core|extras [--confirm-usd N]"; prints the stage estimate and stops without both gates
 	$(PY) src/real_run.py $(ARGS)
 
 graph-qa:                         ## spends money: screen-4 graph questions from Neo4j; stops unless ARGS="--confirm-usd N"
