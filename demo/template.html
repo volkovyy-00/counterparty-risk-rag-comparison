@@ -132,7 +132,7 @@ const BEATS = [
 const NAMES = {"1_plain_rag":"Approach 1 · plain RAG", "2_graphrag":"Approach 2 · GraphRAG",
   "3_taxonomy_first":"Approach 3 · taxonomy-first", "0_long_context":"Control · long context"};
 const VIRIDIS = ["#440154","#482878","#3e4989","#31688e","#26828e","#1f9e89","#35b779","#6ece58","#b5de2b","#fde725"];
-const S = { screen:1, hmLevel:"category", hideGeneric:false, live:null, server:false, timerStart:null, gov:{} };
+const S = { screen:1, hmLevel:"category", hideGeneric:false, showDrivers:false, live:null, server:false, timerStart:null, gov:{} };
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const pct = x => x == null ? "n/a" : Math.round(x * 100) + "%";
@@ -281,35 +281,39 @@ async function runLive() {
 }
 
 /* ------------------------------------------------------------------ screen 4 */
+const MAX_SPECIFIC_NODES = 18, MAX_GENERIC_NODES = 5, MAX_DRIVER_NODES = 6;
 function layoutGraph(g, W, H) {
   const comps = g.nodes.filter(n => n.type === "Company");
-  let risks = g.nodes.filter(n => n.type === "RiskFactor" && n.degree >= 2);
+  const shared = g.nodes.filter(n => n.type === "RiskFactor" && n.degree >= 2);
   const hiddenSingles = g.nodes.filter(n => n.type === "RiskFactor" && n.degree < 2).length;
-  const generic = risks.filter(n => n.generic);
-  if (S.hideGeneric) risks = risks.filter(n => !n.generic);
+  const generic = shared.filter(n => n.generic);
+  // Readable at 10 companies: draw the top-ranked nodes only (same order as the GraphRAG ask: specific risks that
+  // connect autos and semis first, then by companies x idf), plus a few generic ones unless hidden.
+  const cross = n => n.industries.includes("auto") && n.industries.includes("semis");
+  const rank = (a, b) => (cross(b) - cross(a)) || (b.degree * (b.idf ?? 1) - a.degree * (a.idf ?? 1)) || (b.degree - a.degree) || a.label.localeCompare(b.label);
+  const specific = shared.filter(n => !n.generic).sort(rank);
+  let risks = specific.slice(0, S.showDrivers ? MAX_SPECIFIC_NODES - MAX_DRIVER_NODES : MAX_SPECIFIC_NODES).concat(S.hideGeneric ? [] : generic.slice().sort((a, b) => b.degree - a.degree).slice(0, MAX_GENERIC_NODES));
+  const notDrawn = shared.length - risks.length - (S.hideGeneric ? generic.length : 0);
+  if (S.showDrivers) risks = risks.concat((g.drivers || []).filter(n => n.degree >= 2).slice(0, MAX_DRIVER_NODES));
   const left = comps.filter(c => c.industry !== "semis"), right = comps.filter(c => c.industry === "semis");
   const pos = {};
   const place = (arr, x) => arr.forEach((c, i) => pos[c.id] = {x, y: 70 + (H - 140) * (arr.length === 1 ? .5 : i / (arr.length - 1))});
   place(left, 110); place(right, W - 110);
+  // Deterministic columns: auto-only nodes left, semis-only right, nodes linking both in two middle columns,
+  // each column filled top-down in rank order. Drivers go last in the middle columns.
   const nb = {};
-  g.edges.forEach(e => (nb[e.target] = nb[e.target] || []).push(e.source));
-  risks.forEach(r => {
-    const ps = (nb[r.id] || []).map(s => pos[s]).filter(Boolean);
-    pos[r.id] = {x: ps.reduce((a, p) => a + p.x, 0) / ps.length, y: ps.reduce((a, p) => a + p.y, 0) / ps.length};
-    pos[r.id].x = Math.min(W - 330, Math.max(330, pos[r.id].x + (ps.length > 0 && ps.every(p => p.x < W / 2) ? 200 : ps.every(p => p.x > W / 2) ? -200 : 0)));
-  });
-  const rad = r => 10 + 5 * r.degree;
-  for (let it = 0; it < 300; it++) {           // deterministic overlap relaxation
-    for (let i = 0; i < risks.length; i++) for (let j = i + 1; j < risks.length; j++) {
-      const a = pos[risks[i].id], b = pos[risks[j].id];
-      let dx = b.x - a.x, dy = b.y - a.y, d = Math.hypot(dx, dy) || 0.01;
-      const min = rad(risks[i]) + rad(risks[j]) + 34;
-      if (d < min) { const k = (min - d) / 2 / d; if (d === 0.01) { dx = 0; dy = 1; }
-        a.x -= dx * k * .6; a.y -= dy * k; b.x += dx * k * .6; b.y += dy * k; }
-    }
-    risks.forEach(r => { const p = pos[r.id]; p.x = Math.min(W - 300, Math.max(300, p.x)); p.y = Math.min(H - 30, Math.max(30, p.y)); });
-  }
-  return {comps, risks, pos, rad, hiddenSingles, generic};
+  g.edges.concat(g.driver_edges || []).forEach(e => (nb[e.target] = nb[e.target] || []).push(e.source));
+  const side = n => { const inds = new Set((nb[n.id] || []).map(s => (comps.find(c => c.id === s) || {}).industry));
+    return inds.has("semis") && inds.size > 1 ? "mid" : inds.has("semis") ? "right" : inds.size ? "left" : "mid"; };
+  const cols = {left: [], mid0: [], mid1: [], right: []};
+  let k = 0;
+  risks.forEach(n => { const s = side(n); if (s === "mid") cols[k++ % 2 ? "mid1" : "mid0"].push(n); else cols[s].push(n); });
+  const X = {left: 360, mid0: 540, mid1: 800, right: W - 360};
+  if (!cols.left.length && !cols.right.length) { X.mid0 = 470; X.mid1 = 830; }
+  Object.entries(cols).forEach(([c, arr]) => arr.forEach((n, i) =>
+    pos[n.id] = {x: X[c], y: 90 + (H - 150) * (arr.length === 1 ? .5 : i / (arr.length - 1))}));
+  const rad = r => 8 + 2.5 * r.degree;
+  return {comps, risks, pos, rad, hiddenSingles, generic, notDrawn};
 }
 function screen4() {
   header("4 · Approach 2 – GraphRAG (Neo4j as the graph store)");
@@ -318,28 +322,46 @@ function screen4() {
   const W = 1290, H = 900;
   const L = layoutGraph(g, W, H);
   const shown = new Set(L.risks.map(x => x.id));
-  const edges = g.edges.filter(e => shown.has(e.target)).map(e => {
+  const edges = g.edges.concat(S.showDrivers ? (g.driver_edges || []) : []).filter(e => shown.has(e.target)).map(e => {
     const a = L.pos[e.source], b = L.pos[e.target];
     return `<line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="var(--line)" stroke-width="2"/>`; }).join("");
   const risks = L.risks.map(n => { const p = L.pos[n.id]; const cross = n.industries.includes("auto") && n.industries.includes("semis");
-    return `<g><circle cx="${p.x}" cy="${p.y}" r="${L.rad(n)}" fill="${n.generic ? "var(--grey)" : "var(--fg)"}" ${cross ? 'stroke="var(--mark)" stroke-width="6"' : ""}/>
+    if (n.type === "ExposureDriver") { const r = L.rad(n);
+      return `<g><rect x="${p.x - r}" y="${p.y - r}" width="${2 * r}" height="${2 * r}" transform="rotate(45 ${p.x} ${p.y})" fill="var(--bg)" stroke="var(--muted)" stroke-width="4"/>
+      <text x="${p.x}" y="${p.y - r - 12}" text-anchor="middle" font-size="20" font-style="italic" fill="var(--muted)" paint-order="stroke" stroke="var(--bg)" stroke-width="7">${esc(short(n.label, 26))} (${n.degree})</text></g>`; }
+    const quotes = g.edges.some(e => e.target === n.id && e.quotes && e.quotes.length);
+    return `<g ${quotes ? `data-risk="${n.id}" class="click"` : ""}><circle cx="${p.x}" cy="${p.y}" r="${L.rad(n)}" fill="${n.generic ? "var(--grey)" : "var(--fg)"}" ${cross ? 'stroke="var(--mark)" stroke-width="6"' : ""}/>
       <text x="${p.x}" y="${p.y - L.rad(n) - 6}" text-anchor="middle" font-size="21" fill="var(--fg)" paint-order="stroke" stroke="var(--bg)" stroke-width="7">${esc(short(n.label, 30))} (${n.degree})</text></g>`; }).join("");
   const comps = L.comps.map(n => { const p = L.pos[n.id];
     return `<g><rect x="${p.x - 70}" y="${p.y - 24}" width="140" height="48" rx="6" fill="var(--bg)" stroke="var(--${n.industry === "semis" ? "semis" : "auto"})" stroke-width="4"/>
       <text x="${p.x}" y="${p.y + 9}" text-anchor="middle" font-size="26" font-weight="800" fill="var(--fg)">${esc(n.label)}</text></g>`; }).join("");
-  const res = g.resolution || {}, mg = g.most_generic || {};
-  const crossN = L.risks.filter(n => n.industries.includes("auto") && n.industries.includes("semis")).length;
+  const res = g.resolution || {}, mg = g.most_generic || {}, gr = res.generic_rule;
+  const crossN = L.risks.filter(n => n.type === "RiskFactor" && n.industries.includes("auto") && n.industries.includes("semis")).length;
+  const specificCross = g.nodes.filter(n => n.type === "RiskFactor" && n.degree >= 2 && !n.generic && n.industries.includes("auto") && n.industries.includes("semis")).length;
+  const resText = res.mentions != null
+    ? `<b>${res.mentions}</b> verified mentions → <b>${res.risk_factors}</b> RiskFactors<br>${res.merges_approved} merges approved · ${res.merges_rejected} rejected (${res.merges_rejected_by_rule || 0} by rule) · ${esc(res.resolver || "?")} resolver`
+    : `RiskFactor nodes: <b>${res.risk_factors_exact ?? "?"}</b> exact-name → <b>${res.risk_factors_resolved ?? "?"}</b> after ${esc(res.resolver || "?")} merge`;
+  const genericLabel = gr ? `≥${gr.min_companies} of ${gr.companies} companies, or mostly boilerplate` : "≥80% of companies";
+  const q = g.quality;
   return `<div class="row"><svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">${edges}${risks}${comps}
       <text x="110" y="30" text-anchor="middle" font-size="22" fill="var(--muted)">autos</text>
       <text x="${W - 110}" y="30" text-anchor="middle" font-size="22" fill="var(--muted)">semis</text></svg>
-    <div class="col small"><button class="${S.hideGeneric ? "on" : ""}" onclick="S.hideGeneric=!S.hideGeneric;render()">Hide generic (≥80% of companies) – H</button>
-     <div class="panel" style="margin-top:14px"><b>Entity resolution</b><br>RiskFactor nodes: <b>${res.risk_factors_exact ?? "?"}</b> exact-name → <b>${res.risk_factors_resolved ?? "?"}</b> after ${esc(res.resolver || "?")} merge</div>
-     <div class="panel" style="margin-top:14px"><b>Most generic node</b><br>“${esc(mg.label || "?")}” links ${mg.companies ?? "?"} of ${tickers().length} companies (${pct(mg.share)})</div>
-     <div class="panel" style="margin-top:14px">Shown: ${L.risks.length} shared risk nodes · ${crossN} link autos ↔ semis (outlined)<br>
-      <span class="muted">${L.hiddenSingles} single-company nodes hidden${S.hideGeneric ? ` · ${L.generic.length} generic hidden` : ""}</span></div>
-     ${r && !r.error ? `<div class="panel" style="margin-top:14px"><b>Answer claims</b>: ${r.verification.accepted} of ${r.verification.claims} verified ·
+    <div class="col small">${res.mentions != null ? `<div class="panel" style="margin-bottom:10px;font-size:30px"><b>${specificCross}</b> specific risks shared across autos and semis</div>` : ""}
+     <div><button class="${S.hideGeneric ? "on" : ""}" onclick="S.hideGeneric=!S.hideGeneric;render()">Hide generic – H</button>
+     ${(g.drivers || []).length ? `<button class="${S.showDrivers ? "on" : ""}" onclick="S.showDrivers=!S.showDrivers;render()">Named drivers (${g.drivers.filter(d => d.degree >= 2).length}) – X</button>` : ""}</div>
+     <div class="panel" style="margin-top:10px"><b>Entity resolution</b><br>${resText}<br><b>Most generic:</b> “${esc(mg.label || "?")}” links ${mg.companies ?? "?"} of ${tickers().length} companies (${pct(mg.share)})</div>
+     <div class="panel" style="margin-top:10px">Shown: ${L.risks.filter(n => n.type === "RiskFactor").length} shared risk nodes · ${crossN} link autos ↔ semis (outlined)${q ? ` · click a node for its quotes` : ""}<br>
+      <span class="muted">Generic (grey) = ${genericLabel}. ${L.hiddenSingles} single-company nodes hidden${S.hideGeneric ? ` · ${L.generic.length} generic hidden` : ""}${L.notDrawn > 0 ? ` · ${L.notDrawn} lower-ranked not drawn` : ""}</span></div>
+     ${r && !r.error ? `<div class="panel" style="margin-top:10px"><b>Answer claims</b>: ${r.verification.accepted} of ${r.verification.claims} verified ·
        <a href="#" onclick="openClaims('Approach 2 – verified claims', DATA.approaches['2_graphrag'].claims, '2_graphrag');return false">open quotes</a></div>` : ""}
     </div></div>`;
+}
+
+function openRisk(id) {
+  const g = DATA.graph, n = g.nodes.find(x => x.id === id);
+  const cs = g.edges.filter(e => e.target === id).flatMap(e => (e.quotes || []).map(q =>
+    ({company: e.source.slice(2), leaf: q.risk_name || n.label, quote: q.text, start: q.start, end: q.end, source_ref: q.chunk_id})));
+  openClaims(`${n.label} · ${n.degree} companies${n.definition ? " – " + n.definition : ""}`, cs, "2_graphrag");
 }
 
 /* ------------------------------------------------------------------ screen 5 */
@@ -418,7 +440,10 @@ function screen6() {
       const isBest = best != null && v === best && c !== "0_long_context";
       return `<td class="${isBest ? "best" : ""}">${txt}</td>`; }).join("") + `</tr>`;
   }).join("");
-  return `${!keyVerified() ? "<div style='height:44px'></div>" : ""}<table style="width:100%;font-size:26px"><tr><th>Metric</th>${order.map(c => `<th>${esc(NAMES[c])}</th>`).join("")}</tr>${body}</table>
+  const gq = DATA.graph && DATA.graph.quality;  // approach 2 only: graph quality, not part of the shared scoring
+  const graphRow = gq && typeof gq.quote_verification_rate === "number" ? `<tr><td><b>Graph: quotes verified · paragraph coverage</b></td>` +
+    order.map(c => `<td class="${c === "2_graphrag" ? "" : "muted"}">${c === "2_graphrag" ? `${pct(gq.quote_verification_rate)} · ${pct(gq.paragraph_coverage)}` : "–"}</td>`).join("") + `</tr>` : "";
+  return `${!keyVerified() ? "<div style='height:44px'></div>" : ""}<table style="width:100%;font-size:26px"><tr><th>Metric</th>${order.map(c => `<th>${esc(NAMES[c])}</th>`).join("")}</tr>${body}${graphRow}</table>
     <div class="small muted" style="margin-top:16px">Best value per row underlined and bold (control column excluded). P/R/F1 over shared (company, label) pairs vs the hand-labelled key (${esc(DATA.meta.key_status)}).
     Cost from pricing.yaml (checked ${esc(DATA.meta.pricing_checked)}). Latency: live wall clock only. Model ${esc(DATA.meta.model)}, effort ${esc(DATA.meta.effort || "-")}, run ${esc(DATA.meta.created_at.slice(0, 10))}.</div>`;
 }
@@ -497,6 +522,8 @@ document.addEventListener("click", e => {
   if (cell) { const [label, t] = cell.dataset.cell.split("|"); const lvl = label.includes(".") ? "leaf" : "category";
     const cs = DATA.approaches["3_taxonomy_first"].claims.filter(c => c.company === t && c[lvl] === label);
     openClaims(`${t} · ${lvl === "leaf" ? leafName(label) : label}`, cs, "3_taxonomy_first"); return; }
+  const rk = e.target.closest("[data-risk]");
+  if (rk) { openRisk(rk.dataset.risk); return; }
   const full = e.target.closest("[data-full]");
   if (full) { e.preventDefault(); const i = +full.dataset.full.split("|")[1]; openFull($("drawer")._claims[i]); }
 });
@@ -510,6 +537,7 @@ document.addEventListener("keydown", e => {
   else if (K === "D") { const r = document.documentElement; r.dataset.theme = r.dataset.theme === "dark" ? "light" : "dark"; render(); }
   else if (K === "T") { if (e.shiftKey) S.timerStart = Date.now(); else { if (S.timerStart == null) S.timerStart = Date.now(); $("timer").classList.toggle("open"); } tick(); }
   else if (K === "H" && S.screen === 4) { S.hideGeneric = !S.hideGeneric; render(); }
+  else if (K === "X" && S.screen === 4) { S.showDrivers = !S.showDrivers; render(); }
   else if (K === "L" && S.screen === 5) { S.hmLevel = S.hmLevel === "leaf" ? "category" : "leaf"; render(); }
   else if (K === "R" && S.screen === 3) runLive();
   else if (S.screen === "G" && K === "F") gov("fabricated");
@@ -523,12 +551,14 @@ async function boot() {
   if (p.get("theme") === "dark") document.documentElement.dataset.theme = "dark";
   if (p.get("leaf")) S.hmLevel = "leaf";
   if (p.get("hide")) S.hideGeneric = true;
+  if (p.get("drivers")) S.showDrivers = true;
   if (location.protocol.startsWith("http")) {
     try { S.server = await (await fetch("api/status")).json(); } catch (e) { S.server = false; }
   }
   render();
   if (p.get("gov")) for (const g of p.get("gov").split(",")) await gov(g);
   if (p.get("cell")) { const el = document.querySelector("[data-cell]"); if (el) el.click(); }
+  if (p.get("risk")) { const el = document.querySelector("[data-risk]"); if (el) openRisk(el.dataset.risk); }
   if (p.get("timer")) { S.timerStart = Date.now() - (+p.get("timer")) * 1000; $("timer").classList.add("open"); tick(); }
   document.body.dataset.ready = "1";
 }

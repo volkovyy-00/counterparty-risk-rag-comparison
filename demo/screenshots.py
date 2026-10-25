@@ -19,6 +19,7 @@ import config  # noqa: E402
 STATES = [
     ("01_question", "screen=1"), ("02_data_quality", "screen=2"), ("03_plain_rag", "screen=3"),
     ("04_graphrag", "screen=4"), ("04b_graphrag_hide_generic", "screen=4&hide=1"),
+    ("04c_graphrag_drivers", "screen=4&hide=1&drivers=1"), ("04d_graphrag_quotes", "screen=4&risk=1"),
     ("05_taxonomy_category", "screen=5"), ("05b_taxonomy_leaf", "screen=5&leaf=1"),
     ("05c_taxonomy_quote_panel", "screen=5&cell=1"), ("06_scorecard", "screen=6"), ("07_decision", "screen=7"),
     ("G0_governance", "screen=G"), ("G1_fabricated_quote", "screen=G&gov=fabricated"),
