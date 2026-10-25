@@ -23,6 +23,7 @@ results/*
 
 # demo build output and fallbacks (Release asset: fallback.tar.gz)
 demo/index.html
+demo/console/data.json
 demo/fallback/
 *.mp4
 

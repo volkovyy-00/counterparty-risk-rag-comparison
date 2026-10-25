@@ -146,7 +146,8 @@ def load_run(run_dir, fixture):
     return man, approaches, card, reruns, fake
 
 
-def build(run_dir, out, fixture=False, draft=False):
+def collect(run_dir, fixture=False, draft=False):
+    """Every number, quote and text the page shows, as one JSON-ready dict."""
     man, approaches, card, reruns, fake = load_run(run_dir, fixture)
     run_dir = Path(run_dir)
     corpus_dir = config.DATA_DIR / "corpus" / man["corpus"]
@@ -188,6 +189,12 @@ def build(run_dir, out, fixture=False, draft=False):
                      "leaves": [{"id": lid, "category": leaf["category"], "description": leaf["description"],
                                  "label": taxonomy.leaf_label(lid)} for lid, leaf in taxonomy.LEAVES.items()]},
     }
+    return data
+
+
+def build(run_dir, out, fixture=False, draft=False):
+    data = collect(run_dir, fixture, draft)
+    fake = data["meta"]["fixture"]
     html = TEMPLATE.read_text().replace("/*__DATA__*/null", json.dumps(data).replace("</", "<\\/"))
     out = Path(out)
     out.write_text(html)
@@ -201,9 +208,16 @@ def main():
     parser.add_argument("--out", default=str(DEMO / "index.html"))
     parser.add_argument("--fixture", action="store_true", help="allow a fake-model run (shown with a banner)")
     parser.add_argument("--draft", action="store_true", help="allow screen-7 placeholders with no value (DRAFT banner)")
+    parser.add_argument("--json", help="write the page data as JSON to this path instead (the console in ui/ reads it)")
     args = parser.parse_args()
     if not (Path(args.run) / "manifest.json").exists():
         raise SystemExit(f"No recorded run in {args.run}. See README: the real run is frozen with real_run.py.")
+    if args.json:
+        data = collect(args.run, args.fixture, args.draft)
+        Path(args.json).parent.mkdir(parents=True, exist_ok=True)
+        Path(args.json).write_text(json.dumps(data))
+        print(f"-> {config.rel(Path(args.json))} ({Path(args.json).stat().st_size / 1e6:.1f} MB)")
+        return
     build(args.run, args.out, args.fixture, args.draft)
 
 

@@ -128,13 +128,13 @@ def make_handler(live):
     return Handler
 
 
-def serve(port=8000, live=False, open_browser=True):
+def serve(port=8000, live=False, open_browser=True, page="index.html"):
     live_obj = None
     if live:
         print("Live step: loading the plain-RAG index from the recorded run ...")
         live_obj = Live().prepare()
     server = ThreadingHTTPServer(("127.0.0.1", port), make_handler(live_obj))
-    url = f"http://localhost:{port}/index.html"
+    url = f"http://localhost:{port}/{page}"
     print(f"Demo at {url}  ({'LIVE step enabled' if live else 'offline'}; Ctrl+C to stop)")
     if open_browser:
         webbrowser.open(url)
@@ -146,8 +146,9 @@ def main():
     parser.add_argument("--port", type=int, default=8000)
     parser.add_argument("--live", action="store_true")
     parser.add_argument("--no-browser", action="store_true")
+    parser.add_argument("--page", default="index.html", help="page under demo/ to open, e.g. console/index.html")
     args = parser.parse_args()
-    server = serve(args.port, args.live, not args.no_browser)
+    server = serve(args.port, args.live, not args.no_browser, args.page)
     try:
         server.serve_forever()
     except KeyboardInterrupt:
