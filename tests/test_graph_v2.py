@@ -388,7 +388,7 @@ def test_demo_page_asks_the_graph(tmp_path, monkeypatch, offline):
                       "subgraph": graph_qa.to_subgraph(rows, offline), **graph_qa.answer(q, rows, offline)})
     (run / "graph_qa.json").write_text(json.dumps({"questions": items, "build": {}}))
     build_demo.build(run, tmp_path / "qa.html", fixture=True, draft=True)
-    for query, text in (("?screen=4", "Cypher used"), ("?screen=4&qa=bridge", "No bridge found"),
+    for query, text in (("?screen=4", "Read-only Cypher"), ("?screen=4&qa=bridge", "No bridge found"),
                         ("?screen=4&qa=gm_nxpi&risk=1", "Item 1A characters"), ("?screen=4&qa=tsla_on_txn", "Fewer"),
                         ("?screen=4&overview=1", "verified mentions")):
         res = _page_errors(tmp_path / "qa.html", query, text)

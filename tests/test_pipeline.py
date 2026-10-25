@@ -262,7 +262,19 @@ def test_scoring_counts_only_shared_pairs():
 
 
 # --------------------------------------------------------------------------- Neo4j (optional)
-@pytest.mark.skipif(not config.NEO4J_PASSWORD, reason="set NEO4J_PASSWORD to run against a local Neo4j")
+def _neo4j_listening():
+    from urllib.parse import urlparse
+
+    u = urlparse(config.NEO4J_URI)
+    try:
+        socket.create_connection((u.hostname or "localhost", u.port or 7687), timeout=1).close()
+        return True
+    except OSError:
+        return False
+
+
+@pytest.mark.skipif(not config.NEO4J_PASSWORD or not _neo4j_listening(),
+                    reason="needs a running local Neo4j and NEO4J_PASSWORD (offline runs skip it)")
 def test_graphrag_build_ask_and_export(offline, monkeypatch, tmp_path):
     import approach2_graphrag
     import export_graph

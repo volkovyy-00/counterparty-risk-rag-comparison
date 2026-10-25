@@ -395,13 +395,13 @@ function qaHeadline(q) {
   const g = q.subgraph, N = groupN();
   if (q.empty) return q.template === "BRIDGE_DRIVERS" ? "No bridge found – the graph won't invent a link" : "No rows returned";
   if (q.generic_only) return "Only generic links – no specific bridge";
-  if (q.template === "BRIDGE_DRIVERS") { const d = g.drivers[0];
-    return `Most specific link: ${d.label} – ${d.n_companies ?? d.degree} of ${N}, both industries`; }
+  const d = (g.drivers || [])[0];
+  if (q.template === "BRIDGE_DRIVERS" && d) return `Most specific link: ${d.label} – ${d.n_companies ?? d.degree} of ${N}, both industries`;
   const risks = g.nodes.filter(n => n.type === "RiskFactor");
   if (q.template === "SHARED_VS_SPECIFIC") {
-    const sp = risks.find(n => n.role === "most specific"), sh = risks.find(n => n.role === "most shared");
-    return sp ? `Most specific: ${sp.label} – ${sp.n_companies} of ${N}, both industries`
-      : `Most shared: ${sh.label} – ${sh.n_companies} of ${N}; no specific risk spans both industries`; }
+    const sp = risks.find(n => n.role === "most specific"), sh = risks.find(n => n.role === "most shared") || risks[0];
+    if (sp) return `Most specific: ${sp.label} – ${sp.n_companies} of ${N}, both industries`;
+    if (sh) return `Most shared: ${sh.label} – ${sh.n_companies} of ${N}; no specific risk spans both industries`; }
   const sp = risks.filter(n => !n.generic).sort((a, b) => a.n_companies - b.n_companies || a.label.localeCompare(b.label))[0];
   return sp ? `${risks.length} shared · most specific: ${sp.label} – ${sp.n_companies} of ${N}` : `${risks.length} shared, all generic`;
 }
