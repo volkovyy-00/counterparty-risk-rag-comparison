@@ -23,6 +23,10 @@ class CacheMiss(RuntimeError):
     pass
 
 
+class SpendCapReached(RuntimeError):
+    pass
+
+
 # --------------------------------------------------------------------------- meter
 class Meter:
     """Adds up calls, tokens and cost per named stage (e.g. 'rag.ask')."""
@@ -32,6 +36,7 @@ class Meter:
         self._local = threading.local()
         self.stages = defaultdict(lambda: defaultdict(float))
         self.served_models = set()  # model ids the provider reported (cached records included)
+        self.live_usd = 0.0  # spent on uncached calls in this process (checked against LLM_MAX_USD)
 
     @property
     def stage(self):
@@ -73,6 +78,7 @@ class Meter:
                 s["unpriced_calls"] += 1
             else:
                 s["cost_usd"] += cost
+                self.live_usd += 0 if cached else cost
 
     def summary(self, *stages):
         out = defaultdict(float)
@@ -231,6 +237,8 @@ def chat(system, user, schema=None, schema_name="answer", cache=None, timeout=No
     record = _cache_get(path, cache)
     cached = record is not None
     if not cached:
+        if config.LLM_MAX_USD is not None and METER.live_usd >= config.LLM_MAX_USD:
+            raise SpendCapReached(f"live spend ${METER.live_usd:.2f} reached LLM_MAX_USD=${config.LLM_MAX_USD:.2f}")
         start = time.perf_counter()
         content, usage, served = _call_chat(system, user, schema, schema_name, timeout, model, effort)
         record = {"model": model or config.LLM_MODEL, "served_model": served, "content": content, **usage,

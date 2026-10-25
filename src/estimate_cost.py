@@ -44,13 +44,9 @@ def estimate(filings, reruns=2, audit_run=True, measure=True):
                      "cost_usd": cost})
 
     # Approach 3 - one call per window; the system prompt is prompt-cached after the first call.
-    sys_tok, m = _tokens(a3.SYSTEM, "", measure)
-    measured.append(m)
-    windows = [(f, ref, w) for f in filings for ref, w in a3.windows_for(f)]
-    win_tok = sum(len(w) // 4 for _, _, w in windows)
-    t3_in = win_tok + sys_tok * len(windows)
-    add("3 taxonomy build", len(windows), t3_in, ASSUME_OUT["taxonomy_window"] * len(windows),
-        cached_system=sys_tok * (len(windows) - 1))
+    t3 = taxonomy_rows(filings, a3.PROMPT_VERSION, a3.SPLIT, measure)
+    measured.append(t3["measured"])
+    rows.append(t3["row"])
 
     # Approach 2 - the prompt version that will run (both versions are compared in graph_compare below).
     graph = graph_rows(filings, config.GRAPH_PROMPT_VERSION, measure)
@@ -84,7 +80,9 @@ def estimate(filings, reruns=2, audit_run=True, measure=True):
     rerun_cost = reruns * sum(r["cost_usd"] or 0 for r in rows
                               if not r["stage"].startswith("L") and r["stage"] != "2 graph QA")
     audit_cost = rows[0]["cost_usd"] if audit_run else 0  # rows[0] is the taxonomy build
+    taxo_compare = {(v, s): taxonomy_rows(filings, v, s, measure) for v, s in TAXO_COMPARE}
     return {"rows": rows, "one_run_usd": one_run, "reruns_usd": rerun_cost, "audit_run_usd": audit_cost,
+            "taxonomy_compare": taxo_compare,
             "total_usd": one_run + rerun_cost + audit_cost, "item1a_tokens": nL,
             "input_measured": all(measured), "model": config.LLM_MODEL,
             "graph_compare": {v: graph_rows(filings, v, measure) for v in ("graph-v1-workshop", "graph-v2")},
@@ -128,6 +126,31 @@ def graph_rows(filings, version, measure=True):
             "usd": sum(r["cost_usd"] or 0 for r in rows)}
 
 
+TAXO_COMPARE = [("taxonomy-v2.0", "fixed"), ("taxonomy-v3.0", "heading")]
+
+
+def taxonomy_rows(filings, version, split, measure=True):
+    """Approach-3 build for one prompt version and split: one call per window, system prompt cached."""
+    import approach3_taxonomy as a3
+
+    sys_tok, m = _tokens(a3.system(version), "", measure)
+    windows = [w for f in filings for _, w, _ in a3.split_filing(f, split)[0]]
+    win_tok = sum(len(w) // 4 for w in windows)
+    n = len(windows)
+    cost = llm.price_usd(config.LLM_MODEL, win_tok + sys_tok, ASSUME_OUT["taxonomy_window"] * n, 0,
+                         sys_tok * (n - 1))
+    return {"row": {"stage": "3 taxonomy build", "calls": n, "input_tokens": win_tok + sys_tok * n,
+                    "output_tokens": ASSUME_OUT["taxonomy_window"] * n, "cost_usd": cost},
+            "windows": n, "system_tokens": sys_tok, "measured": m, "usd": cost}
+
+
+def taxonomy_ab(filings, tickers, measure=True):
+    """The approach-3 A/B: v2.0 on fixed windows vs v3.0 on heading windows, for `tickers` only."""
+    ab = [f for f in filings if f["ticker"] in tickers]
+    out = {f"{v} {s}": round(taxonomy_rows(ab, v, s, measure)["usd"] or 0, 4) for v, s in TAXO_COMPARE}
+    return dict(out, total_usd=round(sum(out.values()), 4), tickers=[f["ticker"] for f in ab])
+
+
 def graph_ab(filings, measure=True):
     """The A/B on GRAPH_AB_TICKERS: build + resolve for both versions (no ask - the A/B compares graphs)."""
     ab = [f for f in filings if f["ticker"] in config.GRAPH_AB_TICKERS]
@@ -151,9 +174,13 @@ def report(est, reruns):
         lines.append(f"{r['stage']:<22}{r['calls']:>7}{r['input_tokens']:>12,}{r['output_tokens']:>12,}{cost:>9}")
     lines += ["", f"One full run (1, 2, 3, L):           ${est['one_run_usd']:.2f}",
               f"{reruns} reruns of 1, 2, 3 (cache off):     ${est['reruns_usd']:.2f}",
-              f"Audit run B (approach 3, prompt v2.1): ${est['audit_run_usd']:.2f}",
+              f"Audit run B (approach 3, prompt v3.1): ${est['audit_run_usd']:.2f}",
               f"TOTAL for the frozen demo:            ${est['total_usd']:.2f}",
               f"Long-context prompt: {est['item1a_tokens']:,} tokens (all Item 1A + instructions)"]
+    (va, a), (vb, b) = est["taxonomy_compare"].items()
+    lines += ["", f"Approach 3 split: {va[0]} {va[1]} {a['windows']} windows ${a['usd']:.2f} -> "
+              f"{vb[0]} {vb[1]} {b['windows']} windows ${b['usd']:.2f} "
+              f"(system prompt {a['system_tokens']:,} -> {b['system_tokens']:,} tokens, cached)"]
     gc = est["graph_compare"]
     lines += ["", f"Approach 2, both prompt versions (full corpus; v2 assumptions: {ASSUME_V2}):",
               f"{'stage':<22}{'v1 workshop USD':>17}{'v2 USD':>10}"]

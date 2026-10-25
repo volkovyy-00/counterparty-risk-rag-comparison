@@ -3,7 +3,7 @@ PY ?= python
 PORT ?= 8000
 
 .PHONY: demo demo-live check build-demo screenshots check-secrets test real-run estimate label record-help \
-	graph-quality graph-check graph-ab graph-qa
+	graph-quality graph-check graph-ab graph-qa taxo-split taxo-coverage taxo-ab
 
 demo: check build-demo            ## offline: no network, no Neo4j
 	$(PY) src/serve.py --port $(PORT)
@@ -48,6 +48,15 @@ graph-check:                      ## approach 2 hand-check CSV: 30 mentions + 20
 
 graph-ab:                         ## spends money: graph A/B (v1 vs v2) on 3 filings; stops unless ARGS="--confirm-usd N"
 	$(PY) src/graph_ab.py $(ARGS)
+
+taxo-split:                       ## approach 3 risk-factor split per filing (no model call)
+	$(PY) src/approach3_taxonomy.py split-report
+
+taxo-coverage:                    ## does the taxonomy cover the group's drivers? (no model call)
+	$(PY) src/taxonomy_coverage.py
+
+taxo-ab:                          ## spends money: approach 3 A/B (v2.0 fixed vs v3.0 heading) on NXPI, LEA; stops unless ARGS="--confirm-usd N"
+	$(PY) src/taxonomy_ab.py $(ARGS)
 
 label:                            ## hand-label the key in the browser
 	$(PY) src/label_helper.py && $(PY) src/label_tool.py
