@@ -56,3 +56,63 @@ def test_real_run_refuses_without_the_stage_cap(monkeypatch):
         real_run.gate("core", 21.0, 30.0)
     with pytest.raises(SystemExit, match="Nothing was spent"):
         real_run.gate("extras", 8.0, 0.0)
+
+
+# --------------------------------------------------------------------------- bridge ranking (screen 4)
+def _drv(name, typ, tickers):
+    return {"id": name, "driver": name, "type": typ, "tickers": tickers, "uses": []}
+
+
+def test_bridge_ranking_prefers_specific_drivers():
+    import graph_qa
+
+    rows = [_drv("United States", "GEOGRAPHY", ["GM", "NXPI"]),            # home country: never ranked
+            _drv("North America", "GEOGRAPHY", ["F", "ON"]),
+            _drv("China", "GEOGRAPHY", ["GM", "F", "TSLA", "APTV", "BWA", "LEA", "NXPI", "ON"]),  # 8 of 10 = 80%
+            _drv("import tariffs", "REGULATION_POLICY", ["GM", "NXPI", "TXN"]),
+            _drv("export controls", "REGULATION_POLICY", ["GM", "NXPI"]),
+            _drv("TSMC", "NAMED_COUNTERPARTY", ["GM", "NXPI"]),
+            _drv("rare earth elements", "INPUT_COMMODITY", ["TSLA", "ON"]),
+            _drv("Taiwan", "GEOGRAPHY", ["F", "MCHP"])]
+    shown, generic_only = graph_qa.rank_bridge(rows, 10)
+    assert not generic_only
+    # fewest companies first (all have 2), then input, named counterparty, place, policy; at most 3
+    assert [r["driver"] for r in shown] == ["rare earth elements", "TSMC", "Taiwan"]
+    assert not any(r["generic"] for r in shown)
+    assert graph_qa.bridge_generic(rows[2], 10) == "cited by 8 of 10"
+    assert graph_qa.bridge_generic(rows[2], 11) is None  # 8 of 11 < 80%
+    shown, _ = graph_qa.rank_bridge(rows[3:5], 10)
+    assert [r["driver"] for r in shown] == ["export controls", "import tariffs"]  # specificity before type
+
+
+def test_bridge_with_only_generic_drivers_says_so_and_makes_no_call(monkeypatch):
+    import graph_qa
+
+    rows = [_drv("China", "GEOGRAPHY", ["GM", "NXPI", "TXN"]), _drv("United States", "GEOGRAPHY", ["GM", "NXPI"]),
+            _drv("import tariffs", "REGULATION_POLICY", ["GM", "NXPI", "TXN"])]
+    shown, generic_only = graph_qa.rank_bridge(rows, 3)  # the 3-filing A/B graph: 3 of 3 is everyone
+    assert generic_only and all(r["generic"] for r in shown) and len(shown) == 3
+    assert {r["why_generic"] for r in shown} == {"home country", "cited by 3 of 3"}
+    monkeypatch.setattr(llm, "chat", lambda *a, **k: pytest.fail("no model call for generic-only rows"))
+    out = graph_qa.answer(graph_qa.QUESTIONS[2], shown, [], generic_only=True)
+    assert out["generic_only"] and out["summary"].startswith("Only generic links – no specific bridge")
+    assert graph_qa.rank_bridge([], 10) == ([], False)
+    sub = graph_qa.to_subgraph([dict(shown[0], uses=[])], [])
+    assert sub["drivers"][0]["generic"] is True
+
+
+def test_driver_near_duplicates_are_reported_not_added():
+    import driver_dups
+
+    drivers = [{"name": "critical minerals", "type": "INPUT_COMMODITY", "tickers": ["GM", "F"]},
+               {"name": "critical materials", "type": "INPUT_COMMODITY", "tickers": ["NXPI"]},
+               {"name": "minerals", "type": "INPUT_COMMODITY", "tickers": ["TXN"]},
+               {"name": "minerals", "type": "GEOGRAPHY", "tickers": ["ON"]},
+               {"name": "lithium", "type": "INPUT_COMMODITY", "tickers": ["GM"]}]
+    spelling, subset = driver_dups.groups(drivers)
+    assert spelling == [{"type": "INPUT_COMMODITY", "canonical": "critical minerals",
+                         "names": ["critical minerals", "critical materials"], "tickers": ["F", "GM", "NXPI"]}]
+    assert [s["names"] for s in subset] == [["minerals", "critical minerals"]]
+    before = (config.CONFIG_DIR / "graph_aliases.yaml").read_text()
+    assert "critical minerals: [critical materials]" in driver_dups.report((spelling, subset), "x")
+    assert (config.CONFIG_DIR / "graph_aliases.yaml").read_text() == before
