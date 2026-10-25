@@ -1,0 +1,90 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Refocused AV strategy on personal vehicles subject to technological, operational, regulatory and competitive risks",
+    "risk_name": "Autonomous technology development risk",
+    "detail": "Cruise robotaxi wound down Feb 2025; AV/ADAS efforts combined in GMNA; needs capital, AI talent, training data; competition from tech firms",
+    "quote": "While we expect our refocused AV strategy to be less capital intensive than the Cruise robotaxi plan, we expect that our AV and ADAS development activities will continue to require significant capital investments and remain subject to a variety of risks inherent with the development of new technologies",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Cruise",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "AV",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "ADAS",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Regulatory and liability risks of AV commercial deployment",
+    "risk_name": "Autonomous vehicle regulation and liability",
+    "detail": "Evolving federal, state, provincial regulation; accidents or cyber breaches of autonomous systems could cause liability and deter adoption",
+    "quote": "To the extent accidents, cybersecurity breaches, or other adverse events associated with our autonomous driving systems occur, we could be subject to liability, reputational harm, government scrutiny, and further regulation, and it could deter consumer adoption of AV and ADAS technology.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "AV and ADAS technology",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Risks associated with climate change, GHG emissions regulation and changing consumer demand",
+    "risk_name": "Emissions regulation compliance cost",
+    "detail": "Evolving emissions and fuel economy rules may require credit purchases or penalties, product portfolio changes, and raise ICE vehicle costs",
+    "quote": "Despite recent actions taken by the U.S. federal government to reduce the stringency of emissions and fuel economy regulations, we expect such regulations at the federal, state, or local level or in international jurisdictions to continue to evolve",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "U.S.",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "emissions and fuel economy regulations",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Reduced emissions stringency slowing EV demand",
+    "risk_name": "EV demand slowdown",
+    "detail": "Relaxed emissions regulation has slowed and may continue to slow EV demand in North America",
+    "quote": "In addition, the reduction in the stringency of emissions regulations has slowed and may continue to slow consumer demand for EVs in North America.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "North America",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "EVs",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Sustainability disclosure rules under legal scrutiny",
+    "risk_name": "Sustainability disclosure and litigation",
+    "detail": "Shifting sustainability disclosure requirements may raise litigation, regulatory action and reputational risk",
+    "quote": "Such regulations may cause disclosure requirements to shift and may increase the risk of litigation or regulatory action, which would result in increased costs (in our operations and supply chain), as well as risks to our reputation or consumer demand for our products if we do not meet demanding stakeholder expectations and standards.",
+    "specificity": "boilerplate",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1718,
+ "output_tokens": 1213,
+ "cache_write_tokens": 2955,
+ "cache_read_tokens": 0,
+ "latency_s": 11.493,
+ "recorded_at": "2026-10-25T14:05:11+0000"
+}

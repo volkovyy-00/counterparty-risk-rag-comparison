@@ -1,0 +1,90 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "We rely on joint ventures to meet our current and future manufacturing requirements",
+    "risk_name": "Joint venture partner dependence",
+    "detail": "Manufacturing JVs SSMC (TSMC), VSMC (Vanguard), ESMC (TSMC, Bosch, Infineon); funding and take-or-pay obligations; ramp timing risk",
+    "quote": "If we do not achieve the anticipated benefits of these joint ventures, or if newly established joint ventures are not able to begin production in the expected timing or achieve expected efficiency and quality, our business and results of operations may be adversely affected.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "TSMC",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "Vanguard International Semiconductor Corporation",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "Robert Bosch Gmbh",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "Infineon Technologies AG",
+      "type": "NAMED_COUNTERPARTY"
+     }
+    ]
+   },
+   {
+    "heading": "As our business is global, we need to comply with laws and regulations in countries across the world",
+    "risk_name": "Export controls and sanctions",
+    "detail": "U.S. EAR and EU sanctions; previously halted shipments to Huawei in 2020; new U.S. administration policy changes",
+    "quote": "For example, in 2020, due to regulations imposed by the U.S. government, we ceased shipments of our products to Huawei pending approval of export licenses.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Huawei",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "U.S. Export Administration Regulations",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "European Union",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "As our business is global, we need to comply with laws and regulations in countries across the world",
+    "risk_name": "Data privacy compliance costs",
+    "detail": "EU GDPR and expanding global privacy rules could impose significant compliance costs",
+    "quote": "Furthermore, global privacy legislation, enforcement, and policy activity, such as the EU General Data Privacy Regulation, are rapidly expanding and creating a complex regulatory compliance environment. Costs to comply with and implement these privacy-related and data protection measures could be significant.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "EU General Data Privacy Regulation",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "As our business is global, we need to comply with laws and regulations in countries across the world",
+    "risk_name": "Foreign investment restrictions on M&A",
+    "detail": "Dutch foreign investment control regime and U.S. outbound investment rules may limit acquisitions and alliances",
+    "quote": "In addition, governments are increasingly imposing restrictions on cross-border investments in semiconductor businesses and technology, such as the Dutch foreign investment control regime and U.S. outbound investment rules, that may limit our ability to execute strategic acquisitions, investments and alliances, any of which could have a material adverse effect on our business.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Dutch foreign investment control regime",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "U.S. outbound investment rules",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1614,
+ "output_tokens": 1133,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 8.778,
+ "recorded_at": "2026-10-25T14:05:47+0000"
+}

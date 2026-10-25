@@ -1,0 +1,35 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Our computer systems and networks are subject to attempted security breaches and other cybersecurity incidents",
+    "risk_name": "Cybersecurity breach of information systems",
+    "detail": "Has experienced cyber-attacks; AI-enabled phishing and malicious code cited as evolving threat",
+    "quote": "We have, from time to time, experienced cyber-attacks attempting to obtain access to and misuse our computer systems and networks. Such incidents could result in the misappropriation of our proprietary information and technology, the compromise of personal and confidential information of our employees, customers or suppliers or interrupt our business.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Employee misappropriation of proprietary technology",
+    "risk_name": "Insider theft of intellectual property",
+    "detail": "Identified former employees' theft of proprietary technology, possibly violating export controls, reported to authorities",
+    "quote": "We have identified instances of employee misappropriation or theft of certain proprietary technology by individuals who are no longer employed by NXP. In some cases, such misappropriation may result in the violation of applicable export control regulations, which we report to relevant authorities as appropriate.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "export control regulations",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1199,
+ "output_tokens": 437,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 5.049,
+ "recorded_at": "2026-10-25T14:05:48+0000"
+}

@@ -1,0 +1,35 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "We may not be able to protect our proprietary intellectual property against improper use",
+    "risk_name": "Intellectual property protection weakness",
+    "detail": "Patents may be challenged or circumvented; weak enforcement in some countries where it operates",
+    "quote": "In particular, intellectual property rights are difficult to enforce in countries where the application and enforcement of the laws governing such rights may not have reached the same level as compared to other jurisdictions where we operate.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "AI technology intellectual property uncertainty",
+    "risk_name": "AI intellectual property uncertainty",
+    "detail": "AI built into products; IP ownership of AI unsettled by U.S. or foreign courts, risking loss of IP rights",
+    "quote": "Finally, the intellectual property ownership and license rights, including copyrights and patents, surrounding AI technologies, which we are and may in the future continue to build into our products, have not been fully addressed by U.S. or foreign courts, laws or regulations",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "AI technologies",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1181,
+ "output_tokens": 392,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 3.496,
+ "recorded_at": "2026-10-25T14:05:50+0000"
+}

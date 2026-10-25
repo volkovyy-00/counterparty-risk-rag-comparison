@@ -1,0 +1,28 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n111"
+    ],
+    "canonical_name": "Raw material cost inflation",
+    "definition": "Rising costs of steel, metals, critical minerals, semiconductors and logistics increase production costs that may not be passed through to customers."
+   },
+   {
+    "member_ids": [
+     "n112"
+    ],
+    "canonical_name": "Raw material supply capacity shortfall",
+    "definition": "Demand for raw materials exceeds available regional supply capacity, requiring multi-year purchase commitments and higher inventory to secure supply."
+   }
+  ]
+ },
+ "input_tokens": 138,
+ "output_tokens": 173,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 2.784,
+ "recorded_at": "2026-10-25T14:13:01+0000"
+}

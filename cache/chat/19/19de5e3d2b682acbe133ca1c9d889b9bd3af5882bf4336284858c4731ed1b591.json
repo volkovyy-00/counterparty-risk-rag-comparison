@@ -1,0 +1,71 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n0"
+    ],
+    "canonical_name": "Acquisition integration failure",
+    "definition": "Risk that acquisitions, joint ventures or investments fail to integrate employees, R&D and systems or deliver expected benefits."
+   },
+   {
+    "member_ids": [
+     "n1"
+    ],
+    "canonical_name": "Additional debt incurrence",
+    "definition": "Risk that incurring additional indebtedness increases leverage and constrains financial flexibility."
+   },
+   {
+    "member_ids": [
+     "n61",
+     "n62"
+    ],
+    "canonical_name": "Goodwill and intangible asset impairment",
+    "definition": "Risk that significant goodwill and acquired intangibles become impaired, causing large non-cash charges to earnings."
+   },
+   {
+    "member_ids": [
+     "n81"
+    ],
+    "canonical_name": "IT system disruption",
+    "definition": "Risk that failures or disruptions of information technology systems impair operations."
+   },
+   {
+    "member_ids": [
+     "n82"
+    ],
+    "canonical_name": "Joint venture control and compliance",
+    "definition": "Risk that limited control over joint ventures or minority stakes leads to misconduct, control failures, penalties and reputational harm."
+   },
+   {
+    "member_ids": [
+     "n118"
+    ],
+    "canonical_name": "Restructuring cost and execution",
+    "definition": "Risk that restructuring actions incur higher costs or fail to achieve intended savings."
+   },
+   {
+    "member_ids": [
+     "n119"
+    ],
+    "canonical_name": "Share repurchase variability",
+    "definition": "Risk that share repurchases are reduced, suspended or vary in amount and timing."
+   },
+   {
+    "member_ids": [
+     "n124"
+    ],
+    "canonical_name": "Strategic change execution",
+    "definition": "Risk that acquisitions, divestitures, capital investments and restructuring fail to deliver expected strategic results."
+   }
+  ]
+ },
+ "input_tokens": 367,
+ "output_tokens": 559,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 7.019,
+ "recorded_at": "2026-10-25T14:07:41+0000"
+}

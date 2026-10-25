@@ -1,0 +1,28 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n7"
+    ],
+    "canonical_name": "Battery critical mineral supply constraints",
+    "definition": "Shortages or cost increases of lithium, nickel, cobalt and rare earths could raise EV costs and impede the company's EV strategy."
+   },
+   {
+    "member_ids": [
+     "n44"
+    ],
+    "canonical_name": "EV strategy execution risk",
+    "definition": "Failure to reduce battery costs, secure materials and scale EV manufacturing profitably could cause losses and undermine the EV transition."
+   }
+  ]
+ },
+ "input_tokens": 131,
+ "output_tokens": 174,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 2.894,
+ "recorded_at": "2026-10-25T14:07:17+0000"
+}

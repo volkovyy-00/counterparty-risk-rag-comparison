@@ -1,0 +1,44 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n59"
+    ],
+    "canonical_name": "Geopolitical decoupling of supply chains",
+    "definition": "Risk that geopolitical tensions such as China-Taiwan conflict and restricted entity lists decouple trade and technology supply chains, disrupting sourcing and sales."
+   },
+   {
+    "member_ids": [
+     "n77"
+    ],
+    "canonical_name": "International operations political risk",
+    "definition": "Risk that political tensions, repatriation limits, export restrictions and anti-corruption exposure harm international operations."
+   },
+   {
+    "member_ids": [
+     "n131",
+     "n136",
+     "n137"
+    ],
+    "canonical_name": "Tariffs and trade restrictions",
+    "definition": "Risk that tariffs, export controls, sanctions and other trade restrictions, particularly between the U.S. and China, raise costs and limit market access."
+   },
+   {
+    "member_ids": [
+     "n138"
+    ],
+    "canonical_name": "China trade tensions and demand weakness",
+    "definition": "Risk that U.S.-China trade tensions, a weak Chinese economy and shifting consumer preferences reduce demand and margins in China."
+   }
+  ]
+ },
+ "input_tokens": 367,
+ "output_tokens": 353,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 4.267,
+ "recorded_at": "2026-10-25T14:07:08+0000"
+}

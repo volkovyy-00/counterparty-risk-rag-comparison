@@ -1,0 +1,95 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Our business in China subjects us to unique operational, competitive, regulatory, and economic risks",
+    "risk_name": "Foreign market competition and impairment",
+    "detail": "China JVs hit by domestic competitors; $2.1B impairment and $2.0B equity losses 2024, $0.6B charges 2025; SGM further restructuring 2026",
+    "quote": "As a result of certain restructuring actions previously announced in December 2024, we recorded an other-than-temporary impairment of our equity interests of $2.1 billion and additional equity losses of $2.0 billion in the year ended December 31, 2024, and we recorded charges of $0.6 billion in the year ended December 31, 2025.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "SAIC General Motors Corp., Ltd. (SGM)",
+      "type": "NAMED_COUNTERPARTY"
+     }
+    ]
+   },
+   {
+    "heading": "Our business in China subjects us to unique operational, competitive, regulatory, and economic risks",
+    "risk_name": "Trade tensions and market demand",
+    "detail": "U.S.-China trade tensions, weak Chinese economy, EV/software preferences and China supply chain integration may cut margins",
+    "quote": "Increased competition, continued U.S.-China trade tensions, weakening economic conditions in China or China's level of integration with key components of our global supply chain, among other factors, may result in cost increases, price reductions, reduced sales, profitability, and margins, and challenges to gaining or holding market share.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "EVs",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Our business in China subjects us to unique operational, competitive, regulatory, and economic risks",
+    "risk_name": "Foreign government regulatory intervention",
+    "detail": "Chinese government may restrict investments or critical material exports with little notice",
+    "quote": "The Chinese government may adopt new regulations that may impact entities operating in China or the ability of non-Chinese entities to obtain critical materials from China, potentially with little advance notice.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "critical materials",
+      "type": "INPUT_COMMODITY"
+     }
+    ]
+   },
+   {
+    "heading": "We benefit from many joint ventures and strategic relationships over which we may have limited control",
+    "risk_name": "Joint venture partner dependence",
+    "detail": "Relies on JVs for EV battery cell manufacturing and raw material access; limited control",
+    "quote": "If we are unable to successfully source and execute on strategic business relationships in the future, our overall growth could be impaired, and our business, prospects, and results of operations could be materially adversely affected.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "EV battery cells",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "We benefit from many joint ventures and strategic relationships over which we may have limited control",
+    "risk_name": "Take-or-pay purchase obligations",
+    "detail": "EV raw material offtake agreements oblige purchases; low EV volumes or battery tech shifts could hurt cash flow; supplier investments may lose value",
+    "quote": "If we are unable to utilize or otherwise monetize the raw materials we are obligated to purchase under these offtake agreements, whether as a result of lower than expected EV production volumes, lower than expected rates of consumer adoption, changes in battery technology that reduce the need for certain raw materials, or other reasons, it could materially adversely affect our cash flows and increase our inventory.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "EV production",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "raw materials",
+      "type": "INPUT_COMMODITY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1522,
+ "output_tokens": 1294,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 10.021,
+ "recorded_at": "2026-10-25T14:05:20+0000"
+}

@@ -1,0 +1,28 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n53"
+    ],
+    "canonical_name": "Foreign investment restrictions on acquisitions",
+    "definition": "Foreign direct investment screening and outbound investment rules may limit or block the company's acquisitions, alliances and strategic transactions."
+   },
+   {
+    "member_ids": [
+     "n67"
+    ],
+    "canonical_name": "High leverage restricting financial flexibility",
+    "definition": "Substantial indebtedness may trigger covenant defaults, limit access to financing and acquisitions, and put the company at a disadvantage to less leveraged competitors."
+   }
+  ]
+ },
+ "input_tokens": 141,
+ "output_tokens": 188,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 7.048,
+ "recorded_at": "2026-10-25T14:07:31+0000"
+}

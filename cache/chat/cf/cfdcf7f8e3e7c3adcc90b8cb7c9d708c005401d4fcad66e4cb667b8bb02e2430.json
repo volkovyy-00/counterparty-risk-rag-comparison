@@ -1,0 +1,60 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Our continued success depends in part on our ability to retain, train and recruit a sufficient number of qualified employees in a competitive environment.",
+    "risk_name": "Key personnel retention and recruitment",
+    "detail": "Engineering, management, technical talent; international recruiting limited by immigration laws and policies",
+    "quote": "Our ability to recruit internationally or deploy employees to various locations may be limited by immigration laws and policies, including changes to, or the administration or interpretation of, those laws and policies.",
+    "specificity": "boilerplate",
+    "drivers": [
+     {
+      "name": "immigration laws and policies",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Our results of operations and our reputation could be affected by warranty claims, product liability claims, product recalls or legal proceedings.",
+    "risk_name": "Product liability and recall claims",
+    "detail": "Customer recalls of products containing TI parts, e.g., automotive and handheld electronics; insurance may be inadequate",
+    "quote": "In addition, it is possible for a customer to recall a product containing a TI part, for example with respect to products used in automotive applications or handheld electronics, which may cause us to incur costs and expenses relating to the recall.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "automotive applications",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "handheld electronics",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Our results of operations could be adversely affected by distributors' promotion of competing product lines or our distributors' financial performance and operations.",
+    "risk_name": "Distributor channel dependence",
+    "detail": "Under 20% of 2025 revenue via distributors carrying competing lines; distributor credit and administrative-measure risk",
+    "quote": "In 2025, less than 20% of our revenue was generated from sales of our products through distributors. Our distributors carry competing product lines, and our sales could be affected if semiconductor distributors promote competing products over our products.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Our margins vary.",
+    "risk_name": "Fixed cost operating leverage",
+    "detail": "Owns much manufacturing capacity; capacity expansions raised capex and depreciation; tariffs, freight affect margins",
+    "quote": "Because we own much of our manufacturing capacity, a significant portion of our operating costs is fixed. With our capacity expansions, capital expenditures and depreciation have increased.",
+    "specificity": "specific",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1189,
+ "output_tokens": 830,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 7.739,
+ "recorded_at": "2026-10-25T14:06:07+0000"
+}

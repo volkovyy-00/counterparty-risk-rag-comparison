@@ -11,18 +11,18 @@
   "NXPI": 64,
   "TXN": 29
  },
- "canonical_risk_factors": 102,
- "singleton_share": 0.7549,
- "shared_specific": 17,
+ "canonical_risk_factors": 103,
+ "singleton_share": 0.7476,
+ "shared_specific": 18,
  "shared_specific_cross_industry": 10,
  "generic_risk_factors": 8,
  "most_generic": {
-  "name": "Third-party intellectual property infringement claims",
+  "name": "Third-party IP infringement claims",
   "companies": 3
  },
  "examples_shared_specific": [
   "Data privacy regulatory compliance costs",
-  "Import tariffs and protectionist policies",
+  "Geopolitical and international political risk",
   "Inadequate intellectual property protection",
   "Labor relations and work stoppages",
   "Limited control over joint ventures"
@@ -36,10 +36,10 @@
   "artificial intelligence (GM, NXPI)"
  ],
  "resolution": {
-  "names_exact": 143,
-  "components": 19,
+  "names_exact": 142,
+  "components": 22,
   "merges_approved": 26,
-  "merges_rejected_llm": 170,
+  "merges_rejected_llm": 167,
   "merges_rejected_rule": 1
  },
  "tokens_and_cost": {
@@ -50,10 +50,10 @@
    "cost_usd": 0.9451
   },
   "graph.resolve": {
-   "input_tokens": 25792,
-   "output_tokens": 6399,
-   "llm_calls": 28,
-   "cost_usd": 0.1633
+   "input_tokens": 27508,
+   "output_tokens": 6048,
+   "llm_calls": 31,
+   "cost_usd": 0.1544
   }
  }
 }

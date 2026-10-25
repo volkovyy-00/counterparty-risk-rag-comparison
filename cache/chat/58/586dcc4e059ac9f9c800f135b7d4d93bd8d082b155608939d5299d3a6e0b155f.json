@@ -1,0 +1,59 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Our operations could be affected by the complex laws, rules and regulations to which our business is subject.",
+    "risk_name": "Regulatory compliance cost and restrictions",
+    "detail": "Broad range of international, national, local laws; government inquiries could lead to enforcement actions or fines",
+    "quote": "Compliance with these laws, rules and regulations may be onerous and expensive and could restrict our ability to manufacture or ship our products and operate our business.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Environmental, safety and health rules affecting manufacturing jurisdictions",
+    "risk_name": "Environmental regulation manufacturing cost",
+    "detail": "Rules may require abatement equipment, material/process elimination, or energy/emissions fees; substitutes may be unavailable",
+    "quote": "A substitute for a prohibited material or process might not be available, or might not be available at reasonable cost.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Our results of operations could be affected by changes in tax-related matters.",
+    "risk_name": "Tax rate increase",
+    "detail": "Facilities in over 30 countries; deferred tax assets realization at risk; tariff changes could affect tax rate",
+    "quote": "We have facilities in more than 30 countries and as a result are subject to taxation and audit by a number of taxing authorities. Tax rates vary among the jurisdictions in which we operate.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Changes in international tax laws including BEPS",
+    "risk_name": "International tax law changes",
+    "detail": "OECD Base Erosion and Profit Shifting laws' application to U.S. multinationals uncertain",
+    "quote": "In addition, many countries have enacted or begun the process of enacting laws that align with the Organisation for Economic Cooperation and Development\u2019s Base Erosion and Profit Shifting recommendations; application of these laws to U.S.-based multinational corporations remains uncertain.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Base Erosion and Profit Shifting",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Government incentives may be reduced or clawed back",
+    "risk_name": "Government incentive clawback",
+    "detail": "Received government and tax incentives for investments; subject to scrutiny, reduction, clawback or termination",
+    "quote": "Such incentives could be subject to reduction, modification, clawback or termination, and such changes to these incentives could adversely affect our results of operations, financial condition and reputation.",
+    "specificity": "specific",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1399,
+ "output_tokens": 851,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 7.011,
+ "recorded_at": "2026-10-25T14:06:08+0000"
+}

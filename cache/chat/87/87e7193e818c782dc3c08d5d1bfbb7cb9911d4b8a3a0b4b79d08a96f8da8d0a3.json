@@ -1,0 +1,46 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "The price of our common stock may fluctuate significantly.",
+    "risk_name": "Stock price volatility",
+    "detail": "Closing price ranged from $245.86 (Feb 20, 2025) to $153.50 (Apr 8, 2025); possible securities class actions",
+    "quote": "The market closing price for our common stock varied between a high of $245.86 on February 20, 2025, and a low of $153.50 on April 8, 2025, in the twelve-month period ending on December 31, 2025.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "We may have fluctuations in the amount and frequency of our stock repurchases.",
+    "risk_name": "Share repurchase variability",
+    "detail": "Generic statement",
+    "quote": "The amount, timing, and execution of our stock repurchases may fluctuate based on our priorities for the use of cash for other purposes\u2014such as investing in our business, including operational spending, capital spending, and acquisitions, and returning cash to our stockholders as dividend payments\u2014and because of changes in cash flows, tax laws, and the market price of our common stock.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "There can be no assurance that we will continue to declare cash dividends.",
+    "risk_name": "Dividend reduction or suspension",
+    "detail": "Quarterly dividend policy; may be cut; restricted by law, contracts and corporate structure",
+    "quote": "The declaration and payment of any dividend is subject to the approval of our board, and our dividend may be discontinued or reduced at any time.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Impact of financial markets and demographics on defined benefit pension liabilities",
+    "risk_name": "Pension underfunding",
+    "detail": "Net accrued benefit liability of $342 million at Dec 31, 2025 for plans in multiple countries",
+    "quote": "As of December 31, 2025, we had recognized a net accrued benefit liability of $342 million, representing the unfunded benefit obligations of our defined pension plans.",
+    "specificity": "specific",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1314,
+ "output_tokens": 686,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 6.646,
+ "recorded_at": "2026-10-25T14:05:57+0000"
+}

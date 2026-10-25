@@ -1,0 +1,46 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n56",
+     "n88",
+     "n125",
+     "n127"
+    ],
+    "canonical_name": "Supplier dependence and supply disruption",
+    "definition": "Reliance on limited, single-source or subcontracted suppliers (such as foundries and parts makers) whose shortages or disruptions could prevent the company from meeting demand."
+   },
+   {
+    "member_ids": [
+     "n105",
+     "n106"
+    ],
+    "canonical_name": "Semiconductor product defect and liability claims",
+    "definition": "Defects in the company's semiconductor products could lead to liability claims, customer recall cost recovery demands, replacement costs and injury exposure that insurance may not fully cover."
+   },
+   {
+    "member_ids": [
+     "n108"
+    ],
+    "canonical_name": "Vehicle product recall costs",
+    "definition": "Recalls of the company's vehicles, amplified by global platforms and autonomous vehicle safety concerns, could create large costs and reputational damage."
+   },
+   {
+    "member_ids": [
+     "n128"
+    ],
+    "canonical_name": "Limited recall cost recovery from suppliers",
+    "definition": "The company may be unable to recover recall costs from suppliers for defective components because of the suppliers' financial condition or because defects surface years after production."
+   }
+  ]
+ },
+ "input_tokens": 489,
+ "output_tokens": 382,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 4.383,
+ "recorded_at": "2026-10-25T14:07:04+0000"
+}

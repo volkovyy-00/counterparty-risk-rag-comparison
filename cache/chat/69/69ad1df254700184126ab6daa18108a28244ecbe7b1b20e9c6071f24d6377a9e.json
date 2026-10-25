@@ -1,0 +1,69 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Our global operations subject us to risks associated with domestic or international political, social, economic or other conditions.",
+    "risk_name": "China revenue concentration",
+    "detail": "About 60% of revenue from non-US-headquartered customers; China-HQ customers ~20% and shipments into China ~50% of 2025 revenue",
+    "quote": "Revenue from end customers headquartered in China represented about 20% of our revenue in 2025, while revenue from products shipped into China represented about 50% of our revenue in 2025.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Our global operations subject us to risks associated with domestic or international political, social, economic or other conditions.",
+    "risk_name": "Trade restrictions and tariffs",
+    "detail": "US-China tensions; semiconductor-specific tariffs, export restrictions and sanctions could limit market access and equipment purchases",
+    "quote": "Certain countries where we operate, particularly the United States and China, have experienced, and other countries may experience, geopolitical tensions and administrative measures that affect global trade and macroeconomic conditions through the imposition of tariffs, including tariffs specific to the products that we sell, import or export restrictions, trade embargoes and sanctions, restrictions on cross-border investment and other trade barriers applicable to the semiconductor industry.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "United States",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Our global operations subject us to risks associated with domestic or international political, social, economic or other conditions.",
+    "risk_name": "Foreign currency fluctuation",
+    "detail": "Generic statement on U.S. dollar fluctuations and remeasurement of non-dollar transactions",
+    "quote": "In addition, our global operations expose us to periods when the U.S. dollar significantly fluctuates in relation to the non-U.S. currencies in which we transact business. The remeasurement of non-U.S. dollar transactions can have an adverse effect on our results of operations and financial condition.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "We face substantial competition that requires us to respond rapidly to product development and pricing pressures.",
+    "risk_name": "Competitive pricing pressure",
+    "detail": "Emerging Asian competitors; China promoting domestic semiconductor industry through policy and investment",
+    "quote": "For example, we may face increased competition as a result of China actively promoting and reshaping its domestic semiconductor industry through policy changes and investment, which could prevent us from competing effectively.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Asia",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1363,
+ "output_tokens": 940,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 6.989,
+ "recorded_at": "2026-10-25T14:06:01+0000"
+}
