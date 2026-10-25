@@ -95,8 +95,9 @@ def _row(stage, calls, tok_in, tok_out, cache_write=0, cache_read=0, model=None)
             "output_tokens": tok_out, "cost_usd": cost}
 
 
-def graph_rows(filings, version, measure=True):
-    """Approach 2 rows (build, resolve, ask) for one prompt version."""
+def graph_rows(filings, version, measure=True, skip_cached=False):
+    """Approach 2 rows (build, resolve, ask) for one prompt version. skip_cached: build calls already in the
+    model-call cache (e.g. the A/B filings) replay for free, so only the others are priced."""
     import approach2_graphrag as a2
 
     if version == "graph-v1-workshop":
@@ -112,6 +113,11 @@ def graph_rows(filings, version, measure=True):
 
     sys_tok, m = _tokens(graph_v2.SYSTEM_V2, "", measure)
     pairs = [(f, c) for f in filings for c in graph_v2.graph_chunks(f)]
+    cached = 0
+    if skip_cached:
+        live = [(f, c) for f, c in pairs if not llm._cache_path("chat", llm.request_key(
+            graph_v2.SYSTEM_V2, graph_v2.user_prompt(f, c), graph_v2.MENTIONS_SCHEMA)).exists()]
+        cached, pairs = len(pairs) - len(live), live
     n = len(pairs)
     user_tok = sum(len(graph_v2.user_prompt(f, c)) // 4 for f, c in pairs)
     writes = min(n, config.LLM_CONCURRENCY)  # parallel first calls may each write the prompt cache
@@ -122,23 +128,24 @@ def graph_rows(filings, version, measure=True):
             _row("2 graph resolve", comps, comps * ASSUME_V2["resolve_in"], comps * ASSUME_V2["resolve_out"]),
             _row("2 graph ask", 1, ASSUME_V2["ask_evidence_tokens"] + len(a2.SYSTEM) // 4,
                  ASSUME_OUT["claims_answer"])]
-    return {"version": version, "rows": rows, "measured": m, "chunks": n, "system_tokens": sys_tok,
+    return {"version": version, "rows": rows, "measured": m, "chunks": n, "cached_chunks": cached,
+            "system_tokens": sys_tok,
             "usd": sum(r["cost_usd"] or 0 for r in rows)}
 
 
 TAXO_COMPARE = [("taxonomy-v2.0", "fixed"), ("taxonomy-v3.0", "heading")]
 
 
-def taxonomy_rows(filings, version, split, measure=True):
+def taxonomy_rows(filings, version, split, measure=True, model=None):
     """Approach-3 build for one prompt version and split: one call per window, system prompt cached."""
     import approach3_taxonomy as a3
 
-    sys_tok, m = _tokens(a3.system(version), "", measure)
+    model = model or config.LLM_MODEL
+    sys_tok, m = _tokens(a3.system(version), "", measure, model)
     windows = [w for f in filings for _, w, _ in a3.split_filing(f, split)[0]]
     win_tok = sum(len(w) // 4 for w in windows)
     n = len(windows)
-    cost = llm.price_usd(config.LLM_MODEL, win_tok + sys_tok, ASSUME_OUT["taxonomy_window"] * n, 0,
-                         sys_tok * (n - 1))
+    cost = llm.price_usd(model, win_tok + sys_tok, ASSUME_OUT["taxonomy_window"] * n, 0, sys_tok * (n - 1))
     return {"row": {"stage": "3 taxonomy build", "calls": n, "input_tokens": win_tok + sys_tok * n,
                     "output_tokens": ASSUME_OUT["taxonomy_window"] * n, "cost_usd": cost},
             "windows": n, "system_tokens": sys_tok, "measured": m, "usd": cost}
@@ -162,6 +169,79 @@ def graph_ab(filings, measure=True):
     out["tickers"] = [f["ticker"] for f in ab]
     out["chars"] = sum(len(f["text"]) for f in ab)
     return out
+
+
+# --------------------------------------------------------------------------- staged real run (real_run.py --stage)
+STAGE_CAPS = {"core": 20.0, "extras": 10.0}
+RUN_B_MODEL = config.env("RUN_B_MODEL", "claude-sonnet-5-5")  # audit run B = approach 3 after a model swap
+EXTRAS = {"a": "approach 1 reruns (2, cache off)",
+          "b": "approach 3 rerun (1, taxonomy-v3.0, cache off)",
+          "c": "audit run B: approach 3 on {model} (model swap, taxonomy-v3.0)"}
+EXTRAS_DROP_ORDER = ["b", "c"]  # over the cap: drop (b) first, then (c) (the user's order)
+
+
+def estimate_core(filings, measure=True):
+    """Core stage: graph build (cached A/B calls replay for free) + resolve + ask, run A of 1, 3, L, graph QA."""
+    est = estimate(filings, reruns=0, audit_run=False, measure=measure)
+    graph = graph_rows(filings, config.GRAPH_PROMPT_VERSION, measure, skip_cached=True)
+    rows = [r for r in est["rows"] if r["stage"] not in ("2 graph build", "2 graph resolve", "2 graph ask")]
+    rows[1:1] = graph["rows"]  # after the taxonomy build, as in estimate()
+    return {"stage": "core", "rows": rows, "total_usd": sum(r["cost_usd"] or 0 for r in rows),
+            "cached_chunks": graph.get("cached_chunks", 0), "input_measured": est["input_measured"] and graph["measured"],
+            "model": config.LLM_MODEL, "rebuild_usd": rebuild_usd(filings, measure)}
+
+
+def rebuild_usd(filings, measure=True):
+    """What an approach-2 rerun would cost: a full graph build + resolve with the cache off."""
+    g = graph_rows(filings, config.GRAPH_PROMPT_VERSION, measure)
+    return round(sum(r["cost_usd"] or 0 for r in g["rows"] if r["stage"] != "2 graph ask"), 2)
+
+
+def estimate_extras(filings, measure=True):
+    """Extras stage, per sub-step: (a) 2 approach-1 reruns, (b) 1 approach-3 rerun, (c) run B on RUN_B_MODEL."""
+    import approach1_rag as a1
+
+    chunks = chunks_for(filings, config.RAG_CHUNK_CHARS, config.RAG_CHUNK_OVERLAP)
+    n1, m1 = _tokens(a1.SYSTEM, a1.user_prompt(config.QUESTION, chunks[: config.RAG_TOP_K]), measure)
+    a = _row("1 RAG ask x2", 2, 2 * n1, 2 * ASSUME_OUT["claims_answer"])
+    b = taxonomy_rows(filings, "taxonomy-v3.0", "heading", measure)
+    c = taxonomy_rows(filings, "taxonomy-v3.0", "heading", measure, model=RUN_B_MODEL)
+    subs = {"a": dict(a, stage="(a) " + EXTRAS["a"]),
+            "b": dict(b["row"], stage="(b) " + EXTRAS["b"]),
+            "c": dict(c["row"], stage="(c) " + EXTRAS["c"].format(model=RUN_B_MODEL))}
+    return {"stage": "extras", "subs": subs, "total_usd": sum(r["cost_usd"] or 0 for r in subs.values()),
+            "input_measured": m1 and b["measured"] and c["measured"], "model": config.LLM_MODEL,
+            "run_b_model": RUN_B_MODEL, "rebuild_usd": rebuild_usd(filings, measure)}
+
+
+def fit_extras(est, cap, only=None):
+    """Sub-steps to run: `only` if given, else all, dropping (b) then (c) until the total fits the cap."""
+    keep = list(only or est["subs"])
+    dropped = []
+    for k in EXTRAS_DROP_ORDER:
+        if sum(est["subs"][x]["cost_usd"] or 0 for x in keep) <= cap:
+            break
+        if k in keep and only is None:
+            keep.remove(k)
+            dropped.append(k)
+    return keep, dropped
+
+
+def report_stage(est):
+    how = "measured with count_tokens" if est["input_measured"] else "ESTIMATED as characters / 4 (no key)"
+    rows = est["rows"] if est["stage"] == "core" else list(est["subs"].values())
+    lines = [f"Stage {est['stage']} estimate - model {est['model']}, prices from pricing.yaml "
+             f"(checked {llm.PRICES_CHECKED}), cap ${STAGE_CAPS[est['stage']]:.0f}",
+             f"Input tokens: {how}. Output tokens: ASSUMED per call {ASSUME_OUT}.", "",
+             f"{'step':<74}{'calls':>7}{'input tok':>12}{'output tok':>12}{'USD':>9}"]
+    for r in rows:
+        cost = "n/a" if r["cost_usd"] is None else f"{r['cost_usd']:.2f}"
+        lines.append(f"{r['stage']:<74}{r['calls']:>7}{r['input_tokens']:>12,}{r['output_tokens']:>12,}{cost:>9}")
+    lines.append(f"{'TOTAL':<74}{'':>31}{est['total_usd']:>9.2f}")
+    if est["stage"] == "core":
+        lines.append(f"Graph build calls already in the cache (replayed for free): {est['cached_chunks']}")
+    lines.append(f"Not included: approach-2 rerun (a full graph rebuild + resolve, cache off) ~${est['rebuild_usd']:.2f}")
+    return "\n".join(lines)
 
 
 def report(est, reruns):

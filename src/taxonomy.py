@@ -24,6 +24,18 @@ def leaf_name(leaf_id):
     return leaf_id.split(".", 1)[1].replace("_", " ")
 
 
+_ACRONYMS = {"oem": "OEM", "ev": "EV", "ai": "AI", "it": "IT", "fx": "FX", "ip": "IP", "esg": "ESG"}
+
+
+def leaf_label(leaf_id):
+    """A readable name for screens: the leaf's optional `label:` in taxonomy.yaml, else its id in sentence case."""
+    leaf = LEAVES.get(leaf_id, {})
+    if leaf.get("label"):
+        return leaf["label"]
+    words = [_ACRONYMS.get(w, w) for w in leaf_name(leaf_id).split()]
+    return " ".join([words[0][:1].upper() + words[0][1:]] + words[1:]) if words else leaf_id
+
+
 def category_of(leaf_id):
     return LEAVES[leaf_id]["category"] if leaf_id in LEAVES else None
 

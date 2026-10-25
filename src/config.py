@@ -29,7 +29,7 @@ GROUP = env("GROUP", _GROUPS["default"])
 if GROUP not in _GROUPS["groups"]:
     raise SystemExit(f"GROUP={GROUP!r} is not in groups.yaml ({', '.join(_GROUPS['groups'])})")
 _group = _GROUPS["groups"][GROUP]
-for _key in ("companies", "notes"):
+for _key in ("companies", "notes", "names"):
     if any(not isinstance(k, str) for k in (_group.get(_key) or {})):  # e.g. unquoted ON parses as True
         raise SystemExit(f"groups.yaml {GROUP}.{_key}: quote every ticker that YAML reads as a non-string")
 TICKERS = [
@@ -39,6 +39,7 @@ TICKERS = [
 ]
 INDUSTRY = {t: _group["companies"].get(t, "other") for t in TICKERS}  # ticker -> industry label
 GROUP_NOTES = _group.get("notes") or {}
+DISPLAY_NAMES = _group.get("names") or {}  # ticker -> short name shown on the demo page
 MIN_SHARED = int(env("MIN_SHARED", "2"))  # "shared" = faced by at least this many companies
 
 # --- Corpus -----------------------------------------------------------------
