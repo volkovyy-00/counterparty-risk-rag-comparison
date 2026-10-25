@@ -79,6 +79,7 @@ demo/       the page template, label tool and screenshot script
 data/       corpora (data/raw/ is downloaded, git-ignored)
 results/    frozen runs; results/demo_run/ is what the stage shows
 tests/      offline tests with a test-only fake model
-docs/       DETAILS.md (settings, design decisions, references) and REHEARSAL.md (the 9-minute script)
+docs/       DETAILS.md (settings, design decisions, references), REHEARSAL.md (the 9-minute script),
+            GRAPHRAG_V2.md (what changed in approach 2 and why)
 SCORING_RULE.md   committed before any real run
 ```

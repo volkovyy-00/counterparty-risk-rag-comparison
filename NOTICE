@@ -7,8 +7,10 @@ Third-party material:
   (financial_documents/data, https://github.com/neo4j-product-examples/genai-workshop),
   licensed under the Apache License, Version 2.0. src/prepare_workshop_sample.py
   downloads that data at a pinned commit; it is not stored in this repository.
-- Approach 2 uses the neo4j-graphrag library (SimpleKGPipeline) as a dependency,
-  following the pattern of that workshop.
+- Approach 2 started from that workshop's SimpleKGPipeline pattern and uses the
+  neo4j-graphrag library as a dependency. The workshop-style prompt and pipeline
+  are kept unchanged as the graph-v1-workshop baseline for the A/B; graph-v2 is
+  this project's own extractor and resolver.
 - Filings are public documents from SEC EDGAR.
 
 No proprietary data. The views expressed are the author's own.

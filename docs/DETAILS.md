@@ -34,7 +34,12 @@ Reference material for the [demo script](../README.md).
 | `NEO4J_URI` / `NEO4J_USERNAME` / `NEO4J_PASSWORD` | `bolt://localhost:7687` / `neo4j` / - | build time only; the demo never needs Neo4j |
 | `RAG_TOP_K` | `12` | approach 1 |
 | `GRAPH_MODE` | `global` | `vector_seeded` = the workshop's top-k-seeded pattern (kept, not on stage) |
-| `GRAPH_RESOLVER` | `fuzzy` | `exact` = name match only, as in the workshop |
+| `GRAPH_PROMPT_VERSION` | `graph-v2` | `graph-v1-workshop` = the workshop-style prompt and pipeline, kept as the A/B baseline ([GRAPHRAG_V2.md](GRAPHRAG_V2.md)) |
+| `GRAPH_RESOLVER` | `llm` (v2) / `fuzzy` (v1) | `exact` = name match only, as in the workshop; `fuzzy` = WRatio >= 0.8; `llm` = candidates, then an LLM decides |
+| `GRAPH_V2_CHUNK_CHARS` | `6000` | v2 chunks: whole paragraphs, no overlap |
+| `GRAPH_SIM_MIN` / `GRAPH_SIM_TOPK` / `GRAPH_LEX_MIN` / `GRAPH_COMPONENT_MAX` | `0.80` / `8` / `90` / `25` | v2 merge candidates: embedding cosine, neighbours, RapidFuzz token_set_ratio, largest group sent to the LLM |
+| `GENERIC_SHARE` | `0.8` | a risk is generic if at least this share of companies face it (or it is mostly boilerplate in 3+) |
+| `GRAPH_AB_TICKERS` | `GM,NXPI,TXN` | filings for the graph A/B (`make graph-ab`) |
 | `TAXO_PROMPT_VERSION` | `taxonomy-v2.0` | `taxonomy-v2.1` is run B of the audit trail |
 | `MIN_SHARED` | `2` | companies needed for a risk to count as shared |
 | `SEC_USER_AGENT` / `SEC_MAX_RPS` | - / `5` | "Name email"; capped at SEC's 10 requests/second |
