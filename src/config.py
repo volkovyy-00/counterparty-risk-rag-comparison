@@ -76,6 +76,9 @@ GRAPH_QA_EFFORT = env("GRAPH_QA_EFFORT", "low")  # Anthropic output_config.effor
 # json   : schema is only described in the prompt (local models); the code validator still applies
 LLM_STRUCTURED = env("LLM_STRUCTURED", "strict")
 LLM_CONCURRENCY = int(env("LLM_CONCURRENCY", "4"))
+# Hard stop for live (uncached) spend in one process, in USD; unset = no cap. Calls already in flight finish,
+# so the overshoot is at most LLM_CONCURRENCY calls.
+LLM_MAX_USD = float(env("LLM_MAX_USD")) if env("LLM_MAX_USD") else None
 LLM_TIMEOUT_S = float(env("LLM_TIMEOUT_S", "600"))
 # local  : fastembed (ONNX, runs on CPU, no key; the model is downloaded once from Hugging Face)
 # openai / azure : embeddings API
@@ -117,6 +120,9 @@ GRAPH_COMPANY_LINKS = env("GRAPH_COMPANY_LINKS", "0") == "1"  # named supplier/c
 GRAPH_AB_TICKERS = [t.strip().upper() for t in env("GRAPH_AB_TICKERS", "GM,NXPI,TXN").split(",") if t.strip()]
 GRAPH_MODE = env("GRAPH_MODE", "global")  # global traversal | vector_seeded (workshop pattern)
 TAXO_WINDOW_CHARS = int(env("TAXO_WINDOW_CHARS", "12000"))
+# heading : whole risk-factor sections (heading + body) packed into windows (default for taxonomy-v3.x)
+# fixed   : paragraph windows of TAXO_WINDOW_CHARS, no overlap (always used by taxonomy-v2.x)
+TAXO_SPLIT = env("TAXO_SPLIT")  # unset = the prompt version's own split
 
 
 def rel(path):

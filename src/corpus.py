@@ -90,6 +90,122 @@ def chunk_text(text, size, overlap):
     return chunks
 
 
+# --------------------------------------------------------------------------- risk-factor sections (approach 3)
+# Item 1A puts each risk factor under a one-sentence heading on its own line, grouped under short
+# sub-captions ("Risks Related to ..."). Plain line rules, no model. Tuned on the edgar_latest filings
+# (25 Oct 2026) and then frozen: tests pin the section count per filing.
+_LINE = re.compile(r"[^\n]+")
+_BULLETS = "•·▪ \t"
+_DEBRIS = [re.compile(p) for p in (r"^\d{1,3}$", r"(?i)^item\s*1a\b.*\(continued\)$", r"(?i)^table of contents$",
+                                   r"(?i)^page \d+", r"^[^a-z]*[A-Z][^a-z]*$")]  # page numbers, running heads
+_SUBCAPTION = re.compile(r"(?i)\brisks?\b|\brelat(?:ed|ing) to\b|\buncertainties\b")
+_SUBCAPTION_DOT = re.compile(r"(?i)^risks? (?:related|relating) to\b")  # "Risks related to X." with a period
+_NOT_HEADING = re.compile(r"(?i)^(?:in addition|additionally|furthermore|moreover|for example|also|these|this|such|"
+                          r"as a result|accordingly|however|further|similarly|finally|likewise|in particular|"
+                          r"consequently|based on|any of these|historically)\b")
+MIN_SECTIONS = 8  # fewer headings than this: the filing falls back to fixed windows
+MAX_SECTION_FACTOR = 3  # a section over this many windows long also falls back
+
+
+def _clean(line):
+    return " ".join(line.strip().lstrip(_BULLETS).split())
+
+
+def _is_debris(line):
+    return any(p.search(line) for p in _DEBRIS)
+
+
+def _line_kind(line, next_line):
+    """'debris' | 'subcaption' | 'heading' | 'body' for one cleaned line."""
+    if _is_debris(line):
+        return "debris"
+    words = len(line.split())
+    if line[:1].isupper() and ((words <= 16 and _SUBCAPTION_DOT.search(line)) or (
+            words <= 12 and not line.endswith((".", ":", ";", ",")) and _SUBCAPTION.search(line))):
+        return "subcaption"
+    if (6 <= words <= 60 and line.endswith(".") and (line[:1].isupper() or line[:1] in "\"“")
+            and not _NOT_HEADING.search(line) and len(next_line) > len(line)):
+        return "heading"
+    return "body"
+
+
+def split_risk_factors(text):
+    """Ordered risk-factor sections of an Item 1A text.
+
+    Each section is {idx, start, end, subcaption, heading, text}; text == source[start:end], so offsets
+    stay exact (page-break debris stays inside the text). idx 0 is anything before the first heading.
+    """
+    lines = [(m.start(), _clean(m.group())) for m in _LINE.finditer(text)]
+    lines = [(s, ln) for s, ln in lines if ln]
+    bounds, subcaption, pending, pending_body = [], "", None, False  # bounds: (start, heading, subcaption)
+    for i, (start, line) in enumerate(lines):
+        next_line = next((ln for _, ln in lines[i + 1:] if not _is_debris(ln)), "")
+        kind = _line_kind(line, next_line)
+        if kind == "subcaption":
+            if pending is not None and pending_body:  # text under a sub-caption with no heading: a summary list
+                bounds.append((pending, f"({subcaption})", ""))
+                pending = None
+            subcaption, pending_body = line.rstrip("."), False
+            pending = start if pending is None else pending
+        elif kind == "heading":
+            bounds.append((start if pending is None else pending, line, subcaption))
+            pending = None
+        elif kind == "body" and pending is not None:
+            pending_body = True
+    if not bounds or text[:bounds[0][0]].strip():
+        bounds.insert(0, (0, "(introduction)", ""))
+    sections = []
+    for n, (start, heading, sub) in enumerate(bounds):
+        end = bounds[n + 1][0] if n + 1 < len(bounds) else len(text)
+        end = start + len(text[start:end].rstrip())
+        sections.append({"idx": len(sections) if bounds[0][1] == "(introduction)" else len(sections) + 1,
+                         "start": start, "end": end, "subcaption": sub, "heading": heading, "text": text[start:end]})
+    return sections
+
+
+def split_check(sections, size):
+    """None if the heading split is usable, else the reason to fall back to fixed windows."""
+    headed = [s for s in sections if not s["heading"].startswith("(")]
+    if len(headed) < MIN_SECTIONS:
+        return (f"{len(headed)} heading line(s) found, fewer than {MIN_SECTIONS}: headings likely run into the "
+                "paragraph")
+    big = max(sections, key=lambda s: len(s["text"]))
+    if len(big["text"]) > MAX_SECTION_FACTOR * size:
+        return f"section {big['idx']} is {len(big['text']):,} chars (> {MAX_SECTION_FACTOR}x the {size:,} window)"
+    return None
+
+
+def section_marker(section, part=None):
+    sub = f"\nSub-caption: {section['subcaption']}" if section["subcaption"] else ""
+    tail = f" (part {part[0]}/{part[1]})" if part else ""
+    return f"[RF {section['idx']}] {section['heading']}{tail}{sub}"
+
+
+def pack_sections(sections, size):
+    """Windows of whole sections, each up to ~size characters: list of (text, [section idx, ...]).
+
+    A section never straddles two windows. One that is longer than `size` is cut on paragraphs, and every
+    part carries the section's marker again.
+    """
+    units = []
+    for s in sections:
+        if len(s["text"]) <= size:
+            units.append((s["idx"], f"{section_marker(s)}\n\n{s['text']}"))
+            continue
+        parts = chunk_text(s["text"], size, 0)
+        units += [(s["idx"], f"{section_marker(s, (k + 1, len(parts)))}\n\n{p}") for k, (_, p) in enumerate(parts)]
+    windows, text, idxs = [], "", []
+    for idx, unit in units:
+        if text and len(text) + len(unit) + 2 > size:
+            windows.append((text, idxs))
+            text, idxs = "", []
+        text = f"{text}\n\n{unit}" if text else unit
+        idxs = idxs if idx in idxs else idxs + [idx]
+    if text:
+        windows.append((text, idxs))
+    return windows
+
+
 def chunks_for(filings, size, overlap):
     out = []
     for filing in filings:
