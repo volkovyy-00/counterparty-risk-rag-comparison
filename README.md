@@ -21,6 +21,8 @@ The data is public: SEC EDGAR filings, plus the Apache-2.0 sample data of the Ne
 
 ## On stage (offline, ~10 s to start)
 
+After a fresh clone, this is all you need: no API key, no Neo4j, no download.
+
 ```bash
 pip install -r requirements.txt
 make demo            # builds demo/index.html from results/demo_run/ and opens it
@@ -32,44 +34,73 @@ Keys: **1–7** switch screens, **G** governance, **T** timer, **D** dark theme,
 **F/O/A** run the governance checks (G). The beat-by-beat script is in [docs/REHEARSAL.md](docs/REHEARSAL.md).
 
 Fallbacks: no Wi-Fi → `make demo`. No Neo4j → nothing changes, because the graph comes from
-`results/demo_run/graph.json` and the graph answers from `results/demo_run/graph_qa.json`. No browser → open the PNGs in `demo/fallback/` (`make screenshots`).
+`results/demo_run/graph.json` and the graph answers from `results/demo_run/graph_qa.json`. No browser → open the PNGs in `demo/fallback/` (`make fetch-artifacts WHAT=fallback`, or `make screenshots`).
 
 ## Producing the frozen run (once, online – this is the only step that spends money)
 
 ```bash
 cp .env.sample .env       # SEC_USER_AGENT, ANTHROPIC_API_KEY (or another provider); never commit .env
 docker compose up -d      # local Neo4j with APOC
-make estimate             # prints the cost estimate; nothing is called
-make real-run             # stops if the estimate is over $5
-make real-run ARGS="--confirm-usd 25"
+make real-run ARGS="--stage core"                       # prints the core estimate (cap $20) and stops
+LLM_MAX_USD=20 make real-run ARGS="--stage core --confirm-usd 20"
+LLM_MAX_USD=10 make real-run ARGS="--stage extras --confirm-usd 10"   # optional, after core
 make label                # a person labels the key in the browser -> config/ground_truth.yaml, status: verified
-make build-demo           # rebuild after labelling: P/R/F1 lose the DRAFT banner
-make check-secrets && git add results/demo_run cache data/corpus && git commit
+make build-demo           # rebuild after labelling: P/R/F1 lose the DRAFT banner (DRAFT=1 builds before that)
+make check-secrets && git add results/demo_run results/spend cache && git commit
 ```
 
-`src/real_run.py` does the following in order:
+The corpus in `data/corpus/edgar_latest/` is frozen; the real run never fetches from EDGAR. `src/real_run.py` runs
+in two stages, each with its own estimate, cap and "go". `LLM_MAX_USD` must be set to the stage cap, and a spend
+log (`results/spend/real_run_<stage>.jsonl`) carries it across every step of the stage.
 
-1. Fetches the 10-Ks, respecting SEC fair-access rules and logging data-quality issues without fixing them.
-2. Builds the graph.
-3. Runs approaches 1, 2, 3 and L, then freezes the result into `results/demo_run/`.
-4. Exports the graph and answers the fixed screen-4 graph questions (`src/graph_qa.py`; read-only Cypher, verified
-   claims, saved to `results/demo_run/graph_qa.json`).
-5. Records run B for the audit trail.
-6. Adds 2 more runs with the cache off for the rerun-consistency figure.
-7. Builds the governance fixtures, the page and the screenshots.
+- **core** (cap $20): builds the graph (calls already in `cache/chat/` replay for free), runs approaches 1, 2, 3
+  and L and freezes them into `results/demo_run/`, exports the graph, answers the fixed screen-4 graph questions
+  (`src/graph_qa.py`; read-only Cypher, verified claims, `results/demo_run/graph_qa.json`), then builds the
+  governance fixtures, the page and the screenshots.
+- **extras** (cap $10): (a) 2 reruns of approach 1 and (b) 1 rerun of approach 3, both with the cache off, for
+  the rerun-consistency figure; (c) audit run B, approach 3 after a model swap. Over the cap, (b) is dropped first,
+  then (c). Approach 2 is not rerun: a graph rebuild is estimated at about $9.4, and screen 6 shows that figure.
 
-Every model call is cached, so `LLM_CACHE=replay python src/run_all.py` reproduces run A with zero API calls.
+Every model call is cached, so after `make fetch-artifacts WHAT=cache`,
+`LLM_CACHE=replay python src/run_all.py` reproduces run A with zero API calls.
 
 ## Tests
 
 ```bash
 make test             # offline; uses a test-only fake model that can never be frozen into results/demo_run/
-NEO4J_PASSWORD=... make test   # also builds and exports a small graph
+NEO4J_TEST=1 NEO4J_PASSWORD=... make test   # also builds a small graph: resets the local Neo4j, so rebuild the demo graph after
 ```
 
 CI: `.github/workflows/tests.yml` runs these tests offline. It needs no secrets.
 
 Settings, outputs, design decisions, limits and references: [docs/DETAILS.md](docs/DETAILS.md).
+
+## What's in the repo
+
+| Path | What |
+|---|---|
+| `src/`, `tests/`, `Makefile` | the pipeline, the verifier and scoring, the demo server; offline tests |
+| `config/` | group, taxonomy, pricing, and `ground_truth.yaml` (the hand-labelled, verified key) |
+| `data/corpus/` | the frozen corpus: Item 1A text of each 10-K (public SEC EDGAR) and its manifest |
+| `results/demo_run/` | the frozen run the stage shows: run A, reruns, audit run B, scores, spend summary |
+| `results/spend/` | per-call spend ledgers of the paid stages (step, model, USD, time) |
+| `demo/` | page template, decision text, label tool, screenshot script |
+| `docs/` | settings and design decisions, the rehearsal script, GraphRAG v2 notes |
+
+## Large artifacts (Release / local only)
+
+Not in git. `make fetch-artifacts` downloads them from the Release
+[`demo-artifacts-2026-10-25`](https://github.com/volkovyy-00/counterparty-risk-rag-comparison/releases/tag/demo-artifacts-2026-10-25),
+checks each SHA256 and unpacks them in place. None of them is needed for `make demo`.
+
+| `WHAT=` | Unpacks to | Size | Needed for |
+|---|---|---|---|
+| `fallback` | `demo/fallback/` | 18 MB | the screenshot fallback on stage |
+| `cache` | `cache/chat/`, `cache/count/` | 0.5 MB | replaying run A with no API key (`LLM_CACHE=replay`) |
+| `results` | `results/graph_*`, `results/graph_ab/`, `results/taxonomy_ab/`, reports | 0.7 MB | graph tools (`export_graph`, `graph-check`, `graph-quality`) and the A/B write-ups |
+
+Local only, never committed: `.env`, `results/runs/` and `results/latest/` (every run), `cache/models/` and
+`cache/embed/`, `demo/index.html` (built), Neo4j data, recordings.
 
 ## Repository layout
 
@@ -78,7 +109,8 @@ src/        the pipeline: fetch, the four approaches, verifier, scoring, demo se
 config/     groups.yaml, taxonomy.yaml, pricing.yaml, ground_truth.yaml (the hand-labelled key)
 demo/       the page template, label tool and screenshot script
 data/       corpora (data/raw/ is downloaded, git-ignored)
-results/    frozen runs; results/demo_run/ is what the stage shows
+results/    results/demo_run/ (what the stage shows) and results/spend/; other run outputs are local or in the Release
+scripts/    fetch_artifacts.sh (the Release download)
 tests/      offline tests with a test-only fake model
 docs/       DETAILS.md (settings, design decisions, references), REHEARSAL.md (the 9-minute script),
             GRAPHRAG_V2.md (what changed in approach 2 and why)

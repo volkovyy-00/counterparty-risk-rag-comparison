@@ -1,8 +1,10 @@
 # One-command entry points. Run from the repository root.
 PY ?= python
 PORT ?= 8000
+# DRAFT=1: build the page with screen-7 placeholders unfilled (shown under a DRAFT banner)
+DRAFT ?=
 
-.PHONY: demo demo-live check build-demo screenshots check-secrets test real-run estimate label record-help \
+.PHONY: demo demo-live check build-demo screenshots fetch-artifacts check-secrets test real-run estimate label record-help \
 	graph-quality graph-check graph-ab graph-qa taxo-split taxo-coverage taxo-ab
 
 demo: check build-demo            ## offline: no network, no Neo4j
@@ -19,10 +21,13 @@ check:                            ## environment check before going on stage
 	@echo "check: ok (offline mode needs nothing else)"
 
 build-demo:
-	$(PY) src/build_demo.py
+	$(PY) src/build_demo.py $(if $(DRAFT),--draft,)
 
 screenshots: build-demo           ## PNG of every screen and state -> demo/fallback/
 	$(PY) demo/screenshots.py
+
+fetch-artifacts:                  ## download fallback PNGs, replay cache, graph/A-B outputs from the Release: WHAT=fallback|cache|results|all
+	bash scripts/fetch_artifacts.sh $(or $(WHAT),all)
 
 check-secrets:                    ## run before every commit
 	@if command -v gitleaks >/dev/null 2>&1; then gitleaks detect --no-banner --source . ; fi
@@ -34,7 +39,7 @@ test:
 estimate:
 	$(PY) src/estimate_cost.py
 
-real-run:                         ## spends money: prints the estimate and stops if it is over $$5
+real-run:                         ## spends money: ARGS="--stage core|extras [--confirm-usd N]"; prints the stage estimate and stops without both gates
 	$(PY) src/real_run.py $(ARGS)
 
 graph-qa:                         ## spends money: screen-4 graph questions from Neo4j; stops unless ARGS="--confirm-usd N"
