@@ -1,0 +1,50 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 17,
+    "heading": "Our information technology systems or data, or those of our service providers or customers or users could be subject to cyber-attacks or other security incidents, which could result in data breaches, intellectual property theft, claims, litigation, regulatory investigations, significant liability, reputational damage and other adverse consequences.",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "our systems and those of our service providers are potentially vulnerable to malware, ransomware, viruses, denial-of-service attacks, phishing attacks, social engineering, computer hacking, unauthorized access",
+    "driver": "Ransomware and supply chain attacks",
+    "secondary": false
+   },
+   {
+    "rf": 18,
+    "heading": "Any unauthorized control or manipulation of our products\u2019 systems could result in loss of confidence in us and our products.",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.product_cybersecurity",
+    "quote": "malicious entities have reportedly attempted, and may attempt in the future, to gain unauthorized access to modify, alter and use such networks, products and systems to gain control of",
+    "driver": "Vehicle remote update hacking",
+    "secondary": false
+   },
+   {
+    "rf": 19,
+    "heading": "Our business may be adversely affected by any disruptions caused by union activities.",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.labor_relations_unions",
+    "quote": "labor unions have engaged in campaigns to organize certain parts of our operations, as part of which such unions have filed unfair labor practice charges against us with the National Labor Relations Board",
+    "driver": "Union organizing campaigns",
+    "secondary": false
+   },
+   {
+    "rf": 20,
+    "heading": "We may choose to or be compelled to undertake product recalls or take other similar actions.",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.recalls",
+    "quote": "Recalls for our vehicles have resulted from various hardware and software-related safety or non-compliance investigations.",
+    "driver": "Vehicle safety recalls",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2851,
+ "output_tokens": 710,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 3.845,
+ "recorded_at": "2026-10-25T20:37:14+0000"
+}

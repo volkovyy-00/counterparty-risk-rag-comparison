@@ -1,0 +1,77 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 7,
+    "heading": "In many of the market segments in which we compete, we depend on winning selection processes, and failure to be selected could adversely affect our business in those market segments.",
+    "category": "CUSTOMER_CONCENTRATION",
+    "leaf": "CUSTOMER_CONCENTRATION.auto_oem_customers",
+    "quote": "This risk is particularly pronounced in markets where there are only a few potential customers and in the automotive market, where, due to the longer design cycles involved, failure to win a design-in could prevent access to a customer for several years.",
+    "driver": "Design-in selection processes",
+    "secondary": false
+   },
+   {
+    "rf": 8,
+    "heading": "Our global business operations expose us to international business risks that could adversely affect our business.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.international_operations",
+    "quote": "If any of the following international business risks were to materialize or become worse, they could have a material adverse effect on our business, financial condition and results of operations:",
+    "driver": "Multi-country operating risks",
+    "secondary": false
+   },
+   {
+    "rf": 9,
+    "heading": "Recently announced and future tariffs and other trade restrictions could materially and adversely affect our business, financial condition and results of operations.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.tariffs",
+    "quote": "In April 2025, the Department of Commerce launched an investigation into the national security impacts of imported semiconductors and semiconductor manufacturing equipment.",
+    "driver": "Section 232 semiconductor tariffs",
+    "secondary": false
+   },
+   {
+    "rf": 10,
+    "heading": "Goodwill and other identifiable intangible assets represent a significant portion of our total assets, and we may never realize the full value of our intangible assets.",
+    "category": "OTHER",
+    "leaf": "OTHER.reporting_controls",
+    "quote": "The amount of any quantified impairment must be expensed immediately as a charge to results of operations.",
+    "driver": "Goodwill and intangibles impairment",
+    "secondary": false
+   },
+   {
+    "rf": 11,
+    "heading": "In difficult market conditions, our high fixed costs combined with low revenue may negatively affect our results of operations.",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.manufacturing_disruption",
+    "quote": "During such periods, our fabrication plants could operate at lower loading level, while the fixed costs associated with the full capacity continue to be incurred, resulting in lower gross profit.",
+    "driver": "Fab underutilization fixed costs",
+    "secondary": false
+   },
+   {
+    "rf": 12,
+    "heading": "We may from time to time restructure parts of our organization. Any such restructuring may impact customer satisfaction, and the costs of implementation may be difficult to predict.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.restructuring",
+    "quote": "The costs of implementing any restructurings, changes or cost savings steps may differ from our estimates and any negative impacts on our revenues or otherwise of such restructurings",
+    "driver": "",
+    "secondary": false
+   },
+   {
+    "rf": 13,
+    "heading": "Our working capital needs are difficult to predict.",
+    "category": "MACRO_DEMAND",
+    "leaf": "MACRO_DEMAND.inventory_correction",
+    "quote": "The volatility of our customers\u2019 own businesses and the time required to manufacture products also make it difficult to manage inventory levels and require us to stockpile products across many different specifications.",
+    "driver": "Inventory and working capital",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3360,
+ "output_tokens": 1169,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 5.878,
+ "recorded_at": "2026-10-25T20:37:51+0000"
+}

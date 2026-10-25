@@ -1,0 +1,32 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 1,
+    "heading": "The manufacturing and other operations required to produce our products are highly dependent on the efficient operation of numerous processes, including processes contingent upon third-party component manufacturers and other service providers, and any disruption in these processes could have a material adverse effect on our business and results of operations.",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.manufacturing_disruption",
+    "quote": "an operational disruption at a single facility may have a disproportionate impact on our ability to produce many of our products.",
+    "driver": "Interdependent fab network disruption",
+    "secondary": false
+   },
+   {
+    "rf": 2,
+    "heading": "We may be unable to implement certain business strategies and restructuring initiatives and the pursuit of such strategies and initiatives could materially adversely affect our business and results of operations.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.restructuring",
+    "quote": "We may from time to time determine to implement business strategies and restructuring initiatives.",
+    "driver": "Restructuring and capacity right-sizing",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3257,
+ "output_tokens": 372,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 2.532,
+ "recorded_at": "2026-10-25T20:38:10+0000"
+}

@@ -1,0 +1,50 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 48,
+    "heading": "Failure to meet ESG expectations, standards or disclosure requirements or achieve our corporate responsibility goals, could adversely affect our business, results of operations, financial condition, or stock price.",
+    "category": "CLIMATE_NATCAT",
+    "leaf": "CLIMATE_NATCAT.climate_disclosure_esg",
+    "quote": "we are or expect to become subject to various new or proposed climate-related and other sustainability laws and regulations, including, for example, the state of California's new climate change disclosure requirements and the EU's Corporate Sustainability Reporting Directive.",
+    "driver": "ESG goals and disclosure rules",
+    "secondary": false
+   },
+   {
+    "rf": 49,
+    "heading": "The future trading price of our common stock could be subject to wide fluctuations in response to a variety of factors.",
+    "category": "OTHER",
+    "leaf": "OTHER.stock_governance",
+    "quote": "The market price of our common stock has fluctuated significantly in the recent past and is likely to fluctuate in the future.",
+    "driver": "Stock price volatility",
+    "secondary": false
+   },
+   {
+    "rf": 50,
+    "heading": "The amount and timing of our share repurchases may fluctuate in response to a variety of factors.",
+    "category": "OTHER",
+    "leaf": "OTHER.stock_governance",
+    "quote": "The repurchase authorization may be suspended or discontinued at any time at our discretion and may affect the trading price of our common stock and increase volatility.",
+    "driver": "Share repurchase authorization",
+    "secondary": false
+   },
+   {
+    "rf": 51,
+    "heading": "Our financial condition and results of operations could be adversely impacted if we do not effectively manage or refinance our current or future debt.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.liquidity_funding",
+    "quote": "There can be no assurance that we will be able to refinance our current or future debt on reasonable terms, if at all.",
+    "driver": "$5.54B debt refinancing",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3239,
+ "output_tokens": 657,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 3.502,
+ "recorded_at": "2026-10-25T20:38:10+0000"
+}

@@ -1,0 +1,59 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 4,
+    "heading": "We may be unable to grow our global product sales, delivery and installation capabilities and our servicing and vehicle charging networks, or we may be unable to accurately project and effectively manage our growth.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.restructuring",
+    "quote": "There is no assurance that we will be able to ramp our business to meet our sales, delivery, installation, servicing and vehicle charging targets globally, that our projections on which such targets are based will prove accurate",
+    "driver": "growth management, delivery scaling",
+    "secondary": false
+   },
+   {
+    "rf": 5,
+    "heading": "We will need to maintain and significantly grow our access to battery cells, including through the development and manufacture of our own cells, and control our related costs.",
+    "category": "EMISSIONS_EV_TRANSITION",
+    "leaf": "EMISSIONS_EV_TRANSITION.battery_supply_cost",
+    "quote": "We are dependent on the continued supply of lithium-ion battery cells for our vehicles and energy storage products, and we will require substantially more cells to grow our business according to our plans.",
+    "driver": "Panasonic, CATL battery cells",
+    "secondary": false
+   },
+   {
+    "rf": 6,
+    "heading": "Our future growth and success are dependent upon demand for our electric vehicles and adoption of autonomous driving solutions.",
+    "category": "EMISSIONS_EV_TRANSITION",
+    "leaf": "EMISSIONS_EV_TRANSITION.ev_adoption_pace",
+    "quote": "If the market for electric vehicles in general and Tesla vehicles in particular does not develop as we expect, develops more slowly than we expect, or if demand for our vehicles decreases in our markets",
+    "driver": "EV demand uncertainty",
+    "secondary": false
+   },
+   {
+    "rf": 6,
+    "heading": "Our future growth and success are dependent upon demand for our electric vehicles and adoption of autonomous driving solutions.",
+    "category": "AI_EMERGING_TECH",
+    "leaf": "AI_EMERGING_TECH.autonomous_driving",
+    "quote": "our success will be dependent upon various factors, including the acceptance and adoption by consumers of autonomous driving solutions, and Robotaxi as a preferable option, amid growing competition.",
+    "driver": "Robotaxi adoption",
+    "secondary": true
+   },
+   {
+    "rf": 7,
+    "heading": "We face strong competition for our products and services from a growing list of established and new competitors.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.price_competition",
+    "quote": "Increased competition could result in our lower vehicle unit sales, price reductions, revenue shortfalls, loss of customers and loss of market share, which may harm our business, financial condition and operating results.",
+    "driver": "EV market competitors",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3491,
+ "output_tokens": 934,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 5.008,
+ "recorded_at": "2026-10-25T20:37:10+0000"
+}

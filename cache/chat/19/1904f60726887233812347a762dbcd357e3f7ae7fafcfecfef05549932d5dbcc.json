@@ -1,0 +1,68 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 1,
+    "heading": "If we do not deliver new products, services, technologies, and customer experiences in response to increased competition and changing consumer needs and preferences, our business could suffer.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.technology_change",
+    "quote": "These new competitors, as well as established industry participants, are disrupting the historic business model of our industry through the introduction of new technologies, products, services, direct-to-consumer sales channels, methods of transportation, and vehicle ownership.",
+    "driver": "New entrants and tech disruption",
+    "secondary": false
+   },
+   {
+    "rf": 2,
+    "heading": "There can be no assurance that advances in technology will occur in a timely or feasible way, if at all, that others will not acquire similar or superior technologies sooner than we do, or that we will acquire technologies on an exclusive basis or at a significant price advantage.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.technology_change",
+    "quote": "if we do not adequately prepare for and respond to new kinds of technological innovations, market developments, and changing customer needs and preferences, our sales, profitability, and long-term competitiveness may be materially harmed.",
+    "driver": "Technology development uncertainty",
+    "secondary": false
+   },
+   {
+    "rf": 3,
+    "heading": "Our ability to attract and retain talented and highly skilled employees is critical to our success and competitiveness.",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.skilled_talent",
+    "quote": "Failure to attract, hire, develop, motivate, and retain highly qualified employees could disrupt our operations and adversely affect our strategic plans.",
+    "driver": "Software and hardware talent",
+    "secondary": false
+   },
+   {
+    "rf": 4,
+    "heading": "Our ability to maintain profitability is dependent upon our ability to timely fund and introduce new and improved vehicle models that are able to attract a sufficient number of consumers.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.technology_change",
+    "quote": "an initial product concept or design may not result in a saleable vehicle or a vehicle that generates sales in sufficient quantities and at high enough prices to be profitable.",
+    "driver": "New vehicle model launches",
+    "secondary": false
+   },
+   {
+    "rf": 5,
+    "heading": "Our long-term EV strategy is dependent upon our ability to profitably deliver a strategic portfolio of EVs.",
+    "category": "EMISSIONS_EV_TRANSITION",
+    "leaf": "EMISSIONS_EV_TRANSITION.ev_adoption_pace",
+    "quote": "Our progress towards these objectives has impacted, and may continue to impact, the need to record losses on our EV-related inventory, including battery cells.",
+    "driver": "EV portfolio profitability",
+    "secondary": false
+   },
+   {
+    "rf": 6,
+    "heading": "The success of our long-term EV strategy is dependent on consumer adoption of EVs.",
+    "category": "EMISSIONS_EV_TRANSITION",
+    "leaf": "EMISSIONS_EV_TRANSITION.ev_adoption_pace",
+    "quote": "Consumer adoption of EVs has been slower than anticipated in light of recent U.S. Government policy changes, including the termination of certain consumer tax incentives for EV purchases.",
+    "driver": "Slow EV adoption, charges",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3231,
+ "output_tokens": 1141,
+ "cache_write_tokens": 6701,
+ "cache_read_tokens": 0,
+ "latency_s": 7.462,
+ "recorded_at": "2026-10-25T20:36:46+0000"
+}

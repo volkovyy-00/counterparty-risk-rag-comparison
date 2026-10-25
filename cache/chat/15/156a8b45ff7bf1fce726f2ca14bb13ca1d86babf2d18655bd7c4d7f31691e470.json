@@ -1,0 +1,50 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 16,
+    "heading": "Our operating results will suffer if we ineffectively utilize our manufacturing capacity or fail to maintain manufacturing yields.",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.manufacturing_disruption",
+    "quote": "Our operating results will suffer if we are unable to maintain yields at or above approximately the current levels.",
+    "driver": "fab yields and unabsorbed capacity",
+    "secondary": false
+   },
+   {
+    "rf": 17,
+    "heading": "Our operating results are impacted by seasonality and wide fluctuations of supply and demand in the industry.",
+    "category": "MACRO_DEMAND",
+    "leaf": "MACRO_DEMAND.cyclical_demand",
+    "quote": "The semiconductor industry has had significant economic downturns (including in fiscal 2024 and fiscal 2025), characterized by diminished product demand, production over-capacity and high inventory levels.",
+    "driver": "semiconductor industry cyclicality",
+    "secondary": false
+   },
+   {
+    "rf": 18,
+    "heading": "Our business is dependent on distributors to service our end customers.",
+    "category": "CUSTOMER_CONCENTRATION",
+    "leaf": "CUSTOMER_CONCENTRATION.distributor_channel",
+    "quote": "Any deterioration in the financial condition, disruption in the operations of our distributors, or disruption of our ability to conduct business with our distributors would likely adversely impact the flow of our products",
+    "driver": "distributor reliance",
+    "secondary": false
+   },
+   {
+    "rf": 20,
+    "heading": "Business interruptions to our operations or those of our key vendors, licensees or customers could harm our business.",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.manufacturing_disruption",
+    "quote": "If operations at any of our facilities, or our subcontractors' facilities are interrupted, we may not be able to timely shift production to other facilities",
+    "driver": "facility and subcontractor interruptions",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3322,
+ "output_tokens": 668,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 3.782,
+ "recorded_at": "2026-10-25T20:38:01+0000"
+}

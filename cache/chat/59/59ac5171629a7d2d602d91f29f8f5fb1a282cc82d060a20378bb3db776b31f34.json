@@ -1,0 +1,68 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 1,
+    "heading": "Our portfolio strategy may prove unsuccessful.",
+    "category": "EMISSIONS_EV_TRANSITION",
+    "leaf": "EMISSIONS_EV_TRANSITION.ev_adoption_pace",
+    "quote": "Our balanced portfolio is particularly critical as the automotive industry continues to see electric vehicle adoption volatility across different regions.",
+    "driver": "EV adoption volatility",
+    "secondary": false
+   },
+   {
+    "rf": 2,
+    "heading": "We may not prove successful in our strategy due to many factors, including any of the risks identified in the paragraphs that follow, failure to develop new products that our customers will purchase, technology changes that could render our products obsolete, or the introduction of new technology to which we do not have access, among other things.",
+    "category": "EMISSIONS_EV_TRANSITION",
+    "leaf": "EMISSIONS_EV_TRANSITION.ev_adoption_pace",
+    "quote": "If the overall adoption of electric vehicles continues to be slower as compared to our expectations, we may not only fail to realize expected rates of return on our existing investments",
+    "driver": "eProducts investment returns",
+    "secondary": false
+   },
+   {
+    "rf": 3,
+    "heading": "Goodwill and indefinite-lived intangible assets, which are subject to periodic impairment evaluations, represent a significant portion of our total assets. An impairment charge on these assets could have a material adverse impact on our financial condition and results of operations.",
+    "category": "OTHER",
+    "leaf": "OTHER.reporting_controls",
+    "quote": "An impairment charge on these assets could have a material adverse impact on our financial condition and results of operations.",
+    "driver": "Goodwill impairment",
+    "secondary": false
+   },
+   {
+    "rf": 4,
+    "heading": "We have recorded goodwill and indefinite-lived intangible assets related to acquisitions. We periodically assess these assets to determine if they are impaired. Significant negative industry or macroeconomic trends, disruptions to our business, inability to effectively integrate acquired businesses, unexpected significant changes or planned changes in use of the assets, dispositions and market capitalization declines may impair these assets.",
+    "category": "OTHER",
+    "leaf": "OTHER.reporting_controls",
+    "quote": "When impairment charges are triggered, they tend to be material due to the size of the assets involved.",
+    "driver": "Goodwill headroom impairment",
+    "secondary": false
+   },
+   {
+    "rf": 5,
+    "heading": "The failure to realize the expected benefits of acquisitions and other risks associated with acquisitions could adversely affect our business.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.acquisitions_integration",
+    "quote": "The success of our acquisitions is dependent, in part, on our ability to realize the expected benefits from combining our businesses and businesses that we acquire.",
+    "driver": "",
+    "secondary": false
+   },
+   {
+    "rf": 6,
+    "heading": "We may not be able to execute dispositions of assets or businesses successfully.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.divestitures_spinoffs",
+    "quote": "we may have difficulty finding buyers or alternative exit strategies on acceptable terms in a timely manner, which could delay our ability to achieve our strategic objectives.",
+    "driver": "",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3240,
+ "output_tokens": 1086,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 5.401,
+ "recorded_at": "2026-10-25T20:37:32+0000"
+}

@@ -1,0 +1,41 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 22,
+    "heading": "Operational information systems, security systems, products, and services could be affected by cybersecurity incidents, ransomware attacks, and other disruptions and impact Ford, Ford Credit, their suppliers, and dealers.",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "we are at risk for interruptions, outages, and compromises of: (i) operational information systems (including business, financial, accounting, product development, consumer receivables, data processing, or manufacturing processes)",
+    "driver": "Ransomware and cyber incidents",
+    "secondary": false
+   },
+   {
+    "rf": 23,
+    "heading": "Unlike our standard arrangements with suppliers, under multi-year offtake agreements and other long-term purchase contracts, the risks associated with lower-than-expected electrified vehicle production volumes or changes in battery technology that reduce the need for certain raw materials, batteries, or their components are borne by Ford rather than our suppliers.",
+    "category": "COMMODITY_INPUTS",
+    "leaf": "COMMODITY_INPUTS.critical_minerals",
+    "quote": "we may be subject to increases in the prices we pay for those raw materials, and our ability to recoup such costs through increased pricing to our customers may be limited.",
+    "driver": "Battery raw material offtake agreements",
+    "secondary": false
+   },
+   {
+    "rf": 24,
+    "heading": "With a global footprint and supply chain, Ford\u2019s results and operations have been and could continue to be adversely affected by economic or geopolitical developments, including protectionist trade policies such as tariffs, or other events.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.tariffs",
+    "quote": "Unprecedented trade policy (including tariffs) in the United States and foreign governments\u2019 reactions limit our ability to conduct effective long-term planning and make capital allocation decisions.",
+    "driver": "U.S. tariffs and trade policy",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2657,
+ "output_tokens": 669,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 3.746,
+ "recorded_at": "2026-10-25T20:37:01+0000"
+}

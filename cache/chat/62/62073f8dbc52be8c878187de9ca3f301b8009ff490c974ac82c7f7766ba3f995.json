@@ -1,0 +1,50 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 12,
+    "heading": "Ford may not realize the anticipated benefits of existing or pending strategic alliances, joint ventures, acquisitions, divestitures, commercial relationships, or business strategies or the benefits may take longer than expected to materialize.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.joint_ventures_investments",
+    "quote": "We have invested in, formed strategic alliances or entered into commercial relationships with, and announced or formed joint ventures with a number of companies, and we may expand those relationships or enter into similar relationships with additional companies.",
+    "driver": "Alliances, JVs, BlueOval SK",
+    "secondary": false
+   },
+   {
+    "rf": 13,
+    "heading": "Ford may not realize the anticipated benefits of restructuring actions and such actions may cause Ford to incur significant charges, disrupt our operations, or harm our reputation.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.restructuring",
+    "quote": "Such restructuring actions have caused us and may in the future cause us to incur significant costs; record impairments or other charges;",
+    "driver": "Restructuring charges, plant closures",
+    "secondary": false
+   },
+   {
+    "rf": 14,
+    "heading": "Failure to develop and deploy secure digital services that appeal to customers, retain existing subscribers, and grow our subscription rates could have a negative impact on Ford\u2019s business.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.technology_change",
+    "quote": "If we do not develop, deliver, and make available standardized technologies that customers can easily adopt and use, fail to generate sufficient demand for our integrated software and digital services",
+    "driver": "Digital subscription services",
+    "secondary": false
+   },
+   {
+    "rf": 15,
+    "heading": "We contract with third parties to offer digital content to customers and license technologies for use in our software and digital services.",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.single_source",
+    "quote": "continuation of these third-party licensing and other arrangements, or their renewal on commercially reasonable terms, is not guaranteed or may be unavailable.",
+    "driver": "Third-party content licensing",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3226,
+ "output_tokens": 748,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 4.054,
+ "recorded_at": "2026-10-25T20:36:57+0000"
+}

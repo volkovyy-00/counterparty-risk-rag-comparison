@@ -1,0 +1,59 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 31,
+    "heading": "We may incur material losses and costs as a result of warranty claims, product recalls, product liability and intellectual property infringement actions that may be brought against us.",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.product_liability_defects",
+    "quote": "We face an inherent business risk of exposure to warranty claims and product liability in the event that our products fail to perform as expected",
+    "driver": "Warranty, recall, liability claims",
+    "secondary": false
+   },
+   {
+    "rf": 31,
+    "heading": "We may incur material losses and costs as a result of warranty claims, product recalls, product liability and intellectual property infringement actions that may be brought against us.",
+    "category": "IP_TECH_RIGHTS",
+    "leaf": "IP_TECH_RIGHTS.ip_infringement_claims",
+    "quote": "as we adopt new technology, we face an inherent risk of exposure to the claims of others that we have allegedly violated their intellectual property rights.",
+    "driver": "IP infringement claims",
+    "secondary": true
+   },
+   {
+    "rf": 32,
+    "heading": "We may be adversely affected by laws or regulations, including environmental, health and safety and climate change, regulation, litigation or other liabilities.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.litigation_investigations",
+    "quote": "We may be adversely affected by laws or regulations, including environmental, health and safety and climate change, regulation, litigation or other liabilities.",
+    "driver": "Environmental and other regulation",
+    "secondary": false
+   },
+   {
+    "rf": 33,
+    "heading": "We are subject to various U.S. federal, state and local, and non-U.S., laws and regulations, including those related to environmental, health and safety, financial and other matters.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.product_regulation",
+    "quote": "The introduction of new laws or regulations or changes in existing laws or regulations, or the interpretations thereof, could increase the costs of doing business for us or our customers or suppliers",
+    "driver": "Environmental compliance and remediation",
+    "secondary": false
+   },
+   {
+    "rf": 34,
+    "heading": "We may identify the need for additional environmental remediation or demolition obligations relating to facility divestiture, closure and decommissioning activities.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.restructuring",
+    "quote": "We may identify previously unknown environmental conditions or further delineate known conditions that may require us to undertake remediation or incur additional costs related to demolition or decommissioning activities.",
+    "driver": "Facility closure remediation costs",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3233,
+ "output_tokens": 886,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 4.948,
+ "recorded_at": "2026-10-25T20:37:28+0000"
+}

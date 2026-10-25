@@ -1,0 +1,41 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 29,
+    "heading": "If we fail to manage our growth effectively or to integrate successfully any new or future business ventures, acquisitions or strategic alliance into our business, our business could be materially adversely harmed. In addition, the failure to realize the expected benefits of any past or future acquisition could adversely affect our business.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.acquisitions_integration",
+    "quote": "we may not be successful in fully or partially integrating companies that we acquire, including their personnel, financial systems, distribution, operations and general operating procedures.",
+    "driver": "Wind River, Intercable integration",
+    "secondary": false
+   },
+   {
+    "rf": 30,
+    "heading": "We face risks related to cybersecurity for both our infrastructure and products and any cybersecurity breach or failure of one or more key information technology systems, or those of third-parties with which we do business could have a material adverse impact on our business or reputation.",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "a significant or large-scale interruption of our information technology capabilities could result in a confidentiality, integrity or availability data breach, and adversely affect our ability to manage and keep operations running efficiently and effectively",
+    "driver": "IT systems cyberattacks",
+    "secondary": false
+   },
+   {
+    "rf": 30,
+    "heading": "We face risks related to cybersecurity for both our infrastructure and products and any cybersecurity breach or failure of one or more key information technology systems, or those of third-parties with which we do business could have a material adverse impact on our business or reputation.",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.product_cybersecurity",
+    "quote": "Some of our products, including but not limited to safety-critical products, contain complex digital technologies designed to support today\u2019s increasingly connected vehicles.",
+    "driver": "connected vehicle products",
+    "secondary": true
+   }
+  ]
+ },
+ "input_tokens": 2143,
+ "output_tokens": 634,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 3.705,
+ "recorded_at": "2026-10-25T20:37:25+0000"
+}

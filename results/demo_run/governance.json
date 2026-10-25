@@ -32,7 +32,833 @@
   "note": "The validator rejects; it never re-maps a label the model invented."
  },
  "audit": {
-  "available": false,
-  "reason": "needs results/demo_run/ and results/demo_run/audit/run_b/ - see real_run.py"
+  "available": true,
+  "manifest_rows": [
+   {
+    "field": "label",
+    "a": "run A (prompt taxonomy-v3.0)",
+    "b": "run B (model swap)",
+    "changed": true
+   },
+   {
+    "field": "model",
+    "a": "claude-opus-5-5",
+    "b": "claude-sonnet-5-5",
+    "changed": true
+   },
+   {
+    "field": "served_models",
+    "a": [
+     "claude-opus-5-5"
+    ],
+    "b": [
+     "claude-sonnet-5-5"
+    ],
+    "changed": true
+   },
+   {
+    "field": "taxonomy_prompt_version",
+    "a": "taxonomy-v3.0",
+    "b": "taxonomy-v3.0",
+    "changed": false
+   },
+   {
+    "field": "taxonomy_split",
+    "a": "heading",
+    "b": "heading",
+    "changed": false
+   },
+   {
+    "field": "prompt_sha256.3_taxonomy_first",
+    "a": "08f158346eb284c67b838679ec6076f6d3e106c5f37920d7a01ae685b420d5bf",
+    "b": "08f158346eb284c67b838679ec6076f6d3e106c5f37920d7a01ae685b420d5bf",
+    "changed": false
+   },
+   {
+    "field": "taxonomy_version",
+    "a": 2,
+    "b": 2,
+    "changed": false
+   },
+   {
+    "field": "taxonomy_sha256",
+    "a": "717e9ebb01a68c9d8fd62e9f2e25eb63fa339708de2dfaf34690a3c7e746bed4",
+    "b": "717e9ebb01a68c9d8fd62e9f2e25eb63fa339708de2dfaf34690a3c7e746bed4",
+    "changed": false
+   },
+   {
+    "field": "corpus_manifest_sha256",
+    "a": "98f54b24bd27035f3cadc7f734c63959c7ebf3e563e0c62ab539c0500a7ab761",
+    "b": "98f54b24bd27035f3cadc7f734c63959c7ebf3e563e0c62ab539c0500a7ab761",
+    "changed": false
+   },
+   {
+    "field": "git.sha",
+    "a": "f0a0027cb423baa5c06902a72973e5df81677c38",
+    "b": "8d1ba999367e6d1de4c500b8c1e6c66316bfa6d4",
+    "changed": true
+   },
+   {
+    "field": "created_at",
+    "a": "2026-10-25T19:48:20Z",
+    "b": "2026-10-25T20:38:46Z",
+    "changed": true
+   },
+   {
+    "field": "cache_mode",
+    "a": "replay",
+    "b": "readwrite",
+    "changed": true
+   }
+  ],
+  "changed_cells": {
+   "category": [
+    {
+     "label": "MACRO_DEMAND",
+     "ticker": "BWA",
+     "a": 3,
+     "b": 1,
+     "flip": false
+    },
+    {
+     "label": "MACRO_DEMAND",
+     "ticker": "LEA",
+     "a": 2,
+     "b": 1,
+     "flip": false
+    },
+    {
+     "label": "MACRO_DEMAND",
+     "ticker": "MCHP",
+     "a": 4,
+     "b": 3,
+     "flip": false
+    },
+    {
+     "label": "RATES_FX_FUNDING",
+     "ticker": "APTV",
+     "a": 4,
+     "b": 2,
+     "flip": false
+    },
+    {
+     "label": "RATES_FX_FUNDING",
+     "ticker": "BWA",
+     "a": 2,
+     "b": 3,
+     "flip": false
+    },
+    {
+     "label": "RATES_FX_FUNDING",
+     "ticker": "NXPI",
+     "a": 6,
+     "b": 4,
+     "flip": false
+    },
+    {
+     "label": "SUPPLY_CHAIN",
+     "ticker": "GM",
+     "a": 3,
+     "b": 2,
+     "flip": false
+    },
+    {
+     "label": "SUPPLY_CHAIN",
+     "ticker": "F",
+     "a": 4,
+     "b": 5,
+     "flip": false
+    },
+    {
+     "label": "SUPPLY_CHAIN",
+     "ticker": "BWA",
+     "a": 4,
+     "b": 5,
+     "flip": false
+    },
+    {
+     "label": "SUPPLY_CHAIN",
+     "ticker": "NXPI",
+     "a": 3,
+     "b": 4,
+     "flip": false
+    },
+    {
+     "label": "CUSTOMER_CONCENTRATION",
+     "ticker": "TSLA",
+     "a": 2,
+     "b": 1,
+     "flip": false
+    },
+    {
+     "label": "CUSTOMER_CONCENTRATION",
+     "ticker": "BWA",
+     "a": 2,
+     "b": 1,
+     "flip": false
+    },
+    {
+     "label": "CUSTOMER_CONCENTRATION",
+     "ticker": "NXPI",
+     "a": 1,
+     "b": 2,
+     "flip": false
+    },
+    {
+     "label": "CUSTOMER_CONCENTRATION",
+     "ticker": "MCHP",
+     "a": 5,
+     "b": 3,
+     "flip": false
+    },
+    {
+     "label": "COMPETITION_DISRUPTION",
+     "ticker": "GM",
+     "a": 5,
+     "b": 6,
+     "flip": false
+    },
+    {
+     "label": "COMPETITION_DISRUPTION",
+     "ticker": "TSLA",
+     "a": 1,
+     "b": 2,
+     "flip": false
+    },
+    {
+     "label": "COMPETITION_DISRUPTION",
+     "ticker": "BWA",
+     "a": 3,
+     "b": 2,
+     "flip": false
+    },
+    {
+     "label": "COMPETITION_DISRUPTION",
+     "ticker": "NXPI",
+     "a": 4,
+     "b": 2,
+     "flip": false
+    },
+    {
+     "label": "COMPETITION_DISRUPTION",
+     "ticker": "MCHP",
+     "a": 0,
+     "b": 3,
+     "flip": true
+    },
+    {
+     "label": "REGULATION_LEGAL",
+     "ticker": "F",
+     "a": 7,
+     "b": 6,
+     "flip": false
+    },
+    {
+     "label": "REGULATION_LEGAL",
+     "ticker": "BWA",
+     "a": 5,
+     "b": 4,
+     "flip": false
+    },
+    {
+     "label": "REGULATION_LEGAL",
+     "ticker": "MCHP",
+     "a": 1,
+     "b": 2,
+     "flip": false
+    },
+    {
+     "label": "GEOPOLITICAL_TRADE",
+     "ticker": "BWA",
+     "a": 4,
+     "b": 5,
+     "flip": false
+    },
+    {
+     "label": "GEOPOLITICAL_TRADE",
+     "ticker": "NXPI",
+     "a": 4,
+     "b": 3,
+     "flip": false
+    },
+    {
+     "label": "CLIMATE_NATCAT",
+     "ticker": "NXPI",
+     "a": 2,
+     "b": 1,
+     "flip": false
+    },
+    {
+     "label": "CLIMATE_NATCAT",
+     "ticker": "MCHP",
+     "a": 4,
+     "b": 3,
+     "flip": false
+    },
+    {
+     "label": "TALENT_LABOR",
+     "ticker": "GM",
+     "a": 2,
+     "b": 1,
+     "flip": false
+    },
+    {
+     "label": "IP_TECH_RIGHTS",
+     "ticker": "F",
+     "a": 1,
+     "b": 0,
+     "flip": true
+    },
+    {
+     "label": "IP_TECH_RIGHTS",
+     "ticker": "ON",
+     "a": 2,
+     "b": 3,
+     "flip": false
+    },
+    {
+     "label": "AI_EMERGING_TECH",
+     "ticker": "MCHP",
+     "a": 3,
+     "b": 5,
+     "flip": false
+    },
+    {
+     "label": "STRATEGY_MA",
+     "ticker": "TSLA",
+     "a": 0,
+     "b": 1,
+     "flip": true
+    },
+    {
+     "label": "STRATEGY_MA",
+     "ticker": "MCHP",
+     "a": 3,
+     "b": 2,
+     "flip": false
+    },
+    {
+     "label": "STRATEGY_MA",
+     "ticker": "ON",
+     "a": 2,
+     "b": 3,
+     "flip": false
+    },
+    {
+     "label": "PRODUCT_SAFETY_RECALL",
+     "ticker": "F",
+     "a": 2,
+     "b": 3,
+     "flip": false
+    },
+    {
+     "label": "PRODUCT_SAFETY_RECALL",
+     "ticker": "LEA",
+     "a": 1,
+     "b": 2,
+     "flip": false
+    },
+    {
+     "label": "PRODUCT_SAFETY_RECALL",
+     "ticker": "ON",
+     "a": 1,
+     "b": 2,
+     "flip": false
+    },
+    {
+     "label": "EMISSIONS_EV_TRANSITION",
+     "ticker": "BWA",
+     "a": 1,
+     "b": 2,
+     "flip": false
+    },
+    {
+     "label": "EMISSIONS_EV_TRANSITION",
+     "ticker": "MCHP",
+     "a": 0,
+     "b": 1,
+     "flip": true
+    },
+    {
+     "label": "COMMODITY_INPUTS",
+     "ticker": "F",
+     "a": 2,
+     "b": 1,
+     "flip": false
+    },
+    {
+     "label": "COMMODITY_INPUTS",
+     "ticker": "MCHP",
+     "a": 2,
+     "b": 1,
+     "flip": false
+    },
+    {
+     "label": "OTHER",
+     "ticker": "TSLA",
+     "a": 9,
+     "b": 8,
+     "flip": false
+    },
+    {
+     "label": "OTHER",
+     "ticker": "BWA",
+     "a": 2,
+     "b": 3,
+     "flip": false
+    }
+   ],
+   "leaf": [
+    {
+     "label": "MACRO_DEMAND.cyclical_demand",
+     "ticker": "MCHP",
+     "a": 3,
+     "b": 2,
+     "flip": false
+    },
+    {
+     "label": "MACRO_DEMAND.inflation_costs",
+     "ticker": "BWA",
+     "a": 2,
+     "b": 0,
+     "flip": true
+    },
+    {
+     "label": "MACRO_DEMAND.vehicle_production_volumes",
+     "ticker": "LEA",
+     "a": 2,
+     "b": 1,
+     "flip": false
+    },
+    {
+     "label": "RATES_FX_FUNDING.interest_rates",
+     "ticker": "APTV",
+     "a": 2,
+     "b": 0,
+     "flip": true
+    },
+    {
+     "label": "RATES_FX_FUNDING.liquidity_funding",
+     "ticker": "BWA",
+     "a": 0,
+     "b": 1,
+     "flip": true
+    },
+    {
+     "label": "RATES_FX_FUNDING.liquidity_funding",
+     "ticker": "NXPI",
+     "a": 4,
+     "b": 2,
+     "flip": false
+    },
+    {
+     "label": "SUPPLY_CHAIN.single_source",
+     "ticker": "F",
+     "a": 2,
+     "b": 3,
+     "flip": false
+    },
+    {
+     "label": "SUPPLY_CHAIN.single_source",
+     "ticker": "APTV",
+     "a": 1,
+     "b": 2,
+     "flip": false
+    },
+    {
+     "label": "SUPPLY_CHAIN.single_source",
+     "ticker": "BWA",
+     "a": 2,
+     "b": 3,
+     "flip": false
+    },
+    {
+     "label": "SUPPLY_CHAIN.single_source",
+     "ticker": "TXN",
+     "a": 1,
+     "b": 0,
+     "flip": true
+    },
+    {
+     "label": "SUPPLY_CHAIN.manufacturing_disruption",
+     "ticker": "APTV",
+     "a": 3,
+     "b": 2,
+     "flip": false
+    },
+    {
+     "label": "SUPPLY_CHAIN.manufacturing_disruption",
+     "ticker": "NXPI",
+     "a": 1,
+     "b": 2,
+     "flip": false
+    },
+    {
+     "label": "SUPPLY_CHAIN.outsourced_manufacturing",
+     "ticker": "TXN",
+     "a": 0,
+     "b": 1,
+     "flip": true
+    },
+    {
+     "label": "SUPPLY_CHAIN.logistics",
+     "ticker": "GM",
+     "a": 1,
+     "b": 0,
+     "flip": true
+    },
+    {
+     "label": "CUSTOMER_CONCENTRATION.auto_oem_customers",
+     "ticker": "APTV",
+     "a": 4,
+     "b": 3,
+     "flip": false
+    },
+    {
+     "label": "CUSTOMER_CONCENTRATION.auto_oem_customers",
+     "ticker": "BWA",
+     "a": 1,
+     "b": 0,
+     "flip": true
+    },
+    {
+     "label": "CUSTOMER_CONCENTRATION.auto_oem_customers",
+     "ticker": "NXPI",
+     "a": 0,
+     "b": 1,
+     "flip": true
+    },
+    {
+     "label": "CUSTOMER_CONCENTRATION.key_customer_dependence",
+     "ticker": "APTV",
+     "a": 0,
+     "b": 1,
+     "flip": true
+    },
+    {
+     "label": "CUSTOMER_CONCENTRATION.key_customer_dependence",
+     "ticker": "BWA",
+     "a": 0,
+     "b": 1,
+     "flip": true
+    },
+    {
+     "label": "CUSTOMER_CONCENTRATION.key_customer_dependence",
+     "ticker": "MCHP",
+     "a": 2,
+     "b": 1,
+     "flip": false
+    },
+    {
+     "label": "CUSTOMER_CONCENTRATION.distributor_channel",
+     "ticker": "MCHP",
+     "a": 2,
+     "b": 1,
+     "flip": false
+    },
+    {
+     "label": "CUSTOMER_CONCENTRATION.dealer_network",
+     "ticker": "TSLA",
+     "a": 2,
+     "b": 1,
+     "flip": false
+    },
+    {
+     "label": "CUSTOMER_CONCENTRATION.customer_credit",
+     "ticker": "BWA",
+     "a": 1,
+     "b": 0,
+     "flip": true
+    },
+    {
+     "label": "COMPETITION_DISRUPTION.price_competition",
+     "ticker": "GM",
+     "a": 1,
+     "b": 2,
+     "flip": false
+    },
+    {
+     "label": "COMPETITION_DISRUPTION.price_competition",
+     "ticker": "F",
+     "a": 3,
+     "b": 2,
+     "flip": false
+    },
+    {
+     "label": "COMPETITION_DISRUPTION.price_competition",
+     "ticker": "TSLA",
+     "a": 0,
+     "b": 1,
+     "flip": true
+    },
+    {
+     "label": "COMPETITION_DISRUPTION.price_competition",
+     "ticker": "NXPI",
+     "a": 2,
+     "b": 1,
+     "flip": false
+    },
+    {
+     "label": "COMPETITION_DISRUPTION.price_competition",
+     "ticker": "MCHP",
+     "a": 0,
+     "b": 1,
+     "flip": true
+    },
+    {
+     "label": "COMPETITION_DISRUPTION.new_entrants",
+     "ticker": "GM",
+     "a": 2,
+     "b": 1,
+     "flip": false
+    },
+    {
+     "label": "COMPETITION_DISRUPTION.new_entrants",
+     "ticker": "TSLA",
+     "a": 1,
+     "b": 0,
+     "flip": true
+    },
+    {
+     "label": "COMPETITION_DISRUPTION.technology_change",
+     "ticker": "GM",
+     "a": 2,
+     "b": 3,
+     "flip": false
+    },
+    {
+     "label": "COMPETITION_DISRUPTION.technology_change",
+     "ticker": "F",
+     "a": 1,
+     "b": 2,
+     "flip": false
+    },
+    {
+     "label": "COMPETITION_DISRUPTION.technology_change",
+     "ticker": "TSLA",
+     "a": 0,
+     "b": 1,
+     "flip": true
+    },
+    {
+     "label": "COMPETITION_DISRUPTION.technology_change",
+     "ticker": "BWA",
+     "a": 2,
+     "b": 1,
+     "flip": false
+    },
+    {
+     "label": "COMPETITION_DISRUPTION.technology_change",
+     "ticker": "NXPI",
+     "a": 2,
+     "b": 1,
+     "flip": false
+    },
+    {
+     "label": "COMPETITION_DISRUPTION.technology_change",
+     "ticker": "MCHP",
+     "a": 0,
+     "b": 2,
+     "flip": true
+    },
+    {
+     "label": "REGULATION_LEGAL.litigation_investigations",
+     "ticker": "F",
+     "a": 3,
+     "b": 2,
+     "flip": false
+    },
+    {
+     "label": "REGULATION_LEGAL.litigation_investigations",
+     "ticker": "BWA",
+     "a": 3,
+     "b": 2,
+     "flip": false
+    },
+    {
+     "label": "REGULATION_LEGAL.product_regulation",
+     "ticker": "MCHP",
+     "a": 0,
+     "b": 1,
+     "flip": true
+    },
+    {
+     "label": "GEOPOLITICAL_TRADE.tariffs",
+     "ticker": "NXPI",
+     "a": 1,
+     "b": 0,
+     "flip": true
+    },
+    {
+     "label": "GEOPOLITICAL_TRADE.china_exposure",
+     "ticker": "BWA",
+     "a": 1,
+     "b": 2,
+     "flip": false
+    },
+    {
+     "label": "GEOPOLITICAL_TRADE.china_exposure",
+     "ticker": "TXN",
+     "a": 0,
+     "b": 1,
+     "flip": true
+    },
+    {
+     "label": "GEOPOLITICAL_TRADE.conflict_sanctions",
+     "ticker": "F",
+     "a": 1,
+     "b": 0,
+     "flip": true
+    },
+    {
+     "label": "GEOPOLITICAL_TRADE.international_operations",
+     "ticker": "F",
+     "a": 0,
+     "b": 1,
+     "flip": true
+    },
+    {
+     "label": "GEOPOLITICAL_TRADE.international_operations",
+     "ticker": "TXN",
+     "a": 1,
+     "b": 0,
+     "flip": true
+    },
+    {
+     "label": "CLIMATE_NATCAT.climate_disclosure_esg",
+     "ticker": "NXPI",
+     "a": 1,
+     "b": 0,
+     "flip": true
+    },
+    {
+     "label": "CLIMATE_NATCAT.climate_disclosure_esg",
+     "ticker": "MCHP",
+     "a": 3,
+     "b": 2,
+     "flip": false
+    },
+    {
+     "label": "TALENT_LABOR.labor_relations_unions",
+     "ticker": "GM",
+     "a": 1,
+     "b": 0,
+     "flip": true
+    },
+    {
+     "label": "IP_TECH_RIGHTS.ip_protection",
+     "ticker": "F",
+     "a": 1,
+     "b": 0,
+     "flip": true
+    },
+    {
+     "label": "IP_TECH_RIGHTS.ip_infringement_claims",
+     "ticker": "ON",
+     "a": 1,
+     "b": 2,
+     "flip": false
+    },
+    {
+     "label": "AI_EMERGING_TECH.ai_development_use",
+     "ticker": "MCHP",
+     "a": 3,
+     "b": 5,
+     "flip": false
+    },
+    {
+     "label": "STRATEGY_MA.acquisitions_integration",
+     "ticker": "MCHP",
+     "a": 2,
+     "b": 1,
+     "flip": false
+    },
+    {
+     "label": "STRATEGY_MA.restructuring",
+     "ticker": "TSLA",
+     "a": 0,
+     "b": 1,
+     "flip": true
+    },
+    {
+     "label": "STRATEGY_MA.joint_ventures_investments",
+     "ticker": "ON",
+     "a": 0,
+     "b": 1,
+     "flip": true
+    },
+    {
+     "label": "PRODUCT_SAFETY_RECALL.recalls",
+     "ticker": "F",
+     "a": 1,
+     "b": 2,
+     "flip": false
+    },
+    {
+     "label": "PRODUCT_SAFETY_RECALL.recalls",
+     "ticker": "ON",
+     "a": 0,
+     "b": 1,
+     "flip": true
+    },
+    {
+     "label": "PRODUCT_SAFETY_RECALL.product_liability_defects",
+     "ticker": "LEA",
+     "a": 1,
+     "b": 2,
+     "flip": false
+    },
+    {
+     "label": "EMISSIONS_EV_TRANSITION.emissions_regulation",
+     "ticker": "MCHP",
+     "a": 0,
+     "b": 1,
+     "flip": true
+    },
+    {
+     "label": "EMISSIONS_EV_TRANSITION.ev_adoption_pace",
+     "ticker": "BWA",
+     "a": 1,
+     "b": 2,
+     "flip": false
+    },
+    {
+     "label": "COMMODITY_INPUTS.critical_minerals",
+     "ticker": "F",
+     "a": 2,
+     "b": 1,
+     "flip": false
+    },
+    {
+     "label": "COMMODITY_INPUTS.critical_minerals",
+     "ticker": "MCHP",
+     "a": 2,
+     "b": 1,
+     "flip": false
+    },
+    {
+     "label": "OTHER.stock_governance",
+     "ticker": "BWA",
+     "a": 0,
+     "b": 1,
+     "flip": true
+    },
+    {
+     "label": "OTHER.reporting_controls",
+     "ticker": "TSLA",
+     "a": 2,
+     "b": 1,
+     "flip": false
+    }
+   ]
+  },
+  "a": {
+   "label": "run A (prompt taxonomy-v3.0)",
+   "created_at": "2026-10-25T19:48:20Z"
+  },
+  "b": {
+   "label": "run B (model swap)",
+   "created_at": "2026-10-25T20:38:46Z"
+  }
  }
 }

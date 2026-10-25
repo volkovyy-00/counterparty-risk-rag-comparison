@@ -1,0 +1,68 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 36,
+    "heading": "We may be unable to successfully make or integrate strategic acquisitions, joint ventures, collaborations or strategic investments, which could materially adversely affect our business, results of operations and financial condition.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.acquisitions_integration",
+    "quote": "Successful acquisitions, collaborations and alliances in our industry require, among other things, efficient integration and aligning of product offerings and manufacturing operations and coordination of sales and marketing and research and development efforts",
+    "driver": "acquisition integration",
+    "secondary": false
+   },
+   {
+    "rf": 36,
+    "heading": "We may be unable to successfully make or integrate strategic acquisitions, joint ventures, collaborations or strategic investments, which could materially adversely affect our business, results of operations and financial condition.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.joint_ventures_investments",
+    "quote": "We have made, and may continue to make, strategic acquisitions, investments and other alliances including the formation of joint ventures or collaborations that involve significant risks and uncertainties.",
+    "driver": "joint ventures and investments",
+    "secondary": true
+   },
+   {
+    "rf": 37,
+    "heading": "If our goodwill or amortizable intangible assets become impaired, we may be required to record a significant charge to earnings.",
+    "category": "OTHER",
+    "leaf": "OTHER.reporting_controls",
+    "quote": "We have in the past recorded, and may in the future be required to record, a significant charge in our consolidated financial statements during the period in which any impairment of our goodwill or amortizable intangible assets is determined",
+    "driver": "goodwill impairment",
+    "secondary": false
+   },
+   {
+    "rf": 38,
+    "heading": "Downturns or volatility in general economic conditions, as well as general macroeconomic trends and impacts, could have an adverse impact on our business, results of operations, financial condition and cash flows.",
+    "category": "MACRO_DEMAND",
+    "leaf": "MACRO_DEMAND.cyclical_demand",
+    "quote": "Historically, worldwide semiconductor industry sales have tracked the impacts of adverse economic conditions, specifically financial crises, subsequent recoveries and persistent economic uncertainty.",
+    "driver": "economic downturn",
+    "secondary": false
+   },
+   {
+    "rf": 39,
+    "heading": "We have been and may be subject to or involved in litigation or threatened litigation, the outcome of which may be difficult to predict, and which may be costly to defend, divert management attention, require us to pay damages, or restrict the operation of our business.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.litigation_investigations",
+    "quote": "From time to time, we have been and may be subject to disputes, litigation or regulatory investigations, with and without merit, that may be costly and which may divert the attention of our management",
+    "driver": "litigation",
+    "secondary": false
+   },
+   {
+    "rf": 40,
+    "heading": "Regulatory and legislative developments related to climate change may materially adversely affect our business and financial condition.",
+    "category": "CLIMATE_NATCAT",
+    "leaf": "CLIMATE_NATCAT.climate_disclosure_esg",
+    "quote": "Various jurisdictions have developed or are developing climate change-based laws or regulations that could cause us to incur additional direct costs for compliance",
+    "driver": "climate regulation",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3114,
+ "output_tokens": 1115,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 6.233,
+ "recorded_at": "2026-10-25T20:38:23+0000"
+}

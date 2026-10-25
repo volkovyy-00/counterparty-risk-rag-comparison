@@ -1,0 +1,59 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 6,
+    "heading": "A drop in the market share and changes in product mix offered by our customers can impact our revenues.",
+    "category": "CUSTOMER_CONCENTRATION",
+    "leaf": "CUSTOMER_CONCENTRATION.auto_oem_customers",
+    "quote": "We are dependent on the continued growth, viability and financial stability of our customers. Our customers generally are OEMs in the automotive industry.",
+    "driver": "OEM customer mix shifts",
+    "secondary": false
+   },
+   {
+    "rf": 7,
+    "heading": "Our business in China is subject to aggressive competition and is sensitive to economic and market conditions.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.china_exposure",
+    "quote": "Maintaining a strong position in the Chinese market is a key component of our global growth strategy.",
+    "driver": "China market competition",
+    "secondary": false
+   },
+   {
+    "rf": 8,
+    "heading": "We operate in the highly competitive automotive technology and component supply industry, and are dependent on the acceptance of new product introductions for continued growth.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.price_competition",
+    "quote": "our sales levels and margins could be adversely affected by pricing pressures from OEMs and pricing actions of competitors.",
+    "driver": "OEM pricing pressure",
+    "secondary": false
+   },
+   {
+    "rf": 9,
+    "heading": "If we do not respond appropriately, the evolution of the automotive industry towards autonomous vehicles and mobility on demand services could adversely affect our business.",
+    "category": "AI_EMERGING_TECH",
+    "leaf": "AI_EMERGING_TECH.autonomous_driving",
+    "quote": "The high development cost of active safety and autonomous driving technologies may result in a higher risk of exposure to the success of new or disruptive technologies different than those being developed by us.",
+    "driver": "Autonomous and mobility shift",
+    "secondary": false
+   },
+   {
+    "rf": 10,
+    "heading": "We have invested substantial resources in markets and technologies where we expect growth and we may be unable to timely alter our strategies should such expectations not be realized.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.joint_ventures_investments",
+    "quote": "have made and expect to continue to make substantial investments, both directly and through participation in various partnerships and joint ventures, in numerous manufacturing operations, technical centers, research and development activities",
+    "driver": "Growth market investments",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2963,
+ "output_tokens": 838,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 4.454,
+ "recorded_at": "2026-10-25T20:37:20+0000"
+}

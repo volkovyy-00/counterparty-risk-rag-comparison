@@ -1,0 +1,50 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 12,
+    "heading": "We depend on orders that are received and shipped in the same quarter and have limited visibility to product shipments other than orders placed under certain LTSAs.",
+    "category": "MACRO_DEMAND",
+    "leaf": "MACRO_DEMAND.inventory_correction",
+    "quote": "The level of turns orders has in the past and may in the future decrease in periods where customers are holding excess inventory of our products.",
+    "driver": "turns orders, LTSA inventory",
+    "secondary": false
+   },
+   {
+    "rf": 13,
+    "heading": "Intense competition in the markets we serve may lead to pricing pressures, reduced sales or reduced market share.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.price_competition",
+    "quote": "We have experienced, and may experience in the future, pricing declines in certain of our proprietary product lines, primarily due to competitive conditions.",
+    "driver": "semiconductor ASP erosion",
+    "secondary": false
+   },
+   {
+    "rf": 14,
+    "heading": "Our success depends on our ability to introduce new products on a timely basis.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.technology_change",
+    "quote": "Our future operating results depend on our ability to develop and timely introduce new products that compete effectively on the basis of price and performance and which address customer requirements.",
+    "driver": "new product introductions",
+    "secondary": false
+   },
+   {
+    "rf": 15,
+    "heading": "Because our products are complex, we have experienced delays from time to time in completing new product development. New products may not receive or maintain substantial market acceptance. We may be unable to timely design, develop and introduce competitive products, or produce them at desired volumes, which could adversely impact our future operating results.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.technology_change",
+    "quote": "Semiconductor design and process technologies are subject to rapid technological change and require significant R&D expenditures.",
+    "driver": "process technology transitions",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3164,
+ "output_tokens": 684,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 3.699,
+ "recorded_at": "2026-10-25T20:37:59+0000"
+}

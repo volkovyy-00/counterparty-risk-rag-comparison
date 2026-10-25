@@ -1,0 +1,68 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 30,
+    "heading": "Ford is addressing its impact on climate change aligned with the United Nations Framework Convention on Climate Change (Paris Agreement) by working to reduce our carbon footprint over time across our vehicles, operations, and supply chain.",
+    "category": "CLIMATE_NATCAT",
+    "leaf": "CLIMATE_NATCAT.climate_disclosure_esg",
+    "quote": "our customers, investors, and other stakeholders evaluate how well we are progressing on our announced climate goals and aspirations, and if we are not on track to achieve those goals and aspirations on a timely basis",
+    "driver": "SBTi decarbonization targets",
+    "secondary": false
+   },
+   {
+    "rf": 31,
+    "heading": "Ford may face increased price competition for its products and services, including pricing pressure resulting from industry excess capacity, currency fluctuations, competitive actions, legal and policy changes, or economic or other factors, particularly for electrified vehicles.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.price_competition",
+    "quote": "The global automotive industry is intensely competitive, with installed manufacturing capacity generally exceeding current demand.",
+    "driver": "industry overcapacity incentives",
+    "secondary": false
+   },
+   {
+    "rf": 32,
+    "heading": "Although we are investing in our EV strategy, we anticipate that the EV market will continue to evolve.",
+    "category": "EMISSIONS_EV_TRANSITION",
+    "leaf": "EMISSIONS_EV_TRANSITION.ev_adoption_pace",
+    "quote": "we have observed lower-than-anticipated industrywide EV adoption rates due to changes in consumer sentiment, competitive dynamics, legal and policy changes, and significant developments in vehicle pricing dynamics",
+    "driver": "slower EV adoption",
+    "secondary": false
+   },
+   {
+    "rf": 33,
+    "heading": "Conversely, should EV adoption rates increase again in the future, the risk of excess capacity, particularly for internal combustion engine trucks and utilities, may be exacerbated.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.price_competition",
+    "quote": "This excess capacity may further increase price competition in that segment of the market, which could have a substantial adverse effect on our financial condition or results of operations.",
+    "driver": "ICE truck excess capacity",
+    "secondary": false
+   },
+   {
+    "rf": 34,
+    "heading": "Inflationary pressure and fluctuations in commodity and energy prices, foreign currency exchange rates, interest rates, and market value of Ford or Ford Credit\u2019s investments, including marketable securities, can have a significant effect on results.",
+    "category": "MACRO_DEMAND",
+    "leaf": "MACRO_DEMAND.inflation_costs",
+    "quote": "We and our suppliers are exposed to inflationary pressure and a variety of market risks, including the effects of changes in commodity and energy prices, foreign currency exchange rates, and interest rates.",
+    "driver": "inflation and market risks",
+    "secondary": false
+   },
+   {
+    "rf": 35,
+    "heading": "Ford\u2019s results are dependent on sales of larger, more profitable vehicles, particularly in the United States.",
+    "category": "MACRO_DEMAND",
+    "leaf": "MACRO_DEMAND.cyclical_demand",
+    "quote": "A shift in consumer preferences away from larger, more profitable vehicles with internal combustion engines (including trucks and utilities) to other vehicles in our portfolio that may be less profitable",
+    "driver": "US trucks and utilities mix",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3557,
+ "output_tokens": 1190,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 5.812,
+ "recorded_at": "2026-10-25T20:37:04+0000"
+}

@@ -1,0 +1,59 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 25,
+    "heading": "Changes in international trade policy can also have a substantial adverse effect on our financial condition, results of operations, or our business in general.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.tariffs",
+    "quote": "Tariffs implemented to date in the United States and elsewhere have caused significant disruption, increased costs, and uncertainty in the automotive industry, including for Ford, other OEMs, suppliers, and dealers, as well as customers.",
+    "driver": "US tariffs on autos and parts",
+    "secondary": false
+   },
+   {
+    "rf": 26,
+    "heading": "With operations in various markets with volatile economic or political environments and our global supply chain and utilization of transportation routes and logistics providers around the world, we are exposed to heightened risks as a result of economic, geopolitical, or other events.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.international_operations",
+    "quote": "This could include governmental takeover (i.e., nationalization) of our manufacturing facilities or intellectual property, restrictive exchange or import controls, changes to international trade agreements, disruption of operations as a result of systemic political or economic instability",
+    "driver": "volatile markets, nationalization risk",
+    "secondary": false
+   },
+   {
+    "rf": 27,
+    "heading": "Ford\u2019s new and existing products and digital, software, and physical services are subject to market acceptance and face significant competition from existing and new entrants in the automotive and digital and software services industries, and Ford\u2019s reputation may be harmed based on positions it takes or if it is unable to achieve the initiatives it has announced.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.technology_change",
+    "quote": "Because customers\u2019 preferences may change quickly, our new and existing products may not generate sales in sufficient quantities and at costs low enough to be profitable and recoup investment costs.",
+    "driver": "product market acceptance",
+    "secondary": false
+   },
+   {
+    "rf": 28,
+    "heading": "With increased consumer interconnectedness through the internet, social media, and other media, mere allegations relating to quality, safety, reliability, fuel efficiency, sustainability, corporate social responsibility, or other key attributes can negatively impact our reputation or market acceptance of our products or services, even where such allegations prove to be inaccurate or unfounded.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.new_entrants",
+    "quote": "For example, Chinese electrified vehicle producers are exporting their products to some key markets in which we operate.",
+    "driver": "Chinese EV exporters",
+    "secondary": false
+   },
+   {
+    "rf": 29,
+    "heading": "Although we recently scaled back our EV investments to redeploy that capital to other areas of the business, we intend to continue making significant investments in electrification and software services.",
+    "category": "EMISSIONS_EV_TRANSITION",
+    "leaf": "EMISSIONS_EV_TRANSITION.ev_adoption_pace",
+    "quote": "Our plans continue to include offering electrified versions of many of our vehicles as well as solely electric nameplates, although we have observed lower than initially anticipated industrywide EV adoption rates.",
+    "driver": "low EV adoption rates",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3320,
+ "output_tokens": 1109,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 5.651,
+ "recorded_at": "2026-10-25T20:37:03+0000"
+}

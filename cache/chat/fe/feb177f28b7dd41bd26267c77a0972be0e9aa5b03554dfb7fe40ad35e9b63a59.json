@@ -1,0 +1,23 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 5,
+    "heading": "Our operating results are impacted by global economic conditions and may fluctuate in the future due to a number of factors that could reduce our net sales and profitability.",
+    "category": "MACRO_DEMAND",
+    "leaf": "MACRO_DEMAND.cyclical_demand",
+    "quote": "Uncertain global economic and public health conditions have caused and may in the future cause our operating results to fluctuate significantly and make comparisons between periods less meaningful.",
+    "driver": "global economic conditions",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3381,
+ "output_tokens": 185,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 2.027,
+ "recorded_at": "2026-10-25T20:37:54+0000"
+}

@@ -1,0 +1,77 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 7,
+    "heading": "Conditions in the automotive industry may adversely affect our business.",
+    "category": "MACRO_DEMAND",
+    "leaf": "MACRO_DEMAND.vehicle_production_volumes",
+    "quote": "Economic declines that result in significant reduction in automotive or truck production would result in a decline in the production levels of our major customers and, by extension, in our sales to OEMs",
+    "driver": "Global auto production cyclicality",
+    "secondary": false
+   },
+   {
+    "rf": 8,
+    "heading": "If we do not respond appropriately, the evolution of the automotive industry could adversely affect our business.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.technology_change",
+    "quote": "If we do not continue to innovate and develop, or acquire, new and compelling products that capitalize upon new technologies, including artificial intelligence (\u201cAI\u201d) and machine learning, or improve in response to OEM and consumer preferences",
+    "driver": "Vehicle electrification and ADAS shift",
+    "secondary": false
+   },
+   {
+    "rf": 9,
+    "heading": "We may be subject to potential governmental investigations and related proceedings relating to vehicle emissions standards.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.litigation_investigations",
+    "quote": "Any potential alleged violations by BorgWarner of existing or future emissions standards could result in government investigations and other legal proceedings, the recall of one or more of our products",
+    "driver": "Emissions standards investigations",
+    "secondary": false
+   },
+   {
+    "rf": 10,
+    "heading": "We are under substantial pressure from OEMs to reduce the prices of our products.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.price_competition",
+    "quote": "Virtually all automakers have implemented aggressive price-reduction initiatives and objectives each year with their suppliers, and such actions are expected to continue in the future.",
+    "driver": "OEM annual price reductions",
+    "secondary": false
+   },
+   {
+    "rf": 11,
+    "heading": "We continue to face volatile costs of commodities used in the production of our products and elevated levels of inflation.",
+    "category": "COMMODITY_INPUTS",
+    "leaf": "COMMODITY_INPUTS.raw_material_prices",
+    "quote": "We use a variety of commodities (including aluminum, copper, nickel, plastic resins, steel, other raw materials and energy) and materials purchased in various forms such as castings, powder metal, forgings, stampings and bar stock.",
+    "driver": "Aluminum, copper, steel costs",
+    "secondary": false
+   },
+   {
+    "rf": 12,
+    "heading": "From time to time, commodity prices may also fall rapidly. If this happens, suppliers may withdraw capacity from the market until prices improve, which may cause periodic supply interruptions. The same may be true of transportation carriers and energy providers. If these supply interruptions occur, it could adversely affect our business.",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.single_source",
+    "quote": "If this happens, suppliers may withdraw capacity from the market until prices improve, which may cause periodic supply interruptions.",
+    "driver": "Supplier capacity withdrawal",
+    "secondary": false
+   },
+   {
+    "rf": 13,
+    "heading": "We may not achieve some or all of the expected benefits of our restructuring plans and our restructuring actions may adversely affect our business.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.restructuring",
+    "quote": "Implementation of any restructuring action may be costly and disruptive to our business, and we may not be able to realize the cost savings, operational improvements and estimated workforce reductions that we anticipate",
+    "driver": "Restructuring plan savings",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3259,
+ "output_tokens": 1256,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 6.215,
+ "recorded_at": "2026-10-25T20:37:34+0000"
+}

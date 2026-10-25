@@ -1,0 +1,32 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 26,
+    "heading": "We must attract and retain qualified personnel to be successful, and competition for qualified personnel has intensified.",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.skilled_talent",
+    "quote": "Our failure to attract and retain hardware and software engineers, as well as sales and marketing personnel, could delay product development and introduction, thereby adversely affecting our net sales.",
+    "driver": "engineer talent competition",
+    "secondary": false
+   },
+   {
+    "rf": 27,
+    "heading": "The occurrence of events for which we are self-insured, or which exceed our insurance limits, may adversely affect our profitability and liquidity.",
+    "category": "OTHER",
+    "leaf": "OTHER.reporting_controls",
+    "quote": "Should there be a loss or adverse judgment in an area for which we are self-insured, then our financial condition, results of operations and liquidity may be materially adversely affected.",
+    "driver": "self-insurance exposure",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 1358,
+ "output_tokens": 331,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 2.048,
+ "recorded_at": "2026-10-25T20:38:02+0000"
+}

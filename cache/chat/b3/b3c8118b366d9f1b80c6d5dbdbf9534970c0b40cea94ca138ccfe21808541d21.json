@@ -1,0 +1,68 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 36,
+    "heading": "Industry sales volume can be volatile and could decline if there is a financial crisis, recession, public health emergency, or significant geopolitical event.",
+    "category": "MACRO_DEMAND",
+    "leaf": "MACRO_DEMAND.vehicle_production_volumes",
+    "quote": "Because we, like other manufacturers, have a higher proportion of fixed structural costs, relatively small changes in industry sales volume can have a substantial effect on our cash flow and results of operations.",
+    "driver": "Industry vehicle sales volume",
+    "secondary": false
+   },
+   {
+    "rf": 37,
+    "heading": "The impact of government incentives on Ford\u2019s business has been and could continue to be significant, and Ford\u2019s receipt of government incentives could be subject to reduction, termination, or clawback.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.government_incentives",
+    "quote": "A decrease in, expiration without renewal of, or other cessation or clawback of government incentives for any of our operations or that impact consumers of our products and services",
+    "driver": "EV tax credits, Brazil incentives",
+    "secondary": false
+   },
+   {
+    "rf": 38,
+    "heading": "The 2025 legislation preserved the advanced manufacturing production tax credit for the domestic manufacture of batteries and battery components (first established in the 2022 legislation), but restricted the eligibility criteria going forward, most notably by imposing criteria for \u201cprohibited foreign entities,\u201d which concern China and other countries.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.government_incentives",
+    "quote": "Such decisions involve substantial lead time, and it may take years before Ford can satisfy any new or changed eligibility criteria.",
+    "driver": "45X advanced manufacturing credit",
+    "secondary": false
+   },
+   {
+    "rf": 39,
+    "heading": "Ford and Ford Credit\u2019s access to debt, securitization, or derivative markets around the world at competitive rates or in sufficient amounts could be affected by credit rating downgrades, market volatility, market disruption, regulatory requirements, asset portfolios, or other factors.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.liquidity_funding",
+    "quote": "Ford and Ford Credit\u2019s ability to obtain unsecured funding at a reasonable cost is dependent on their credit ratings or their perceived creditworthiness.",
+    "driver": "Ford Credit securitization funding",
+    "secondary": false
+   },
+   {
+    "rf": 40,
+    "heading": "Ford Credit could experience higher-than-expected credit losses, lower-than-anticipated residual values, or higher-than-expected return volumes for leased vehicles.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.pension_finance_obligations",
+    "quote": "Actual proceeds realized by Ford Credit upon the sale of returned leased vehicles at lease termination may be lower than the amount projected, which would reduce Ford Credit\u2019s return on the lease transaction.",
+    "driver": "Ford Credit residual values",
+    "secondary": false
+   },
+   {
+    "rf": 41,
+    "heading": "Economic and demographic experience for pension and OPEB plans (e.g., discount rates or investment returns) could be worse than Ford has assumed.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.pension_finance_obligations",
+    "quote": "To the extent actual results are less favorable than our assumptions, we may recognize a remeasurement loss in our results, which could be substantial.",
+    "driver": "Pension and OPEB assumptions",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3470,
+ "output_tokens": 1213,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 6.997,
+ "recorded_at": "2026-10-25T20:37:07+0000"
+}

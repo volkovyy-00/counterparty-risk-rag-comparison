@@ -1,0 +1,50 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 36,
+    "heading": "We are exposed to various risks related to legal proceedings, investigations or claims.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.litigation_investigations",
+    "quote": "We are currently, and in the future may be, involved in legal proceedings, investigations or claims regarding intellectual property rights, product defects, breach of contracts, tax matters, export controls and sanctions, and other matters.",
+    "driver": "Legal proceedings and claims",
+    "secondary": false
+   },
+   {
+    "rf": 37,
+    "heading": "Our contractual relationships with our customers expose us to risks and liabilities.",
+    "category": "CUSTOMER_CONCENTRATION",
+    "leaf": "CUSTOMER_CONCENTRATION.key_customer_dependence",
+    "quote": "we do not typically enter into long-term contracts with our non-distributor customers, and therefore we cannot be certain about future order levels from our customers.",
+    "driver": "Cancellable customer contracts, uncapped liability",
+    "secondary": false
+   },
+   {
+    "rf": 38,
+    "heading": "Failure to adequately protect our intellectual property could result in competitive harm, lost revenue or market opportunities.",
+    "category": "IP_TECH_RIGHTS",
+    "leaf": "IP_TECH_RIGHTS.ip_protection",
+    "quote": "our existing and new patents, trademarks and copyrights that are issued may not have sufficient scope or strength to provide meaningful protection or commercial advantage to us.",
+    "driver": "Patent protection, open source",
+    "secondary": false
+   },
+   {
+    "rf": 39,
+    "heading": "Our reported financial results may be adversely affected by new accounting pronouncements or changes in existing accounting standards and practices.",
+    "category": "OTHER",
+    "leaf": "OTHER.reporting_controls",
+    "quote": "New accounting pronouncements or a change in the interpretation of accounting standards or practices may have a significant effect on our reported financial results",
+    "driver": "Changes in accounting standards",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3255,
+ "output_tokens": 662,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 3.551,
+ "recorded_at": "2026-10-25T20:38:06+0000"
+}

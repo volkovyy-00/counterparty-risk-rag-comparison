@@ -1,0 +1,68 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 1,
+    "heading": "Our global operations subject us to risks associated with domestic or international political, social, economic or other conditions.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.china_exposure",
+    "quote": "Revenue from end customers headquartered in China represented about 20% of our revenue in 2025, while revenue from products shipped into China represented about 50% of our revenue in 2025.",
+    "driver": "China revenue concentration",
+    "secondary": false
+   },
+   {
+    "rf": 2,
+    "heading": "We face substantial competition that requires us to respond rapidly to product development and pricing pressures.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.price_competition",
+    "quote": "The price and product development pressures that result from competition may lead to reduced profit margins and lost business opportunities in the event that we are unable to match the price declines",
+    "driver": "Pricing pressure from competitors",
+    "secondary": false
+   },
+   {
+    "rf": 3,
+    "heading": "Changes in expected demand for our products could have a material adverse effect on our results of operations.",
+    "category": "MACRO_DEMAND",
+    "leaf": "MACRO_DEMAND.cyclical_demand",
+    "quote": "The cyclical nature of the semiconductor market occasionally leads to significant and rapid increases and decreases in product demand.",
+    "driver": "Semiconductor market cyclicality",
+    "secondary": false
+   },
+   {
+    "rf": 4,
+    "heading": "Our operating results and our reputation could be adversely affected by cybersecurity events, breaches, disruptions or other incidents relating to our information technology systems.",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "Cybersecurity or other threats to our information technology systems or the systems of our customers, suppliers and other third parties are frequent, increasingly sophisticated and constantly evolving",
+    "driver": "",
+    "secondary": false
+   },
+   {
+    "rf": 5,
+    "heading": "Our ability to successfully implement strategic, business and organizational changes could affect our business plans and results of operations.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.restructuring",
+    "quote": "We may not achieve or sustain the expected growth, cost savings or other benefits of strategic, business and organizational changes, and charges associated with these actions could differ materially",
+    "driver": "Strategic and organizational changes",
+    "secondary": false
+   },
+   {
+    "rf": 6,
+    "heading": "Our results of operations could be affected by natural events in the locations in which we operate.",
+    "category": "CLIMATE_NATCAT",
+    "leaf": "CLIMATE_NATCAT.natural_disasters_weather",
+    "quote": "A natural disaster that results in a prolonged disruption, particularly where we have principal manufacturing and design operations, as listed in the Properties section in Item 2, may adversely affect our results and financial condition.",
+    "driver": "Natural disasters at facilities",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3090,
+ "output_tokens": 984,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 4.958,
+ "recorded_at": "2026-10-25T20:38:22+0000"
+}

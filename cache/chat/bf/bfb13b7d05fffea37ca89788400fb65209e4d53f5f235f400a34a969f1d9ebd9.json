@@ -1,0 +1,41 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 31,
+    "heading": "We are subject to evolving laws and regulations that could impose substantial costs, legal prohibitions or unfavorable changes upon our operations or products.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.product_regulation",
+    "quote": "We are also subject to laws and regulations applicable to the supply, manufacture, import, sale, service and performance of our products both domestically and abroad.",
+    "driver": "Vehicle and energy product regulation",
+    "secondary": false
+   },
+   {
+    "rf": 32,
+    "heading": "Any failure by us to comply with a variety of U.S. and international privacy and consumer protection laws may harm us.",
+    "category": "PRIVACY_DATA",
+    "leaf": "PRIVACY_DATA.privacy_regulation",
+    "quote": "Complying with emerging and changing requirements may cause us to incur substantial costs and make enhancements to relevant data practices. Noncompliance could result in significant penalties or legal liability.",
+    "driver": "GDPR, CCPA compliance",
+    "secondary": false
+   },
+   {
+    "rf": 33,
+    "heading": "We could be subject to liability, penalties and other restrictive sanctions and adverse consequences arising out of certain governmental investigations and proceedings.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.litigation_investigations",
+    "quote": "we cannot predict the outcome or impact of any such ongoing matters, and there exists the possibility that we could be subject to liability, penalties and other restrictive sanctions",
+    "driver": "SEC and DOJ investigations",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2838,
+ "output_tokens": 540,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 3.456,
+ "recorded_at": "2026-10-25T20:37:15+0000"
+}

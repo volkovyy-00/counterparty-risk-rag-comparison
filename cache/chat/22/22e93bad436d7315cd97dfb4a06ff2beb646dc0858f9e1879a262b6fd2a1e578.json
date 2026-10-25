@@ -1,0 +1,41 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 16,
+    "heading": "Disruptions or breaches of our information technology systems could irreparably damage our reputation and our business, expose us to liability and materially adversely affect our results of operations.",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "We have experienced and expect to continue to experience disruptions, failures or breaches of our information technology environment, such as those caused by computer viruses, illegal hacking, criminal fraud or impersonation, acts of vandalism or terrorism or employee error.",
+    "driver": "IT breaches, hacking",
+    "secondary": false
+   },
+   {
+    "rf": 17,
+    "heading": "We are subject to governmental laws, regulations and other legal obligations related to privacy and data protection.",
+    "category": "PRIVACY_DATA",
+    "leaf": "PRIVACY_DATA.privacy_regulation",
+    "quote": "The legislative and regulatory framework for privacy and data protection issues worldwide is rapidly evolving and is likely to remain uncertain for the foreseeable future.",
+    "driver": "EU and US state PII laws",
+    "secondary": false
+   },
+   {
+    "rf": 18,
+    "heading": "Our extensive reliance on information technology systems, including reliance on third-party service providers, could have a materially adverse impact on our business, and our substantial investments in such information technology systems could result in significant potential risks and failures.",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.it_system_failure",
+    "quote": "Failure by these third-party service providers to meet their contractual, regulatory and other obligations to us, or our failure to adequately monitor their performance, could result in our inability to achieve expected efficiencies",
+    "driver": "ERP implementation, third-party providers",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2572,
+ "output_tokens": 579,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 3.32,
+ "recorded_at": "2026-10-25T20:38:16+0000"
+}

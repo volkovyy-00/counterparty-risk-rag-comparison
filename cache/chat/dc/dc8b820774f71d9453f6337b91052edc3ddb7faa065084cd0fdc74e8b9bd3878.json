@@ -1,0 +1,41 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 45,
+    "heading": "We are subject to stringent environmental, climate change and other regulations, which may force us to incur significant expenses and impact our operations.",
+    "category": "EMISSIONS_EV_TRANSITION",
+    "leaf": "EMISSIONS_EV_TRANSITION.emissions_regulation",
+    "quote": "Regulations restricting greenhouse gas emissions could cause us to incur significant additional costs of compliance due to the need for changes in manufacturing methods or installation of abatement equipment",
+    "driver": "Greenhouse gas and hazardous substance rules",
+    "secondary": false
+   },
+   {
+    "rf": 46,
+    "heading": "Sustained adverse climate change poses risks that could harm our results of operations.",
+    "category": "CLIMATE_NATCAT",
+    "leaf": "CLIMATE_NATCAT.natural_disasters_weather",
+    "quote": "Sustained adverse changes in climate could have a direct adverse economic impact on us due to the effects of extreme weather and climate events on our production facilities, our supply chain and customers.",
+    "driver": "Extreme weather at facilities",
+    "secondary": false
+   },
+   {
+    "rf": 47,
+    "heading": "Customer demands and regulations related to conflict-free minerals and other substances incorporated into or used to manufacture our products may force us to incur additional expenses.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.product_regulation",
+    "quote": "If we cannot certify that our supply chain is free from the risk of irresponsible sourcing, customers and others may demand that we change the sourcing of materials used in the manufacture of our products",
+    "driver": "Conflict minerals disclosure rules",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2545,
+ "output_tokens": 561,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 3.116,
+ "recorded_at": "2026-10-25T20:38:09+0000"
+}

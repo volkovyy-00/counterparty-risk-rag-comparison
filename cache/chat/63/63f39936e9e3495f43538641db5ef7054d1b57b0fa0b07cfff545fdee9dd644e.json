@@ -1,0 +1,41 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 30,
+    "heading": "Our computer systems and networks are subject to attempted security breaches and other cybersecurity incidents, which, if successful, could adversely impact our business.",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "We have, from time to time, experienced cyber-attacks attempting to obtain access to and misuse our computer systems and networks.",
+    "driver": "Cyber-attacks on NXP systems",
+    "secondary": false
+   },
+   {
+    "rf": 31,
+    "heading": "We rely to a significant extent on proprietary intellectual property. We may not be able to protect this intellectual property against improper use by our competitors or others.",
+    "category": "IP_TECH_RIGHTS",
+    "leaf": "IP_TECH_RIGHTS.ip_protection",
+    "quote": "Our success and future revenue growth depends, in part, on our ability to protect our proprietary technology, our products, our proprietary designs and fabrication processes, and other intellectual property against misappropriation by others.",
+    "driver": "Patent and trade secret protection",
+    "secondary": false
+   },
+   {
+    "rf": 32,
+    "heading": "We may become party to intellectual property claims or litigation that could cause us to incur substantial costs, pay substantial damages or prohibit us from selling our products.",
+    "category": "IP_TECH_RIGHTS",
+    "leaf": "IP_TECH_RIGHTS.ip_infringement_claims",
+    "quote": "We have from time to time received, and may in the future receive, communications alleging possible infringement of patents and other intellectual property rights of others.",
+    "driver": "Third-party patent infringement claims",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3143,
+ "output_tokens": 544,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 3.051,
+ "recorded_at": "2026-10-25T20:37:54+0000"
+}

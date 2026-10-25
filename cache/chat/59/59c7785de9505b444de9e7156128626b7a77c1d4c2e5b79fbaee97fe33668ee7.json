@@ -1,0 +1,77 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 10,
+    "heading": "Our substantial international operations make us vulnerable to risks associated with volatile economic and political environments.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.international_operations",
+    "quote": "We have substantial international operations, with manufacturing and distribution facilities in many foreign countries, including Mexico and countries in Africa, Asia, Central and South America, and Europe.",
+    "driver": "Multi-country operations, Mexico",
+    "secondary": false
+   },
+   {
+    "rf": 11,
+    "heading": "Certain of our operations are conducted through joint ventures which have unique risks.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.joint_ventures_investments",
+    "quote": "Certain of our operations, particularly in Asia, are conducted through joint ventures. With respect to our joint ventures, we may share ownership and management responsibilities with one or more partners",
+    "driver": "Asia joint ventures",
+    "secondary": false
+   },
+   {
+    "rf": 12,
+    "heading": "Our inability to effectively manage the timing, quality and costs of new program launches could adversely affect our financial performance.",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.product_liability_defects",
+    "quote": "Given the complexity of new program launches, we may experience difficulties managing product quality, timeliness and associated costs.",
+    "driver": "New program launches",
+    "secondary": false
+   },
+   {
+    "rf": 13,
+    "heading": "We operate in a highly competitive industry and efforts by our competitors, as well as new entrants to the industry, to gain market share could adversely affect our financial performance.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.price_competition",
+    "quote": "Our competitors' efforts to grow market share could exert downward pressure on our product pricing and margins.",
+    "driver": "Competitor pricing pressure",
+    "secondary": false
+   },
+   {
+    "rf": 13,
+    "heading": "We operate in a highly competitive industry and efforts by our competitors, as well as new entrants to the industry, to gain market share could adversely affect our financial performance.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.new_entrants",
+    "quote": "Chinese domestic suppliers that may have lower financial return expectations are also challenging traditional automotive suppliers for market share.",
+    "driver": "Chinese suppliers, new automakers",
+    "secondary": true
+   },
+   {
+    "rf": 14,
+    "heading": "If we do not respond appropriately, the evolution of the global transportation industry toward electrification could adversely affect our business.",
+    "category": "EMISSIONS_EV_TRANSITION",
+    "leaf": "EMISSIONS_EV_TRANSITION.ev_adoption_pace",
+    "quote": "The adoption of such vehicles, particularly electric vehicles, has been slower than anticipated, particularly in the United States, as a result of, among other things, changes in government carbon emissions regulations and tax incentives",
+    "driver": "Slower EV adoption",
+    "secondary": false
+   },
+   {
+    "rf": 15,
+    "heading": "Our increasing use of AI and other emerging technologies may expose us to operational, legal and regulatory risks that could adversely affect our business and reputation.",
+    "category": "AI_EMERGING_TECH",
+    "leaf": "AI_EMERGING_TECH.ai_development_use",
+    "quote": "We currently incorporate AI-powered tools into certain internal business operations, such as in our production processes and in certain of our administrative functions.",
+    "driver": "Internal AI tool use",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3174,
+ "output_tokens": 1207,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 6.037,
+ "recorded_at": "2026-10-25T20:37:45+0000"
+}

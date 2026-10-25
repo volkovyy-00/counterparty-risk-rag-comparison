@@ -1,0 +1,59 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 1,
+    "heading": "The semiconductor industry is highly cyclical.",
+    "category": "MACRO_DEMAND",
+    "leaf": "MACRO_DEMAND.cyclical_demand",
+    "quote": "the relationship between supply and demand in the semiconductor industry has caused a high degree of cyclicality in the semiconductor market.",
+    "driver": "Semiconductor cycle",
+    "secondary": false
+   },
+   {
+    "rf": 2,
+    "heading": "Significantly increased volatility and instability and unfavorable economic conditions may adversely affect our business.",
+    "category": "MACRO_DEMAND",
+    "leaf": "MACRO_DEMAND.cyclical_demand",
+    "quote": "In the event of a future decline in global economic conditions, our business, financial condition and results of operations could be materially adversely affected",
+    "driver": "Economic downturn",
+    "secondary": false
+   },
+   {
+    "rf": 3,
+    "heading": "The semiconductor industry is highly competitive. If we fail to introduce new technologies and products in a timely manner, this could adversely affect our business.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.technology_change",
+    "quote": "The semiconductor industry is highly competitive and characterized by constant and rapid technological change, short product lifecycles, significant price erosion and evolving standards.",
+    "driver": "New product timeliness",
+    "secondary": false
+   },
+   {
+    "rf": 4,
+    "heading": "The demand for our products depends to a significant degree on the demand for our customers\u2019 end products.",
+    "category": "MACRO_DEMAND",
+    "leaf": "MACRO_DEMAND.cyclical_demand",
+    "quote": "Demand in these markets fluctuates significantly, driven by consumer spending, consumer preferences, the development of new technologies and prevailing economic conditions.",
+    "driver": "End-market demand",
+    "secondary": false
+   },
+   {
+    "rf": 5,
+    "heading": "The semiconductor industry is historically characterized by continued price erosion, especially after a product has been on the market.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.price_competition",
+    "quote": "The semiconductor industry is historically characterized by continued price erosion, especially after a product has been on the market.",
+    "driver": "Price erosion",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3283,
+ "output_tokens": 754,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 4.051,
+ "recorded_at": "2026-10-25T20:37:47+0000"
+}

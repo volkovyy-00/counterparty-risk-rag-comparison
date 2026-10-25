@@ -1,0 +1,59 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 11,
+    "heading": "We may not be able to respond quickly enough to changes in regulations, technology and technological risks, and to develop our intellectual property into commercially viable products.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.technology_change",
+    "quote": "We cannot provide assurance that certain of our products will not become obsolete or that we will be able to achieve the technological advances that may be necessary for us to remain competitive",
+    "driver": "product obsolescence, new technologies",
+    "secondary": false
+   },
+   {
+    "rf": 12,
+    "heading": "Certain of our businesses rely on relationships with collaborative partners and other third-parties for development of products and potential products, and such collaborative partners or other third-parties could fail to perform sufficiently.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.joint_ventures_investments",
+    "quote": "our collaborative partners may not devote sufficient resources to the success of our collaborations; may be acquired by other companies and subsequently terminate our collaborative arrangement; may compete with us",
+    "driver": "collaborative development partners",
+    "secondary": false
+   },
+   {
+    "rf": 13,
+    "heading": "Declines in the market share or business of our five largest customers may adversely impact our revenues and profitability.",
+    "category": "CUSTOMER_CONCENTRATION",
+    "leaf": "CUSTOMER_CONCENTRATION.key_customer_dependence",
+    "quote": "Our five largest customers accounted for approximately 42% of our total net sales for the year ended December 31, 2025.",
+    "driver": "top five customers 42% sales",
+    "secondary": false
+   },
+   {
+    "rf": 14,
+    "heading": "We may not realize sales represented by awarded business.",
+    "category": "MACRO_DEMAND",
+    "leaf": "MACRO_DEMAND.vehicle_production_volumes",
+    "quote": "If actual production orders from our customers are not consistent with the projections we use in calculating the amount of our awarded business, we could realize substantially less revenue",
+    "driver": "awarded business volume projections",
+    "secondary": false
+   },
+   {
+    "rf": 15,
+    "heading": "Continued pricing pressures, OEM cost reduction initiatives and the ability of OEMs to re-source or cancel vehicle programs may result in lower than anticipated margins, or losses, which may have a significant negative impact on our business.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.price_competition",
+    "quote": "Our customer supply agreements generally require step-downs in component pricing over the period of production, typically one to three percent per year.",
+    "driver": "OEM price step-downs",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3023,
+ "output_tokens": 877,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 4.647,
+ "recorded_at": "2026-10-25T20:37:20+0000"
+}

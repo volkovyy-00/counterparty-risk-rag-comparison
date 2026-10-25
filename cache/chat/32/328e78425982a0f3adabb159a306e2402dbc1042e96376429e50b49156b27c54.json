@@ -1,0 +1,50 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 13,
+    "heading": "We will need to maintain public credibility and confidence in our long-term business prospects in order to succeed.",
+    "category": "OTHER",
+    "leaf": "OTHER.stock_governance",
+    "quote": "we must maintain credibility and confidence among customers, suppliers, analysts, investors, ratings agencies and other parties in our long-term financial viability and business prospects.",
+    "driver": "Public confidence and reputation",
+    "secondary": false
+   },
+   {
+    "rf": 14,
+    "heading": "We may be unable to effectively grow, or manage the compliance, residual value, financing and credit risks related to, our various financing programs.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.pension_finance_obligations",
+    "quote": "The profitability of any directly-leased vehicles returned to us at the end of their leases depends on our ability to accurately project our vehicles\u2019 residual values at the outset of the leases",
+    "driver": "Vehicle lease residual values",
+    "secondary": false
+   },
+   {
+    "rf": 15,
+    "heading": "If we are unable to attract, hire and retain key employees and qualified personnel, our ability to compete may be harmed.",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.skilled_talent",
+    "quote": "Our future success also depends upon our ability to attract, hire and retain a large number of engineering, manufacturing, marketing, sales and delivery, service, installation, technology and support personnel",
+    "driver": "Engineering and manufacturing talent",
+    "secondary": false
+   },
+   {
+    "rf": 16,
+    "heading": "We are highly dependent on the services of Elon Musk, Technoking of Tesla and our Chief Executive Officer.",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.key_personnel",
+    "quote": "Although Mr. Musk spends significant time with Tesla and is highly active in our management, he does not devote his full time and attention to Tesla.",
+    "driver": "Elon Musk dependence",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2610,
+ "output_tokens": 665,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 3.681,
+ "recorded_at": "2026-10-25T20:37:11+0000"
+}

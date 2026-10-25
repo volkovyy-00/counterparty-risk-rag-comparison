@@ -54,5 +54,32 @@
    }
   ]
  },
- "approach2_rebuild_usd": 9.35
+ "approach2_rebuild_usd": 9.35,
+ "extras": {
+  "total_usd": 8.4373,
+  "input_measured": true,
+  "rows": [
+   {
+    "stage": "(a) approach 1 reruns (2, cache off)",
+    "calls": 2,
+    "input_tokens": 17804,
+    "output_tokens": 12000,
+    "cost_usd": 0.311216
+   },
+   {
+    "stage": "(b) approach 3 rerun (1, taxonomy-v3.0, cache off)",
+    "calls": 88,
+    "input_tokens": 616098,
+    "output_tokens": 220000,
+    "cost_usd": 5.391569
+   },
+   {
+    "stage": "(c) audit run B: approach 3 on claude-sonnet-5-5 (model swap, taxonomy-v3.0)",
+    "calls": 88,
+    "input_tokens": 616098,
+    "output_tokens": 220000,
+    "cost_usd": 2.734543
+   }
+  ]
+ }
 }

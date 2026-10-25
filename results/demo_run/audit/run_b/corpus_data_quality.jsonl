@@ -1,0 +1,10 @@
+{"severity": "WARN", "check": "amended_after", "subject": "TSLA", "detail": "10-K/A 0001104659-26-053166 filed 2026-04-30 after the 10-K used"}
+{"severity": "INFO", "check": "corporate_action_mentioned", "subject": "APTV", "detail": "Item 1A mentions: \"29 Table of Contents Planned Spin-off of Electrical Distribution Systems Business We are pursuing a plan to separate our Electrical Distributions Systems business into an independent, publicly traded company.\""}
+{"severity": "INFO", "check": "corporate_action_mentioned", "subject": "BWA", "detail": "Item 1A mentions: \"Risks related to the spin-off of PHINIA Inc.\""}
+{"severity": "INFO", "check": "non_calendar_fiscal_year", "subject": "MCHP", "detail": "fiscal year ends 03/31 (MM/DD); period 2026-03-31"}
+{"severity": "INFO", "check": "group_note", "subject": "MCHP", "detail": "Microchip's fiscal year ends in March; its latest 10-K covers a different period from the calendar-year filers."}
+{"severity": "INFO", "check": "group_note", "subject": "BWA", "detail": "BorgWarner spun off PHINIA Inc. in 2023; check that comparisons with older filings use the post-spin company."}
+{"severity": "INFO", "check": "group_note", "subject": "APTV", "detail": "Aptiv has announced a separation of its Electrical Distribution Systems business; check whether the 10-K used describes the company before or after it."}
+{"severity": "INFO", "check": "group_note", "subject": "NXPI", "detail": "NXP Semiconductors N.V. is a Dutch company that files a 10-K with the SEC; check the fiscal period against the others."}
+{"severity": "WARN", "check": "mixed_years", "subject": "all", "detail": "fiscal periods end in different calendar years: 2025: GM, F, TSLA, APTV, BWA, LEA, NXPI, ON, TXN; 2026: MCHP"}
+{"severity": "INFO", "check": "fiscal_year_ends", "subject": "all", "detail": "different fiscal year ends (MMDD): 0331: MCHP; 1231: GM, F, TSLA, APTV, BWA, LEA, NXPI, ON, TXN"}

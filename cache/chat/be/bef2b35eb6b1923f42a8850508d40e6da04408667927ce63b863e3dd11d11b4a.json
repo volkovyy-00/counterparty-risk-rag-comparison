@@ -1,0 +1,41 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 42,
+    "heading": "The outcome of future examinations of our income tax returns and existing tax disputes could have an adverse effect on our results of operations.",
+    "category": "TAX",
+    "leaf": "TAX.tax_audits_disputes",
+    "quote": "In September 2021, we received a Statutory Notice of Deficiency (2007 to 2012 Notice) from the United States Internal Revenue Service (IRS) for fiscal 2007 through fiscal 2012. The disputed amounts largely relate to transfer pricing matters.",
+    "driver": "IRS and Malaysia IRB disputes",
+    "secondary": false
+   },
+   {
+    "rf": 43,
+    "heading": "We are a U.S.-based multinational company subject to tax in many U.S. and foreign jurisdictions. Our income tax obligations could be affected by many factors, including changes to our operating structure, intercompany arrangements and tax planning strategies.",
+    "category": "TAX",
+    "leaf": "TAX.tax_law_changes",
+    "quote": "These include changes in tax rates, tax laws, and tax regulations and how those laws are interpreted in jurisdictions where our income is earned.",
+    "driver": "effective tax rate factors, OECD BEPS",
+    "secondary": false
+   },
+   {
+    "rf": 44,
+    "heading": "Our business, financial condition and operating results may be adversely impacted by policies implemented globally by the current or future administrations.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.tariffs",
+    "quote": "have taken and have threatened to take significant legislative and policy changes in areas including but not limited to tariffs, taxes and trade, labor, and the environment.",
+    "driver": "government tariff and trade policy",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2672,
+ "output_tokens": 576,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 3.324,
+ "recorded_at": "2026-10-25T20:38:07+0000"
+}

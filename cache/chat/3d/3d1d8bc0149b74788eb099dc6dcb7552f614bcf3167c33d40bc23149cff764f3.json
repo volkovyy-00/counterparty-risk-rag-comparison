@@ -1,0 +1,32 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 21,
+    "heading": "Our technology licensing business exposes us to various risks.",
+    "category": "IP_TECH_RIGHTS",
+    "leaf": "IP_TECH_RIGHTS.ip_protection",
+    "quote": "our ability to protect and enforce our intellectual property rights for our licensed technology, and enforce the terms of our licenses;",
+    "driver": "SuperFlash licensing royalties",
+    "secondary": false
+   },
+   {
+    "rf": 22,
+    "heading": "Sales into governmental projects, and compliance with associated regulations, could have a material adverse effect on our results of operations.",
+    "category": "CUSTOMER_CONCENTRATION",
+    "leaf": "CUSTOMER_CONCENTRATION.key_customer_dependence",
+    "quote": "A significant portion of our sales are from or are derived from government agencies or customers who sell to U.S. or foreign government agencies.",
+    "driver": "U.S. government contract sales",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2969,
+ "output_tokens": 318,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 2.074,
+ "recorded_at": "2026-10-25T20:38:00+0000"
+}

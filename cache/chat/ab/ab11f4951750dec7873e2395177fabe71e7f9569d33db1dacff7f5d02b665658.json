@@ -1,0 +1,86 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 28,
+    "heading": "Compliance with and changes in laws could be costly and could affect our operating results.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.anti_corruption_compliance",
+    "quote": "Compliance-related issues in certain countries associated with laws such as the Foreign Corrupt Practices Act and other anti-corruption laws could adversely affect our business.",
+    "driver": "FCPA anti-corruption laws",
+    "secondary": false
+   },
+   {
+    "rf": 29,
+    "heading": "Changes in tax laws or tax rates by taxing authorities and the outcome of tax audits could adversely affect our business.",
+    "category": "TAX",
+    "leaf": "TAX.tax_law_changes",
+    "quote": "Changes in tax laws or tax rates, the resolution of tax assessments or audits by various tax authorities, and the inability to fully utilize our tax loss carryforwards and tax credits could adversely affect our operating results.",
+    "driver": "OBBBA tax legislation",
+    "secondary": false
+   },
+   {
+    "rf": 29,
+    "heading": "Changes in tax laws or tax rates by taxing authorities and the outcome of tax audits could adversely affect our business.",
+    "category": "TAX",
+    "leaf": "TAX.tax_audits_disputes",
+    "quote": "We have received tax assessments from various taxing authorities and are currently at varying stages of appeals and/or litigation regarding these matters.",
+    "driver": "tax assessments appeals",
+    "secondary": true
+   },
+   {
+    "rf": 30,
+    "heading": "We are subject to risks related to our international operations.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.international_operations",
+    "quote": "For 2025, approximately 84% of our consolidated net sales were outside the U.S.",
+    "driver": "84% non-US sales",
+    "secondary": false
+   },
+   {
+    "rf": 31,
+    "heading": "Our business in China is subject to aggressive competition and is sensitive to economic, political, and market conditions.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.china_exposure",
+    "quote": "Maintaining a strong position in the Chinese market is a key component of our global growth strategy.",
+    "driver": "China market competition",
+    "secondary": false
+   },
+   {
+    "rf": 32,
+    "heading": "For 2025, approximately 21% of our consolidated net sales were attributable to China.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.china_exposure",
+    "quote": "For 2025, approximately 21% of our consolidated net sales were attributable to China.",
+    "driver": "21% China sales",
+    "secondary": false
+   },
+   {
+    "rf": 33,
+    "heading": "A downgrade in the ratings of our debt could restrict our ability to access the debt capital markets.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.credit_ratings",
+    "quote": "If ratings for our debt fall below investment grade, our access to the debt capital markets could become restricted and our cost of borrowing or the interest rate for any subsequently issued debt would likely increase.",
+    "driver": "investment grade rating",
+    "secondary": false
+   },
+   {
+    "rf": 34,
+    "heading": "We rely on sales to major customers and our supply agreements with them are generally requirements contracts, and a decline in the production requirements of any of our customers, and in particular our major customers could adversely impact our revenues and profitability.",
+    "category": "CUSTOMER_CONCENTRATION",
+    "leaf": "CUSTOMER_CONCENTRATION.key_customer_dependence",
+    "quote": "Our worldwide sales in 2025 to Volkswagen and Ford constituted approximately 13% and 12% of our 2025 consolidated net sales, respectively.",
+    "driver": "Volkswagen and Ford concentration",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3302,
+ "output_tokens": 1276,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 6.575,
+ "recorded_at": "2026-10-25T20:37:39+0000"
+}

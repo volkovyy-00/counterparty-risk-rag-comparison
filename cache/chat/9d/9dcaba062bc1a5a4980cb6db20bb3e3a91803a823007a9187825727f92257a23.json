@@ -1,0 +1,41 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 43,
+    "heading": "We are pursuing a plan to separate our Electrical Distributions Systems business into an independent, publicly traded company. The proposed Separation is contingent upon the satisfaction of a number of conditions, may not be completed on the currently contemplated timeline, or at all, and may not achieve the intended benefits.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.divestitures_spinoffs",
+    "quote": "We may not be able to achieve the full strategic and financial benefits that we anticipate to result from the Separation, or such benefits may be delayed or not occur at all.",
+    "driver": "Versigent EDS spin-off",
+    "secondary": false
+   },
+   {
+    "rf": 44,
+    "heading": "If our distribution of the shares of Versigent to our shareholders fails to qualify as tax-free for U.S. federal income tax purposes, certain of our subsidiaries and our U.S. shareholders could be subject to significant tax liabilities.",
+    "category": "TAX",
+    "leaf": "TAX.tax_audits_disputes",
+    "quote": "Notwithstanding the opinions of our tax advisors, the IRS could determine on audit that the Separation and/or certain related transactions are taxable if it determines that any of these facts, assumptions, representations, or undertakings are not correct",
+    "driver": "Section 355 spin-off tax treatment",
+    "secondary": false
+   },
+   {
+    "rf": 45,
+    "heading": "Any changes in consumer credit availability or cost of borrowing could adversely affect our business.",
+    "category": "MACRO_DEMAND",
+    "leaf": "MACRO_DEMAND.vehicle_production_volumes",
+    "quote": "Declines in the availability of consumer credit and increases in consumer borrowing costs have negatively impacted global automotive sales and resulted in lower production volumes in the past.",
+    "driver": "consumer credit and auto sales",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3404,
+ "output_tokens": 627,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 3.7,
+ "recorded_at": "2026-10-25T20:37:29+0000"
+}

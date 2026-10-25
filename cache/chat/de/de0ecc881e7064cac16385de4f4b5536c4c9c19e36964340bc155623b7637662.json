@@ -1,0 +1,68 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 7,
+    "heading": "Our near-term profitability is dependent upon the success of our current line of vehicles, particularly our full-size ICE SUVs and full-size ICE pickup trucks.",
+    "category": "MACRO_DEMAND",
+    "leaf": "MACRO_DEMAND.vehicle_production_volumes",
+    "quote": "we currently recognize the highest profit margins on our full-size ICE SUVs and full-size ICE pickup trucks. As a result, our success is dependent upon our ability to sell higher margin vehicles in sufficient volumes.",
+    "driver": "Full-size ICE SUV/truck margins",
+    "secondary": false
+   },
+   {
+    "rf": 8,
+    "heading": "We operate in a highly competitive industry that has historically had excess manufacturing capacity, and attempts by our competitors to sell more vehicles could have a significant negative effect on our vehicle pricing, market share, and results of operations.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.price_competition",
+    "quote": "overall manufacturing capacity in the automotive industry has historically far exceeded demand.",
+    "driver": "Industry excess capacity",
+    "secondary": false
+   },
+   {
+    "rf": 9,
+    "heading": "Many manufacturers, including GM, have relatively high fixed labor costs as well as limitations on their ability to efficiently close facilities and reduce fixed costs, including as a result of collective bargaining agreements.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.price_competition",
+    "quote": "many industry participants have attempted to sell more vehicles by providing subsidized financing or leasing programs, offering marketing incentives, or reducing vehicle prices.",
+    "driver": "Incentives amid high fixed costs",
+    "secondary": false
+   },
+   {
+    "rf": 10,
+    "heading": "Manufacturers in countries that have lower production costs, such as China and India, have become competitors in key emerging markets and have begun offering their products in established markets, as well as low-cost alternatives to established entry-level automobiles.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.new_entrants",
+    "quote": "Manufacturers in countries that have lower production costs, such as China and India, have become competitors in key emerging markets and have begun offering their products in established markets",
+    "driver": "Low-cost Chinese/Indian manufacturers",
+    "secondary": false
+   },
+   {
+    "rf": 11,
+    "heading": "We refocused our AV strategy on personal vehicles and the execution of this strategy is dependent upon our ability to successfully mitigate unique technological, operational, regulatory, and competitive risks.",
+    "category": "AI_EMERGING_TECH",
+    "leaf": "AI_EMERGING_TECH.autonomous_driving",
+    "quote": "we expect that our AV and ADAS development activities will continue to require significant capital investments and remain subject to a variety of risks inherent with the development of new technologies",
+    "driver": "Personal AV/ADAS development",
+    "secondary": false
+   },
+   {
+    "rf": 12,
+    "heading": "We are subject to risks associated with climate change, including evolving regulation of GHG emissions and changing consumer preferences and demand, and the potential increased impacts of severe weather events on our operations and infrastructure.",
+    "category": "EMISSIONS_EV_TRANSITION",
+    "leaf": "EMISSIONS_EV_TRANSITION.emissions_regulation",
+    "quote": "such regulations could require us to further limit emissions associated with customer use of products we sell, change our manufacturing processes or product portfolio",
+    "driver": "GHG and fuel economy rules",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3480,
+ "output_tokens": 1214,
+ "cache_write_tokens": 6701,
+ "cache_read_tokens": 0,
+ "latency_s": 7.981,
+ "recorded_at": "2026-10-25T20:36:46+0000"
+}

@@ -1,0 +1,59 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 33,
+    "heading": "Loss of our key management and other personnel, or an inability to attract such management and other personnel, could affect our business.",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.key_personnel",
+    "quote": "We depend on our key management to run our business and on our senior engineers to develop new products and technologies. Our success will depend on the continued service of these individuals.",
+    "driver": "CEO transition, senior engineers",
+    "secondary": false
+   },
+   {
+    "rf": 34,
+    "heading": "United States civil liabilities may not be enforceable against us.",
+    "category": "OTHER",
+    "leaf": "OTHER.stock_governance",
+    "quote": "We are incorporated under the laws of the Netherlands and substantial portions of our assets are located outside of the United States.",
+    "driver": "Dutch incorporation enforcement",
+    "secondary": false
+   },
+   {
+    "rf": 35,
+    "heading": "We are a Dutch public company with limited liability. The rights of our stockholders may be different from the rights of stockholders governed by the laws of U.S. jurisdictions.",
+    "category": "OTHER",
+    "leaf": "OTHER.stock_governance",
+    "quote": "The rights of stockholders and the responsibilities of members of our board of directors may be different from the rights and obligations of stockholders in companies governed by the laws of U.S. jurisdictions.",
+    "driver": "Dutch company law",
+    "secondary": false
+   },
+   {
+    "rf": 36,
+    "heading": "Our debt obligations expose us to risks that could adversely affect our financial condition, which could adversely affect our results of operations.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.liquidity_funding",
+    "quote": "As of December 31, 2025, we had outstanding indebtedness with an aggregate principal amount of $12,290 million. Our substantial indebtedness could have a material adverse effect on our business",
+    "driver": "$12.3B indebtedness",
+    "secondary": false
+   },
+   {
+    "rf": 38,
+    "heading": "If we do not comply with the covenants in our debt agreements or fail to generate sufficient cash to service and repay our debt, it could adversely affect our operating results and our financial condition.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.liquidity_funding",
+    "quote": "If there were an event of default under any of our debt instruments that was not cured or waived, the holders of the defaulted debt could terminate commitments to lend",
+    "driver": "Debt covenants, cross-default",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3510,
+ "output_tokens": 825,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 4.466,
+ "recorded_at": "2026-10-25T20:37:55+0000"
+}

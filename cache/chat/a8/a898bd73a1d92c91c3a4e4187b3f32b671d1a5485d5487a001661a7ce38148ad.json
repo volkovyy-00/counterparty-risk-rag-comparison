@@ -1,0 +1,41 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 28,
+    "heading": "We may not be able to adequately protect or defend ourselves against intellectual property infringement claims, which may be time-consuming and expensive, or affect the freedom to operate our business.",
+    "category": "IP_TECH_RIGHTS",
+    "leaf": "IP_TECH_RIGHTS.ip_infringement_claims",
+    "quote": "the holders of such intellectual property rights may assert their rights and urge us to take licenses and/or may bring suits alleging infringement or misappropriation of such rights",
+    "driver": "third-party patent infringement suits",
+    "secondary": false
+   },
+   {
+    "rf": 29,
+    "heading": "Our operations could be adversely affected by events outside of our control, such as natural disasters, wars or health epidemics.",
+    "category": "CLIMATE_NATCAT",
+    "leaf": "CLIMATE_NATCAT.natural_disasters_weather",
+    "quote": "our Fremont Factory and Gigafactory Nevada are located in seismically active regions in Northern California and Nevada, and our Gigafactory Shanghai is located in a flood-prone area",
+    "driver": "factory earthquake and flood exposure",
+    "secondary": false
+   },
+   {
+    "rf": 30,
+    "heading": "Demand for our products and services may be impacted by the status of government and economic incentives supporting the development and adoption of such products.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.government_incentives",
+    "quote": "Government and economic incentives that support the development and adoption of electric vehicles in the U.S. and abroad, including certain tax exemptions, tax credits and rebates, may be reduced, eliminated, amended or exhausted from time to time.",
+    "driver": "EV tax credits, OBBBA",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2366,
+ "output_tokens": 580,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 3.433,
+ "recorded_at": "2026-10-25T20:37:15+0000"
+}

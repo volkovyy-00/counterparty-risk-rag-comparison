@@ -1,0 +1,23 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 47,
+    "heading": "We may lose or fail to attract and retain key salaried employees and management personnel.",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.key_personnel",
+    "quote": "The loss of the services of any member of senior management or a key salaried employee could have an adverse effect on our business.",
+    "driver": "Senior management retention",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 269,
+ "output_tokens": 140,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 1.346,
+ "recorded_at": "2026-10-25T20:37:27+0000"
+}

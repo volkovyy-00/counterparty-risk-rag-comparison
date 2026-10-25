@@ -1,0 +1,68 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 16,
+    "heading": "Sophisticated software integration may have issues that can unexpectedly interfere with the intended operation of hardware or other software products and services.",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.it_system_failure",
+    "quote": "the reliance of our services on cloud-based systems and other digital infrastructure owned by third parties creates particular risk. Any outage, misconfiguration, or loss of data within the systems or infrastructure of these third parties",
+    "driver": "Third-party cloud outages",
+    "secondary": false
+   },
+   {
+    "rf": 17,
+    "heading": "We continue to increase the number of BlueCruise (our hands-free highway driving system) enabled vehicles on the road and its growth and expansion remains an important part of our strategy.",
+    "category": "AI_EMERGING_TECH",
+    "leaf": "AI_EMERGING_TECH.autonomous_driving",
+    "quote": "autonomous vehicle and driver assist technologies, including BlueCruise, continue to be scrutinized by government regulators and consumers, and actual or perceived failures or misuse of these technologies and features have led to government investigations",
+    "driver": "BlueCruise scrutiny",
+    "secondary": false
+   },
+   {
+    "rf": 18,
+    "heading": "While we continue to invest in direct-to-consumer sales methods for our connectivity, digital and physical services, and integrated software services offerings, we are dependent on the efforts of third-party dealers for the majority of our sales in this space.",
+    "category": "CUSTOMER_CONCENTRATION",
+    "leaf": "CUSTOMER_CONCENTRATION.dealer_network",
+    "quote": "we are dependent on the efforts of third-party dealers for the majority of our sales in this space.",
+    "driver": "Third-party dealers for services",
+    "secondary": false
+   },
+   {
+    "rf": 19,
+    "heading": "The actions of end users are generally beyond our control and some users may engage in fraudulent or abusive activities that involve our digital services.",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "malicious entities have and will continue to attempt to gain unauthorized access to them.",
+    "driver": "Digital services fraud and abuse",
+    "secondary": false
+   },
+   {
+    "rf": 20,
+    "heading": "Ford\u2019s ability to maintain a competitive cost structure could be affected by labor or other constraints.",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.labor_relations_unions",
+    "quote": "The vast majority of the hourly employees in our manufacturing operations in the United States and Canada are represented by unions and covered by collective bargaining agreements.",
+    "driver": "UAW and Unifor contracts",
+    "secondary": false
+   },
+   {
+    "rf": 21,
+    "heading": "Ford\u2019s ability to attract, develop, grow, support, and reward talent is critical to its success and competitiveness.",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.skilled_talent",
+    "quote": "Competition for such talent is intense, which has led to an increase in compensation throughout a tight labor market, and, accordingly, may increase costs for companies.",
+    "driver": "Software and engineering talent",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2237,
+ "output_tokens": 1043,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 5.382,
+ "recorded_at": "2026-10-25T20:37:00+0000"
+}

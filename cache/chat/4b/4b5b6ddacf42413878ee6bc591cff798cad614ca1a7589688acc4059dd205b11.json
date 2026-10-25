@@ -1,0 +1,68 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 30,
+    "heading": "Demand for AI-related products is subject to concentration and investment-cycle risk, and any slowdown or shift in AI spending could reduce demand for our products, pressure margins, and adversely affect our operating results.",
+    "category": "AI_EMERGING_TECH",
+    "leaf": "AI_EMERGING_TECH.ai_development_use",
+    "quote": "Demand for AI-related products is subject to concentration and investment-cycle risk, and any slowdown or shift in AI spending could reduce demand for our products, pressure margins",
+    "driver": "AI spending cycle",
+    "secondary": false
+   },
+   {
+    "rf": 31,
+    "heading": "We also face AI\u2011related risks in acquisitions and strategic relationships, including regulatory violations or cybersecurity risks arising from an acquired company\u2019s or partner\u2019s use of AI. In addition, competition for talent with AI expertise has intensified, and our ability to attract, retain and train personnel with appropriate AI skills and literacy is critical to our innovation and product roadmap.",
+    "category": "AI_EMERGING_TECH",
+    "leaf": "AI_EMERGING_TECH.ai_development_use",
+    "quote": "We also face AI\u2011related risks in acquisitions and strategic relationships, including regulatory violations or cybersecurity risks arising from an acquired company\u2019s or partner\u2019s use of AI.",
+    "driver": "AI in acquisitions",
+    "secondary": false
+   },
+   {
+    "rf": 31,
+    "heading": "We also face AI\u2011related risks in acquisitions and strategic relationships, including regulatory violations or cybersecurity risks arising from an acquired company\u2019s or partner\u2019s use of AI. In addition, competition for talent with AI expertise has intensified, and our ability to attract, retain and train personnel with appropriate AI skills and literacy is critical to our innovation and product roadmap.",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.skilled_talent",
+    "quote": "competition for talent with AI expertise has intensified, and our ability to attract, retain and train personnel with appropriate AI skills and literacy is critical to our innovation and product roadmap.",
+    "driver": "AI talent competition",
+    "secondary": true
+   },
+   {
+    "rf": 32,
+    "heading": "We face risks related to security vulnerabilities in our products.",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.product_cybersecurity",
+    "quote": "Our products, or IP that we purchase or license from third parties for use in our products, as well as industry-standard specifications that we implement in our products, may be subject to security vulnerabilities.",
+    "driver": "product security vulnerabilities",
+    "secondary": false
+   },
+   {
+    "rf": 33,
+    "heading": "We face risks to our business and proprietary confidential information due to use of AI.",
+    "category": "AI_EMERGING_TECH",
+    "leaf": "AI_EMERGING_TECH.ai_development_use",
+    "quote": "our employees and consultants may use these tools on an unauthorized basis and our partners may use these tools, which poses additional risks relating to the protection of data",
+    "driver": "employee AI tool use",
+    "secondary": false
+   },
+   {
+    "rf": 34,
+    "heading": "Issues relating to the use of our technologies, including AI, may result in reputational or financial harm and liability.",
+    "category": "AI_EMERGING_TECH",
+    "leaf": "AI_EMERGING_TECH.ai_development_use",
+    "quote": "Differing opinions and regulations regarding what constitutes the responsible use of technologies, including evolving technologies such as AI, in our internal operations, products and services may result in reputational or financial harm and liability",
+    "driver": "responsible AI use",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3337,
+ "output_tokens": 1190,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 6.377,
+ "recorded_at": "2026-10-25T20:38:07+0000"
+}

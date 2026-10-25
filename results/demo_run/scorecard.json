@@ -2026,15 +2026,15 @@
   },
   "rerun_jaccard_leaf": {
    "0_long_context": null,
-   "1_plain_rag": null,
+   "1_plain_rag": 1.0,
    "2_graphrag": null,
-   "3_taxonomy_first": null
+   "3_taxonomy_first": 0.962
   },
   "reruns": {
    "0_long_context": 1,
-   "1_plain_rag": 1,
+   "1_plain_rag": 3,
    "2_graphrag": 1,
-   "3_taxonomy_first": 1
+   "3_taxonomy_first": 2
   },
   "companies_covered": {
    "0_long_context": 10,

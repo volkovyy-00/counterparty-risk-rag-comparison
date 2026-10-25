@@ -1,0 +1,77 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 24,
+    "heading": "To the extent that we continue to maintain or expand our significant indebtedness, our financial condition and results of operations may be materially adversely affected.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.liquidity_funding",
+    "quote": "To the extent that we continue to maintain or expand our significant indebtedness, our financial condition and results of operations may be materially adversely affected.",
+    "driver": "Significant indebtedness",
+    "secondary": false
+   },
+   {
+    "rf": 25,
+    "heading": "The inability to meet our obligations under our Credit Agreement could materially and adversely affect us by, among other things, limiting our ability to conduct our operations and reducing our flexibility to respond to changing business and economic conditions.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.liquidity_funding",
+    "quote": "if we are unable to satisfy our obligations under the Credit Agreement, the lenders could take possession of and foreclose on the pledged collateral securing the indebtedness",
+    "driver": "Credit Agreement collateral",
+    "secondary": false
+   },
+   {
+    "rf": 26,
+    "heading": "The agreements relating to our indebtedness, including the Credit Agreement and the 3.875% Notes, may restrict our ability to operate our business, and as a result may materially adversely affect our results of operations.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.liquidity_funding",
+    "quote": "Our debt agreements, including the Credit Agreement and the 3.875% Notes, contain, and any future debt agreements may include, a number of restrictive covenants that impose significant operating and financial restrictions on us and our subsidiaries.",
+    "driver": "Debt restrictive covenants",
+    "secondary": false
+   },
+   {
+    "rf": 27,
+    "heading": "We may not be able to generate sufficient cash flow to meet our debt service obligations, and any inability to repay our debt when required would have a material adverse effect on our business, financial condition and results of operations.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.liquidity_funding",
+    "quote": "If we do not generate sufficient cash to satisfy our debt obligations as they come due, we may have to undertake alternative financing plans, such as refinancing or restructuring our debt, selling assets",
+    "driver": "Debt service cash flow",
+    "secondary": false
+   },
+   {
+    "rf": 28,
+    "heading": "An event of default under any agreement relating to our outstanding indebtedness could cross default other indebtedness, which could have a material adverse effect on our business, financial condition and results of operations.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.liquidity_funding",
+    "quote": "Any such cross default would put immediate pressure on our liquidity and financial condition and would amplify the risks described above with regards to being unable to repay our indebtedness when due and payable.",
+    "driver": "Cross-default acceleration",
+    "secondary": false
+   },
+   {
+    "rf": 29,
+    "heading": "If our operating subsidiaries, which may have no independent obligation to repay our debt, are not able to make cash available to us for such repayment, our business, financial condition and results of operations may be adversely affected.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.liquidity_funding",
+    "quote": "Repayment of our indebtedness is dependent on the generation of cash flow by our subsidiaries and their ability to make such cash available to us, by dividend, debt repayment or otherwise.",
+    "driver": "Subsidiary cash distributions",
+    "secondary": false
+   },
+   {
+    "rf": 30,
+    "heading": "If interest rates increase, our debt service obligations under our variable rate indebtedness could increase significantly, which would have a material adverse effect on our results of operations.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.interest_rates",
+    "quote": "if interest rates increase or remain at elevated levels, our debt service obligations on the variable rate indebtedness would increase even though the amount borrowed remained the same",
+    "driver": "Variable rate debt",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3401,
+ "output_tokens": 1389,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 6.755,
+ "recorded_at": "2026-10-25T20:38:21+0000"
+}

@@ -1,0 +1,32 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 27,
+    "heading": "We face risks associated with doing business in various national and local jurisdictions.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.international_operations",
+    "quote": "International operations are subject to certain risks inherent in doing business globally, including:",
+    "driver": "multi-country operations, Mexico labor",
+    "secondary": false
+   },
+   {
+    "rf": 28,
+    "heading": "The outbreak of armed conflicts in the Middle East beginning in October 2023 has also created numerous uncertainties, including the risk that the conflicts spread throughout the broader region, and their impact on the global economy and supply chains.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.conflict_sanctions",
+    "quote": "any further sanctions imposed or actions taken by these countries, and any retaliatory measures by Russia in response, including restrictions on energy supplies from Russia to countries in the region and asset expropriations",
+    "driver": "Ukraine-Russia, Middle East conflicts",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2869,
+ "output_tokens": 378,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 2.829,
+ "recorded_at": "2026-10-25T20:37:23+0000"
+}

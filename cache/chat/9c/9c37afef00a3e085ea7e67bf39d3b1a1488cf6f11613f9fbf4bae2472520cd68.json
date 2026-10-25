@@ -1,0 +1,68 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 22,
+    "heading": "Changes in factors that impact the determination of our non-U.S. pension liabilities may adversely affect us.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.pension_finance_obligations",
+    "quote": "Our primary funded non-U.S. plans are located in Mexico and the United Kingdom and were underfunded by $128 million as of December 31, 2025.",
+    "driver": "Non-U.S. pension underfunding",
+    "secondary": false
+   },
+   {
+    "rf": 23,
+    "heading": "We may suffer future asset impairment and other restructuring charges, including write downs of long-lived assets, goodwill, or intangible assets.",
+    "category": "OTHER",
+    "leaf": "OTHER.reporting_controls",
+    "quote": "the Company recorded a non-cash, pre-tax goodwill impairment charge of approximately $648 million related to the Wind River reporting unit.",
+    "driver": "Wind River goodwill impairment",
+    "secondary": false
+   },
+   {
+    "rf": 23,
+    "heading": "We may suffer future asset impairment and other restructuring charges, including write downs of long-lived assets, goodwill, or intangible assets.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.restructuring",
+    "quote": "We have taken, are taking, and may take future restructuring actions to realign and resize our production capacity and cost structure to meet current and projected operational and market requirements.",
+    "driver": "Restructuring charges",
+    "secondary": true
+   },
+   {
+    "rf": 24,
+    "heading": "Employee strikes and labor-related disruptions involving us or one or more of our customers or suppliers may adversely affect our operations.",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.labor_relations_unions",
+    "quote": "Our business is labor-intensive and we have a number of unions, works councils and other represented employees. A strike or other form of significant work disruption by our employees would likely have an adverse effect",
+    "driver": "UAW strikes, collective bargaining",
+    "secondary": false
+   },
+   {
+    "rf": 25,
+    "heading": "Public health crises and other global health pandemics, epidemics and disease outbreaks and the measures taken in response thereto could adversely impact our business, financial condition, results of operations and cash flows.",
+    "category": "CLIMATE_NATCAT",
+    "leaf": "CLIMATE_NATCAT.pandemic_health",
+    "quote": "A significant public health crisis, such as the COVID-19 pandemic, could adversely impact our business as well as those of our suppliers and customers.",
+    "driver": "Public health crises",
+    "secondary": false
+   },
+   {
+    "rf": 26,
+    "heading": "We are exposed to foreign currency fluctuations as a result of our substantial global operations, which may affect our financial results.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.fx_exposure",
+    "quote": "significant changes in currency exchange rates, particularly the Euro, Chinese Yuan (Renminbi) and Mexican Peso, could cause fluctuations in the reported results of our businesses\u2019 operations",
+    "driver": "Euro, Yuan, Peso exposure",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2955,
+ "output_tokens": 1048,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 5.49,
+ "recorded_at": "2026-10-25T20:37:25+0000"
+}

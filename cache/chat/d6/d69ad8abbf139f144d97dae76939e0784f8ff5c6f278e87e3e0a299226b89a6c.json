@@ -1,0 +1,59 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 6,
+    "heading": "Our operating results depend, in part, on the performance of independent distributors.",
+    "category": "CUSTOMER_CONCENTRATION",
+    "leaf": "CUSTOMER_CONCENTRATION.distributor_channel",
+    "quote": "We rely on distributors to grow and develop their customer base and anticipate customer needs, and any lack of or underperformance in such actions by our distributors may adversely affect our results of operations.",
+    "driver": "Independent distributor reliance",
+    "secondary": false
+   },
+   {
+    "rf": 7,
+    "heading": "Changes in, and the regulatory implementation of, tariffs or other government trade policies or geopolitical conditions could reduce demand for our products, limit our ability to sell our products to certain customers or our ability to comply with applicable laws and regulations, which may materially adversely affect our business and results of operations.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.tariffs",
+    "quote": "The imposition of or increase in tariffs, export controls and other trade restrictions as a result of international trade disputes or changes in trade policies or political conditions may adversely affect our sales and profitability.",
+    "driver": "US-China tariffs and export controls",
+    "secondary": false
+   },
+   {
+    "rf": 8,
+    "heading": "Our power technologies designed for AI use may not capture market share as expected, and issues related to the responsible use of AI may adversely affect our business.",
+    "category": "AI_EMERGING_TECH",
+    "leaf": "AI_EMERGING_TECH.ai_development_use",
+    "quote": "We may not be able to develop and offer the technology solutions that our AI-focused customers demand in a timely manner or effectively, which could have a materially adverse effect on our business.",
+    "driver": "AI data center power products",
+    "secondary": false
+   },
+   {
+    "rf": 9,
+    "heading": "We are exposed to risks related to the use of AI tools by us and others.",
+    "category": "AI_EMERGING_TECH",
+    "leaf": "AI_EMERGING_TECH.ai_development_use",
+    "quote": "We are increasingly incorporating AI tools and capabilities into our business operations where we believe appropriate, which may subject us to significant competitive, legal, regulatory and other risks.",
+    "driver": "Internal AI tool use",
+    "secondary": false
+   },
+   {
+    "rf": 10,
+    "heading": "We may be unable to attract and retain highly skilled personnel.",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.skilled_talent",
+    "quote": "In the semiconductor industry, the competition for qualified personnel, particularly experienced design engineers and other technical employees, is intense.",
+    "driver": "Design engineer competition",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3202,
+ "output_tokens": 887,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 5.059,
+ "recorded_at": "2026-10-25T20:38:15+0000"
+}

@@ -1,0 +1,68 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 1,
+    "heading": "Disruptions in the supply of raw materials and other supplies that we and our customers use in our products may adversely affect our profitability.",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.single_source",
+    "quote": "The lack of any single subcomponent necessary to manufacture one of our products could force us to cease production, potentially for a prolonged period.",
+    "driver": "raw material and component supply",
+    "secondary": false
+   },
+   {
+    "rf": 2,
+    "heading": "We and our customers use a broad range of materials and supplies, including copper and other metals, petroleum-based resins, chemicals, electronic components and semiconductors. A significant disruption in the supply of these materials for any reason could decrease our production and shipping levels, which could materially increase our operating costs and materially decrease our profit margins.",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.logistics",
+    "quote": "this \u201cjust-in-time\u201d method makes the logistics supply chain in our industry very complex and very vulnerable to disruptions.",
+    "driver": "just-in-time supply chain",
+    "secondary": false
+   },
+   {
+    "rf": 3,
+    "heading": "When we fail to make timely deliveries in accordance with our contractual obligations, we generally have to absorb our own costs for identifying and solving the \u201croot cause\u201d problem as well as expeditiously producing replacement components or products. Generally, we must also carry the costs associated with \u201ccatching up,\u201d such as overtime and premium freight.",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.manufacturing_disruption",
+    "quote": "Global supply chain disruptions have in the past and could in the future lead to interruptions in our production, which could impact our ability to fully meet the vehicle production demands of OEMs",
+    "driver": "late delivery costs and customer claims",
+    "secondary": false
+   },
+   {
+    "rf": 4,
+    "heading": "The cyclical nature of automotive sales and production can adversely affect our business.",
+    "category": "MACRO_DEMAND",
+    "leaf": "MACRO_DEMAND.vehicle_production_volumes",
+    "quote": "Lower global automotive sales would be expected to result in substantially all of our automotive OEM customers lowering vehicle production schedules, which has a direct impact on our earnings and cash flows.",
+    "driver": "automotive production cyclicality",
+    "secondary": false
+   },
+   {
+    "rf": 5,
+    "heading": "A prolonged recession and/or a downturn in global automotive sales could adversely affect our business and cause us to require additional sources of financing to continue our operations, which may not be available to us or be available only on materially different terms than what has historically been available.",
+    "category": "MACRO_DEMAND",
+    "leaf": "MACRO_DEMAND.cyclical_demand",
+    "quote": "A prolonged downturn in or uncertainty relating to global or regional economic conditions, including as a result of trade barriers, high inflation, component shortages, labor shortages or any significant reduction in automotive sales by our customers",
+    "driver": "recession and auto sales downturn",
+    "secondary": false
+   },
+   {
+    "rf": 5,
+    "heading": "A prolonged recession and/or a downturn in global automotive sales could adversely affect our business and cause us to require additional sources of financing to continue our operations, which may not be available to us or be available only on materially different terms than what has historically been available.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.liquidity_funding",
+    "quote": "Any significant negative cash flow or instability in the global credit markets and global economic pressure could limit our ability to obtain external financing on favorable terms.",
+    "driver": "external financing availability",
+    "secondary": true
+   }
+  ]
+ },
+ "input_tokens": 3114,
+ "output_tokens": 1211,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 6.71,
+ "recorded_at": "2026-10-25T20:37:21+0000"
+}

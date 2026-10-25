@@ -1,0 +1,41 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 1,
+    "heading": "We may experience issues or delays in developing, launching and ramping the production of our products, services and features, or we may be unable to control our manufacturing costs.",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.manufacturing_disruption",
+    "quote": "Bottlenecks and other unexpected challenges such as those we experienced in the past may arise during our production ramps, and we must address them promptly while continuing to improve manufacturing processes and reducing costs.",
+    "driver": "Production ramp delays",
+    "secondary": false
+   },
+   {
+    "rf": 2,
+    "heading": "Our suppliers may fail to deliver components according to schedules, prices, quality and volumes that are acceptable to us, or we may be unable to manage these components effectively.",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.single_source",
+    "quote": "Our products contain thousands of parts purchased globally from hundreds of suppliers, including single-source direct suppliers, which exposes us to multiple potential sources of component shortages.",
+    "driver": "Single-source component suppliers",
+    "secondary": false
+   },
+   {
+    "rf": 3,
+    "heading": "We may be unable to meet our projected construction timelines, costs and production ramps at new factories, or we may experience difficulties in generating and maintaining demand for products manufactured there and related services.",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.manufacturing_disruption",
+    "quote": "If we experience any issues or delays in meeting our projected timelines, costs, capital efficiency and production capacity for our new factories, expanding and managing teams to implement iterative design and production changes there",
+    "driver": "New factory ramp delays",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2883,
+ "output_tokens": 591,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 3.215,
+ "recorded_at": "2026-10-25T20:37:08+0000"
+}

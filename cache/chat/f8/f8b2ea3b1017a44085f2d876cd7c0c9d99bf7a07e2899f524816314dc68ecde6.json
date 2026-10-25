@@ -1,0 +1,86 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 35,
+    "heading": "We are involved from time to time in legal proceedings and commercial or contractual disputes, which could have an adverse impact on our profitability and consolidated financial position.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.litigation_investigations",
+    "quote": "We are involved in legal proceedings and commercial or contractual disputes that, from time to time, are significant.",
+    "driver": "legal proceedings and disputes",
+    "secondary": false
+   },
+   {
+    "rf": 36,
+    "heading": "While we believe our reserves are adequate, the final amounts required to resolve these matters could differ materially from our recorded estimates and our results of operations could be materially affected.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.litigation_investigations",
+    "quote": "No assurance can be given that such proceedings and claims will not have a material adverse effect on our profitability and consolidated financial position.",
+    "driver": "legal reserve adequacy",
+    "secondary": false
+   },
+   {
+    "rf": 37,
+    "heading": "Developments or assertions by us or against us relating to intellectual property rights could materially impact our business.",
+    "category": "IP_TECH_RIGHTS",
+    "leaf": "IP_TECH_RIGHTS.ip_protection",
+    "quote": "Our intellectual property plays an important role in maintaining our competitive position in a number of the markets we serve.",
+    "driver": "patents and trade names",
+    "secondary": false
+   },
+   {
+    "rf": 38,
+    "heading": "Taxing authorities could challenge our historical and future tax positions.",
+    "category": "TAX",
+    "leaf": "TAX.tax_audits_disputes",
+    "quote": "there can be no assurance that a taxing authority will not have a different interpretation of the law and assess us with additional taxes.",
+    "driver": "tax position challenges",
+    "secondary": false
+   },
+   {
+    "rf": 39,
+    "heading": "Changes in tax laws, tax rates and adverse positions taken by taxing authorities could impact operating results.",
+    "category": "TAX",
+    "leaf": "TAX.tax_law_changes",
+    "quote": "Our tax position could be adversely impacted by changes in the tax laws, tax treaties or tax regulations or the interpretation or enforcement thereof by any tax authority.",
+    "driver": "Swiss tax treaties",
+    "secondary": false
+   },
+   {
+    "rf": 40,
+    "heading": "Our tax burden could increase as a result of ongoing or future tax audits.",
+    "category": "TAX",
+    "leaf": "TAX.tax_audits_disputes",
+    "quote": "Tax authorities may not agree with our interpretation of applicable tax laws and regulations. As a result, such tax authorities may assess additional tax, interest and penalties.",
+    "driver": "tax audits",
+    "secondary": false
+   },
+   {
+    "rf": 41,
+    "heading": "Our ability to use deferred tax assets may be subject to limitation.",
+    "category": "TAX",
+    "leaf": "TAX.tax_law_changes",
+    "quote": "subsequent changes to applicable tax laws in these jurisdictions could impact our ability to fully benefit from such deferred tax assets.",
+    "driver": "deferred tax assets",
+    "secondary": false
+   },
+   {
+    "rf": 42,
+    "heading": "We may be subject to various Swiss taxes as a result of the reorganization transaction.",
+    "category": "TAX",
+    "leaf": "TAX.tax_law_changes",
+    "quote": "Aptiv is subject to a 35% Swiss withholding tax on gross dividend payment amounts and share repurchases unless such dividend payment or share repurchase is made out of qualifying capital contribution reserves",
+    "driver": "Swiss withholding tax",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3710,
+ "output_tokens": 1177,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 5.833,
+ "recorded_at": "2026-10-25T20:37:31+0000"
+}

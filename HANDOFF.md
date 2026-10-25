@@ -112,11 +112,12 @@ See `docs/GRAPHRAG_V2.md`.
     cap, (b) is dropped first, then (c). Approach 2 is not rerun (a rebuild costs about $9.6); screen 6 says so.
 
 ## demo-real: status (25 Oct 2026, third session)
-- Brief: the real-data demo, staged spend with gates. **Gate 1 (core) is done; the user said they will go extras
-  next.** Nothing is pushed: don't push until the user says "push".
+- Brief: the real-data demo, staged spend with gates. **Gate 1 (core) and Gate 2 (extras) are done; next is the
+  Final stage** (offline `make demo`, fallbacks, REHEARSAL beats, timings). Nothing is pushed: don't push until
+  the user says "push".
 - Key: verified by the user (YV, 650 cells), cherry-picked from `ground-truth-key` (`f0a0027`); run A re-scored in
-  replay ($0). Leaf F1: RAG 0.03, GraphRAG 0.06, taxonomy 0.74, long context 0.15. The page stays `--draft` only
-  because screen 7 cites `3_taxonomy_first.rerun_jaccard`, which extras step (b) produces.
+  replay ($0). Leaf F1: RAG 0.03, GraphRAG 0.06, taxonomy 0.74, long context 0.15. The page now builds without
+  `--draft` (the extras gave screen 7 its rerun Jaccard); screenshots are from the non-draft page.
 - Stage 0: `real_run.py --stage core|extras`, spend ledger (`LLM_SPEND_LEDGER`, so `LLM_MAX_USD` holds across
   steps), bridge ranking in code (`graph_qa.rank_bridge`), `driver_dups.py` (alias *proposals* only), page fixes.
 - Core run, measured (`results/demo_run/spend.json`, ledger `results/spend/real_run_core.jsonl`): **$8.76 of the
@@ -134,9 +135,13 @@ See `docs/GRAPHRAG_V2.md`.
   answer; GraphRAG 19/19, 9/10; taxonomy 410/431 (1 quote, 20 labels rejected), 10/10, 60 shared leaves.
 - `driver_dups.py` on the full graph proposes some wrong aliases (North/South America, Northern Africa/Northern
   California, Department of War/Commerce, Robotaxi/robotics). Review by hand; don't paste the YAML as is.
-- Extras estimate: $8.18 ((a) $0.31, (b) $5.22, (c) Sonnet $2.65). An approach-2 rebuild is estimated at $9.35.
-- The user's rule for extras: over $10, drop (b) first, then (c). Confirm the Sonnet model id against the API's
-  models list before Gate 2.
+- Extras (Gate 2): estimate $8.44 re-measured (nothing dropped); **measured $4.57 of the $10 cap** (ledger
+  `results/spend/real_run_extras.jsonl`): (a) RAG reruns $0.20, (b) taxonomy rerun $2.92, (c) run B on Sonnet
+  $1.45. `claude-sonnet-5-5` confirmed in the API's models list first.
+  - Rerun Jaccard (leaf): RAG 1.00 over 3 runs (it is consistently narrow: same 1% recall each time), taxonomy
+    0.96 over 2 runs. GraphRAG not rerun (a rebuild ~$9.35); screen 6 says so.
+  - Run B (`results/demo_run/audit/run_b/`, served Sonnet only): 406/413 verified vs run A 410/431; 57 shared
+    leaves vs 60; OTHER 7.9% vs 7.8%; 10/10 companies both; leaf F1 0.75 vs 0.74.
 - Never install `fake_llm` outside the tests' `offline` fixture or `make_fixture`: it writes fake replies into the
   real `cache/chat/`.
 

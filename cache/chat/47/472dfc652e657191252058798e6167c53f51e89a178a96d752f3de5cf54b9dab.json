@@ -1,0 +1,50 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 26,
+    "heading": "We operate globally, with manufacturing, assembly and testing facilities in several continents, and we market our products globally.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.export_controls",
+    "quote": "import and export regulations, such as the U.S. Export Administration Regulations administered by the U.S. Department of Commerce and sanctions imposed by the European Union (EU) and other jurisdictions, are complex, change frequently",
+    "driver": "US export regulations, Huawei",
+    "secondary": false
+   },
+   {
+    "rf": 27,
+    "heading": "Legal proceedings covering a range of matters are pending in various jurisdictions. Due to the uncertainty inherent in litigation, it is difficult to predict the final outcome. An adverse outcome might affect our results of operations.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.litigation_investigations",
+    "quote": "A judgment against us in these or other legal proceedings or material defense cost could harm our business, financial condition and results of operations.",
+    "driver": "clean room personal injury claims",
+    "secondary": false
+   },
+   {
+    "rf": 28,
+    "heading": "Our manufacturing operations are subject to environmental laws and regulations and initiatives to address climate change.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.product_regulation",
+    "quote": "We are subject to many environmental, health and safety laws and regulations in each jurisdiction in which we operate, which govern, among other things, emissions of pollutants into the air, wastewater discharges",
+    "driver": "environmental liability, hazardous substances",
+    "secondary": false
+   },
+   {
+    "rf": 29,
+    "heading": "Interruptions in our information technology systems could adversely affect our business.",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.it_system_failure",
+    "quote": "Any significant interruption in our business applications, systems or networks, including but not limited to new system implementations, computer viruses, cyberattacks, security breaches, facility issues or energy blackouts",
+    "driver": "IT system interruptions",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2726,
+ "output_tokens": 714,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 4.029,
+ "recorded_at": "2026-10-25T20:37:51+0000"
+}

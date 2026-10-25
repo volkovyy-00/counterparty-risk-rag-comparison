@@ -1,0 +1,59 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 8,
+    "heading": "Growth of our business is also dependent upon our ability to develop and commercialize Bots, including Optimus, which is in a nascent industry that has yet to develop commercially.",
+    "category": "AI_EMERGING_TECH",
+    "leaf": "AI_EMERGING_TECH.ai_development_use",
+    "quote": "Our success will depend on various factors, including our ability to successfully apply our artificial neural network training experience to autonomous robots, to either source or custom develop the necessary technology and components",
+    "driver": "Optimus humanoid robot",
+    "secondary": false
+   },
+   {
+    "rf": 9,
+    "heading": "We may experience issues with lithium-ion cells or other components manufactured at our Gigafactories, which may harm the production and profitability of our vehicle and energy storage products.",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.manufacturing_disruption",
+    "quote": "While we have implemented safety procedures related to the handling of the cells, there can be no assurance that a safety issue or fire related to the cells would not disrupt our operations.",
+    "driver": "Gigafactory lithium-ion cell production",
+    "secondary": false
+   },
+   {
+    "rf": 10,
+    "heading": "We face risks associated with maintaining and expanding our international operations, including unfavorable and uncertain regulatory, political, economic, tax and labor conditions.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.international_operations",
+    "quote": "We are subject to legal and regulatory requirements, political uncertainty and social, environmental and economic conditions in numerous jurisdictions, including markets in which we generate significant sales.",
+    "driver": "multi-country operations, tariffs",
+    "secondary": false
+   },
+   {
+    "rf": 11,
+    "heading": "Our business may suffer if our products or features contain defects, fail to perform as expected or take longer than expected to become fully functional.",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.product_liability_defects",
+    "quote": "If our products contain design or manufacturing defects, whether relating to our software or hardware, that cause them not to perform as designed or intended or that require repair",
+    "driver": "software and hardware defects",
+    "secondary": false
+   },
+   {
+    "rf": 12,
+    "heading": "We may be required to defend or insure against product liability claims.",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.product_liability_defects",
+    "quote": "Any product liability claim may subject us to lawsuits and substantial monetary damages, product recalls or redesign efforts, and even a meritless claim may require us to defend it",
+    "driver": "self-insured product liability",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3278,
+ "output_tokens": 921,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 5.255,
+ "recorded_at": "2026-10-25T20:37:12+0000"
+}

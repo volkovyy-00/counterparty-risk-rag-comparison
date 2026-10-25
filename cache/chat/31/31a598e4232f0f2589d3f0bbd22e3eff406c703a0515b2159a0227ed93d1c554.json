@@ -1,0 +1,41 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 16,
+    "heading": "A disruption in our information technology systems, or those of our customers, suppliers, sub-suppliers or other contract parties, including a disruption related to cybersecurity, and other cybersecurity risks, such as a security incident resulting in unauthorized access to or theft of personal or other sensitive information, could adversely affect our financial performance.",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "ransomware or other attacks that are intended to disrupt our and our customers' business operations are becoming increasingly prevalent, particularly for manufacturing companies, and can lead to significant interruptions in operations",
+    "driver": "ransomware and IT breaches",
+    "secondary": false
+   },
+   {
+    "rf": 17,
+    "heading": "Pandemics, epidemics, disease outbreaks and other public health crises have disrupted our business and operations, and future public health crises could adversely affect our business, financial condition and operating results.",
+    "category": "CLIMATE_NATCAT",
+    "leaf": "CLIMATE_NATCAT.pandemic_health",
+    "quote": "Pandemics, epidemics or disease outbreaks in the United States or globally have disrupted, and may disrupt in the future, our business, which could materially affect our financial condition including liquidity",
+    "driver": "public health crises",
+    "secondary": false
+   },
+   {
+    "rf": 18,
+    "heading": "Perspectives on global climate change and other sustainability matters by various stakeholders could adversely affect our business.",
+    "category": "CLIMATE_NATCAT",
+    "leaf": "CLIMATE_NATCAT.climate_disclosure_esg",
+    "quote": "Customer, investor, employee and other stakeholder expectations of us and our supply base in matters involving sustainability continue to evolve.",
+    "driver": "stakeholder sustainability expectations",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3170,
+ "output_tokens": 612,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 3.264,
+ "recorded_at": "2026-10-25T20:37:43+0000"
+}

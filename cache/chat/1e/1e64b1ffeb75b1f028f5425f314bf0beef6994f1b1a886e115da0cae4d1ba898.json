@@ -1,0 +1,59 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 19,
+    "heading": "Environmental and health and safety liabilities and expenditures could materially adversely affect our results of operations and financial condition.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.product_regulation",
+    "quote": "The semiconductor industry continues to be subject to increasing environmental regulations, particularly those that control and restrict the use, transportation, emission, discharge, storage and disposal of certain chemicals, elements and materials",
+    "driver": "PFAS environmental regulation",
+    "secondary": false
+   },
+   {
+    "rf": 20,
+    "heading": "Our failure to comply with anti-corruption laws could result in penalties that could harm our reputation and have a material adverse effect on our business, financial condition and results of operations.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.anti_corruption_compliance",
+    "quote": "We are subject to the FCPA, which generally prohibits companies and their intermediaries from making improper payments to foreign officials for the purpose of obtaining or keeping business and/or other benefits",
+    "driver": "FCPA compliance",
+    "secondary": false
+   },
+   {
+    "rf": 21,
+    "heading": "Changes in tax legislation or exposure to additional tax liabilities could adversely affect our results of operations and financial condition.",
+    "category": "TAX",
+    "leaf": "TAX.tax_law_changes",
+    "quote": "Changes to, or interpretations of, tax legislation or regulations and our operating structure, strategy or investment decisions could significantly increase our effective tax rate, impact our tax obligations and reduce our cash flow from operating activities.",
+    "driver": "FDII, OBBBA, CAMT",
+    "secondary": false
+   },
+   {
+    "rf": 22,
+    "heading": "Social and environmental responsibility regulations, policies and provisions, as well as customer and investor demands, may make our supply chain more complex and may adversely affect our relationships with customers and investors.",
+    "category": "CLIMATE_NATCAT",
+    "leaf": "CLIMATE_NATCAT.climate_disclosure_esg",
+    "quote": "The expectations of our stakeholders with respect to corporate social and environmental matters are not uniform and can change rapidly.",
+    "driver": "ESG stakeholder expectations",
+    "secondary": false
+   },
+   {
+    "rf": 23,
+    "heading": "Our debt could materially adversely affect our financial condition and results of operations.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.liquidity_funding",
+    "quote": "As of December 31, 2025, we had $3,004.9 million of outstanding principal relating to our indebtedness.",
+    "driver": "$3.0B outstanding debt",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3465,
+ "output_tokens": 893,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 4.669,
+ "recorded_at": "2026-10-25T20:38:17+0000"
+}

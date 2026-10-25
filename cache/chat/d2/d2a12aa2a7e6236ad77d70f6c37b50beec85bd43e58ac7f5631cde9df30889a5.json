@@ -1,0 +1,86 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 20,
+    "heading": "Our profitability and results of operations may be adversely affected by new business launch difficulties.",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.manufacturing_disruption",
+    "quote": "The launch of new business is a complex process, the success of which depends on a wide range of factors, including the production readiness of our manufacturing facilities and manufacturing processes",
+    "driver": "New program launch execution",
+    "secondary": false
+   },
+   {
+    "rf": 21,
+    "heading": "Part of our workforce is unionized, which could subject us to work stoppages.",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.labor_relations_unions",
+    "quote": "We have a domestic collective bargaining agreement for one facility in New York, which expires in September 2028.",
+    "driver": "New York collective bargaining agreement",
+    "secondary": false
+   },
+   {
+    "rf": 22,
+    "heading": "Work stoppages, production shutdowns and similar events could significantly disrupt our business.",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.manufacturing_disruption",
+    "quote": "a work stoppage or production shutdown at one or more of our manufacturing and assembly facilities could have adverse effects on our business.",
+    "driver": "Just-in-time work stoppages",
+    "secondary": false
+   },
+   {
+    "rf": 23,
+    "heading": "Our benefit plan expenses and obligations may fluctuate depending on various factors, including changes in interest rates, changes in regulations and plan asset returns.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.pension_finance_obligations",
+    "quote": "We have unfunded obligations under certain of our defined benefit pension and other postemployment benefit plans.",
+    "driver": "Unfunded pension and OPEB plans",
+    "secondary": false
+   },
+   {
+    "rf": 24,
+    "heading": "We are subject to extensive environmental regulations that are subject to change and involve significant risks.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.product_regulation",
+    "quote": "potentially significant expenditures could be required to comply with evolving interpretations of existing environmental, health and safety laws and regulations or any new such laws and regulations",
+    "driver": "Plant environmental compliance costs",
+    "secondary": false
+   },
+   {
+    "rf": 25,
+    "heading": "Our operations may be affected by greenhouse emissions and climate change and related regulations.",
+    "category": "CLIMATE_NATCAT",
+    "leaf": "CLIMATE_NATCAT.climate_disclosure_esg",
+    "quote": "Greenhouse gas regulation could increase the price of the electricity we purchase, increase costs for use of natural gas, potentially restrict access to or the use of natural gas",
+    "driver": "Greenhouse gas regulation costs",
+    "secondary": false
+   },
+   {
+    "rf": 26,
+    "heading": "We have been and are exposed to liabilities related to environmental, product warranties, product recalls, litigation and other claims.",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.warranty_costs",
+    "quote": "We provide product warranties to our customers for some of our products. Under these product warranties, we may be required to bear costs and expenses for the repair or replacement of these products.",
+    "driver": "Product warranty and recall claims",
+    "secondary": false
+   },
+   {
+    "rf": 27,
+    "heading": "We are involved, from time to time, in legal proceedings and commercial or contractual disputes, which could have an adverse impact on our business.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.litigation_investigations",
+    "quote": "We are involved in legal proceedings and commercial or contractual disputes that, from time to time, are significant.",
+    "driver": "Legal and contractual disputes",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3197,
+ "output_tokens": 1281,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 6.258,
+ "recorded_at": "2026-10-25T20:37:37+0000"
+}

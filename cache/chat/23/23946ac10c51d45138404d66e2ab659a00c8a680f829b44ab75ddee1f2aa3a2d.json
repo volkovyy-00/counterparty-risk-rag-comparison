@@ -1,0 +1,77 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 39,
+    "heading": "The rating of our debt by major rating agencies may further improve or deteriorate, which could affect our additional borrowing capacity and financing costs.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.credit_ratings",
+    "quote": "Actual or anticipated changes or downgrades in our credit ratings, including any announcement that our ratings are under further review for a downgrade, could affect our market value and/or increase our corporate borrowing costs.",
+    "driver": "Debt rating downgrade",
+    "secondary": false
+   },
+   {
+    "rf": 40,
+    "heading": "The price of our common stock historically has been volatile. The price of our common stock may fluctuate significantly.",
+    "category": "OTHER",
+    "leaf": "OTHER.stock_governance",
+    "quote": "The market price of our common stock is likely to continue to be volatile and subject to significant price and volume fluctuations for many reasons",
+    "driver": "Common stock price volatility",
+    "secondary": false
+   },
+   {
+    "rf": 41,
+    "heading": "We may have fluctuations in the amount and frequency of our stock repurchases.",
+    "category": "OTHER",
+    "leaf": "OTHER.stock_governance",
+    "quote": "The amount, timing, and execution of our stock repurchases may fluctuate based on our priorities for the use of cash for other purposes",
+    "driver": "Stock repurchase fluctuations",
+    "secondary": false
+   },
+   {
+    "rf": 42,
+    "heading": "There can be no assurance that we will continue to declare cash dividends.",
+    "category": "OTHER",
+    "leaf": "OTHER.stock_governance",
+    "quote": "The declaration and payment of any dividend is subject to the approval of our board, and our dividend may be discontinued or reduced at any time.",
+    "driver": "Cash dividend discontinuation",
+    "secondary": false
+   },
+   {
+    "rf": 43,
+    "heading": "The impact of a negative performance of financial markets and demographic trends on our defined benefit pension liabilities and costs cannot be predicted.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.pension_finance_obligations",
+    "quote": "As of December 31, 2025, we had recognized a net accrued benefit liability of $342 million, representing the unfunded benefit obligations of our defined pension plans.",
+    "driver": "Defined benefit pension liabilities",
+    "secondary": false
+   },
+   {
+    "rf": 44,
+    "heading": "Future changes to Dutch, U.S. and other foreign tax laws could adversely affect us.",
+    "category": "TAX",
+    "leaf": "TAX.tax_law_changes",
+    "quote": "the tax laws in the European Union, U.S. and other countries in which we and our affiliates do business could change on a prospective or retroactive basis",
+    "driver": "OECD Pillar 2 minimum tax",
+    "secondary": false
+   },
+   {
+    "rf": 45,
+    "heading": "We are exposed to a number of different tax uncertainties, which could have an impact on our results.",
+    "category": "TAX",
+    "leaf": "TAX.tax_audits_disputes",
+    "quote": "Transfer pricing uncertainties can also result from disputes with local tax authorities about transfer pricing of internal deliveries of goods and services or related to financing",
+    "driver": "Transfer pricing disputes",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2985,
+ "output_tokens": 1061,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 5.276,
+ "recorded_at": "2026-10-25T20:37:57+0000"
+}

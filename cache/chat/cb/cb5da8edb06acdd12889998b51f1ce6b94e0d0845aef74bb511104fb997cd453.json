@@ -1,0 +1,41 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 42,
+    "heading": "Pension and other postretirement liabilities could adversely affect Ford\u2019s liquidity and financial condition.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.pension_finance_obligations",
+    "quote": "These benefit plans impose significant liabilities on us and could require us to make additional cash contributions, which could impair our liquidity.",
+    "driver": "Pension and OPEB obligations",
+    "secondary": false
+   },
+   {
+    "rf": 43,
+    "heading": "Ford and Ford Credit have experienced and could continue to experience unusual or significant litigation, governmental investigations, or adverse publicity arising out of alleged defects in products, services, perceived environmental impacts, or otherwise.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.litigation_investigations",
+    "quote": "Government investigations against Ford or Ford Credit have resulted in, and may in the future result in, fines, penalties, orders, customer remuneration, or other resolutions",
+    "driver": "NHTSA consent order, class actions",
+    "secondary": false
+   },
+   {
+    "rf": 44,
+    "heading": "Ford may need to substantially modify its product plans and facilities to respond to shifting consumer sentiment and competitive dynamics as a result of policy changes affecting, or otherwise to comply with, safety, emissions, fuel economy, autonomous driving technology, environmental, and other regulations.",
+    "category": "EMISSIONS_EV_TRANSITION",
+    "leaf": "EMISSIONS_EV_TRANSITION.emissions_regulation",
+    "quote": "Volatility in government regulations regarding emissions and safety creates an environment where companies such as Ford must focus on near-term issues, which challenges our ability to develop and implement long-term plans",
+    "driver": "Shifting emissions and ZEV rules",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2592,
+ "output_tokens": 629,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 3.722,
+ "recorded_at": "2026-10-25T20:37:04+0000"
+}

@@ -1,0 +1,23 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 35,
+    "heading": "Our failure to comply with federal, state, or international laws and regulations regarding privacy, data protection and handling, and cybersecurity may materially adversely affect our business, results of operations and financial condition.",
+    "category": "PRIVACY_DATA",
+    "leaf": "PRIVACY_DATA.privacy_regulation",
+    "quote": "Substantial fines may be imposed for breaches of data protection requirements, which can be up to 4% of a company\u2019s worldwide revenue or 20 million Euros, whichever is greater",
+    "driver": "GDPR and CCPA compliance",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2599,
+ "output_tokens": 213,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 1.67,
+ "recorded_at": "2026-10-25T20:38:03+0000"
+}

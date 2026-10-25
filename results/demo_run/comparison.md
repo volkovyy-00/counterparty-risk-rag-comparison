@@ -9,7 +9,7 @@ Group `auto_semis` - 10 filings - model `claude-opus-5-5` - run 2026-10-25T19:48
 | Quote coverage | 100% | 100% | 100% | 95% |
 | Quotes rejected | 0 | 0 | 0 | 1 |
 | Labels rejected (off-taxonomy) | 0 | 0 | 0 | 20 |
-| Rerun consistency (Jaccard, leaf) | - | - | - | - |
+| Rerun consistency (Jaccard, leaf) | - | 1.00 | - | 0.96 |
 | Companies covered | 10 of 10 | 5 of 10 | 9 of 10 | 10 of 10 |
 | Build: tokens / cost / time | no model calls | 0 tok / $0.00 / replayed | 1,024,482 tok / $4.88 / replayed | 933,311 tok / $3.04 / replayed |
 | Ask: tokens / cost / time | 239,737 tok / $1.05 / replayed | 13,693 tok / $0.09 / replayed | 95,418 tok / $0.43 / replayed | no model calls |

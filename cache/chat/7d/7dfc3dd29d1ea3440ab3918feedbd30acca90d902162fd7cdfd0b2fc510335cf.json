@@ -1,0 +1,68 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 45,
+    "heading": "We regularly refine our product cycle plan to improve the fuel economy of our internal combustion vehicles and to offer more propulsion choices, such as hybrid and electrified vehicles, that generate lower GHG emissions.",
+    "category": "EMISSIONS_EV_TRANSITION",
+    "leaf": "EMISSIONS_EV_TRANSITION.emissions_regulation",
+    "quote": "If fuel prices are relatively low and market conditions or the consumer attributes of our vehicles do not lead consumers to purchase electrified vehicles",
+    "driver": "GHG and fuel economy compliance",
+    "secondary": false
+   },
+   {
+    "rf": 46,
+    "heading": "Increased scrutiny of automaker emission compliance by regulators around the world has led to new regulations, more stringent enforcement programs, additional field actions, demands for reporting on the field performance of emissions components and higher scrutiny of field data, and delays in regulatory approvals.",
+    "category": "EMISSIONS_EV_TRANSITION",
+    "leaf": "EMISSIONS_EV_TRANSITION.emissions_regulation",
+    "quote": "The cost to comply with government regulations concerning new vehicle standards and in-use vehicle requirements, including field service actions, is substantial.",
+    "driver": "emissions enforcement scrutiny",
+    "secondary": false
+   },
+   {
+    "rf": 47,
+    "heading": "We and other companies continue to develop autonomous vehicle and driver assist technologies, and the U.S. and foreign governments are continuing to develop the regulatory framework that will govern autonomous vehicles and related technologies.",
+    "category": "AI_EMERGING_TECH",
+    "leaf": "AI_EMERGING_TECH.autonomous_driving",
+    "quote": "Governmental restrictions on such technologies may limit our ability to provide these features to consumers",
+    "driver": "BlueCruise NHTSA scrutiny",
+    "secondary": false
+   },
+   {
+    "rf": 48,
+    "heading": "Ford and Ford Credit could be affected by the continued development of more stringent privacy, data use, data protection, data access, and artificial intelligence laws and regulations as well as consumers\u2019 heightened expectations to safeguard their personal information.",
+    "category": "PRIVACY_DATA",
+    "leaf": "PRIVACY_DATA.privacy_regulation",
+    "quote": "We are subject to laws, rules, guidelines from privacy and other regulators, and regulations in the United States and other countries relating to the collection, use, transfer, and security of data",
+    "driver": "privacy and data laws",
+    "secondary": false
+   },
+   {
+    "rf": 49,
+    "heading": "Ford Credit could be subject to new or increased credit regulations, consumer protection regulations, or other regulations.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.product_regulation",
+    "quote": "As a finance company, Ford Credit is highly regulated by governmental authorities in the locations in which it operates, which can impose significant additional costs and/or restrictions on its business.",
+    "driver": "Ford Credit consumer finance regulation",
+    "secondary": false
+   },
+   {
+    "rf": 50,
+    "heading": "The Dodd-Frank Act directs federal agencies to adopt rules to regulate the finance industry and the capital markets and gives the Consumer Financial Protection Bureau (\u201cCFPB\u201d) broad rule-making and enforcement authority for a wide range of consumer financial protection laws that regulate consumer finance businesses, such as Ford Credit\u2019s automotive financing business.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.product_regulation",
+    "quote": "Exercise of these powers by the CFPB may increase the costs of, impose additional restrictions on, or otherwise adversely affect companies in the automotive finance business.",
+    "driver": "CFPB Dodd-Frank oversight",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3518,
+ "output_tokens": 1273,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 6.592,
+ "recorded_at": "2026-10-25T20:37:10+0000"
+}

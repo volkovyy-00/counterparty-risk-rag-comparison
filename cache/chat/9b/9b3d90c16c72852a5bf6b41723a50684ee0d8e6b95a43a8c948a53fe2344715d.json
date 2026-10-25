@@ -1,0 +1,50 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 23,
+    "heading": "Disruption in our suppliers\u2019 operations have disrupted, and could in the future disrupt, our production schedule.",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.single_source",
+    "quote": "In some instances, we purchase systems, components, raw materials, and parts that are ultimately derived from a single source and may be at an increased risk for supply disruptions.",
+    "driver": "Supplier disruption, just-in-time",
+    "secondary": false
+   },
+   {
+    "rf": 24,
+    "heading": "Pandemics, epidemics, disease outbreaks, and other public health crises have disrupted our business and operations, and future public health crises could materially adversely impact our business, financial condition, liquidity, and results of operations.",
+    "category": "CLIMATE_NATCAT",
+    "leaf": "CLIMATE_NATCAT.pandemic_health",
+    "quote": "Pandemics, epidemics, or disease outbreaks in the U.S. or globally, such as the COVID-19 pandemic, have previously disrupted, and may in the future disrupt, our business",
+    "driver": "Public health crises",
+    "secondary": false
+   },
+   {
+    "rf": 25,
+    "heading": "Competitors may independently develop products and services similar to ours, and there are no guarantees that GM\u2019s intellectual property rights would prevent competitors from independently developing or selling those products and services.",
+    "category": "IP_TECH_RIGHTS",
+    "leaf": "IP_TECH_RIGHTS.ip_protection",
+    "quote": "there can be no assurance that such efforts will completely deter or prevent misappropriation or improper use of our intellectual property.",
+    "driver": "IP misappropriation",
+    "secondary": false
+   },
+   {
+    "rf": 26,
+    "heading": "Security breaches, cyberattacks, and other disruptions to information technology systems and networked products, including connected vehicles, owned or maintained by us, GM Financial, service providers, such as data processors, or third parties, such as vendors or suppliers, could materially compromise our operations and/or sensitive customer data and proprietary information.",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "We and our third-party providers regularly experience cyberattacks and security incidents, such as phishing attacks, and we expect cyberattacks and incidents to continue in varying degrees, including due to the rapid evolution and adoption of AI.",
+    "driver": "Cyberattacks on systems and connected vehicles",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3224,
+ "output_tokens": 821,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 8.885,
+ "recorded_at": "2026-10-25T20:36:52+0000"
+}

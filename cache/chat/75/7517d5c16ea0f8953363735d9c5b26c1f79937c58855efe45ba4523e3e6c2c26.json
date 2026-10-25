@@ -1,0 +1,41 @@
+{
+ "model": "claude-sonnet-5-5",
+ "served_model": "claude-sonnet-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 3,
+    "heading": "If we are unable to identify and make the substantial research and development investments or develop new products required to satisfy customer demands, our business, financial condition and results of operations may be materially adversely affected.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.technology_change",
+    "quote": "The semiconductor industry is characterized by rapidly evolving technologies, innovation, short product life cycles, evolving regulatory and industry standards and certifications, changing customer needs, wide fluctuations in supply and demand and frequent new product introductions.",
+    "driver": "R&D investment, design wins",
+    "secondary": false
+   },
+   {
+    "rf": 4,
+    "heading": "The semiconductor industry is highly competitive, and has experienced significant consolidation, and if we are unable to compete effectively or identify attractive opportunities for consolidation, it could materially adversely affect our business and results of operations.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.price_competition",
+    "quote": "Competitive pressures may limit our ability to raise prices, and any inability to maintain revenue or raise prices to offset increases in costs could have a significant adverse effect on our gross margin.",
+    "driver": "competitive pricing pressure",
+    "secondary": false
+   },
+   {
+    "rf": 5,
+    "heading": "Because a significant portion of our revenue is derived from customers in the automotive and industrial end-markets, including revenue pursuant to our long-term supply agreements, a downturn or lower sales to customers in either end-market could materially adversely affect our business and results of operations.",
+    "category": "MACRO_DEMAND",
+    "leaf": "MACRO_DEMAND.cyclical_demand",
+    "quote": "The automotive industry is cyclical and the industrial sector tends to thrive during a time of economic expansion.",
+    "driver": "automotive and industrial end-markets",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3110,
+ "output_tokens": 642,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 3.559,
+ "recorded_at": "2026-10-25T20:38:13+0000"
+}

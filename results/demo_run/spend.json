@@ -9,5 +9,13 @@
    "Run A re-freeze: approach 2 ask after the graph rebuild": 0.4334,
    "Ask the graph again: evidence in a stable order": 0.0136
   }
+ },
+ "extras": {
+  "total_usd": 4.5738,
+  "per_step": {
+   "(a) Approach 1 reruns, cache off": 0.1953,
+   "(b) Approach 3 rerun, taxonomy-v3.0, cache off": 2.9237,
+   "(c) Audit run B: approach 3 after a model swap": 1.4548
+  }
  }
 }
