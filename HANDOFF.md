@@ -93,8 +93,10 @@ See `docs/GRAPHRAG_V2.md`.
   (`corpus.split_risk_factors`) and packed into whole-section windows. The prompt asks for **one label per risk
   factor** plus an unscored `driver` note. `taxonomy-v2.x` keeps the fixed paragraph windows and its prompt.
   `taxonomy-v3.1` (adds "prefer the most specific leaf") stays runnable but is no longer the default run B.
-- Split report (`results/taxonomy_split_report.md`, no model call): 8 of 10 filings split by heading; GM and F fall
-  back to fixed windows because their headings run into the paragraph. 85 windows vs 83 fixed.
+- Split report (`results/taxonomy_split_report.md`, no model call): 8 of 10 filings split by heading. GM and F
+  set their headings in bold inside the first paragraph, so they use the paragraph split (`corpus.split_paragraphs`:
+  each paragraph whose first sentence reads like a heading is a section). Until the core run they fell back to
+  fixed windows with no `[RF n]` markers, and the v3 prompt returned almost nothing for them (GM 5 claims, F 0).
 - Coverage check (`results/taxonomy_coverage.md`): no new leaf justified.
 - A/B on NXPI and LEA (`results/taxonomy_ab/report.md`, $1.15): v3.0 duplicate-label rate 0% (v2.0: 3.7% / 11.1%),
   quote pass 100% / 96.8%, fewer labels per risk factor (1.05 / 1.03). OTHER drivers listed on screen 5, not scored.

@@ -159,8 +159,27 @@ def test_manifest_records_split_and_fallback_reason_per_ticker(fake, tmp_path, m
     assert man["taxonomy_prompt_version"] == "taxonomy-v3.0" and man["taxonomy_split"] == "heading"
     assert man["taxonomy_sha256"] == taxonomy.SHA256
     assert man["taxonomy_split_by_ticker"]["TXN"] == {"method": "heading", "reason": None}
-    assert man["taxonomy_split_by_ticker"]["GM"]["method"] == "fixed"
+    assert man["taxonomy_split_by_ticker"]["GM"]["method"] == "paragraph"
     assert "run into the paragraph" in man["taxonomy_split_by_ticker"]["GM"]["reason"]
+
+
+@pytest.mark.skipif(not (EDGAR / "manifest.csv").exists(), reason="edgar_latest corpus not fetched")
+def test_headings_that_run_into_the_paragraph_get_the_paragraph_split():
+    """GM and F lose their bold headings in extraction: they get [RF n] sections from the paragraph split,
+    with exact offsets and the first sentence as the heading, instead of unmarked fixed windows."""
+    from corpus import split_paragraphs
+
+    a3 = importlib.import_module("approach3_taxonomy")
+    for f in load_corpus(EDGAR):
+        if f["ticker"] not in ("GM", "F"):
+            continue
+        windows, info = a3.split_filing(f, "heading")
+        assert info["method"] == "paragraph" and "run into the paragraph" in info["reason"]
+        secs = split_paragraphs(f["text"])
+        assert len(secs) == {"GM": 41, "F": 52}[f["ticker"]]  # including the introduction
+        assert all(f["text"][s["start"]:s["end"]] == s["text"] for s in secs)
+        assert all(s["text"].lstrip().startswith(s["heading"]) for s in secs[1:])
+        assert all(w.startswith("[RF ") for _, w, _ in windows)
 
 
 @pytest.mark.skipif(not (EDGAR / "manifest.csv").exists(), reason="edgar_latest corpus not fetched")

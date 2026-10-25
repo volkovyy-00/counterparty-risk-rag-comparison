@@ -153,6 +153,7 @@ const S = { screen:1, hmLevel:"category", hideGeneric:false, showDrivers:false, 
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const NM = "not measured";
+const plural = (n, word) => `${n} ${word}${n === 1 ? "" : "s"}`;
 const pct = x => x == null ? NM : Math.round(x * 100) + "%";
 const f2 = x => x == null ? NM : x.toFixed(2);
 // Shorten at a word boundary (never mid-word); the full text is always one click away.
@@ -550,7 +551,7 @@ function screen5() {
     T.map(t => { const v = val(x.label, t), c = colour(v, max);
       return c ? `<td class="cell" style="background:${c.bg};color:${c.fg}" data-cell="${esc(x.label)}|${t}">${v}</td>` : `<td class="cell zero"></td>`; }).join("") + `</tr>`).join("");
   const head = `<tr><th></th>${T.map(t => `<th class="col"><span class="tag ${industry(t)}" style="font-size:20px">${esc(t)}</span></th>`).join("")}</tr>`;
-  const drivers = otherDrivers(r), MAXDRV = 6;  // taxonomy-v3 runs only: OTHER rows grouped by their driver note
+  const drivers = otherDrivers(r), MAXDRV = 4;  // taxonomy-v3 runs only: OTHER rows grouped by their driver note
   const cross = heatRows(r, "leaf").filter(x => x.cross && !x.generic).slice(0, drivers ? 3 : 5);  // room for drivers
   const ml = r.matrix.leaf || {}, has = (label, t) => ((ml[label] || {})[t] || 0) > 0;
   const crossHtml = cross.map(x => { const a = T.filter(t => has(x.label, t) && industry(t) !== "semis"), s = T.filter(t => has(x.label, t) && industry(t) === "semis");
@@ -565,10 +566,10 @@ function screen5() {
     <div class="small" style="flex:0 0 520px;min-width:0"><button class="${level === "leaf" ? "on" : ""}" onclick="S.hmLevel=S.hmLevel==='leaf'?'category':'leaf';render()">Leaf level – L</button>
      <div class="legend" style="margin:14px 0 4px">0 ${legend} ${max} <em class="muted" style="font-style:normal;margin-left:6px">risk factors per cell</em></div>
      <div class="muted" style="margin-bottom:12px">grey = generic (≥80% of companies) · ↔ = both industries</div>
-     <div class="panel"><b>Where autos and semis connect</b> (specific leaves, both industries)<br><br>${crossHtml || "<span class='muted'>none</span>"}</div>
+     <div class="panel"><b>Where autos and semis connect</b> (specific leaves, both industries)<div style="margin-top:10px">${crossHtml || "<span class='muted'>none</span>"}</div></div>
      ${driverHtml ? `<div class="panel" style="margin-top:14px"><b>OTHER drivers</b> <span class="muted">(not scored)</span><div style="margin-top:8px">${driverHtml}</div></div>` : ""}
-     <div class="panel" style="margin-top:14px">${r.verification.accepted} of ${r.verification.claims} claims verified · ${r.verification.rejected_quote} quotes rejected ·
-       ${r.verification.rejected_label} labels rejected<br><span class="muted">Click a cell for every quote. Generic rows rank below specific shared risks.</span></div>
+     <div class="panel" style="margin-top:14px">${r.verification.accepted} of ${r.verification.claims} claims verified · ${plural(r.verification.rejected_quote, "quote")} rejected ·
+       ${plural(r.verification.rejected_label, "label")} rejected<br><span class="muted">Click a cell for every quote. Generic rows rank below specific shared risks.</span></div>
     </div></div>`;
 }
 
