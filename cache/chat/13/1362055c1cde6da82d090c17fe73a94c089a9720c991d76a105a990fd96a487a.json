@@ -1,0 +1,55 @@
+{
+ "model": "claude-haiku-5-5",
+ "served_model": "claude-haiku-5-5",
+ "content": {
+  "summary": "The rows link automakers (GM) and chipmakers (NXPI, TXN) most clearly through the 'China' geography and tariffs/trade barriers. Both GM and NXPI cite US-China trade tensions and tariffs, and GM and TXN each cite China-linked exposure. The 'import tariffs' and 'China' drivers are the named connectors in the rows.",
+  "claims": [
+   {
+    "risk": "Tariffs and trade barriers raise costs",
+    "company": "NXPI",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.tariffs",
+    "quote": "these changes have, and similar changes in the future may continue to, increase the cost or reduce the availability of raw materials and supplies we need to operate",
+    "source_ref": "NXPI-g3"
+   },
+   {
+    "risk": "Tariffs and trade barriers raise costs",
+    "company": "GM",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.tariffs",
+    "quote": "Introduction or modification of import tariffs or tariff-related measures may lead to further challenges for GM and our global business.",
+    "source_ref": "GM-g2"
+   },
+   {
+    "risk": "Tariffs and trade barriers raise costs",
+    "company": "TXN",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.tariffs",
+    "quote": "the imposition of tariffs, including tariffs specific to the products that we sell, import or export restrictions, trade embargoes and sanctions, restrictions on cross-border investment and other trade barriers",
+    "source_ref": "TXN-g0"
+   },
+   {
+    "risk": "US-China trade tensions and market pressure",
+    "company": "GM",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.china_exposure",
+    "quote": "Increased competition, continued U.S.-China trade tensions, weakening economic conditions in China or China's level of integration with key components of our global supply chain, among other factors, may result in cost increases",
+    "source_ref": "GM-g5"
+   },
+   {
+    "risk": "China dependence and trade decoupling",
+    "company": "NXPI",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.china_exposure",
+    "quote": "Sustained geopolitical tensions, such as the current geopolitical tensions involving China and Taiwan, could lead to long-term changes in global trade and technology supply chains and decoupling of global trade networks;",
+    "source_ref": "NXPI-g2"
+   }
+  ]
+ },
+ "input_tokens": 7222,
+ "output_tokens": 869,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6532,
+ "latency_s": 3.834,
+ "recorded_at": "2026-10-25T15:11:15+0000"
+}

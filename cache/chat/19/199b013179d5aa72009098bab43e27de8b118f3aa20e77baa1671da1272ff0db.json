@@ -1,0 +1,127 @@
+{
+ "model": "claude-haiku-5-5",
+ "served_model": "claude-haiku-5-5",
+ "content": {
+  "summary": "GM and NXP Semiconductors both disclose overlapping risks in data privacy compliance, geopolitical and international operations, intellectual property protection, labor relations and work stoppages, pension underfunding, own-facility manufacturing disruption, and pandemic disruption. The rows support claims for these shared risks using each company's own excerpts. Joint-venture dependence is also shared, but this answer omits it.",
+  "claims": [
+   {
+    "risk": "Data privacy regulatory compliance costs",
+    "company": "GM",
+    "category": "PRIVACY_DATA",
+    "leaf": "PRIVACY_DATA.privacy_regulation",
+    "quote": "Data privacy and protection and unfair and deceptive practice laws and similar regulations, including with respect to the use of AI, in many jurisdictions where we do business require that we take significant steps to safeguard such personal information",
+    "source_ref": "GM-g10"
+   },
+   {
+    "risk": "Data privacy regulatory compliance costs",
+    "company": "NXPI",
+    "category": "PRIVACY_DATA",
+    "leaf": "PRIVACY_DATA.privacy_regulation",
+    "quote": "Furthermore, global privacy legislation, enforcement, and policy activity, such as the EU General Data Privacy Regulation, are rapidly expanding and creating a complex regulatory compliance environment.",
+    "source_ref": "NXPI-g8"
+   },
+   {
+    "risk": "Geopolitical and international political risk",
+    "company": "GM",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.international_operations",
+    "quote": "The international scale and footprint of our operations expose us to additional risks. We manufacture, sell, and service products globally and rely upon an integrated global supply chain",
+    "source_ref": "GM-g6"
+   },
+   {
+    "risk": "Geopolitical and international political risk",
+    "company": "NXPI",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.conflict_sanctions",
+    "quote": "geopolitical tension and disputes, as well as resulting adverse changes in government policies, especially those affecting global trade and investment, including trade protection and national security policies",
+    "source_ref": "NXPI-g2"
+   },
+   {
+    "risk": "Inadequate intellectual property protection",
+    "company": "GM",
+    "category": "IP_TECH_RIGHTS",
+    "leaf": "IP_TECH_RIGHTS.ip_protection",
+    "quote": "Competitors may independently develop products and services similar to ours, and there are no guarantees that GM\u2019s intellectual property rights would prevent competitors from independently developing or selling those products and services.",
+    "source_ref": "GM-g7"
+   },
+   {
+    "risk": "Inadequate intellectual property protection",
+    "company": "NXPI",
+    "category": "IP_TECH_RIGHTS",
+    "leaf": "IP_TECH_RIGHTS.ip_protection",
+    "quote": "We may not be able to protect this intellectual property against improper use by our competitors or others.",
+    "source_ref": "NXPI-g11"
+   },
+   {
+    "risk": "Labor relations and work stoppages",
+    "company": "GM",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.labor_relations_unions",
+    "quote": "In addition, substantially all of our hourly employees are represented by unions and covered by collective bargaining agreements that must be negotiated from time-to-time, including at the local facility level.",
+    "source_ref": "GM-g7"
+   },
+   {
+    "risk": "Labor relations and work stoppages",
+    "company": "NXPI",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.labor_relations_unions",
+    "quote": "If we fail to extend or renegotiate our collective bargaining agreements and social plans with our labor unions as they expire from time to time",
+    "source_ref": "NXPI-g4"
+   },
+   {
+    "risk": "Pension plan underfunding and contribution risk",
+    "company": "GM",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.pension_finance_obligations",
+    "quote": "Future funding requirements generally increase if the discount rate decreases or if actual asset returns are lower than expected asset returns, assuming other factors are held constant.",
+    "source_ref": "GM-g12"
+   },
+   {
+    "risk": "Pension plan underfunding and contribution risk",
+    "company": "NXPI",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.pension_finance_obligations",
+    "quote": "Accordingly, our costs to meet pension liabilities going forward may be significantly higher than they are today, which could have a material adverse impact on our financial condition.",
+    "source_ref": "NXPI-g15"
+   },
+   {
+    "risk": "Own manufacturing facility disruption",
+    "company": "GM",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.manufacturing_disruption",
+    "quote": "Any significant disruption at one of our manufacturing facilities could disrupt our production schedule.",
+    "source_ref": "GM-g7"
+   },
+   {
+    "risk": "Own manufacturing facility disruption",
+    "company": "NXPI",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.manufacturing_disruption",
+    "quote": "Difficulties in the production process can reduce yields or interrupt production, and, as a result of such problems, we may on occasion not be able to deliver products",
+    "source_ref": "NXPI-g5"
+   },
+   {
+    "risk": "Pandemic operational disruption",
+    "company": "GM",
+    "category": "CLIMATE_NATCAT",
+    "leaf": "CLIMATE_NATCAT.pandemic_health",
+    "quote": "Pandemics, epidemics, disease outbreaks, and other public health crises have disrupted our business and operations, and future public health crises could materially adversely impact our business",
+    "source_ref": "GM-g7"
+   },
+   {
+    "risk": "Pandemic operational disruption",
+    "company": "NXPI",
+    "category": "CLIMATE_NATCAT",
+    "leaf": "CLIMATE_NATCAT.pandemic_health",
+    "quote": "epidemics and pandemics, such as the coronavirus outbreak, which may adversely affect our workforce, as well as our suppliers and customers;",
+    "source_ref": "NXPI-g2"
+   }
+  ]
+ },
+ "input_tokens": 8379,
+ "output_tokens": 4099,
+ "cache_write_tokens": 6532,
+ "cache_read_tokens": 0,
+ "latency_s": 16.95,
+ "recorded_at": "2026-10-25T15:11:02+0000"
+}

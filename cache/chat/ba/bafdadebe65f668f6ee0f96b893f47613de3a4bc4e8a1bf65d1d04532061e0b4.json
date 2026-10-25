@@ -1,0 +1,55 @@
+{
+ "model": "claude-haiku-5-5",
+ "served_model": "claude-haiku-5-5",
+ "content": {
+  "summary": "Cybersecurity breach of information systems is the most widely shared risk in the returned rows, disclosed by TXN, NXPI and GM. The most specific risk linking autos and semis is data privacy regulatory compliance cost, disclosed by GM and NXPI. The rows cover only three of the ten companies named in the question, so the answer cannot speak to all ten.",
+  "claims": [
+   {
+    "risk": "Cybersecurity breach of information systems",
+    "company": "TXN",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "Breaches, disruptions or other incidents relating to our information technology systems or the systems of our customers, suppliers and other third parties could be caused by factors such as computer viruses, ransomware, malware, software vulnerabilities, system failures",
+    "source_ref": "TXN-g1"
+   },
+   {
+    "risk": "Cybersecurity breach of information systems",
+    "company": "NXPI",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "We have, from time to time, experienced cyber-attacks attempting to obtain access to and misuse our computer systems and networks.",
+    "source_ref": "NXPI-g10"
+   },
+   {
+    "risk": "Cybersecurity breach of information systems",
+    "company": "GM",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "We and our third-party providers regularly experience cyberattacks and security incidents, such as phishing attacks, and we expect cyberattacks and incidents to continue in varying degrees",
+    "source_ref": "GM-g9"
+   },
+   {
+    "risk": "Data privacy regulatory compliance costs",
+    "company": "GM",
+    "category": "PRIVACY_DATA",
+    "leaf": "PRIVACY_DATA.privacy_regulation",
+    "quote": "Our enterprise data practices, including the collection, use, sharing, and security of the personal or other information of our customers, employees, and suppliers, are subject to increasingly complex, restrictive, and punitive regulations in all key market regions.",
+    "source_ref": "GM-g10"
+   },
+   {
+    "risk": "Data privacy regulatory compliance costs",
+    "company": "NXPI",
+    "category": "PRIVACY_DATA",
+    "leaf": "PRIVACY_DATA.privacy_regulation",
+    "quote": "Costs to comply with and implement these privacy-related and data protection measures could be significant.",
+    "source_ref": "NXPI-g8"
+   }
+  ]
+ },
+ "input_tokens": 4123,
+ "output_tokens": 2014,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6532,
+ "latency_s": 8.095,
+ "recorded_at": "2026-10-25T15:11:11+0000"
+}
