@@ -66,7 +66,7 @@ a { color:var(--accent); }
 .bubble { border-radius:16px; padding:12px 18px; margin-bottom:12px; }
 .bubble.q { background:var(--fg); color:var(--bg); margin-left:60px; border-bottom-right-radius:4px; }
 .bubble.a { background:var(--panel); border:2px solid var(--line); margin-right:30px; border-bottom-left-radius:4px; }
-pre.cypher { font-size:15px; line-height:1.3; margin:6px 0 0; max-height:300px; overflow:auto; white-space:pre-wrap;
+pre.cypher { font-size:15px; line-height:1.3; margin:6px 0 0; flex:1; min-height:80px; overflow:auto; white-space:pre-wrap;
   background:var(--panel); border:2px solid var(--line); border-radius:6px; padding:10px 12px; }
 /* screen 2 */
 .counts { display:flex; gap:28px; margin:6px 0 14px; }
@@ -352,9 +352,10 @@ function screen4qa() {
   const pos = placeNodes(comps, items, g.edges.concat(g.driver_edges || []), W, H), rad = n => 10 + 3 * n.degree;
   const lines = g.edges.concat(g.driver_edges || []).map(e => { const a = pos[e.source], b = pos[e.target];
     return `<line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="var(--line)" stroke-width="2"/>`; }).join("");
-  const nodes = items.map(n => { const p = pos[n.id], r = rad(n), cross = n.industries.includes("auto") && n.industries.includes("semis");
-    const label = `<text x="${p.x}" y="${p.y - r - 8}" text-anchor="middle" font-size="22" fill="var(--fg)" paint-order="stroke" stroke="var(--bg)" stroke-width="7">${esc(short(n.label, 34))} (${n.degree})</text>`;
-    const role = n.role && n.role !== "shared" ? `<text x="${p.x}" y="${p.y + r + 26}" text-anchor="middle" font-size="20" font-weight="800" fill="var(--muted)" paint-order="stroke" stroke="var(--bg)" stroke-width="7">${esc(n.role.toUpperCase())}${n.generic ? " · generic" : ""}</text>` : "";
+  const nodes = items.map((n, i) => { const p = pos[n.id], r = rad(n), cross = n.industries.includes("auto") && n.industries.includes("semis");
+    const below = i % 2 === 1;  // alternate label sides so neighbouring labels do not collide
+    const label = `<text x="${p.x}" y="${below ? p.y + r + 28 : p.y - r - 8}" text-anchor="middle" font-size="22" fill="var(--fg)" paint-order="stroke" stroke="var(--bg)" stroke-width="7">${esc(short(n.label, 34))} (${n.degree})</text>`;
+    const role = n.role && n.role !== "shared" ? `<text x="${p.x}" y="${below ? p.y - r - 10 : p.y + r + 26}" text-anchor="middle" font-size="20" font-weight="800" fill="var(--muted)" paint-order="stroke" stroke="var(--bg)" stroke-width="7">${esc(n.role.toUpperCase())}${n.generic ? " · generic" : ""}</text>` : "";
     const shape = n.type === "ExposureDriver"
       ? `<rect x="${p.x - r}" y="${p.y - r}" width="${2 * r}" height="${2 * r}" transform="rotate(45 ${p.x} ${p.y})" fill="var(--bg)" stroke="var(--fg)" stroke-width="5"/>`
       : `<circle cx="${p.x}" cy="${p.y}" r="${r}" fill="${n.generic ? "var(--grey)" : "var(--fg)"}" ${cross ? 'stroke="var(--mark)" stroke-width="6"' : ""}/>`;
@@ -370,12 +371,12 @@ function screen4qa() {
   const params = Object.entries(q.params).map(([k, x]) => `$${k} = ${JSON.stringify(x)}`).join("\n");
   return `<div class="qchips">${chips}</div>
     <div class="row"><svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">${lines}${nodes}${boxes}${empty}</svg>
-    <div class="col small">
+    <div class="col small" style="display:flex;flex-direction:column;height:${H}px">
       <div class="bubble q">${esc(q.question)}</div>
-      <div class="bubble a">${esc(short(q.summary, 420))}${verified}</div>
+      <div class="bubble a">${esc(short(q.summary, 420))}${verified}${q.empty ? "" : `<div class="muted" style="font-size:18px;margin-top:4px">answered by ${esc((DATA.graph_qa.build || {}).model || "?")}</div>`}</div>
       <div class="muted">Cypher used · template <span class="mono">${esc(q.template)}</span> · read-only · ${q.rows} row${q.rows === 1 ? "" : "s"} → the graph on the left</div>
       <pre class="cypher mono">${esc(q.cypher)}\n\n${esc(params)}</pre>
-      <div class="muted" style="margin-top:8px">Click a node for its quotes in the filing.</div>
+      <div class="muted" style="margin-top:6px">Click a node for its quotes in the filing.</div>
     </div></div>`;
 }
 function screen4overview() {
