@@ -109,6 +109,20 @@ See `docs/GRAPHRAG_V2.md`.
     (taxonomy-v3.0, cache off); (c) audit run B as a **model swap**: approach 3 on Sonnet 5.5, prompt v3.0. Over the
     cap, (b) is dropped first, then (c). Approach 2 is not rerun (a rebuild costs about $9.6); screen 6 says so.
 
+## demo-real: status (25 Oct 2026, third session)
+- Brief: the real-data demo, staged spend with gates. **Stopped at Gate 1, waiting for "go core".** Nothing has been
+  spent on this branch. Don't push until the user says "push".
+- Stage 0 is done: `real_run.py --stage core|extras`, spend ledger (`LLM_SPEND_LEDGER`, so `LLM_MAX_USD` holds across
+  steps), bridge ranking in code (`graph_qa.rank_bridge`), `driver_dups.py` (alias *proposals* only), and page fixes
+  (wrapped labels, screen-4 headline/core Cypher/C key, coverage wording, quote debris, leaf labels, scorecard
+  headline, screen-7 `--draft` guard, CET, short names). Tests: 67 passed, 2 skipped offline.
+- Measured core estimate: $13.94 (36 of 161 graph-build calls replay from the A/B cache). Extras: $8.18
+  ((a) $0.31, (b) $5.22, (c) Sonnet $2.65). An approach-2 rebuild is estimated at $9.35.
+- The user's rule for extras: over $10, drop (b) first, then (c). Confirm the Sonnet model id against the API's
+  models list before Gate 2.
+- Never install `fake_llm` outside the tests' `offline` fixture or `make_fixture`: it writes fake replies into the
+  real `cache/chat/`.
+
 ## Next tasks, in order
 1. Done this session: A/B, screen 4 ask-the-graph, screen 5 (and 2) overflow. Items 2–3 below are kept for
    reference.
