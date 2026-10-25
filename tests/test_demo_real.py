@@ -116,3 +116,71 @@ def test_driver_near_duplicates_are_reported_not_added():
     before = (config.CONFIG_DIR / "graph_aliases.yaml").read_text()
     assert "critical minerals: [critical materials]" in driver_dups.report((spelling, subset), "x")
     assert (config.CONFIG_DIR / "graph_aliases.yaml").read_text() == before
+
+
+# --------------------------------------------------------------------------- quote debris (display only)
+EDGAR = config.DATA_DIR / "corpus" / "edgar_latest"
+
+
+def test_quote_debris_is_trimmed_for_display_only():
+    import build_demo
+    from verify import locate, verify_claims
+
+    snippet = ("costs and supply chain and\n13\n\nTable of Contents\nGENERAL MOTORS COMPANY AND SUBSIDIARIES\n\n"
+               "logistics challenges may occur.\n18\n\nItem 1A. Risk Factors (Continued)\nRISKS RELATED TO OUR BUSINESS")
+    shown = build_demo.clean_display(snippet)
+    assert shown == "costs and supply chain and logistics challenges may occur.\n\nRISKS RELATED TO OUR BUSINESS"
+    assert build_demo.clean_display("A plain paragraph.\n\nAnother one.") == "A plain paragraph.\n\nAnother one."
+    # a model's copy with the line breaks flattened
+    assert build_demo.clean_quote("14 Table of Contents GENERAL MOTORS COMPANY AND SUBSIDIARIES We are subject to "
+                                  "risks") == "We are subject to risks"
+    assert build_demo.clean_quote("supply chain and 13 Table of Contents logistics") == "supply chain and logistics"
+    assert build_demo.clean_quote("NXP SEMICONDUCTORS N.V. has 12 plants.") == "NXP SEMICONDUCTORS N.V. has 12 plants."
+    # On a real filing: a quote that crosses a page break still verifies at the same offsets; cleaning never runs
+    # before locate/verify, only on what the page shows.
+    if not (EDGAR / "item1a" / "GM.txt").exists():
+        pytest.skip("frozen EDGAR corpus not present")
+    text = (EDGAR / "item1a" / "GM.txt").read_text()
+    i = text.index("GENERAL MOTORS COMPANY AND SUBSIDIARIES")
+    quote = text[i - 120:i + 120].strip()
+    span = locate(quote, text)
+    assert span and text[span[0]:span[1]] == quote
+    filing = {"ticker": "GM", "company": "General Motors", "text": text, "accession": "x", "url": ""}
+    claim = {"company": "GM", "category": "SUPPLY_CHAIN", "leaf": "SUPPLY_CHAIN.logistics", "quote": quote}
+    accepted, rejected, _ = verify_claims([claim], [filing])
+    assert len(accepted) == 1 and (accepted[0]["start"], accepted[0]["end"]) == span
+    assert "Table of Contents" not in build_demo.clean_display(quote)
+    assert text == (EDGAR / "item1a" / "GM.txt").read_text()
+
+
+def test_debris_patterns_compile_the_same_way_in_the_page():
+    import build_demo
+
+    for pattern, flags in build_demo.DEBRIS + build_demo.DEBRIS_INLINE:  # the page: `new RegExp(pattern, flags)`
+        assert "(?P" not in pattern and "\\Z" not in pattern and set(flags) <= {"i"}
+
+
+# --------------------------------------------------------------------------- screen labels and screen 7
+def test_leaf_labels_are_readable_and_never_raw_ids():
+    import taxonomy
+
+    assert taxonomy.leaf_label("CUSTOMER_CONCENTRATION.auto_oem_customers") == "Auto OEM customers"
+    assert taxonomy.leaf_label("RATES_FX_FUNDING.fx_exposure") == "FX exposure"
+    assert taxonomy.leaf_label("AI_EMERGING_TECH.ai_development_use") == "AI development and use"
+    for lid in taxonomy.LEAF_IDS:
+        label = taxonomy.leaf_label(lid)
+        assert "_" not in label and label[0].isupper(), lid
+    import approach3_taxonomy  # labels are display only: never in the prompt
+
+    assert "Auto OEM customers" not in approach3_taxonomy.system("taxonomy-v3.0")
+
+
+def test_screen7_refuses_unfilled_placeholders_unless_draft():
+    import build_demo
+
+    card = {"columns": ["1_plain_rag", "3_taxonomy_first"], "rows": {"quote_coverage": {"3_taxonomy_first": 0.9}}}
+    with pytest.raises(SystemExit, match="placeholders with no value"):
+        build_demo.decision(card)
+    d = build_demo.decision(card, draft=True)
+    assert "[3_taxonomy_first.leaf_f1]" in d["recommendation"] and "n/a" not in d["recommendation"]
+    assert "90%" in d["recommendation"] and "3_taxonomy_first.leaf_f1" in d["missing"]

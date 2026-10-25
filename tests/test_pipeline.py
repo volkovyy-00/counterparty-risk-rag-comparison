@@ -402,7 +402,7 @@ def test_demo_builds_and_loads_graph_without_neo4j(fixture_run, tmp_path, monkey
     monkeypatch.setattr(config, "NEO4J_PASSWORD", None)
     with pytest.raises(SystemExit, match="not real model output"):
         build_demo.build(fixture_run, tmp_path / "x.html")  # fake runs need --fixture
-    data = build_demo.build(fixture_run, tmp_path / "index.html", fixture=True)
+    data = build_demo.build(fixture_run, tmp_path / "index.html", fixture=True, draft=True)
     assert data["graph"]["resolution"]["risk_factors_exact"] == 3 and data["meta"]["fixture"]
     html = (tmp_path / "index.html").read_text()
     assert "/*__DATA__*/null" not in html and "TEST FIXTURE" in html

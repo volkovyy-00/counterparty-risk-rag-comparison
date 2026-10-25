@@ -308,7 +308,7 @@ def test_demo_page_renders_new_old_and_missing_graph(tmp_path, monkeypatch):
     monkeypatch.setattr(config, "NEO4J_PASSWORD", None)
     cases = {"new": ("?screen=4&risk=1&drivers=1", "verified mentions")}
     for name, (query, text) in cases.items():
-        build_demo.build(run, tmp_path / f"{name}.html", fixture=True)
+        build_demo.build(run, tmp_path / f"{name}.html", fixture=True, draft=True)
         res = _page_errors(tmp_path / f"{name}.html", query, text)
         if res is None:
             pytest.skip("no browser")
@@ -316,10 +316,10 @@ def test_demo_page_renders_new_old_and_missing_graph(tmp_path, monkeypatch):
     old = {"nodes": [{"id": "c:AAPL", "type": "Company", "label": "AAPL", "industry": "other", "degree": 1}],
            "edges": [], "resolution": {"resolver": "fuzzy", "risk_factors_exact": 3, "risk_factors_resolved": 1}}
     (run / "graph.json").write_text(json.dumps(old))
-    build_demo.build(run, tmp_path / "old.html", fixture=True)
+    build_demo.build(run, tmp_path / "old.html", fixture=True, draft=True)
     assert _page_errors(tmp_path / "old.html", "?screen=4", "exact-name") == ([], True)
     (run / "graph.json").unlink()
-    build_demo.build(run, tmp_path / "none.html", fixture=True)
+    build_demo.build(run, tmp_path / "none.html", fixture=True, draft=True)
     assert _page_errors(tmp_path / "none.html", "?screen=4", "No exported graph") == ([], True)
 
 
@@ -387,7 +387,7 @@ def test_demo_page_asks_the_graph(tmp_path, monkeypatch, offline):
                       "cypher": graph_qa.TEMPLATES[q["template"]].strip(), "rows": len(rows),
                       "subgraph": graph_qa.to_subgraph(rows, offline), **graph_qa.answer(q, rows, offline)})
     (run / "graph_qa.json").write_text(json.dumps({"questions": items, "build": {}}))
-    build_demo.build(run, tmp_path / "qa.html", fixture=True)
+    build_demo.build(run, tmp_path / "qa.html", fixture=True, draft=True)
     for query, text in (("?screen=4", "Cypher used"), ("?screen=4&qa=bridge", "No bridge found"),
                         ("?screen=4&qa=gm_nxpi&risk=1", "Item 1A characters"), ("?screen=4&qa=tsla_on_txn", "Fewer"),
                         ("?screen=4&overview=1", "verified mentions")):
