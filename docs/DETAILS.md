@@ -10,7 +10,7 @@ Reference material for the [demo script](../README.md).
 | `approach_<name>.json` | summary, verified claims (with Item 1A character offsets), rejected claims with reasons, verification stats, shared leaves, company x category/leaf matrices, usage (build/ask), eval |
 | `scorecard.json`, `comparison.md` | every metric of SCORING_RULE.md, one column per approach |
 | `reruns/<approach>/run_<k>.json` | verified claims of the cache-off reruns (rerun consistency) |
-| `audit/run_b/` | run B (approach 3, prompt v2.1) for the audit-trail diff |
+| `audit/run_b/` | run B (approach 3, prompt v3.1) for the audit-trail diff |
 | `graph.json` | the exported graph (Company, RiskFactor, FACES_RISK) and exact vs fuzzy RiskFactor counts |
 | `governance.json` | precomputed governance moments (the page re-runs them live through serve.py) |
 | `corpus_manifest.csv`, `corpus_data_quality.jsonl` | the filings used and the data-quality log |
@@ -40,7 +40,10 @@ Reference material for the [demo script](../README.md).
 | `GRAPH_SIM_MIN` / `GRAPH_SIM_TOPK` / `GRAPH_LEX_MIN` / `GRAPH_COMPONENT_MAX` | `0.80` / `8` / `90` / `25` | v2 merge candidates: embedding cosine, neighbours, RapidFuzz token_set_ratio, largest group sent to the LLM |
 | `GENERIC_SHARE` | `0.8` | a risk is generic if at least this share of companies face it (or it is mostly boilerplate in 3+) |
 | `GRAPH_AB_TICKERS` | `GM,NXPI,TXN` | filings for the graph A/B (`make graph-ab`) |
-| `TAXO_PROMPT_VERSION` | `taxonomy-v2.0` | `taxonomy-v2.1` is run B of the audit trail |
+| `TAXO_PROMPT_VERSION` | `taxonomy-v3.0` | v3.x: one label per risk factor plus an unscored `driver` note, on heading windows; `taxonomy-v3.1` (most specific leaf) is run B of the audit trail; `taxonomy-v2.0` / `v2.1` are kept as they were (fixed windows) |
+| `TAXO_SPLIT` | the version's own | `heading` = whole risk-factor sections packed into windows (`make taxo-split` reports per filing, with the fallback reason); `fixed` = paragraph windows of `TAXO_WINDOW_CHARS`. v2.x accepts only `fixed` |
+| `TAXO_AB_TICKERS` | `NXPI,LEA` | filings for the approach-3 A/B (`make taxo-ab`) |
+| `LLM_MAX_USD` | unset | hard stop for live (uncached) spend in one process; the A/B scripts set it to the confirmed amount |
 | `MIN_SHARED` | `2` | companies needed for a risk to count as shared |
 | `SEC_USER_AGENT` / `SEC_MAX_RPS` | - / `5` | "Name email"; capped at SEC's 10 requests/second |
 | `LIVE_TIMEOUT_S` | `20` | deadline of the live step |

@@ -202,8 +202,9 @@ function openClaims(title, claims, approach) {
   const f = c => DATA.filings.find(x => x.ticker === c.company) || {};
   d.innerHTML = `<button onclick="closeDrawer()" style="float:right">Close (Esc)</button><h3>${esc(title)}</h3>
     <div class="muted small">${esc(NAMES[approach] || approach)} · ${claims.length} verified claim${claims.length === 1 ? "" : "s"} · quote located verbatim in the company's own Item 1A</div>` +
-    claims.map((c, i) => `<div class="claim"><b>${esc(c.company)}</b> · <span class="mono">${esc(c.leaf)}</span>
-      <div class="small muted">10-K ${esc(f(c).accession)} · Item 1A characters ${c.start}–${c.end}${c.fallback ? " · label from keyword fallback" : ""}</div>
+    claims.map((c, i) => `<div class="claim"><b>${esc(c.company)}</b> · <span class="mono">${esc(c.leaf)}</span>${c.secondary ? ` <span class="muted">(second label)</span>` : ""}
+      ${c.driver ? `<div>Driver: <b>${esc(c.driver)}</b> <span class="small muted">(shown, not scored)</span></div>` : ""}
+      <div class="small muted">10-K ${esc(f(c).accession)} · Item 1A characters ${c.start}–${c.end}${c.source_ref ? ` · ${esc(c.source_ref)}` : ""}${c.fallback ? " · label from keyword fallback" : ""}</div>
       <div class="ctx">${context(c)}</div>
       ${edgarLink(c) ? `<a href="${esc(edgarLink(c))}" target="_blank" rel="noopener">Open on SEC EDGAR at this quote</a> · ` : ""}
       <a href="#" data-full="${approach}|${i}">Local copy (offline)</a></div>`).join("");
@@ -446,6 +447,15 @@ function heatRows(r, level) {
   return rows.filter(x => level === "category" || x.k >= 2)
     .sort((a, b) => rank(a) - rank(b) || b.k - a.k || b.total - a.total || a.label.localeCompare(b.label));
 }
+function otherDrivers(r) {
+  const cs = r.claims || [];
+  if (!cs.some(c => "driver" in c && c.driver)) return null;  // run without driver notes (taxonomy-v2.x)
+  const g = {};
+  cs.filter(c => c.leaf.startsWith("OTHER.") && c.driver).forEach(c => {
+    const k = c.driver.toLowerCase().trim(), e = g[k] = g[k] || {key: k, n: 0, tickers: []};
+    e.n++; if (!e.tickers.includes(c.company)) e.tickers.push(c.company); });
+  return Object.values(g).sort((a, b) => b.tickers.length - a.tickers.length || b.n - a.n || a.key.localeCompare(b.key));
+}
 function screen5() {
   header("5 · Approach 3 – taxonomy-first: company × " + (S.hmLevel === "category" ? "category" : "leaf"));
   const r = DATA.approaches["3_taxonomy_first"];
@@ -459,17 +469,22 @@ function screen5() {
     T.map(t => { const v = m[x.label][t], c = colour(v, max);
       return c ? `<td class="cell" style="background:${c.bg};color:${c.fg}" data-cell="${esc(x.label)}|${t}">${v}</td>` : `<td class="cell zero"></td>`; }).join("") + `</tr>`).join("");
   const head = `<tr><th></th>${T.map(t => `<th class="col"><span class="tag ${industry(t)}" style="font-size:20px">${esc(t)}</span></th>`).join("")}</tr>`;
-  const cross = heatRows(r, "leaf").filter(x => x.cross && !x.generic).slice(0, 5);
+  const drivers = otherDrivers(r), MAXDRV = 6;  // taxonomy-v3 runs only: OTHER rows grouped by their driver note
+  const cross = heatRows(r, "leaf").filter(x => x.cross && !x.generic).slice(0, drivers ? 3 : 5);  // room for drivers
   const ml = r.matrix.leaf;
   const crossHtml = cross.map(x => { const a = T.filter(t => ml[x.label][t] > 0 && industry(t) !== "semis"), s = T.filter(t => ml[x.label][t] > 0 && industry(t) === "semis");
     return `<div style="margin-bottom:10px"><div style="display:flex;gap:12px"><span class="mono ell" style="flex:1">${esc(leafName(x.label))}</span><b>${a.length} auto${a.length === 1 ? "" : "s"} ↔ ${s.length} semi${s.length === 1 ? "" : "s"}</b></div>
       <div class="muted ell">${a.join(" ")} ↔ ${s.join(" ")}</div></div>`; }).join("");
   const legend = VIRIDIS.filter((_, i) => i % 2 === 0).map(c => `<span style="background:${c}"></span>`).join("");
+  const driverHtml = drivers && (drivers.length ? drivers.slice(0, MAXDRV).map(d => `<div style="display:flex;gap:10px;cursor:pointer" data-driver="${esc(d.key)}">
+      <span class="ell" style="flex:1">${esc(d.key)}</span><span class="muted ell" style="max-width:220px">${d.tickers.join(" ")}</span><b>${d.n}</b></div>`).join("") +
+      (drivers.length > MAXDRV ? `<div class="muted">+ ${drivers.length - MAXDRV} more</div>` : "") : "<span class='muted'>none</span>");
   return `<div class="row"><div style="flex:1;min-width:0"><table class="hm">${head}${body}</table>
       ${all.length > MAXROWS ? `<div class="small muted">+ ${all.length - MAXROWS} more ${level === "leaf" ? "shared leaves" : "rows"} (ranked lower)</div>` : ""}</div>
     <div class="small" style="flex:0 0 520px;min-width:0"><button class="${level === "leaf" ? "on" : ""}" onclick="S.hmLevel=S.hmLevel==='leaf'?'category':'leaf';render()">Leaf level – L</button>
      <div class="legend" style="margin:14px 0">0 ${legend} ${max} <em class="muted" style="font-style:normal;margin-left:6px">risk factors per cell</em></div>
      <div class="panel"><b>Where autos and semis connect</b> (specific leaves, both industries)<br><br>${crossHtml || "<span class='muted'>none</span>"}</div>
+     ${driverHtml ? `<div class="panel" style="margin-top:14px"><b>OTHER drivers</b> <span class="muted">(not scored)</span><div style="margin-top:8px">${driverHtml}</div></div>` : ""}
      <div class="panel" style="margin-top:14px">${r.verification.accepted} of ${r.verification.claims} claims verified · ${r.verification.rejected_quote} quotes rejected ·
        ${r.verification.rejected_label} labels rejected<br><span class="muted">Click a cell for every quote. Greyed = generic (≥80% of companies), ranked below specific shared risks.</span></div>
     </div></div>`;
@@ -587,6 +602,10 @@ document.addEventListener("click", e => {
   if (cell) { const [label, t] = cell.dataset.cell.split("|"); const lvl = label.includes(".") ? "leaf" : "category";
     const cs = DATA.approaches["3_taxonomy_first"].claims.filter(c => c.company === t && c[lvl] === label);
     openClaims(`${t} · ${lvl === "leaf" ? leafName(label) : label}`, cs, "3_taxonomy_first"); return; }
+  const dv = e.target.closest("[data-driver]");
+  if (dv) { const k = dv.dataset.driver;
+    const cs = DATA.approaches["3_taxonomy_first"].claims.filter(c => c.leaf.startsWith("OTHER.") && (c.driver || "").toLowerCase().trim() === k);
+    openClaims(`OTHER · ${k}`, cs, "3_taxonomy_first"); return; }
   const qb = e.target.closest("[data-qa]");
   if (qb) { S.qa = qb.dataset.qa; closeDrawer(); render(); return; }
   if (e.target.closest("[data-qa-more]")) { S.qaMore = !S.qaMore; render(); return; }
