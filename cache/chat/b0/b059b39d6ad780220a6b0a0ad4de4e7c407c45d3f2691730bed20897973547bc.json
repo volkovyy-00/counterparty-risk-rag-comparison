@@ -1,0 +1,41 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 20,
+    "heading": "We benefit from many ongoing joint ventures and other strategic business relationships, particularly with respect to manufacturing EV battery cells and facilitating access to raw materials necessary for the production of EVs, which we cannot operate solely for our benefit and over which we may have limited control.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.joint_ventures_investments",
+    "quote": "In joint ventures, we share ownership and management of a company with one or more parties who may not have the same goals, strategies, priorities, business incentives, or resources as we do and may compete with us outside the joint venture.",
+    "driver": "China and battery JVs",
+    "secondary": false
+   },
+   {
+    "rf": 21,
+    "heading": "The international scale and footprint of our operations expose us to additional risks.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.international_operations",
+    "quote": "Our global operations subject us to extensive domestic and foreign legal and regulatory requirements, and a variety of other political, economic, and regulatory risks, which may have a material adverse effect on our financial condition or results of operations",
+    "driver": "",
+    "secondary": false
+   },
+   {
+    "rf": 22,
+    "heading": "Any significant disruption at one of our manufacturing facilities could disrupt our production schedule.",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.manufacturing_disruption",
+    "quote": "When these or other facilities become unavailable, either temporarily or permanently and for any number of reasons, including labor disruptions or shortages, supply chain disruptions, the occurrence of a public health crisis, or catastrophic weather events",
+    "driver": "vehicle assembly plants",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2921,
+ "output_tokens": 592,
+ "cache_write_tokens": 6701,
+ "cache_read_tokens": 0,
+ "latency_s": 7.233,
+ "recorded_at": "2026-10-25T19:06:12+0000"
+}

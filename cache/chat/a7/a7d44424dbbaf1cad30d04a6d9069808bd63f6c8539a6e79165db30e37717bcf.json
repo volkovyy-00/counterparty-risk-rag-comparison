@@ -1,0 +1,41 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 22,
+    "heading": "Operational information systems, security systems, products, and services could be affected by cybersecurity incidents, ransomware attacks, and other disruptions and impact Ford, Ford Credit, their suppliers, and dealers.",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "Moreover, we, our suppliers, service providers, and dealers have been the target of cybersecurity incidents and such threats are continuing and evolving, which may cause cybersecurity incidents to be more difficult to detect for periods of time.",
+    "driver": "ransomware attacks",
+    "secondary": false
+   },
+   {
+    "rf": 23,
+    "heading": "Unlike our standard arrangements with suppliers, under multi-year offtake agreements and other long-term purchase contracts, the risks associated with lower-than-expected electrified vehicle production volumes or changes in battery technology that reduce the need for certain raw materials, batteries, or their components are borne by Ford rather than our suppliers.",
+    "category": "COMMODITY_INPUTS",
+    "leaf": "COMMODITY_INPUTS.critical_minerals",
+    "quote": "In the event we do not purchase the materials or components pursuant to the terms of these agreements, we may nevertheless be obligated to pay the purchase price or otherwise compensate the supplier in an amount determined by the contract or reimburse the supplier for costs or losses it incurs.",
+    "driver": "battery mineral offtake agreements",
+    "secondary": false
+   },
+   {
+    "rf": 24,
+    "heading": "With a global footprint and supply chain, Ford\u2019s results and operations have been and could continue to be adversely affected by economic or geopolitical developments, including protectionist trade policies such as tariffs, or other events.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.tariffs",
+    "quote": "Unprecedented trade policy (including tariffs) in the United States and foreign governments\u2019 reactions limit our ability to conduct effective long-term planning and make capital allocation decisions.",
+    "driver": "U.S. tariffs",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2657,
+ "output_tokens": 713,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 5.65,
+ "recorded_at": "2026-10-25T19:06:33+0000"
+}

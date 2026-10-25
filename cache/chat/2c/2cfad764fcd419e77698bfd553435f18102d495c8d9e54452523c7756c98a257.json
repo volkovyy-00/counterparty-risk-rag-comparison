@@ -1,0 +1,68 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 1,
+    "heading": "Ford\u2019s long-term success depends on delivering the Ford+ plan, including improving cost competitiveness.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.restructuring",
+    "quote": "If we are unable to optimize our capital allocation among vehicles (and propulsion systems among our vehicles), services, technology, and other calls on capital, make sufficient and timely progress to become competitive on cost and quality",
+    "driver": "Ford+ plan",
+    "secondary": false
+   },
+   {
+    "rf": 2,
+    "heading": "Ford\u2019s products have been and could continue to be affected by defects that result in recall campaigns, increased warranty costs, or delays in new model launches, and the time it takes to improve the quality of our products and services and reduce the costs associated therewith could continue to have an adverse effect on our business.",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.recalls",
+    "quote": "Government safety standards require manufacturers to remedy defects related to vehicle safety through safety recall campaigns, and a manufacturer is obligated to recall vehicles if it determines that the vehicles do not comply with a safety standard.",
+    "driver": "",
+    "secondary": false
+   },
+   {
+    "rf": 3,
+    "heading": "NHTSA\u2019s enforcement strategy has resulted in significant civil penalties being levied and the use of consent orders, including at Ford, requiring direct oversight by NHTSA of certain manufacturers\u2019 safety processes, a strategy that could continue.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.litigation_investigations",
+    "quote": "as part of a consent order we entered into with NHTSA in 2024, we have retained an independent third party selected by NHTSA to assess the Company\u2019s adherence to the consent order and Safety Act over the term of the consent order",
+    "driver": "NHTSA consent order",
+    "secondary": false
+   },
+   {
+    "rf": 4,
+    "heading": "Ford is also subject to environmental regulatory compliance requirements, and in many jurisdictions (including the United States), we are required to report on and correct certain emissions-related defects.",
+    "category": "EMISSIONS_EV_TRANSITION",
+    "leaf": "EMISSIONS_EV_TRANSITION.emissions_regulation",
+    "quote": "we are obligated to honor certain warranties on emissions-related components, which can impose additional obligations beyond our standard warranties and increase our costs.",
+    "driver": "emissions-related warranties",
+    "secondary": false
+   },
+   {
+    "rf": 5,
+    "heading": "We accrue the estimated cost of both base warranty coverages and field service actions at the time a vehicle is sold, and we reevaluate the adequacy of our accruals on a regular basis.",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.warranty_costs",
+    "quote": "If warranty costs are greater than anticipated as a result of increased vehicle and component complexity, the adoption of new technologies, the time it takes to improve the quality of our products and services (or if such efforts are unsuccessful)",
+    "driver": "warranty accruals",
+    "secondary": false
+   },
+   {
+    "rf": 6,
+    "heading": "Ford is highly dependent on its suppliers to deliver components in accordance with Ford\u2019s production schedule and specifications, and a shortage of or inability to timely acquire key components or raw materials has previously disrupted and may, in the future, disrupt Ford\u2019s operations.",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.single_source",
+    "quote": "For example, in 2025, our production was disrupted by fires at one of our major aluminum suppliers, the effects of which are ongoing.",
+    "driver": "aluminum supplier fires",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3458,
+ "output_tokens": 1270,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 8.713,
+ "recorded_at": "2026-10-25T19:06:27+0000"
+}

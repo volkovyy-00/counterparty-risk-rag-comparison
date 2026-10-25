@@ -1,0 +1,55 @@
+{
+ "model": "claude-haiku-5-5",
+ "served_model": "claude-haiku-5-5",
+ "content": {
+  "summary": "The risk shared by the most companies is cybersecurity breach of information systems, disclosed by all ten (APTV, BWA, F, GM, LEA, MCHP, NXPI, ON, TSLA, TXN). The most widely shared specific risk spanning autos and semis is workforce labor strikes and work stoppages, disclosed by seven companies including automakers APTV, BWA, F, GM, LEA and TSLA and semiconductor maker NXPI. The rows support these claims only through the excerpts quoted, and do not show a semiconductor-specific supply risk shared across autos and semis.",
+  "claims": [
+   {
+    "risk": "Cybersecurity breach of IT systems",
+    "company": "APTV",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "We face risks related to cybersecurity for both our infrastructure and products and any cybersecurity breach or failure of one or more key information technology systems, or those of third-parties with which we do business could have a material adverse impact on our business or reputation.",
+    "source_ref": "APTV-g12"
+   },
+   {
+    "risk": "Cybersecurity breach of IT systems",
+    "company": "BWA",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "We rely on the capacity, reliability and security of our IT systems and infrastructure to operate our business. IT systems are vulnerable to disruptions, including those resulting from natural disasters, cyber-attacks or failures in third-party provided services.",
+    "source_ref": "BWA-g4"
+   },
+   {
+    "risk": "Cybersecurity breach of IT systems",
+    "company": "TXN",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "Breaches, disruptions or other incidents relating to our information technology systems or the systems of our customers, suppliers and other third parties could be caused by factors such as computer viruses, ransomware, malware, software vulnerabilities, system failures",
+    "source_ref": "TXN-g1"
+   },
+   {
+    "risk": "Labor strikes and work stoppages",
+    "company": "NXPI",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.labor_relations_unions",
+    "quote": "if our unionized employees were to engage in a strike or other work stoppage, our business and operating results could be materially harmed.",
+    "source_ref": "NXPI-g4"
+   },
+   {
+    "risk": "Labor strikes and work stoppages",
+    "company": "TSLA",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.labor_relations_unions",
+    "quote": "Any work stoppages or strikes organized by such unions could delay the manufacture and sale of our products and may harm our business and operating results.",
+    "source_ref": "TSLA-g9"
+   }
+  ]
+ },
+ "input_tokens": 14485,
+ "output_tokens": 2636,
+ "cache_write_tokens": 6532,
+ "cache_read_tokens": 0,
+ "latency_s": 12.956,
+ "recorded_at": "2026-10-25T19:11:05+0000"
+}

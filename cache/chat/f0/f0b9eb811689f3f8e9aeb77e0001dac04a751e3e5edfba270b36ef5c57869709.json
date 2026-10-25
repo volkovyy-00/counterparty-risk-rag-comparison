@@ -1,0 +1,68 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 7,
+    "heading": "For the manufacture of our electrified products, we are dependent on the supply of batteries and the raw materials (e.g., lithium, cobalt, and nickel) used by our suppliers to produce those batteries.",
+    "category": "EMISSIONS_EV_TRANSITION",
+    "leaf": "EMISSIONS_EV_TRANSITION.battery_supply_cost",
+    "quote": "For the manufacture of our electrified products, we are dependent on the supply of batteries and the raw materials (e.g., lithium, cobalt, and nickel) used by our suppliers to produce those batteries.",
+    "driver": "EV battery supply",
+    "secondary": false
+   },
+   {
+    "rf": 7,
+    "heading": "For the manufacture of our electrified products, we are dependent on the supply of batteries and the raw materials (e.g., lithium, cobalt, and nickel) used by our suppliers to produce those batteries.",
+    "category": "COMMODITY_INPUTS",
+    "leaf": "COMMODITY_INPUTS.critical_minerals",
+    "quote": "Some of these resources are limited, and, as a result, we may be unable to acquire raw materials needed for our products in sufficient amounts that are responsibly sourced or at reasonable prices.",
+    "driver": "lithium, cobalt, nickel, rare earths",
+    "secondary": true
+   },
+   {
+    "rf": 8,
+    "heading": "Ford\u2019s production, as well as Ford\u2019s suppliers\u2019 production, and/or the ability to deliver products to consumers could be disrupted by labor issues, public health issues, natural or man-made disasters, adverse effects of climate change, financial distress, production difficulties, capacity limitations, or other factors.",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.manufacturing_disruption",
+    "quote": "A suspension or substantial curtailment of our manufacturing operations could have a significant adverse effect on our financial condition and results of operations. The duration of a suspension of manufacturing operations and a return to our full production schedule will vary.",
+    "driver": "",
+    "secondary": false
+   },
+   {
+    "rf": 9,
+    "heading": "The limited availability of components, labor shortages, public health emergencies, and supplier operating issues have led to intermittent interruptions in our supply chain and an inconsistent production schedule at our facilities.",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.manufacturing_disruption",
+    "quote": "As a result of this disrupted production schedule, we have received and continue to receive claims from our supply base for reimbursement of costs beyond our original agreed terms.",
+    "driver": "supplier cost claims",
+    "secondary": false
+   },
+   {
+    "rf": 10,
+    "heading": "Given the worldwide scope of our supply chain and operations, we and our suppliers face a risk of disruption or operating inefficiencies that may increase costs due to the adverse physical effects of climate change, which are predicted to increase the frequency and severity of weather and other natural events, e.g., wildfires, extended droughts, flooding, and extreme temperatures.",
+    "category": "CLIMATE_NATCAT",
+    "leaf": "CLIMATE_NATCAT.natural_disasters_weather",
+    "quote": "we and our suppliers face a risk of disruption or operating inefficiencies that may increase costs due to the adverse physical effects of climate change, which are predicted to increase the frequency and severity of weather and other natural events",
+    "driver": "climate physical risk",
+    "secondary": false
+   },
+   {
+    "rf": 11,
+    "heading": "Many components used in our products are available only from a single or limited number of suppliers and, therefore, cannot be re-sourced quickly or inexpensively to another supplier (due to long lead times, specialized tooling, rigorous validation requirements, and new contractual commitments that may be required by another supplier before ramping up to provide the components or materials, etc.).",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.single_source",
+    "quote": "Such suppliers also could threaten to disrupt our production as leverage in negotiations.",
+    "driver": "single-source components",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2960,
+ "output_tokens": 1356,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 9.858,
+ "recorded_at": "2026-10-25T19:06:28+0000"
+}

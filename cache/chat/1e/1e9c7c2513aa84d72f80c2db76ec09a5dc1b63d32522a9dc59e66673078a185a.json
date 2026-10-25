@@ -1,0 +1,111 @@
+{
+ "model": "claude-haiku-5-5",
+ "served_model": "claude-haiku-5-5",
+ "content": {
+  "summary": "Tesla, onsemi and Texas Instruments share several risks in the excerpts: foreign currency exchange rate exposure, third-party IP infringement claims, product recall and warranty costs, and cybersecurity breaches of information systems. Debt service burden is also shared by all three, though the TI excerpt on that point is not a debt risk, so only ON and TSLA are supported for leverage. Claims are limited to each company's own excerpts.",
+  "claims": [
+   {
+    "risk": "Foreign currency exchange rate exposure",
+    "company": "ON",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.fx_exposure",
+    "quote": "a significant portion of our cost of revenue and operating expenses are payable in foreign currencies. As a result, currency fluctuations and changes in foreign exchange regulations can have a material adverse effect on our liquidity and financial condition.",
+    "source_ref": "ON-g7"
+   },
+   {
+    "risk": "Foreign currency exchange rate exposure",
+    "company": "TSLA",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.fx_exposure",
+    "quote": "We transact business globally in multiple currencies and have foreign currency risks related to our revenue, costs of revenue, operating expenses and localized subsidiary debt denominated in currencies other than the U.S. dollar.",
+    "source_ref": "TSLA-g11"
+   },
+   {
+    "risk": "Foreign currency exchange rate exposure",
+    "company": "TXN",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.fx_exposure",
+    "quote": "our global operations expose us to periods when the U.S. dollar significantly fluctuates in relation to the non-U.S. currencies in which we transact business.",
+    "source_ref": "TXN-g0"
+   },
+   {
+    "risk": "Third-party IP infringement claims",
+    "company": "ON",
+    "category": "IP_TECH_RIGHTS",
+    "leaf": "IP_TECH_RIGHTS.ip_infringement_claims",
+    "quote": "If our technologies are subject to claims of infringement on the IP rights of others, efforts to address such claims could have a material adverse effect on our results of operations.",
+    "source_ref": "ON-g7"
+   },
+   {
+    "risk": "Third-party IP infringement claims",
+    "company": "TSLA",
+    "category": "IP_TECH_RIGHTS",
+    "leaf": "IP_TECH_RIGHTS.ip_infringement_claims",
+    "quote": "Our competitors or other third parties may hold or obtain patents, copyrights, trademarks or other proprietary rights that could prevent, limit or interfere with our ability to make, use, develop, sell or market our products and services",
+    "source_ref": "TSLA-g11"
+   },
+   {
+    "risk": "Third-party IP infringement claims",
+    "company": "TXN",
+    "category": "IP_TECH_RIGHTS",
+    "leaf": "IP_TECH_RIGHTS.ip_infringement_claims",
+    "quote": "We, directly and indirectly, face infringement claims from third parties, including nonpracticing entities that have acquired patents to pursue enforcement actions against other companies.",
+    "source_ref": "TXN-g5"
+   },
+   {
+    "risk": "Product recall and warranty costs",
+    "company": "ON",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.recalls",
+    "quote": "In addition, if any of our designed products are or are alleged to be defective, we may be required to participate in their recall.",
+    "source_ref": "ON-g6"
+   },
+   {
+    "risk": "Product recall and warranty costs",
+    "company": "TSLA",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.recalls",
+    "quote": "In the future, we may voluntarily or involuntarily initiate recalls or field actions if any of our products are determined by us or a regulator to contain a safety defect or be noncompliant with applicable laws and regulations",
+    "source_ref": "TSLA-g9"
+   },
+   {
+    "risk": "Product recall and warranty costs",
+    "company": "TXN",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.recalls",
+    "quote": "it is possible for a customer to recall a product containing a TI part, for example with respect to products used in automotive applications or handheld electronics, which may cause us to incur costs and expenses relating to the recall.",
+    "source_ref": "TXN-g3"
+   },
+   {
+    "risk": "Cybersecurity breach of information systems",
+    "company": "ON",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "We have experienced and expect to continue to experience disruptions, failures or breaches of our information technology environment, such as those caused by computer viruses, illegal hacking, criminal fraud or impersonation",
+    "source_ref": "ON-g8"
+   },
+   {
+    "risk": "Cybersecurity breach of information systems",
+    "company": "TSLA",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "Our information technology systems or data, or those of our service providers or customers or users could be subject to cyber-attacks or other security incidents, which could result in data breaches, intellectual property theft",
+    "source_ref": "TSLA-g8"
+   },
+   {
+    "risk": "Cybersecurity breach of information systems",
+    "company": "TXN",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "Breaches, disruptions or other incidents relating to our information technology systems or the systems of our customers, suppliers and other third parties could be caused by factors such as computer viruses, ransomware, malware",
+    "source_ref": "TXN-g1"
+   }
+  ]
+ },
+ "input_tokens": 21667,
+ "output_tokens": 1911,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6532,
+ "latency_s": 6.841,
+ "recorded_at": "2026-10-25T19:11:15+0000"
+}

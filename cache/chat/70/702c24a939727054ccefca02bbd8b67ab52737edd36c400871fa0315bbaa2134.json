@@ -1,0 +1,68 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 1,
+    "heading": "If we do not deliver new products, services, technologies, and customer experiences in response to increased competition and changing consumer needs and preferences, our business could suffer.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.new_entrants",
+    "quote": "In addition to our traditional competitors, we must also be responsive to the entrance of start-ups and other non-traditional competitors in the automotive industry, such as software and ridesharing services supported by large technology companies.",
+    "driver": "start-ups and tech companies",
+    "secondary": false
+   },
+   {
+    "rf": 2,
+    "heading": "There can be no assurance that advances in technology will occur in a timely or feasible way, if at all, that others will not acquire similar or superior technologies sooner than we do, or that we will acquire technologies on an exclusive basis or at a significant price advantage.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.technology_change",
+    "quote": "There can be no assurance that advances in technology will occur in a timely or feasible way, if at all, that others will not acquire similar or superior technologies sooner than we do",
+    "driver": "",
+    "secondary": false
+   },
+   {
+    "rf": 3,
+    "heading": "Our ability to attract and retain talented and highly skilled employees is critical to our success and competitiveness.",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.skilled_talent",
+    "quote": "The market for highly skilled workers and leaders in our industry is extremely competitive.",
+    "driver": "software and hardware talent",
+    "secondary": false
+   },
+   {
+    "rf": 4,
+    "heading": "Our ability to maintain profitability is dependent upon our ability to timely fund and introduce new and improved vehicle models that are able to attract a sufficient number of consumers.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.technology_change",
+    "quote": "We operate in a very competitive industry with market participants routinely introducing new and improved vehicle models and features, at decreasing price points, designed to meet rapidly evolving consumer expectations.",
+    "driver": "new vehicle launches",
+    "secondary": false
+   },
+   {
+    "rf": 5,
+    "heading": "Our long-term EV strategy is dependent upon our ability to profitably deliver a strategic portfolio of EVs.",
+    "category": "EMISSIONS_EV_TRANSITION",
+    "leaf": "EMISSIONS_EV_TRANSITION.ev_adoption_pace",
+    "quote": "If we are unable to successfully deliver on our EV strategy, it could materially and adversely affect our results of operations, financial condition, and growth prospects, and could negatively impact our brand and reputation.",
+    "driver": "EV portfolio profitability",
+    "secondary": false
+   },
+   {
+    "rf": 6,
+    "heading": "The success of our long-term EV strategy is dependent on consumer adoption of EVs.",
+    "category": "EMISSIONS_EV_TRANSITION",
+    "leaf": "EMISSIONS_EV_TRANSITION.ev_adoption_pace",
+    "quote": "Consumer adoption of EVs has been slower than anticipated in light of recent U.S. Government policy changes, including the termination of certain consumer tax incentives for EV purchases.",
+    "driver": "EV tax credit termination",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3231,
+ "output_tokens": 1108,
+ "cache_write_tokens": 6701,
+ "cache_read_tokens": 0,
+ "latency_s": 10.463,
+ "recorded_at": "2026-10-25T19:06:15+0000"
+}

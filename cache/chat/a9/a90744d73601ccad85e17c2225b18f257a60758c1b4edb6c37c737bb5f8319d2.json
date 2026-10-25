@@ -1,0 +1,86 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 13,
+    "heading": "Part of our strategy to address these risks includes the continued scaling of EVs in line with consumer demand, which presents additional risks.",
+    "category": "CLIMATE_NATCAT",
+    "leaf": "CLIMATE_NATCAT.natural_disasters_weather",
+    "quote": "increased intensity, frequency, or duration of storms, droughts, wildfires, or other severe weather events as a result of climate change may disrupt our production and the production, logistics, cost, and procurement of products from our suppliers",
+    "driver": "climate-driven severe weather",
+    "secondary": false
+   },
+   {
+    "rf": 14,
+    "heading": "Our business is highly dependent upon global automobile market sales volume, which can be volatile.",
+    "category": "MACRO_DEMAND",
+    "leaf": "MACRO_DEMAND.vehicle_production_volumes",
+    "quote": "Because we have a high proportion of relatively fixed structural costs, small changes in sales volume can have a disproportionately large effect on our profitability.",
+    "driver": "global auto sales volume",
+    "secondary": false
+   },
+   {
+    "rf": 15,
+    "heading": "Inflationary pressures and persistently high prices and uncertain availability of commodities, raw materials, or other inputs used by us and our suppliers, or instability in logistics and related costs, could negatively impact our profitability.",
+    "category": "COMMODITY_INPUTS",
+    "leaf": "COMMODITY_INPUTS.raw_material_prices",
+    "quote": "Increases in prices, including as a result of inflation and rising interest rates, for commodities, raw materials, energy, or other inputs that we and our suppliers use in manufacturing products, systems, components, and parts, such as steel, precious metals, non-ferrous metals",
+    "driver": "steel, metals, critical minerals",
+    "secondary": false
+   },
+   {
+    "rf": 15,
+    "heading": "Inflationary pressures and persistently high prices and uncertain availability of commodities, raw materials, or other inputs used by us and our suppliers, or instability in logistics and related costs, could negatively impact our profitability.",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.logistics",
+    "quote": "or increases in logistics and related costs, have led and may continue to lead to higher production costs for parts, components, and vehicles.",
+    "driver": "logistics costs",
+    "secondary": true
+   },
+   {
+    "rf": 16,
+    "heading": "Tariffs applicable to the automotive industry continue to evolve, including in the U.S., where the government has signaled tariff policy may shift in the future.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.tariffs",
+    "quote": "The U.S. and other governments have implemented import tariffs and tariff-related measures\u2014including on vehicles, parts, raw materials, and other inputs\u2014and have indicated further measures may be under consideration.",
+    "driver": "U.S. auto tariffs, USMCA review",
+    "secondary": false
+   },
+   {
+    "rf": 17,
+    "heading": "We cannot predict with complete precision the breadth of tariffs and related costs that will impact GM in the future.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.tariffs",
+    "quote": "the ultimate impact of tariffs on our business could exceed our current estimates, which could have a material adverse effect on our financial condition, results of operations and cash flows, and our expected financial results.",
+    "driver": "tariff cost uncertainty",
+    "secondary": false
+   },
+   {
+    "rf": 18,
+    "heading": "Our business in China subjects us to unique operational, competitive, regulatory, and economic risks.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.china_exposure",
+    "quote": "this intense competition and an increasingly challenging operating environment negatively impacted the profitability of our operations in China, our China JVs' ability to grow vehicle sales in China, and our ability to generate sustainable equity income from our China JVs.",
+    "driver": "China JVs (SGM)",
+    "secondary": false
+   },
+   {
+    "rf": 19,
+    "heading": "Certain risks and uncertainties of doing business in China are solely within the control of the Chinese government, and Chinese law regulates the scope of our investments and business conducted within China.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.china_exposure",
+    "quote": "The Chinese government may adopt new regulations that may impact entities operating in China or the ability of non-Chinese entities to obtain critical materials from China, potentially with little advance notice.",
+    "driver": "Chinese government regulation",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3122,
+ "output_tokens": 1540,
+ "cache_write_tokens": 6701,
+ "cache_read_tokens": 0,
+ "latency_s": 13.343,
+ "recorded_at": "2026-10-25T19:06:18+0000"
+}

@@ -1,0 +1,199 @@
+{
+ "model": "claude-haiku-5-5",
+ "served_model": "claude-haiku-5-5",
+ "content": {
+  "summary": "The rows show several shared risks across the five companies: tariff-driven cost increases (BWA, F, LEA, MCHP, ON), product recall and warranty costs (BWA, F, LEA, MCHP, ON), cybersecurity breaches of IT systems (all five), foreign currency fluctuation (BWA, LEA, MCHP, ON), and skilled talent retention (BWA, F, LEA, MCHP). Litigation and acquisition integration also recur, but the rows only show tariff/recall/cyber/FX/talent for the named set, and quotes are drawn from each company's own excerpts.",
+  "claims": [
+   {
+    "risk": "Tariff-driven cost increases",
+    "company": "BWA",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.tariffs",
+    "quote": "These tariffs have increased the cost of raw materials and components we purchase, and to the extent the tariffs announced to date or announced in the future become or remain effective and are maintained, these tariffs would likely further increase",
+    "source_ref": "BWA-g3"
+   },
+   {
+    "risk": "Tariff-driven cost increases",
+    "company": "F",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.tariffs",
+    "quote": "Tariffs implemented to date in the United States and elsewhere have caused significant disruption, increased costs, and uncertainty in the automotive industry, including for Ford, other OEMs, suppliers, and dealers, as well as customers.",
+    "source_ref": "F-g8"
+   },
+   {
+    "risk": "Tariff-driven cost increases",
+    "company": "LEA",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.tariffs",
+    "quote": "tariffs announced, implemented or threatened by the current U.S. administration apply to (a) the countries in which we do business or from which we purchase, either directly or indirectly, materials or components, including China, Mexico and Canada",
+    "source_ref": "LEA-g1"
+   },
+   {
+    "risk": "Tariff-driven cost increases",
+    "company": "MCHP",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.tariffs",
+    "quote": "many inputs used in semiconductor manufacturing - including chemicals, metals, and equipment - remain subject to country specific tariffs or may become subject to new duties.",
+    "source_ref": "MCHP-g2"
+   },
+   {
+    "risk": "Tariff-driven cost increases",
+    "company": "ON",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.tariffs",
+    "quote": "tariffs on components that we import from certain nations that have imposed, or may in the future impose, tariffs may adversely affect our profitability unless we are able to exclude such components from the tariffs",
+    "source_ref": "ON-g5"
+   },
+   {
+    "risk": "Product recall and warranty costs",
+    "company": "BWA",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.warranty_costs",
+    "quote": "We provide product warranties to our customers for some of our products. Under these product warranties, we may be required to bear costs and expenses for the repair or replacement of these products.",
+    "source_ref": "BWA-g6"
+   },
+   {
+    "risk": "Product recall and warranty costs",
+    "company": "F",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.recalls",
+    "quote": "Ford\u2019s products have been and could continue to be affected by defects that result in recall campaigns, increased warranty costs, or delays in new model launches",
+    "source_ref": "F-g0"
+   },
+   {
+    "risk": "Product recall and warranty costs",
+    "company": "LEA",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.recalls",
+    "quote": "A significant product liability lawsuit, warranty claim or product recall involving us or one of our major customers could adversely affect our financial performance.",
+    "source_ref": "LEA-g9"
+   },
+   {
+    "risk": "Product recall and warranty costs",
+    "company": "MCHP",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.product_liability_defects",
+    "quote": "We face exposure to warranty and product liability claims if our products fail to perform as expected or their failure results, or is alleged to result, in bodily injury or property damage (or both).",
+    "source_ref": "MCHP-g20"
+   },
+   {
+    "risk": "Product recall and warranty costs",
+    "company": "ON",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.product_liability_defects",
+    "quote": "Payments we may make in connection with these customer claims may adversely affect the results of our operations.",
+    "source_ref": "MCHP-g20"
+   },
+   {
+    "risk": "Cybersecurity breach of IT systems",
+    "company": "BWA",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "IT systems are vulnerable to disruptions, including those resulting from natural disasters, cyber-attacks or failures in third-party provided services.",
+    "source_ref": "BWA-g4"
+   },
+   {
+    "risk": "Cybersecurity breach of IT systems",
+    "company": "F",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "we, our suppliers, service providers, and dealers have been the target of cybersecurity incidents and such threats are continuing and evolving",
+    "source_ref": "F-g7"
+   },
+   {
+    "risk": "Cybersecurity breach of IT systems",
+    "company": "LEA",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "ransomware or other attacks that are intended to disrupt our and our customers' business operations are becoming increasingly prevalent, particularly for manufacturing companies",
+    "source_ref": "LEA-g5"
+   },
+   {
+    "risk": "Cybersecurity breach of IT systems",
+    "company": "MCHP",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "Any improper handling of confidential data, or significant disruption to our systems or networks, including, but not limited to, any that may relate to new system implementations, computer viruses, security breaches or incidents, cyber-attacks",
+    "source_ref": "MCHP-g14"
+   },
+   {
+    "risk": "Cybersecurity breach of IT systems",
+    "company": "ON",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "Disruptions or breaches of our information technology systems could irreparably damage our reputation and our business, expose us to liability and materially adversely affect our results of operations.",
+    "source_ref": "ON-g8"
+   },
+   {
+    "risk": "Foreign currency exchange rate fluctuations",
+    "company": "BWA",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.fx_exposure",
+    "quote": "Significant foreign currency fluctuations and the associated translation of those foreign currencies to U.S. Dollars could adversely affect our business.",
+    "source_ref": "BWA-g7"
+   },
+   {
+    "risk": "Foreign currency exchange rate fluctuations",
+    "company": "LEA",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.fx_exposure",
+    "quote": "currency exchange rate fluctuations, discrepancies in commodity pricing between different exchanges, currency controls and the ability to economically hedge currencies",
+    "source_ref": "LEA-g3"
+   },
+   {
+    "risk": "Foreign currency exchange rate fluctuations",
+    "company": "MCHP",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.fx_exposure",
+    "quote": "the value of our non-U.S. dollar transactions can have an adverse effect on our results of operations and financial condition.",
+    "source_ref": "MCHP-g29"
+   },
+   {
+    "risk": "Foreign currency exchange rate fluctuations",
+    "company": "ON",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.fx_exposure",
+    "quote": "a significant portion of our cost of revenue and operating expenses are payable in foreign currencies. As a result, currency fluctuations and changes in foreign exchange regulations can have a material adverse effect",
+    "source_ref": "ON-g7"
+   },
+   {
+    "risk": "Skilled talent retention",
+    "company": "BWA",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.skilled_talent",
+    "quote": "any unplanned turnover or inability to attract and retain key employees and employees with engineering, technical and software capabilities in numbers sufficient for our needs could adversely affect our business.",
+    "source_ref": "BWA-g5"
+   },
+   {
+    "risk": "Skilled talent retention",
+    "company": "F",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.skilled_talent",
+    "quote": "If we lose existing employees, are unable to attract talent with needed skills, or we are unable to develop existing employees, particularly with the introduction of new technologies",
+    "source_ref": "F-g6"
+   },
+   {
+    "risk": "Skilled talent retention",
+    "company": "LEA",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.skilled_talent",
+    "quote": "Failure to attract, develop, engage and retain qualified employees, whether as a result of an insufficient number of qualified applicants, difficulty in recruiting new employees",
+    "source_ref": "LEA-g3"
+   },
+   {
+    "risk": "Skilled talent retention",
+    "company": "MCHP",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.skilled_talent",
+    "quote": "Our failure to attract and retain hardware and software engineers, as well as sales and marketing personnel, could delay product development and introduction",
+    "source_ref": "MCHP-g13"
+   }
+  ]
+ },
+ "input_tokens": 25138,
+ "output_tokens": 3374,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6532,
+ "latency_s": 11.724,
+ "recorded_at": "2026-10-25T19:11:28+0000"
+}

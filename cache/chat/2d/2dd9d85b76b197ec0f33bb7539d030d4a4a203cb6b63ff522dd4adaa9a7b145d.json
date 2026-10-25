@@ -1,0 +1,59 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 27,
+    "heading": "Security breaches and other disruptions of our in-vehicle systems could impact the safety of our customers and reduce confidence in GM and its products.",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.product_cybersecurity",
+    "quote": "hackers and other malicious actors have attempted, and we expect will attempt in the future, to gain unauthorized access to modify, alter, and use networks, vehicle software, or their systems to gain control of, or to change, our vehicles\u2019 functionality",
+    "driver": "in-vehicle systems hacking",
+    "secondary": false
+   },
+   {
+    "rf": 28,
+    "heading": "Our enterprise data practices, including the collection, use, sharing, and security of the personal or other information of our customers, employees, and suppliers, are subject to increasingly complex, restrictive, and punitive regulations in all key market regions.",
+    "category": "PRIVACY_DATA",
+    "leaf": "PRIVACY_DATA.privacy_regulation",
+    "quote": "the failure to maintain compliant data practices could result in consumer complaints, private litigation, and regulatory inquiry resulting in civil or criminal penalties, as well as have a negative impact on our brand or result in other harm to our business.",
+    "driver": "CCPA, GDPR, EU AI Act",
+    "secondary": false
+   },
+   {
+    "rf": 29,
+    "heading": "Our operations and products are subject to extensive laws, regulations, and policies, including those related to vehicle emissions and fuel economy standards, which can significantly increase our costs and affect how we do business.",
+    "category": "EMISSIONS_EV_TRANSITION",
+    "leaf": "EMISSIONS_EV_TRANSITION.emissions_regulation",
+    "quote": "We are significantly affected by governmental regulations on a global basis that can increase costs related to the production of our vehicles and affect our product portfolio, particularly regulations relating to fuel economy standards and GHG emissions.",
+    "driver": "fuel economy and GHG standards",
+    "secondary": false
+   },
+   {
+    "rf": 30,
+    "heading": "In the current uncertain regulatory framework, compliance costs under existing and potential new regulations for which we may be responsible and that are not reasonably estimable could be substantial.",
+    "category": "EMISSIONS_EV_TRANSITION",
+    "leaf": "EMISSIONS_EV_TRANSITION.emissions_regulation",
+    "quote": "Alleged violations of fuel economy or vehicle emission standards could result in legal proceedings, the recall of one or more of our products, negotiated remedial actions, fines and penalties, restricted product offerings, or a combination of any of those items.",
+    "driver": "emission standards violations",
+    "secondary": false
+   },
+   {
+    "rf": 31,
+    "heading": "We could be materially adversely affected by unusual or significant litigation, governmental investigations, or other proceedings.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.litigation_investigations",
+    "quote": "A negative outcome in one or more of these proceedings could result in the imposition of damages, including punitive damages, fines, reputational harm, civil lawsuits, and criminal penalties, interruptions of business, modification of business practices, equitable remedies, and other sanctions against us or our personnel",
+    "driver": "",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3301,
+ "output_tokens": 1078,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 8.116,
+ "recorded_at": "2026-10-25T19:06:24+0000"
+}

@@ -353,3 +353,26 @@
 {"step": "Ask the graph: the fixed screen-4 questions", "stage": "graph.qa", "model": "claude-haiku-5-5", "usd": 0.00216, "at": "2026-10-25T18:48:53+0000"}
 {"step": "Ask the graph: the fixed screen-4 questions", "stage": "graph.qa", "model": "claude-haiku-5-5", "usd": 0.004268, "at": "2026-10-25T18:49:03+0000"}
 {"step": "Ask the graph: the fixed screen-4 questions", "stage": "graph.qa", "model": "claude-haiku-5-5", "usd": 0.005581, "at": "2026-10-25T18:49:19+0000"}
+{"step": "Run A re-freeze: GM and F paragraph split", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.057029, "at": "2026-10-25T19:06:12+0000"}
+{"step": "Run A re-freeze: GM and F paragraph split", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.068589, "at": "2026-10-25T19:06:15+0000"}
+{"step": "Run A re-freeze: GM and F paragraph split", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.076045, "at": "2026-10-25T19:06:18+0000"}
+{"step": "Run A re-freeze: GM and F paragraph split", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.076793, "at": "2026-10-25T19:06:18+0000"}
+{"step": "Run A re-freeze: GM and F paragraph split", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.030896, "at": "2026-10-25T19:06:19+0000"}
+{"step": "Run A re-freeze: GM and F paragraph split", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.036104, "at": "2026-10-25T19:06:24+0000"}
+{"step": "Run A re-freeze: GM and F paragraph split", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.040572, "at": "2026-10-25T19:06:27+0000"}
+{"step": "Run A re-freeze: GM and F paragraph split", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.0428, "at": "2026-10-25T19:06:28+0000"}
+{"step": "Run A re-freeze: GM and F paragraph split", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.0403, "at": "2026-10-25T19:06:28+0000"}
+{"step": "Run A re-freeze: GM and F paragraph split", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.029644, "at": "2026-10-25T19:06:30+0000"}
+{"step": "Run A re-freeze: GM and F paragraph split", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.026228, "at": "2026-10-25T19:06:33+0000"}
+{"step": "Run A re-freeze: GM and F paragraph split", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.032428, "at": "2026-10-25T19:06:35+0000"}
+{"step": "Run A re-freeze: GM and F paragraph split", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.03628, "at": "2026-10-25T19:06:37+0000"}
+{"step": "Run A re-freeze: GM and F paragraph split", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.039308, "at": "2026-10-25T19:06:38+0000"}
+{"step": "Run A re-freeze: GM and F paragraph split", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.024368, "at": "2026-10-25T19:06:40+0000"}
+{"step": "Run A re-freeze: GM and F paragraph split", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.007468, "at": "2026-10-25T19:06:41+0000"}
+{"step": "Run A re-freeze: GM and F paragraph split", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.0399, "at": "2026-10-25T19:06:42+0000"}
+{"step": "Run A re-freeze: GM and F paragraph split", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.041772, "at": "2026-10-25T19:06:46+0000"}
+{"step": "Run A re-freeze: approach 2 ask after the graph rebuild", "stage": "graph.ask", "model": "claude-opus-5-5", "usd": 0.433419, "at": "2026-10-25T19:09:38+0000"}
+{"step": "Ask the graph again: evidence in a stable order", "stage": "graph.qa", "model": "claude-haiku-5-5", "usd": 0.00342, "at": "2026-10-25T19:11:05+0000"}
+{"step": "Ask the graph again: evidence in a stable order", "stage": "graph.qa", "model": "claude-haiku-5-5", "usd": 0.001528, "at": "2026-10-25T19:11:08+0000"}
+{"step": "Ask the graph again: evidence in a stable order", "stage": "graph.qa", "model": "claude-haiku-5-5", "usd": 0.003775, "at": "2026-10-25T19:11:15+0000"}
+{"step": "Ask the graph again: evidence in a stable order", "stage": "graph.qa", "model": "claude-haiku-5-5", "usd": 0.004854, "at": "2026-10-25T19:11:28+0000"}

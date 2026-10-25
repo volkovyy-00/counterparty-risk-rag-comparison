@@ -1,0 +1,77 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 7,
+    "heading": "Our near-term profitability is dependent upon the success of our current line of vehicles, particularly our full-size ICE SUVs and full-size ICE pickup trucks.",
+    "category": "MACRO_DEMAND",
+    "leaf": "MACRO_DEMAND.vehicle_production_volumes",
+    "quote": "we currently recognize the highest profit margins on our full-size ICE SUVs and full-size ICE pickup trucks. As a result, our success is dependent upon our ability to sell higher margin vehicles in sufficient volumes.",
+    "driver": "full-size ICE trucks/SUVs",
+    "secondary": false
+   },
+   {
+    "rf": 8,
+    "heading": "We operate in a highly competitive industry that has historically had excess manufacturing capacity, and attempts by our competitors to sell more vehicles could have a significant negative effect on our vehicle pricing, market share, and results of operations.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.price_competition",
+    "quote": "overall manufacturing capacity in the automotive industry has historically far exceeded demand.",
+    "driver": "industry excess capacity",
+    "secondary": false
+   },
+   {
+    "rf": 9,
+    "heading": "Many manufacturers, including GM, have relatively high fixed labor costs as well as limitations on their ability to efficiently close facilities and reduce fixed costs, including as a result of collective bargaining agreements.",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.labor_relations_unions",
+    "quote": "Many manufacturers, including GM, have relatively high fixed labor costs as well as limitations on their ability to efficiently close facilities and reduce fixed costs, including as a result of collective bargaining agreements.",
+    "driver": "collective bargaining agreements",
+    "secondary": false
+   },
+   {
+    "rf": 10,
+    "heading": "Manufacturers in countries that have lower production costs, such as China and India, have become competitors in key emerging markets and have begun offering their products in established markets, as well as low-cost alternatives to established entry-level automobiles.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.new_entrants",
+    "quote": "These actions have had, and are expected to continue to have, a significant negative effect on our vehicle pricing, market share, and results of operations in these markets.",
+    "driver": "Chinese and Indian automakers",
+    "secondary": false
+   },
+   {
+    "rf": 11,
+    "heading": "We refocused our AV strategy on personal vehicles and the execution of this strategy is dependent upon our ability to successfully mitigate unique technological, operational, regulatory, and competitive risks.",
+    "category": "AI_EMERGING_TECH",
+    "leaf": "AI_EMERGING_TECH.autonomous_driving",
+    "quote": "we expect that our AV and ADAS development activities will continue to require significant capital investments and remain subject to a variety of risks inherent with the development of new technologies, including our ability to continue to develop self-driving software and hardware",
+    "driver": "personal AV strategy",
+    "secondary": false
+   },
+   {
+    "rf": 12,
+    "heading": "We are subject to risks associated with climate change, including evolving regulation of GHG emissions and changing consumer preferences and demand, and the potential increased impacts of severe weather events on our operations and infrastructure.",
+    "category": "EMISSIONS_EV_TRANSITION",
+    "leaf": "EMISSIONS_EV_TRANSITION.emissions_regulation",
+    "quote": "such regulations could require us to further limit emissions associated with customer use of products we sell, change our manufacturing processes or product portfolio, or undertake other activities that may require us to incur additional expense, including the purchase of emissions credits or the payment of penalties",
+    "driver": "GHG emissions rules",
+    "secondary": false
+   },
+   {
+    "rf": 12,
+    "heading": "We are subject to risks associated with climate change, including evolving regulation of GHG emissions and changing consumer preferences and demand, and the potential increased impacts of severe weather events on our operations and infrastructure.",
+    "category": "CLIMATE_NATCAT",
+    "leaf": "CLIMATE_NATCAT.natural_disasters_weather",
+    "quote": "the potential increased impacts of severe weather events on our operations and infrastructure.",
+    "driver": "severe weather",
+    "secondary": true
+   }
+  ]
+ },
+ "input_tokens": 3480,
+ "output_tokens": 1431,
+ "cache_write_tokens": 6701,
+ "cache_read_tokens": 0,
+ "latency_s": 12.876,
+ "recorded_at": "2026-10-25T19:06:18+0000"
+}
