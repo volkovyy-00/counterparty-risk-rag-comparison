@@ -232,7 +232,7 @@ function screen2() {
   const ed = DATA.dq.edgar, ws = DATA.dq.workshop;
   const n = s => ed.filter(i => i.severity === s).length;
   const order = {ERROR:0, WARN:1, INFO:2};
-  const pick = ed.slice().sort((a, b) => order[a.severity] - order[b.severity]).slice(0, 8);
+  const pick = ed.slice().sort((a, b) => order[a.severity] - order[b.severity]).slice(0, 6);
   const pri = {document_identity:0, ticker_mismatch:1, duplicate_company:2, file_missing:3, mixed_years:4, file_unreferenced:5};
   const wsPick = ws.slice().sort((a, b) => (pri[a.check] ?? 9) - (pri[b.check] ?? 9)).slice(0, 6);
   const item = i => `<div class="issue"><span class="sev ${i.severity}">${i.severity}</span><span class="ck">${esc(i.check)}</span> · <b>${esc(short(i.subject, 40))}</b><br>
@@ -240,7 +240,7 @@ function screen2() {
   return `<div class="row"><div class="col panel" style="height:900px"><h3>SEC EDGAR set – ${DATA.filings.length} filings</h3>
     <div class="counts"><div class="count"><b>${n("ERROR")}</b>errors</div><div class="count"><b>${n("WARN")}</b>warnings</div><div class="count"><b>${n("INFO")}</b>notes</div></div>
     ${pick.map(item).join("") || "<div class='muted'>no findings</div>"}
-    <div class="small muted" style="margin-top:8px">Logged, never auto-fixed. Full list: results/data_quality_edgar_latest.md</div></div>
+    <div class="small muted" style="margin-top:8px">${ed.length > pick.length ? `+ ${ed.length - pick.length} more · ` : ""}Logged, never auto-fixed. Full list: results/data_quality_edgar_latest.md</div></div>
     <div class="col panel" style="height:900px"><h3>Same gate, the workshop sample</h3>
     <div class="small muted" style="margin-bottom:6px">The public sample this demo started from – caught before any model saw it.</div>
     ${wsPick.map(item).join("")}</div></div>`;
