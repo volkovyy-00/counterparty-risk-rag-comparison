@@ -29,3 +29,6 @@ demo/fallback/
 # local Neo4j data and dumps
 neo4j/
 *.dump
+
+# packed Release assets (scripts/build_artifacts.sh)
+dist/
