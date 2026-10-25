@@ -209,7 +209,7 @@ def build(reset=False, record=True, filings=None):
               "usage": llm.METER.summary("graph.build", "graph.resolve"),
               "usage_by_stage": {s: llm.METER.summary(s) for s in ("graph.build", "graph.resolve")},
               "graph": stats, **extra}
-    config.RESULTS_DIR.mkdir(exist_ok=True)
+    config.RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     (config.RESULTS_DIR / f"graph_build_{config.CORPUS}.json").write_text(json.dumps(record, indent=2))
     print(json.dumps({k: v for k, v in record.items() if not k.startswith("risk_factor_names")}, indent=2))
     return stats
@@ -271,7 +271,7 @@ def _build_v2(drv, filings):
                  "tickers": [f["ticker"] for f in filings],
                  "chunks": [{k: c[k] for k in ("id", "ticker", "index", "start", "end", "heading")} for c in chunks],
                  "rejected": len(rejected)})
-    config.RESULTS_DIR.mkdir(exist_ok=True)
+    config.RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     snapshot_path().write_text(json.dumps(snap, indent=1))
 
     by_ticker = {f["ticker"]: f for f in filings}
