@@ -3,6 +3,7 @@
     python src/graph_ab.py                      # prints the estimate and STOPS (no model call)
     python src/graph_ab.py --confirm-usd 5      # runs both builds if the estimate fits, then writes the report
     python src/graph_ab.py --report             # rewrite the report from finished runs (no model call)
+    python src/graph_ab.py --only graph-v2 --confirm-usd 3   # rebuild one arm, e.g. after a resolver change
 
 Same model, same LLM_EFFORT, cache on (the B calls are reused by a later full v2 build of these filings).
 Each arm writes to results/graph_ab/<version>/ and builds into the local Neo4j (each build resets it).
@@ -130,6 +131,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--confirm-usd", type=float, default=0.0)
     parser.add_argument("--report", action="store_true")
+    parser.add_argument("--only", choices=list(VERSIONS), help="rebuild one arm; the report reuses the other's files")
     args = parser.parse_args()
     if args.report:
         report()
@@ -138,9 +140,12 @@ def main():
     ab = estimate_cost.graph_ab(load_corpus(), measure)
     print(f"Graph A/B estimate ({config.LLM_MODEL}, {', '.join(ab['tickers'])}): A ${ab['graph-v1-workshop']:.2f} + "
           f"B ${ab['graph-v2']:.2f} = ${ab['total_usd']:.2f} (output tokens assumed; see estimate_cost.py)")
-    if ab["total_usd"] > args.confirm_usd:
-        raise SystemExit(f"Nothing was spent. Re-run with --confirm-usd N (N >= {ab['total_usd']:.2f}) to go ahead.")
-    for version in VERSIONS:
+    need = ab[args.only] if args.only else ab["total_usd"]
+    if args.only:
+        print(f"Only {args.only}: ${need:.2f} (cached calls replay at no cost; the estimate ignores the cache)")
+    if need > args.confirm_usd:
+        raise SystemExit(f"Nothing was spent. Re-run with --confirm-usd N (N >= {need:.2f}) to go ahead.")
+    for version in ([args.only] if args.only else VERSIONS):
         run_arm(version)
     report()
 

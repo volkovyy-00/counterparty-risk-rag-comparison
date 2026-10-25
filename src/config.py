@@ -105,7 +105,7 @@ GRAPH_CHUNK_OVERLAP = int(env("GRAPH_CHUNK_OVERLAP", "200"))  # v1
 GRAPH_V2_CHUNK_CHARS = int(env("GRAPH_V2_CHUNK_CHARS", "6000"))  # v2: whole paragraphs packed up to this, no overlap
 # exact | fuzzy (RapidFuzz WRatio >= 0.8, the library's resolver) | llm (candidates, then an LLM decides, v2 only)
 GRAPH_RESOLVER = env("GRAPH_RESOLVER", "llm" if GRAPH_PROMPT_VERSION == "graph-v2" else "fuzzy")
-GRAPH_SIM_MIN = float(env("GRAPH_SIM_MIN", "0.80"))  # embedding cosine for merge candidates
+GRAPH_SIM_MIN = float(env("GRAPH_SIM_MIN", "0.75"))  # embedding cosine for merge candidates
 GRAPH_SIM_TOPK = int(env("GRAPH_SIM_TOPK", "8"))
 GRAPH_LEX_MIN = int(env("GRAPH_LEX_MIN", "90"))  # RapidFuzz token_set_ratio for merge candidates
 GRAPH_COMPONENT_MAX = int(env("GRAPH_COMPONENT_MAX", "25"))  # larger candidate groups are split before the LLM sees them

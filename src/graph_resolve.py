@@ -33,8 +33,11 @@ RESOLVE_SCHEMA = {
 RESOLVE_SYSTEM = """You decide which risk names extracted from different 10-K Risk Factors sections describe the \
 same risk. You get a list of candidates, each as: id | risk name | what is specific to the company | ticker.
 
-Merge members into one group ONLY if they describe the same driver AND the same mechanism of harm. Keep apart \
-adjacent or opposite concepts, even when the words overlap:
+Merge members into one group when a credit analyst comparing companies would count them as the same risk: the \
+same driver AND the same way it harms the business. Differences in wording, company-specific detail, product or \
+severity are not a reason to keep members apart (e.g. "cyclical semiconductor demand volatility" and \
+"semiconductor overcapacity downturns"; "emissions regulation costs" and "emissions non-compliance penalties"). \
+Keep apart adjacent or opposite concepts, even when the words overlap:
 - supplier concentration vs customer concentration
 - shortage of an input vs price inflation of the same input
 - physical climate risk (weather, natural disasters) vs climate regulation (emission standards, carbon rules)
@@ -270,7 +273,7 @@ def resolve_risks(mentions, filings, resolver=None):
 def _aliases():
     path = config.CONFIG_DIR / "graph_aliases.yaml"
     table = yaml.safe_load(path.read_text()) if path.exists() else {}
-    return {a.lower(): canon for canon, names in (table or {}).items() for a in [canon, *(names or [])]}
+    return {_driver_key(a): canon for canon, names in (table or {}).items() for a in [canon, *(names or [])]}
 
 
 def _driver_key(name):

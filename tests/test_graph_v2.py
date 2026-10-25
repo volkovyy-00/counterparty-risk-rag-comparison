@@ -162,11 +162,14 @@ def test_driver_aliases_merge_before_any_model_call(offline):
     ms = [dict(_mention(0, "AAA", "X"), drivers=[{"name": "PRC", "type": "GEOGRAPHY"}]),
           dict(_mention(1, "BBB", "Y"), drivers=[{"name": "China", "type": "GEOGRAPHY"},
                                                  {"name": "IRA", "type": "REGULATION_POLICY"}]),
-          dict(_mention(2, "CCC", "Z"), drivers=[{"name": "Taiwan", "type": "GEOGRAPHY"}])]
+          dict(_mention(2, "CCC", "Z"), drivers=[{"name": "Taiwan", "type": "GEOGRAPHY"},
+                                                 {"name": "U.S.", "type": "GEOGRAPHY"}]),
+          dict(_mention(3, "DDD", "W"), drivers=[{"name": "United States", "type": "GEOGRAPHY"}])]
     drivers, _, _ = graph_resolve.resolve_drivers(ms, resolver="exact")
     by = {d["name"]: d for d in drivers}
-    assert set(by) == {"China", "Inflation Reduction Act", "Taiwan"}
+    assert set(by) == {"China", "Inflation Reduction Act", "Taiwan", "United States"}
     assert len(by["China"]["mention_ids"]) == 2
+    assert len(by["United States"]["mention_ids"]) == 2  # "U.S." keys as "u.s" (trailing dot stripped)
 
 
 # --------------------------------------------------------------------------- metrics, hand check, export
