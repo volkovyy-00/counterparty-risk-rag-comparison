@@ -1,0 +1,2293 @@
+{
+ "approach": "2_graphrag",
+ "summary": "These auto and semiconductor counterparties are linked by shared exposures to trade and geopolitics (tariffs, export controls, US-China tensions), supply-chain concentration (single-source suppliers, own-plant disruption), funding (credit ratings, leverage), tax changes, government incentive clawbacks, natural disasters, product cybersecurity, product liability and anti-corruption compliance. Each risk is shared by three to five of APTV, BWA, F, GM, LEA, MCHP, NXPI, ON, TSLA and TXN, as detailed in the claims.",
+ "raw_claims": [
+  {
+   "risk": "Anti-corruption compliance violations",
+   "company": "BWA",
+   "category": "REGULATION_LEGAL",
+   "leaf": "REGULATION_LEGAL.anti_corruption_compliance",
+   "quote": "Compliance-related issues in certain countries associated with laws such as the Foreign Corrupt Practices Act and other anti-corruption laws could adversely affect our business.",
+   "source_ref": "BWA-g7"
+  },
+  {
+   "risk": "Anti-corruption compliance violations",
+   "company": "ON",
+   "category": "REGULATION_LEGAL",
+   "leaf": "REGULATION_LEGAL.anti_corruption_compliance",
+   "quote": "Our failure to comply with anti-corruption laws could result in penalties that could harm our reputation and have a material adverse effect on our business, financial condition and results of operations.",
+   "source_ref": "ON-g10"
+  },
+  {
+   "risk": "Credit rating downgrade",
+   "company": "BWA",
+   "category": "RATES_FX_FUNDING",
+   "leaf": "RATES_FX_FUNDING.credit_ratings",
+   "quote": "Our revolving credit agreement includes an increase in interest rates if the ratings for our debt are downgraded. The interest cost on our revolving credit agreement is based on a rating grid.",
+   "source_ref": "BWA-g8"
+  },
+  {
+   "risk": "Credit rating downgrade",
+   "company": "MCHP",
+   "category": "RATES_FX_FUNDING",
+   "leaf": "RATES_FX_FUNDING.credit_ratings",
+   "quote": "A downgrade of our credit rating by a major credit rating agency could result in increased borrowing costs and could adversely affect our ability to access the debt markets to refinance our existing debt or finance future debt.",
+   "source_ref": "MCHP-g28"
+  },
+  {
+   "risk": "Credit rating downgrade",
+   "company": "NXPI",
+   "category": "RATES_FX_FUNDING",
+   "leaf": "RATES_FX_FUNDING.credit_ratings",
+   "quote": "Actual or anticipated changes or downgrades in our credit ratings, including any announcement that our ratings are under further review for a downgrade, could affect our market value and/or increase our corporate borrowing costs.",
+   "source_ref": "NXPI-g14"
+  },
+  {
+   "risk": "Single-source supplier dependence",
+   "company": "F",
+   "category": "SUPPLY_CHAIN",
+   "leaf": "SUPPLY_CHAIN.single_source",
+   "quote": "Many components used in our products are available only from a single or limited number of suppliers and, therefore, cannot be re-sourced quickly or inexpensively to another supplier",
+   "source_ref": "F-g3"
+  },
+  {
+   "risk": "Single-source supplier dependence",
+   "company": "GM",
+   "category": "SUPPLY_CHAIN",
+   "leaf": "SUPPLY_CHAIN.single_source",
+   "quote": "In some instances, we purchase systems, components, raw materials, and parts that are ultimately derived from a single source and may be at an increased risk for supply disruptions.",
+   "source_ref": "GM-g7"
+  },
+  {
+   "risk": "Single-source supplier dependence",
+   "company": "APTV",
+   "category": "SUPPLY_CHAIN",
+   "leaf": "SUPPLY_CHAIN.single_source",
+   "quote": "Any significant disruption in our supplier relationships, particularly relationships with sole-source suppliers, could harm our profitability.",
+   "source_ref": "APTV-g7"
+  },
+  {
+   "risk": "Own manufacturing disruption",
+   "company": "NXPI",
+   "category": "SUPPLY_CHAIN",
+   "leaf": "SUPPLY_CHAIN.manufacturing_disruption",
+   "quote": "Difficulties in the production process can reduce yields or interrupt production, and, as a result of such problems, we may on occasion not be able to deliver products or do so in a timely or cost-effective or competitive manner.",
+   "source_ref": "NXPI-g5"
+  },
+  {
+   "risk": "Government incentive clawback",
+   "company": "F",
+   "category": "REGULATION_LEGAL",
+   "leaf": "REGULATION_LEGAL.government_incentives",
+   "quote": "The impact of government incentives on Ford\u2019s business has been and could continue to be significant, and Ford\u2019s receipt of government incentives could be subject to reduction, termination, or clawback.",
+   "source_ref": "F-g13"
+  },
+  {
+   "risk": "Government incentive clawback",
+   "company": "NXPI",
+   "category": "REGULATION_LEGAL",
+   "leaf": "REGULATION_LEGAL.government_incentives",
+   "quote": "These programs are subject to periodic review by the relevant governments, and if any of these programs are curtailed or discontinued, this could have a material adverse effect on our business, financial condition and results of operations.",
+   "source_ref": "NXPI-g6"
+  },
+  {
+   "risk": "Natural disaster disruption",
+   "company": "TXN",
+   "category": "CLIMATE_NATCAT",
+   "leaf": "CLIMATE_NATCAT.natural_disasters_weather",
+   "quote": "A natural disaster that results in a prolonged disruption, particularly where we have principal manufacturing and design operations, as listed in the Properties section in Item 2, may adversely affect our results and financial condition.",
+   "source_ref": "TXN-g2"
+  },
+  {
+   "risk": "Natural disaster disruption",
+   "company": "GM",
+   "category": "CLIMATE_NATCAT",
+   "leaf": "CLIMATE_NATCAT.natural_disasters_weather",
+   "quote": "In addition, increased intensity, frequency, or duration of storms, droughts, wildfires, or other severe weather events as a result of climate change may disrupt our production and the production, logistics, cost, and procurement of products from our suppliers",
+   "source_ref": "GM-g4"
+  },
+  {
+   "risk": "Product cybersecurity vulnerabilities",
+   "company": "BWA",
+   "category": "CYBER_IT",
+   "leaf": "CYBER_IT.product_cybersecurity",
+   "quote": "Failure of such products to effectively protect against attacks targeted at our products can negatively impact our brand and our business or results of operation.",
+   "source_ref": "BWA-g4"
+  },
+  {
+   "risk": "Product cybersecurity vulnerabilities",
+   "company": "TSLA",
+   "category": "CYBER_IT",
+   "leaf": "CYBER_IT.product_cybersecurity",
+   "quote": "Any unauthorized access to or control of our products or their systems or any loss of data could result in legal claims or government investigations.",
+   "source_ref": "TSLA-g9"
+  },
+  {
+   "risk": "US-China supply chain tensions",
+   "company": "LEA",
+   "category": "GEOPOLITICAL_TRADE",
+   "leaf": "GEOPOLITICAL_TRADE.china_exposure",
+   "quote": "Also, China presents unique risks to U.S. automotive manufacturers due to the strain in U.S.-China relations and the level of integration with key components in our global supply chain.",
+   "source_ref": "LEA-g2"
+  },
+  {
+   "risk": "Export controls",
+   "company": "MCHP",
+   "category": "GEOPOLITICAL_TRADE",
+   "leaf": "GEOPOLITICAL_TRADE.export_controls",
+   "quote": "Licenses or license exceptions are often required for the shipment of our products to certain countries as well as for releases of our technology and software to foreign nationals.",
+   "source_ref": "MCHP-g21"
+  },
+  {
+   "risk": "Global minimum tax changes",
+   "company": "NXPI",
+   "category": "TAX",
+   "leaf": "TAX.tax_law_changes",
+   "quote": "As a result, the tax laws in the European Union, U.S. and other countries in which we and our affiliates do business could change on a prospective or retroactive basis, and any such changes could adversely affect us and our affiliates.",
+   "source_ref": "NXPI-g16"
+  },
+  {
+   "risk": "Product liability claims",
+   "company": "NXPI",
+   "category": "PRODUCT_SAFETY_RECALL",
+   "leaf": "PRODUCT_SAFETY_RECALL.product_liability_defects",
+   "quote": "In addition, the occurrence of such defects may give rise to product liability and warranty claims, including liability for damages caused by such defects.",
+   "source_ref": "NXPI-g4"
+  }
+ ],
+ "stages": {
+  "build": "graph.build",
+  "ask": "graph.ask"
+ },
+ "details": {
+  "mode": "global",
+  "prompt_version": "graph-v2",
+  "traversal_rows": 39,
+  "graph": {
+   "companies": 10,
+   "chunks": 161,
+   "risk_factors": 360,
+   "faces_risk": 634,
+   "risk_factors_shared": 121
+  },
+  "evidence_chunks": 104,
+  "traversal": [
+   {
+    "risk": "Anti-corruption law compliance violations",
+    "tickers": [
+     "APTV",
+     "BWA",
+     "LEA",
+     "ON"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "Competitive pricing pressure from new entrants",
+    "tickers": [
+     "APTV",
+     "LEA",
+     "TSLA",
+     "TXN"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "Component and semiconductor supply shortages",
+    "tickers": [
+     "APTV",
+     "BWA",
+     "MCHP",
+     "TSLA"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "Credit rating downgrade and funding access",
+    "tickers": [
+     "BWA",
+     "F",
+     "MCHP",
+     "NXPI"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "Disruption at own manufacturing facilities",
+    "tickers": [
+     "F",
+     "GM",
+     "NXPI",
+     "ON"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "Export controls and sanctions restrictions",
+    "tickers": [
+     "F",
+     "LEA",
+     "MCHP",
+     "NXPI"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "Global minimum tax law changes",
+    "tickers": [
+     "APTV",
+     "LEA",
+     "NXPI",
+     "TSLA"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "Government incentive reduction or clawback",
+    "tickers": [
+     "F",
+     "MCHP",
+     "NXPI",
+     "TXN"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "High leverage and debt service burden",
+    "tickers": [
+     "NXPI",
+     "ON",
+     "TSLA",
+     "TXN"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "Joint venture partner and control risk",
+    "tickers": [
+     "BWA",
+     "GM",
+     "LEA",
+     "NXPI"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "Key management personnel retention",
+    "tickers": [
+     "APTV",
+     "MCHP",
+     "NXPI",
+     "ON"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "Natural disaster facility disruption",
+    "tickers": [
+     "MCHP",
+     "NXPI",
+     "TSLA",
+     "TXN"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "US-China tensions disrupting supply chains",
+    "tickers": [
+     "BWA",
+     "F",
+     "LEA",
+     "NXPI"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "AI adoption operational and legal risk",
+    "tickers": [
+     "LEA",
+     "NXPI",
+     "ON"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "Armed conflict disrupting global supply chains",
+    "tickers": [
+     "APTV",
+     "MCHP",
+     "NXPI"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "Climate and greenhouse gas regulation costs",
+    "tickers": [
+     "APTV",
+     "MCHP",
+     "ON"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "Debt service and refinancing risk",
+    "tickers": [
+     "MCHP",
+     "NXPI",
+     "TSLA"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "Divestiture execution and residual obligations",
+    "tickers": [
+     "BWA",
+     "MCHP",
+     "ON"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "General regulatory change compliance costs",
+    "tickers": [
+     "APTV",
+     "LEA",
+     "TXN"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "Intellectual property misappropriation and theft",
+    "tickers": [
+     "GM",
+     "MCHP",
+     "TXN"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "New product launch and ramp delays",
+    "tickers": [
+     "F",
+     "MCHP",
+     "TSLA"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "Product defect and liability claims",
+    "tickers": [
+     "APTV",
+     "NXPI",
+     "TSLA"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "Securities price volatility",
+    "tickers": [
+     "MCHP",
+     "NXPI",
+     "TSLA"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "Tariff and trade policy changes",
+    "tickers": [
+     "APTV",
+     "F",
+     "MCHP"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "Third-party cybersecurity breach",
+    "tickers": [
+     "LEA",
+     "MCHP",
+     "TSLA"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "Vehicle emissions regulation compliance costs",
+    "tickers": [
+     "F",
+     "GM",
+     "MCHP"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "Physical climate and extreme weather disruption",
+    "tickers": [
+     "BWA",
+     "GM",
+     "LEA",
+     "MCHP",
+     "NXPI"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "Product cybersecurity vulnerabilities",
+    "tickers": [
+     "APTV",
+     "BWA",
+     "MCHP",
+     "NXPI",
+     "TSLA"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "Single or limited-source supplier dependence",
+    "tickers": [
+     "APTV",
+     "F",
+     "GM",
+     "NXPI",
+     "ON"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "Tax law and rate changes",
+    "tickers": [
+     "BWA",
+     "GM",
+     "MCHP",
+     "ON",
+     "TXN"
+    ],
+    "generic": false,
+    "cross_industry": true
+   },
+   {
+    "risk": "Cybersecurity breach of information systems",
+    "tickers": [
+     "APTV",
+     "BWA",
+     "F",
+     "GM",
+     "LEA",
+     "MCHP",
+     "NXPI",
+     "ON",
+     "TSLA",
+     "TXN"
+    ],
+    "generic": true,
+    "cross_industry": true
+   },
+   {
+    "risk": "Product recall and warranty costs",
+    "tickers": [
+     "APTV",
+     "BWA",
+     "F",
+     "GM",
+     "LEA",
+     "MCHP",
+     "ON",
+     "TSLA",
+     "TXN"
+    ],
+    "generic": true,
+    "cross_industry": true
+   },
+   {
+    "risk": "Import tariff cost increase",
+    "tickers": [
+     "APTV",
+     "BWA",
+     "F",
+     "GM",
+     "LEA",
+     "MCHP",
+     "ON",
+     "TSLA"
+    ],
+    "generic": true,
+    "cross_industry": true
+   },
+   {
+    "risk": "Acquisition execution and integration failure",
+    "tickers": [
+     "APTV",
+     "BWA",
+     "LEA",
+     "MCHP",
+     "NXPI",
+     "ON",
+     "TXN"
+    ],
+    "generic": true,
+    "cross_industry": true
+   },
+   {
+    "risk": "Third-party IP infringement litigation",
+    "tickers": [
+     "APTV",
+     "GM",
+     "NXPI",
+     "ON",
+     "TSLA",
+     "TXN"
+    ],
+    "generic": true,
+    "cross_industry": true
+   },
+   {
+    "risk": "Inability to protect intellectual property",
+    "tickers": [
+     "BWA",
+     "GM",
+     "MCHP",
+     "NXPI",
+     "ON"
+    ],
+    "generic": true,
+    "cross_industry": true
+   },
+   {
+    "risk": "Litigation and legal claims",
+    "tickers": [
+     "APTV",
+     "F",
+     "LEA",
+     "MCHP",
+     "ON"
+    ],
+    "generic": true,
+    "cross_industry": true
+   },
+   {
+    "risk": "Pandemic-related operational disruption",
+    "tickers": [
+     "APTV",
+     "GM",
+     "LEA",
+     "MCHP",
+     "NXPI"
+    ],
+    "generic": true,
+    "cross_industry": true
+   },
+   {
+    "risk": "Access to capital and refinancing",
+    "tickers": [
+     "APTV",
+     "GM",
+     "TSLA",
+     "TXN"
+    ],
+    "generic": true,
+    "cross_industry": true
+   }
+  ],
+  "shared_drivers": [
+   {
+    "driver": "China",
+    "type": "GEOGRAPHY",
+    "tickers": [
+     "GM",
+     "F",
+     "TSLA",
+     "APTV",
+     "BWA",
+     "LEA",
+     "NXPI",
+     "MCHP",
+     "ON",
+     "TXN"
+    ]
+   },
+   {
+    "driver": "United States",
+    "type": "GEOGRAPHY",
+    "tickers": [
+     "GM",
+     "F",
+     "TSLA",
+     "APTV",
+     "BWA",
+     "LEA",
+     "NXPI",
+     "MCHP",
+     "ON",
+     "TXN"
+    ]
+   },
+   {
+    "driver": "artificial intelligence",
+    "type": "TECHNOLOGY_END_MARKET",
+    "tickers": [
+     "GM",
+     "F",
+     "TSLA",
+     "APTV",
+     "BWA",
+     "LEA",
+     "NXPI",
+     "MCHP",
+     "ON"
+    ]
+   },
+   {
+    "driver": "European Union",
+    "type": "GEOGRAPHY",
+    "tickers": [
+     "F",
+     "TSLA",
+     "APTV",
+     "BWA",
+     "LEA",
+     "NXPI",
+     "MCHP",
+     "ON"
+    ]
+   },
+   {
+    "driver": "Automotive",
+    "type": "TECHNOLOGY_END_MARKET",
+    "tickers": [
+     "APTV",
+     "BWA",
+     "NXPI",
+     "MCHP",
+     "ON",
+     "TXN"
+    ]
+   },
+   {
+    "driver": "electric vehicles",
+    "type": "TECHNOLOGY_END_MARKET",
+    "tickers": [
+     "GM",
+     "F",
+     "TSLA",
+     "BWA",
+     "LEA",
+     "ON"
+    ]
+   },
+   {
+    "driver": "import tariffs",
+    "type": "REGULATION_POLICY",
+    "tickers": [
+     "GM",
+     "F",
+     "TSLA",
+     "NXPI",
+     "MCHP",
+     "TXN"
+    ]
+   },
+   {
+    "driver": "nickel",
+    "type": "INPUT_COMMODITY",
+    "tickers": [
+     "GM",
+     "F",
+     "TSLA",
+     "BWA",
+     "MCHP"
+    ]
+   },
+   {
+    "driver": "Asia",
+    "type": "GEOGRAPHY",
+    "tickers": [
+     "TSLA",
+     "BWA",
+     "LEA",
+     "TXN"
+    ]
+   },
+   {
+    "driver": "Base Erosion and Profit Shifting",
+    "type": "REGULATION_POLICY",
+    "tickers": [
+     "TSLA",
+     "MCHP",
+     "ON",
+     "TXN"
+    ]
+   },
+   {
+    "driver": "Foreign Corrupt Practices Act",
+    "type": "REGULATION_POLICY",
+    "tickers": [
+     "APTV",
+     "BWA",
+     "LEA",
+     "MCHP"
+    ]
+   },
+   {
+    "driver": "aluminum",
+    "type": "INPUT_COMMODITY",
+    "tickers": [
+     "F",
+     "APTV",
+     "BWA",
+     "LEA"
+    ]
+   },
+   {
+    "driver": "export controls",
+    "type": "REGULATION_POLICY",
+    "tickers": [
+     "TSLA",
+     "LEA",
+     "MCHP",
+     "TXN"
+    ]
+   },
+   {
+    "driver": "California Consumer Privacy Act",
+    "type": "REGULATION_POLICY",
+    "tickers": [
+     "GM",
+     "TSLA",
+     "LEA"
+    ]
+   },
+   {
+    "driver": "Canada",
+    "type": "GEOGRAPHY",
+    "tickers": [
+     "F",
+     "BWA",
+     "LEA"
+    ]
+   },
+   {
+    "driver": "Mexico",
+    "type": "GEOGRAPHY",
+    "tickers": [
+     "APTV",
+     "BWA",
+     "LEA"
+    ]
+   },
+   {
+    "driver": "Middle East",
+    "type": "GEOGRAPHY",
+    "tickers": [
+     "APTV",
+     "NXPI",
+     "MCHP"
+    ]
+   },
+   {
+    "driver": "North America",
+    "type": "GEOGRAPHY",
+    "tickers": [
+     "GM",
+     "TSLA",
+     "APTV"
+    ]
+   },
+   {
+    "driver": "UAW",
+    "type": "NAMED_COUNTERPARTY",
+    "tickers": [
+     "F",
+     "APTV",
+     "BWA"
+    ]
+   },
+   {
+    "driver": "Ukraine",
+    "type": "GEOGRAPHY",
+    "tickers": [
+     "APTV",
+     "NXPI",
+     "MCHP"
+    ]
+   },
+   {
+    "driver": "autonomous driving",
+    "type": "TECHNOLOGY_END_MARKET",
+    "tickers": [
+     "F",
+     "TSLA",
+     "APTV"
+    ]
+   },
+   {
+    "driver": "connected vehicles",
+    "type": "TECHNOLOGY_END_MARKET",
+    "tickers": [
+     "GM",
+     "APTV",
+     "BWA"
+    ]
+   },
+   {
+    "driver": "copper",
+    "type": "INPUT_COMMODITY",
+    "tickers": [
+     "APTV",
+     "BWA",
+     "MCHP"
+    ]
+   },
+   {
+    "driver": "electric and hybrid vehicles",
+    "type": "TECHNOLOGY_END_MARKET",
+    "tickers": [
+     "APTV",
+     "BWA",
+     "LEA"
+    ]
+   },
+   {
+    "driver": "fuel",
+    "type": "INPUT_COMMODITY",
+    "tickers": [
+     "F",
+     "APTV",
+     "MCHP"
+    ]
+   }
+  ]
+ },
+ "claims": [
+  {
+   "company": "BWA",
+   "category": "REGULATION_LEGAL",
+   "leaf": "REGULATION_LEGAL.anti_corruption_compliance",
+   "quote": "Compliance-related issues in certain countries associated with laws such as the Foreign Corrupt Practices Act and other anti-corruption laws could adversely affect our business.",
+   "source_ref": "BWA-g7",
+   "risk": "Anti-corruption compliance violations",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 39595,
+   "end": 39772,
+   "in_cited_source": true
+  },
+  {
+   "company": "ON",
+   "category": "REGULATION_LEGAL",
+   "leaf": "REGULATION_LEGAL.anti_corruption_compliance",
+   "quote": "Our failure to comply with anti-corruption laws could result in penalties that could harm our reputation and have a material adverse effect on our business, financial condition and results of operations.",
+   "source_ref": "ON-g10",
+   "risk": "Anti-corruption compliance violations",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 51934,
+   "end": 52137,
+   "in_cited_source": true
+  },
+  {
+   "company": "BWA",
+   "category": "RATES_FX_FUNDING",
+   "leaf": "RATES_FX_FUNDING.credit_ratings",
+   "quote": "Our revolving credit agreement includes an increase in interest rates if the ratings for our debt are downgraded. The interest cost on our revolving credit agreement is based on a rating grid.",
+   "source_ref": "BWA-g8",
+   "risk": "Credit rating downgrade",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 46707,
+   "end": 46899,
+   "in_cited_source": true
+  },
+  {
+   "company": "MCHP",
+   "category": "RATES_FX_FUNDING",
+   "leaf": "RATES_FX_FUNDING.credit_ratings",
+   "quote": "A downgrade of our credit rating by a major credit rating agency could result in increased borrowing costs and could adversely affect our ability to access the debt markets to refinance our existing debt or finance future debt.",
+   "source_ref": "MCHP-g28",
+   "risk": "Credit rating downgrade",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 153810,
+   "end": 154037,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "RATES_FX_FUNDING",
+   "leaf": "RATES_FX_FUNDING.credit_ratings",
+   "quote": "Actual or anticipated changes or downgrades in our credit ratings, including any announcement that our ratings are under further review for a downgrade, could affect our market value and/or increase our corporate borrowing costs.",
+   "source_ref": "NXPI-g14",
+   "risk": "Credit rating downgrade",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 70301,
+   "end": 70530,
+   "in_cited_source": true
+  },
+  {
+   "company": "F",
+   "category": "SUPPLY_CHAIN",
+   "leaf": "SUPPLY_CHAIN.single_source",
+   "quote": "Many components used in our products are available only from a single or limited number of suppliers and, therefore, cannot be re-sourced quickly or inexpensively to another supplier",
+   "source_ref": "F-g3",
+   "risk": "Single-source supplier dependence",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 17055,
+   "end": 17237,
+   "in_cited_source": true
+  },
+  {
+   "company": "GM",
+   "category": "SUPPLY_CHAIN",
+   "leaf": "SUPPLY_CHAIN.single_source",
+   "quote": "In some instances, we purchase systems, components, raw materials, and parts that are ultimately derived from a single source and may be at an increased risk for supply disruptions.",
+   "source_ref": "GM-g7",
+   "risk": "Single-source supplier dependence",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 39498,
+   "end": 39679,
+   "in_cited_source": true
+  },
+  {
+   "company": "APTV",
+   "category": "SUPPLY_CHAIN",
+   "leaf": "SUPPLY_CHAIN.single_source",
+   "quote": "Any significant disruption in our supplier relationships, particularly relationships with sole-source suppliers, could harm our profitability.",
+   "source_ref": "APTV-g7",
+   "risk": "Single-source supplier dependence",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 31200,
+   "end": 31342,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "SUPPLY_CHAIN",
+   "leaf": "SUPPLY_CHAIN.manufacturing_disruption",
+   "quote": "Difficulties in the production process can reduce yields or interrupt production, and, as a result of such problems, we may on occasion not be able to deliver products or do so in a timely or cost-effective or competitive manner.",
+   "source_ref": "NXPI-g5",
+   "risk": "Own manufacturing disruption",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 25738,
+   "end": 25967,
+   "in_cited_source": true
+  },
+  {
+   "company": "F",
+   "category": "REGULATION_LEGAL",
+   "leaf": "REGULATION_LEGAL.government_incentives",
+   "quote": "The impact of government incentives on Ford\u2019s business has been and could continue to be significant, and Ford\u2019s receipt of government incentives could be subject to reduction, termination, or clawback.",
+   "source_ref": "F-g13",
+   "risk": "Government incentive clawback",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 65672,
+   "end": 65874,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "REGULATION_LEGAL",
+   "leaf": "REGULATION_LEGAL.government_incentives",
+   "quote": "These programs are subject to periodic review by the relevant governments, and if any of these programs are curtailed or discontinued, this could have a material adverse effect on our business, financial condition and results of operations.",
+   "source_ref": "NXPI-g6",
+   "risk": "Government incentive clawback",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 31566,
+   "end": 31806,
+   "in_cited_source": true
+  },
+  {
+   "company": "TXN",
+   "category": "CLIMATE_NATCAT",
+   "leaf": "CLIMATE_NATCAT.natural_disasters_weather",
+   "quote": "A natural disaster that results in a prolonged disruption, particularly where we have principal manufacturing and design operations, as listed in the Properties section in Item 2, may adversely affect our results and financial condition.",
+   "source_ref": "TXN-g2",
+   "risk": "Natural disaster disruption",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 9563,
+   "end": 9800,
+   "in_cited_source": true
+  },
+  {
+   "company": "GM",
+   "category": "CLIMATE_NATCAT",
+   "leaf": "CLIMATE_NATCAT.natural_disasters_weather",
+   "quote": "In addition, increased intensity, frequency, or duration of storms, droughts, wildfires, or other severe weather events as a result of climate change may disrupt our production and the production, logistics, cost, and procurement of products from our suppliers",
+   "source_ref": "GM-g4",
+   "risk": "Natural disaster disruption",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 20406,
+   "end": 20666,
+   "in_cited_source": true
+  },
+  {
+   "company": "BWA",
+   "category": "CYBER_IT",
+   "leaf": "CYBER_IT.product_cybersecurity",
+   "quote": "Failure of such products to effectively protect against attacks targeted at our products can negatively impact our brand and our business or results of operation.",
+   "source_ref": "BWA-g4",
+   "risk": "Product cybersecurity vulnerabilities",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 27354,
+   "end": 27516,
+   "in_cited_source": true
+  },
+  {
+   "company": "TSLA",
+   "category": "CYBER_IT",
+   "leaf": "CYBER_IT.product_cybersecurity",
+   "quote": "Any unauthorized access to or control of our products or their systems or any loss of data could result in legal claims or government investigations.",
+   "source_ref": "TSLA-g9",
+   "risk": "Product cybersecurity vulnerabilities",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 44782,
+   "end": 44931,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "GEOPOLITICAL_TRADE",
+   "leaf": "GEOPOLITICAL_TRADE.china_exposure",
+   "quote": "Also, China presents unique risks to U.S. automotive manufacturers due to the strain in U.S.-China relations and the level of integration with key components in our global supply chain.",
+   "source_ref": "LEA-g2",
+   "risk": "US-China supply chain tensions",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 12921,
+   "end": 13106,
+   "in_cited_source": true
+  },
+  {
+   "company": "MCHP",
+   "category": "GEOPOLITICAL_TRADE",
+   "leaf": "GEOPOLITICAL_TRADE.export_controls",
+   "quote": "Licenses or license exceptions are often required for the shipment of our products to certain countries as well as for releases of our technology and software to foreign nationals.",
+   "source_ref": "MCHP-g21",
+   "risk": "Export controls",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 117213,
+   "end": 117393,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "TAX",
+   "leaf": "TAX.tax_law_changes",
+   "quote": "As a result, the tax laws in the European Union, U.S. and other countries in which we and our affiliates do business could change on a prospective or retroactive basis, and any such changes could adversely affect us and our affiliates.",
+   "source_ref": "NXPI-g16",
+   "risk": "Global minimum tax changes",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 75537,
+   "end": 75772,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "PRODUCT_SAFETY_RECALL",
+   "leaf": "PRODUCT_SAFETY_RECALL.product_liability_defects",
+   "quote": "In addition, the occurrence of such defects may give rise to product liability and warranty claims, including liability for damages caused by such defects.",
+   "source_ref": "NXPI-g4",
+   "risk": "Product liability claims",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 21207,
+   "end": 21362,
+   "in_cited_source": true
+  }
+ ],
+ "rejected": [],
+ "verification": {
+  "claims": 19,
+  "accepted": 19,
+  "rejected": 0,
+  "rejected_label": 0,
+  "rejected_quote": 0,
+  "keyword_fallback": 0,
+  "quote_coverage": 1.0,
+  "not_in_cited_source": 0
+ },
+ "shared_risks": [
+  {
+   "leaf": "RATES_FX_FUNDING.credit_ratings",
+   "category": "RATES_FX_FUNDING",
+   "risk": "credit ratings",
+   "tickers": [
+    "BWA",
+    "MCHP",
+    "NXPI"
+   ],
+   "claims": 3,
+   "generic": false,
+   "cross_industry": true
+  },
+  {
+   "leaf": "SUPPLY_CHAIN.single_source",
+   "category": "SUPPLY_CHAIN",
+   "risk": "single source",
+   "tickers": [
+    "APTV",
+    "F",
+    "GM"
+   ],
+   "claims": 3,
+   "generic": false,
+   "cross_industry": false
+  },
+  {
+   "leaf": "CLIMATE_NATCAT.natural_disasters_weather",
+   "category": "CLIMATE_NATCAT",
+   "risk": "natural disasters weather",
+   "tickers": [
+    "GM",
+    "TXN"
+   ],
+   "claims": 2,
+   "generic": false,
+   "cross_industry": true
+  },
+  {
+   "leaf": "CYBER_IT.product_cybersecurity",
+   "category": "CYBER_IT",
+   "risk": "product cybersecurity",
+   "tickers": [
+    "BWA",
+    "TSLA"
+   ],
+   "claims": 2,
+   "generic": false,
+   "cross_industry": false
+  },
+  {
+   "leaf": "REGULATION_LEGAL.anti_corruption_compliance",
+   "category": "REGULATION_LEGAL",
+   "risk": "anti corruption compliance",
+   "tickers": [
+    "BWA",
+    "ON"
+   ],
+   "claims": 2,
+   "generic": false,
+   "cross_industry": true
+  },
+  {
+   "leaf": "REGULATION_LEGAL.government_incentives",
+   "category": "REGULATION_LEGAL",
+   "risk": "government incentives",
+   "tickers": [
+    "F",
+    "NXPI"
+   ],
+   "claims": 2,
+   "generic": false,
+   "cross_industry": true
+  }
+ ],
+ "companies_covered": [
+  "APTV",
+  "BWA",
+  "F",
+  "GM",
+  "MCHP",
+  "NXPI",
+  "ON",
+  "TSLA",
+  "TXN"
+ ],
+ "matrix": {
+  "category": {
+   "MACRO_DEMAND": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "RATES_FX_FUNDING": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 1,
+    "LEA": 0,
+    "NXPI": 1,
+    "MCHP": 1,
+    "ON": 0,
+    "TXN": 0
+   },
+   "SUPPLY_CHAIN": {
+    "GM": 1,
+    "F": 1,
+    "TSLA": 0,
+    "APTV": 1,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 1,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "CUSTOMER_CONCENTRATION": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "COMPETITION_DISRUPTION": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "CYBER_IT": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 1,
+    "APTV": 0,
+    "BWA": 1,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "PRIVACY_DATA": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "REGULATION_LEGAL": {
+    "GM": 0,
+    "F": 1,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 1,
+    "LEA": 0,
+    "NXPI": 1,
+    "MCHP": 0,
+    "ON": 1,
+    "TXN": 0
+   },
+   "GEOPOLITICAL_TRADE": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 1,
+    "NXPI": 0,
+    "MCHP": 1,
+    "ON": 0,
+    "TXN": 0
+   },
+   "CLIMATE_NATCAT": {
+    "GM": 1,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 1
+   },
+   "TALENT_LABOR": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "IP_TECH_RIGHTS": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "AI_EMERGING_TECH": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "TAX": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 1,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "STRATEGY_MA": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "PRODUCT_SAFETY_RECALL": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 1,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "EMISSIONS_EV_TRANSITION": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "COMMODITY_INPUTS": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "OTHER": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   }
+  },
+  "leaf": {
+   "MACRO_DEMAND.cyclical_demand": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "MACRO_DEMAND.inflation_costs": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "MACRO_DEMAND.vehicle_production_volumes": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "MACRO_DEMAND.inventory_correction": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "RATES_FX_FUNDING.interest_rates": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "RATES_FX_FUNDING.fx_exposure": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "RATES_FX_FUNDING.liquidity_funding": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "RATES_FX_FUNDING.credit_ratings": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 1,
+    "LEA": 0,
+    "NXPI": 1,
+    "MCHP": 1,
+    "ON": 0,
+    "TXN": 0
+   },
+   "RATES_FX_FUNDING.pension_finance_obligations": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "SUPPLY_CHAIN.semiconductor_supply": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "SUPPLY_CHAIN.single_source": {
+    "GM": 1,
+    "F": 1,
+    "TSLA": 0,
+    "APTV": 1,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "SUPPLY_CHAIN.manufacturing_disruption": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 1,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "SUPPLY_CHAIN.outsourced_manufacturing": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "SUPPLY_CHAIN.logistics": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "CUSTOMER_CONCENTRATION.auto_oem_customers": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "CUSTOMER_CONCENTRATION.key_customer_dependence": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "CUSTOMER_CONCENTRATION.distributor_channel": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "CUSTOMER_CONCENTRATION.dealer_network": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "CUSTOMER_CONCENTRATION.customer_credit": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "COMPETITION_DISRUPTION.price_competition": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "COMPETITION_DISRUPTION.new_entrants": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "COMPETITION_DISRUPTION.technology_change": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "CYBER_IT.cyberattack_breach": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "CYBER_IT.it_system_failure": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "CYBER_IT.product_cybersecurity": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 1,
+    "APTV": 0,
+    "BWA": 1,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "PRIVACY_DATA.privacy_regulation": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "PRIVACY_DATA.customer_data_use": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "REGULATION_LEGAL.litigation_investigations": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "REGULATION_LEGAL.product_regulation": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "REGULATION_LEGAL.government_incentives": {
+    "GM": 0,
+    "F": 1,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 1,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "REGULATION_LEGAL.anti_corruption_compliance": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 1,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 1,
+    "TXN": 0
+   },
+   "GEOPOLITICAL_TRADE.tariffs": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "GEOPOLITICAL_TRADE.export_controls": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 1,
+    "ON": 0,
+    "TXN": 0
+   },
+   "GEOPOLITICAL_TRADE.china_exposure": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 1,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "GEOPOLITICAL_TRADE.conflict_sanctions": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "GEOPOLITICAL_TRADE.international_operations": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "CLIMATE_NATCAT.natural_disasters_weather": {
+    "GM": 1,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 1
+   },
+   "CLIMATE_NATCAT.pandemic_health": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "CLIMATE_NATCAT.climate_disclosure_esg": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "TALENT_LABOR.key_personnel": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "TALENT_LABOR.skilled_talent": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "TALENT_LABOR.labor_relations_unions": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "IP_TECH_RIGHTS.ip_protection": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "IP_TECH_RIGHTS.ip_infringement_claims": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "AI_EMERGING_TECH.ai_development_use": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "AI_EMERGING_TECH.autonomous_driving": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "AI_EMERGING_TECH.ai_regulation": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "TAX.tax_law_changes": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 1,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "TAX.tax_audits_disputes": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "STRATEGY_MA.acquisitions_integration": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "STRATEGY_MA.divestitures_spinoffs": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "STRATEGY_MA.restructuring": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "STRATEGY_MA.joint_ventures_investments": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "PRODUCT_SAFETY_RECALL.recalls": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "PRODUCT_SAFETY_RECALL.warranty_costs": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "PRODUCT_SAFETY_RECALL.product_liability_defects": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 1,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "EMISSIONS_EV_TRANSITION.emissions_regulation": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "EMISSIONS_EV_TRANSITION.ev_adoption_pace": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "EMISSIONS_EV_TRANSITION.battery_supply_cost": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "EMISSIONS_EV_TRANSITION.charging_infrastructure": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "COMMODITY_INPUTS.raw_material_prices": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "COMMODITY_INPUTS.energy_costs": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "COMMODITY_INPUTS.critical_minerals": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "OTHER.stock_governance": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   },
+   "OTHER.reporting_controls": {
+    "GM": 0,
+    "F": 0,
+    "TSLA": 0,
+    "APTV": 0,
+    "BWA": 0,
+    "LEA": 0,
+    "NXPI": 0,
+    "MCHP": 0,
+    "ON": 0,
+    "TXN": 0
+   }
+  }
+ },
+ "usage": {
+  "build": {
+   "input_tokens": 845531,
+   "output_tokens": 178951,
+   "cost_usd": 4.8811,
+   "llm_calls": 312,
+   "embed_calls": 742,
+   "cached_calls": 1054,
+   "latency_s": null,
+   "recorded_latency_s": 1987.65,
+   "from_saved_build": true
+  },
+  "ask": {
+   "input_tokens": 92590,
+   "output_tokens": 2828,
+   "cost_usd": 0.4334,
+   "llm_calls": 1,
+   "embed_calls": 0,
+   "cached_calls": 0,
+   "latency_s": 22.34,
+   "recorded_latency_s": 22.24,
+   "from_saved_build": false
+  }
+ },
+ "eval": null
+}

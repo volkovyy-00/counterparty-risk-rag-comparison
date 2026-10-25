@@ -1,0 +1,38 @@
+{
+ "fabricated": {
+  "label": "PLANTED FOR THIS DEMO - written by code, not by a model and not by the filer",
+  "company": "BWA",
+  "leaf": "GEOPOLITICAL_TRADE.tariffs",
+  "planted_quote": "In 2025, the U.S. announced significant tariffs on imports from a broad range of countries, including the European Union, Canada, Mexico and China. These tariffs have increased the cost of raw materials and components the company purchase",
+  "verdict": "rejected",
+  "reason": "quote not found verbatim in the company's Item 1A",
+  "closest_real_sentence": "announced significant tariffs on imports from a broad range of countries, including the European Union, Canada, Mexico and China.",
+  "similarity": 0.703,
+  "closest_span": [
+   19838,
+   19967
+  ]
+ },
+ "off_taxonomy": {
+  "label": "PLANTED FOR THIS DEMO - written by code, not by a model and not by the filer",
+  "company": "BWA",
+  "quote": "In 2025, the U.S. announced significant tariffs on imports from a broad range of countries, including the European Union, Canada, Mexico and China. These tariffs have increased the cost of raw materials and components we purchase",
+  "category": "SUPPLY_GEOPOLITICS",
+  "leaf": "SUPPLY_GEOPOLITICS.taiwan_chips",
+  "verdict": "rejected",
+  "reason": "category 'SUPPLY_GEOPOLITICS' is not in taxonomy v2",
+  "check": "label",
+  "taxonomy_version": 2,
+  "categories": 19,
+  "leaves": 65,
+  "nearest_valid": [
+   "GEOPOLITICAL_TRADE",
+   "SUPPLY_CHAIN"
+  ],
+  "note": "The validator rejects; it never re-maps a label the model invented."
+ },
+ "audit": {
+  "available": false,
+  "reason": "needs results/demo_run/ and results/demo_run/audit/run_b/ - see real_run.py"
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "core": {
+  "total_usd": 8.7635,
+  "per_step": {
+   "Build the knowledge graph (approach 2)": 3.936,
+   "Run A: approaches 1, 2, 3 and the long-context control; freeze": 3.6152,
+   "Ask the graph: the fixed screen-4 questions": 0.0188,
+   "Run A re-freeze: GM and F paragraph split": 0.7465,
+   "Run A re-freeze: approach 2 ask after the graph rebuild": 0.4334,
+   "Ask the graph again: evidence in a stable order": 0.0136
+  }
+ }
+}
