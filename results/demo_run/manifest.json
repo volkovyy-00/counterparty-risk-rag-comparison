@@ -1,6 +1,6 @@
 {
  "label": "run A (prompt taxonomy-v3.0)",
- "created_at": "2026-10-25T19:10:04Z",
+ "created_at": "2026-10-25T19:48:20Z",
  "question": "What industry risks connect these counterparties, and which counterparties share each one?",
  "group": "auto_semis",
  "corpus": "edgar_latest",
@@ -114,7 +114,7 @@
   "3_taxonomy_first": "08f158346eb284c67b838679ec6076f6d3e106c5f37920d7a01ae685b420d5bf",
   "2_graph_qa": "aa763e81ef70afa22e9bebf18aff680a395058abd23e21a92eb4f86704692679"
  },
- "cache_mode": "readwrite",
+ "cache_mode": "replay",
  "approaches": [
   "1_plain_rag",
   "2_graphrag",
@@ -136,7 +136,7 @@
  },
  "pricing_checked": "2026-10-06",
  "git": {
-  "sha": "2fec7f9a001ac5fe53a5c5005dc0867e3d86dfb5",
+  "sha": "f0a0027cb423baa5c06902a72973e5df81677c38",
   "dirty": true
  },
  "served_models": [
@@ -184,5 +184,5 @@
    "reason": null
   }
  },
- "ground_truth_status": "none"
+ "ground_truth_status": "verified"
 }
