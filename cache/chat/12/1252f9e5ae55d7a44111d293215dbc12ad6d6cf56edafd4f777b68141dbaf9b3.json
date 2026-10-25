@@ -1,0 +1,80 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "heading": "International business risks",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.conflict_sanctions",
+    "quote": "social and political instability in a number of countries around the world, including continued hostilities in the Middle East and the armed conflict in Ukraine."
+   },
+   {
+    "heading": "International business risks - China and Taiwan tensions",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.china_exposure",
+    "quote": "Sustained geopolitical tensions, such as the current geopolitical tensions involving China and Taiwan, could lead to long-term changes in global trade and technology supply chains and decoupling of global trade networks;"
+   },
+   {
+    "heading": "International business risks - currency volatility",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.fx_exposure",
+    "quote": "volatility in foreign currency exchange rates, in particular with respect to the U.S. dollar, and transfer restrictions, in particular in mainland China; and"
+   },
+   {
+    "heading": "Tariffs and trade restrictions could adversely affect business",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.tariffs",
+    "quote": "While the results of this investigation remain unknown, it is expected to result in additional tariffs and trade restrictions that may adversely impact our business."
+   },
+   {
+    "heading": "Goodwill and intangible asset impairment",
+    "category": "OTHER",
+    "leaf": "OTHER.reporting_controls",
+    "quote": "Any future determination of impairment of goodwill or other identifiable intangible assets could have a material adverse effect on our financial position, results of operations and stockholders\u2019 equity."
+   },
+   {
+    "heading": "High fixed costs with low revenue in downturns",
+    "category": "MACRO_DEMAND",
+    "leaf": "MACRO_DEMAND.cyclical_demand",
+    "quote": "In less favorable industry environments, like we faced in the first half of 2020, we are generally faced with a decline in the utilization rates of our manufacturing facilities due to decreases in demand for our products."
+   },
+   {
+    "heading": "Restructuring may impact customers and costs",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.restructuring",
+    "quote": "The costs of implementing any restructurings, changes or cost savings steps may differ from our estimates and any negative impacts on our revenues or otherwise of such restructurings, changes or steps"
+   },
+   {
+    "heading": "Collective bargaining, works councils and strikes",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.labor_relations_unions",
+    "quote": "if significant disputes with our unions arise, or if our unionized workers engage in a strike or other work stoppage, we could incur higher ongoing labor costs or experience a significant disruption of operations"
+   },
+   {
+    "heading": "Working capital needs difficult to predict",
+    "category": "MACRO_DEMAND",
+    "leaf": "MACRO_DEMAND.inventory_correction",
+    "quote": "The volatility of our customers\u2019 own businesses and the time required to manufacture products also make it difficult to manage inventory levels and require us to stockpile products across many different specifications."
+   },
+   {
+    "heading": "Product defects, liability and warranty claims",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.product_liability_defects",
+    "quote": "We are exposed to product liability claims if our\n20\n\nsemiconductors or software, or the consumer products based on them malfunction and result in personal injury or death."
+   },
+   {
+    "heading": "Product defects leading to customer recalls",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.recalls",
+    "quote": "If such a recall or payment is caused by a defect in one of our products, semiconductor parts or software, our customers may seek to recover all or a portion of their losses from us."
+   }
+  ]
+ },
+ "input_tokens": 3174,
+ "output_tokens": 1339,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6349,
+ "latency_s": 11.149,
+ "recorded_at": "2026-10-25T16:21:18+0000"
+}

@@ -1,0 +1,68 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "heading": "Inability to adequately protect intellectual property, including AI-related IP",
+    "category": "IP_TECH_RIGHTS",
+    "leaf": "IP_TECH_RIGHTS.ip_protection",
+    "quote": "Any inability on our part to adequately protect our intellectual property may have a material adverse effect on our business, financial condition and results of operations."
+   },
+   {
+    "heading": "Intellectual property claims or litigation could cause substantial costs",
+    "category": "IP_TECH_RIGHTS",
+    "leaf": "IP_TECH_RIGHTS.ip_infringement_claims",
+    "quote": "We have from time to time received, and may in the future receive, communications alleging possible infringement of patents and other intellectual property rights of others."
+   },
+   {
+    "heading": "Use of AI may expose company to IP infringement claims",
+    "category": "AI_EMERGING_TECH",
+    "leaf": "AI_EMERGING_TECH.ai_development_use",
+    "quote": "our use of AI technologies for productivity and in our products and services may expose us to copyright infringement or other intellectual property misappropriation claims."
+   },
+   {
+    "heading": "Loss of key management and personnel, including CEO transition",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.key_personnel",
+    "quote": "The loss of any of our key personnel, whether due to departures, death, ill health or otherwise, could have a material adverse effect on our business."
+   },
+   {
+    "heading": "Inability to attract and retain skilled engineers",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.skilled_talent",
+    "quote": "The market for qualified employees, including skilled engineers and other individuals with the required technical expertise to succeed in our business, is highly competitive"
+   },
+   {
+    "heading": "United States civil liabilities may not be enforceable against us",
+    "category": "OTHER",
+    "leaf": "OTHER.stock_governance",
+    "quote": "there can be no assurance that U.S. investors will be able to enforce against us or members of our board of directors or officers who are residents of the Netherlands or countries other than the United States any judgments obtained in U.S. courts"
+   },
+   {
+    "heading": "Dutch company stockholder rights differ from U.S. jurisdictions",
+    "category": "OTHER",
+    "leaf": "OTHER.stock_governance",
+    "quote": "The rights of stockholders and the responsibilities of members of our board of directors may be different from the rights and obligations of stockholders in companies governed by the laws of U.S. jurisdictions."
+   },
+   {
+    "heading": "Substantial debt obligations could adversely affect financial condition",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.liquidity_funding",
+    "quote": "As of December 31, 2025, we had outstanding indebtedness with an aggregate principal amount of $12,290 million. Our substantial indebtedness could have a material adverse effect on our business by:"
+   },
+   {
+    "heading": "Variable-rate borrowings expose company to rising interest rates",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.interest_rates",
+    "quote": "exposing us to the risk of increased interest rates in the event we have borrowings under our $2,500 million revolving credit facility agreement (the \u201cRCF Agreement\u201d)"
+   }
+  ]
+ },
+ "input_tokens": 3275,
+ "output_tokens": 1081,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6349,
+ "latency_s": 18.098,
+ "recorded_at": "2026-10-25T16:21:36+0000"
+}

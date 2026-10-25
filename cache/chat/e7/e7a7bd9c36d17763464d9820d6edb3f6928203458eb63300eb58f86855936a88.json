@@ -1,0 +1,68 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 20,
+    "heading": "Disruptions in our relationships with any one of our key customers could adversely affect our business.",
+    "category": "CUSTOMER_CONCENTRATION",
+    "leaf": "CUSTOMER_CONCENTRATION.key_customer_dependence",
+    "quote": "A substantial portion of our revenue is derived from our top customers, including our distributors. We cannot guarantee that we will be able to generate similar levels of revenue from our largest customers in the future.",
+    "driver": "top customers",
+    "secondary": false
+   },
+   {
+    "rf": 21,
+    "heading": "We receive subsidies and grants in certain countries, and a reduction in the amount of governmental funding available to us or demands for repayment could increase our costs and affect our results of operations.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.government_incentives",
+    "quote": "These programs are subject to periodic review by the relevant governments, and if any of these programs are curtailed or discontinued, this could have a material adverse effect on our business, financial condition and results of operations.",
+    "driver": "government subsidies and grants",
+    "secondary": false
+   },
+   {
+    "rf": 22,
+    "heading": "Certain natural disasters, such as flooding, heavy precipitation, large earthquakes, volcanic eruptions or nuclear or other disasters, may negatively impact our business. Climate change may cause a rising number of natural disasters that could negatively affect our operations.",
+    "category": "CLIMATE_NATCAT",
+    "leaf": "CLIMATE_NATCAT.natural_disasters_weather",
+    "quote": "If flooding, heavy precipitation, a large earthquake, volcanic eruption or, extreme weather event or other natural disaster were to",
+    "driver": "Asian fab earthquake/flood zones",
+    "secondary": false
+   },
+   {
+    "rf": 23,
+    "heading": "We may engage in acquisitions and other strategic transactions or make investments, or be unable to consummate planned strategic acquisitions, which could adversely affect our results of operations.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.acquisitions_integration",
+    "quote": "Achieving the anticipated benefits of business acquisitions depends in part upon our ability to integrate the businesses in an efficient and effective manner and achieve anticipated synergies, and we may not be successful in these efforts.",
+    "driver": "",
+    "secondary": false
+   },
+   {
+    "rf": 24,
+    "heading": "We rely on joint ventures to meet our current and future manufacturing requirements. However, we often do not control these partnerships and joint ventures, and actions taken by any of our partners or the termination of these joint ventures could adversely affect our business.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.joint_ventures_investments",
+    "quote": "If we do not achieve the anticipated benefits of these joint ventures, or if newly established joint ventures are not able to begin production in the expected timing or achieve expected efficiency and quality, our business and results of operations may be adversely affected.",
+    "driver": "SSMC, VSMC, ESMC JVs",
+    "secondary": false
+   },
+   {
+    "rf": 25,
+    "heading": "As our business is global, we need to comply with laws and regulations in countries across the world.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.international_operations",
+    "quote": "As our business is global, we need to comply with laws and regulations in countries across the world.",
+    "driver": "",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3166,
+ "output_tokens": 1142,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 8.432,
+ "recorded_at": "2026-10-25T16:22:07+0000"
+}

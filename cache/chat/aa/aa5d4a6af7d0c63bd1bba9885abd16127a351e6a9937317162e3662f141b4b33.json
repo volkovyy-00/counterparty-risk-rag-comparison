@@ -1,0 +1,68 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 1,
+    "heading": "Our industry is cyclical and a decline or significant fluctuation in the production levels of our major customers, particularly with respect to models for which we are a significant supplier, or the financial distress of or operational disruptions to one or more of our major customers could adversely affect our financial performance.",
+    "category": "MACRO_DEMAND",
+    "leaf": "MACRO_DEMAND.vehicle_production_volumes",
+    "quote": "Our sales are driven by the number of vehicles produced by our automotive manufacturer customers and our content per vehicle. The automotive industry is cyclical and sensitive to general economic conditions",
+    "driver": "OEM production levels",
+    "secondary": false
+   },
+   {
+    "rf": 1,
+    "heading": "Our industry is cyclical and a decline or significant fluctuation in the production levels of our major customers, particularly with respect to models for which we are a significant supplier, or the financial distress of or operational disruptions to one or more of our major customers could adversely affect our financial performance.",
+    "category": "CUSTOMER_CONCENTRATION",
+    "leaf": "CUSTOMER_CONCENTRATION.auto_oem_customers",
+    "quote": "As these traditional automakers are among our largest customers, our business and financial results may be adversely affected by decreases in their businesses or market share.",
+    "driver": "traditional automaker customers",
+    "secondary": true
+   },
+   {
+    "rf": 2,
+    "heading": "Increases in the costs and restrictions on the availability of raw materials, energy, commodities, product components and labor could adversely affect our financial performance.",
+    "category": "COMMODITY_INPUTS",
+    "leaf": "COMMODITY_INPUTS.raw_material_prices",
+    "quote": "Raw material, energy, commodity, product component and labor costs can be volatile. Although we have developed and implemented strategies to mitigate the impact of any such cost increases",
+    "driver": "",
+    "secondary": false
+   },
+   {
+    "rf": 3,
+    "heading": "Our failure to execute our strategic objectives could adversely affect our financial performance.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.acquisitions_integration",
+    "quote": "These risk factors include our failure to identify suitable opportunities for organic investment and/or acquisitions, our inability to successfully develop such opportunities or complete such acquisitions or our inability to successfully utilize or integrate the investments in our operations.",
+    "driver": "",
+    "secondary": false
+   },
+   {
+    "rf": 4,
+    "heading": "The lack of commercial success of or an increase in directed component sourcing for a vehicle model for which we are a significant supplier could adversely affect our financial performance.",
+    "category": "CUSTOMER_CONCENTRATION",
+    "leaf": "CUSTOMER_CONCENTRATION.auto_oem_customers",
+    "quote": "It is possible that a particular vehicle model is not successful with consumers or that our customers elect to manufacture our products internally, purchase our products from other suppliers",
+    "driver": "vehicle program dependence",
+    "secondary": false
+   },
+   {
+    "rf": 5,
+    "heading": "Our inability to achieve product cost reductions to offset customer-imposed price reductions could adversely affect our financial performance.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.price_competition",
+    "quote": "Downward pricing pressure by automotive manufacturers is a characteristic of the automotive industry. Our customer contracts generally provide for annual price reductions over the production life of the vehicle",
+    "driver": "OEM annual price-downs",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2807,
+ "output_tokens": 1160,
+ "cache_write_tokens": 6701,
+ "cache_read_tokens": 0,
+ "latency_s": 11.694,
+ "recorded_at": "2026-10-25T16:21:52+0000"
+}

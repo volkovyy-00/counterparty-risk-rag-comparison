@@ -1,0 +1,62 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "heading": "Debt covenant compliance and ability to service debt",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.liquidity_funding",
+    "quote": "If there were an event of default under any of our debt instruments that was not cured or waived, the holders of the defaulted debt could terminate commitments to lend and cause all amounts outstanding with respect to the debt to be due and payable immediately"
+   },
+   {
+    "heading": "Credit rating changes affect borrowing capacity and costs",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.credit_ratings",
+    "quote": "Actual or anticipated changes or downgrades in our credit ratings, including any announcement that our ratings are under further review for a downgrade, could affect our market value and/or increase our corporate borrowing costs."
+   },
+   {
+    "heading": "Common stock price volatility",
+    "category": "OTHER",
+    "leaf": "OTHER.stock_governance",
+    "quote": "The market price of our common stock is likely to continue to be volatile and subject to significant price and volume fluctuations for many reasons"
+   },
+   {
+    "heading": "Fluctuations in stock repurchases",
+    "category": "OTHER",
+    "leaf": "OTHER.stock_governance",
+    "quote": "The amount, timing, and execution of our stock repurchases may fluctuate based on our priorities for the use of cash for other purposes"
+   },
+   {
+    "heading": "No assurance of continued cash dividends",
+    "category": "OTHER",
+    "leaf": "OTHER.stock_governance",
+    "quote": "There can be no assurance that we will declare cash dividends in the future in any particular amounts, or at all."
+   },
+   {
+    "heading": "Defined benefit pension liabilities and costs",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.pension_finance_obligations",
+    "quote": "Negative performance of the financial markets could also have a material impact on funding requirements and net periodic pension costs. Our defined benefit pension plans may also be subject to demographic trends."
+   },
+   {
+    "heading": "Changes to Dutch, U.S. and foreign tax laws",
+    "category": "TAX",
+    "leaf": "TAX.tax_law_changes",
+    "quote": "the EU has adopted a directive on ensuring a global minimum level of taxation for multinational companies, also known as Pillar 2, which became effective in 2024."
+   },
+   {
+    "heading": "Tax uncertainties including transfer pricing disputes",
+    "category": "TAX",
+    "leaf": "TAX.tax_audits_disputes",
+    "quote": "Transfer pricing uncertainties can also result from disputes with local tax authorities about transfer pricing of internal deliveries of goods and services or related to financing, acquisitions and divestments"
+   }
+  ]
+ },
+ "input_tokens": 3272,
+ "output_tokens": 903,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6349,
+ "latency_s": 7.079,
+ "recorded_at": "2026-10-25T16:21:28+0000"
+}

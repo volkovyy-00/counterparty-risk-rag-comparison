@@ -1,0 +1,86 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 19,
+    "heading": "Global climate change could adversely affect our business.",
+    "category": "CLIMATE_NATCAT",
+    "leaf": "CLIMATE_NATCAT.natural_disasters_weather",
+    "quote": "The effects of climate change, such as extreme weather conditions, could impact our business. Such effects could disrupt our operations by, among other things, impacting the availability and cost of materials needed for manufacturing",
+    "driver": "extreme weather",
+    "secondary": false
+   },
+   {
+    "rf": 20,
+    "heading": "Impairment charges relating to our goodwill and long-lived assets could adversely affect our financial performance.",
+    "category": "OTHER",
+    "leaf": "OTHER.reporting_controls",
+    "quote": "In the event that we determine that our goodwill or long-lived assets are impaired, we may be required to record a significant charge to earnings that could adversely affect our financial condition and operating results.",
+    "driver": "goodwill impairment",
+    "secondary": false
+   },
+   {
+    "rf": 21,
+    "heading": "Significant changes in discount rates, the actual return on pension assets and other factors related to our global defined benefit plans could adversely affect our financial performance.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.pension_finance_obligations",
+    "quote": "Our earnings may be positively or negatively impacted by the amount of income or expense recorded related to our global defined benefit plans.",
+    "driver": "defined benefit plans",
+    "secondary": false
+   },
+   {
+    "rf": 22,
+    "heading": "Unanticipated changes in our effective tax rate, the adoption of new tax legislation or exposure to additional income tax liabilities could adversely affect our profitability.",
+    "category": "TAX",
+    "leaf": "TAX.tax_law_changes",
+    "quote": "Our effective tax rate and cash tax liability in the future could be adversely affected by the enactment of new tax legislation, changes in the level and mix of earnings in countries with differing statutory tax rates",
+    "driver": "OECD Pillar Two",
+    "secondary": false
+   },
+   {
+    "rf": 22,
+    "heading": "Unanticipated changes in our effective tax rate, the adoption of new tax legislation or exposure to additional income tax liabilities could adversely affect our profitability.",
+    "category": "TAX",
+    "leaf": "TAX.tax_audits_disputes",
+    "quote": "Tax authorities may disagree with certain of our tax reporting positions and, as a result, assess additional taxes against us.",
+    "driver": "global tax audits",
+    "secondary": true
+   },
+   {
+    "rf": 23,
+    "heading": "Our existing indebtedness and the inability to access capital markets could restrict our business activities or our ability to execute our strategic objectives or adversely affect our financial performance.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.liquidity_funding",
+    "quote": "The debt instruments governing our indebtedness contain covenants that may restrict our business activities or our ability to execute our strategic objectives, and our failure to comply with these covenants could result in a default under our indebtedness.",
+    "driver": "$2.7 billion indebtedness",
+    "secondary": false
+   },
+   {
+    "rf": 24,
+    "heading": "A significant product liability lawsuit, warranty claim or product recall involving us or one of our major customers could adversely affect our financial performance.",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.product_liability_defects",
+    "quote": "In the event that our products fail to, or are alleged to fail to, perform as expected, regardless of fault, and such failure or alleged failure results in, or is alleged to result in, bodily injury and/or property damage or other losses, we may be subject to product liability lawsuits",
+    "driver": "",
+    "secondary": false
+   },
+   {
+    "rf": 25,
+    "heading": "We are involved from time to time in various legal and regulatory proceedings and claims, which could adversely affect our financial performance.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.litigation_investigations",
+    "quote": "We are involved in various legal and regulatory proceedings and claims that, from time to time, are significant.",
+    "driver": "",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3410,
+ "output_tokens": 1366,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 9.386,
+ "recorded_at": "2026-10-25T16:21:58+0000"
+}

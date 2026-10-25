@@ -1,0 +1,3247 @@
+{
+ "approach": "3_taxonomy_first",
+ "summary": "16 taxonomy leaves are shared by at least 2 of the 2 counterparties; 0 of them are specific (fewer than 80% of companies). Most widely shared specific risks: none.",
+ "raw_claims": [
+  {
+   "company": "LEA",
+   "category": "MACRO_DEMAND",
+   "leaf": "MACRO_DEMAND.vehicle_production_volumes",
+   "quote": "Our sales are driven by the number of vehicles produced by our automotive manufacturer customers and our content per vehicle. The automotive industry is cyclical and sensitive to general economic conditions",
+   "risk": "Our industry is cyclical and a decline or significant fluctuation in the production levels of our major customers, particularly with respect to models for which we are a significant supplier, or the financial distress of or operational disruptions to one or more of our major customers could adversely affect our financial performance.",
+   "window_ref": "LEA:w1",
+   "source_ref": "LEA:rf1",
+   "driver": "OEM production levels",
+   "secondary": false,
+   "rf": 1,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "CUSTOMER_CONCENTRATION",
+   "leaf": "CUSTOMER_CONCENTRATION.auto_oem_customers",
+   "quote": "As these traditional automakers are among our largest customers, our business and financial results may be adversely affected by decreases in their businesses or market share.",
+   "risk": "Our industry is cyclical and a decline or significant fluctuation in the production levels of our major customers, particularly with respect to models for which we are a significant supplier, or the financial distress of or operational disruptions to one or more of our major customers could adversely affect our financial performance.",
+   "window_ref": "LEA:w1",
+   "source_ref": "LEA:rf1",
+   "driver": "traditional automaker customers",
+   "secondary": true,
+   "rf": 1,
+   "rf_unmapped": false,
+   "label_error": "secondary label not supported by the heading"
+  },
+  {
+   "company": "LEA",
+   "category": "COMMODITY_INPUTS",
+   "leaf": "COMMODITY_INPUTS.raw_material_prices",
+   "quote": "Raw material, energy, commodity, product component and labor costs can be volatile. Although we have developed and implemented strategies to mitigate the impact of any such cost increases",
+   "risk": "Increases in the costs and restrictions on the availability of raw materials, energy, commodities, product components and labor could adversely affect our financial performance.",
+   "window_ref": "LEA:w1",
+   "source_ref": "LEA:rf2",
+   "driver": "",
+   "secondary": false,
+   "rf": 2,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "STRATEGY_MA",
+   "leaf": "STRATEGY_MA.acquisitions_integration",
+   "quote": "These risk factors include our failure to identify suitable opportunities for organic investment and/or acquisitions, our inability to successfully develop such opportunities or complete such acquisitions or our inability to successfully utilize or integrate the investments in our operations.",
+   "risk": "Our failure to execute our strategic objectives could adversely affect our financial performance.",
+   "window_ref": "LEA:w1",
+   "source_ref": "LEA:rf3",
+   "driver": "",
+   "secondary": false,
+   "rf": 3,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "CUSTOMER_CONCENTRATION",
+   "leaf": "CUSTOMER_CONCENTRATION.auto_oem_customers",
+   "quote": "It is possible that a particular vehicle model is not successful with consumers or that our customers elect to manufacture our products internally, purchase our products from other suppliers",
+   "risk": "The lack of commercial success of or an increase in directed component sourcing for a vehicle model for which we are a significant supplier could adversely affect our financial performance.",
+   "window_ref": "LEA:w1",
+   "source_ref": "LEA:rf4",
+   "driver": "vehicle program dependence",
+   "secondary": false,
+   "rf": 4,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "COMPETITION_DISRUPTION",
+   "leaf": "COMPETITION_DISRUPTION.price_competition",
+   "quote": "Downward pricing pressure by automotive manufacturers is a characteristic of the automotive industry. Our customer contracts generally provide for annual price reductions over the production life of the vehicle",
+   "risk": "Our inability to achieve product cost reductions to offset customer-imposed price reductions could adversely affect our financial performance.",
+   "window_ref": "LEA:w1",
+   "source_ref": "LEA:rf5",
+   "driver": "OEM annual price-downs",
+   "secondary": false,
+   "rf": 5,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "GEOPOLITICAL_TRADE",
+   "leaf": "GEOPOLITICAL_TRADE.tariffs",
+   "quote": "Since his inauguration in January 2025, U.S. President Donald J. Trump has announced various tariffs that impact industries around the world, including the automotive industry.",
+   "risk": "International trade policies, such as tariffs, sanctions, export controls and other trade restrictions, could adversely affect our financial performance.",
+   "window_ref": "LEA:w2",
+   "source_ref": "LEA:rf6",
+   "driver": "U.S. tariffs, USMCA review",
+   "secondary": false,
+   "rf": 6,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "SUPPLY_CHAIN",
+   "leaf": "SUPPLY_CHAIN.single_source",
+   "quote": "We are responsible for managing our supply chain, including suppliers that may be the sole sources of products that we require, that our customers direct us to use or that have unique capabilities that would make it difficult and/or expensive to re-source.",
+   "risk": "Adverse developments affecting or the financial distress of one or more of our suppliers could adversely affect our financial performance.",
+   "window_ref": "LEA:w2",
+   "source_ref": "LEA:rf7",
+   "driver": "supplier financial distress",
+   "secondary": false,
+   "rf": 7,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "TALENT_LABOR",
+   "leaf": "TALENT_LABOR.labor_relations_unions",
+   "quote": "Labor agreements covering approximately 67% of our global unionized work force are scheduled to expire in 2026.",
+   "risk": "A significant labor dispute involving us or one or more of our customers or suppliers or that could otherwise affect our operations could adversely affect our financial performance.",
+   "window_ref": "LEA:w2",
+   "source_ref": "LEA:rf8",
+   "driver": "2026 labor agreement expirations",
+   "secondary": false,
+   "rf": 8,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "TALENT_LABOR",
+   "leaf": "TALENT_LABOR.skilled_talent",
+   "quote": "Failure to attract, develop, engage and retain qualified employees, whether as a result of an insufficient number of qualified applicants, difficulty in recruiting new employees or inadequate resources to train, integrate and retain qualified employees, could impair our ability to execute our business strategy",
+   "risk": "Our ability to attract, develop, engage and retain qualified employees could affect our ability to execute our strategy.",
+   "window_ref": "LEA:w2",
+   "source_ref": "LEA:rf9",
+   "driver": "",
+   "secondary": false,
+   "rf": 9,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "GEOPOLITICAL_TRADE",
+   "leaf": "GEOPOLITICAL_TRADE.international_operations",
+   "quote": "We have substantial international operations, with manufacturing and distribution facilities in many foreign countries, including Mexico and countries in Africa, Asia, Central and South America, and Europe.",
+   "risk": "Our substantial international operations make us vulnerable to risks associated with volatile economic and political environments.",
+   "window_ref": "LEA:w3",
+   "source_ref": "LEA:rf10",
+   "driver": "Mexico and lower-cost regions",
+   "secondary": false,
+   "rf": 10,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "STRATEGY_MA",
+   "leaf": "STRATEGY_MA.joint_ventures_investments",
+   "quote": "Certain of our operations, particularly in Asia, are conducted through joint ventures. With respect to our joint ventures, we may share ownership and management responsibilities with one or more partners that may not share our goals and objectives.",
+   "risk": "Certain of our operations are conducted through joint ventures which have unique risks.",
+   "window_ref": "LEA:w3",
+   "source_ref": "LEA:rf11",
+   "driver": "Asian joint ventures",
+   "secondary": false,
+   "rf": 11,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "MACRO_DEMAND",
+   "leaf": "MACRO_DEMAND.vehicle_production_volumes",
+   "quote": "new program launches require a significant ramp up of costs; however, our sales related to these new programs generally are dependent upon the timing and success of our customers' introduction of new vehicles.",
+   "risk": "Our inability to effectively manage the timing, quality and costs of new program launches could adversely affect our financial performance.",
+   "window_ref": "LEA:w3",
+   "source_ref": "LEA:rf12",
+   "driver": "new program launches",
+   "secondary": false,
+   "rf": 12,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "COMPETITION_DISRUPTION",
+   "leaf": "COMPETITION_DISRUPTION.price_competition",
+   "quote": "Our competitors' efforts to grow market share could exert downward pressure on our product pricing and margins.",
+   "risk": "We operate in a highly competitive industry and efforts by our competitors, as well as new entrants to the industry, to gain market share could adversely affect our financial performance.",
+   "window_ref": "LEA:w3",
+   "source_ref": "LEA:rf13",
+   "driver": "",
+   "secondary": false,
+   "rf": 13,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "COMPETITION_DISRUPTION",
+   "leaf": "COMPETITION_DISRUPTION.new_entrants",
+   "quote": "Chinese domestic suppliers that may have lower financial return expectations are also challenging traditional automotive suppliers for market share.",
+   "risk": "We operate in a highly competitive industry and efforts by our competitors, as well as new entrants to the industry, to gain market share could adversely affect our financial performance.",
+   "window_ref": "LEA:w3",
+   "source_ref": "LEA:rf13",
+   "driver": "Chinese domestic suppliers",
+   "secondary": true,
+   "rf": 13,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "EMISSIONS_EV_TRANSITION",
+   "leaf": "EMISSIONS_EV_TRANSITION.ev_adoption_pace",
+   "quote": "The adoption of such vehicles, particularly electric vehicles, has been slower than anticipated, particularly in the United States, as a result of, among other things, changes in government carbon emissions regulations and tax incentives, as well as prevailing consumer preferences.",
+   "risk": "If we do not respond appropriately, the evolution of the global transportation industry toward electrification could adversely affect our business.",
+   "window_ref": "LEA:w3",
+   "source_ref": "LEA:rf14",
+   "driver": "slower US EV adoption",
+   "secondary": false,
+   "rf": 14,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "AI_EMERGING_TECH",
+   "leaf": "AI_EMERGING_TECH.ai_development_use",
+   "quote": "We currently incorporate AI-powered tools into certain internal business operations, such as in our production processes and in certain of our administrative functions. AI algorithms may be flawed, and datasets may be insufficient, inaccurate, biased or otherwise problematic.",
+   "risk": "Our increasing use of AI and other emerging technologies may expose us to operational, legal and regulatory risks that could adversely affect our business and reputation.",
+   "window_ref": "LEA:w3",
+   "source_ref": "LEA:rf15",
+   "driver": "internal AI tools",
+   "secondary": false,
+   "rf": 15,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "CYBER_IT",
+   "leaf": "CYBER_IT.cyberattack_breach",
+   "quote": "In particular, ransomware or other attacks that are intended to disrupt our and our customers' business operations are becoming increasingly prevalent, particularly for manufacturing companies, and can lead to significant interruptions in operations and the ability to provide products or services",
+   "risk": "A disruption in our information technology systems, or those of our customers, suppliers, sub-suppliers or other contract parties, including a disruption related to cybersecurity, and other cybersecurity risks, such as a security incident resulting in unauthorized access to or theft of personal or other sensitive information, could adversely affect our financial performance.",
+   "window_ref": "LEA:w4",
+   "source_ref": "LEA:rf16",
+   "driver": "ransomware attacks",
+   "secondary": false,
+   "rf": 16,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "CLIMATE_NATCAT",
+   "leaf": "CLIMATE_NATCAT.pandemic_health",
+   "quote": "Pandemics, epidemics or disease outbreaks in the United States or globally have disrupted, and may disrupt in the future, our business, which could materially affect our financial condition including liquidity, operating results and future expectations.",
+   "risk": "Pandemics, epidemics, disease outbreaks and other public health crises have disrupted our business and operations, and future public health crises could adversely affect our business, financial condition and operating results.",
+   "window_ref": "LEA:w4",
+   "source_ref": "LEA:rf17",
+   "driver": "",
+   "secondary": false,
+   "rf": 17,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "CLIMATE_NATCAT",
+   "leaf": "CLIMATE_NATCAT.climate_disclosure_esg",
+   "quote": "Our failure, or that of our supply base, to adequately meet stakeholder expectations or address stakeholder concerns, including concerns about environmental impacts and similar matters, may result in, among other things, negative sentiment toward us or our products, the loss of business",
+   "risk": "Perspectives on global climate change and other sustainability matters by various stakeholders could adversely affect our business.",
+   "window_ref": "LEA:w4",
+   "source_ref": "LEA:rf18",
+   "driver": "stakeholder sustainability expectations",
+   "secondary": false,
+   "rf": 18,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "CLIMATE_NATCAT",
+   "leaf": "CLIMATE_NATCAT.natural_disasters_weather",
+   "quote": "The effects of climate change, such as extreme weather conditions, could impact our business. Such effects could disrupt our operations by, among other things, impacting the availability and cost of materials needed for manufacturing",
+   "risk": "Global climate change could adversely affect our business.",
+   "window_ref": "LEA:w5",
+   "source_ref": "LEA:rf19",
+   "driver": "extreme weather",
+   "secondary": false,
+   "rf": 19,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "OTHER",
+   "leaf": "OTHER.reporting_controls",
+   "quote": "In the event that we determine that our goodwill or long-lived assets are impaired, we may be required to record a significant charge to earnings that could adversely affect our financial condition and operating results.",
+   "risk": "Impairment charges relating to our goodwill and long-lived assets could adversely affect our financial performance.",
+   "window_ref": "LEA:w5",
+   "source_ref": "LEA:rf20",
+   "driver": "goodwill impairment",
+   "secondary": false,
+   "rf": 20,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "RATES_FX_FUNDING",
+   "leaf": "RATES_FX_FUNDING.pension_finance_obligations",
+   "quote": "Our earnings may be positively or negatively impacted by the amount of income or expense recorded related to our global defined benefit plans.",
+   "risk": "Significant changes in discount rates, the actual return on pension assets and other factors related to our global defined benefit plans could adversely affect our financial performance.",
+   "window_ref": "LEA:w5",
+   "source_ref": "LEA:rf21",
+   "driver": "defined benefit plans",
+   "secondary": false,
+   "rf": 21,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "TAX",
+   "leaf": "TAX.tax_law_changes",
+   "quote": "Our effective tax rate and cash tax liability in the future could be adversely affected by the enactment of new tax legislation, changes in the level and mix of earnings in countries with differing statutory tax rates",
+   "risk": "Unanticipated changes in our effective tax rate, the adoption of new tax legislation or exposure to additional income tax liabilities could adversely affect our profitability.",
+   "window_ref": "LEA:w5",
+   "source_ref": "LEA:rf22",
+   "driver": "OECD Pillar Two",
+   "secondary": false,
+   "rf": 22,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "TAX",
+   "leaf": "TAX.tax_audits_disputes",
+   "quote": "Tax authorities may disagree with certain of our tax reporting positions and, as a result, assess additional taxes against us.",
+   "risk": "Unanticipated changes in our effective tax rate, the adoption of new tax legislation or exposure to additional income tax liabilities could adversely affect our profitability.",
+   "window_ref": "LEA:w5",
+   "source_ref": "LEA:rf22",
+   "driver": "global tax audits",
+   "secondary": true,
+   "rf": 22,
+   "rf_unmapped": false,
+   "label_error": "secondary label not supported by the heading"
+  },
+  {
+   "company": "LEA",
+   "category": "RATES_FX_FUNDING",
+   "leaf": "RATES_FX_FUNDING.liquidity_funding",
+   "quote": "The debt instruments governing our indebtedness contain covenants that may restrict our business activities or our ability to execute our strategic objectives, and our failure to comply with these covenants could result in a default under our indebtedness.",
+   "risk": "Our existing indebtedness and the inability to access capital markets could restrict our business activities or our ability to execute our strategic objectives or adversely affect our financial performance.",
+   "window_ref": "LEA:w5",
+   "source_ref": "LEA:rf23",
+   "driver": "$2.7 billion indebtedness",
+   "secondary": false,
+   "rf": 23,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "PRODUCT_SAFETY_RECALL",
+   "leaf": "PRODUCT_SAFETY_RECALL.product_liability_defects",
+   "quote": "In the event that our products fail to, or are alleged to fail to, perform as expected, regardless of fault, and such failure or alleged failure results in, or is alleged to result in, bodily injury and/or property damage or other losses, we may be subject to product liability lawsuits",
+   "risk": "A significant product liability lawsuit, warranty claim or product recall involving us or one of our major customers could adversely affect our financial performance.",
+   "window_ref": "LEA:w5",
+   "source_ref": "LEA:rf24",
+   "driver": "",
+   "secondary": false,
+   "rf": 24,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "REGULATION_LEGAL",
+   "leaf": "REGULATION_LEGAL.litigation_investigations",
+   "quote": "We are involved in various legal and regulatory proceedings and claims that, from time to time, are significant.",
+   "risk": "We are involved from time to time in various legal and regulatory proceedings and claims, which could adversely affect our financial performance.",
+   "window_ref": "LEA:w5",
+   "source_ref": "LEA:rf25",
+   "driver": "",
+   "secondary": false,
+   "rf": 25,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "CLIMATE_NATCAT",
+   "leaf": "CLIMATE_NATCAT.climate_disclosure_esg",
+   "quote": "Concerns over human rights, environmental pollution and climate change have produced significant legislative and regulatory efforts globally. In addition, our customers have imposed various requirements on their suppliers, including us, in response to these concerns.",
+   "risk": "The continuing focus on human rights and environmental laws and regulations globally, as well as related customer requirements, could cause us to incur significant costs.",
+   "window_ref": "LEA:w6",
+   "source_ref": "LEA:rf26",
+   "driver": "supply chain transparency rules",
+   "secondary": false,
+   "rf": 26,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "REGULATION_LEGAL",
+   "leaf": "REGULATION_LEGAL.product_regulation",
+   "quote": "The introduction of new laws or regulations or changes in existing laws or regulations, or the interpretation thereof, could increase the costs of doing business for us or our customers or suppliers or restrict our actions",
+   "risk": "New laws or regulations or changes in existing laws or regulations could adversely affect our financial performance.",
+   "window_ref": "LEA:w6",
+   "source_ref": "LEA:rf27",
+   "driver": "",
+   "secondary": false,
+   "rf": 27,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "REGULATION_LEGAL",
+   "leaf": "REGULATION_LEGAL.anti_corruption_compliance",
+   "quote": "In particular, the U.S. Foreign Corrupt Practices Act, the U.K. Bribery Act and similar anti-bribery laws in other jurisdictions generally prohibit companies and their intermediaries from making improper payments to government officials",
+   "risk": "We may incur fines or penalties, damage to our reputation or other adverse consequences if our employees, suppliers, sub-suppliers or other contract parties, agents or business partners violate anti-bribery, competition, export and import, trade sanctions, data privacy, environmental, human rights or other laws.",
+   "window_ref": "LEA:w6",
+   "source_ref": "LEA:rf28",
+   "driver": "FCPA, UK Bribery Act",
+   "secondary": false,
+   "rf": 28,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "REGULATION_LEGAL",
+   "leaf": "REGULATION_LEGAL.product_regulation",
+   "quote": "Material future expenditures may be necessary if compliance standards change or material unknown conditions that require remediation are discovered.",
+   "risk": "We are required to comply with environmental laws and regulations that could cause us to incur significant costs.",
+   "window_ref": "LEA:w6",
+   "source_ref": "LEA:rf29",
+   "driver": "environmental remediation",
+   "secondary": false,
+   "rf": 29,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "IP_TECH_RIGHTS",
+   "leaf": "IP_TECH_RIGHTS.ip_protection",
+   "quote": "Failure to successfully protect our intellectual property could adversely impact our business. Furthermore, we may not be able to readily identify unauthorized use or take appropriate and timely steps to enforce our intellectual property rights.",
+   "risk": "Developments or assertions by or against us relating to intellectual property rights could adversely affect our financial performance.",
+   "window_ref": "LEA:w6",
+   "source_ref": "LEA:rf30",
+   "driver": "",
+   "secondary": false,
+   "rf": 30,
+   "rf_unmapped": false
+  },
+  {
+   "company": "LEA",
+   "category": "IP_TECH_RIGHTS",
+   "leaf": "IP_TECH_RIGHTS.ip_infringement_claims",
+   "quote": "while we believe we have the necessary rights to use all of the intellectual property we use, if we are found to infringe on the rights of others, we could be adversely impacted.",
+   "risk": "Developments or assertions by or against us relating to intellectual property rights could adversely affect our financial performance.",
+   "window_ref": "LEA:w6",
+   "source_ref": "LEA:rf30",
+   "driver": "",
+   "secondary": true,
+   "rf": 30,
+   "rf_unmapped": false,
+   "label_error": "secondary label not supported by the heading"
+  },
+  {
+   "company": "NXPI",
+   "category": "MACRO_DEMAND",
+   "leaf": "MACRO_DEMAND.cyclical_demand",
+   "quote": "As a result of this cyclicality, the semiconductor industry has in the past experienced significant downturns, often in connection with, or in anticipation of, maturing life cycles of semiconductor companies\u2019 products and declines in general economic conditions.",
+   "risk": "The semiconductor industry is highly cyclical.",
+   "window_ref": "NXPI:w1",
+   "source_ref": "NXPI:rf1",
+   "driver": "semiconductor industry cycles",
+   "secondary": false,
+   "rf": 1,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "MACRO_DEMAND",
+   "leaf": "MACRO_DEMAND.cyclical_demand",
+   "quote": "In the event of a future decline in global economic conditions, our business, financial condition and results of operations could be materially adversely affected",
+   "risk": "Significantly increased volatility and instability and unfavorable economic conditions may adversely affect our business.",
+   "window_ref": "NXPI:w1",
+   "source_ref": "NXPI:rf2",
+   "driver": "",
+   "secondary": false,
+   "rf": 2,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "COMPETITION_DISRUPTION",
+   "leaf": "COMPETITION_DISRUPTION.price_competition",
+   "quote": "As a result of these competitive pressures, we may face declining sales volumes or lower prevailing prices for our products, and we may not be able to reduce our total costs in line with this declining revenue.",
+   "risk": "The semiconductor industry is highly competitive. If we fail to introduce new technologies and products in a timely manner, this could adversely affect our business.",
+   "window_ref": "NXPI:w1",
+   "source_ref": "NXPI:rf3",
+   "driver": "",
+   "secondary": false,
+   "rf": 3,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "COMPETITION_DISRUPTION",
+   "leaf": "COMPETITION_DISRUPTION.technology_change",
+   "quote": "Commitments to develop new products must be made well in advance of any resulting sales, and technologies and standards may change during development, potentially rendering our products outdated or noncompetitive before their introduction.",
+   "risk": "The semiconductor industry is highly competitive. If we fail to introduce new technologies and products in a timely manner, this could adversely affect our business.",
+   "window_ref": "NXPI:w1",
+   "source_ref": "NXPI:rf3",
+   "driver": "",
+   "secondary": true,
+   "rf": 3,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "MACRO_DEMAND",
+   "leaf": "MACRO_DEMAND.inventory_correction",
+   "quote": "Such customers have in the past, and may in the future, vary order levels significantly from period to period, request postponements to scheduled delivery dates, modify their orders or reduce lead times.",
+   "risk": "The demand for our products depends to a significant degree on the demand for our customers\u2019 end products.",
+   "window_ref": "NXPI:w1",
+   "source_ref": "NXPI:rf4",
+   "driver": "",
+   "secondary": false,
+   "rf": 4,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "COMPETITION_DISRUPTION",
+   "leaf": "COMPETITION_DISRUPTION.price_competition",
+   "quote": "We cannot guarantee that competition in our core product markets will not lead to price erosion, lower revenue or lower margins in the future.",
+   "risk": "One of the results of the rapid innovation in the semiconductor industry is that pricing pressure, especially on products containing older technology, can be intense.",
+   "window_ref": "NXPI:w1",
+   "source_ref": "NXPI:rf6",
+   "driver": "older technology products",
+   "secondary": false,
+   "rf": 6,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "COMPETITION_DISRUPTION",
+   "leaf": "COMPETITION_DISRUPTION.technology_change",
+   "quote": "Failure to win new design projects and delays in developing new products with anticipated technological advances or in commencing volume shipments of these products may have an adverse effect on our business.",
+   "risk": "In many of the market segments in which we compete, we depend on winning selection processes, and failure to be selected could adversely affect our business in those market segments.",
+   "window_ref": "NXPI:w2",
+   "source_ref": "NXPI:rf7",
+   "driver": "design-win selection processes",
+   "secondary": false,
+   "rf": 7,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "GEOPOLITICAL_TRADE",
+   "leaf": "GEOPOLITICAL_TRADE.international_operations",
+   "quote": "If any of the following international business risks were to materialize or become worse, they could have a material adverse effect on our business, financial condition and results of operations:",
+   "risk": "Our global business operations expose us to international business risks that could adversely affect our business.",
+   "window_ref": "NXPI:w2",
+   "source_ref": "NXPI:rf8",
+   "driver": "",
+   "secondary": false,
+   "rf": 8,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "GEOPOLITICAL_TRADE",
+   "leaf": "GEOPOLITICAL_TRADE.tariffs",
+   "quote": "For example, in April 2025, the Department of Commerce launched an investigation into the national security impacts of imported semiconductors and semiconductor manufacturing equipment.",
+   "risk": "Recently announced and future tariffs and other trade restrictions could materially and adversely affect our business, financial condition and results of operations.",
+   "window_ref": "NXPI:w2",
+   "source_ref": "NXPI:rf9",
+   "driver": "Section 232 semiconductor tariffs",
+   "secondary": false,
+   "rf": 9,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "OTHER",
+   "leaf": "OTHER.reporting_controls",
+   "quote": "Any future determination of impairment of goodwill or other identifiable intangible assets could have a material adverse effect on our financial position, results of operations and stockholders\u2019 equity.",
+   "risk": "Goodwill and other identifiable intangible assets represent a significant portion of our total assets, and we may never realize the full value of our intangible assets.",
+   "window_ref": "NXPI:w2",
+   "source_ref": "NXPI:rf10",
+   "driver": "goodwill impairment",
+   "secondary": false,
+   "rf": 10,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "MACRO_DEMAND",
+   "leaf": "MACRO_DEMAND.cyclical_demand",
+   "quote": "During such periods, our fabrication plants could operate at lower loading level, while the fixed costs associated with the full capacity continue to be incurred, resulting in lower gross profit.",
+   "risk": "In difficult market conditions, our high fixed costs combined with low revenue may negatively affect our results of operations.",
+   "window_ref": "NXPI:w2",
+   "source_ref": "NXPI:rf11",
+   "driver": "fab underutilization",
+   "secondary": false,
+   "rf": 11,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "STRATEGY_MA",
+   "leaf": "STRATEGY_MA.restructuring",
+   "quote": "The costs of implementing any restructurings, changes or cost savings steps may differ from our estimates and any negative impacts on our revenues or otherwise of such restructurings, changes or steps",
+   "risk": "We may from time to time restructure parts of our organization. Any such restructuring may impact customer satisfaction, and the costs of implementation may be difficult to predict.",
+   "window_ref": "NXPI:w2",
+   "source_ref": "NXPI:rf12",
+   "driver": "",
+   "secondary": false,
+   "rf": 12,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "RATES_FX_FUNDING",
+   "leaf": "RATES_FX_FUNDING.liquidity_funding",
+   "quote": "Our working capital needs are difficult to predict and may fluctuate. The comparatively long period between the time at which we commence development of a product and the time at which it may be delivered to a customer leads to high inventory and work-in-progress levels.",
+   "risk": "Our working capital needs are difficult to predict.",
+   "window_ref": "NXPI:w2",
+   "source_ref": "NXPI:rf13",
+   "driver": "working capital volatility",
+   "secondary": false,
+   "rf": 13,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "PRODUCT_SAFETY_RECALL",
+   "leaf": "PRODUCT_SAFETY_RECALL.product_liability_defects",
+   "quote": "We are exposed to product liability claims if our",
+   "risk": "Our business may be adversely affected by costs relating to product defects, and we could be faced with product liability and warranty claims.",
+   "window_ref": "NXPI:w3",
+   "source_ref": "NXPI:rf14",
+   "driver": "semiconductor product defects",
+   "secondary": false,
+   "rf": 14,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "CYBER_IT",
+   "leaf": "CYBER_IT.product_cybersecurity",
+   "quote": "We and third parties regularly identify security vulnerabilities with respect to our products and services. The same holds for the operating systems and workloads that run on them and the components that interact with them.",
+   "risk": "We face risks related to security vulnerabilities in our products.",
+   "window_ref": "NXPI:w3",
+   "source_ref": "NXPI:rf15",
+   "driver": "chip security vulnerabilities",
+   "secondary": false,
+   "rf": 15,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "CYBER_IT",
+   "leaf": "CYBER_IT.product_cybersecurity",
+   "quote": "Adverse publicity about security vulnerabilities or mitigations could damage our reputation with customers or users and reduce demand for our products and services.",
+   "risk": "Security vulnerabilities and any limitations of, or adverse effects resulting from, mitigation techniques can adversely affect our results of operations, financial condition, sales, branding, customer relationships, share price, prospects, and reputation in a number of ways, any of which may be material.",
+   "window_ref": "NXPI:w3",
+   "source_ref": "NXPI:rf16",
+   "driver": "",
+   "secondary": false,
+   "rf": 16,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "SUPPLY_CHAIN",
+   "leaf": "SUPPLY_CHAIN.manufacturing_disruption",
+   "quote": "Difficulties in the production process can reduce yields or interrupt production, and, as a result of such problems, we may on occasion not be able to deliver products or do so in a timely or cost-effective or competitive manner.",
+   "risk": "Our business has suffered, and could in the future suffer, from manufacturing problems.",
+   "window_ref": "NXPI:w3",
+   "source_ref": "NXPI:rf17",
+   "driver": "Austin fab winter storm",
+   "secondary": false,
+   "rf": 17,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "SUPPLY_CHAIN",
+   "leaf": "SUPPLY_CHAIN.single_source",
+   "quote": "Because the equipment that we purchase is complex, it is frequently difficult or impossible for us to substitute one piece of equipment for another or replace one type of material with another.",
+   "risk": "We rely on the timely supply of equipment and materials and could suffer if suppliers fail to meet their delivery obligations or raise prices. Certain equipment and materials needed in our manufacturing operations are only available from a limited number of suppliers.",
+   "window_ref": "NXPI:w3",
+   "source_ref": "NXPI:rf18",
+   "driver": "silicon wafers, specialized chemicals",
+   "secondary": false,
+   "rf": 18,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "SUPPLY_CHAIN",
+   "leaf": "SUPPLY_CHAIN.outsourced_manufacturing",
+   "quote": "as part of the industry-wide shortage of semiconductors during 2022 we could not obtain sufficient silicon wafers from our foundry partners to meet the demand for our products",
+   "risk": "Failure of our third party suppliers to perform could adversely affect our results of operations.",
+   "window_ref": "NXPI:w3",
+   "source_ref": "NXPI:rf19",
+   "driver": "foundry partners",
+   "secondary": false,
+   "rf": 19,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "CUSTOMER_CONCENTRATION",
+   "leaf": "CUSTOMER_CONCENTRATION.key_customer_dependence",
+   "quote": "A substantial portion of our revenue is derived from our top customers, including our distributors. We cannot guarantee that we will be able to generate similar levels of revenue from our largest customers in the future.",
+   "risk": "Disruptions in our relationships with any one of our key customers could adversely affect our business.",
+   "window_ref": "NXPI:w4",
+   "source_ref": "NXPI:rf20",
+   "driver": "top customers",
+   "secondary": false,
+   "rf": 20,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "REGULATION_LEGAL",
+   "leaf": "REGULATION_LEGAL.government_incentives",
+   "quote": "These programs are subject to periodic review by the relevant governments, and if any of these programs are curtailed or discontinued, this could have a material adverse effect on our business, financial condition and results of operations.",
+   "risk": "We receive subsidies and grants in certain countries, and a reduction in the amount of governmental funding available to us or demands for repayment could increase our costs and affect our results of operations.",
+   "window_ref": "NXPI:w4",
+   "source_ref": "NXPI:rf21",
+   "driver": "government subsidies and grants",
+   "secondary": false,
+   "rf": 21,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "CLIMATE_NATCAT",
+   "leaf": "CLIMATE_NATCAT.natural_disasters_weather",
+   "quote": "If flooding, heavy precipitation, a large earthquake, volcanic eruption or, extreme weather event or other natural disaster were to",
+   "risk": "Certain natural disasters, such as flooding, heavy precipitation, large earthquakes, volcanic eruptions or nuclear or other disasters, may negatively impact our business. Climate change may cause a rising number of natural disasters that could negatively affect our operations.",
+   "window_ref": "NXPI:w4",
+   "source_ref": "NXPI:rf22",
+   "driver": "Asian fab earthquake/flood zones",
+   "secondary": false,
+   "rf": 22,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "STRATEGY_MA",
+   "leaf": "STRATEGY_MA.acquisitions_integration",
+   "quote": "Achieving the anticipated benefits of business acquisitions depends in part upon our ability to integrate the businesses in an efficient and effective manner and achieve anticipated synergies, and we may not be successful in these efforts.",
+   "risk": "We may engage in acquisitions and other strategic transactions or make investments, or be unable to consummate planned strategic acquisitions, which could adversely affect our results of operations.",
+   "window_ref": "NXPI:w4",
+   "source_ref": "NXPI:rf23",
+   "driver": "",
+   "secondary": false,
+   "rf": 23,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "STRATEGY_MA",
+   "leaf": "STRATEGY_MA.joint_ventures_investments",
+   "quote": "If we do not achieve the anticipated benefits of these joint ventures, or if newly established joint ventures are not able to begin production in the expected timing or achieve expected efficiency and quality, our business and results of operations may be adversely affected.",
+   "risk": "We rely on joint ventures to meet our current and future manufacturing requirements. However, we often do not control these partnerships and joint ventures, and actions taken by any of our partners or the termination of these joint ventures could adversely affect our business.",
+   "window_ref": "NXPI:w4",
+   "source_ref": "NXPI:rf24",
+   "driver": "SSMC, VSMC, ESMC JVs",
+   "secondary": false,
+   "rf": 24,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "GEOPOLITICAL_TRADE",
+   "leaf": "GEOPOLITICAL_TRADE.international_operations",
+   "quote": "As our business is global, we need to comply with laws and regulations in countries across the world.",
+   "risk": "As our business is global, we need to comply with laws and regulations in countries across the world.",
+   "window_ref": "NXPI:w4",
+   "source_ref": "NXPI:rf25",
+   "driver": "",
+   "secondary": false,
+   "rf": 25,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "GEOPOLITICAL_TRADE",
+   "leaf": "GEOPOLITICAL_TRADE.export_controls",
+   "quote": "For example, import and export regulations, such as the U.S. Export Administration Regulations administered by the U.S. Department of Commerce and sanctions imposed by the European Union (EU) and other jurisdictions, are complex, change frequently, have generally become more stringent over time and have intensified in recent years.",
+   "risk": "We operate globally, with manufacturing, assembly and testing facilities in several continents, and we market our products globally.",
+   "window_ref": "NXPI:w5",
+   "source_ref": "NXPI:rf26",
+   "driver": "U.S. EAR, Huawei shipments",
+   "secondary": false,
+   "rf": 26,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "REGULATION_LEGAL",
+   "leaf": "REGULATION_LEGAL.litigation_investigations",
+   "quote": "in the past we have been involved in legal proceedings claiming personal injuries to the children of former employees as a result of employees\u2019 alleged exposure to chemicals used in semiconductor manufacturing clean room environments",
+   "risk": "Legal proceedings covering a range of matters are pending in various jurisdictions. Due to the uncertainty inherent in litigation, it is difficult to predict the final outcome. An adverse outcome might affect our results of operations.",
+   "window_ref": "NXPI:w5",
+   "source_ref": "NXPI:rf27",
+   "driver": "clean room chemical exposure claims",
+   "secondary": false,
+   "rf": 27,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "REGULATION_LEGAL",
+   "leaf": "REGULATION_LEGAL.product_regulation",
+   "quote": "we cannot assure you that our costs of complying with current and future environmental and health and safety laws, or our liabilities arising from past or future releases of, or exposures to, regulated materials, will not have a material adverse effect on our business",
+   "risk": "Our manufacturing operations are subject to environmental laws and regulations and initiatives to address climate change.",
+   "window_ref": "NXPI:w5",
+   "source_ref": "NXPI:rf28",
+   "driver": "environmental remediation liability",
+   "secondary": false,
+   "rf": 28,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "CLIMATE_NATCAT",
+   "leaf": "CLIMATE_NATCAT.climate_disclosure_esg",
+   "quote": "Public and private initiatives to address climate change may result in an increase in the cost of production due to increase in the prices of energy, introduction of energy or carbon tax or the purchase of carbon offsets.",
+   "risk": "Our manufacturing operations are subject to environmental laws and regulations and initiatives to address climate change.",
+   "window_ref": "NXPI:w5",
+   "source_ref": "NXPI:rf28",
+   "driver": "carbon tax",
+   "secondary": true,
+   "rf": 28,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "CYBER_IT",
+   "leaf": "CYBER_IT.it_system_failure",
+   "quote": "Any significant interruption in our business applications, systems or networks, including but not limited to new system implementations, computer viruses, cyberattacks, security breaches, facility issues or energy blackouts could have a material adverse impact on our business",
+   "risk": "Interruptions in our information technology systems could adversely affect our business.",
+   "window_ref": "NXPI:w5",
+   "source_ref": "NXPI:rf29",
+   "driver": "",
+   "secondary": false,
+   "rf": 29,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "CYBER_IT",
+   "leaf": "CYBER_IT.cyberattack_breach",
+   "quote": "We have, from time to time, experienced cyber-attacks attempting to obtain access to and misuse our computer systems and networks.",
+   "risk": "Our computer systems and networks are subject to attempted security breaches and other cybersecurity incidents, which, if successful, could adversely impact our business.",
+   "window_ref": "NXPI:w6",
+   "source_ref": "NXPI:rf30",
+   "driver": "",
+   "secondary": false,
+   "rf": 30,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "IP_TECH_RIGHTS",
+   "leaf": "IP_TECH_RIGHTS.ip_protection",
+   "quote": "It is possible that competitors or other unauthorized third parties may obtain, copy, use or disclose our proprietary technologies, our products, designs, processes and other intellectual property despite our efforts to protect our intellectual property.",
+   "risk": "We rely to a significant extent on proprietary intellectual property. We may not be able to protect this intellectual property against improper use by our competitors or others.",
+   "window_ref": "NXPI:w6",
+   "source_ref": "NXPI:rf31",
+   "driver": "",
+   "secondary": false,
+   "rf": 31,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "IP_TECH_RIGHTS",
+   "leaf": "IP_TECH_RIGHTS.ip_infringement_claims",
+   "quote": "We have from time to time received, and may in the future receive, communications alleging possible infringement of patents and other intellectual property rights of others.",
+   "risk": "We may become party to intellectual property claims or litigation that could cause us to incur substantial costs, pay substantial damages or prohibit us from selling our products.",
+   "window_ref": "NXPI:w6",
+   "source_ref": "NXPI:rf32",
+   "driver": "",
+   "secondary": false,
+   "rf": 32,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "TALENT_LABOR",
+   "leaf": "TALENT_LABOR.key_personnel",
+   "quote": "We depend on our key management to run our business and on our senior engineers to develop new products and technologies. Our success will depend on the continued service of these individuals.",
+   "risk": "Loss of our key management and other personnel, or an inability to attract such management and other personnel, could affect our business.",
+   "window_ref": "NXPI:w7",
+   "source_ref": "NXPI:rf33",
+   "driver": "CEO transition",
+   "secondary": false,
+   "rf": 33,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "TALENT_LABOR",
+   "leaf": "TALENT_LABOR.skilled_talent",
+   "quote": "The market for qualified employees, including skilled engineers and other individuals with the required technical expertise to succeed in our business, is highly competitive",
+   "risk": "Loss of our key management and other personnel, or an inability to attract such management and other personnel, could affect our business.",
+   "window_ref": "NXPI:w7",
+   "source_ref": "NXPI:rf33",
+   "driver": "skilled engineers",
+   "secondary": true,
+   "rf": 33,
+   "rf_unmapped": false,
+   "label_error": "secondary label not supported by the heading"
+  },
+  {
+   "company": "NXPI",
+   "category": "OTHER",
+   "leaf": "OTHER.stock_governance",
+   "quote": "there can be no assurance that U.S. investors will be able to enforce against us or members of our board of directors or officers who are residents of the Netherlands or countries other than the United States any judgments obtained in U.S. courts",
+   "risk": "United States civil liabilities may not be enforceable against us.",
+   "window_ref": "NXPI:w7",
+   "source_ref": "NXPI:rf34",
+   "driver": "Dutch incorporation",
+   "secondary": false,
+   "rf": 34,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "OTHER",
+   "leaf": "OTHER.stock_governance",
+   "quote": "The rights of stockholders and the responsibilities of members of our board of directors may be different from the rights and obligations of stockholders in companies governed by the laws of U.S. jurisdictions.",
+   "risk": "We are a Dutch public company with limited liability. The rights of our stockholders may be different from the rights of stockholders governed by the laws of U.S. jurisdictions.",
+   "window_ref": "NXPI:w7",
+   "source_ref": "NXPI:rf35",
+   "driver": "Dutch corporate law",
+   "secondary": false,
+   "rf": 35,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "RATES_FX_FUNDING",
+   "leaf": "RATES_FX_FUNDING.liquidity_funding",
+   "quote": "As of December 31, 2025, we had outstanding indebtedness with an aggregate principal amount of $12,290 million. Our substantial indebtedness could have a material adverse effect on our business by:",
+   "risk": "Our debt obligations expose us to risks that could adversely affect our financial condition, which could adversely affect our results of operations.",
+   "window_ref": "NXPI:w7",
+   "source_ref": "NXPI:rf36",
+   "driver": "$12.3bn debt",
+   "secondary": false,
+   "rf": 36,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "RATES_FX_FUNDING",
+   "leaf": "RATES_FX_FUNDING.liquidity_funding",
+   "quote": "Despite our level of indebtedness, we may still incur significantly more debt, which could further exacerbate the risks described above and affect our ability to service and repay our debt.",
+   "risk": "Despite our level of indebtedness, we may still incur significantly more debt, which could further exacerbate the risks described above and affect our ability to service and repay our debt.",
+   "window_ref": "NXPI:w7",
+   "source_ref": "NXPI:rf37",
+   "driver": "additional debt",
+   "secondary": false,
+   "rf": 37,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "RATES_FX_FUNDING",
+   "leaf": "RATES_FX_FUNDING.liquidity_funding",
+   "quote": "If there were an event of default under any of our debt instruments that was not cured or waived, the holders of the defaulted debt could terminate commitments to lend and cause all amounts outstanding with respect to the debt to be due and payable immediately",
+   "risk": "If we do not comply with the covenants in our debt agreements or fail to generate sufficient cash to service and repay our debt, it could adversely affect our operating results and our financial condition.",
+   "window_ref": "NXPI:w7",
+   "source_ref": "NXPI:rf38",
+   "driver": "RCF and EIB covenants",
+   "secondary": false,
+   "rf": 38,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "RATES_FX_FUNDING",
+   "leaf": "RATES_FX_FUNDING.credit_ratings",
+   "quote": "Actual or anticipated changes or downgrades in our credit ratings, including any announcement that our ratings are under further review for a downgrade, could affect our market value and/or increase our corporate borrowing costs.",
+   "risk": "The rating of our debt by major rating agencies may further improve or deteriorate, which could affect our additional borrowing capacity and financing costs.",
+   "window_ref": "NXPI:w8",
+   "source_ref": "NXPI:rf39",
+   "driver": "credit rating downgrade",
+   "secondary": false,
+   "rf": 39,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "OTHER",
+   "leaf": "OTHER.stock_governance",
+   "quote": "The market price of our common stock is likely to continue to be volatile and subject to significant price and volume fluctuations for many reasons",
+   "risk": "The price of our common stock historically has been volatile. The price of our common stock may fluctuate significantly.",
+   "window_ref": "NXPI:w8",
+   "source_ref": "NXPI:rf40",
+   "driver": "stock price volatility",
+   "secondary": false,
+   "rf": 40,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "OTHER",
+   "leaf": "OTHER.stock_governance",
+   "quote": "The amount, timing, and execution of our stock repurchases may fluctuate based on our priorities for the use of cash for other purposes",
+   "risk": "We may have fluctuations in the amount and frequency of our stock repurchases.",
+   "window_ref": "NXPI:w8",
+   "source_ref": "NXPI:rf41",
+   "driver": "stock repurchases",
+   "secondary": false,
+   "rf": 41,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "OTHER",
+   "leaf": "OTHER.stock_governance",
+   "quote": "The declaration and payment of any dividend is subject to the approval of our board, and our dividend may be discontinued or reduced at any time.",
+   "risk": "There can be no assurance that we will continue to declare cash dividends.",
+   "window_ref": "NXPI:w8",
+   "source_ref": "NXPI:rf42",
+   "driver": "quarterly cash dividend",
+   "secondary": false,
+   "rf": 42,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "RATES_FX_FUNDING",
+   "leaf": "RATES_FX_FUNDING.pension_finance_obligations",
+   "quote": "As of December 31, 2025, we had recognized a net accrued benefit liability of $342 million, representing the unfunded benefit obligations of our defined pension plans.",
+   "risk": "The impact of a negative performance of financial markets and demographic trends on our defined benefit pension liabilities and costs cannot be predicted.",
+   "window_ref": "NXPI:w8",
+   "source_ref": "NXPI:rf43",
+   "driver": "defined benefit pension plans",
+   "secondary": false,
+   "rf": 43,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "TAX",
+   "leaf": "TAX.tax_law_changes",
+   "quote": "the EU has adopted a directive on ensuring a global minimum level of taxation for multinational companies, also known as Pillar 2, which became effective in 2024.",
+   "risk": "Future changes to Dutch, U.S. and other foreign tax laws could adversely affect us.",
+   "window_ref": "NXPI:w8",
+   "source_ref": "NXPI:rf44",
+   "driver": "Pillar 2 minimum tax",
+   "secondary": false,
+   "rf": 44,
+   "rf_unmapped": false
+  },
+  {
+   "company": "NXPI",
+   "category": "TAX",
+   "leaf": "TAX.tax_audits_disputes",
+   "quote": "Transfer pricing uncertainties can also result from disputes with local tax authorities about transfer pricing of internal deliveries of goods and services or related to financing, acquisitions and divestments",
+   "risk": "We are exposed to a number of different tax uncertainties, which could have an impact on our results.",
+   "window_ref": "NXPI:w8",
+   "source_ref": "NXPI:rf45",
+   "driver": "transfer pricing disputes",
+   "secondary": false,
+   "rf": 45,
+   "rf_unmapped": false
+  }
+ ],
+ "stages": {
+  "build": "taxonomy.build",
+  "ask": "taxonomy.ask"
+ },
+ "details": {
+  "windows_classified": 14,
+  "prompt_version": "taxonomy-v3.0",
+  "split": "heading",
+  "split_by_ticker": {
+   "LEA": {
+    "method": "heading",
+    "reason": null,
+    "sections": 31,
+    "windows": 6
+   },
+   "NXPI": {
+    "method": "heading",
+    "reason": null,
+    "sections": 45,
+    "windows": 8
+   }
+  },
+  "sections": {
+   "LEA:rf0": {
+    "start": 0,
+    "end": 268,
+    "heading": "(introduction)",
+    "subcaption": ""
+   },
+   "LEA:rf1": {
+    "start": 269,
+    "end": 3152,
+    "heading": "Our industry is cyclical and a decline or significant fluctuation in the production levels of our major customers, particularly with respect to models for which we are a significant supplier, or the financial distress of or operational disruptions to one or more of our major customers could adversely affect our financial performance.",
+    "subcaption": "Risks Related to Our Business"
+   },
+   "LEA:rf2": {
+    "start": 3153,
+    "end": 4404,
+    "heading": "Increases in the costs and restrictions on the availability of raw materials, energy, commodities, product components and labor could adversely affect our financial performance.",
+    "subcaption": "Risks Related to Our Business"
+   },
+   "LEA:rf3": {
+    "start": 4405,
+    "end": 6137,
+    "heading": "Our failure to execute our strategic objectives could adversely affect our financial performance.",
+    "subcaption": "Risks Related to Our Business"
+   },
+   "LEA:rf4": {
+    "start": 6138,
+    "end": 7094,
+    "heading": "The lack of commercial success of or an increase in directed component sourcing for a vehicle model for which we are a significant supplier could adversely affect our financial performance.",
+    "subcaption": "Risks Related to Our Business"
+   },
+   "LEA:rf5": {
+    "start": 7095,
+    "end": 8614,
+    "heading": "Our inability to achieve product cost reductions to offset customer-imposed price reductions could adversely affect our financial performance.",
+    "subcaption": "Risks Related to Our Business"
+   },
+   "LEA:rf6": {
+    "start": 8615,
+    "end": 13991,
+    "heading": "International trade policies, such as tariffs, sanctions, export controls and other trade restrictions, could adversely affect our financial performance.",
+    "subcaption": "Risks Related to Our Business"
+   },
+   "LEA:rf7": {
+    "start": 13992,
+    "end": 15201,
+    "heading": "Adverse developments affecting or the financial distress of one or more of our suppliers could adversely affect our financial performance.",
+    "subcaption": "Risks Related to Our Business"
+   },
+   "LEA:rf8": {
+    "start": 15202,
+    "end": 17131,
+    "heading": "A significant labor dispute involving us or one or more of our customers or suppliers or that could otherwise affect our operations could adversely affect our financial performance.",
+    "subcaption": "Risks Related to Our Business"
+   },
+   "LEA:rf9": {
+    "start": 17133,
+    "end": 18329,
+    "heading": "Our ability to attract, develop, engage and retain qualified employees could affect our ability to execute our strategy.",
+    "subcaption": "Risks Related to Our Business"
+   },
+   "LEA:rf10": {
+    "start": 18330,
+    "end": 20872,
+    "heading": "Our substantial international operations make us vulnerable to risks associated with volatile economic and political environments.",
+    "subcaption": "Risks Related to Our Business"
+   },
+   "LEA:rf11": {
+    "start": 20873,
+    "end": 22164,
+    "heading": "Certain of our operations are conducted through joint ventures which have unique risks.",
+    "subcaption": "Risks Related to Our Business"
+   },
+   "LEA:rf12": {
+    "start": 22165,
+    "end": 23446,
+    "heading": "Our inability to effectively manage the timing, quality and costs of new program launches could adversely affect our financial performance.",
+    "subcaption": "Risks Related to Our Business"
+   },
+   "LEA:rf13": {
+    "start": 23447,
+    "end": 25212,
+    "heading": "We operate in a highly competitive industry and efforts by our competitors, as well as new entrants to the industry, to gain market share could adversely affect our financial performance.",
+    "subcaption": "Risks Related to Our Business"
+   },
+   "LEA:rf14": {
+    "start": 25213,
+    "end": 26399,
+    "heading": "If we do not respond appropriately, the evolution of the global transportation industry toward electrification could adversely affect our business.",
+    "subcaption": "Risks Related to Our Business"
+   },
+   "LEA:rf15": {
+    "start": 26400,
+    "end": 28093,
+    "heading": "Our increasing use of AI and other emerging technologies may expose us to operational, legal and regulatory risks that could adversely affect our business and reputation.",
+    "subcaption": "Risks Related to Our Business"
+   },
+   "LEA:rf16": {
+    "start": 28094,
+    "end": 36431,
+    "heading": "A disruption in our information technology systems, or those of our customers, suppliers, sub-suppliers or other contract parties, including a disruption related to cybersecurity, and other cybersecurity risks, such as a security incident resulting in unauthorized access to or theft of personal or other sensitive information, could adversely affect our financial performance.",
+    "subcaption": "Risks Related to Our Business"
+   },
+   "LEA:rf17": {
+    "start": 36432,
+    "end": 37504,
+    "heading": "Pandemics, epidemics, disease outbreaks and other public health crises have disrupted our business and operations, and future public health crises could adversely affect our business, financial condition and operating results.",
+    "subcaption": "Risks Related to Our Business"
+   },
+   "LEA:rf18": {
+    "start": 37505,
+    "end": 38420,
+    "heading": "Perspectives on global climate change and other sustainability matters by various stakeholders could adversely affect our business.",
+    "subcaption": "Risks Related to Our Business"
+   },
+   "LEA:rf19": {
+    "start": 38421,
+    "end": 39200,
+    "heading": "Global climate change could adversely affect our business.",
+    "subcaption": "Risks Related to Our Business"
+   },
+   "LEA:rf20": {
+    "start": 39201,
+    "end": 40839,
+    "heading": "Impairment charges relating to our goodwill and long-lived assets could adversely affect our financial performance.",
+    "subcaption": "Risks Related to Our Business"
+   },
+   "LEA:rf21": {
+    "start": 40840,
+    "end": 42331,
+    "heading": "Significant changes in discount rates, the actual return on pension assets and other factors related to our global defined benefit plans could adversely affect our financial performance.",
+    "subcaption": "Risks Related to Our Business"
+   },
+   "LEA:rf22": {
+    "start": 42332,
+    "end": 45214,
+    "heading": "Unanticipated changes in our effective tax rate, the adoption of new tax legislation or exposure to additional income tax liabilities could adversely affect our profitability.",
+    "subcaption": "Risks Related to Our Business"
+   },
+   "LEA:rf23": {
+    "start": 45216,
+    "end": 46554,
+    "heading": "Our existing indebtedness and the inability to access capital markets could restrict our business activities or our ability to execute our strategic objectives or adversely affect our financial performance.",
+    "subcaption": "Risks Related to Our Indebtedness"
+   },
+   "LEA:rf24": {
+    "start": 46555,
+    "end": 47645,
+    "heading": "A significant product liability lawsuit, warranty claim or product recall involving us or one of our major customers could adversely affect our financial performance.",
+    "subcaption": "Legal and Regulatory Risks"
+   },
+   "LEA:rf25": {
+    "start": 47646,
+    "end": 48378,
+    "heading": "We are involved from time to time in various legal and regulatory proceedings and claims, which could adversely affect our financial performance.",
+    "subcaption": "Legal and Regulatory Risks"
+   },
+   "LEA:rf26": {
+    "start": 48379,
+    "end": 49609,
+    "heading": "The continuing focus on human rights and environmental laws and regulations globally, as well as related customer requirements, could cause us to incur significant costs.",
+    "subcaption": "Legal and Regulatory Risks"
+   },
+   "LEA:rf27": {
+    "start": 49610,
+    "end": 50692,
+    "heading": "New laws or regulations or changes in existing laws or regulations could adversely affect our financial performance.",
+    "subcaption": "Legal and Regulatory Risks"
+   },
+   "LEA:rf28": {
+    "start": 50694,
+    "end": 52422,
+    "heading": "We may incur fines or penalties, damage to our reputation or other adverse consequences if our employees, suppliers, sub-suppliers or other contract parties, agents or business partners violate anti-bribery, competition, export and import, trade sanctions, data privacy, environmental, human rights or other laws.",
+    "subcaption": "Legal and Regulatory Risks"
+   },
+   "LEA:rf29": {
+    "start": 52423,
+    "end": 53337,
+    "heading": "We are required to comply with environmental laws and regulations that could cause us to incur significant costs.",
+    "subcaption": "Legal and Regulatory Risks"
+   },
+   "LEA:rf30": {
+    "start": 53338,
+    "end": 54380,
+    "heading": "Developments or assertions by or against us relating to intellectual property rights could adversely affect our financial performance.",
+    "subcaption": "Legal and Regulatory Risks"
+   },
+   "NXPI:rf1": {
+    "start": 0,
+    "end": 1650,
+    "heading": "The semiconductor industry is highly cyclical.",
+    "subcaption": "Risks related to the semiconductor industry and the markets in which we participate"
+   },
+   "NXPI:rf2": {
+    "start": 1652,
+    "end": 3272,
+    "heading": "Significantly increased volatility and instability and unfavorable economic conditions may adversely affect our business.",
+    "subcaption": "Risks related to the semiconductor industry and the markets in which we participate"
+   },
+   "NXPI:rf3": {
+    "start": 3274,
+    "end": 6916,
+    "heading": "The semiconductor industry is highly competitive. If we fail to introduce new technologies and products in a timely manner, this could adversely affect our business.",
+    "subcaption": "Risks related to the semiconductor industry and the markets in which we participate"
+   },
+   "NXPI:rf4": {
+    "start": 6918,
+    "end": 8671,
+    "heading": "The demand for our products depends to a significant degree on the demand for our customers\u2019 end products.",
+    "subcaption": "Risks related to the semiconductor industry and the markets in which we participate"
+   },
+   "NXPI:rf5": {
+    "start": 8673,
+    "end": 8808,
+    "heading": "The semiconductor industry is historically characterized by continued price erosion, especially after a product has been on the market.",
+    "subcaption": "Risks related to the semiconductor industry and the markets in which we participate"
+   },
+   "NXPI:rf6": {
+    "start": 8809,
+    "end": 10117,
+    "heading": "One of the results of the rapid innovation in the semiconductor industry is that pricing pressure, especially on products containing older technology, can be intense.",
+    "subcaption": "Risks related to the semiconductor industry and the markets in which we participate"
+   },
+   "NXPI:rf7": {
+    "start": 10119,
+    "end": 11487,
+    "heading": "In many of the market segments in which we compete, we depend on winning selection processes, and failure to be selected could adversely affect our business in those market segments.",
+    "subcaption": "Risks related to our business operations"
+   },
+   "NXPI:rf8": {
+    "start": 11489,
+    "end": 13587,
+    "heading": "Our global business operations expose us to international business risks that could adversely affect our business.",
+    "subcaption": "Risks related to our business operations"
+   },
+   "NXPI:rf9": {
+    "start": 13589,
+    "end": 15684,
+    "heading": "Recently announced and future tariffs and other trade restrictions could materially and adversely affect our business, financial condition and results of operations.",
+    "subcaption": "Risks related to our business operations"
+   },
+   "NXPI:rf10": {
+    "start": 15686,
+    "end": 17033,
+    "heading": "Goodwill and other identifiable intangible assets represent a significant portion of our total assets, and we may never realize the full value of our intangible assets.",
+    "subcaption": "Risks related to our business operations"
+   },
+   "NXPI:rf11": {
+    "start": 17035,
+    "end": 17801,
+    "heading": "In difficult market conditions, our high fixed costs combined with low revenue may negatively affect our results of operations.",
+    "subcaption": "Risks related to our business operations"
+   },
+   "NXPI:rf12": {
+    "start": 17803,
+    "end": 20126,
+    "heading": "We may from time to time restructure parts of our organization. Any such restructuring may impact customer satisfaction, and the costs of implementation may be difficult to predict.",
+    "subcaption": "Risks related to our business operations"
+   },
+   "NXPI:rf13": {
+    "start": 20128,
+    "end": 20670,
+    "heading": "Our working capital needs are difficult to predict.",
+    "subcaption": "Risks related to our business operations"
+   },
+   "NXPI:rf14": {
+    "start": 20672,
+    "end": 22993,
+    "heading": "Our business may be adversely affected by costs relating to product defects, and we could be faced with product liability and warranty claims.",
+    "subcaption": "Risks related to our business operations"
+   },
+   "NXPI:rf15": {
+    "start": 22995,
+    "end": 24455,
+    "heading": "We face risks related to security vulnerabilities in our products.",
+    "subcaption": "Risks related to our business operations"
+   },
+   "NXPI:rf16": {
+    "start": 24456,
+    "end": 25419,
+    "heading": "Security vulnerabilities and any limitations of, or adverse effects resulting from, mitigation techniques can adversely affect our results of operations, financial condition, sales, branding, customer relationships, share price, prospects, and reputation in a number of ways, any of which may be material.",
+    "subcaption": "Risks related to our business operations"
+   },
+   "NXPI:rf17": {
+    "start": 25421,
+    "end": 27292,
+    "heading": "Our business has suffered, and could in the future suffer, from manufacturing problems.",
+    "subcaption": "Risks related to our business operations"
+   },
+   "NXPI:rf18": {
+    "start": 27294,
+    "end": 28906,
+    "heading": "We rely on the timely supply of equipment and materials and could suffer if suppliers fail to meet their delivery obligations or raise prices. Certain equipment and materials needed in our manufacturing operations are only available from a limited number of suppliers.",
+    "subcaption": "Risks related to our business operations"
+   },
+   "NXPI:rf19": {
+    "start": 28908,
+    "end": 30715,
+    "heading": "Failure of our third party suppliers to perform could adversely affect our results of operations.",
+    "subcaption": "Risks related to our business operations"
+   },
+   "NXPI:rf20": {
+    "start": 30717,
+    "end": 31227,
+    "heading": "Disruptions in our relationships with any one of our key customers could adversely affect our business.",
+    "subcaption": "Risks related to our business operations"
+   },
+   "NXPI:rf21": {
+    "start": 31229,
+    "end": 32545,
+    "heading": "We receive subsidies and grants in certain countries, and a reduction in the amount of governmental funding available to us or demands for repayment could increase our costs and affect our results of operations.",
+    "subcaption": "Risks related to our business operations"
+   },
+   "NXPI:rf22": {
+    "start": 32547,
+    "end": 35879,
+    "heading": "Certain natural disasters, such as flooding, heavy precipitation, large earthquakes, volcanic eruptions or nuclear or other disasters, may negatively impact our business. Climate change may cause a rising number of natural disasters that could negatively affect our operations.",
+    "subcaption": "Risks related to our business operations"
+   },
+   "NXPI:rf23": {
+    "start": 35881,
+    "end": 37900,
+    "heading": "We may engage in acquisitions and other strategic transactions or make investments, or be unable to consummate planned strategic acquisitions, which could adversely affect our results of operations.",
+    "subcaption": "Risks related to our business operations"
+   },
+   "NXPI:rf24": {
+    "start": 37902,
+    "end": 39720,
+    "heading": "We rely on joint ventures to meet our current and future manufacturing requirements. However, we often do not control these partnerships and joint ventures, and actions taken by any of our partners or the termination of these joint ventures could adversely affect our business.",
+    "subcaption": "Risks related to our business operations"
+   },
+   "NXPI:rf25": {
+    "start": 39722,
+    "end": 39873,
+    "heading": "As our business is global, we need to comply with laws and regulations in countries across the world.",
+    "subcaption": "Risks related to regulatory or legal challenges"
+   },
+   "NXPI:rf26": {
+    "start": 39874,
+    "end": 43218,
+    "heading": "We operate globally, with manufacturing, assembly and testing facilities in several continents, and we market our products globally.",
+    "subcaption": "Risks related to regulatory or legal challenges"
+   },
+   "NXPI:rf27": {
+    "start": 43220,
+    "end": 44207,
+    "heading": "Legal proceedings covering a range of matters are pending in various jurisdictions. Due to the uncertainty inherent in litigation, it is difficult to predict the final outcome. An adverse outcome might affect our results of operations.",
+    "subcaption": "Risks related to regulatory or legal challenges"
+   },
+   "NXPI:rf28": {
+    "start": 44209,
+    "end": 47645,
+    "heading": "Our manufacturing operations are subject to environmental laws and regulations and initiatives to address climate change.",
+    "subcaption": "Risks related to regulatory or legal challenges"
+   },
+   "NXPI:rf29": {
+    "start": 47647,
+    "end": 48468,
+    "heading": "Interruptions in our information technology systems could adversely affect our business.",
+    "subcaption": "Risks related to cybersecurity and IT systems"
+   },
+   "NXPI:rf30": {
+    "start": 48470,
+    "end": 52573,
+    "heading": "Our computer systems and networks are subject to attempted security breaches and other cybersecurity incidents, which, if successful, could adversely impact our business.",
+    "subcaption": "Risks related to cybersecurity and IT systems"
+   },
+   "NXPI:rf31": {
+    "start": 52575,
+    "end": 56699,
+    "heading": "We rely to a significant extent on proprietary intellectual property. We may not be able to protect this intellectual property against improper use by our competitors or others.",
+    "subcaption": "Risks related to intellectual property"
+   },
+   "NXPI:rf32": {
+    "start": 56701,
+    "end": 58962,
+    "heading": "We may become party to intellectual property claims or litigation that could cause us to incur substantial costs, pay substantial damages or prohibit us from selling our products.",
+    "subcaption": "Risks related to intellectual property"
+   },
+   "NXPI:rf33": {
+    "start": 58964,
+    "end": 60549,
+    "heading": "Loss of our key management and other personnel, or an inability to attract such management and other personnel, could affect our business.",
+    "subcaption": "Risks related to human capital management"
+   },
+   "NXPI:rf34": {
+    "start": 60551,
+    "end": 63913,
+    "heading": "United States civil liabilities may not be enforceable against us.",
+    "subcaption": "Risks related to our corporate structure"
+   },
+   "NXPI:rf35": {
+    "start": 63915,
+    "end": 64998,
+    "heading": "We are a Dutch public company with limited liability. The rights of our stockholders may be different from the rights of stockholders governed by the laws of U.S. jurisdictions.",
+    "subcaption": "Risks related to our corporate structure"
+   },
+   "NXPI:rf36": {
+    "start": 65000,
+    "end": 67081,
+    "heading": "Our debt obligations expose us to risks that could adversely affect our financial condition, which could adversely affect our results of operations.",
+    "subcaption": "Risks related to our indebtedness"
+   },
+   "NXPI:rf37": {
+    "start": 67082,
+    "end": 67271,
+    "heading": "Despite our level of indebtedness, we may still incur significantly more debt, which could further exacerbate the risks described above and affect our ability to service and repay our debt.",
+    "subcaption": "Risks related to our indebtedness"
+   },
+   "NXPI:rf38": {
+    "start": 67273,
+    "end": 69570,
+    "heading": "If we do not comply with the covenants in our debt agreements or fail to generate sufficient cash to service and repay our debt, it could adversely affect our operating results and our financial condition.",
+    "subcaption": "Risks related to our indebtedness"
+   },
+   "NXPI:rf39": {
+    "start": 69572,
+    "end": 70530,
+    "heading": "The rating of our debt by major rating agencies may further improve or deteriorate, which could affect our additional borrowing capacity and financing costs.",
+    "subcaption": "Risks related to our indebtedness"
+   },
+   "NXPI:rf40": {
+    "start": 70532,
+    "end": 72294,
+    "heading": "The price of our common stock historically has been volatile. The price of our common stock may fluctuate significantly.",
+    "subcaption": "General risk factors"
+   },
+   "NXPI:rf41": {
+    "start": 72296,
+    "end": 72763,
+    "heading": "We may have fluctuations in the amount and frequency of our stock repurchases.",
+    "subcaption": "General risk factors"
+   },
+   "NXPI:rf42": {
+    "start": 72765,
+    "end": 73698,
+    "heading": "There can be no assurance that we will continue to declare cash dividends.",
+    "subcaption": "General risk factors"
+   },
+   "NXPI:rf43": {
+    "start": 73700,
+    "end": 75015,
+    "heading": "The impact of a negative performance of financial markets and demographic trends on our defined benefit pension liabilities and costs cannot be predicted.",
+    "subcaption": "General risk factors"
+   },
+   "NXPI:rf44": {
+    "start": 75017,
+    "end": 76739,
+    "heading": "Future changes to Dutch, U.S. and other foreign tax laws could adversely affect us.",
+    "subcaption": "General risk factors"
+   },
+   "NXPI:rf45": {
+    "start": 76741,
+    "end": 78414,
+    "heading": "We are exposed to a number of different tax uncertainties, which could have an impact on our results.",
+    "subcaption": "General risk factors"
+   }
+  },
+  "rf_unmapped": 0,
+  "label_rule_rejections": 4
+ },
+ "claims": [
+  {
+   "company": "LEA",
+   "category": "MACRO_DEMAND",
+   "leaf": "MACRO_DEMAND.vehicle_production_volumes",
+   "quote": "Our sales are driven by the number of vehicles produced by our automotive manufacturer customers and our content per vehicle. The automotive industry is cyclical and sensitive to general economic conditions",
+   "source_ref": "LEA:rf1",
+   "risk": "Our industry is cyclical and a decline or significant fluctuation in the production levels of our major customers, particularly with respect to models for which we are a significant supplier, or the financial distress of or operational disruptions to one or more of our major customers could adversely affect our financial performance.",
+   "driver": "OEM production levels",
+   "secondary": false,
+   "fallback": false,
+   "start": 636,
+   "end": 842,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "COMMODITY_INPUTS",
+   "leaf": "COMMODITY_INPUTS.raw_material_prices",
+   "quote": "Raw material, energy, commodity, product component and labor costs can be volatile. Although we have developed and implemented strategies to mitigate the impact of any such cost increases",
+   "source_ref": "LEA:rf2",
+   "risk": "Increases in the costs and restrictions on the availability of raw materials, energy, commodities, product components and labor could adversely affect our financial performance.",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 3332,
+   "end": 3519,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "CUSTOMER_CONCENTRATION",
+   "leaf": "CUSTOMER_CONCENTRATION.auto_oem_customers",
+   "quote": "It is possible that a particular vehicle model is not successful with consumers or that our customers elect to manufacture our products internally, purchase our products from other suppliers",
+   "source_ref": "LEA:rf4",
+   "risk": "The lack of commercial success of or an increase in directed component sourcing for a vehicle model for which we are a significant supplier could adversely affect our financial performance.",
+   "driver": "vehicle program dependence",
+   "secondary": false,
+   "fallback": false,
+   "start": 6603,
+   "end": 6793,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "COMPETITION_DISRUPTION",
+   "leaf": "COMPETITION_DISRUPTION.price_competition",
+   "quote": "Downward pricing pressure by automotive manufacturers is a characteristic of the automotive industry. Our customer contracts generally provide for annual price reductions over the production life of the vehicle",
+   "source_ref": "LEA:rf5",
+   "risk": "Our inability to achieve product cost reductions to offset customer-imposed price reductions could adversely affect our financial performance.",
+   "driver": "OEM annual price-downs",
+   "secondary": false,
+   "fallback": false,
+   "start": 7239,
+   "end": 7449,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "GEOPOLITICAL_TRADE",
+   "leaf": "GEOPOLITICAL_TRADE.tariffs",
+   "quote": "Since his inauguration in January 2025, U.S. President Donald J. Trump has announced various tariffs that impact industries around the world, including the automotive industry.",
+   "source_ref": "LEA:rf6",
+   "risk": "International trade policies, such as tariffs, sanctions, export controls and other trade restrictions, could adversely affect our financial performance.",
+   "driver": "U.S. tariffs, USMCA review",
+   "secondary": false,
+   "fallback": false,
+   "start": 9348,
+   "end": 9524,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "SUPPLY_CHAIN",
+   "leaf": "SUPPLY_CHAIN.single_source",
+   "quote": "We are responsible for managing our supply chain, including suppliers that may be the sole sources of products that we require, that our customers direct us to use or that have unique capabilities that would make it difficult and/or expensive to re-source.",
+   "source_ref": "LEA:rf7",
+   "risk": "Adverse developments affecting or the financial distress of one or more of our suppliers could adversely affect our financial performance.",
+   "driver": "supplier financial distress",
+   "secondary": false,
+   "fallback": false,
+   "start": 14260,
+   "end": 14516,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "TALENT_LABOR",
+   "leaf": "TALENT_LABOR.labor_relations_unions",
+   "quote": "Labor agreements covering approximately 67% of our global unionized work force are scheduled to expire in 2026.",
+   "source_ref": "LEA:rf8",
+   "risk": "A significant labor dispute involving us or one or more of our customers or suppliers or that could otherwise affect our operations could adversely affect our financial performance.",
+   "driver": "2026 labor agreement expirations",
+   "secondary": false,
+   "fallback": false,
+   "start": 15926,
+   "end": 16037,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "TALENT_LABOR",
+   "leaf": "TALENT_LABOR.skilled_talent",
+   "quote": "Failure to attract, develop, engage and retain qualified employees, whether as a result of an insufficient number of qualified applicants, difficulty in recruiting new employees or inadequate resources to train, integrate and retain qualified employees, could impair our ability to execute our business strategy",
+   "source_ref": "LEA:rf9",
+   "risk": "Our ability to attract, develop, engage and retain qualified employees could affect our ability to execute our strategy.",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 17476,
+   "end": 17787,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "GEOPOLITICAL_TRADE",
+   "leaf": "GEOPOLITICAL_TRADE.international_operations",
+   "quote": "We have substantial international operations, with manufacturing and distribution facilities in many foreign countries, including Mexico and countries in Africa, Asia, Central and South America, and Europe.",
+   "source_ref": "LEA:rf10",
+   "risk": "Our substantial international operations make us vulnerable to risks associated with volatile economic and political environments.",
+   "driver": "Mexico and lower-cost regions",
+   "secondary": false,
+   "fallback": false,
+   "start": 18462,
+   "end": 18668,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "STRATEGY_MA",
+   "leaf": "STRATEGY_MA.joint_ventures_investments",
+   "quote": "Certain of our operations, particularly in Asia, are conducted through joint ventures. With respect to our joint ventures, we may share ownership and management responsibilities with one or more partners that may not share our goals and objectives.",
+   "source_ref": "LEA:rf11",
+   "risk": "Certain of our operations are conducted through joint ventures which have unique risks.",
+   "driver": "Asian joint ventures",
+   "secondary": false,
+   "fallback": false,
+   "start": 20962,
+   "end": 21210,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "MACRO_DEMAND",
+   "leaf": "MACRO_DEMAND.vehicle_production_volumes",
+   "quote": "new program launches require a significant ramp up of costs; however, our sales related to these new programs generally are dependent upon the timing and success of our customers' introduction of new vehicles.",
+   "source_ref": "LEA:rf12",
+   "risk": "Our inability to effectively manage the timing, quality and costs of new program launches could adversely affect our financial performance.",
+   "driver": "new program launches",
+   "secondary": false,
+   "fallback": false,
+   "start": 22810,
+   "end": 23019,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "COMPETITION_DISRUPTION",
+   "leaf": "COMPETITION_DISRUPTION.price_competition",
+   "quote": "Our competitors' efforts to grow market share could exert downward pressure on our product pricing and margins.",
+   "source_ref": "LEA:rf13",
+   "risk": "We operate in a highly competitive industry and efforts by our competitors, as well as new entrants to the industry, to gain market share could adversely affect our financial performance.",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 23913,
+   "end": 24024,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "COMPETITION_DISRUPTION",
+   "leaf": "COMPETITION_DISRUPTION.new_entrants",
+   "quote": "Chinese domestic suppliers that may have lower financial return expectations are also challenging traditional automotive suppliers for market share.",
+   "source_ref": "LEA:rf13",
+   "risk": "We operate in a highly competitive industry and efforts by our competitors, as well as new entrants to the industry, to gain market share could adversely affect our financial performance.",
+   "driver": "Chinese domestic suppliers",
+   "secondary": true,
+   "fallback": false,
+   "start": 24564,
+   "end": 24712,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "EMISSIONS_EV_TRANSITION",
+   "leaf": "EMISSIONS_EV_TRANSITION.ev_adoption_pace",
+   "quote": "The adoption of such vehicles, particularly electric vehicles, has been slower than anticipated, particularly in the United States, as a result of, among other things, changes in government carbon emissions regulations and tax incentives, as well as prevailing consumer preferences.",
+   "source_ref": "LEA:rf14",
+   "risk": "If we do not respond appropriately, the evolution of the global transportation industry toward electrification could adversely affect our business.",
+   "driver": "slower US EV adoption",
+   "secondary": false,
+   "fallback": false,
+   "start": 25684,
+   "end": 25966,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "AI_EMERGING_TECH",
+   "leaf": "AI_EMERGING_TECH.ai_development_use",
+   "quote": "We currently incorporate AI-powered tools into certain internal business operations, such as in our production processes and in certain of our administrative functions. AI algorithms may be flawed, and datasets may be insufficient, inaccurate, biased or otherwise problematic.",
+   "source_ref": "LEA:rf15",
+   "risk": "Our increasing use of AI and other emerging technologies may expose us to operational, legal and regulatory risks that could adversely affect our business and reputation.",
+   "driver": "internal AI tools",
+   "secondary": false,
+   "fallback": false,
+   "start": 26711,
+   "end": 26987,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "CYBER_IT",
+   "leaf": "CYBER_IT.cyberattack_breach",
+   "quote": "In particular, ransomware or other attacks that are intended to disrupt our and our customers' business operations are becoming increasingly prevalent, particularly for manufacturing companies, and can lead to significant interruptions in operations and the ability to provide products or services",
+   "source_ref": "LEA:rf16",
+   "risk": "A disruption in our information technology systems, or those of our customers, suppliers, sub-suppliers or other contract parties, including a disruption related to cybersecurity, and other cybersecurity risks, such as a security incident resulting in unauthorized access to or theft of personal or other sensitive information, could adversely affect our financial performance.",
+   "driver": "ransomware attacks",
+   "secondary": false,
+   "fallback": false,
+   "start": 29623,
+   "end": 29920,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "CLIMATE_NATCAT",
+   "leaf": "CLIMATE_NATCAT.pandemic_health",
+   "quote": "Pandemics, epidemics or disease outbreaks in the United States or globally have disrupted, and may disrupt in the future, our business, which could materially affect our financial condition including liquidity, operating results and future expectations.",
+   "source_ref": "LEA:rf17",
+   "risk": "Pandemics, epidemics, disease outbreaks and other public health crises have disrupted our business and operations, and future public health crises could adversely affect our business, financial condition and operating results.",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 36660,
+   "end": 36913,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "CLIMATE_NATCAT",
+   "leaf": "CLIMATE_NATCAT.climate_disclosure_esg",
+   "quote": "Our failure, or that of our supply base, to adequately meet stakeholder expectations or address stakeholder concerns, including concerns about environmental impacts and similar matters, may result in, among other things, negative sentiment toward us or our products, the loss of business",
+   "source_ref": "LEA:rf18",
+   "risk": "Perspectives on global climate change and other sustainability matters by various stakeholders could adversely affect our business.",
+   "driver": "stakeholder sustainability expectations",
+   "secondary": false,
+   "fallback": false,
+   "start": 38022,
+   "end": 38309,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "CLIMATE_NATCAT",
+   "leaf": "CLIMATE_NATCAT.natural_disasters_weather",
+   "quote": "The effects of climate change, such as extreme weather conditions, could impact our business. Such effects could disrupt our operations by, among other things, impacting the availability and cost of materials needed for manufacturing",
+   "source_ref": "LEA:rf19",
+   "risk": "Global climate change could adversely affect our business.",
+   "driver": "extreme weather",
+   "secondary": false,
+   "fallback": false,
+   "start": 38481,
+   "end": 38714,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "OTHER",
+   "leaf": "OTHER.reporting_controls",
+   "quote": "In the event that we determine that our goodwill or long-lived assets are impaired, we may be required to record a significant charge to earnings that could adversely affect our financial condition and operating results.",
+   "source_ref": "LEA:rf20",
+   "risk": "Impairment charges relating to our goodwill and long-lived assets could adversely affect our financial performance.",
+   "driver": "goodwill impairment",
+   "secondary": false,
+   "fallback": false,
+   "start": 40619,
+   "end": 40839,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "RATES_FX_FUNDING",
+   "leaf": "RATES_FX_FUNDING.pension_finance_obligations",
+   "quote": "Our earnings may be positively or negatively impacted by the amount of income or expense recorded related to our global defined benefit plans.",
+   "source_ref": "LEA:rf21",
+   "risk": "Significant changes in discount rates, the actual return on pension assets and other factors related to our global defined benefit plans could adversely affect our financial performance.",
+   "driver": "defined benefit plans",
+   "secondary": false,
+   "fallback": false,
+   "start": 41028,
+   "end": 41170,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "TAX",
+   "leaf": "TAX.tax_law_changes",
+   "quote": "Our effective tax rate and cash tax liability in the future could be adversely affected by the enactment of new tax legislation, changes in the level and mix of earnings in countries with differing statutory tax rates",
+   "source_ref": "LEA:rf22",
+   "risk": "Unanticipated changes in our effective tax rate, the adoption of new tax legislation or exposure to additional income tax liabilities could adversely affect our profitability.",
+   "driver": "OECD Pillar Two",
+   "secondary": false,
+   "fallback": false,
+   "start": 42603,
+   "end": 42820,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "RATES_FX_FUNDING",
+   "leaf": "RATES_FX_FUNDING.liquidity_funding",
+   "quote": "The debt instruments governing our indebtedness contain covenants that may restrict our business activities or our ability to execute our strategic objectives, and our failure to comply with these covenants could result in a default under our indebtedness.",
+   "source_ref": "LEA:rf23",
+   "risk": "Our existing indebtedness and the inability to access capital markets could restrict our business activities or our ability to execute our strategic objectives or adversely affect our financial performance.",
+   "driver": "$2.7 billion indebtedness",
+   "secondary": false,
+   "fallback": false,
+   "start": 45727,
+   "end": 45983,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "PRODUCT_SAFETY_RECALL",
+   "leaf": "PRODUCT_SAFETY_RECALL.product_liability_defects",
+   "quote": "In the event that our products fail to, or are alleged to fail to, perform as expected, regardless of fault, and such failure or alleged failure results in, or is alleged to result in, bodily injury and/or property damage or other losses, we may be subject to product liability lawsuits",
+   "source_ref": "LEA:rf24",
+   "risk": "A significant product liability lawsuit, warranty claim or product recall involving us or one of our major customers could adversely affect our financial performance.",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 46750,
+   "end": 47036,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "REGULATION_LEGAL",
+   "leaf": "REGULATION_LEGAL.litigation_investigations",
+   "quote": "We are involved in various legal and regulatory proceedings and claims that, from time to time, are significant.",
+   "source_ref": "LEA:rf25",
+   "risk": "We are involved from time to time in various legal and regulatory proceedings and claims, which could adversely affect our financial performance.",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 47793,
+   "end": 47905,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "CLIMATE_NATCAT",
+   "leaf": "CLIMATE_NATCAT.climate_disclosure_esg",
+   "quote": "Concerns over human rights, environmental pollution and climate change have produced significant legislative and regulatory efforts globally. In addition, our customers have imposed various requirements on their suppliers, including us, in response to these concerns.",
+   "source_ref": "LEA:rf26",
+   "risk": "The continuing focus on human rights and environmental laws and regulations globally, as well as related customer requirements, could cause us to incur significant costs.",
+   "driver": "supply chain transparency rules",
+   "secondary": false,
+   "fallback": false,
+   "start": 48551,
+   "end": 48818,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "REGULATION_LEGAL",
+   "leaf": "REGULATION_LEGAL.product_regulation",
+   "quote": "The introduction of new laws or regulations or changes in existing laws or regulations, or the interpretation thereof, could increase the costs of doing business for us or our customers or suppliers or restrict our actions",
+   "source_ref": "LEA:rf27",
+   "risk": "New laws or regulations or changes in existing laws or regulations could adversely affect our financial performance.",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 50368,
+   "end": 50590,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "REGULATION_LEGAL",
+   "leaf": "REGULATION_LEGAL.anti_corruption_compliance",
+   "quote": "In particular, the U.S. Foreign Corrupt Practices Act, the U.K. Bribery Act and similar anti-bribery laws in other jurisdictions generally prohibit companies and their intermediaries from making improper payments to government officials",
+   "source_ref": "LEA:rf28",
+   "risk": "We may incur fines or penalties, damage to our reputation or other adverse consequences if our employees, suppliers, sub-suppliers or other contract parties, agents or business partners violate anti-bribery, competition, export and import, trade sanctions, data privacy, environmental, human rights or other laws.",
+   "driver": "FCPA, UK Bribery Act",
+   "secondary": false,
+   "fallback": false,
+   "start": 51338,
+   "end": 51574,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "REGULATION_LEGAL",
+   "leaf": "REGULATION_LEGAL.product_regulation",
+   "quote": "Material future expenditures may be necessary if compliance standards change or material unknown conditions that require remediation are discovered.",
+   "source_ref": "LEA:rf29",
+   "risk": "We are required to comply with environmental laws and regulations that could cause us to incur significant costs.",
+   "driver": "environmental remediation",
+   "secondary": false,
+   "fallback": false,
+   "start": 52781,
+   "end": 52929,
+   "in_cited_source": true
+  },
+  {
+   "company": "LEA",
+   "category": "IP_TECH_RIGHTS",
+   "leaf": "IP_TECH_RIGHTS.ip_protection",
+   "quote": "Failure to successfully protect our intellectual property could adversely impact our business. Furthermore, we may not be able to readily identify unauthorized use or take appropriate and timely steps to enforce our intellectual property rights.",
+   "source_ref": "LEA:rf30",
+   "risk": "Developments or assertions by or against us relating to intellectual property rights could adversely affect our financial performance.",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 53783,
+   "end": 54028,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "MACRO_DEMAND",
+   "leaf": "MACRO_DEMAND.cyclical_demand",
+   "quote": "As a result of this cyclicality, the semiconductor industry has in the past experienced significant downturns, often in connection with, or in anticipation of, maturing life cycles of semiconductor companies\u2019 products and declines in general economic conditions.",
+   "source_ref": "NXPI:rf1",
+   "risk": "The semiconductor industry is highly cyclical.",
+   "driver": "semiconductor industry cycles",
+   "secondary": false,
+   "fallback": false,
+   "start": 1026,
+   "end": 1288,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "MACRO_DEMAND",
+   "leaf": "MACRO_DEMAND.cyclical_demand",
+   "quote": "In the event of a future decline in global economic conditions, our business, financial condition and results of operations could be materially adversely affected",
+   "source_ref": "NXPI:rf2",
+   "risk": "Significantly increased volatility and instability and unfavorable economic conditions may adversely affect our business.",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 2944,
+   "end": 3106,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "COMPETITION_DISRUPTION",
+   "leaf": "COMPETITION_DISRUPTION.price_competition",
+   "quote": "As a result of these competitive pressures, we may face declining sales volumes or lower prevailing prices for our products, and we may not be able to reduce our total costs in line with this declining revenue.",
+   "source_ref": "NXPI:rf3",
+   "risk": "The semiconductor industry is highly competitive. If we fail to introduce new technologies and products in a timely manner, this could adversely affect our business.",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 6565,
+   "end": 6775,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "COMPETITION_DISRUPTION",
+   "leaf": "COMPETITION_DISRUPTION.technology_change",
+   "quote": "Commitments to develop new products must be made well in advance of any resulting sales, and technologies and standards may change during development, potentially rendering our products outdated or noncompetitive before their introduction.",
+   "source_ref": "NXPI:rf3",
+   "risk": "The semiconductor industry is highly competitive. If we fail to introduce new technologies and products in a timely manner, this could adversely affect our business.",
+   "driver": "",
+   "secondary": true,
+   "fallback": false,
+   "start": 5558,
+   "end": 5797,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "MACRO_DEMAND",
+   "leaf": "MACRO_DEMAND.inventory_correction",
+   "quote": "Such customers have in the past, and may in the future, vary order levels significantly from period to period, request postponements to scheduled delivery dates, modify their orders or reduce lead times.",
+   "source_ref": "NXPI:rf4",
+   "risk": "The demand for our products depends to a significant degree on the demand for our customers\u2019 end products.",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 7583,
+   "end": 7786,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "COMPETITION_DISRUPTION",
+   "leaf": "COMPETITION_DISRUPTION.price_competition",
+   "quote": "We cannot guarantee that competition in our core product markets will not lead to price erosion, lower revenue or lower margins in the future.",
+   "source_ref": "NXPI:rf6",
+   "risk": "One of the results of the rapid innovation in the semiconductor industry is that pricing pressure, especially on products containing older technology, can be intense.",
+   "driver": "older technology products",
+   "secondary": false,
+   "fallback": false,
+   "start": 9747,
+   "end": 9889,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "COMPETITION_DISRUPTION",
+   "leaf": "COMPETITION_DISRUPTION.technology_change",
+   "quote": "Failure to win new design projects and delays in developing new products with anticipated technological advances or in commencing volume shipments of these products may have an adverse effect on our business.",
+   "source_ref": "NXPI:rf7",
+   "risk": "In many of the market segments in which we compete, we depend on winning selection processes, and failure to be selected could adversely affect our business in those market segments.",
+   "driver": "design-win selection processes",
+   "secondary": false,
+   "fallback": false,
+   "start": 10686,
+   "end": 10894,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "GEOPOLITICAL_TRADE",
+   "leaf": "GEOPOLITICAL_TRADE.international_operations",
+   "quote": "If any of the following international business risks were to materialize or become worse, they could have a material adverse effect on our business, financial condition and results of operations:",
+   "source_ref": "NXPI:rf8",
+   "risk": "Our global business operations expose us to international business risks that could adversely affect our business.",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 11608,
+   "end": 11803,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "GEOPOLITICAL_TRADE",
+   "leaf": "GEOPOLITICAL_TRADE.tariffs",
+   "quote": "For example, in April 2025, the Department of Commerce launched an investigation into the national security impacts of imported semiconductors and semiconductor manufacturing equipment.",
+   "source_ref": "NXPI:rf9",
+   "risk": "Recently announced and future tariffs and other trade restrictions could materially and adversely affect our business, financial condition and results of operations.",
+   "driver": "Section 232 semiconductor tariffs",
+   "secondary": false,
+   "fallback": false,
+   "start": 14551,
+   "end": 14736,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "OTHER",
+   "leaf": "OTHER.reporting_controls",
+   "quote": "Any future determination of impairment of goodwill or other identifiable intangible assets could have a material adverse effect on our financial position, results of operations and stockholders\u2019 equity.",
+   "source_ref": "NXPI:rf10",
+   "risk": "Goodwill and other identifiable intangible assets represent a significant portion of our total assets, and we may never realize the full value of our intangible assets.",
+   "driver": "goodwill impairment",
+   "secondary": false,
+   "fallback": false,
+   "start": 16828,
+   "end": 17030,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "MACRO_DEMAND",
+   "leaf": "MACRO_DEMAND.cyclical_demand",
+   "quote": "During such periods, our fabrication plants could operate at lower loading level, while the fixed costs associated with the full capacity continue to be incurred, resulting in lower gross profit.",
+   "source_ref": "NXPI:rf11",
+   "risk": "In difficult market conditions, our high fixed costs combined with low revenue may negatively affect our results of operations.",
+   "driver": "fab underutilization",
+   "secondary": false,
+   "fallback": false,
+   "start": 17606,
+   "end": 17801,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "STRATEGY_MA",
+   "leaf": "STRATEGY_MA.restructuring",
+   "quote": "The costs of implementing any restructurings, changes or cost savings steps may differ from our estimates and any negative impacts on our revenues or otherwise of such restructurings, changes or steps",
+   "source_ref": "NXPI:rf12",
+   "risk": "We may from time to time restructure parts of our organization. Any such restructuring may impact customer satisfaction, and the costs of implementation may be difficult to predict.",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 18330,
+   "end": 18530,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "RATES_FX_FUNDING",
+   "leaf": "RATES_FX_FUNDING.liquidity_funding",
+   "quote": "Our working capital needs are difficult to predict and may fluctuate. The comparatively long period between the time at which we commence development of a product and the time at which it may be delivered to a customer leads to high inventory and work-in-progress levels.",
+   "source_ref": "NXPI:rf13",
+   "risk": "Our working capital needs are difficult to predict.",
+   "driver": "working capital volatility",
+   "secondary": false,
+   "fallback": false,
+   "start": 20180,
+   "end": 20451,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "PRODUCT_SAFETY_RECALL",
+   "leaf": "PRODUCT_SAFETY_RECALL.product_liability_defects",
+   "quote": "We are exposed to product liability claims if our",
+   "source_ref": "NXPI:rf14",
+   "risk": "Our business may be adversely affected by costs relating to product defects, and we could be faced with product liability and warranty claims.",
+   "driver": "semiconductor product defects",
+   "secondary": false,
+   "fallback": false,
+   "start": 22022,
+   "end": 22071,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "CYBER_IT",
+   "leaf": "CYBER_IT.product_cybersecurity",
+   "quote": "We and third parties regularly identify security vulnerabilities with respect to our products and services. The same holds for the operating systems and workloads that run on them and the components that interact with them.",
+   "source_ref": "NXPI:rf15",
+   "risk": "We face risks related to security vulnerabilities in our products.",
+   "driver": "chip security vulnerabilities",
+   "secondary": false,
+   "fallback": false,
+   "start": 23062,
+   "end": 23285,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "CYBER_IT",
+   "leaf": "CYBER_IT.product_cybersecurity",
+   "quote": "Adverse publicity about security vulnerabilities or mitigations could damage our reputation with customers or users and reduce demand for our products and services.",
+   "source_ref": "NXPI:rf16",
+   "risk": "Security vulnerabilities and any limitations of, or adverse effects resulting from, mitigation techniques can adversely affect our results of operations, financial condition, sales, branding, customer relationships, share price, prospects, and reputation in a number of ways, any of which may be material.",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 24762,
+   "end": 24926,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "SUPPLY_CHAIN",
+   "leaf": "SUPPLY_CHAIN.manufacturing_disruption",
+   "quote": "Difficulties in the production process can reduce yields or interrupt production, and, as a result of such problems, we may on occasion not be able to deliver products or do so in a timely or cost-effective or competitive manner.",
+   "source_ref": "NXPI:rf17",
+   "risk": "Our business has suffered, and could in the future suffer, from manufacturing problems.",
+   "driver": "Austin fab winter storm",
+   "secondary": false,
+   "fallback": false,
+   "start": 25738,
+   "end": 25967,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "SUPPLY_CHAIN",
+   "leaf": "SUPPLY_CHAIN.single_source",
+   "quote": "Because the equipment that we purchase is complex, it is frequently difficult or impossible for us to substitute one piece of equipment for another or replace one type of material with another.",
+   "source_ref": "NXPI:rf18",
+   "risk": "We rely on the timely supply of equipment and materials and could suffer if suppliers fail to meet their delivery obligations or raise prices. Certain equipment and materials needed in our manufacturing operations are only available from a limited number of suppliers.",
+   "driver": "silicon wafers, specialized chemicals",
+   "secondary": false,
+   "fallback": false,
+   "start": 28213,
+   "end": 28406,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "SUPPLY_CHAIN",
+   "leaf": "SUPPLY_CHAIN.outsourced_manufacturing",
+   "quote": "as part of the industry-wide shortage of semiconductors during 2022 we could not obtain sufficient silicon wafers from our foundry partners to meet the demand for our products",
+   "source_ref": "NXPI:rf19",
+   "risk": "Failure of our third party suppliers to perform could adversely affect our results of operations.",
+   "driver": "foundry partners",
+   "secondary": false,
+   "fallback": false,
+   "start": 29360,
+   "end": 29535,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "CUSTOMER_CONCENTRATION",
+   "leaf": "CUSTOMER_CONCENTRATION.key_customer_dependence",
+   "quote": "A substantial portion of our revenue is derived from our top customers, including our distributors. We cannot guarantee that we will be able to generate similar levels of revenue from our largest customers in the future.",
+   "source_ref": "NXPI:rf20",
+   "risk": "Disruptions in our relationships with any one of our key customers could adversely affect our business.",
+   "driver": "top customers",
+   "secondary": false,
+   "fallback": false,
+   "start": 30821,
+   "end": 31041,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "REGULATION_LEGAL",
+   "leaf": "REGULATION_LEGAL.government_incentives",
+   "quote": "These programs are subject to periodic review by the relevant governments, and if any of these programs are curtailed or discontinued, this could have a material adverse effect on our business, financial condition and results of operations.",
+   "source_ref": "NXPI:rf21",
+   "risk": "We receive subsidies and grants in certain countries, and a reduction in the amount of governmental funding available to us or demands for repayment could increase our costs and affect our results of operations.",
+   "driver": "government subsidies and grants",
+   "secondary": false,
+   "fallback": false,
+   "start": 31566,
+   "end": 31806,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "CLIMATE_NATCAT",
+   "leaf": "CLIMATE_NATCAT.natural_disasters_weather",
+   "quote": "If flooding, heavy precipitation, a large earthquake, volcanic eruption or, extreme weather event or other natural disaster were to",
+   "source_ref": "NXPI:rf22",
+   "risk": "Certain natural disasters, such as flooding, heavy precipitation, large earthquakes, volcanic eruptions or nuclear or other disasters, may negatively impact our business. Climate change may cause a rising number of natural disasters that could negatively affect our operations.",
+   "driver": "Asian fab earthquake/flood zones",
+   "secondary": false,
+   "fallback": false,
+   "start": 33028,
+   "end": 33159,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "STRATEGY_MA",
+   "leaf": "STRATEGY_MA.acquisitions_integration",
+   "quote": "Achieving the anticipated benefits of business acquisitions depends in part upon our ability to integrate the businesses in an efficient and effective manner and achieve anticipated synergies, and we may not be successful in these efforts.",
+   "source_ref": "NXPI:rf23",
+   "risk": "We may engage in acquisitions and other strategic transactions or make investments, or be unable to consummate planned strategic acquisitions, which could adversely affect our results of operations.",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 36487,
+   "end": 36726,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "STRATEGY_MA",
+   "leaf": "STRATEGY_MA.joint_ventures_investments",
+   "quote": "If we do not achieve the anticipated benefits of these joint ventures, or if newly established joint ventures are not able to begin production in the expected timing or achieve expected efficiency and quality, our business and results of operations may be adversely affected.",
+   "source_ref": "NXPI:rf24",
+   "risk": "We rely on joint ventures to meet our current and future manufacturing requirements. However, we often do not control these partnerships and joint ventures, and actions taken by any of our partners or the termination of these joint ventures could adversely affect our business.",
+   "driver": "SSMC, VSMC, ESMC JVs",
+   "secondary": false,
+   "fallback": false,
+   "start": 39445,
+   "end": 39720,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "GEOPOLITICAL_TRADE",
+   "leaf": "GEOPOLITICAL_TRADE.international_operations",
+   "quote": "As our business is global, we need to comply with laws and regulations in countries across the world.",
+   "source_ref": "NXPI:rf25",
+   "risk": "As our business is global, we need to comply with laws and regulations in countries across the world.",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 39772,
+   "end": 39873,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "GEOPOLITICAL_TRADE",
+   "leaf": "GEOPOLITICAL_TRADE.export_controls",
+   "quote": "For example, import and export regulations, such as the U.S. Export Administration Regulations administered by the U.S. Department of Commerce and sanctions imposed by the European Union (EU) and other jurisdictions, are complex, change frequently, have generally become more stringent over time and have intensified in recent years.",
+   "source_ref": "NXPI:rf26",
+   "risk": "We operate globally, with manufacturing, assembly and testing facilities in several continents, and we market our products globally.",
+   "driver": "U.S. EAR, Huawei shipments",
+   "secondary": false,
+   "fallback": false,
+   "start": 41195,
+   "end": 41528,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "REGULATION_LEGAL",
+   "leaf": "REGULATION_LEGAL.litigation_investigations",
+   "quote": "in the past we have been involved in legal proceedings claiming personal injuries to the children of former employees as a result of employees\u2019 alleged exposure to chemicals used in semiconductor manufacturing clean room environments",
+   "source_ref": "NXPI:rf27",
+   "risk": "Legal proceedings covering a range of matters are pending in various jurisdictions. Due to the uncertainty inherent in litigation, it is difficult to predict the final outcome. An adverse outcome might affect our results of operations.",
+   "driver": "clean room chemical exposure claims",
+   "secondary": false,
+   "fallback": false,
+   "start": 43584,
+   "end": 43817,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "REGULATION_LEGAL",
+   "leaf": "REGULATION_LEGAL.product_regulation",
+   "quote": "we cannot assure you that our costs of complying with current and future environmental and health and safety laws, or our liabilities arising from past or future releases of, or exposures to, regulated materials, will not have a material adverse effect on our business",
+   "source_ref": "NXPI:rf28",
+   "risk": "Our manufacturing operations are subject to environmental laws and regulations and initiatives to address climate change.",
+   "driver": "environmental remediation liability",
+   "secondary": false,
+   "fallback": false,
+   "start": 46296,
+   "end": 46564,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "CLIMATE_NATCAT",
+   "leaf": "CLIMATE_NATCAT.climate_disclosure_esg",
+   "quote": "Public and private initiatives to address climate change may result in an increase in the cost of production due to increase in the prices of energy, introduction of energy or carbon tax or the purchase of carbon offsets.",
+   "source_ref": "NXPI:rf28",
+   "risk": "Our manufacturing operations are subject to environmental laws and regulations and initiatives to address climate change.",
+   "driver": "carbon tax",
+   "secondary": true,
+   "fallback": false,
+   "start": 46614,
+   "end": 46835,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "CYBER_IT",
+   "leaf": "CYBER_IT.it_system_failure",
+   "quote": "Any significant interruption in our business applications, systems or networks, including but not limited to new system implementations, computer viruses, cyberattacks, security breaches, facility issues or energy blackouts could have a material adverse impact on our business",
+   "source_ref": "NXPI:rf29",
+   "risk": "Interruptions in our information technology systems could adversely affect our business.",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 48144,
+   "end": 48420,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "CYBER_IT",
+   "leaf": "CYBER_IT.cyberattack_breach",
+   "quote": "We have, from time to time, experienced cyber-attacks attempting to obtain access to and misuse our computer systems and networks.",
+   "source_ref": "NXPI:rf30",
+   "risk": "Our computer systems and networks are subject to attempted security breaches and other cybersecurity incidents, which, if successful, could adversely impact our business.",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 48641,
+   "end": 48771,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "IP_TECH_RIGHTS",
+   "leaf": "IP_TECH_RIGHTS.ip_protection",
+   "quote": "It is possible that competitors or other unauthorized third parties may obtain, copy, use or disclose our proprietary technologies, our products, designs, processes and other intellectual property despite our efforts to protect our intellectual property.",
+   "source_ref": "NXPI:rf31",
+   "risk": "We rely to a significant extent on proprietary intellectual property. We may not be able to protect this intellectual property against improper use by our competitors or others.",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 54399,
+   "end": 54653,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "IP_TECH_RIGHTS",
+   "leaf": "IP_TECH_RIGHTS.ip_infringement_claims",
+   "quote": "We have from time to time received, and may in the future receive, communications alleging possible infringement of patents and other intellectual property rights of others.",
+   "source_ref": "NXPI:rf32",
+   "risk": "We may become party to intellectual property claims or litigation that could cause us to incur substantial costs, pay substantial damages or prohibit us from selling our products.",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "start": 56881,
+   "end": 57054,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "TALENT_LABOR",
+   "leaf": "TALENT_LABOR.key_personnel",
+   "quote": "We depend on our key management to run our business and on our senior engineers to develop new products and technologies. Our success will depend on the continued service of these individuals.",
+   "source_ref": "NXPI:rf33",
+   "risk": "Loss of our key management and other personnel, or an inability to attract such management and other personnel, could affect our business.",
+   "driver": "CEO transition",
+   "secondary": false,
+   "fallback": false,
+   "start": 59146,
+   "end": 59338,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "OTHER",
+   "leaf": "OTHER.stock_governance",
+   "quote": "there can be no assurance that U.S. investors will be able to enforce against us or members of our board of directors or officers who are residents of the Netherlands or countries other than the United States any judgments obtained in U.S. courts",
+   "source_ref": "NXPI:rf34",
+   "risk": "United States civil liabilities may not be enforceable against us.",
+   "driver": "Dutch incorporation",
+   "secondary": false,
+   "fallback": false,
+   "start": 63272,
+   "end": 63518,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "OTHER",
+   "leaf": "OTHER.stock_governance",
+   "quote": "The rights of stockholders and the responsibilities of members of our board of directors may be different from the rights and obligations of stockholders in companies governed by the laws of U.S. jurisdictions.",
+   "source_ref": "NXPI:rf35",
+   "risk": "We are a Dutch public company with limited liability. The rights of our stockholders may be different from the rights of stockholders governed by the laws of U.S. jurisdictions.",
+   "driver": "Dutch corporate law",
+   "secondary": false,
+   "fallback": false,
+   "start": 64306,
+   "end": 64516,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "RATES_FX_FUNDING",
+   "leaf": "RATES_FX_FUNDING.liquidity_funding",
+   "quote": "As of December 31, 2025, we had outstanding indebtedness with an aggregate principal amount of $12,290 million. Our substantial indebtedness could have a material adverse effect on our business by:",
+   "source_ref": "NXPI:rf36",
+   "risk": "Our debt obligations expose us to risks that could adversely affect our financial condition, which could adversely affect our results of operations.",
+   "driver": "$12.3bn debt",
+   "secondary": false,
+   "fallback": false,
+   "start": 65184,
+   "end": 65381,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "RATES_FX_FUNDING",
+   "leaf": "RATES_FX_FUNDING.liquidity_funding",
+   "quote": "Despite our level of indebtedness, we may still incur significantly more debt, which could further exacerbate the risks described above and affect our ability to service and repay our debt.",
+   "source_ref": "NXPI:rf37",
+   "risk": "Despite our level of indebtedness, we may still incur significantly more debt, which could further exacerbate the risks described above and affect our ability to service and repay our debt.",
+   "driver": "additional debt",
+   "secondary": false,
+   "fallback": false,
+   "start": 67082,
+   "end": 67271,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "RATES_FX_FUNDING",
+   "leaf": "RATES_FX_FUNDING.liquidity_funding",
+   "quote": "If there were an event of default under any of our debt instruments that was not cured or waived, the holders of the defaulted debt could terminate commitments to lend and cause all amounts outstanding with respect to the debt to be due and payable immediately",
+   "source_ref": "NXPI:rf38",
+   "risk": "If we do not comply with the covenants in our debt agreements or fail to generate sufficient cash to service and repay our debt, it could adversely affect our operating results and our financial condition.",
+   "driver": "RCF and EIB covenants",
+   "secondary": false,
+   "fallback": false,
+   "start": 67687,
+   "end": 67947,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "RATES_FX_FUNDING",
+   "leaf": "RATES_FX_FUNDING.credit_ratings",
+   "quote": "Actual or anticipated changes or downgrades in our credit ratings, including any announcement that our ratings are under further review for a downgrade, could affect our market value and/or increase our corporate borrowing costs.",
+   "source_ref": "NXPI:rf39",
+   "risk": "The rating of our debt by major rating agencies may further improve or deteriorate, which could affect our additional borrowing capacity and financing costs.",
+   "driver": "credit rating downgrade",
+   "secondary": false,
+   "fallback": false,
+   "start": 70301,
+   "end": 70530,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "OTHER",
+   "leaf": "OTHER.stock_governance",
+   "quote": "The market price of our common stock is likely to continue to be volatile and subject to significant price and volume fluctuations for many reasons",
+   "source_ref": "NXPI:rf40",
+   "risk": "The price of our common stock historically has been volatile. The price of our common stock may fluctuate significantly.",
+   "driver": "stock price volatility",
+   "secondary": false,
+   "fallback": false,
+   "start": 71036,
+   "end": 71183,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "OTHER",
+   "leaf": "OTHER.stock_governance",
+   "quote": "The amount, timing, and execution of our stock repurchases may fluctuate based on our priorities for the use of cash for other purposes",
+   "source_ref": "NXPI:rf41",
+   "risk": "We may have fluctuations in the amount and frequency of our stock repurchases.",
+   "driver": "stock repurchases",
+   "secondary": false,
+   "fallback": false,
+   "start": 72375,
+   "end": 72510,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "OTHER",
+   "leaf": "OTHER.stock_governance",
+   "quote": "The declaration and payment of any dividend is subject to the approval of our board, and our dividend may be discontinued or reduced at any time.",
+   "source_ref": "NXPI:rf42",
+   "risk": "There can be no assurance that we will continue to declare cash dividends.",
+   "driver": "quarterly cash dividend",
+   "secondary": false,
+   "fallback": false,
+   "start": 72989,
+   "end": 73134,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "RATES_FX_FUNDING",
+   "leaf": "RATES_FX_FUNDING.pension_finance_obligations",
+   "quote": "As of December 31, 2025, we had recognized a net accrued benefit liability of $342 million, representing the unfunded benefit obligations of our defined pension plans.",
+   "source_ref": "NXPI:rf43",
+   "risk": "The impact of a negative performance of financial markets and demographic trends on our defined benefit pension liabilities and costs cannot be predicted.",
+   "driver": "defined benefit pension plans",
+   "secondary": false,
+   "fallback": false,
+   "start": 74014,
+   "end": 74181,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "TAX",
+   "leaf": "TAX.tax_law_changes",
+   "quote": "the EU has adopted a directive on ensuring a global minimum level of taxation for multinational companies, also known as Pillar 2, which became effective in 2024.",
+   "source_ref": "NXPI:rf44",
+   "risk": "Future changes to Dutch, U.S. and other foreign tax laws could adversely affect us.",
+   "driver": "Pillar 2 minimum tax",
+   "secondary": false,
+   "fallback": false,
+   "start": 76061,
+   "end": 76223,
+   "in_cited_source": true
+  },
+  {
+   "company": "NXPI",
+   "category": "TAX",
+   "leaf": "TAX.tax_audits_disputes",
+   "quote": "Transfer pricing uncertainties can also result from disputes with local tax authorities about transfer pricing of internal deliveries of goods and services or related to financing, acquisitions and divestments",
+   "source_ref": "NXPI:rf45",
+   "risk": "We are exposed to a number of different tax uncertainties, which could have an impact on our results.",
+   "driver": "transfer pricing disputes",
+   "secondary": false,
+   "fallback": false,
+   "start": 77707,
+   "end": 77916,
+   "in_cited_source": true
+  }
+ ],
+ "rejected": [
+  {
+   "company": "LEA",
+   "category": "CUSTOMER_CONCENTRATION",
+   "leaf": "CUSTOMER_CONCENTRATION.auto_oem_customers",
+   "quote": "As these traditional automakers are among our largest customers, our business and financial results may be adversely affected by decreases in their businesses or market share.",
+   "source_ref": "LEA:rf1",
+   "risk": "Our industry is cyclical and a decline or significant fluctuation in the production levels of our major customers, particularly with respect to models for which we are a significant supplier, or the financial distress of or operational disruptions to one or more of our major customers could adversely affect our financial performance.",
+   "driver": "traditional automaker customers",
+   "secondary": true,
+   "fallback": false,
+   "reason": "secondary label not supported by the heading",
+   "check": "label"
+  },
+  {
+   "company": "LEA",
+   "category": "STRATEGY_MA",
+   "leaf": "STRATEGY_MA.acquisitions_integration",
+   "quote": "These risk factors include our failure to identify suitable opportunities for organic investment and/or acquisitions, our inability to successfully develop such opportunities or complete such acquisitions or our inability to successfully utilize or integrate the investments in our operations.",
+   "source_ref": "LEA:rf3",
+   "risk": "Our failure to execute our strategic objectives could adversely affect our financial performance.",
+   "driver": "",
+   "secondary": false,
+   "fallback": false,
+   "reason": "quote not found verbatim in the company's Item 1A",
+   "check": "quote"
+  },
+  {
+   "company": "LEA",
+   "category": "TAX",
+   "leaf": "TAX.tax_audits_disputes",
+   "quote": "Tax authorities may disagree with certain of our tax reporting positions and, as a result, assess additional taxes against us.",
+   "source_ref": "LEA:rf22",
+   "risk": "Unanticipated changes in our effective tax rate, the adoption of new tax legislation or exposure to additional income tax liabilities could adversely affect our profitability.",
+   "driver": "global tax audits",
+   "secondary": true,
+   "fallback": false,
+   "reason": "secondary label not supported by the heading",
+   "check": "label"
+  },
+  {
+   "company": "LEA",
+   "category": "IP_TECH_RIGHTS",
+   "leaf": "IP_TECH_RIGHTS.ip_infringement_claims",
+   "quote": "while we believe we have the necessary rights to use all of the intellectual property we use, if we are found to infringe on the rights of others, we could be adversely impacted.",
+   "source_ref": "LEA:rf30",
+   "risk": "Developments or assertions by or against us relating to intellectual property rights could adversely affect our financial performance.",
+   "driver": "",
+   "secondary": true,
+   "fallback": false,
+   "reason": "secondary label not supported by the heading",
+   "check": "label"
+  },
+  {
+   "company": "NXPI",
+   "category": "TALENT_LABOR",
+   "leaf": "TALENT_LABOR.skilled_talent",
+   "quote": "The market for qualified employees, including skilled engineers and other individuals with the required technical expertise to succeed in our business, is highly competitive",
+   "source_ref": "NXPI:rf33",
+   "risk": "Loss of our key management and other personnel, or an inability to attract such management and other personnel, could affect our business.",
+   "driver": "skilled engineers",
+   "secondary": true,
+   "fallback": false,
+   "reason": "secondary label not supported by the heading",
+   "check": "label"
+  }
+ ],
+ "verification": {
+  "claims": 81,
+  "accepted": 76,
+  "rejected": 5,
+  "rejected_label": 4,
+  "rejected_quote": 1,
+  "keyword_fallback": 0,
+  "quote_coverage": 0.938,
+  "not_in_cited_source": 0
+ },
+ "shared_risks": [
+  {
+   "leaf": "RATES_FX_FUNDING.liquidity_funding",
+   "category": "RATES_FX_FUNDING",
+   "risk": "liquidity funding",
+   "tickers": [
+    "LEA",
+    "NXPI"
+   ],
+   "claims": 5,
+   "generic": true,
+   "cross_industry": true
+  },
+  {
+   "leaf": "COMPETITION_DISRUPTION.price_competition",
+   "category": "COMPETITION_DISRUPTION",
+   "risk": "price competition",
+   "tickers": [
+    "LEA",
+    "NXPI"
+   ],
+   "claims": 4,
+   "generic": true,
+   "cross_industry": true
+  },
+  {
+   "leaf": "CLIMATE_NATCAT.climate_disclosure_esg",
+   "category": "CLIMATE_NATCAT",
+   "risk": "climate disclosure esg",
+   "tickers": [
+    "LEA",
+    "NXPI"
+   ],
+   "claims": 3,
+   "generic": true,
+   "cross_industry": true
+  },
+  {
+   "leaf": "GEOPOLITICAL_TRADE.international_operations",
+   "category": "GEOPOLITICAL_TRADE",
+   "risk": "international operations",
+   "tickers": [
+    "LEA",
+    "NXPI"
+   ],
+   "claims": 3,
+   "generic": true,
+   "cross_industry": true
+  },
+  {
+   "leaf": "REGULATION_LEGAL.product_regulation",
+   "category": "REGULATION_LEGAL",
+   "risk": "product regulation",
+   "tickers": [
+    "LEA",
+    "NXPI"
+   ],
+   "claims": 3,
+   "generic": true,
+   "cross_industry": true
+  },
+  {
+   "leaf": "CLIMATE_NATCAT.natural_disasters_weather",
+   "category": "CLIMATE_NATCAT",
+   "risk": "natural disasters weather",
+   "tickers": [
+    "LEA",
+    "NXPI"
+   ],
+   "claims": 2,
+   "generic": true,
+   "cross_industry": true
+  },
+  {
+   "leaf": "CYBER_IT.cyberattack_breach",
+   "category": "CYBER_IT",
+   "risk": "cyberattack breach",
+   "tickers": [
+    "LEA",
+    "NXPI"
+   ],
+   "claims": 2,
+   "generic": true,
+   "cross_industry": true
+  },
+  {
+   "leaf": "GEOPOLITICAL_TRADE.tariffs",
+   "category": "GEOPOLITICAL_TRADE",
+   "risk": "tariffs",
+   "tickers": [
+    "LEA",
+    "NXPI"
+   ],
+   "claims": 2,
+   "generic": true,
+   "cross_industry": true
+  },
+  {
+   "leaf": "IP_TECH_RIGHTS.ip_protection",
+   "category": "IP_TECH_RIGHTS",
+   "risk": "ip protection",
+   "tickers": [
+    "LEA",
+    "NXPI"
+   ],
+   "claims": 2,
+   "generic": true,
+   "cross_industry": true
+  },
+  {
+   "leaf": "OTHER.reporting_controls",
+   "category": "OTHER",
+   "risk": "reporting controls",
+   "tickers": [
+    "LEA",
+    "NXPI"
+   ],
+   "claims": 2,
+   "generic": true,
+   "cross_industry": true
+  },
+  {
+   "leaf": "PRODUCT_SAFETY_RECALL.product_liability_defects",
+   "category": "PRODUCT_SAFETY_RECALL",
+   "risk": "product liability defects",
+   "tickers": [
+    "LEA",
+    "NXPI"
+   ],
+   "claims": 2,
+   "generic": true,
+   "cross_industry": true
+  },
+  {
+   "leaf": "RATES_FX_FUNDING.pension_finance_obligations",
+   "category": "RATES_FX_FUNDING",
+   "risk": "pension finance obligations",
+   "tickers": [
+    "LEA",
+    "NXPI"
+   ],
+   "claims": 2,
+   "generic": true,
+   "cross_industry": true
+  },
+  {
+   "leaf": "REGULATION_LEGAL.litigation_investigations",
+   "category": "REGULATION_LEGAL",
+   "risk": "litigation investigations",
+   "tickers": [
+    "LEA",
+    "NXPI"
+   ],
+   "claims": 2,
+   "generic": true,
+   "cross_industry": true
+  },
+  {
+   "leaf": "STRATEGY_MA.joint_ventures_investments",
+   "category": "STRATEGY_MA",
+   "risk": "joint ventures investments",
+   "tickers": [
+    "LEA",
+    "NXPI"
+   ],
+   "claims": 2,
+   "generic": true,
+   "cross_industry": true
+  },
+  {
+   "leaf": "SUPPLY_CHAIN.single_source",
+   "category": "SUPPLY_CHAIN",
+   "risk": "single source",
+   "tickers": [
+    "LEA",
+    "NXPI"
+   ],
+   "claims": 2,
+   "generic": true,
+   "cross_industry": true
+  },
+  {
+   "leaf": "TAX.tax_law_changes",
+   "category": "TAX",
+   "risk": "tax law changes",
+   "tickers": [
+    "LEA",
+    "NXPI"
+   ],
+   "claims": 2,
+   "generic": true,
+   "cross_industry": true
+  }
+ ],
+ "companies_covered": [
+  "LEA",
+  "NXPI"
+ ],
+ "matrix": {
+  "category": {
+   "MACRO_DEMAND": {
+    "LEA": 2,
+    "NXPI": 4
+   },
+   "RATES_FX_FUNDING": {
+    "LEA": 2,
+    "NXPI": 6
+   },
+   "SUPPLY_CHAIN": {
+    "LEA": 1,
+    "NXPI": 3
+   },
+   "CUSTOMER_CONCENTRATION": {
+    "LEA": 1,
+    "NXPI": 1
+   },
+   "COMPETITION_DISRUPTION": {
+    "LEA": 3,
+    "NXPI": 4
+   },
+   "CYBER_IT": {
+    "LEA": 1,
+    "NXPI": 4
+   },
+   "PRIVACY_DATA": {
+    "LEA": 0,
+    "NXPI": 0
+   },
+   "REGULATION_LEGAL": {
+    "LEA": 4,
+    "NXPI": 3
+   },
+   "GEOPOLITICAL_TRADE": {
+    "LEA": 2,
+    "NXPI": 4
+   },
+   "CLIMATE_NATCAT": {
+    "LEA": 4,
+    "NXPI": 2
+   },
+   "TALENT_LABOR": {
+    "LEA": 2,
+    "NXPI": 1
+   },
+   "IP_TECH_RIGHTS": {
+    "LEA": 1,
+    "NXPI": 2
+   },
+   "AI_EMERGING_TECH": {
+    "LEA": 1,
+    "NXPI": 0
+   },
+   "TAX": {
+    "LEA": 1,
+    "NXPI": 2
+   },
+   "STRATEGY_MA": {
+    "LEA": 1,
+    "NXPI": 3
+   },
+   "PRODUCT_SAFETY_RECALL": {
+    "LEA": 1,
+    "NXPI": 1
+   },
+   "EMISSIONS_EV_TRANSITION": {
+    "LEA": 1,
+    "NXPI": 0
+   },
+   "COMMODITY_INPUTS": {
+    "LEA": 1,
+    "NXPI": 0
+   },
+   "OTHER": {
+    "LEA": 1,
+    "NXPI": 6
+   }
+  },
+  "leaf": {
+   "MACRO_DEMAND.cyclical_demand": {
+    "LEA": 0,
+    "NXPI": 3
+   },
+   "MACRO_DEMAND.inflation_costs": {
+    "LEA": 0,
+    "NXPI": 0
+   },
+   "MACRO_DEMAND.vehicle_production_volumes": {
+    "LEA": 2,
+    "NXPI": 0
+   },
+   "MACRO_DEMAND.inventory_correction": {
+    "LEA": 0,
+    "NXPI": 1
+   },
+   "RATES_FX_FUNDING.interest_rates": {
+    "LEA": 0,
+    "NXPI": 0
+   },
+   "RATES_FX_FUNDING.fx_exposure": {
+    "LEA": 0,
+    "NXPI": 0
+   },
+   "RATES_FX_FUNDING.liquidity_funding": {
+    "LEA": 1,
+    "NXPI": 4
+   },
+   "RATES_FX_FUNDING.credit_ratings": {
+    "LEA": 0,
+    "NXPI": 1
+   },
+   "RATES_FX_FUNDING.pension_finance_obligations": {
+    "LEA": 1,
+    "NXPI": 1
+   },
+   "SUPPLY_CHAIN.semiconductor_supply": {
+    "LEA": 0,
+    "NXPI": 0
+   },
+   "SUPPLY_CHAIN.single_source": {
+    "LEA": 1,
+    "NXPI": 1
+   },
+   "SUPPLY_CHAIN.manufacturing_disruption": {
+    "LEA": 0,
+    "NXPI": 1
+   },
+   "SUPPLY_CHAIN.outsourced_manufacturing": {
+    "LEA": 0,
+    "NXPI": 1
+   },
+   "SUPPLY_CHAIN.logistics": {
+    "LEA": 0,
+    "NXPI": 0
+   },
+   "CUSTOMER_CONCENTRATION.auto_oem_customers": {
+    "LEA": 1,
+    "NXPI": 0
+   },
+   "CUSTOMER_CONCENTRATION.key_customer_dependence": {
+    "LEA": 0,
+    "NXPI": 1
+   },
+   "CUSTOMER_CONCENTRATION.distributor_channel": {
+    "LEA": 0,
+    "NXPI": 0
+   },
+   "CUSTOMER_CONCENTRATION.dealer_network": {
+    "LEA": 0,
+    "NXPI": 0
+   },
+   "CUSTOMER_CONCENTRATION.customer_credit": {
+    "LEA": 0,
+    "NXPI": 0
+   },
+   "COMPETITION_DISRUPTION.price_competition": {
+    "LEA": 2,
+    "NXPI": 2
+   },
+   "COMPETITION_DISRUPTION.new_entrants": {
+    "LEA": 1,
+    "NXPI": 0
+   },
+   "COMPETITION_DISRUPTION.technology_change": {
+    "LEA": 0,
+    "NXPI": 2
+   },
+   "CYBER_IT.cyberattack_breach": {
+    "LEA": 1,
+    "NXPI": 1
+   },
+   "CYBER_IT.it_system_failure": {
+    "LEA": 0,
+    "NXPI": 1
+   },
+   "CYBER_IT.product_cybersecurity": {
+    "LEA": 0,
+    "NXPI": 2
+   },
+   "PRIVACY_DATA.privacy_regulation": {
+    "LEA": 0,
+    "NXPI": 0
+   },
+   "PRIVACY_DATA.customer_data_use": {
+    "LEA": 0,
+    "NXPI": 0
+   },
+   "REGULATION_LEGAL.litigation_investigations": {
+    "LEA": 1,
+    "NXPI": 1
+   },
+   "REGULATION_LEGAL.product_regulation": {
+    "LEA": 2,
+    "NXPI": 1
+   },
+   "REGULATION_LEGAL.government_incentives": {
+    "LEA": 0,
+    "NXPI": 1
+   },
+   "REGULATION_LEGAL.anti_corruption_compliance": {
+    "LEA": 1,
+    "NXPI": 0
+   },
+   "GEOPOLITICAL_TRADE.tariffs": {
+    "LEA": 1,
+    "NXPI": 1
+   },
+   "GEOPOLITICAL_TRADE.export_controls": {
+    "LEA": 0,
+    "NXPI": 1
+   },
+   "GEOPOLITICAL_TRADE.china_exposure": {
+    "LEA": 0,
+    "NXPI": 0
+   },
+   "GEOPOLITICAL_TRADE.conflict_sanctions": {
+    "LEA": 0,
+    "NXPI": 0
+   },
+   "GEOPOLITICAL_TRADE.international_operations": {
+    "LEA": 1,
+    "NXPI": 2
+   },
+   "CLIMATE_NATCAT.natural_disasters_weather": {
+    "LEA": 1,
+    "NXPI": 1
+   },
+   "CLIMATE_NATCAT.pandemic_health": {
+    "LEA": 1,
+    "NXPI": 0
+   },
+   "CLIMATE_NATCAT.climate_disclosure_esg": {
+    "LEA": 2,
+    "NXPI": 1
+   },
+   "TALENT_LABOR.key_personnel": {
+    "LEA": 0,
+    "NXPI": 1
+   },
+   "TALENT_LABOR.skilled_talent": {
+    "LEA": 1,
+    "NXPI": 0
+   },
+   "TALENT_LABOR.labor_relations_unions": {
+    "LEA": 1,
+    "NXPI": 0
+   },
+   "IP_TECH_RIGHTS.ip_protection": {
+    "LEA": 1,
+    "NXPI": 1
+   },
+   "IP_TECH_RIGHTS.ip_infringement_claims": {
+    "LEA": 0,
+    "NXPI": 1
+   },
+   "AI_EMERGING_TECH.ai_development_use": {
+    "LEA": 1,
+    "NXPI": 0
+   },
+   "AI_EMERGING_TECH.autonomous_driving": {
+    "LEA": 0,
+    "NXPI": 0
+   },
+   "AI_EMERGING_TECH.ai_regulation": {
+    "LEA": 0,
+    "NXPI": 0
+   },
+   "TAX.tax_law_changes": {
+    "LEA": 1,
+    "NXPI": 1
+   },
+   "TAX.tax_audits_disputes": {
+    "LEA": 0,
+    "NXPI": 1
+   },
+   "STRATEGY_MA.acquisitions_integration": {
+    "LEA": 0,
+    "NXPI": 1
+   },
+   "STRATEGY_MA.divestitures_spinoffs": {
+    "LEA": 0,
+    "NXPI": 0
+   },
+   "STRATEGY_MA.restructuring": {
+    "LEA": 0,
+    "NXPI": 1
+   },
+   "STRATEGY_MA.joint_ventures_investments": {
+    "LEA": 1,
+    "NXPI": 1
+   },
+   "PRODUCT_SAFETY_RECALL.recalls": {
+    "LEA": 0,
+    "NXPI": 0
+   },
+   "PRODUCT_SAFETY_RECALL.warranty_costs": {
+    "LEA": 0,
+    "NXPI": 0
+   },
+   "PRODUCT_SAFETY_RECALL.product_liability_defects": {
+    "LEA": 1,
+    "NXPI": 1
+   },
+   "EMISSIONS_EV_TRANSITION.emissions_regulation": {
+    "LEA": 0,
+    "NXPI": 0
+   },
+   "EMISSIONS_EV_TRANSITION.ev_adoption_pace": {
+    "LEA": 1,
+    "NXPI": 0
+   },
+   "EMISSIONS_EV_TRANSITION.battery_supply_cost": {
+    "LEA": 0,
+    "NXPI": 0
+   },
+   "EMISSIONS_EV_TRANSITION.charging_infrastructure": {
+    "LEA": 0,
+    "NXPI": 0
+   },
+   "COMMODITY_INPUTS.raw_material_prices": {
+    "LEA": 1,
+    "NXPI": 0
+   },
+   "COMMODITY_INPUTS.energy_costs": {
+    "LEA": 0,
+    "NXPI": 0
+   },
+   "COMMODITY_INPUTS.critical_minerals": {
+    "LEA": 0,
+    "NXPI": 0
+   },
+   "OTHER.stock_governance": {
+    "LEA": 0,
+    "NXPI": 5
+   },
+   "OTHER.reporting_controls": {
+    "LEA": 1,
+    "NXPI": 1
+   }
+  }
+ },
+ "live_usd": 0.6069,
+ "served_models": [
+  "claude-opus-5-5"
+ ],
+ "usage": {
+  "llm_calls": 14.0,
+  "cached_calls": 0.0,
+  "input_tokens": 136906.0,
+  "prompt_cache_read_tokens": 67010.0,
+  "output_tokens": 14354.0,
+  "recorded_latency_s": 120.717,
+  "cost_usd": 0.60687,
+  "wall_clock_s": 34.110557
+ },
+ "tickers": [
+  "NXPI",
+  "LEA"
+ ]
+}

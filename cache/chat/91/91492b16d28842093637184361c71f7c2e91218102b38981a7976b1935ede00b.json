@@ -1,0 +1,59 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 26,
+    "heading": "We operate globally, with manufacturing, assembly and testing facilities in several continents, and we market our products globally.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.export_controls",
+    "quote": "For example, import and export regulations, such as the U.S. Export Administration Regulations administered by the U.S. Department of Commerce and sanctions imposed by the European Union (EU) and other jurisdictions, are complex, change frequently, have generally become more stringent over time and have intensified in recent years.",
+    "driver": "U.S. EAR, Huawei shipments",
+    "secondary": false
+   },
+   {
+    "rf": 27,
+    "heading": "Legal proceedings covering a range of matters are pending in various jurisdictions. Due to the uncertainty inherent in litigation, it is difficult to predict the final outcome. An adverse outcome might affect our results of operations.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.litigation_investigations",
+    "quote": "in the past we have been involved in legal proceedings claiming personal injuries to the children of former employees as a result of employees\u2019 alleged exposure to chemicals used in semiconductor manufacturing clean room environments",
+    "driver": "clean room chemical exposure claims",
+    "secondary": false
+   },
+   {
+    "rf": 28,
+    "heading": "Our manufacturing operations are subject to environmental laws and regulations and initiatives to address climate change.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.product_regulation",
+    "quote": "we cannot assure you that our costs of complying with current and future environmental and health and safety laws, or our liabilities arising from past or future releases of, or exposures to, regulated materials, will not have a material adverse effect on our business",
+    "driver": "environmental remediation liability",
+    "secondary": false
+   },
+   {
+    "rf": 28,
+    "heading": "Our manufacturing operations are subject to environmental laws and regulations and initiatives to address climate change.",
+    "category": "CLIMATE_NATCAT",
+    "leaf": "CLIMATE_NATCAT.climate_disclosure_esg",
+    "quote": "Public and private initiatives to address climate change may result in an increase in the cost of production due to increase in the prices of energy, introduction of energy or carbon tax or the purchase of carbon offsets.",
+    "driver": "carbon tax",
+    "secondary": true
+   },
+   {
+    "rf": 29,
+    "heading": "Interruptions in our information technology systems could adversely affect our business.",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.it_system_failure",
+    "quote": "Any significant interruption in our business applications, systems or networks, including but not limited to new system implementations, computer viruses, cyberattacks, security breaches, facility issues or energy blackouts could have a material adverse impact on our business",
+    "driver": "",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2726,
+ "output_tokens": 957,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 7.38,
+ "recorded_at": "2026-10-25T16:22:07+0000"
+}

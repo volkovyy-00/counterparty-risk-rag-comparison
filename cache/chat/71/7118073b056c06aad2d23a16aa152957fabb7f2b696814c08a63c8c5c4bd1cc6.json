@@ -1,0 +1,74 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "heading": "Cybersecurity incidents and IT system failures",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.it_system_failure",
+    "quote": "the information technology systems and software that we and our vendors use are vulnerable to outages, breakdowns, software vulnerabilities, coding errors and other damage from service interruptions, system malfunctions, natural disasters, terrorism, war, and telecommunication and electrical failures."
+   },
+   {
+    "heading": "Third-party security incidents",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "Any security incident of any of these third parties' systems could result in unauthorized access to our or our customers' or suppliers' sensitive data or our own information technology systems, cause us to be non-compliant with applicable laws or regulations"
+   },
+   {
+    "heading": "Data privacy regulatory actions from breaches",
+    "category": "PRIVACY_DATA",
+    "leaf": "PRIVACY_DATA.privacy_regulation",
+    "quote": "subject us to regulatory actions, including those contemplated by data privacy laws and regulations such as European Union General Data Privacy Regulation, China Cyber Security Laws including the China Personal Information Protection Law"
+   },
+   {
+    "heading": "Pandemics and public health crises",
+    "category": "CLIMATE_NATCAT",
+    "leaf": "CLIMATE_NATCAT.pandemic_health",
+    "quote": "Pandemics, epidemics or disease outbreaks in the United States or globally have disrupted, and may disrupt in the future, our business, which could materially affect our financial condition including liquidity, operating results and future expectations."
+   },
+   {
+    "heading": "Stakeholder perspectives on climate and sustainability",
+    "category": "CLIMATE_NATCAT",
+    "leaf": "CLIMATE_NATCAT.climate_disclosure_esg",
+    "quote": "Our failure, or that of our supply base, to adequately meet stakeholder expectations or address stakeholder concerns, including concerns about environmental impacts and similar matters, may result in, among other things, negative sentiment toward us or our products, the loss of business"
+   },
+   {
+    "heading": "Physical effects of global climate change",
+    "category": "CLIMATE_NATCAT",
+    "leaf": "CLIMATE_NATCAT.natural_disasters_weather",
+    "quote": "The effects of climate change, such as extreme weather conditions, could impact our business. Such effects could disrupt our operations by, among other things, impacting the availability and cost of materials needed for manufacturing"
+   },
+   {
+    "heading": "Goodwill and long-lived asset impairment charges",
+    "category": "OTHER",
+    "leaf": "OTHER.reporting_controls",
+    "quote": "In the event that we determine that our goodwill or long-lived assets are impaired, we may be required to record a significant charge to earnings that could adversely affect our financial condition and operating results."
+   },
+   {
+    "heading": "Defined benefit pension plan obligations",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.pension_finance_obligations",
+    "quote": "Because interest rates and the values of these pension assets have fluctuated and will continue to fluctuate in response to changing market conditions, pension and other postretirement benefit expense in subsequent periods, the funded status of our pension plans"
+   },
+   {
+    "heading": "Effective tax rate and new tax legislation",
+    "category": "TAX",
+    "leaf": "TAX.tax_law_changes",
+    "quote": "Our effective tax rate and cash tax liability in the future could be adversely affected by the enactment of new tax legislation, changes in the level and mix of earnings in countries with differing statutory tax rates"
+   },
+   {
+    "heading": "Tax audits and additional tax liabilities",
+    "category": "TAX",
+    "leaf": "TAX.tax_audits_disputes",
+    "quote": "Tax authorities may disagree with certain of our tax reporting positions and, as a result, assess additional taxes against us."
+   }
+  ]
+ },
+ "input_tokens": 3323,
+ "output_tokens": 1297,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6349,
+ "latency_s": 10.494,
+ "recorded_at": "2026-10-25T16:21:14+0000"
+}
