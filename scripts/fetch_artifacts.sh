@@ -8,7 +8,7 @@
 #   results   results/graph_*, graph_ab/, taxonomy_ab/, reports   graph snapshot, resolution audit, A/B outputs
 #
 # Not needed for `make demo`: the page is built from results/demo_run/, which is in git.
-# Public release, no token. Each file is checked against the SHA256 pinned below before it is unpacked.
+# Public release, no token. Each file is checked against the SHA256 pinned below before it is unpacked; scripts/build_artifacts.sh rebuilds the assets.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
@@ -16,9 +16,9 @@ TAG=demo-artifacts-2026-10-25
 BASE=${ARTIFACTS_BASE:-"https://github.com/volkovyy-00/counterparty-risk-rag-comparison/releases/download/$TAG"}  # or a mirror
 declare -A FILE=([fallback]=fallback.tar.gz [cache]=replay-cache.tar.gz [results]=results-extra.tar.gz)
 declare -A SHA=(
-  [fallback]=a5563f589ddc3b68f1e8706a9d99dbd0b01d3b15eaf07998d694bb079ec2063b
-  [cache]=ac792fd142f9e58e3c0a24fb1e536cd9b688c9dc8bde86ba68d34c1d8376796f
-  [results]=6424622bd0f2b362fcf5670f7442777e6bffcc80b218406b70b175cb08422f3f
+  [fallback]=a3e568f5828a5d8a090cd2e82c612e6677dcdda168f4c22c1a2eab39ef11666d
+  [cache]=6543e75a5bfc49c6c9da68f6b8192a59a526113c3cb22f97d4e4cfd2c932920f
+  [results]=7048a6d18655e5a41649c64382eccd97fb830ff75b036859c61fc4cb6bc67b35
 )
 
 what=${1:-all}
