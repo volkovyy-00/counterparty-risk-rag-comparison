@@ -40,6 +40,45 @@ def _claims_from_excerpts(user, per_excerpt=2):
     return claims
 
 
+FAKE_DRIVERS = {"China": "GEOGRAPHY", "Taiwan": "GEOGRAPHY", "Mexico": "GEOGRAPHY", "Europe": "GEOGRAPHY",
+                "PRC": "GEOGRAPHY", "lithium": "INPUT_COMMODITY", "semiconductors": "INPUT_COMMODITY",
+                "tariffs": "REGULATION_POLICY", "electric vehicles": "TECHNOLOGY_END_MARKET"}
+
+
+def _fake_mentions(user):
+    """GraphRAG v2 extraction: one mention per taxonomy leaf found, quote = the sentence (verbatim)."""
+    header, excerpt = user.split("\n\n", 1)
+    chunk_id = re.search(r"Excerpt ([\w-]+):", header).group(1)
+    out, seen = [], set()
+    for s in _sentences(excerpt):
+        leaves = taxonomy.leaves_for(s)
+        if not leaves or leaves[0] in seen:
+            continue
+        seen.add(leaves[0])
+        name = taxonomy.leaf_name(leaves[0])
+        if len(seen) % 3 == 0:
+            name = f"Risks related to {name.lower()}s"  # exercises name normalisation
+        drivers = [{"name": n, "type": ty} for n, ty in FAKE_DRIVERS.items() if n in s]
+        out.append({"heading": s[:60], "risk_name": name, "detail": s[:80], "quote": s[:200],
+                    "specificity": "boilerplate" if leaves[0].startswith(("CYBER", "LEGAL")) else "specific",
+                    "drivers": drivers + [{"name": "Atlantis", "type": "GEOGRAPHY"}][:len(seen) % 2]})
+    if chunk_id.endswith("-g0"):
+        out.append({"heading": "fabricated", "risk_name": "Invented risk", "detail": "", "quote": FABRICATED,
+                    "specificity": "specific", "drivers": []})
+    return out
+
+
+def _fake_groups(user):
+    """Resolution: group candidates by the last word of their name (deliberately naive, so the code rules matter)."""
+    groups = {}
+    for line in user.splitlines():
+        parts = [p.strip() for p in line.split("|")]
+        if len(parts) >= 2 and re.fullmatch(r"[nd]\d+", parts[0]):
+            groups.setdefault(parts[1].lower().split()[-1], []).append((parts[0], parts[1]))
+    return [{"member_ids": [i for i, _ in g], "canonical_name": g[0][1], "definition": f"fake definition of {g[0][1]}"}
+            for g in groups.values()]
+
+
 def fake_call_chat(system, user, schema, schema_name, timeout=None):
     if schema_name == "risk_factors":
         excerpt = user.split("\n\n", 1)[1]
@@ -53,6 +92,10 @@ def fake_call_chat(system, user, schema, schema_name, timeout=None):
         out.append({"heading": "fabricated", "category": "OTHER", "leaf": "OTHER.stock_governance",
                     "quote": FABRICATED})
         content = {"risk_factors": out}
+    elif schema_name == "risk_mentions":
+        content = {"mentions": _fake_mentions(user)}
+    elif schema_name in ("risk_groups", "driver_groups"):
+        content = {"groups": _fake_groups(user)}
     elif schema_name == "claims":
         content = {"summary": "fake summary", "claims": _claims_from_excerpts(user)}
     else:  # neo4j-graphrag entity extraction prompt (V1, JSON in text)
