@@ -108,7 +108,7 @@ GRAPH_RESOLVER = env("GRAPH_RESOLVER", "llm" if GRAPH_PROMPT_VERSION == "graph-v
 GRAPH_SIM_MIN = float(env("GRAPH_SIM_MIN", "0.75"))  # embedding cosine for merge candidates
 GRAPH_SIM_TOPK = int(env("GRAPH_SIM_TOPK", "8"))
 GRAPH_LEX_MIN = int(env("GRAPH_LEX_MIN", "90"))  # RapidFuzz token_set_ratio for merge candidates
-GRAPH_COMPONENT_MAX = int(env("GRAPH_COMPONENT_MAX", "25"))  # larger candidate groups are split before the LLM sees them
+GRAPH_COMPONENT_MAX = int(env("GRAPH_COMPONENT_MAX", "12"))  # larger candidate groups are split before the LLM sees them
 GENERIC_SHARE = float(env("GENERIC_SHARE", "0.8"))  # generic = faced by at least this share of companies
 GRAPH_COMPANY_LINKS = env("GRAPH_COMPANY_LINKS", "0") == "1"  # named supplier/customer edges (off by default)
 GRAPH_AB_TICKERS = [t.strip().upper() for t in env("GRAPH_AB_TICKERS", "GM,NXPI,TXN").split(",") if t.strip()]

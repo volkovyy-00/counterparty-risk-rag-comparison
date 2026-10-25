@@ -115,6 +115,8 @@ def test_name_normalisation_merges_trivial_variants():
     assert graph_resolve.normalise_name("Supply shortages") == "supply shortage"
     assert graph_resolve.normalise_name("Supply chain") != graph_resolve.normalise_name("Supply chain disruption")
     assert graph_resolve.display_name("risks related to tariffs") == "Tariffs"
+    assert graph_resolve.name_key("Tariffs and trade restrictions") == graph_resolve.name_key("Trade restrictions and tariffs")
+    assert graph_resolve.name_key("Supplier concentration") != graph_resolve.name_key("Customer concentration")
 
 
 def test_llm_resolution_refuses_keep_apart_pairs_and_writes_the_audit(offline, monkeypatch):

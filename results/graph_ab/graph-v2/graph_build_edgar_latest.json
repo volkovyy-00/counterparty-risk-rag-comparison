@@ -11,53 +11,53 @@
     "TXN"
   ],
   "usage": {
-    "llm_calls": 73.0,
-    "cached_calls": 26.0,
-    "input_tokens": 189520.0,
-    "prompt_cache_read_tokens": 118795.0,
-    "output_tokens": 40068.0,
-    "recorded_latency_s": 455.505316,
-    "cost_usd": 1.121647,
+    "llm_calls": 64.0,
+    "cached_calls": 226.0,
+    "input_tokens": 183253.0,
+    "prompt_cache_read_tokens": 112699.0,
+    "output_tokens": 39536.0,
+    "recorded_latency_s": 423.368269,
+    "cost_usd": 1.108342,
     "embed_calls": 179.0,
-    "wall_clock_s": 217.543438
+    "wall_clock_s": 65.680706
   },
   "usage_by_stage": {
     "graph.build": {
       "llm_calls": 36.0,
-      "cached_calls": 25.0,
+      "cached_calls": 72.0,
       "input_tokens": 157461.0,
       "prompt_cache_read_tokens": 94560.0,
       "output_tokens": 33137.0,
       "recorded_latency_s": 319.809312,
       "cost_usd": 0.945076,
       "embed_calls": 36.0,
-      "wall_clock_s": 83.714775
+      "wall_clock_s": 0.408612
     },
     "graph.resolve": {
       "embed_calls": 143.0,
-      "cached_calls": 1.0,
-      "input_tokens": 32059.0,
-      "prompt_cache_read_tokens": 24235.0,
-      "output_tokens": 6931.0,
-      "recorded_latency_s": 135.696004,
-      "cost_usd": 0.176571,
-      "llm_calls": 37.0,
-      "wall_clock_s": 133.828663
+      "cached_calls": 154.0,
+      "input_tokens": 25792.0,
+      "prompt_cache_read_tokens": 18139.0,
+      "output_tokens": 6399.0,
+      "recorded_latency_s": 103.558957,
+      "cost_usd": 0.163266,
+      "llm_calls": 28.0,
+      "wall_clock_s": 65.272094
     }
   },
   "graph": {
     "companies": 3,
     "chunks": 36,
-    "risk_factors": 112,
-    "faces_risk": 140,
-    "risk_factors_shared": 23
+    "risk_factors": 102,
+    "faces_risk": 135,
+    "risk_factors_shared": 25
   },
   "risk_factors_exact": 143,
-  "risk_factors_resolved": 112,
+  "risk_factors_resolved": 102,
   "mentions": 152,
   "mentions_rejected": 0,
   "verification_rate": 1.0,
-  "merges_approved": 25,
-  "merges_rejected": 261,
+  "merges_approved": 26,
+  "merges_rejected": 171,
   "drivers": 97
 }

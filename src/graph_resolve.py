@@ -1,6 +1,6 @@
 """Entity resolution for GraphRAG v2: extract first, then resolve.
 
-1. Normalise risk names (case, "risks related to ...", plural head noun) and merge exact matches.
+1. Normalise risk names (case, "risks related to ...", plurals, word order, stop words) and merge exact matches.
 2. Merge candidates: embedding neighbours of the names (cosine >= GRAPH_SIM_MIN, top GRAPH_SIM_TOPK) united with
    RapidFuzz token_set_ratio >= GRAPH_LEX_MIN. Connected components larger than GRAPH_COMPONENT_MAX are split
    by raising the cosine threshold locally (chains otherwise make one mega-cluster); lexical pairs stay joined.
@@ -82,6 +82,24 @@ def normalise_name(name):
     elif len(last) > 3 and last.endswith("s") and not last.endswith(("ss", "us", "is")):
         words[-1] = last[:-1]
     return " ".join(words)
+
+
+_STOP = {"and", "or", "of", "the", "to", "in", "on", "for", "from", "with", "by", "a", "an"}
+
+
+def _singular(w):
+    if len(w) > 3 and w.endswith("ies"):
+        return w[:-3] + "y"
+    if len(w) > 3 and w.endswith("s") and not w.endswith(("ss", "us", "is")):
+        return w[:-1]
+    return w
+
+
+def name_key(name):
+    """Exact-match key: the normalised name's words, singular, without stop words, in any order
+    ("Tariffs and trade restrictions" = "Trade restrictions and tariffs")."""
+    words = re.findall(r"[a-z0-9]+(?:-[a-z0-9]+)*", normalise_name(name))
+    return " ".join(sorted({_singular(w) for w in words} - _STOP))
 
 
 def display_name(name):
@@ -199,7 +217,7 @@ def resolve_risks(mentions, filings, resolver=None):
     resolver = resolver or config.GRAPH_RESOLVER
     keys = {}
     for m in mentions:
-        keys.setdefault(normalise_name(m["risk_name"]), []).append(m)
+        keys.setdefault(name_key(m["risk_name"]), []).append(m)
     norm = sorted(keys)
     display = [Counter(m["risk_name"] for m in keys[k]).most_common(1)[0][0] for k in norm]
     nid = [f"n{i}" for i in range(len(norm))]
