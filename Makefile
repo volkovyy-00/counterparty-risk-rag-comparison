@@ -2,7 +2,8 @@
 PY ?= python
 PORT ?= 8000
 
-.PHONY: demo demo-live check build-demo screenshots check-secrets test real-run estimate label record-help
+.PHONY: demo demo-live check build-demo screenshots check-secrets test real-run estimate label record-help \
+	graph-quality graph-check graph-ab
 
 demo: check build-demo            ## offline: no network, no Neo4j
 	$(PY) src/serve.py --port $(PORT)
@@ -35,6 +36,15 @@ estimate:
 
 real-run:                         ## spends money: prints the estimate and stops if it is over $$5
 	$(PY) src/real_run.py $(ARGS)
+
+graph-quality:                    ## approach 2 graph metrics from the build files (no Neo4j, no model call)
+	$(PY) src/graph_quality.py
+
+graph-check:                      ## approach 2 hand-check CSV: 30 mentions + 20 merge decisions, fill in y/n
+	$(PY) src/graph_check.py
+
+graph-ab:                         ## spends money: graph A/B (v1 vs v2) on 3 filings; stops unless ARGS="--confirm-usd N"
+	$(PY) src/graph_ab.py $(ARGS)
 
 label:                            ## hand-label the key in the browser
 	$(PY) src/label_helper.py && $(PY) src/label_tool.py

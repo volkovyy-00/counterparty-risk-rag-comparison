@@ -14,8 +14,11 @@ import llm
 from corpus import chunk_text, chunks_for, load_corpus
 
 # Assumed output tokens per call (answer + adaptive thinking at LLM_EFFORT=low). Stated, not measured.
-ASSUME_OUT = {"taxonomy_window": 2500, "graph_chunk": 900, "claims_answer": 6000}
+ASSUME_OUT = {"taxonomy_window": 2500, "graph_chunk": 900, "graph_v2_chunk": 1800, "claims_answer": 6000}
 GRAPH_PROMPT_OVERHEAD = 1500  # SimpleKGPipeline extraction template + schema, tokens
+# graph-v2 resolution and ask: stated assumptions until an A/B run measures them.
+ASSUME_V2 = {"mentions_per_chunk": 6, "components_per_mention": 0.15, "resolve_in": 1500, "resolve_out": 600,
+             "ask_evidence_tokens": 30 * 3 * 300 + 10 * 3 * 60}
 
 
 def _tokens(system, user, measure):
@@ -49,12 +52,10 @@ def estimate(filings, reruns=2, audit_run=True, measure=True):
     add("3 taxonomy build", len(windows), t3_in, ASSUME_OUT["taxonomy_window"] * len(windows),
         cached_system=sys_tok * (len(windows) - 1))
 
-    # Approach 2 - one extraction call per graph chunk, plus one answer call.
-    gchunks = sum(len(chunk_text(f["text"], config.GRAPH_CHUNK_CHARS, config.GRAPH_CHUNK_OVERLAP)) for f in filings)
-    add("2 graph build", gchunks, gchunks * (config.GRAPH_CHUNK_CHARS // 4 + GRAPH_PROMPT_OVERHEAD),
-        gchunks * ASSUME_OUT["graph_chunk"])
-    evidence = min(gchunks, 40 * 4)  # SHARED_RISKS_CYPHER: <= 40 risks, evidence chunks deduplicated
-    add("2 graph ask", 1, evidence * config.GRAPH_CHUNK_CHARS // 4 + len(a2.SYSTEM) // 4, ASSUME_OUT["claims_answer"])
+    # Approach 2 - the prompt version that will run (both versions are compared in graph_compare below).
+    graph = graph_rows(filings, config.GRAPH_PROMPT_VERSION, measure)
+    measured.append(graph["measured"])
+    rows += graph["rows"]
 
     # Approach 1 - top-k chunks in one call (embeddings: local model, no cost).
     chunks = chunks_for(filings, config.RAG_CHUNK_CHARS, config.RAG_CHUNK_OVERLAP)
@@ -68,12 +69,65 @@ def estimate(filings, reruns=2, audit_run=True, measure=True):
     measured.append(m)
     add("L long-context ask", 1, nL, ASSUME_OUT["claims_answer"])
 
+    rows.sort(key=lambda r: {"3": 0, "2": 1, "1": 2, "L": 3}[r["stage"][0]])
     one_run = sum(r["cost_usd"] or 0 for r in rows)
     rerun_cost = reruns * sum(r["cost_usd"] or 0 for r in rows if not r["stage"].startswith("L"))
-    audit_cost = rows[0]["cost_usd"] if audit_run else 0
+    audit_cost = rows[0]["cost_usd"] if audit_run else 0  # rows[0] is the taxonomy build
     return {"rows": rows, "one_run_usd": one_run, "reruns_usd": rerun_cost, "audit_run_usd": audit_cost,
             "total_usd": one_run + rerun_cost + audit_cost, "item1a_tokens": nL,
-            "input_measured": all(measured), "model": config.LLM_MODEL}
+            "input_measured": all(measured), "model": config.LLM_MODEL,
+            "graph_compare": {v: graph_rows(filings, v, measure) for v in ("graph-v1-workshop", "graph-v2")},
+            "graph_ab": graph_ab(filings, measure)}
+
+
+def _row(stage, calls, tok_in, tok_out, cache_write=0, cache_read=0):
+    cost = llm.price_usd(config.LLM_MODEL, tok_in, tok_out, cache_write, cache_read)
+    return {"stage": stage, "calls": calls, "input_tokens": tok_in + cache_write + cache_read,
+            "output_tokens": tok_out, "cost_usd": cost}
+
+
+def graph_rows(filings, version, measure=True):
+    """Approach 2 rows (build, resolve, ask) for one prompt version."""
+    import approach2_graphrag as a2
+
+    if version == "graph-v1-workshop":
+        gchunks = sum(len(chunk_text(f["text"], config.GRAPH_CHUNK_CHARS, config.GRAPH_CHUNK_OVERLAP)) for f in filings)
+        evidence = min(gchunks, 40 * 4)  # SHARED_RISKS_CYPHER: <= 40 risks, evidence chunks deduplicated
+        rows = [_row("2 graph build", gchunks, gchunks * (config.GRAPH_CHUNK_CHARS // 4 + GRAPH_PROMPT_OVERHEAD),
+                     gchunks * ASSUME_OUT["graph_chunk"]),
+                _row("2 graph ask", 1, evidence * config.GRAPH_CHUNK_CHARS // 4 + len(a2.SYSTEM) // 4,
+                     ASSUME_OUT["claims_answer"])]
+        return {"version": version, "rows": rows, "measured": False,
+                "usd": sum(r["cost_usd"] or 0 for r in rows)}
+    import graph_v2
+
+    sys_tok, m = _tokens(graph_v2.SYSTEM_V2, "", measure)
+    pairs = [(f, c) for f in filings for c in graph_v2.graph_chunks(f)]
+    n = len(pairs)
+    user_tok = sum(len(graph_v2.user_prompt(f, c)) // 4 for f, c in pairs)
+    writes = min(n, config.LLM_CONCURRENCY)  # parallel first calls may each write the prompt cache
+    mentions = n * ASSUME_V2["mentions_per_chunk"]
+    comps = round(mentions * ASSUME_V2["components_per_mention"])
+    rows = [_row("2 graph build", n, user_tok, n * ASSUME_OUT["graph_v2_chunk"], sys_tok * writes,
+                 sys_tok * (n - writes)),
+            _row("2 graph resolve", comps, comps * ASSUME_V2["resolve_in"], comps * ASSUME_V2["resolve_out"]),
+            _row("2 graph ask", 1, ASSUME_V2["ask_evidence_tokens"] + len(a2.SYSTEM) // 4,
+                 ASSUME_OUT["claims_answer"])]
+    return {"version": version, "rows": rows, "measured": m, "chunks": n, "system_tokens": sys_tok,
+            "usd": sum(r["cost_usd"] or 0 for r in rows)}
+
+
+def graph_ab(filings, measure=True):
+    """The A/B on GRAPH_AB_TICKERS: build + resolve for both versions (no ask - the A/B compares graphs)."""
+    ab = [f for f in filings if f["ticker"] in config.GRAPH_AB_TICKERS]
+    out = {}
+    for v in ("graph-v1-workshop", "graph-v2"):
+        g = graph_rows(ab, v, measure)
+        out[v] = round(sum(r["cost_usd"] or 0 for r in g["rows"] if r["stage"] != "2 graph ask"), 4)
+    out["total_usd"] = round(sum(out.values()), 4)
+    out["tickers"] = [f["ticker"] for f in ab]
+    out["chars"] = sum(len(f["text"]) for f in ab)
+    return out
 
 
 def report(est, reruns):
@@ -89,6 +143,18 @@ def report(est, reruns):
               f"Audit run B (approach 3, prompt v2.1): ${est['audit_run_usd']:.2f}",
               f"TOTAL for the frozen demo:            ${est['total_usd']:.2f}",
               f"Long-context prompt: {est['item1a_tokens']:,} tokens (all Item 1A + instructions)"]
+    gc = est["graph_compare"]
+    lines += ["", f"Approach 2, both prompt versions (full corpus; v2 assumptions: {ASSUME_V2}):",
+              f"{'stage':<22}{'v1 workshop USD':>17}{'v2 USD':>10}"]
+    stages = ["2 graph build", "2 graph resolve", "2 graph ask"]
+    for s in stages:
+        v = {k: next((r["cost_usd"] for r in g["rows"] if r["stage"] == s), None) for k, g in gc.items()}
+        fmt = lambda x: "-" if x is None else f"{x:.2f}"  # noqa: E731
+        lines.append(f"{s:<22}{fmt(v['graph-v1-workshop']):>17}{fmt(v['graph-v2']):>10}")
+    lines.append(f"{'total':<22}{gc['graph-v1-workshop']['usd']:>17.2f}{gc['graph-v2']['usd']:>10.2f}")
+    ab = est["graph_ab"]
+    lines += ["", f"Graph A/B on {', '.join(ab['tickers'])} ({ab['chars']:,} chars, build + resolve only): "
+              f"A (v1) ${ab['graph-v1-workshop']:.2f} + B (v2) ${ab['graph-v2']:.2f} = ${ab['total_usd']:.2f}"]
     return "\n".join(lines)
 
 

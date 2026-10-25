@@ -212,7 +212,7 @@ def build(reset=False, record=True, filings=None):
               "graph": stats, **extra}
     config.RESULTS_DIR.mkdir(exist_ok=True)
     (config.RESULTS_DIR / f"graph_build_{config.CORPUS}.json").write_text(json.dumps(record, indent=2))
-    print(json.dumps({k: v for k, v in record.items() if k != "risk_factor_names"}, indent=2))
+    print(json.dumps({k: v for k, v in record.items() if not k.startswith("risk_factor_names")}, indent=2))
     return stats
 
 
@@ -240,6 +240,10 @@ def _build_v1(drv, filings):
             asyncio.run(pipeline.run_async(text=f["text"], document_metadata=meta))
 
         exact = _count(drv, "MATCH (r:RiskFactor) RETURN count(r) AS n")  # after exact-name resolution
+        exact_names = [dict(r) for r in drv.execute_query(
+            "MATCH (d:Document)<-[:FROM_DOCUMENT]-(:Chunk)<-[:FROM_CHUNK]-(r:RiskFactor) "
+            "RETURN r.name AS name, collect(DISTINCT d.ticker) AS tickers ORDER BY name",
+            database_=config.NEO4J_DATABASE).records]
         resolved = exact
         if config.GRAPH_RESOLVER == "fuzzy":
             asyncio.run(FuzzyMatchResolver(drv, neo4j_database=config.NEO4J_DATABASE).run())
@@ -250,7 +254,8 @@ def _build_v1(drv, filings):
     names = [dict(r) for r in drv.execute_query(
         "MATCH (c:Company)-[:FACES_RISK]->(r:RiskFactor) RETURN r.name AS name, collect(DISTINCT c.ticker) AS tickers "
         "ORDER BY name", database_=config.NEO4J_DATABASE).records]
-    return {"risk_factors_exact": exact, "risk_factors_resolved": resolved, "risk_factor_names": names}
+    return {"risk_factors_exact": exact, "risk_factors_resolved": resolved, "risk_factor_names": names,
+            "risk_factor_names_exact": exact_names}
 
 
 def _build_v2(drv, filings):
@@ -445,9 +450,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("command", choices=["build", "ask", "stats"])
     parser.add_argument("--reset", action="store_true", help="delete ALL nodes in the target database first")
+    parser.add_argument("--tickers", help="build from this subset only, e.g. GM,NXPI,TXN (the graph A/B)")
     args = parser.parse_args()
     if args.command == "build":
-        build(args.reset)
+        wanted = set(args.tickers.upper().split(",")) if args.tickers else None
+        build(args.reset, filings=[f for f in load_corpus() if not wanted or f["ticker"] in wanted])
     elif args.command == "stats":
         print(json.dumps(graph_stats(driver()), indent=2))
     else:

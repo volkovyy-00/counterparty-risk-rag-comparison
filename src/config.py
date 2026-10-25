@@ -47,7 +47,7 @@ MIN_SHARED = int(env("MIN_SHARED", "2"))  # "shared" = faced by at least this ma
 CORPUS = env("CORPUS", "edgar_latest")
 DATA_DIR = ROOT / "data"
 CORPUS_DIR = DATA_DIR / "corpus" / CORPUS
-RESULTS_DIR = ROOT / "results"
+RESULTS_DIR = Path(env("RESULTS_DIR", str(ROOT / "results"))).resolve()  # the graph A/B writes to a subfolder
 CACHE_DIR = ROOT / "cache"
 
 # --- SEC EDGAR fair-access rules -------------------------------------------
