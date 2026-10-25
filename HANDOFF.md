@@ -75,8 +75,13 @@ See `docs/GRAPHRAG_V2.md`.
   templates; the page draws exactly the returned rows, shows Cypher + template + params, opens the quote drawer
   from any node; empty rows → no model call, "No bridge found – the graph won't invent a link". Stage chips:
   GM + NXPI, most shared vs most specific (landing), what links autos to chips; M shows 2 more; O whole graph.
-  No free-text input; Text2Cypher left out. Rehearsal beat 4 is timed per chip. Answers are NOT computed yet: they
-  come from the real run (step after `export_graph.py`, estimate row ~$0.49).
+  No free-text input; Text2Cypher left out. Rehearsal beat 4 is timed per chip. The answers are written by
+  `GRAPH_QA_MODEL` (Haiku 5.5, effort low, ~$0.01 for all five); the rest of the pipeline stays on `LLM_MODEL`.
+- **Test page (private):** https://claude.ai/artifact/BgdoQHpoYVn2NAD9ZnJ96W. It has real Haiku answers ($0.0074)
+  on the **3-filing A/B graph only (GM, NXPI, TXN)**, so the two Q&A questions are empty, and the other screens are
+  fixture data. The 10-company answers come from the real run: its `build --reset` builds the full graph (~$9.60
+  on Opus), then the graph-QA step answers. The user deferred a separate full build ("not now"); if one is wanted
+  before the real run, the cap they gave is $12.
 - `python src/approach2_graphrag.py load --reset --snapshot <file>` reloads a saved v2 graph with no model call.
 - **Screen 5 overflow fixed** (fixed 520px side column, cross-leaf counts; cells unchanged) and **screen 2
   overflow fixed** (132px; 6 findings + "N more"). All 23 screenshot states fit at 1920×1080 and 1280×720.
