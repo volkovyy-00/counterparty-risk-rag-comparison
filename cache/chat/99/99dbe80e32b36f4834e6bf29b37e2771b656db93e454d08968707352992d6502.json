@@ -1,0 +1,28 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "d57"
+    ],
+    "canonical_name": "Emissions and fuel economy regulations",
+    "definition": "Government rules limiting vehicle emissions and setting fuel economy standards."
+   },
+   {
+    "member_ids": [
+     "d63"
+    ],
+    "canonical_name": "Fuel economy regulations",
+    "definition": "Government standards specifically mandating vehicle fuel efficiency levels, such as CAFE."
+   }
+  ]
+ },
+ "input_tokens": 63,
+ "output_tokens": 140,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 523,
+ "latency_s": 2.615,
+ "recorded_at": "2026-10-25T13:57:54+0000"
+}

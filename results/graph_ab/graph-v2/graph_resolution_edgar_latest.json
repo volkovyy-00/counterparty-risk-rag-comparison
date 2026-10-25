@@ -6,6 +6,159 @@
   {
    "component": 0,
    "members": [
+    "Commodity and semiconductor input cost inflation",
+    "Cyclical semiconductor demand volatility",
+    "Dependence on subcontracted wafer fabrication suppliers",
+    "Design-win competition loss in automotive",
+    "Divergent vehicle emissions and EV regulations",
+    "Emissions and fuel economy regulation costs",
+    "End-market demand volatility and order fluctuation",
+    "EV technology adoption and battery supply limits",
+    "Evolving emissions regulation and EV demand shift",
+    "Foundry wafer supply shortage",
+    "Fuel economy and emissions non-compliance penalties",
+    "Key semiconductor materials supply constraints",
+    "Limited-source equipment and materials supply shortage",
+    "New vehicle launch and acceptance risk",
+    "Profit concentration in full-size ICE trucks",
+    "Semiconductor industry cyclical overcapacity downturns",
+    "Semiconductor price erosion on older products",
+    "Supplier component defect cost recovery",
+    "Supplier disruption under just-in-time production",
+    "Technological change shortening product life cycles",
+    "Technological obsolescence and competitive price erosion",
+    "Technology disruption from new automotive competitors",
+    "Working capital volatility from long product cycles"
+   ],
+   "groups": [
+    [
+     "Commodity and semiconductor input cost inflation"
+    ],
+    [
+     "Cyclical semiconductor demand volatility",
+     "End-market demand volatility and order fluctuation",
+     "Semiconductor industry cyclical overcapacity downturns"
+    ],
+    [
+     "Dependence on subcontracted wafer fabrication suppliers"
+    ],
+    [
+     "Foundry wafer supply shortage",
+     "Key semiconductor materials supply constraints",
+     "Limited-source equipment and materials supply shortage"
+    ],
+    [
+     "Design-win competition loss in automotive"
+    ],
+    [
+     "Divergent vehicle emissions and EV regulations",
+     "Emissions and fuel economy regulation costs",
+     "Evolving emissions regulation and EV demand shift",
+     "Fuel economy and emissions non-compliance penalties"
+    ],
+    [
+     "EV technology adoption and battery supply limits"
+    ],
+    [
+     "New vehicle launch and acceptance risk"
+    ],
+    [
+     "Profit concentration in full-size ICE trucks"
+    ],
+    [
+     "Semiconductor price erosion on older products",
+     "Technological change shortening product life cycles",
+     "Technological obsolescence and competitive price erosion"
+    ],
+    [
+     "Supplier component defect cost recovery"
+    ],
+    [
+     "Supplier disruption under just-in-time production"
+    ],
+    [
+     "Technology disruption from new automotive competitors"
+    ],
+    [
+     "Working capital volatility from long product cycles"
+    ]
+   ]
+  },
+  {
+   "component": 1,
+   "members": [
+    "Automotive import tariff cost escalation",
+    "China-Taiwan tension decoupling supply chains",
+    "Chinese regulation restricting critical materials access",
+    "Currency volatility and cash transfer restrictions",
+    "Export control and anti-corruption compliance",
+    "Import tariffs and trade barrier costs",
+    "Large customer purchase curtailment from trade measures",
+    "Tariffs and export controls disrupting trade",
+    "US-China tensions and export restrictions"
+   ],
+   "groups": [
+    [
+     "Automotive import tariff cost escalation",
+     "Import tariffs and trade barrier costs"
+    ],
+    [
+     "Tariffs and export controls disrupting trade"
+    ],
+    [
+     "China-Taiwan tension decoupling supply chains"
+    ],
+    [
+     "Chinese regulation restricting critical materials access"
+    ],
+    [
+     "Currency volatility and cash transfer restrictions"
+    ],
+    [
+     "Export control and anti-corruption compliance"
+    ],
+    [
+     "Large customer purchase curtailment from trade measures"
+    ],
+    [
+     "US-China tensions and export restrictions"
+    ]
+   ]
+  },
+  {
+   "component": 2,
+   "members": [
+    "Cyberattack theft of proprietary technology",
+    "Cyberattacks on connected vehicles and IT systems",
+    "Cyberattacks on IT systems and connected products",
+    "Cybersecurity breach and data theft",
+    "Cybersecurity breach disrupting manufacturing",
+    "In-vehicle system hacking safety risk",
+    "Insider theft of proprietary technology",
+    "Product security vulnerabilities harming demand"
+   ],
+   "groups": [
+    [
+     "Cyberattack theft of proprietary technology",
+     "Cyberattacks on connected vehicles and IT systems",
+     "Cyberattacks on IT systems and connected products",
+     "Cybersecurity breach and data theft",
+     "Cybersecurity breach disrupting manufacturing"
+    ],
+    [
+     "In-vehicle system hacking safety risk"
+    ],
+    [
+     "Insider theft of proprietary technology"
+    ],
+    [
+     "Product security vulnerabilities harming demand"
+    ]
+   ]
+  },
+  {
+   "component": 3,
+   "members": [
     "AI adoption and regulatory uncertainty",
     "AI-related copyright infringement claims",
     "Autonomous vehicle development and commercialization risk",
@@ -19,9 +172,7 @@
      "AI adoption and regulatory uncertainty"
     ],
     [
-     "AI-related copyright infringement claims"
-    ],
-    [
+     "AI-related copyright infringement claims",
      "Uncertain IP ownership of AI technologies"
     ],
     [
@@ -37,115 +188,143 @@
    ]
   },
   {
-   "component": 1,
-   "members": [
-    "Divergent vehicle emissions and EV regulations",
-    "Emissions and fuel economy regulation costs",
-    "Evolving emissions regulation and EV demand shift",
-    "Fuel economy and emissions non-compliance penalties",
-    "Profit concentration in full-size ICE trucks",
-    "Technological obsolescence and competitive price erosion",
-    "Technology disruption from new automotive competitors"
-   ],
-   "groups": [
-    [
-     "Divergent vehicle emissions and EV regulations"
-    ],
-    [
-     "Emissions and fuel economy regulation costs",
-     "Evolving emissions regulation and EV demand shift"
-    ],
-    [
-     "Fuel economy and emissions non-compliance penalties"
-    ],
-    [
-     "Profit concentration in full-size ICE trucks"
-    ],
-    [
-     "Technological obsolescence and competitive price erosion"
-    ],
-    [
-     "Technology disruption from new automotive competitors"
-    ]
-   ]
-  },
-  {
-   "component": 2,
-   "members": [
-    "Cyberattack theft of proprietary technology",
-    "Cyberattacks on connected vehicles and IT systems",
-    "Cyberattacks on IT systems and connected products",
-    "Cybersecurity breach and data theft",
-    "Cybersecurity breach disrupting manufacturing",
-    "Product security vulnerabilities harming demand"
-   ],
-   "groups": [
-    [
-     "Cyberattacks on connected vehicles and IT systems",
-     "Cyberattacks on IT systems and connected products"
-    ],
-    [
-     "Cyberattack theft of proprietary technology",
-     "Cybersecurity breach and data theft"
-    ],
-    [
-     "Cybersecurity breach disrupting manufacturing"
-    ],
-    [
-     "Product security vulnerabilities harming demand"
-    ]
-   ]
-  },
-  {
-   "component": 3,
-   "members": [
-    "Automotive import tariff cost escalation",
-    "Export control and anti-corruption compliance",
-    "Import tariffs and trade barrier costs",
-    "Large customer purchase curtailment from trade measures",
-    "Tariffs and export controls disrupting trade"
-   ],
-   "groups": [
-    [
-     "Automotive import tariff cost escalation",
-     "Import tariffs and trade barrier costs"
-    ],
-    [
-     "Export control and anti-corruption compliance"
-    ],
-    [
-     "Large customer purchase curtailment from trade measures"
-    ],
-    [
-     "Tariffs and export controls disrupting trade"
-    ]
-   ]
-  },
-  {
    "component": 4,
    "members": [
-    "Commodity and semiconductor input cost inflation",
-    "Foundry wafer supply shortage",
-    "Key semiconductor materials supply constraints",
-    "Limited-source equipment and materials supply shortage",
-    "Semiconductor price erosion on older products"
+    "Key personnel and engineer retention",
+    "Shortage of skilled software engineering talent",
+    "Skilled engineering talent retention shortfall"
    ],
    "groups": [
     [
-     "Commodity and semiconductor input cost inflation"
-    ],
-    [
-     "Foundry wafer supply shortage",
-     "Key semiconductor materials supply constraints",
-     "Limited-source equipment and materials supply shortage"
-    ],
-    [
-     "Semiconductor price erosion on older products"
+     "Key personnel and engineer retention",
+     "Shortage of skilled software engineering talent",
+     "Skilled engineering talent retention shortfall"
     ]
    ]
   },
   {
    "component": 5,
+   "members": [
+    "Low-cost foreign OEM competition",
+    "Protectionist policies and import tariffs",
+    "State-backed Chinese semiconductor competition"
+   ],
+   "groups": [
+    [
+     "Low-cost foreign OEM competition"
+    ],
+    [
+     "Protectionist policies and import tariffs"
+    ],
+    [
+     "State-backed Chinese semiconductor competition"
+    ]
+   ]
+  },
+  {
+   "component": 6,
+   "members": [
+    "Product liability and customer recall costs",
+    "Semiconductor product defect liability claims",
+    "Vehicle safety recall costs"
+   ],
+   "groups": [
+    [
+     "Product liability and customer recall costs",
+     "Semiconductor product defect liability claims"
+    ],
+    [
+     "Vehicle safety recall costs"
+    ]
+   ]
+  },
+  {
+   "component": 7,
+   "members": [
+    "EV battery critical mineral supply constraints",
+    "EV strategy execution and battery costs"
+   ],
+   "groups": [
+    [
+     "EV battery critical mineral supply constraints"
+    ],
+    [
+     "EV strategy execution and battery costs"
+    ]
+   ]
+  },
+  {
+   "component": 8,
+   "members": [
+    "Semiconductor tariffs and trade restrictions",
+    "US-China trade restrictions and tariffs"
+   ],
+   "groups": [
+    [
+     "Semiconductor tariffs and trade restrictions",
+     "US-China trade restrictions and tariffs"
+    ]
+   ]
+  },
+  {
+   "component": 16,
+   "members": [
+    "Acquisition integration and approval failure",
+    "Additional debt incurrence increasing leverage",
+    "Captive finance arm funding and credit risk",
+    "Credit rating downgrade raising borrowing costs",
+    "Debt service burden on cash flow",
+    "Goodwill impairment charges",
+    "High leverage limiting financial flexibility",
+    "Investment screening limiting acquisitions",
+    "Joint venture compliance and misconduct exposure",
+    "Joint venture funding and execution shortfall",
+    "Refinancing risk and insufficient debt service cash",
+    "Restructuring cost and customer disruption",
+    "Strategic change and restructuring execution",
+    "Substantial indebtedness and debt service burden"
+   ],
+   "groups": [
+    [
+     "Acquisition integration and approval failure"
+    ],
+    [
+     "Additional debt incurrence increasing leverage",
+     "High leverage limiting financial flexibility"
+    ],
+    [
+     "Captive finance arm funding and credit risk"
+    ],
+    [
+     "Credit rating downgrade raising borrowing costs"
+    ],
+    [
+     "Debt service burden on cash flow",
+     "Substantial indebtedness and debt service burden"
+    ],
+    [
+     "Goodwill impairment charges"
+    ],
+    [
+     "Investment screening limiting acquisitions"
+    ],
+    [
+     "Joint venture compliance and misconduct exposure"
+    ],
+    [
+     "Joint venture funding and execution shortfall"
+    ],
+    [
+     "Refinancing risk and insufficient debt service cash"
+    ],
+    [
+     "Restructuring cost and customer disruption",
+     "Strategic change and restructuring execution"
+    ]
+   ]
+  },
+  {
+   "component": 17,
    "members": [
     "Fab manufacturing disruptions and yield problems",
     "Natural disaster and climate operational disruption",
@@ -164,94 +343,7 @@
    ]
   },
   {
-   "component": 6,
-   "members": [
-    "Cyclical semiconductor demand volatility",
-    "End-market demand volatility and order fluctuation",
-    "Semiconductor industry cyclical overcapacity downturns",
-    "Working capital volatility from long product cycles"
-   ],
-   "groups": [
-    [
-     "Cyclical semiconductor demand volatility",
-     "End-market demand volatility and order fluctuation"
-    ],
-    [
-     "Semiconductor industry cyclical overcapacity downturns"
-    ],
-    [
-     "Working capital volatility from long product cycles"
-    ]
-   ]
-  },
-  {
-   "component": 7,
-   "members": [
-    "Additional debt incurrence increasing leverage",
-    "Credit rating downgrade raising borrowing costs",
-    "Debt service burden on cash flow"
-   ],
-   "groups": [
-    [
-     "Additional debt incurrence increasing leverage"
-    ],
-    [
-     "Credit rating downgrade raising borrowing costs"
-    ],
-    [
-     "Debt service burden on cash flow"
-    ]
-   ]
-  },
-  {
-   "component": 8,
-   "members": [
-    "Key personnel and engineer retention",
-    "Shortage of skilled software engineering talent",
-    "Skilled engineering talent retention shortfall"
-   ],
-   "groups": [
-    [
-     "Key personnel and engineer retention",
-     "Shortage of skilled software engineering talent",
-     "Skilled engineering talent retention shortfall"
-    ]
-   ]
-  },
-  {
-   "component": 9,
-   "members": [
-    "Product liability and customer recall costs",
-    "Semiconductor product defect liability claims",
-    "Vehicle safety recall costs"
-   ],
-   "groups": [
-    [
-     "Product liability and customer recall costs",
-     "Semiconductor product defect liability claims"
-    ],
-    [
-     "Vehicle safety recall costs"
-    ]
-   ]
-  },
-  {
-   "component": 10,
-   "members": [
-    "Chinese regulation restricting critical materials access",
-    "US-China tensions and export restrictions"
-   ],
-   "groups": [
-    [
-     "Chinese regulation restricting critical materials access"
-    ],
-    [
-     "US-China tensions and export restrictions"
-    ]
-   ]
-  },
-  {
-   "component": 11,
+   "component": 18,
    "members": [
     "Cross-border judgment enforcement limitations",
     "Foreign incorporation limits US judgment enforcement"
@@ -264,7 +356,86 @@
    ]
   },
   {
-   "component": 12,
+   "component": 19,
+   "members": [
+    "Customer and distributor revenue concentration",
+    "Distributor competing lines and credit exposure"
+   ],
+   "groups": [
+    [
+     "Customer and distributor revenue concentration"
+    ],
+    [
+     "Distributor competing lines and credit exposure"
+    ]
+   ]
+  },
+  {
+   "component": 20,
+   "members": [
+    "Pandemic disruption to workforce and suppliers",
+    "Public health crisis operational disruption"
+   ],
+   "groups": [
+    [
+     "Pandemic disruption to workforce and suppliers",
+     "Public health crisis operational disruption"
+    ]
+   ]
+  },
+  {
+   "component": 33,
+   "members": [
+    "Clean room chemical exposure litigation",
+    "Environmental compliance and remediation liability",
+    "Product liability and emissions litigation"
+   ],
+   "groups": [
+    [
+     "Clean room chemical exposure litigation"
+    ],
+    [
+     "Environmental compliance and remediation liability"
+    ],
+    [
+     "Product liability and emissions litigation"
+    ]
+   ]
+  },
+  {
+   "component": 34,
+   "members": [
+    "Government incentive clawback or termination",
+    "Government subsidy reduction or clawback",
+    "Tax law changes and IRA incentive realization"
+   ],
+   "groups": [
+    [
+     "Government incentive clawback or termination",
+     "Government subsidy reduction or clawback"
+    ],
+    [
+     "Tax law changes and IRA incentive realization"
+    ]
+   ]
+  },
+  {
+   "component": 35,
+   "members": [
+    "China JV competition and restructuring losses",
+    "Joint venture partner and control risk"
+   ],
+   "groups": [
+    [
+     "China JV competition and restructuring losses"
+    ],
+    [
+     "Joint venture partner and control risk"
+    ]
+   ]
+  },
+  {
+   "component": 36,
    "members": [
     "Data privacy and AI regulation compliance",
     "Data privacy regulation compliance costs"
@@ -277,93 +448,63 @@
    ]
   },
   {
-   "component": 13,
+   "component": 37,
    "members": [
-    "EV battery critical mineral supply constraints",
-    "EV strategy execution and battery costs"
+    "Labor union and works council disruption",
+    "Union strikes and work stoppages"
    ],
    "groups": [
     [
-     "EV battery critical mineral supply constraints"
+     "Labor union and works council disruption",
+     "Union strikes and work stoppages"
+    ]
+   ]
+  },
+  {
+   "component": 38,
+   "members": [
+    "Multijurisdiction tax rate increase",
+    "Transfer pricing disputes and tax asset challenges"
+   ],
+   "groups": [
+    [
+     "Multijurisdiction tax rate increase"
     ],
     [
-     "EV strategy execution and battery costs"
-    ]
-   ]
-  },
-  {
-   "component": 14,
-   "members": [
-    "Joint venture compliance and misconduct exposure",
-    "Joint venture funding and execution shortfall"
-   ],
-   "groups": [
-    [
-     "Joint venture compliance and misconduct exposure"
-    ],
-    [
-     "Joint venture funding and execution shortfall"
-    ]
-   ]
-  },
-  {
-   "component": 15,
-   "members": [
-    "Low-cost foreign OEM competition",
-    "State-backed Chinese semiconductor competition"
-   ],
-   "groups": [
-    [
-     "Low-cost foreign OEM competition"
-    ],
-    [
-     "State-backed Chinese semiconductor competition"
-    ]
-   ]
-  },
-  {
-   "component": 16,
-   "members": [
-    "Restructuring cost and customer disruption",
-    "Strategic change and restructuring execution"
-   ],
-   "groups": [
-    [
-     "Restructuring cost and customer disruption",
-     "Strategic change and restructuring execution"
-    ]
-   ]
-  },
-  {
-   "component": 17,
-   "members": [
-    "Semiconductor tariffs and trade restrictions",
-    "US-China trade restrictions and tariffs"
-   ],
-   "groups": [
-    [
-     "Semiconductor tariffs and trade restrictions",
-     "US-China trade restrictions and tariffs"
-    ]
-   ]
-  },
-  {
-   "component": 18,
-   "members": [
-    "Supplier component defect cost recovery",
-    "Supplier disruption under just-in-time production"
-   ],
-   "groups": [
-    [
-     "Supplier component defect cost recovery"
-    ],
-    [
-     "Supplier disruption under just-in-time production"
+     "Transfer pricing disputes and tax asset challenges"
     ]
    ]
   }
  ],
  "candidate_pairs": [
+  {
+   "a": "Acquisition integration and approval failure",
+   "b": "Goodwill and intangible asset impairment",
+   "cos": 0.7547,
+   "lex": 50.0,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Acquisition integration and approval failure",
+   "b": "Investment screening limiting acquisitions",
+   "cos": 0.7794,
+   "lex": 51.16279220581055,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Acquisition integration and approval failure",
+   "b": "Joint venture compliance and misconduct exposure",
+   "cos": 0.7787,
+   "lex": 43.4782600402832,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Acquisition integration and approval failure",
+   "b": "Joint venture funding and execution shortfall",
+   "cos": 0.7916,
+   "lex": 44.94382095336914,
+   "decision": "kept apart"
+  },
   {
    "a": "Additional debt incurrence increasing leverage",
    "b": "Credit rating downgrade raising borrowing costs",
@@ -376,6 +517,20 @@
    "b": "Debt service burden on cash flow",
    "cos": 0.8183,
    "lex": 43.589744567871094,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Additional debt incurrence increasing leverage",
+   "b": "High leverage limiting financial flexibility",
+   "cos": 0.7859,
+   "lex": 51.11111068725586,
+   "decision": "merged"
+  },
+  {
+   "a": "Additional debt incurrence increasing leverage",
+   "b": "Restructuring cost and customer disruption",
+   "cos": 0.7697,
+   "lex": 38.6363639831543,
    "decision": "kept apart"
   },
   {
@@ -394,9 +549,30 @@
   },
   {
    "a": "AI adoption and regulatory uncertainty",
+   "b": "Technological obsolescence and competitive price erosion",
+   "cos": 0.7684,
+   "lex": 40.425533294677734,
+   "decision": "kept apart"
+  },
+  {
+   "a": "AI adoption and regulatory uncertainty",
+   "b": "Trade secret theft and patent infringement claims",
+   "cos": 0.7572,
+   "lex": 39.08045959472656,
+   "decision": "kept apart"
+  },
+  {
+   "a": "AI adoption and regulatory uncertainty",
    "b": "Uncertain IP ownership of AI technologies",
    "cos": 0.8573,
    "lex": 53.16455841064453,
+   "decision": "kept apart"
+  },
+  {
+   "a": "AI-related copyright infringement claims",
+   "b": "Cyberattack theft of proprietary technology",
+   "cos": 0.7708,
+   "lex": 36.14457702636719,
    "decision": "kept apart"
   },
   {
@@ -418,6 +594,41 @@
    "b": "Uncertain IP ownership of AI technologies",
    "cos": 0.8838,
    "lex": 37.03703689575195,
+   "decision": "merged"
+  },
+  {
+   "a": "Armed conflict disrupting supply and demand",
+   "b": "Supplier disruption under just-in-time production",
+   "cos": 0.7518,
+   "lex": 41.30434799194336,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Auto sales volume volatility with fixed costs",
+   "b": "Captive finance arm funding and credit risk",
+   "cos": 0.7504,
+   "lex": 31.81818199157715,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Auto sales volume volatility with fixed costs",
+   "b": "End-market demand volatility and order fluctuation",
+   "cos": 0.7618,
+   "lex": 46.31578826904297,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Auto sales volume volatility with fixed costs",
+   "b": "Macroeconomic demand volatility in automotive end markets",
+   "cos": 0.7509,
+   "lex": 52.94117736816406,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Automotive import tariff cost escalation",
+   "b": "Evolving emissions regulation and EV demand shift",
+   "cos": 0.765,
+   "lex": 38.202247619628906,
    "decision": "kept apart"
   },
   {
@@ -428,6 +639,27 @@
    "decision": "merged"
   },
   {
+   "a": "Automotive import tariff cost escalation",
+   "b": "Protectionist policies and import tariffs",
+   "cos": 0.7565,
+   "lex": 66.66666412353516,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Automotive import tariff cost escalation",
+   "b": "Semiconductor tariffs and trade restrictions",
+   "cos": 0.7708,
+   "lex": 47.619049072265625,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Automotive import tariff cost escalation",
+   "b": "Tariffs and export controls disrupting trade",
+   "cos": 0.7551,
+   "lex": 52.380950927734375,
+   "decision": "kept apart"
+  },
+  {
    "a": "Autonomous vehicle development and commercialization risk",
    "b": "Autonomous vehicle regulatory uncertainty",
    "cos": 0.8029,
@@ -435,10 +667,136 @@
    "decision": "kept apart"
   },
   {
+   "a": "Autonomous vehicle development and commercialization risk",
+   "b": "New vehicle launch and acceptance risk",
+   "cos": 0.7566,
+   "lex": 59.25925827026367,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Autonomous vehicle development and commercialization risk",
+   "b": "Technology disruption from new automotive competitors",
+   "cos": 0.774,
+   "lex": 45.45454406738281,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Autonomous vehicle regulatory uncertainty",
+   "b": "Divergent vehicle emissions and EV regulations",
+   "cos": 0.7534,
+   "lex": 52.87356185913086,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Autonomous vehicle regulatory uncertainty",
+   "b": "Uncertain IP ownership of AI technologies",
+   "cos": 0.751,
+   "lex": 43.90243911743164,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Autonomous vehicle regulatory uncertainty",
+   "b": "Vehicle safety recall costs",
+   "cos": 0.7581,
+   "lex": 52.94117736816406,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Captive finance arm funding and credit risk",
+   "b": "Joint venture compliance and misconduct exposure",
+   "cos": 0.7822,
+   "lex": 43.9560432434082,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Captive finance arm funding and credit risk",
+   "b": "New vehicle launch and acceptance risk",
+   "cos": 0.7538,
+   "lex": 54.320987701416016,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Captive finance arm funding and credit risk",
+   "b": "Refinancing risk and insufficient debt service cash",
+   "cos": 0.7513,
+   "lex": 55.319149017333984,
+   "decision": "kept apart"
+  },
+  {
+   "a": "China JV competition and restructuring losses",
+   "b": "Joint venture partner and control risk",
+   "cos": 0.753,
+   "lex": 43.37349319458008,
+   "decision": "kept apart"
+  },
+  {
+   "a": "China-Taiwan tension decoupling supply chains",
+   "b": "Chinese regulation restricting critical materials access",
+   "cos": 0.7932,
+   "lex": 45.5445556640625,
+   "decision": "kept apart"
+  },
+  {
+   "a": "China-Taiwan tension decoupling supply chains",
+   "b": "Large customer purchase curtailment from trade measures",
+   "cos": 0.7597,
+   "lex": 36.0,
+   "decision": "kept apart"
+  },
+  {
+   "a": "China-Taiwan tension decoupling supply chains",
+   "b": "US-China tensions and export restrictions",
+   "cos": 0.7981,
+   "lex": 41.86046600341797,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Chinese regulation restricting critical materials access",
+   "b": "Semiconductor tariffs and trade restrictions",
+   "cos": 0.781,
+   "lex": 40.0,
+   "decision": "kept apart"
+  },
+  {
    "a": "Chinese regulation restricting critical materials access",
    "b": "US-China tensions and export restrictions",
    "cos": 0.8096,
    "lex": 43.29896926879883,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Clean room chemical exposure litigation",
+   "b": "Environmental compliance and remediation liability",
+   "cos": 0.7512,
+   "lex": 44.94382095336914,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Climate regulation raising energy and production costs",
+   "b": "Commodity and semiconductor input cost inflation",
+   "cos": 0.7536,
+   "lex": 50.98039245605469,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Climate regulation raising energy and production costs",
+   "b": "Emissions and fuel economy regulation costs",
+   "cos": 0.7738,
+   "lex": 63.492061614990234,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Climate regulation raising energy and production costs",
+   "b": "Environmental rules restricting manufacturing materials",
+   "cos": 0.7671,
+   "lex": 42.20183563232422,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Commodity and semiconductor input cost inflation",
+   "b": "Key semiconductor materials supply constraints",
+   "cos": 0.7691,
+   "lex": 53.191490173339844,
    "decision": "kept apart"
   },
   {
@@ -450,9 +808,30 @@
   },
   {
    "a": "Commodity and semiconductor input cost inflation",
+   "b": "Semiconductor industry cyclical overcapacity downturns",
+   "cos": 0.7766,
+   "lex": 50.98039245605469,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Commodity and semiconductor input cost inflation",
    "b": "Semiconductor price erosion on older products",
    "cos": 0.8027,
    "lex": 55.913978576660156,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Commodity and semiconductor input cost inflation",
+   "b": "Technological obsolescence and competitive price erosion",
+   "cos": 0.7543,
+   "lex": 44.230770111083984,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Complex regulatory compliance cost burden",
+   "b": "Fuel economy and emissions non-compliance penalties",
+   "cos": 0.751,
+   "lex": 45.65217208862305,
    "decision": "kept apart"
   },
   {
@@ -463,6 +842,20 @@
    "decision": "kept apart"
   },
   {
+   "a": "Credit rating downgrade raising borrowing costs",
+   "b": "Goodwill impairment charges",
+   "cos": 0.7769,
+   "lex": 29.7297306060791,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Credit rating downgrade raising borrowing costs",
+   "b": "Restructuring cost and customer disruption",
+   "cos": 0.7813,
+   "lex": 49.438201904296875,
+   "decision": "kept apart"
+  },
+  {
    "a": "Cross-border judgment enforcement limitations",
    "b": "Foreign incorporation limits US judgment enforcement",
    "cos": 0.8466,
@@ -470,11 +863,53 @@
    "decision": "merged"
   },
   {
+   "a": "Currency volatility and cash transfer restrictions",
+   "b": "Foreign currency remeasurement losses",
+   "cos": 0.7623,
+   "lex": 45.977012634277344,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Currency volatility and cash transfer restrictions",
+   "b": "Foreign exchange and macroeconomic volatility",
+   "cos": 0.7876,
+   "lex": 56.842105865478516,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Currency volatility and cash transfer restrictions",
+   "b": "US-China tensions and export restrictions",
+   "cos": 0.7912,
+   "lex": 56.140350341796875,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Customer and distributor revenue concentration",
+   "b": "Distributor competing lines and credit exposure",
+   "cos": 0.7836,
+   "lex": 64.51612854003906,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Customer and distributor revenue concentration",
+   "b": "Large customer purchase curtailment from trade measures",
+   "cos": 0.7601,
+   "lex": 45.5445556640625,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Cyberattack theft of proprietary technology",
+   "b": "Cyberattacks on connected vehicles and IT systems",
+   "cos": 0.7911,
+   "lex": 43.4782600402832,
+   "decision": "merged"
+  },
+  {
    "a": "Cyberattack theft of proprietary technology",
    "b": "Cyberattacks on IT systems and connected products",
    "cos": 0.8468,
    "lex": 47.826087951660156,
-   "decision": "kept apart"
+   "decision": "merged"
   },
   {
    "a": "Cyberattack theft of proprietary technology",
@@ -488,6 +923,41 @@
    "b": "Cybersecurity breach disrupting manufacturing",
    "cos": 0.8115,
    "lex": 38.6363639831543,
+   "decision": "merged"
+  },
+  {
+   "a": "Cyberattack theft of proprietary technology",
+   "b": "In-vehicle system hacking safety risk",
+   "cos": 0.7505,
+   "lex": 35.0,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Cyberattack theft of proprietary technology",
+   "b": "Insider theft of proprietary technology",
+   "cos": 0.7929,
+   "lex": 88.57142639160156,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Cyberattack theft of proprietary technology",
+   "b": "Product security vulnerabilities harming demand",
+   "cos": 0.7756,
+   "lex": 35.55555725097656,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Cyberattack theft of proprietary technology",
+   "b": "Trade secret theft and patent infringement claims",
+   "cos": 0.7845,
+   "lex": 41.30434799194336,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Cyberattack theft of proprietary technology",
+   "b": "Uncertain IP ownership of AI technologies",
+   "cos": 0.7576,
+   "lex": 52.380950927734375,
    "decision": "kept apart"
   },
   {
@@ -498,11 +968,39 @@
    "decision": "merged"
   },
   {
+   "a": "Cyberattacks on connected vehicles and IT systems",
+   "b": "Cybersecurity breach disrupting manufacturing",
+   "cos": 0.7565,
+   "lex": 34.04255294799805,
+   "decision": "merged"
+  },
+  {
+   "a": "Cyberattacks on connected vehicles and IT systems",
+   "b": "In-vehicle system hacking safety risk",
+   "cos": 0.7943,
+   "lex": 44.1860466003418,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Cyberattacks on connected vehicles and IT systems",
+   "b": "Product security vulnerabilities harming demand",
+   "cos": 0.7647,
+   "lex": 41.66666793823242,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Cyberattacks on IT systems and connected products",
+   "b": "Cybersecurity breach and data theft",
+   "cos": 0.791,
+   "lex": 50.0,
+   "decision": "merged"
+  },
+  {
    "a": "Cyberattacks on IT systems and connected products",
    "b": "Cybersecurity breach disrupting manufacturing",
    "cos": 0.8275,
    "lex": 36.17021179199219,
-   "decision": "kept apart"
+   "decision": "merged"
   },
   {
    "a": "Cyberattacks on IT systems and connected products",
@@ -516,6 +1014,27 @@
    "b": "Cybersecurity breach disrupting manufacturing",
    "cos": 0.8603,
    "lex": 72.7272720336914,
+   "decision": "merged"
+  },
+  {
+   "a": "Cybersecurity breach and data theft",
+   "b": "Product security vulnerabilities harming demand",
+   "cos": 0.7635,
+   "lex": 46.34146499633789,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Cybersecurity breach disrupting manufacturing",
+   "b": "Product security vulnerabilities harming demand",
+   "cos": 0.7905,
+   "lex": 41.30434799194336,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Cybersecurity breach disrupting manufacturing",
+   "b": "Trade secret theft and patent infringement claims",
+   "cos": 0.7733,
+   "lex": 34.04255294799805,
    "decision": "kept apart"
   },
   {
@@ -527,9 +1046,44 @@
   },
   {
    "a": "Cyclical semiconductor demand volatility",
+   "b": "Key semiconductor materials supply constraints",
+   "cos": 0.7571,
+   "lex": 55.8139533996582,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Cyclical semiconductor demand volatility",
+   "b": "Limited-source equipment and materials supply shortage",
+   "cos": 0.7558,
+   "lex": 38.29787063598633,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Cyclical semiconductor demand volatility",
+   "b": "Macroeconomic demand volatility in automotive end markets",
+   "cos": 0.7519,
+   "lex": 59.64912414550781,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Cyclical semiconductor demand volatility",
    "b": "Semiconductor industry cyclical overcapacity downturns",
    "cos": 0.8496,
    "lex": 70.96774291992188,
+   "decision": "merged"
+  },
+  {
+   "a": "Cyclical semiconductor demand volatility",
+   "b": "Semiconductor price erosion on older products",
+   "cos": 0.7679,
+   "lex": 51.764705657958984,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Cyclical semiconductor demand volatility",
+   "b": "Working capital volatility from long product cycles",
+   "cos": 0.7882,
+   "lex": 59.340660095214844,
    "decision": "kept apart"
   },
   {
@@ -540,10 +1094,143 @@
    "decision": "merged"
   },
   {
+   "a": "Debt service burden on cash flow",
+   "b": "Refinancing risk and insufficient debt service cash",
+   "cos": 0.7853,
+   "lex": 69.38775634765625,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Debt service burden on cash flow",
+   "b": "Restructuring cost and customer disruption",
+   "cos": 0.7777,
+   "lex": 37.83783721923828,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Debt service burden on cash flow",
+   "b": "Substantial indebtedness and debt service burden",
+   "cos": 0.7786,
+   "lex": 74.50980377197266,
+   "decision": "merged"
+  },
+  {
+   "a": "Dependence on subcontracted wafer fabrication suppliers",
+   "b": "Foundry wafer supply shortage",
+   "cos": 0.7712,
+   "lex": 50.0,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Dependence on subcontracted wafer fabrication suppliers",
+   "b": "Limited-source equipment and materials supply shortage",
+   "cos": 0.7958,
+   "lex": 45.871559143066406,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Dependence on subcontracted wafer fabrication suppliers",
+   "b": "Supplier component defect cost recovery",
+   "cos": 0.7656,
+   "lex": 46.808509826660156,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Design-win competition loss in automotive",
+   "b": "EV technology adoption and battery supply limits",
+   "cos": 0.7524,
+   "lex": 35.955055236816406,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Design-win competition loss in automotive",
+   "b": "New vehicle launch and acceptance risk",
+   "cos": 0.7682,
+   "lex": 32.91139221191406,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Design-win competition loss in automotive",
+   "b": "Semiconductor industry cyclical overcapacity downturns",
+   "cos": 0.7501,
+   "lex": 31.578947067260742,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Design-win competition loss in automotive",
+   "b": "Supplier component defect cost recovery",
+   "cos": 0.7524,
+   "lex": 35.0,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Design-win competition loss in automotive",
+   "b": "Supplier disruption under just-in-time production",
+   "cos": 0.7511,
+   "lex": 37.77777862548828,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Design-win competition loss in automotive",
+   "b": "Technological change shortening product life cycles",
+   "cos": 0.7577,
+   "lex": 34.78260803222656,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Design-win competition loss in automotive",
+   "b": "Technology disruption from new automotive competitors",
+   "cos": 0.7982,
+   "lex": 63.82978820800781,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Distributor competing lines and credit exposure",
+   "b": "Financial market liquidity access disruption",
+   "cos": 0.758,
+   "lex": 37.36263656616211,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Distributor competing lines and credit exposure",
+   "b": "Joint venture compliance and misconduct exposure",
+   "cos": 0.7591,
+   "lex": 65.2631607055664,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Divergent vehicle emissions and EV regulations",
+   "b": "Emissions and fuel economy regulation costs",
+   "cos": 0.7602,
+   "lex": 65.16854095458984,
+   "decision": "merged"
+  },
+  {
+   "a": "Divergent vehicle emissions and EV regulations",
+   "b": "EV technology adoption and battery supply limits",
+   "cos": 0.7554,
+   "lex": 46.808509826660156,
+   "decision": "kept apart"
+  },
+  {
    "a": "Divergent vehicle emissions and EV regulations",
    "b": "Evolving emissions regulation and EV demand shift",
    "cos": 0.8284,
    "lex": 73.68421173095703,
+   "decision": "merged"
+  },
+  {
+   "a": "Divergent vehicle emissions and EV regulations",
+   "b": "Fuel economy and emissions non-compliance penalties",
+   "cos": 0.7672,
+   "lex": 53.608245849609375,
+   "decision": "merged"
+  },
+  {
+   "a": "Divergent vehicle emissions and EV regulations",
+   "b": "In-vehicle system hacking safety risk",
+   "cos": 0.7557,
+   "lex": 36.14457702636719,
    "decision": "kept apart"
   },
   {
@@ -558,6 +1245,69 @@
    "b": "Fuel economy and emissions non-compliance penalties",
    "cos": 0.8161,
    "lex": 75.36231994628906,
+   "decision": "merged"
+  },
+  {
+   "a": "Emissions and fuel economy regulation costs",
+   "b": "Profit concentration in full-size ICE trucks",
+   "cos": 0.7971,
+   "lex": 34.482757568359375,
+   "decision": "kept apart"
+  },
+  {
+   "a": "End-market demand volatility and order fluctuation",
+   "b": "Inventory forecasting mismatch and obsolescence",
+   "cos": 0.7808,
+   "lex": 37.1134033203125,
+   "decision": "kept apart"
+  },
+  {
+   "a": "End-market demand volatility and order fluctuation",
+   "b": "Large customer purchase curtailment from trade measures",
+   "cos": 0.7514,
+   "lex": 36.19047546386719,
+   "decision": "kept apart"
+  },
+  {
+   "a": "End-market demand volatility and order fluctuation",
+   "b": "Macroeconomic demand volatility in automotive end markets",
+   "cos": 0.7883,
+   "lex": 61.68224334716797,
+   "decision": "kept apart"
+  },
+  {
+   "a": "End-market demand volatility and order fluctuation",
+   "b": "Semiconductor industry cyclical overcapacity downturns",
+   "cos": 0.7752,
+   "lex": 32.69230651855469,
+   "decision": "merged"
+  },
+  {
+   "a": "End-market demand volatility and order fluctuation",
+   "b": "Supplier disruption under just-in-time production",
+   "cos": 0.7654,
+   "lex": 38.38383865356445,
+   "decision": "kept apart"
+  },
+  {
+   "a": "End-market demand volatility and order fluctuation",
+   "b": "Working capital volatility from long product cycles",
+   "cos": 0.7991,
+   "lex": 47.52475357055664,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Environmental compliance and remediation liability",
+   "b": "Product liability and emissions litigation",
+   "cos": 0.7521,
+   "lex": 56.5217399597168,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Environmental rules restricting manufacturing materials",
+   "b": "Fuel economy and emissions non-compliance penalties",
+   "cos": 0.7584,
+   "lex": 37.73584747314453,
    "decision": "kept apart"
   },
   {
@@ -568,10 +1318,143 @@
    "decision": "kept apart"
   },
   {
+   "a": "EV battery critical mineral supply constraints",
+   "b": "EV technology adoption and battery supply limits",
+   "cos": 0.774,
+   "lex": 61.70212936401367,
+   "decision": "kept apart"
+  },
+  {
+   "a": "EV battery critical mineral supply constraints",
+   "b": "Evolving emissions regulation and EV demand shift",
+   "cos": 0.7568,
+   "lex": 37.894737243652344,
+   "decision": "kept apart"
+  },
+  {
+   "a": "EV battery critical mineral supply constraints",
+   "b": "Key semiconductor materials supply constraints",
+   "cos": 0.7783,
+   "lex": 69.56521606445312,
+   "decision": "kept apart"
+  },
+  {
+   "a": "EV battery critical mineral supply constraints",
+   "b": "New vehicle launch and acceptance risk",
+   "cos": 0.7541,
+   "lex": 33.33333206176758,
+   "decision": "kept apart"
+  },
+  {
+   "a": "EV strategy execution and battery costs",
+   "b": "EV technology adoption and battery supply limits",
+   "cos": 0.7804,
+   "lex": 59.77011489868164,
+   "decision": "kept apart"
+  },
+  {
+   "a": "EV strategy execution and battery costs",
+   "b": "Evolving emissions regulation and EV demand shift",
+   "cos": 0.7718,
+   "lex": 50.0,
+   "decision": "kept apart"
+  },
+  {
+   "a": "EV strategy execution and battery costs",
+   "b": "New vehicle launch and acceptance risk",
+   "cos": 0.7582,
+   "lex": 38.96104049682617,
+   "decision": "kept apart"
+  },
+  {
+   "a": "EV strategy execution and battery costs",
+   "b": "Profit concentration in full-size ICE trucks",
+   "cos": 0.7516,
+   "lex": 31.325302124023438,
+   "decision": "kept apart"
+  },
+  {
+   "a": "EV strategy execution and battery costs",
+   "b": "Supplier disruption under just-in-time production",
+   "cos": 0.771,
+   "lex": 36.3636360168457,
+   "decision": "kept apart"
+  },
+  {
+   "a": "EV technology adoption and battery supply limits",
+   "b": "Evolving emissions regulation and EV demand shift",
+   "cos": 0.7807,
+   "lex": 43.29896926879883,
+   "decision": "kept apart"
+  },
+  {
+   "a": "EV technology adoption and battery supply limits",
+   "b": "New vehicle launch and acceptance risk",
+   "cos": 0.7872,
+   "lex": 44.1860466003418,
+   "decision": "kept apart"
+  },
+  {
+   "a": "EV technology adoption and battery supply limits",
+   "b": "Profit concentration in full-size ICE trucks",
+   "cos": 0.7651,
+   "lex": 34.78260803222656,
+   "decision": "kept apart"
+  },
+  {
+   "a": "EV technology adoption and battery supply limits",
+   "b": "Technology disruption from new automotive competitors",
+   "cos": 0.7963,
+   "lex": 49.50495147705078,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Evolving emissions regulation and EV demand shift",
+   "b": "Fuel economy and emissions non-compliance penalties",
+   "cos": 0.7833,
+   "lex": 58.0,
+   "decision": "merged"
+  },
+  {
+   "a": "Evolving emissions regulation and EV demand shift",
+   "b": "Macroeconomic demand volatility in automotive end markets",
+   "cos": 0.7623,
+   "lex": 49.056602478027344,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Evolving emissions regulation and EV demand shift",
+   "b": "New vehicle launch and acceptance risk",
+   "cos": 0.7654,
+   "lex": 39.08045959472656,
+   "decision": "kept apart"
+  },
+  {
    "a": "Evolving emissions regulation and EV demand shift",
    "b": "Profit concentration in full-size ICE trucks",
    "cos": 0.8084,
    "lex": 36.559139251708984,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Evolving emissions regulation and EV demand shift",
+   "b": "Slow EV adoption after incentive termination",
+   "cos": 0.7862,
+   "lex": 45.16128921508789,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Export control and anti-corruption compliance",
+   "b": "Joint venture compliance and misconduct exposure",
+   "cos": 0.7671,
+   "lex": 58.064517974853516,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Export control and anti-corruption compliance",
+   "b": "Protectionist policies and import tariffs",
+   "cos": 0.7509,
+   "lex": 48.83720779418945,
    "decision": "kept apart"
   },
   {
@@ -589,11 +1472,81 @@
    "decision": "merged"
   },
   {
+   "a": "Financial services consumer protection compliance",
+   "b": "Joint venture compliance and misconduct exposure",
+   "cos": 0.7618,
+   "lex": 53.608245849609375,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Foreign incorporation limits US judgment enforcement",
+   "b": "Investment screening limiting acquisitions",
+   "cos": 0.7637,
+   "lex": 42.553192138671875,
+   "decision": "kept apart"
+  },
+  {
    "a": "Foundry wafer supply shortage",
    "b": "Limited-source equipment and materials supply shortage",
    "cos": 0.8165,
    "lex": 68.18181610107422,
    "decision": "merged"
+  },
+  {
+   "a": "Fuel economy and emissions non-compliance penalties",
+   "b": "Joint venture compliance and misconduct exposure",
+   "cos": 0.7526,
+   "lex": 50.50505065917969,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Goodwill and intangible asset impairment",
+   "b": "Joint venture compliance and misconduct exposure",
+   "cos": 0.7604,
+   "lex": 43.181819915771484,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Government incentive clawback or termination",
+   "b": "Government subsidy reduction or clawback",
+   "cos": 0.7606,
+   "lex": 70.96774291992188,
+   "decision": "merged"
+  },
+  {
+   "a": "Government incentive clawback or termination",
+   "b": "Tax law changes and IRA incentive realization",
+   "cos": 0.7603,
+   "lex": 53.93258285522461,
+   "decision": "kept apart"
+  },
+  {
+   "a": "High leverage limiting financial flexibility",
+   "b": "Investment screening limiting acquisitions",
+   "cos": 0.7885,
+   "lex": 46.511627197265625,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Import tariffs and trade barrier costs",
+   "b": "Large customer purchase curtailment from trade measures",
+   "cos": 0.7838,
+   "lex": 43.0107536315918,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Import tariffs and trade barrier costs",
+   "b": "Protectionist policies and import tariffs",
+   "cos": 0.7698,
+   "lex": 65.82278442382812,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Import tariffs and trade barrier costs",
+   "b": "Semiconductor tariffs and trade restrictions",
+   "cos": 0.7639,
+   "lex": 68.29268646240234,
+   "decision": "kept apart"
   },
   {
    "a": "Import tariffs and trade barrier costs",
@@ -603,10 +1556,115 @@
    "decision": "kept apart"
   },
   {
+   "a": "In-vehicle system hacking safety risk",
+   "b": "Product security vulnerabilities harming demand",
+   "cos": 0.7747,
+   "lex": 35.71428680419922,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Industry overcapacity driving pricing incentives",
+   "b": "Semiconductor industry cyclical overcapacity downturns",
+   "cos": 0.7692,
+   "lex": 60.869564056396484,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Intellectual property misappropriation and weak enforcement",
+   "b": "IP infringement claims and misappropriation",
+   "cos": 0.7823,
+   "lex": 63.492061614990234,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Intellectual property misappropriation and weak enforcement",
+   "b": "Trade secret theft and patent infringement claims",
+   "cos": 0.7801,
+   "lex": 46.296295166015625,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Inventory forecasting mismatch and obsolescence",
+   "b": "Restructuring cost and customer disruption",
+   "cos": 0.7678,
+   "lex": 44.94382095336914,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Inventory forecasting mismatch and obsolescence",
+   "b": "Semiconductor industry cyclical overcapacity downturns",
+   "cos": 0.7721,
+   "lex": 39.60396194458008,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Inventory forecasting mismatch and obsolescence",
+   "b": "Supplier component defect cost recovery",
+   "cos": 0.7567,
+   "lex": 34.88372039794922,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Inventory forecasting mismatch and obsolescence",
+   "b": "Supplier disruption under just-in-time production",
+   "cos": 0.7831,
+   "lex": 37.5,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Inventory forecasting mismatch and obsolescence",
+   "b": "Working capital volatility from long product cycles",
+   "cos": 0.7808,
+   "lex": 30.612245559692383,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Investment screening limiting acquisitions",
+   "b": "Joint venture compliance and misconduct exposure",
+   "cos": 0.7613,
+   "lex": 37.77777862548828,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Investment screening limiting acquisitions",
+   "b": "Joint venture funding and execution shortfall",
+   "cos": 0.7733,
+   "lex": 41.379310607910156,
+   "decision": "kept apart"
+  },
+  {
+   "a": "IP infringement claims and misappropriation",
+   "b": "Trade secret theft and patent infringement claims",
+   "cos": 0.7962,
+   "lex": 69.69696807861328,
+   "decision": "merged"
+  },
+  {
+   "a": "IP infringement claims and misappropriation",
+   "b": "Uncertain IP ownership of AI technologies",
+   "cos": 0.7931,
+   "lex": 40.47618865966797,
+   "decision": "kept apart"
+  },
+  {
    "a": "Joint venture compliance and misconduct exposure",
    "b": "Joint venture funding and execution shortfall",
    "cos": 0.8107,
    "lex": 58.064517974853516,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Joint venture compliance and misconduct exposure",
+   "b": "Protectionist policies and import tariffs",
+   "cos": 0.7582,
+   "lex": 49.438201904296875,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Joint venture funding and execution shortfall",
+   "b": "New vehicle launch and acceptance risk",
+   "cos": 0.7655,
+   "lex": 43.37349319458008,
    "decision": "kept apart"
   },
   {
@@ -631,10 +1689,136 @@
    "decision": "merged"
   },
   {
+   "a": "Key semiconductor materials supply constraints",
+   "b": "Semiconductor industry cyclical overcapacity downturns",
+   "cos": 0.7666,
+   "lex": 58.0,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Key semiconductor materials supply constraints",
+   "b": "Semiconductor price erosion on older products",
+   "cos": 0.7627,
+   "lex": 54.94505310058594,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Key semiconductor materials supply constraints",
+   "b": "State-backed Chinese semiconductor competition",
+   "cos": 0.7669,
+   "lex": 54.34782791137695,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Key semiconductor materials supply constraints",
+   "b": "Water scarcity at fab sites",
+   "cos": 0.7822,
+   "lex": 32.876712799072266,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Labor union and works council disruption",
+   "b": "Union strikes and work stoppages",
+   "cos": 0.7964,
+   "lex": 55.55555725097656,
+   "decision": "merged"
+  },
+  {
+   "a": "Large customer purchase curtailment from trade measures",
+   "b": "Protectionist policies and import tariffs",
+   "cos": 0.7528,
+   "lex": 37.5,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Large customer purchase curtailment from trade measures",
+   "b": "Restructuring cost and customer disruption",
+   "cos": 0.7605,
+   "lex": 49.484535217285156,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Large customer purchase curtailment from trade measures",
+   "b": "Semiconductor price erosion on older products",
+   "cos": 0.7542,
+   "lex": 40.0,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Large customer purchase curtailment from trade measures",
+   "b": "Supplier component defect cost recovery",
+   "cos": 0.7529,
+   "lex": 42.553192138671875,
+   "decision": "kept apart"
+  },
+  {
    "a": "Large customer purchase curtailment from trade measures",
    "b": "Tariffs and export controls disrupting trade",
    "cos": 0.8008,
    "lex": 44.44444274902344,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Limited-source equipment and materials supply shortage",
+   "b": "Low-cost foreign OEM competition",
+   "cos": 0.7823,
+   "lex": 32.55813980102539,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Limited-source equipment and materials supply shortage",
+   "b": "North American raw materials supply shortfall",
+   "cos": 0.7544,
+   "lex": 62.62626266479492,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Limited-source equipment and materials supply shortage",
+   "b": "Semiconductor price erosion on older products",
+   "cos": 0.7857,
+   "lex": 34.34343338012695,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Limited-source equipment and materials supply shortage",
+   "b": "Semiconductor tariffs and trade restrictions",
+   "cos": 0.7563,
+   "lex": 44.8979606628418,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Limited-source equipment and materials supply shortage",
+   "b": "State-backed Chinese semiconductor competition",
+   "cos": 0.7826,
+   "lex": 36.0,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Limited-source equipment and materials supply shortage",
+   "b": "Supplier component defect cost recovery",
+   "cos": 0.7972,
+   "lex": 38.709678649902344,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Limited-source equipment and materials supply shortage",
+   "b": "Supplier disruption under just-in-time production",
+   "cos": 0.79,
+   "lex": 40.77669906616211,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Limited-source equipment and materials supply shortage",
+   "b": "Water scarcity at fab sites",
+   "cos": 0.7822,
+   "lex": 34.567901611328125,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Low-cost foreign OEM competition",
+   "b": "Protectionist policies and import tariffs",
+   "cos": 0.7917,
+   "lex": 35.61643981933594,
    "decision": "kept apart"
   },
   {
@@ -645,10 +1829,59 @@
    "decision": "kept apart"
   },
   {
+   "a": "Low-cost foreign OEM competition",
+   "b": "Technological obsolescence and competitive price erosion",
+   "cos": 0.759,
+   "lex": 43.181819915771484,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Low-cost foreign OEM competition",
+   "b": "Technology disruption from new automotive competitors",
+   "cos": 0.7563,
+   "lex": 44.70588302612305,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Manufacturing facility disruption and interdependency",
+   "b": "Natural disaster disruption of manufacturing sites",
+   "cos": 0.7659,
+   "lex": 64.8648681640625,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Manufacturing facility disruption and interdependency",
+   "b": "Supplier disruption under just-in-time production",
+   "cos": 0.7643,
+   "lex": 47.05882263183594,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Multijurisdiction tax rate increase",
+   "b": "Transfer pricing disputes and tax asset challenges",
+   "cos": 0.7526,
+   "lex": 49.411766052246094,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Natural disaster and climate operational disruption",
+   "b": "Natural disaster disruption of fabs",
+   "cos": 0.7724,
+   "lex": 87.09677124023438,
+   "decision": "merged"
+  },
+  {
    "a": "Natural disaster and climate operational disruption",
    "b": "Natural disaster disruption of manufacturing sites",
    "cos": 0.8543,
    "lex": 70.12986755371094,
+   "decision": "merged"
+  },
+  {
+   "a": "Natural disaster and climate operational disruption",
+   "b": "Severe weather disruption from climate change",
+   "cos": 0.7954,
+   "lex": 62.5,
    "decision": "merged"
   },
   {
@@ -660,9 +1893,58 @@
   },
   {
    "a": "Natural disaster disruption of manufacturing sites",
+   "b": "Pandemic disruption to workforce and suppliers",
+   "cos": 0.7592,
+   "lex": 50.0,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Natural disaster disruption of manufacturing sites",
    "b": "Severe weather disruption from climate change",
    "cos": 0.8515,
    "lex": 50.52631759643555,
+   "decision": "merged"
+  },
+  {
+   "a": "Natural disaster disruption of manufacturing sites",
+   "b": "Water scarcity at fab sites",
+   "cos": 0.7584,
+   "lex": 46.75324630737305,
+   "decision": "kept apart"
+  },
+  {
+   "a": "New vehicle launch and acceptance risk",
+   "b": "Profit concentration in full-size ICE trucks",
+   "cos": 0.774,
+   "lex": 39.024391174316406,
+   "decision": "kept apart"
+  },
+  {
+   "a": "New vehicle launch and acceptance risk",
+   "b": "Technological change shortening product life cycles",
+   "cos": 0.7986,
+   "lex": 40.449440002441406,
+   "decision": "kept apart"
+  },
+  {
+   "a": "New vehicle launch and acceptance risk",
+   "b": "Technology disruption from new automotive competitors",
+   "cos": 0.7873,
+   "lex": 39.56044006347656,
+   "decision": "kept apart"
+  },
+  {
+   "a": "New vehicle launch and acceptance risk",
+   "b": "Working capital volatility from long product cycles",
+   "cos": 0.7725,
+   "lex": 38.202247619628906,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Pandemic disruption to workforce and suppliers",
+   "b": "Public health crisis operational disruption",
+   "cos": 0.7714,
+   "lex": 49.438201904296875,
    "decision": "merged"
   },
   {
@@ -674,9 +1956,37 @@
   },
   {
    "a": "Product liability and customer recall costs",
+   "b": "Supplier component defect cost recovery",
+   "cos": 0.7741,
+   "lex": 39.024391174316406,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Product liability and customer recall costs",
+   "b": "Supplier disruption under just-in-time production",
+   "cos": 0.7601,
+   "lex": 43.4782600402832,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Product liability and customer recall costs",
    "b": "Vehicle safety recall costs",
    "cos": 0.8058,
    "lex": 61.53845977783203,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Product security vulnerabilities harming demand",
+   "b": "Technology disruption from new automotive competitors",
+   "cos": 0.7557,
+   "lex": 32.0,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Profit concentration in full-size ICE trucks",
+   "b": "Supplier disruption under just-in-time production",
+   "cos": 0.7635,
+   "lex": 40.86021423339844,
    "decision": "kept apart"
   },
   {
@@ -687,6 +1997,20 @@
    "decision": "kept apart"
   },
   {
+   "a": "Protectionist policies and import tariffs",
+   "b": "State-backed Chinese semiconductor competition",
+   "cos": 0.7615,
+   "lex": 36.78160858154297,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Protectionist policies and import tariffs",
+   "b": "Tariffs and export controls disrupting trade",
+   "cos": 0.7898,
+   "lex": 54.117645263671875,
+   "decision": "kept apart"
+  },
+  {
    "a": "Restructuring cost and customer disruption",
    "b": "Strategic change and restructuring execution",
    "cos": 0.8441,
@@ -694,10 +2018,122 @@
    "decision": "merged"
   },
   {
+   "a": "Restructuring cost and customer disruption",
+   "b": "Supplier component defect cost recovery",
+   "cos": 0.7655,
+   "lex": 46.91358184814453,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Restructuring cost and customer disruption",
+   "b": "Variable share repurchase activity",
+   "cos": 0.7559,
+   "lex": 34.21052551269531,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Semiconductor industry cyclical overcapacity downturns",
+   "b": "Semiconductor price erosion on older products",
+   "cos": 0.7993,
+   "lex": 54.54545593261719,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Semiconductor industry cyclical overcapacity downturns",
+   "b": "State-backed Chinese semiconductor competition",
+   "cos": 0.7672,
+   "lex": 52.0,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Semiconductor industry cyclical overcapacity downturns",
+   "b": "Supplier component defect cost recovery",
+   "cos": 0.7692,
+   "lex": 38.709678649902344,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Semiconductor industry cyclical overcapacity downturns",
+   "b": "Supplier disruption under just-in-time production",
+   "cos": 0.7768,
+   "lex": 34.95145797729492,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Semiconductor industry cyclical overcapacity downturns",
+   "b": "Technological change shortening product life cycles",
+   "cos": 0.7922,
+   "lex": 36.19047546386719,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Semiconductor industry cyclical overcapacity downturns",
+   "b": "Technological obsolescence and competitive price erosion",
+   "cos": 0.7617,
+   "lex": 34.54545593261719,
+   "decision": "kept apart"
+  },
+  {
    "a": "Semiconductor industry cyclical overcapacity downturns",
    "b": "Working capital volatility from long product cycles",
    "cos": 0.82,
    "lex": 38.095237731933594,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Semiconductor price erosion on older products",
+   "b": "Semiconductor product defect liability claims",
+   "cos": 0.7544,
+   "lex": 62.22222137451172,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Semiconductor price erosion on older products",
+   "b": "State-backed Chinese semiconductor competition",
+   "cos": 0.7641,
+   "lex": 54.94505310058594,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Semiconductor price erosion on older products",
+   "b": "Supplier component defect cost recovery",
+   "cos": 0.7719,
+   "lex": 40.47618865966797,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Semiconductor price erosion on older products",
+   "b": "Technological obsolescence and competitive price erosion",
+   "cos": 0.7702,
+   "lex": 53.46534729003906,
+   "decision": "merged"
+  },
+  {
+   "a": "Semiconductor product defect liability claims",
+   "b": "Supplier component defect cost recovery",
+   "cos": 0.7761,
+   "lex": 45.238094329833984,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Semiconductor product defect liability claims",
+   "b": "Vehicle safety recall costs",
+   "cos": 0.7593,
+   "lex": 36.11111068725586,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Semiconductor tariffs and trade restrictions",
+   "b": "Tariffs and export controls disrupting trade",
+   "cos": 0.7734,
+   "lex": 63.6363639831543,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Semiconductor tariffs and trade restrictions",
+   "b": "US-China tensions and export restrictions",
+   "cos": 0.7741,
+   "lex": 61.17647171020508,
    "decision": "kept apart"
   },
   {
@@ -708,10 +2144,87 @@
    "decision": "merged"
   },
   {
+   "a": "Shortage of skilled software engineering talent",
+   "b": "Skilled engineering talent retention shortfall",
+   "cos": 0.7887,
+   "lex": 77.41935729980469,
+   "decision": "merged"
+  },
+  {
+   "a": "Shortage of skilled software engineering talent",
+   "b": "Technology disruption from new automotive competitors",
+   "cos": 0.7809,
+   "lex": 36.0,
+   "decision": "kept apart"
+  },
+  {
+   "a": "State-backed Chinese semiconductor competition",
+   "b": "Technological obsolescence and competitive price erosion",
+   "cos": 0.7522,
+   "lex": 47.05882263183594,
+   "decision": "kept apart"
+  },
+  {
+   "a": "State-backed Chinese semiconductor competition",
+   "b": "US-China trade restrictions and tariffs",
+   "cos": 0.7505,
+   "lex": 42.35293960571289,
+   "decision": "kept apart"
+  },
+  {
    "a": "Supplier component defect cost recovery",
    "b": "Supplier disruption under just-in-time production",
    "cos": 0.8093,
    "lex": 50.0,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Supplier disruption under just-in-time production",
+   "b": "Technology disruption from new automotive competitors",
+   "cos": 0.7681,
+   "lex": 50.98039245605469,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Supplier disruption under just-in-time production",
+   "b": "Working capital volatility from long product cycles",
+   "cos": 0.7565,
+   "lex": 38.0,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Tariffs and export controls disrupting trade",
+   "b": "US-China tensions and export restrictions",
+   "cos": 0.7975,
+   "lex": 54.117645263671875,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Tariffs and export controls disrupting trade",
+   "b": "US-China trade restrictions and tariffs",
+   "cos": 0.7534,
+   "lex": 62.650604248046875,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Technological change shortening product life cycles",
+   "b": "Technological obsolescence and competitive price erosion",
+   "cos": 0.793,
+   "lex": 56.07476806640625,
+   "decision": "merged"
+  },
+  {
+   "a": "Technological change shortening product life cycles",
+   "b": "Technology disruption from new automotive competitors",
+   "cos": 0.7643,
+   "lex": 46.153846740722656,
+   "decision": "kept apart"
+  },
+  {
+   "a": "Technological change shortening product life cycles",
+   "b": "Working capital volatility from long product cycles",
+   "cos": 0.7994,
+   "lex": 54.90196228027344,
    "decision": "kept apart"
   },
   {
@@ -727,48 +2240,24 @@
    "cos": 0.8181,
    "lex": 35.55555725097656,
    "decision": "kept apart"
+  },
+  {
+   "a": "US-China tensions and export restrictions",
+   "b": "US-China trade restrictions and tariffs",
+   "cos": 0.7786,
+   "lex": 78.125,
+   "decision": "kept apart"
   }
  ],
  "merges_approved": [
   {
    "members": [
-    "IP infringement claims and misappropriation",
-    "Trade secret theft and patent infringement claims"
+    "Cyclical semiconductor demand volatility",
+    "End-market demand volatility and order fluctuation",
+    "Semiconductor industry cyclical overcapacity downturns"
    ],
-   "canonical_name": "IP infringement and misappropriation claims",
-   "definition": "Third-party infringement claims, including from non-practicing entities, and theft or misappropriation of the company's IP could cause damages, injunctions, or loss of competitive advantage."
-  },
-  {
-   "members": [
-    "Emissions and fuel economy regulation costs",
-    "Evolving emissions regulation and EV demand shift"
-   ],
-   "canonical_name": "Emissions and fuel economy regulation costs",
-   "definition": "Changing emissions and fuel economy regulations may require costly credit purchases or penalties, limit profitable ICE sales, and shift EV demand."
-  },
-  {
-   "members": [
-    "Cyberattacks on connected vehicles and IT systems",
-    "Cyberattacks on IT systems and connected products"
-   ],
-   "canonical_name": "Cyberattacks on IT systems and connected vehicles",
-   "definition": "Cyberattacks on the company's IT systems, connected vehicles or third-party providers could compromise data, safety and operations."
-  },
-  {
-   "members": [
-    "Cyberattack theft of proprietary technology",
-    "Cybersecurity breach and data theft"
-   ],
-   "canonical_name": "Cyberattack theft of data and technology",
-   "definition": "Cyber intrusions, including state-sponsored attacks, could result in theft of proprietary technology or sensitive data."
-  },
-  {
-   "members": [
-    "Automotive import tariff cost escalation",
-    "Import tariffs and trade barrier costs"
-   ],
-   "canonical_name": "Import tariff cost increases",
-   "definition": "New or higher tariffs on imported vehicles, parts and materials and changes to trade agreements raise costs that mitigation may not fully offset."
+   "canonical_name": "Cyclical semiconductor demand volatility",
+   "definition": "Semiconductor industry cyclicality, overcapacity and customer order fluctuations cause volatile revenue, price erosion and under-utilization."
   },
   {
    "members": [
@@ -776,8 +2265,111 @@
     "Key semiconductor materials supply constraints",
     "Limited-source equipment and materials supply shortage"
    ],
-   "canonical_name": "Semiconductor materials and wafer supply shortages",
-   "definition": "Limited or constrained supply of silicon wafers, key materials, chemicals, and equipment from few suppliers or geographies could prevent adequate production."
+   "canonical_name": "Semiconductor wafer and materials supply shortage",
+   "definition": "Limited-source suppliers of wafers, materials and equipment may fail to provide sufficient supply, constraining production and raising costs."
+  },
+  {
+   "members": [
+    "Divergent vehicle emissions and EV regulations",
+    "Emissions and fuel economy regulation costs",
+    "Evolving emissions regulation and EV demand shift",
+    "Fuel economy and emissions non-compliance penalties"
+   ],
+   "canonical_name": "Vehicle emissions and fuel economy regulation",
+   "definition": "Evolving and divergent emissions, fuel economy and EV regulations impose compliance costs, credit purchases, penalties and limits on profitable vehicle sales."
+  },
+  {
+   "members": [
+    "Semiconductor price erosion on older products",
+    "Technological change shortening product life cycles",
+    "Technological obsolescence and competitive price erosion"
+   ],
+   "canonical_name": "Technological obsolescence and semiconductor price erosion",
+   "definition": "Rapid technological change and competition shorten product life cycles and erode prices, requiring heavy R&D with uncertain returns."
+  },
+  {
+   "members": [
+    "Automotive import tariff cost escalation",
+    "Import tariffs and trade barrier costs"
+   ],
+   "canonical_name": "Import tariffs raising vehicle costs",
+   "definition": "New or higher tariffs and trade agreement changes increase costs of imported vehicles, parts and materials, which mitigation may not fully offset."
+  },
+  {
+   "members": [
+    "Cyberattack theft of proprietary technology",
+    "Cyberattacks on connected vehicles and IT systems",
+    "Cyberattacks on IT systems and connected products",
+    "Cybersecurity breach and data theft",
+    "Cybersecurity breach disrupting manufacturing"
+   ],
+   "canonical_name": "Cyberattacks on IT systems and data",
+   "definition": "Cyberattacks or security breaches of company IT systems could disrupt operations, compromise data, or lead to theft of proprietary information."
+  },
+  {
+   "members": [
+    "AI-related copyright infringement claims",
+    "Uncertain IP ownership of AI technologies"
+   ],
+   "canonical_name": "AI-related intellectual property uncertainty",
+   "definition": "Risk that use of AI in products and development triggers IP infringement claims or leaves IP ownership unclear under unsettled law."
+  },
+  {
+   "members": [
+    "IP infringement claims and misappropriation",
+    "Trade secret theft and patent infringement claims"
+   ],
+   "canonical_name": "IP infringement claims and misappropriation",
+   "definition": "Risk that third-party patent infringement claims, including from non-practicing entities, or theft of the company's trade secrets and IP cause damages, injunctions or competitive harm."
+  },
+  {
+   "members": [
+    "Key personnel and engineer retention",
+    "Shortage of skilled software engineering talent",
+    "Skilled engineering talent retention shortfall"
+   ],
+   "canonical_name": "Skilled engineering talent attraction and retention",
+   "definition": "The risk that competition for skilled engineers and technical staff prevents the company from hiring and retaining the talent needed to develop its products and run its operations."
+  },
+  {
+   "members": [
+    "Product liability and customer recall costs",
+    "Semiconductor product defect liability claims"
+   ],
+   "canonical_name": "Semiconductor defect liability and recall chargebacks",
+   "definition": "Defects in semiconductor components can lead to liability claims, replacement costs and customer recall cost chargebacks that may exceed product value and insurance coverage."
+  },
+  {
+   "members": [
+    "Semiconductor tariffs and trade restrictions",
+    "US-China trade restrictions and tariffs"
+   ],
+   "canonical_name": "US-China semiconductor tariffs and trade restrictions",
+   "definition": "Tariffs, trade investigations and trade restrictions between the US and China on semiconductors raise costs and threaten sales into affected markets."
+  },
+  {
+   "members": [
+    "Additional debt incurrence increasing leverage",
+    "High leverage limiting financial flexibility"
+   ],
+   "canonical_name": "High leverage limiting financial flexibility",
+   "definition": "Existing or additional debt increases leverage, which may restrict financing, acquisitions and competitiveness and risk covenant defaults."
+  },
+  {
+   "members": [
+    "Debt service burden on cash flow",
+    "Substantial indebtedness and debt service burden"
+   ],
+   "canonical_name": "Debt service burden on cash flow",
+   "definition": "Substantial indebtedness requires diverting cash flow to principal and interest payments, reducing funds for other uses."
+  },
+  {
+   "members": [
+    "Restructuring cost and customer disruption",
+    "Strategic change and restructuring execution"
+   ],
+   "canonical_name": "Restructuring and strategic change execution risk",
+   "definition": "Restructuring and strategic changes may incur costs, disrupt customers and operations, and fail to deliver expected benefits."
   },
   {
    "members": [
@@ -788,32 +2380,7 @@
     "Fab manufacturing disruptions and yield problems"
    ],
    "canonical_name": "Natural disaster and severe weather disruption",
-   "definition": "Natural disasters, severe weather and climate-driven physical events could disrupt the company's manufacturing facilities and operations, reducing output and harming results."
-  },
-  {
-   "members": [
-    "Cyclical semiconductor demand volatility",
-    "End-market demand volatility and order fluctuation"
-   ],
-   "canonical_name": "Semiconductor end-market demand volatility",
-   "definition": "Cyclical or fluctuating customer demand, including order changes, postponements and inventory adjustments, causes volatile semiconductor revenue."
-  },
-  {
-   "members": [
-    "Key personnel and engineer retention",
-    "Shortage of skilled software engineering talent",
-    "Skilled engineering talent retention shortfall"
-   ],
-   "canonical_name": "Skilled engineering talent attraction and retention",
-   "definition": "The risk that competition for skilled engineers and technical staff prevents the company from attracting and retaining the talent needed to develop its products and operate its business."
-  },
-  {
-   "members": [
-    "Product liability and customer recall costs",
-    "Semiconductor product defect liability claims"
-   ],
-   "canonical_name": "Semiconductor defect liability and recall costs",
-   "definition": "Defects in semiconductor components can lead to product liability claims and charge-backs of customers' recall and replacement costs that may exceed product value and insurance coverage."
+   "definition": "Risk that natural disasters, severe weather and climate-driven physical events disrupt the company's manufacturing facilities and operations, impairing production and revenue."
   },
   {
    "members": [
@@ -821,7 +2388,23 @@
     "Foreign incorporation limits US judgment enforcement"
    ],
    "canonical_name": "Limited enforceability of US judgments abroad",
-   "definition": "Because the company is incorporated in the Netherlands with assets and officers outside the US, and no US-Netherlands treaty on mutual enforcement of judgments exists, investors may be unable to enforce US court judgments and may have to relitigate claims in Dutch courts."
+   "definition": "Because the company is incorporated in the Netherlands with assets and officers outside the US, and no treaty provides for mutual enforcement of judgments, investors may be unable to enforce US court judgments against it or its directors without relitigating in foreign courts."
+  },
+  {
+   "members": [
+    "Pandemic disruption to workforce and suppliers",
+    "Public health crisis operational disruption"
+   ],
+   "canonical_name": "Pandemic and public health crisis disruption",
+   "definition": "Pandemics such as COVID-19 can disrupt the company's workforce, operations, suppliers and financial performance."
+  },
+  {
+   "members": [
+    "Government incentive clawback or termination",
+    "Government subsidy reduction or clawback"
+   ],
+   "canonical_name": "Government incentive clawback or reduction",
+   "definition": "Risk that government subsidies, grants or tax incentives are reduced, terminated or recovered if conditions are not met or upon scrutiny, harming financial results."
   },
   {
    "members": [
@@ -829,26 +2412,54 @@
     "Data privacy regulation compliance costs"
    ],
    "canonical_name": "Data privacy regulation compliance costs",
-   "definition": "Expanding data privacy laws such as the EU GDPR (and, for some companies, AI rules) impose significant compliance costs and potential penalties."
+   "definition": "Expanding data privacy and related regulations such as GDPR and CCPA impose significant compliance costs and potential penalties on the company."
   },
   {
    "members": [
-    "Restructuring cost and customer disruption",
-    "Strategic change and restructuring execution"
+    "Labor union and works council disruption",
+    "Union strikes and work stoppages"
    ],
-   "canonical_name": "Restructuring and strategic change execution",
-   "definition": "The risk that restructuring or strategic change initiatives incur unexpected costs, disrupt operations or customers, or fail to deliver intended benefits."
-  },
-  {
-   "members": [
-    "Semiconductor tariffs and trade restrictions",
-    "US-China trade restrictions and tariffs"
-   ],
-   "canonical_name": "US-China semiconductor tariffs and trade restrictions",
-   "definition": "Tariffs, trade investigations, and trade restrictions arising from US-China tensions raise costs, reduce demand, or restrict the company's semiconductor sales and supply chains."
+   "canonical_name": "Labor union disputes and work stoppages",
+   "definition": "Risk that unionized workforces, collective bargaining negotiations or works council requirements lead to strikes, work stoppages or constraints on restructuring that disrupt operations and raise costs."
   }
  ],
  "merges_rejected": [
+  {
+   "members": [
+    "Acquisition integration and approval failure",
+    "Goodwill and intangible asset impairment"
+   ],
+   "reason": "llm",
+   "cos": 0.7547,
+   "lex": 50.0
+  },
+  {
+   "members": [
+    "Acquisition integration and approval failure",
+    "Investment screening limiting acquisitions"
+   ],
+   "reason": "llm",
+   "cos": 0.7794,
+   "lex": 51.16279220581055
+  },
+  {
+   "members": [
+    "Acquisition integration and approval failure",
+    "Joint venture compliance and misconduct exposure"
+   ],
+   "reason": "llm",
+   "cos": 0.7787,
+   "lex": 43.4782600402832
+  },
+  {
+   "members": [
+    "Acquisition integration and approval failure",
+    "Joint venture funding and execution shortfall"
+   ],
+   "reason": "llm",
+   "cos": 0.7916,
+   "lex": 44.94382095336914
+  },
   {
    "members": [
     "Additional debt incurrence increasing leverage",
@@ -866,6 +2477,15 @@
    "reason": "llm",
    "cos": 0.8183,
    "lex": 43.589744567871094
+  },
+  {
+   "members": [
+    "Additional debt incurrence increasing leverage",
+    "Restructuring cost and customer disruption"
+   ],
+   "reason": "llm",
+   "cos": 0.7697,
+   "lex": 38.6363639831543
   },
   {
    "members": [
@@ -888,11 +2508,38 @@
   {
    "members": [
     "AI adoption and regulatory uncertainty",
+    "Technological obsolescence and competitive price erosion"
+   ],
+   "reason": "llm",
+   "cos": 0.7684,
+   "lex": 40.425533294677734
+  },
+  {
+   "members": [
+    "AI adoption and regulatory uncertainty",
+    "Trade secret theft and patent infringement claims"
+   ],
+   "reason": "llm",
+   "cos": 0.7572,
+   "lex": 39.08045959472656
+  },
+  {
+   "members": [
+    "AI adoption and regulatory uncertainty",
     "Uncertain IP ownership of AI technologies"
    ],
    "reason": "llm",
    "cos": 0.8573,
    "lex": 53.16455841064453
+  },
+  {
+   "members": [
+    "AI-related copyright infringement claims",
+    "Cyberattack theft of proprietary technology"
+   ],
+   "reason": "llm",
+   "cos": 0.7708,
+   "lex": 36.14457702636719
   },
   {
    "members": [
@@ -914,12 +2561,75 @@
   },
   {
    "members": [
-    "AI-related copyright infringement claims",
-    "Uncertain IP ownership of AI technologies"
+    "Armed conflict disrupting supply and demand",
+    "Supplier disruption under just-in-time production"
    ],
    "reason": "llm",
-   "cos": 0.8838,
-   "lex": 37.03703689575195
+   "cos": 0.7518,
+   "lex": 41.30434799194336
+  },
+  {
+   "members": [
+    "Auto sales volume volatility with fixed costs",
+    "Captive finance arm funding and credit risk"
+   ],
+   "reason": "llm",
+   "cos": 0.7504,
+   "lex": 31.81818199157715
+  },
+  {
+   "members": [
+    "Auto sales volume volatility with fixed costs",
+    "End-market demand volatility and order fluctuation"
+   ],
+   "reason": "llm",
+   "cos": 0.7618,
+   "lex": 46.31578826904297
+  },
+  {
+   "members": [
+    "Auto sales volume volatility with fixed costs",
+    "Macroeconomic demand volatility in automotive end markets"
+   ],
+   "reason": "llm",
+   "cos": 0.7509,
+   "lex": 52.94117736816406
+  },
+  {
+   "members": [
+    "Automotive import tariff cost escalation",
+    "Evolving emissions regulation and EV demand shift"
+   ],
+   "reason": "llm",
+   "cos": 0.765,
+   "lex": 38.202247619628906
+  },
+  {
+   "members": [
+    "Automotive import tariff cost escalation",
+    "Protectionist policies and import tariffs"
+   ],
+   "reason": "llm",
+   "cos": 0.7565,
+   "lex": 66.66666412353516
+  },
+  {
+   "members": [
+    "Automotive import tariff cost escalation",
+    "Semiconductor tariffs and trade restrictions"
+   ],
+   "reason": "llm",
+   "cos": 0.7708,
+   "lex": 47.619049072265625
+  },
+  {
+   "members": [
+    "Automotive import tariff cost escalation",
+    "Tariffs and export controls disrupting trade"
+   ],
+   "reason": "llm",
+   "cos": 0.7551,
+   "lex": 52.380950927734375
   },
   {
    "members": [
@@ -932,12 +2642,174 @@
   },
   {
    "members": [
+    "Autonomous vehicle development and commercialization risk",
+    "New vehicle launch and acceptance risk"
+   ],
+   "reason": "llm",
+   "cos": 0.7566,
+   "lex": 59.25925827026367
+  },
+  {
+   "members": [
+    "Autonomous vehicle development and commercialization risk",
+    "Technology disruption from new automotive competitors"
+   ],
+   "reason": "llm",
+   "cos": 0.774,
+   "lex": 45.45454406738281
+  },
+  {
+   "members": [
+    "Autonomous vehicle regulatory uncertainty",
+    "Divergent vehicle emissions and EV regulations"
+   ],
+   "reason": "llm",
+   "cos": 0.7534,
+   "lex": 52.87356185913086
+  },
+  {
+   "members": [
+    "Autonomous vehicle regulatory uncertainty",
+    "Uncertain IP ownership of AI technologies"
+   ],
+   "reason": "llm",
+   "cos": 0.751,
+   "lex": 43.90243911743164
+  },
+  {
+   "members": [
+    "Autonomous vehicle regulatory uncertainty",
+    "Vehicle safety recall costs"
+   ],
+   "reason": "llm",
+   "cos": 0.7581,
+   "lex": 52.94117736816406
+  },
+  {
+   "members": [
+    "Captive finance arm funding and credit risk",
+    "Joint venture compliance and misconduct exposure"
+   ],
+   "reason": "llm",
+   "cos": 0.7822,
+   "lex": 43.9560432434082
+  },
+  {
+   "members": [
+    "Captive finance arm funding and credit risk",
+    "New vehicle launch and acceptance risk"
+   ],
+   "reason": "llm",
+   "cos": 0.7538,
+   "lex": 54.320987701416016
+  },
+  {
+   "members": [
+    "Captive finance arm funding and credit risk",
+    "Refinancing risk and insufficient debt service cash"
+   ],
+   "reason": "llm",
+   "cos": 0.7513,
+   "lex": 55.319149017333984
+  },
+  {
+   "members": [
+    "China JV competition and restructuring losses",
+    "Joint venture partner and control risk"
+   ],
+   "reason": "llm",
+   "cos": 0.753,
+   "lex": 43.37349319458008
+  },
+  {
+   "members": [
+    "China-Taiwan tension decoupling supply chains",
+    "Chinese regulation restricting critical materials access"
+   ],
+   "reason": "llm",
+   "cos": 0.7932,
+   "lex": 45.5445556640625
+  },
+  {
+   "members": [
+    "China-Taiwan tension decoupling supply chains",
+    "Large customer purchase curtailment from trade measures"
+   ],
+   "reason": "llm",
+   "cos": 0.7597,
+   "lex": 36.0
+  },
+  {
+   "members": [
+    "China-Taiwan tension decoupling supply chains",
+    "US-China tensions and export restrictions"
+   ],
+   "reason": "llm",
+   "cos": 0.7981,
+   "lex": 41.86046600341797
+  },
+  {
+   "members": [
+    "Chinese regulation restricting critical materials access",
+    "Semiconductor tariffs and trade restrictions"
+   ],
+   "reason": "llm",
+   "cos": 0.781,
+   "lex": 40.0
+  },
+  {
+   "members": [
     "Chinese regulation restricting critical materials access",
     "US-China tensions and export restrictions"
    ],
    "reason": "llm",
    "cos": 0.8096,
    "lex": 43.29896926879883
+  },
+  {
+   "members": [
+    "Clean room chemical exposure litigation",
+    "Environmental compliance and remediation liability"
+   ],
+   "reason": "llm",
+   "cos": 0.7512,
+   "lex": 44.94382095336914
+  },
+  {
+   "members": [
+    "Climate regulation raising energy and production costs",
+    "Commodity and semiconductor input cost inflation"
+   ],
+   "reason": "llm",
+   "cos": 0.7536,
+   "lex": 50.98039245605469
+  },
+  {
+   "members": [
+    "Climate regulation raising energy and production costs",
+    "Emissions and fuel economy regulation costs"
+   ],
+   "reason": "llm",
+   "cos": 0.7738,
+   "lex": 63.492061614990234
+  },
+  {
+   "members": [
+    "Climate regulation raising energy and production costs",
+    "Environmental rules restricting manufacturing materials"
+   ],
+   "reason": "llm",
+   "cos": 0.7671,
+   "lex": 42.20183563232422
+  },
+  {
+   "members": [
+    "Commodity and semiconductor input cost inflation",
+    "Key semiconductor materials supply constraints"
+   ],
+   "reason": "llm",
+   "cos": 0.7691,
+   "lex": 53.191490173339844
   },
   {
    "members": [
@@ -951,11 +2823,38 @@
   {
    "members": [
     "Commodity and semiconductor input cost inflation",
+    "Semiconductor industry cyclical overcapacity downturns"
+   ],
+   "reason": "llm",
+   "cos": 0.7766,
+   "lex": 50.98039245605469
+  },
+  {
+   "members": [
+    "Commodity and semiconductor input cost inflation",
     "Semiconductor price erosion on older products"
    ],
    "reason": "llm",
    "cos": 0.8027,
    "lex": 55.913978576660156
+  },
+  {
+   "members": [
+    "Commodity and semiconductor input cost inflation",
+    "Technological obsolescence and competitive price erosion"
+   ],
+   "reason": "llm",
+   "cos": 0.7543,
+   "lex": 44.230770111083984
+  },
+  {
+   "members": [
+    "Complex regulatory compliance cost burden",
+    "Fuel economy and emissions non-compliance penalties"
+   ],
+   "reason": "llm",
+   "cos": 0.751,
+   "lex": 45.65217208862305
   },
   {
    "members": [
@@ -968,30 +2867,129 @@
   },
   {
    "members": [
-    "Cyberattack theft of proprietary technology",
-    "Cyberattacks on IT systems and connected products"
+    "Credit rating downgrade raising borrowing costs",
+    "Goodwill impairment charges"
    ],
    "reason": "llm",
-   "cos": 0.8468,
-   "lex": 47.826087951660156
+   "cos": 0.7769,
+   "lex": 29.7297306060791
+  },
+  {
+   "members": [
+    "Credit rating downgrade raising borrowing costs",
+    "Restructuring cost and customer disruption"
+   ],
+   "reason": "llm",
+   "cos": 0.7813,
+   "lex": 49.438201904296875
+  },
+  {
+   "members": [
+    "Currency volatility and cash transfer restrictions",
+    "Foreign currency remeasurement losses"
+   ],
+   "reason": "llm",
+   "cos": 0.7623,
+   "lex": 45.977012634277344
+  },
+  {
+   "members": [
+    "Currency volatility and cash transfer restrictions",
+    "Foreign exchange and macroeconomic volatility"
+   ],
+   "reason": "llm",
+   "cos": 0.7876,
+   "lex": 56.842105865478516
+  },
+  {
+   "members": [
+    "Currency volatility and cash transfer restrictions",
+    "US-China tensions and export restrictions"
+   ],
+   "reason": "llm",
+   "cos": 0.7912,
+   "lex": 56.140350341796875
+  },
+  {
+   "members": [
+    "Customer and distributor revenue concentration",
+    "Distributor competing lines and credit exposure"
+   ],
+   "reason": "llm",
+   "cos": 0.7836,
+   "lex": 64.51612854003906
+  },
+  {
+   "members": [
+    "Customer and distributor revenue concentration",
+    "Large customer purchase curtailment from trade measures"
+   ],
+   "reason": "llm",
+   "cos": 0.7601,
+   "lex": 45.5445556640625
   },
   {
    "members": [
     "Cyberattack theft of proprietary technology",
-    "Cybersecurity breach disrupting manufacturing"
+    "In-vehicle system hacking safety risk"
    ],
    "reason": "llm",
-   "cos": 0.8115,
-   "lex": 38.6363639831543
+   "cos": 0.7505,
+   "lex": 35.0
   },
   {
    "members": [
-    "Cyberattacks on IT systems and connected products",
-    "Cybersecurity breach disrupting manufacturing"
+    "Cyberattack theft of proprietary technology",
+    "Insider theft of proprietary technology"
    ],
    "reason": "llm",
-   "cos": 0.8275,
-   "lex": 36.17021179199219
+   "cos": 0.7929,
+   "lex": 88.57142639160156
+  },
+  {
+   "members": [
+    "Cyberattack theft of proprietary technology",
+    "Product security vulnerabilities harming demand"
+   ],
+   "reason": "llm",
+   "cos": 0.7756,
+   "lex": 35.55555725097656
+  },
+  {
+   "members": [
+    "Cyberattack theft of proprietary technology",
+    "Trade secret theft and patent infringement claims"
+   ],
+   "reason": "llm",
+   "cos": 0.7845,
+   "lex": 41.30434799194336
+  },
+  {
+   "members": [
+    "Cyberattack theft of proprietary technology",
+    "Uncertain IP ownership of AI technologies"
+   ],
+   "reason": "llm",
+   "cos": 0.7576,
+   "lex": 52.380950927734375
+  },
+  {
+   "members": [
+    "Cyberattacks on connected vehicles and IT systems",
+    "In-vehicle system hacking safety risk"
+   ],
+   "reason": "llm",
+   "cos": 0.7943,
+   "lex": 44.1860466003418
+  },
+  {
+   "members": [
+    "Cyberattacks on connected vehicles and IT systems",
+    "Product security vulnerabilities harming demand"
+   ],
+   "reason": "llm",
+   "cos": 0.7647,
+   "lex": 41.66666793823242
   },
   {
    "members": [
@@ -1005,38 +3003,290 @@
   {
    "members": [
     "Cybersecurity breach and data theft",
-    "Cybersecurity breach disrupting manufacturing"
+    "Product security vulnerabilities harming demand"
    ],
    "reason": "llm",
-   "cos": 0.8603,
-   "lex": 72.7272720336914
+   "cos": 0.7635,
+   "lex": 46.34146499633789
+  },
+  {
+   "members": [
+    "Cybersecurity breach disrupting manufacturing",
+    "Product security vulnerabilities harming demand"
+   ],
+   "reason": "llm",
+   "cos": 0.7905,
+   "lex": 41.30434799194336
+  },
+  {
+   "members": [
+    "Cybersecurity breach disrupting manufacturing",
+    "Trade secret theft and patent infringement claims"
+   ],
+   "reason": "llm",
+   "cos": 0.7733,
+   "lex": 34.04255294799805
   },
   {
    "members": [
     "Cyclical semiconductor demand volatility",
+    "Key semiconductor materials supply constraints"
+   ],
+   "reason": "llm",
+   "cos": 0.7571,
+   "lex": 55.8139533996582
+  },
+  {
+   "members": [
+    "Cyclical semiconductor demand volatility",
+    "Limited-source equipment and materials supply shortage"
+   ],
+   "reason": "llm",
+   "cos": 0.7558,
+   "lex": 38.29787063598633
+  },
+  {
+   "members": [
+    "Cyclical semiconductor demand volatility",
+    "Macroeconomic demand volatility in automotive end markets"
+   ],
+   "reason": "llm",
+   "cos": 0.7519,
+   "lex": 59.64912414550781
+  },
+  {
+   "members": [
+    "Cyclical semiconductor demand volatility",
+    "Semiconductor price erosion on older products"
+   ],
+   "reason": "llm",
+   "cos": 0.7679,
+   "lex": 51.764705657958984
+  },
+  {
+   "members": [
+    "Cyclical semiconductor demand volatility",
+    "Working capital volatility from long product cycles"
+   ],
+   "reason": "llm",
+   "cos": 0.7882,
+   "lex": 59.340660095214844
+  },
+  {
+   "members": [
+    "Debt service burden on cash flow",
+    "Refinancing risk and insufficient debt service cash"
+   ],
+   "reason": "llm",
+   "cos": 0.7853,
+   "lex": 69.38775634765625
+  },
+  {
+   "members": [
+    "Debt service burden on cash flow",
+    "Restructuring cost and customer disruption"
+   ],
+   "reason": "llm",
+   "cos": 0.7777,
+   "lex": 37.83783721923828
+  },
+  {
+   "members": [
+    "Dependence on subcontracted wafer fabrication suppliers",
+    "Foundry wafer supply shortage"
+   ],
+   "reason": "llm",
+   "cos": 0.7712,
+   "lex": 50.0
+  },
+  {
+   "members": [
+    "Dependence on subcontracted wafer fabrication suppliers",
+    "Limited-source equipment and materials supply shortage"
+   ],
+   "reason": "llm",
+   "cos": 0.7958,
+   "lex": 45.871559143066406
+  },
+  {
+   "members": [
+    "Dependence on subcontracted wafer fabrication suppliers",
+    "Supplier component defect cost recovery"
+   ],
+   "reason": "llm",
+   "cos": 0.7656,
+   "lex": 46.808509826660156
+  },
+  {
+   "members": [
+    "Design-win competition loss in automotive",
+    "EV technology adoption and battery supply limits"
+   ],
+   "reason": "llm",
+   "cos": 0.7524,
+   "lex": 35.955055236816406
+  },
+  {
+   "members": [
+    "Design-win competition loss in automotive",
+    "New vehicle launch and acceptance risk"
+   ],
+   "reason": "llm",
+   "cos": 0.7682,
+   "lex": 32.91139221191406
+  },
+  {
+   "members": [
+    "Design-win competition loss in automotive",
     "Semiconductor industry cyclical overcapacity downturns"
    ],
    "reason": "llm",
-   "cos": 0.8496,
-   "lex": 70.96774291992188
+   "cos": 0.7501,
+   "lex": 31.578947067260742
+  },
+  {
+   "members": [
+    "Design-win competition loss in automotive",
+    "Supplier component defect cost recovery"
+   ],
+   "reason": "llm",
+   "cos": 0.7524,
+   "lex": 35.0
+  },
+  {
+   "members": [
+    "Design-win competition loss in automotive",
+    "Supplier disruption under just-in-time production"
+   ],
+   "reason": "llm",
+   "cos": 0.7511,
+   "lex": 37.77777862548828
+  },
+  {
+   "members": [
+    "Design-win competition loss in automotive",
+    "Technological change shortening product life cycles"
+   ],
+   "reason": "llm",
+   "cos": 0.7577,
+   "lex": 34.78260803222656
+  },
+  {
+   "members": [
+    "Design-win competition loss in automotive",
+    "Technology disruption from new automotive competitors"
+   ],
+   "reason": "llm",
+   "cos": 0.7982,
+   "lex": 63.82978820800781
+  },
+  {
+   "members": [
+    "Distributor competing lines and credit exposure",
+    "Financial market liquidity access disruption"
+   ],
+   "reason": "llm",
+   "cos": 0.758,
+   "lex": 37.36263656616211
+  },
+  {
+   "members": [
+    "Distributor competing lines and credit exposure",
+    "Joint venture compliance and misconduct exposure"
+   ],
+   "reason": "llm",
+   "cos": 0.7591,
+   "lex": 65.2631607055664
   },
   {
    "members": [
     "Divergent vehicle emissions and EV regulations",
-    "Evolving emissions regulation and EV demand shift"
+    "EV technology adoption and battery supply limits"
    ],
    "reason": "llm",
-   "cos": 0.8284,
-   "lex": 73.68421173095703
+   "cos": 0.7554,
+   "lex": 46.808509826660156
+  },
+  {
+   "members": [
+    "Divergent vehicle emissions and EV regulations",
+    "In-vehicle system hacking safety risk"
+   ],
+   "reason": "llm",
+   "cos": 0.7557,
+   "lex": 36.14457702636719
   },
   {
    "members": [
     "Emissions and fuel economy regulation costs",
+    "Profit concentration in full-size ICE trucks"
+   ],
+   "reason": "llm",
+   "cos": 0.7971,
+   "lex": 34.482757568359375
+  },
+  {
+   "members": [
+    "End-market demand volatility and order fluctuation",
+    "Inventory forecasting mismatch and obsolescence"
+   ],
+   "reason": "llm",
+   "cos": 0.7808,
+   "lex": 37.1134033203125
+  },
+  {
+   "members": [
+    "End-market demand volatility and order fluctuation",
+    "Large customer purchase curtailment from trade measures"
+   ],
+   "reason": "llm",
+   "cos": 0.7514,
+   "lex": 36.19047546386719
+  },
+  {
+   "members": [
+    "End-market demand volatility and order fluctuation",
+    "Macroeconomic demand volatility in automotive end markets"
+   ],
+   "reason": "llm",
+   "cos": 0.7883,
+   "lex": 61.68224334716797
+  },
+  {
+   "members": [
+    "End-market demand volatility and order fluctuation",
+    "Supplier disruption under just-in-time production"
+   ],
+   "reason": "llm",
+   "cos": 0.7654,
+   "lex": 38.38383865356445
+  },
+  {
+   "members": [
+    "End-market demand volatility and order fluctuation",
+    "Working capital volatility from long product cycles"
+   ],
+   "reason": "llm",
+   "cos": 0.7991,
+   "lex": 47.52475357055664
+  },
+  {
+   "members": [
+    "Environmental compliance and remediation liability",
+    "Product liability and emissions litigation"
+   ],
+   "reason": "llm",
+   "cos": 0.7521,
+   "lex": 56.5217399597168
+  },
+  {
+   "members": [
+    "Environmental rules restricting manufacturing materials",
     "Fuel economy and emissions non-compliance penalties"
    ],
    "reason": "llm",
-   "cos": 0.8161,
-   "lex": 75.36231994628906
+   "cos": 0.7584,
+   "lex": 37.73584747314453
   },
   {
    "members": [
@@ -1049,12 +3299,174 @@
   },
   {
    "members": [
+    "EV battery critical mineral supply constraints",
+    "EV technology adoption and battery supply limits"
+   ],
+   "reason": "llm",
+   "cos": 0.774,
+   "lex": 61.70212936401367
+  },
+  {
+   "members": [
+    "EV battery critical mineral supply constraints",
+    "Evolving emissions regulation and EV demand shift"
+   ],
+   "reason": "llm",
+   "cos": 0.7568,
+   "lex": 37.894737243652344
+  },
+  {
+   "members": [
+    "EV battery critical mineral supply constraints",
+    "Key semiconductor materials supply constraints"
+   ],
+   "reason": "llm",
+   "cos": 0.7783,
+   "lex": 69.56521606445312
+  },
+  {
+   "members": [
+    "EV battery critical mineral supply constraints",
+    "New vehicle launch and acceptance risk"
+   ],
+   "reason": "llm",
+   "cos": 0.7541,
+   "lex": 33.33333206176758
+  },
+  {
+   "members": [
+    "EV strategy execution and battery costs",
+    "EV technology adoption and battery supply limits"
+   ],
+   "reason": "llm",
+   "cos": 0.7804,
+   "lex": 59.77011489868164
+  },
+  {
+   "members": [
+    "EV strategy execution and battery costs",
+    "Evolving emissions regulation and EV demand shift"
+   ],
+   "reason": "llm",
+   "cos": 0.7718,
+   "lex": 50.0
+  },
+  {
+   "members": [
+    "EV strategy execution and battery costs",
+    "New vehicle launch and acceptance risk"
+   ],
+   "reason": "llm",
+   "cos": 0.7582,
+   "lex": 38.96104049682617
+  },
+  {
+   "members": [
+    "EV strategy execution and battery costs",
+    "Profit concentration in full-size ICE trucks"
+   ],
+   "reason": "llm",
+   "cos": 0.7516,
+   "lex": 31.325302124023438
+  },
+  {
+   "members": [
+    "EV strategy execution and battery costs",
+    "Supplier disruption under just-in-time production"
+   ],
+   "reason": "llm",
+   "cos": 0.771,
+   "lex": 36.3636360168457
+  },
+  {
+   "members": [
+    "EV technology adoption and battery supply limits",
+    "Evolving emissions regulation and EV demand shift"
+   ],
+   "reason": "llm",
+   "cos": 0.7807,
+   "lex": 43.29896926879883
+  },
+  {
+   "members": [
+    "EV technology adoption and battery supply limits",
+    "New vehicle launch and acceptance risk"
+   ],
+   "reason": "llm",
+   "cos": 0.7872,
+   "lex": 44.1860466003418
+  },
+  {
+   "members": [
+    "EV technology adoption and battery supply limits",
+    "Profit concentration in full-size ICE trucks"
+   ],
+   "reason": "llm",
+   "cos": 0.7651,
+   "lex": 34.78260803222656
+  },
+  {
+   "members": [
+    "EV technology adoption and battery supply limits",
+    "Technology disruption from new automotive competitors"
+   ],
+   "reason": "llm",
+   "cos": 0.7963,
+   "lex": 49.50495147705078
+  },
+  {
+   "members": [
+    "Evolving emissions regulation and EV demand shift",
+    "Macroeconomic demand volatility in automotive end markets"
+   ],
+   "reason": "llm",
+   "cos": 0.7623,
+   "lex": 49.056602478027344
+  },
+  {
+   "members": [
+    "Evolving emissions regulation and EV demand shift",
+    "New vehicle launch and acceptance risk"
+   ],
+   "reason": "llm",
+   "cos": 0.7654,
+   "lex": 39.08045959472656
+  },
+  {
+   "members": [
     "Evolving emissions regulation and EV demand shift",
     "Profit concentration in full-size ICE trucks"
    ],
    "reason": "llm",
    "cos": 0.8084,
    "lex": 36.559139251708984
+  },
+  {
+   "members": [
+    "Evolving emissions regulation and EV demand shift",
+    "Slow EV adoption after incentive termination"
+   ],
+   "reason": "llm",
+   "cos": 0.7862,
+   "lex": 45.16128921508789
+  },
+  {
+   "members": [
+    "Export control and anti-corruption compliance",
+    "Joint venture compliance and misconduct exposure"
+   ],
+   "reason": "llm",
+   "cos": 0.7671,
+   "lex": 58.064517974853516
+  },
+  {
+   "members": [
+    "Export control and anti-corruption compliance",
+    "Protectionist policies and import tariffs"
+   ],
+   "reason": "llm",
+   "cos": 0.7509,
+   "lex": 48.83720779418945
   },
   {
    "members": [
@@ -1067,12 +3479,201 @@
   },
   {
    "members": [
+    "Financial services consumer protection compliance",
+    "Joint venture compliance and misconduct exposure"
+   ],
+   "reason": "llm",
+   "cos": 0.7618,
+   "lex": 53.608245849609375
+  },
+  {
+   "members": [
+    "Foreign incorporation limits US judgment enforcement",
+    "Investment screening limiting acquisitions"
+   ],
+   "reason": "llm",
+   "cos": 0.7637,
+   "lex": 42.553192138671875
+  },
+  {
+   "members": [
+    "Fuel economy and emissions non-compliance penalties",
+    "Joint venture compliance and misconduct exposure"
+   ],
+   "reason": "llm",
+   "cos": 0.7526,
+   "lex": 50.50505065917969
+  },
+  {
+   "members": [
+    "Goodwill and intangible asset impairment",
+    "Joint venture compliance and misconduct exposure"
+   ],
+   "reason": "llm",
+   "cos": 0.7604,
+   "lex": 43.181819915771484
+  },
+  {
+   "members": [
+    "Government incentive clawback or termination",
+    "Tax law changes and IRA incentive realization"
+   ],
+   "reason": "llm",
+   "cos": 0.7603,
+   "lex": 53.93258285522461
+  },
+  {
+   "members": [
+    "High leverage limiting financial flexibility",
+    "Investment screening limiting acquisitions"
+   ],
+   "reason": "llm",
+   "cos": 0.7885,
+   "lex": 46.511627197265625
+  },
+  {
+   "members": [
+    "Import tariffs and trade barrier costs",
+    "Large customer purchase curtailment from trade measures"
+   ],
+   "reason": "llm",
+   "cos": 0.7838,
+   "lex": 43.0107536315918
+  },
+  {
+   "members": [
+    "Import tariffs and trade barrier costs",
+    "Protectionist policies and import tariffs"
+   ],
+   "reason": "llm",
+   "cos": 0.7698,
+   "lex": 65.82278442382812
+  },
+  {
+   "members": [
+    "Import tariffs and trade barrier costs",
+    "Semiconductor tariffs and trade restrictions"
+   ],
+   "reason": "llm",
+   "cos": 0.7639,
+   "lex": 68.29268646240234
+  },
+  {
+   "members": [
     "Import tariffs and trade barrier costs",
     "Tariffs and export controls disrupting trade"
    ],
    "reason": "llm",
    "cos": 0.8017,
    "lex": 68.29268646240234
+  },
+  {
+   "members": [
+    "In-vehicle system hacking safety risk",
+    "Product security vulnerabilities harming demand"
+   ],
+   "reason": "llm",
+   "cos": 0.7747,
+   "lex": 35.71428680419922
+  },
+  {
+   "members": [
+    "Industry overcapacity driving pricing incentives",
+    "Semiconductor industry cyclical overcapacity downturns"
+   ],
+   "reason": "llm",
+   "cos": 0.7692,
+   "lex": 60.869564056396484
+  },
+  {
+   "members": [
+    "Intellectual property misappropriation and weak enforcement",
+    "IP infringement claims and misappropriation"
+   ],
+   "reason": "llm",
+   "cos": 0.7823,
+   "lex": 63.492061614990234
+  },
+  {
+   "members": [
+    "Intellectual property misappropriation and weak enforcement",
+    "Trade secret theft and patent infringement claims"
+   ],
+   "reason": "llm",
+   "cos": 0.7801,
+   "lex": 46.296295166015625
+  },
+  {
+   "members": [
+    "Inventory forecasting mismatch and obsolescence",
+    "Restructuring cost and customer disruption"
+   ],
+   "reason": "llm",
+   "cos": 0.7678,
+   "lex": 44.94382095336914
+  },
+  {
+   "members": [
+    "Inventory forecasting mismatch and obsolescence",
+    "Semiconductor industry cyclical overcapacity downturns"
+   ],
+   "reason": "llm",
+   "cos": 0.7721,
+   "lex": 39.60396194458008
+  },
+  {
+   "members": [
+    "Inventory forecasting mismatch and obsolescence",
+    "Supplier component defect cost recovery"
+   ],
+   "reason": "llm",
+   "cos": 0.7567,
+   "lex": 34.88372039794922
+  },
+  {
+   "members": [
+    "Inventory forecasting mismatch and obsolescence",
+    "Supplier disruption under just-in-time production"
+   ],
+   "reason": "llm",
+   "cos": 0.7831,
+   "lex": 37.5
+  },
+  {
+   "members": [
+    "Inventory forecasting mismatch and obsolescence",
+    "Working capital volatility from long product cycles"
+   ],
+   "reason": "llm",
+   "cos": 0.7808,
+   "lex": 30.612245559692383
+  },
+  {
+   "members": [
+    "Investment screening limiting acquisitions",
+    "Joint venture compliance and misconduct exposure"
+   ],
+   "reason": "llm",
+   "cos": 0.7613,
+   "lex": 37.77777862548828
+  },
+  {
+   "members": [
+    "Investment screening limiting acquisitions",
+    "Joint venture funding and execution shortfall"
+   ],
+   "reason": "llm",
+   "cos": 0.7733,
+   "lex": 41.379310607910156
+  },
+  {
+   "members": [
+    "IP infringement claims and misappropriation",
+    "Uncertain IP ownership of AI technologies"
+   ],
+   "reason": "llm",
+   "cos": 0.7931,
+   "lex": 40.47618865966797
   },
   {
    "members": [
@@ -1085,12 +3686,183 @@
   },
   {
    "members": [
+    "Joint venture compliance and misconduct exposure",
+    "Protectionist policies and import tariffs"
+   ],
+   "reason": "llm",
+   "cos": 0.7582,
+   "lex": 49.438201904296875
+  },
+  {
+   "members": [
+    "Joint venture funding and execution shortfall",
+    "New vehicle launch and acceptance risk"
+   ],
+   "reason": "llm",
+   "cos": 0.7655,
+   "lex": 43.37349319458008
+  },
+  {
+   "members": [
+    "Key semiconductor materials supply constraints",
+    "Semiconductor industry cyclical overcapacity downturns"
+   ],
+   "reason": "llm",
+   "cos": 0.7666,
+   "lex": 58.0
+  },
+  {
+   "members": [
+    "Key semiconductor materials supply constraints",
+    "Semiconductor price erosion on older products"
+   ],
+   "reason": "llm",
+   "cos": 0.7627,
+   "lex": 54.94505310058594
+  },
+  {
+   "members": [
+    "Key semiconductor materials supply constraints",
+    "State-backed Chinese semiconductor competition"
+   ],
+   "reason": "llm",
+   "cos": 0.7669,
+   "lex": 54.34782791137695
+  },
+  {
+   "members": [
+    "Key semiconductor materials supply constraints",
+    "Water scarcity at fab sites"
+   ],
+   "reason": "llm",
+   "cos": 0.7822,
+   "lex": 32.876712799072266
+  },
+  {
+   "members": [
+    "Large customer purchase curtailment from trade measures",
+    "Protectionist policies and import tariffs"
+   ],
+   "reason": "llm",
+   "cos": 0.7528,
+   "lex": 37.5
+  },
+  {
+   "members": [
+    "Large customer purchase curtailment from trade measures",
+    "Restructuring cost and customer disruption"
+   ],
+   "reason": "llm",
+   "cos": 0.7605,
+   "lex": 49.484535217285156
+  },
+  {
+   "members": [
+    "Large customer purchase curtailment from trade measures",
+    "Semiconductor price erosion on older products"
+   ],
+   "reason": "llm",
+   "cos": 0.7542,
+   "lex": 40.0
+  },
+  {
+   "members": [
+    "Large customer purchase curtailment from trade measures",
+    "Supplier component defect cost recovery"
+   ],
+   "reason": "llm",
+   "cos": 0.7529,
+   "lex": 42.553192138671875
+  },
+  {
+   "members": [
     "Large customer purchase curtailment from trade measures",
     "Tariffs and export controls disrupting trade"
    ],
    "reason": "llm",
    "cos": 0.8008,
    "lex": 44.44444274902344
+  },
+  {
+   "members": [
+    "Limited-source equipment and materials supply shortage",
+    "Low-cost foreign OEM competition"
+   ],
+   "reason": "llm",
+   "cos": 0.7823,
+   "lex": 32.55813980102539
+  },
+  {
+   "members": [
+    "Limited-source equipment and materials supply shortage",
+    "North American raw materials supply shortfall"
+   ],
+   "reason": "llm",
+   "cos": 0.7544,
+   "lex": 62.62626266479492
+  },
+  {
+   "members": [
+    "Limited-source equipment and materials supply shortage",
+    "Semiconductor price erosion on older products"
+   ],
+   "reason": "llm",
+   "cos": 0.7857,
+   "lex": 34.34343338012695
+  },
+  {
+   "members": [
+    "Limited-source equipment and materials supply shortage",
+    "Semiconductor tariffs and trade restrictions"
+   ],
+   "reason": "llm",
+   "cos": 0.7563,
+   "lex": 44.8979606628418
+  },
+  {
+   "members": [
+    "Limited-source equipment and materials supply shortage",
+    "State-backed Chinese semiconductor competition"
+   ],
+   "reason": "llm",
+   "cos": 0.7826,
+   "lex": 36.0
+  },
+  {
+   "members": [
+    "Limited-source equipment and materials supply shortage",
+    "Supplier component defect cost recovery"
+   ],
+   "reason": "llm",
+   "cos": 0.7972,
+   "lex": 38.709678649902344
+  },
+  {
+   "members": [
+    "Limited-source equipment and materials supply shortage",
+    "Supplier disruption under just-in-time production"
+   ],
+   "reason": "llm",
+   "cos": 0.79,
+   "lex": 40.77669906616211
+  },
+  {
+   "members": [
+    "Limited-source equipment and materials supply shortage",
+    "Water scarcity at fab sites"
+   ],
+   "reason": "llm",
+   "cos": 0.7822,
+   "lex": 34.567901611328125
+  },
+  {
+   "members": [
+    "Low-cost foreign OEM competition",
+    "Protectionist policies and import tariffs"
+   ],
+   "reason": "llm",
+   "cos": 0.7917,
+   "lex": 35.61643981933594
   },
   {
    "members": [
@@ -1103,12 +3875,147 @@
   },
   {
    "members": [
+    "Low-cost foreign OEM competition",
+    "Technological obsolescence and competitive price erosion"
+   ],
+   "reason": "llm",
+   "cos": 0.759,
+   "lex": 43.181819915771484
+  },
+  {
+   "members": [
+    "Low-cost foreign OEM competition",
+    "Technology disruption from new automotive competitors"
+   ],
+   "reason": "llm",
+   "cos": 0.7563,
+   "lex": 44.70588302612305
+  },
+  {
+   "members": [
+    "Manufacturing facility disruption and interdependency",
+    "Natural disaster disruption of manufacturing sites"
+   ],
+   "reason": "llm",
+   "cos": 0.7659,
+   "lex": 64.8648681640625
+  },
+  {
+   "members": [
+    "Manufacturing facility disruption and interdependency",
+    "Supplier disruption under just-in-time production"
+   ],
+   "reason": "llm",
+   "cos": 0.7643,
+   "lex": 47.05882263183594
+  },
+  {
+   "members": [
+    "Multijurisdiction tax rate increase",
+    "Transfer pricing disputes and tax asset challenges"
+   ],
+   "reason": "llm",
+   "cos": 0.7526,
+   "lex": 49.411766052246094
+  },
+  {
+   "members": [
+    "Natural disaster disruption of manufacturing sites",
+    "Pandemic disruption to workforce and suppliers"
+   ],
+   "reason": "llm",
+   "cos": 0.7592,
+   "lex": 50.0
+  },
+  {
+   "members": [
+    "Natural disaster disruption of manufacturing sites",
+    "Water scarcity at fab sites"
+   ],
+   "reason": "llm",
+   "cos": 0.7584,
+   "lex": 46.75324630737305
+  },
+  {
+   "members": [
+    "New vehicle launch and acceptance risk",
+    "Profit concentration in full-size ICE trucks"
+   ],
+   "reason": "llm",
+   "cos": 0.774,
+   "lex": 39.024391174316406
+  },
+  {
+   "members": [
+    "New vehicle launch and acceptance risk",
+    "Technological change shortening product life cycles"
+   ],
+   "reason": "llm",
+   "cos": 0.7986,
+   "lex": 40.449440002441406
+  },
+  {
+   "members": [
+    "New vehicle launch and acceptance risk",
+    "Technology disruption from new automotive competitors"
+   ],
+   "reason": "llm",
+   "cos": 0.7873,
+   "lex": 39.56044006347656
+  },
+  {
+   "members": [
+    "New vehicle launch and acceptance risk",
+    "Working capital volatility from long product cycles"
+   ],
+   "reason": "llm",
+   "cos": 0.7725,
+   "lex": 38.202247619628906
+  },
+  {
+   "members": [
+    "Product liability and customer recall costs",
+    "Supplier component defect cost recovery"
+   ],
+   "reason": "llm",
+   "cos": 0.7741,
+   "lex": 39.024391174316406
+  },
+  {
+   "members": [
+    "Product liability and customer recall costs",
+    "Supplier disruption under just-in-time production"
+   ],
+   "reason": "llm",
+   "cos": 0.7601,
+   "lex": 43.4782600402832
+  },
+  {
+   "members": [
     "Product liability and customer recall costs",
     "Vehicle safety recall costs"
    ],
    "reason": "llm",
    "cos": 0.8058,
    "lex": 61.53845977783203
+  },
+  {
+   "members": [
+    "Product security vulnerabilities harming demand",
+    "Technology disruption from new automotive competitors"
+   ],
+   "reason": "llm",
+   "cos": 0.7557,
+   "lex": 32.0
+  },
+  {
+   "members": [
+    "Profit concentration in full-size ICE trucks",
+    "Supplier disruption under just-in-time production"
+   ],
+   "reason": "llm",
+   "cos": 0.7635,
+   "lex": 40.86021423339844
   },
   {
    "members": [
@@ -1121,6 +4028,96 @@
   },
   {
    "members": [
+    "Protectionist policies and import tariffs",
+    "State-backed Chinese semiconductor competition"
+   ],
+   "reason": "llm",
+   "cos": 0.7615,
+   "lex": 36.78160858154297
+  },
+  {
+   "members": [
+    "Protectionist policies and import tariffs",
+    "Tariffs and export controls disrupting trade"
+   ],
+   "reason": "llm",
+   "cos": 0.7898,
+   "lex": 54.117645263671875
+  },
+  {
+   "members": [
+    "Restructuring cost and customer disruption",
+    "Supplier component defect cost recovery"
+   ],
+   "reason": "llm",
+   "cos": 0.7655,
+   "lex": 46.91358184814453
+  },
+  {
+   "members": [
+    "Restructuring cost and customer disruption",
+    "Variable share repurchase activity"
+   ],
+   "reason": "llm",
+   "cos": 0.7559,
+   "lex": 34.21052551269531
+  },
+  {
+   "members": [
+    "Semiconductor industry cyclical overcapacity downturns",
+    "Semiconductor price erosion on older products"
+   ],
+   "reason": "llm",
+   "cos": 0.7993,
+   "lex": 54.54545593261719
+  },
+  {
+   "members": [
+    "Semiconductor industry cyclical overcapacity downturns",
+    "State-backed Chinese semiconductor competition"
+   ],
+   "reason": "llm",
+   "cos": 0.7672,
+   "lex": 52.0
+  },
+  {
+   "members": [
+    "Semiconductor industry cyclical overcapacity downturns",
+    "Supplier component defect cost recovery"
+   ],
+   "reason": "llm",
+   "cos": 0.7692,
+   "lex": 38.709678649902344
+  },
+  {
+   "members": [
+    "Semiconductor industry cyclical overcapacity downturns",
+    "Supplier disruption under just-in-time production"
+   ],
+   "reason": "llm",
+   "cos": 0.7768,
+   "lex": 34.95145797729492
+  },
+  {
+   "members": [
+    "Semiconductor industry cyclical overcapacity downturns",
+    "Technological change shortening product life cycles"
+   ],
+   "reason": "llm",
+   "cos": 0.7922,
+   "lex": 36.19047546386719
+  },
+  {
+   "members": [
+    "Semiconductor industry cyclical overcapacity downturns",
+    "Technological obsolescence and competitive price erosion"
+   ],
+   "reason": "llm",
+   "cos": 0.7617,
+   "lex": 34.54545593261719
+  },
+  {
+   "members": [
     "Semiconductor industry cyclical overcapacity downturns",
     "Working capital volatility from long product cycles"
    ],
@@ -1130,12 +4127,156 @@
   },
   {
    "members": [
+    "Semiconductor price erosion on older products",
+    "Semiconductor product defect liability claims"
+   ],
+   "reason": "llm",
+   "cos": 0.7544,
+   "lex": 62.22222137451172
+  },
+  {
+   "members": [
+    "Semiconductor price erosion on older products",
+    "State-backed Chinese semiconductor competition"
+   ],
+   "reason": "llm",
+   "cos": 0.7641,
+   "lex": 54.94505310058594
+  },
+  {
+   "members": [
+    "Semiconductor price erosion on older products",
+    "Supplier component defect cost recovery"
+   ],
+   "reason": "llm",
+   "cos": 0.7719,
+   "lex": 40.47618865966797
+  },
+  {
+   "members": [
+    "Semiconductor product defect liability claims",
+    "Supplier component defect cost recovery"
+   ],
+   "reason": "llm",
+   "cos": 0.7761,
+   "lex": 45.238094329833984
+  },
+  {
+   "members": [
+    "Semiconductor product defect liability claims",
+    "Vehicle safety recall costs"
+   ],
+   "reason": "llm",
+   "cos": 0.7593,
+   "lex": 36.11111068725586
+  },
+  {
+   "members": [
+    "Semiconductor tariffs and trade restrictions",
+    "Tariffs and export controls disrupting trade"
+   ],
+   "reason": "llm",
+   "cos": 0.7734,
+   "lex": 63.6363639831543
+  },
+  {
+   "members": [
+    "Semiconductor tariffs and trade restrictions",
+    "US-China tensions and export restrictions"
+   ],
+   "reason": "llm",
+   "cos": 0.7741,
+   "lex": 61.17647171020508
+  },
+  {
+   "members": [
+    "Shortage of skilled software engineering talent",
+    "Technology disruption from new automotive competitors"
+   ],
+   "reason": "llm",
+   "cos": 0.7809,
+   "lex": 36.0
+  },
+  {
+   "members": [
+    "State-backed Chinese semiconductor competition",
+    "Technological obsolescence and competitive price erosion"
+   ],
+   "reason": "llm",
+   "cos": 0.7522,
+   "lex": 47.05882263183594
+  },
+  {
+   "members": [
+    "State-backed Chinese semiconductor competition",
+    "US-China trade restrictions and tariffs"
+   ],
+   "reason": "llm",
+   "cos": 0.7505,
+   "lex": 42.35293960571289
+  },
+  {
+   "members": [
     "Supplier component defect cost recovery",
     "Supplier disruption under just-in-time production"
    ],
    "reason": "llm",
    "cos": 0.8093,
    "lex": 50.0
+  },
+  {
+   "members": [
+    "Supplier disruption under just-in-time production",
+    "Technology disruption from new automotive competitors"
+   ],
+   "reason": "llm",
+   "cos": 0.7681,
+   "lex": 50.98039245605469
+  },
+  {
+   "members": [
+    "Supplier disruption under just-in-time production",
+    "Working capital volatility from long product cycles"
+   ],
+   "reason": "llm",
+   "cos": 0.7565,
+   "lex": 38.0
+  },
+  {
+   "members": [
+    "Tariffs and export controls disrupting trade",
+    "US-China tensions and export restrictions"
+   ],
+   "reason": "llm",
+   "cos": 0.7975,
+   "lex": 54.117645263671875
+  },
+  {
+   "members": [
+    "Tariffs and export controls disrupting trade",
+    "US-China trade restrictions and tariffs"
+   ],
+   "reason": "llm",
+   "cos": 0.7534,
+   "lex": 62.650604248046875
+  },
+  {
+   "members": [
+    "Technological change shortening product life cycles",
+    "Technology disruption from new automotive competitors"
+   ],
+   "reason": "llm",
+   "cos": 0.7643,
+   "lex": 46.153846740722656
+  },
+  {
+   "members": [
+    "Technological change shortening product life cycles",
+    "Working capital volatility from long product cycles"
+   ],
+   "reason": "llm",
+   "cos": 0.7994,
+   "lex": 54.90196228027344
   },
   {
    "members": [
@@ -1154,9 +4295,18 @@
    "reason": "llm",
    "cos": 0.8181,
    "lex": 35.55555725097656
+  },
+  {
+   "members": [
+    "US-China tensions and export restrictions",
+    "US-China trade restrictions and tariffs"
+   ],
+   "reason": "llm",
+   "cos": 0.7786,
+   "lex": 78.125
   }
  ],
- "risk_factors": 116,
+ "risk_factors": 103,
  "generic_rule": {
   "generic_share": 0.8,
   "companies": 3,
@@ -1164,7 +4314,7 @@
   "or": "boilerplate_share >= 0.75 and n_companies >= 3"
  },
  "drivers": {
-  "drivers_exact": 103,
+  "drivers_exact": 102,
   "merges_approved": [
    [
     "Automotive",
@@ -1174,6 +4324,10 @@
    [
     "import tariffs",
     "tariffs"
+   ],
+   [
+    "OECD",
+    "OECD guidelines"
    ]
   ],
   "merges_rejected": [
@@ -1184,12 +4338,8 @@
    [
     "emissions and fuel economy regulations",
     "fuel economy regulations"
-   ],
-   [
-    "OECD",
-    "OECD guidelines"
    ]
   ],
-  "drivers": 100
+  "drivers": 98
  }
 }

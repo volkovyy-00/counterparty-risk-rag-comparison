@@ -1,0 +1,35 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n84"
+    ],
+    "canonical_name": "Low-cost foreign manufacturer competition",
+    "definition": "Lower-cost foreign manufacturers, notably Chinese and Indian automakers, compete aggressively and erode the company's pricing and market share."
+   },
+   {
+    "member_ids": [
+     "n100"
+    ],
+    "canonical_name": "Protectionist policies and import tariffs",
+    "definition": "Foreign governments may favor domestic manufacturers or impose tariffs, disadvantaging the company's international operations."
+   },
+   {
+    "member_ids": [
+     "n112"
+    ],
+    "canonical_name": "State-backed Chinese semiconductor competition",
+    "definition": "Government-supported Chinese and other Asian semiconductor competitors pressure the company's pricing, margins and market share."
+   }
+  ]
+ },
+ "input_tokens": 188,
+ "output_tokens": 255,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 3.322,
+ "recorded_at": "2026-10-25T13:57:05+0000"
+}

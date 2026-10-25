@@ -1,0 +1,71 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n6",
+     "n66"
+    ],
+    "canonical_name": "Import tariffs raising vehicle costs",
+    "definition": "New or higher tariffs and trade agreement changes increase costs of imported vehicles, parts and materials, which mitigation may not fully offset."
+   },
+   {
+    "member_ids": [
+     "n118"
+    ],
+    "canonical_name": "Tariffs and export controls disrupting trade",
+    "definition": "New or increased US and China tariffs, export controls and sanctions disrupt the company's ability to trade and sell products."
+   },
+   {
+    "member_ids": [
+     "n12"
+    ],
+    "canonical_name": "Geopolitical decoupling of supply chains",
+    "definition": "China-Taiwan tensions and restricted entity lists could decouple global trade and technology supply chains, disrupting operations."
+   },
+   {
+    "member_ids": [
+     "n13"
+    ],
+    "canonical_name": "China restricting critical materials access",
+    "definition": "Chinese government actions may restrict non-Chinese companies' access to critical materials needed for production."
+   },
+   {
+    "member_ids": [
+     "n21"
+    ],
+    "canonical_name": "Currency volatility and cash transfer restrictions",
+    "definition": "Exchange rate swings and restrictions on transferring cash out of China affect financial results and liquidity."
+   },
+   {
+    "member_ids": [
+     "n48"
+    ],
+    "canonical_name": "Export control and anti-corruption compliance",
+    "definition": "Violations of export controls, sanctions, foreign investment rules or anti-corruption laws could lead to penalties and restrictions."
+   },
+   {
+    "member_ids": [
+     "n82"
+    ],
+    "canonical_name": "Customer loss from trade measures",
+    "definition": "Large customers may curtail purchases due to sourcing policy changes, tariffs, export controls or other trade measures."
+   },
+   {
+    "member_ids": [
+     "n128"
+    ],
+    "canonical_name": "US-China tensions restricting repatriation and exports",
+    "definition": "US-China tensions may restrict dividend repatriation from China and technology exports."
+   }
+  ]
+ },
+ "input_tokens": 536,
+ "output_tokens": 620,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 5.489,
+ "recorded_at": "2026-10-25T13:56:51+0000"
+}
