@@ -1,6 +1,7 @@
 """TEST-ONLY: build a complete demo run from the fake model, for developing and testing the page.
 
-    python -m tests.make_fixture /tmp/fixture_run     # never inside results/demo_run
+    python -m tests.make_fixture /tmp/fixture_run                  # never inside results/demo_run
+    python -m tests.make_fixture /tmp/fixture_run edgar_latest     # same, on the 10 EDGAR filings (screenshots)
 
 The output is marked as fake (served model "fake-test-model"); build_demo.py
 shows it only with --fixture and a "TEST FIXTURE" banner.
@@ -19,7 +20,7 @@ import llm  # noqa: E402
 from tests import fake_llm  # noqa: E402
 
 
-def make(out, with_graph=None):
+def make(out, with_graph=None, corpus="workshop_sample"):
     out = Path(out).resolve()
     if out == (config.RESULTS_DIR / "demo_run").resolve() or config.RESULTS_DIR.resolve() in out.parents:
         raise SystemExit("fixtures never go under results/")
@@ -28,8 +29,8 @@ def make(out, with_graph=None):
     tmp = out.parent / (out.name + "_work")
     mp.setattr(config, "CACHE_DIR", tmp / "cache")
     mp.setattr(config, "RESULTS_DIR", tmp / "results")
-    mp.setattr(config, "CORPUS", "workshop_sample")
-    mp.setattr(config, "CORPUS_DIR", config.DATA_DIR / "corpus" / "workshop_sample")
+    mp.setattr(config, "CORPUS", corpus)
+    mp.setattr(config, "CORPUS_DIR", config.DATA_DIR / "corpus" / corpus)
     import governance
     import run_all
     from answer import finalise
@@ -48,6 +49,19 @@ def make(out, with_graph=None):
     run_all.run(keys, out, label="fixture run A (prompt taxonomy-v2.0)")
     if with_graph:
         export_graph.export(out / "graph.json")
+    else:  # graph-v2 export comes from the build snapshot, so screen 4 renders without Neo4j
+        import approach2_graphrag
+        import export_graph
+        import graph_resolve
+        import graph_v2
+
+        filings = load_corpus()
+        chunks, accepted, rejected = graph_v2.run(filings)
+        snap = graph_resolve.resolve(accepted, filings)
+        snap.update({"prompt_version": graph_v2.PROMPT_VERSION, "resolver": config.GRAPH_RESOLVER,
+                     "tickers": [f["ticker"] for f in filings], "rejected": len(rejected)})
+        approach2_graphrag.snapshot_path().write_text(json.dumps(snap))
+        export_graph.export_v2(out / "graph.json", filings, snapshot=snap)
     filings = load_corpus()
     for name, key in (("1_plain_rag", "1"), ("3_taxonomy_first", "3")):  # fake reruns: drop a few claims
         for k in (2, 3):
@@ -64,7 +78,9 @@ def make(out, with_graph=None):
     run_b = out / "audit" / "run_b"
     run_all.run(["3"], run_b, label="fixture run B (prompt taxonomy-v2.1)")
     b = json.loads((run_b / "approach_3_taxonomy_first.json").read_text())  # make run B differ visibly
-    b["matrix"]["category"]["GEOPOLITICAL_TRADE"]["NVDA"] = 0
+    flip = "NVDA" if "NVDA" in b["matrix"]["category"]["GEOPOLITICAL_TRADE"] else sorted(
+        b["matrix"]["category"]["GEOPOLITICAL_TRADE"])[0]
+    b["matrix"]["category"]["GEOPOLITICAL_TRADE"][flip] = 0
     (run_b / "approach_3_taxonomy_first.json").write_text(json.dumps(b))
     card = run_all.scorecard(out)
     (out / "scorecard.json").write_text(json.dumps(run_all.jsonable(card)))
@@ -77,4 +93,5 @@ def make(out, with_graph=None):
 
 
 if __name__ == "__main__":
-    make(sys.argv[1] if len(sys.argv) > 1 else "/tmp/fixture_run")
+    make(sys.argv[1] if len(sys.argv) > 1 else "/tmp/fixture_run", corpus=sys.argv[2] if len(sys.argv) > 2 else
+         "workshop_sample")

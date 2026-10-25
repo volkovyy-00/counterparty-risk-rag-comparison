@@ -267,17 +267,30 @@ def test_graphrag_build_ask_and_export(offline, monkeypatch, tmp_path):
     import approach2_graphrag
     import export_graph
 
-    approach2_graphrag.build(reset=True)
-    result = _run(approach2_graphrag, offline)
-    assert result["details"]["graph"]["risk_factors_shared"] > 0
-    assert result["claims"] and all(c["in_cited_source"] is not None for c in result["claims"])
-    graph = export_graph.export(tmp_path / "graph.json")
-    assert {n["type"] for n in graph["nodes"]} == {"Company", "RiskFactor"}
-    assert graph["resolution"]["risk_factors_exact"] >= graph["resolution"]["risk_factors_resolved"]
-
-    monkeypatch.setattr(config, "GRAPH_MODE", "vector_seeded")  # the workshop's top-k seeded pattern
-    seeded = approach2_graphrag.run(config.QUESTION, offline)
-    assert seeded["details"]["traversal_rows"] > 0
+    for version in ("graph-v2", "graph-v1-workshop"):
+        monkeypatch.setattr(config, "GRAPH_PROMPT_VERSION", version)
+        monkeypatch.setattr(config, "GRAPH_RESOLVER", "llm" if version == "graph-v2" else "fuzzy")
+        monkeypatch.setattr(config, "GRAPH_MODE", "global")
+        approach2_graphrag.build(reset=True)
+        build = json.loads((config.RESULTS_DIR / f"graph_build_{config.CORPUS}.json").read_text())
+        assert build["prompt_version"] == version and build["prompt_sha256"] == approach2_graphrag.prompt_sha256()
+        result = _run(approach2_graphrag, offline)
+        assert result["details"]["graph"]["risk_factors_shared"] > 0
+        assert result["claims"] and all(c["in_cited_source"] is not None for c in result["claims"])
+        graph = export_graph.export(tmp_path / f"graph_{version}.json")
+        assert {n["type"] for n in graph["nodes"]} == {"Company", "RiskFactor"}
+        assert graph["resolution"]["risk_factors_exact"] >= graph["resolution"]["risk_factors_resolved"]
+        if version == "graph-v2":  # quote-level evidence: a paragraph, never a whole 6,000-char chunk
+            assert result["details"]["prompt_version"] == "graph-v2"
+            assert "shared_drivers" in result["details"]
+            assert max(map(len, result["sources"].values())) <= config.GRAPH_V2_CHUNK_CHARS + 200, sorted(map(len, result["sources"].values()))[-5:]
+            assert graph["edges"][0]["quotes"] and graph["quality"]["quote_verification_rate"]
+            rels = {r["t"] for r in approach2_graphrag.driver().execute_query(
+                "MATCH ()-[r]->() RETURN DISTINCT type(r) AS t", database_=config.NEO4J_DATABASE).records}
+            assert {"DISCLOSES", "INSTANCE_OF", "FROM_CHUNK", "FACES_RISK", "FILED", "FROM_DOCUMENT"} <= rels
+        monkeypatch.setattr(config, "GRAPH_MODE", "vector_seeded")  # the workshop's top-k seeded pattern
+        seeded = approach2_graphrag.run(config.QUESTION, offline)
+        assert seeded["details"]["traversal_rows"] > 0
 
 
 # --------------------------------------------------------------------------- data quality (SEC mocked)

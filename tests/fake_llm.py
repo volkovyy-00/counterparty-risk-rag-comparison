@@ -57,7 +57,7 @@ def _fake_mentions(user):
         seen.add(leaves[0])
         name = taxonomy.leaf_name(leaves[0])
         if len(seen) % 3 == 0:
-            name = f"Risks related to {name.lower()}s"  # exercises name normalisation
+            name = f"Risks related to {name.lower()}"  # exercises name normalisation
         drivers = [{"name": n, "type": ty} for n, ty in FAKE_DRIVERS.items() if n in s]
         out.append({"heading": s[:60], "risk_name": name, "detail": s[:80], "quote": s[:200],
                     "specificity": "boilerplate" if leaves[0].startswith(("CYBER", "LEGAL")) else "specific",
