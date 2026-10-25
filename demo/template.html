@@ -59,6 +59,15 @@ a { color:var(--accent); }
 .tile .fp { font-size:22px; color:var(--muted); }
 .chips { display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
 .chip { border:2px solid var(--line); border-radius:20px; padding:2px 16px; font-size:23px; }
+/* screen 4: ask the graph */
+.qchips { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:12px; }
+.qchips button { border-radius:22px; font-size:22px; padding:4px 18px; border-color:var(--line); }
+.qchips button.on { border-color:var(--fg); }
+.bubble { border-radius:16px; padding:12px 18px; margin-bottom:12px; }
+.bubble.q { background:var(--fg); color:var(--bg); margin-left:60px; border-bottom-right-radius:4px; }
+.bubble.a { background:var(--panel); border:2px solid var(--line); margin-right:30px; border-bottom-left-radius:4px; }
+pre.cypher { font-size:15px; line-height:1.3; margin:6px 0 0; max-height:300px; overflow:auto; white-space:pre-wrap;
+  background:var(--panel); border:2px solid var(--line); border-radius:6px; padding:10px 12px; }
 /* screen 2 */
 .counts { display:flex; gap:28px; margin:6px 0 14px; }
 .count b { font-size:56px; display:block; line-height:1; }
@@ -117,7 +126,7 @@ svg text { font-family:inherit; }
   <div id="drawer"></div>
   <div id="fulltext"></div>
   <div id="timer"></div>
-  <div class="keys" id="keys">1-7 screens · G governance · T timer · D dark · Esc close</div>
+  <div class="keys" id="keys">1-7 screens · G governance · T timer · D dark · Esc close · on 4: ←/→ question, M more, O whole graph</div>
 </div></div>
 <script>
 const DATA = /*__DATA__*/null;
@@ -133,7 +142,8 @@ const BEATS = [
 const NAMES = {"1_plain_rag":"Approach 1 · plain RAG", "2_graphrag":"Approach 2 · GraphRAG",
   "3_taxonomy_first":"Approach 3 · taxonomy-first", "0_long_context":"Control · long context"};
 const VIRIDIS = ["#440154","#482878","#3e4989","#31688e","#26828e","#1f9e89","#35b779","#6ece58","#b5de2b","#fde725"];
-const S = { screen:1, hmLevel:"category", hideGeneric:false, showDrivers:false, live:null, server:false, timerStart:null, gov:{} };
+const S = { screen:1, hmLevel:"category", hideGeneric:false, showDrivers:false, live:null, server:false, timerStart:null, gov:{},
+  qa:"shared_vs_specific", qaMore:false, overview:false };
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const pct = x => x == null ? "n/a" : Math.round(x * 100) + "%";
@@ -296,6 +306,11 @@ function layoutGraph(g, W, H) {
   let risks = specific.slice(0, S.showDrivers ? MAX_SPECIFIC_NODES - MAX_DRIVER_NODES : MAX_SPECIFIC_NODES).concat(S.hideGeneric ? [] : generic.slice().sort((a, b) => b.degree - a.degree).slice(0, MAX_GENERIC_NODES));
   const notDrawn = shared.length - risks.length - (S.hideGeneric ? generic.length : 0);
   if (S.showDrivers) risks = risks.concat((g.drivers || []).filter(n => n.degree >= 2).slice(0, MAX_DRIVER_NODES));
+  const pos = placeNodes(comps, risks, g.edges.concat(g.driver_edges || []), W, H);
+  const rad = r => 8 + 2.5 * r.degree;
+  return {comps, risks, pos, rad, hiddenSingles, generic, notDrawn};
+}
+function placeNodes(comps, items, edges, W, H) {
   const left = comps.filter(c => c.industry !== "semis"), right = comps.filter(c => c.industry === "semis");
   const pos = {};
   const place = (arr, x) => arr.forEach((c, i) => pos[c.id] = {x, y: 70 + (H - 140) * (arr.length === 1 ? .5 : i / (arr.length - 1))});
@@ -303,20 +318,67 @@ function layoutGraph(g, W, H) {
   // Deterministic columns: auto-only nodes left, semis-only right, nodes linking both in two middle columns,
   // each column filled top-down in rank order. Drivers go last in the middle columns.
   const nb = {};
-  g.edges.concat(g.driver_edges || []).forEach(e => (nb[e.target] = nb[e.target] || []).push(e.source));
+  edges.forEach(e => (nb[e.target] = nb[e.target] || []).push(e.source));
   const side = n => { const inds = new Set((nb[n.id] || []).map(s => (comps.find(c => c.id === s) || {}).industry));
     return inds.has("semis") && inds.size > 1 ? "mid" : inds.has("semis") ? "right" : inds.size ? "left" : "mid"; };
   const cols = {left: [], mid0: [], mid1: [], right: []};
   let k = 0;
-  risks.forEach(n => { const s = side(n); if (s === "mid") cols[k++ % 2 ? "mid1" : "mid0"].push(n); else cols[s].push(n); });
+  items.forEach(n => { const s = side(n); if (s === "mid") cols[k++ % 2 ? "mid1" : "mid0"].push(n); else cols[s].push(n); });
   const X = {left: 360, mid0: 540, mid1: 800, right: W - 360};
-  if (!cols.left.length && !cols.right.length) { X.mid0 = 470; X.mid1 = 830; }
+  if (!cols.left.length && !cols.right.length) { X.mid0 = Math.round(W * .36); X.mid1 = Math.round(W * .64); }
+  if (cols.mid0.length + cols.mid1.length <= 1 && !cols.left.length && !cols.right.length) X.mid0 = W / 2;
   Object.entries(cols).forEach(([c, arr]) => arr.forEach((n, i) =>
     pos[n.id] = {x: X[c], y: 90 + (H - 150) * (arr.length === 1 ? .5 : i / (arr.length - 1))}));
-  const rad = r => 8 + 2.5 * r.degree;
-  return {comps, risks, pos, rad, hiddenSingles, generic, notDrawn};
+  return pos;
 }
+/* Ask the graph: fixed questions, each a fixed read-only Cypher template; the graph drawn is exactly what the
+   query returned. O switches to the full overview below. */
+function qaList() { return DATA.graph_qa ? DATA.graph_qa.questions.filter(q => q.stage || S.qaMore) : []; }
+function curQA() { return DATA.graph_qa && DATA.graph_qa.questions.find(q => q.id === S.qa); }
+function qaMode() { return S.screen === 4 && !S.overview && !!curQA(); }
+function graphNow() { return qaMode() ? curQA().subgraph : DATA.graph; }
+function stepQA(d) { const L = qaList(), i = L.findIndex(q => q.id === S.qa); if (L.length) { S.qa = L[(i + d + L.length) % L.length].id; closeDrawer(); render(); } }
 function screen4() {
+  if (!S.overview && curQA()) return screen4qa();
+  return screen4overview();
+}
+function screen4qa() {
+  header("4 · Approach 2 – ask the graph");
+  const q = curQA(), g = q.subgraph, W = 1250, H = 860;
+  const chips = qaList().map(x => `<button class="${x.id === q.id ? "on" : ""}" data-qa="${x.id}">${esc(x.label)}</button>`).join("") +
+    (DATA.graph_qa.questions.some(x => !x.stage) ? `<button data-qa-more="1" class="muted">${S.qaMore ? "Fewer" : "More"} – M</button>` : "") +
+    `<button data-qa-overview="1" class="muted">Whole graph – O</button>`;
+  const comps = g.nodes.filter(n => n.type === "Company"), items = g.nodes.filter(n => n.type === "RiskFactor").concat(g.drivers || []);
+  const pos = placeNodes(comps, items, g.edges.concat(g.driver_edges || []), W, H), rad = n => 10 + 3 * n.degree;
+  const lines = g.edges.concat(g.driver_edges || []).map(e => { const a = pos[e.source], b = pos[e.target];
+    return `<line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="var(--line)" stroke-width="2"/>`; }).join("");
+  const nodes = items.map(n => { const p = pos[n.id], r = rad(n), cross = n.industries.includes("auto") && n.industries.includes("semis");
+    const label = `<text x="${p.x}" y="${p.y - r - 8}" text-anchor="middle" font-size="22" fill="var(--fg)" paint-order="stroke" stroke="var(--bg)" stroke-width="7">${esc(short(n.label, 34))} (${n.degree})</text>`;
+    const role = n.role && n.role !== "shared" ? `<text x="${p.x}" y="${p.y + r + 26}" text-anchor="middle" font-size="20" font-weight="800" fill="var(--muted)" paint-order="stroke" stroke="var(--bg)" stroke-width="7">${esc(n.role.toUpperCase())}${n.generic ? " · generic" : ""}</text>` : "";
+    const shape = n.type === "ExposureDriver"
+      ? `<rect x="${p.x - r}" y="${p.y - r}" width="${2 * r}" height="${2 * r}" transform="rotate(45 ${p.x} ${p.y})" fill="var(--bg)" stroke="var(--fg)" stroke-width="5"/>`
+      : `<circle cx="${p.x}" cy="${p.y}" r="${r}" fill="${n.generic ? "var(--grey)" : "var(--fg)"}" ${cross ? 'stroke="var(--mark)" stroke-width="6"' : ""}/>`;
+    return `<g data-risk="${n.id}" class="click">${shape}${label}${role}</g>`; }).join("");
+  const boxes = comps.map(n => { const p = pos[n.id];
+    return `<g><rect x="${p.x - 70}" y="${p.y - 24}" width="140" height="48" rx="6" fill="var(--bg)" stroke="var(--${n.industry === "semis" ? "semis" : "auto"})" stroke-width="4"/>
+      <text x="${p.x}" y="${p.y + 9}" text-anchor="middle" font-size="26" font-weight="800" fill="var(--fg)">${esc(n.label)}</text></g>`; }).join("");
+  const empty = q.empty ? `<text x="${W / 2}" y="${H / 2 - 20}" text-anchor="middle" font-size="34" font-weight="700" fill="var(--fg)">${q.template === "BRIDGE_DRIVERS" ? "No bridge found" : "No rows returned"}</text>
+    <text x="${W / 2}" y="${H / 2 + 26}" text-anchor="middle" font-size="26" fill="var(--muted)">the graph won't invent a link</text>` : "";
+  const v = q.verification;
+  const verified = v ? `<div class="small" style="margin-top:8px">${v.accepted} of ${v.claims} claims verified${v.rejected ? ` · ${v.rejected} rejected` : ""} ·
+     <a href="#" data-qa-claims="1">open quotes</a></div>` : "";
+  const params = Object.entries(q.params).map(([k, x]) => `$${k} = ${JSON.stringify(x)}`).join("\n");
+  return `<div class="qchips">${chips}</div>
+    <div class="row"><svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">${lines}${nodes}${boxes}${empty}</svg>
+    <div class="col small">
+      <div class="bubble q">${esc(q.question)}</div>
+      <div class="bubble a">${esc(short(q.summary, 420))}${verified}</div>
+      <div class="muted">Cypher used · template <span class="mono">${esc(q.template)}</span> · read-only · ${q.rows} row${q.rows === 1 ? "" : "s"} → the graph on the left</div>
+      <pre class="cypher mono">${esc(q.cypher)}\n\n${esc(params)}</pre>
+      <div class="muted" style="margin-top:8px">Click a node for its quotes in the filing.</div>
+    </div></div>`;
+}
+function screen4overview() {
   header("4 · Approach 2 – GraphRAG (Neo4j as the graph store)");
   const g = DATA.graph, r = DATA.approaches["2_graphrag"];
   if (!g) return `<h2>No exported graph</h2><div>results/demo_run/graph.json is missing – run export_graph.py after the build.</div>`;
@@ -348,7 +410,7 @@ function screen4() {
       <text x="110" y="30" text-anchor="middle" font-size="22" fill="var(--muted)">autos</text>
       <text x="${W - 110}" y="30" text-anchor="middle" font-size="22" fill="var(--muted)">semis</text></svg>
     <div class="col small">${res.mentions != null ? `<div class="panel" style="margin-bottom:10px;font-size:30px"><b>${specificCross}</b> specific risks shared across autos and semis</div>` : ""}
-     <div><button class="${S.hideGeneric ? "on" : ""}" onclick="S.hideGeneric=!S.hideGeneric;render()">Hide generic – H</button>
+     <div>${DATA.graph_qa ? `<button data-qa-overview="1">Questions – O</button> ` : ""}<button class="${S.hideGeneric ? "on" : ""}" onclick="S.hideGeneric=!S.hideGeneric;render()">Hide generic – H</button>
      ${(g.drivers || []).length ? `<button class="${S.showDrivers ? "on" : ""}" onclick="S.showDrivers=!S.showDrivers;render()">Named drivers (${g.drivers.filter(d => d.degree >= 2).length}) – X</button>` : ""}</div>
      <div class="panel" style="margin-top:10px"><b>Entity resolution</b><br>${resText}<br><b>Most generic:</b> “${esc(mg.label || "?")}” links ${mg.companies ?? "?"} of ${tickers().length} companies (${pct(mg.share)})</div>
      <div class="panel" style="margin-top:10px">Shown: ${L.risks.filter(n => n.type === "RiskFactor").length} shared risk nodes · ${crossN} link autos ↔ semis (outlined)${q ? ` · click a node for its quotes` : ""}<br>
@@ -359,8 +421,8 @@ function screen4() {
 }
 
 function openRisk(id) {
-  const g = DATA.graph, n = g.nodes.find(x => x.id === id);
-  const cs = g.edges.filter(e => e.target === id).flatMap(e => (e.quotes || []).map(q =>
+  const g = graphNow(), n = g.nodes.concat(g.drivers || []).find(x => x.id === id);
+  const cs = g.edges.concat(g.driver_edges || []).filter(e => e.target === id).flatMap(e => (e.quotes || []).map(q =>
     ({company: e.source.slice(2), leaf: q.risk_name || n.label, quote: q.text, start: q.start, end: q.end, source_ref: q.chunk_id})));
   openClaims(`${n.label} · ${n.degree} companies${n.definition ? " – " + n.definition : ""}`, cs, "2_graphrag");
 }
@@ -524,6 +586,11 @@ document.addEventListener("click", e => {
   if (cell) { const [label, t] = cell.dataset.cell.split("|"); const lvl = label.includes(".") ? "leaf" : "category";
     const cs = DATA.approaches["3_taxonomy_first"].claims.filter(c => c.company === t && c[lvl] === label);
     openClaims(`${t} · ${lvl === "leaf" ? leafName(label) : label}`, cs, "3_taxonomy_first"); return; }
+  const qb = e.target.closest("[data-qa]");
+  if (qb) { S.qa = qb.dataset.qa; closeDrawer(); render(); return; }
+  if (e.target.closest("[data-qa-more]")) { S.qaMore = !S.qaMore; render(); return; }
+  if (e.target.closest("[data-qa-overview]")) { S.overview = !S.overview; closeDrawer(); render(); return; }
+  if (e.target.closest("[data-qa-claims]")) { e.preventDefault(); const q = curQA(); openClaims(q.question, q.claims, "2_graphrag"); return; }
   const rk = e.target.closest("[data-risk]");
   if (rk) { openRisk(rk.dataset.risk); return; }
   const full = e.target.closest("[data-full]");
@@ -538,6 +605,9 @@ document.addEventListener("keydown", e => {
   if (K === "G") { S.screen = "G"; closeDrawer(); render(); }
   else if (K === "D") { const r = document.documentElement; r.dataset.theme = r.dataset.theme === "dark" ? "light" : "dark"; render(); }
   else if (K === "T") { if (e.shiftKey) S.timerStart = Date.now(); else { if (S.timerStart == null) S.timerStart = Date.now(); $("timer").classList.toggle("open"); } tick(); }
+  else if (K === "O" && S.screen === 4 && DATA.graph_qa) { S.overview = !S.overview; closeDrawer(); render(); }
+  else if (K === "M" && S.screen === 4 && qaMode()) { S.qaMore = !S.qaMore; render(); }
+  else if ((k === "ArrowRight" || k === "ArrowLeft") && qaMode()) { e.preventDefault(); stepQA(k === "ArrowRight" ? 1 : -1); }
   else if (K === "H" && S.screen === 4) { S.hideGeneric = !S.hideGeneric; render(); }
   else if (K === "X" && S.screen === 4) { S.showDrivers = !S.showDrivers; render(); }
   else if (K === "L" && S.screen === 5) { S.hmLevel = S.hmLevel === "leaf" ? "category" : "leaf"; render(); }
@@ -554,6 +624,9 @@ async function boot() {
   if (p.get("leaf")) S.hmLevel = "leaf";
   if (p.get("hide")) S.hideGeneric = true;
   if (p.get("drivers")) S.showDrivers = true;
+  if (p.get("qa")) { S.qa = p.get("qa"); if (DATA.graph_qa && DATA.graph_qa.questions.some(q => q.id === S.qa && !q.stage)) S.qaMore = true; }
+  if (p.get("more")) S.qaMore = true;
+  if (p.get("overview")) S.overview = true;
   if (location.protocol.startsWith("http")) {
     try { S.server = await (await fetch("api/status")).json(); } catch (e) { S.server = false; }
   }
