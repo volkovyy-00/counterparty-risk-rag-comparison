@@ -88,6 +88,7 @@ def build(filings, approaches, label=""):
         "taxonomy_version": taxonomy.VERSION,
         "taxonomy_sha256": taxonomy.SHA256,
         "taxonomy_prompt_version": approach3_taxonomy.PROMPT_VERSION,
+        "taxonomy_split": approach3_taxonomy.SPLIT,
         "prompt_sha256": prompt_hashes(),
         "cache_mode": config.LLM_CACHE,
         "approaches": approaches,

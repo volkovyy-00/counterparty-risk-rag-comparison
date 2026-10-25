@@ -4,7 +4,7 @@
     python src/real_run.py --confirm-usd 25   # runs if the estimate is at or below $25
 
 Steps: fetch 10-Ks (if not fetched yet) -> estimate cost -> build graph -> run 1,2,3,L
-and freeze -> export graph -> audit run B (approach 3, prompt v2.1) -> reruns 2 and 3
+and freeze -> export graph -> audit run B (approach 3, prompt v3.1) -> reruns 2 and 3
 (cache off) -> governance fixtures -> build demo/index.html -> screenshots.
 Every model call is cached, so `LLM_CACHE=replay python src/run_all.py` reproduces run A offline.
 """
@@ -61,12 +61,12 @@ def main():
 
     step("Build the knowledge graph (approach 2)", "src/approach2_graphrag.py", "build", "--reset")
     step("Run A: approaches 1, 2, 3 and the long-context control; freeze", "src/run_all.py", "--approaches", "1,2,3,L",
-         "--freeze", "--label", "run A (prompt taxonomy-v2.0)")
+         "--freeze", "--label", "run A (prompt taxonomy-v3.0)")
     step("Export the graph for offline use", "src/export_graph.py")
     step("Ask the graph: the fixed screen-4 questions", "src/graph_qa.py", "--confirm-usd", f"{budget:.2f}")
-    step("Run B for the audit trail: approach 3 with prompt v2.1", "src/run_all.py", "--approaches", "3",
-         "--out", str(config.RESULTS_DIR / "demo_run" / "audit" / "run_b"), "--label", "run B (prompt taxonomy-v2.1)",
-         env={"TAXO_PROMPT_VERSION": "taxonomy-v2.1"})
+    step("Run B for the audit trail: approach 3 with prompt v3.1", "src/run_all.py", "--approaches", "3",
+         "--out", str(config.RESULTS_DIR / "demo_run" / "audit" / "run_b"), "--label", "run B (prompt taxonomy-v3.1)",
+         env={"TAXO_PROMPT_VERSION": "taxonomy-v3.1"})
     if args.reruns:
         step(f"Rerun consistency: {args.reruns} more runs per approach, cache off", "src/rerun.py",
              "--approaches", "1,2,3", "--n", str(args.reruns))

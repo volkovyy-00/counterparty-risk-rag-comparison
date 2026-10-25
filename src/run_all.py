@@ -153,6 +153,7 @@ def run(approach_keys, out_dir=None, label=""):
     stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
     run_dir = out_dir or config.RESULTS_DIR / "runs" / f"{stamp}_{config.CORPUS}"
     run_dir.mkdir(parents=True, exist_ok=True)
+    split_by_ticker = None
     for key in approach_keys:
         name, label_ = APPROACHES[key]
         print(f"== {label_}")
@@ -165,6 +166,9 @@ def run(approach_keys, out_dir=None, label=""):
             continue
         result["usage"] = usage_for(result)
         result["eval"] = evaluate(result["claims"], gt, tickers) if gt else None
+        if key == "3":
+            split_by_ticker = {t: {"method": v["method"], "reason": v["reason"]}
+                               for t, v in result["details"].get("split_by_ticker", {}).items()}
         result.pop("sources", None)  # excerpts are re-derivable from the corpus; keep the run small
         (run_dir / f"approach_{name}.json").write_text(json.dumps(jsonable(result), indent=1))
         v = result["verification"]
@@ -172,6 +176,8 @@ def run(approach_keys, out_dir=None, label=""):
               f"ask {fmt_usage(result['usage']['ask'])}")
     man = manifest.build(filings, [APPROACHES[k][0] for k in approach_keys], label)
     man["served_models"] = sorted(llm.METER.served_models)
+    if "3" in approach_keys and split_by_ticker is not None:
+        man["taxonomy_split_by_ticker"] = split_by_ticker
     man["ground_truth_status"] = gt["status"] if gt else "none"
     (run_dir / "manifest.json").write_text(json.dumps(man, indent=1))
     for name in ("manifest.csv", "data_quality.jsonl"):

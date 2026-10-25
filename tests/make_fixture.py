@@ -46,7 +46,7 @@ def make(out, with_graph=None, corpus="workshop_sample"):
 
         approach2_graphrag.build(reset=True)
         keys.insert(1, "2")
-    run_all.run(keys, out, label="fixture run A (prompt taxonomy-v2.0)")
+    run_all.run(keys, out, label="fixture run A (prompt taxonomy-v3.0)")
     if with_graph:
         import graph_qa
 
@@ -72,14 +72,14 @@ def make(out, with_graph=None, corpus="workshop_sample"):
             claims = r["claims"][: max(1, len(r["claims"]) - 3 * k)]
             (out / "reruns" / name).mkdir(parents=True, exist_ok=True)
             (out / "reruns" / name / f"run_{k}.json").write_text(json.dumps({"claims": claims}))
-    mp.setenv("TAXO_PROMPT_VERSION", "taxonomy-v2.1")
+    mp.setenv("TAXO_PROMPT_VERSION", "taxonomy-v3.1")
     import importlib
 
     import approach3_taxonomy
     importlib.reload(approach3_taxonomy)
     llm.METER.stages.clear()
     run_b = out / "audit" / "run_b"
-    run_all.run(["3"], run_b, label="fixture run B (prompt taxonomy-v2.1)")
+    run_all.run(["3"], run_b, label="fixture run B (prompt taxonomy-v3.1)")
     b = json.loads((run_b / "approach_3_taxonomy_first.json").read_text())  # make run B differ visibly
     flip = "NVDA" if "NVDA" in b["matrix"]["category"]["GEOPOLITICAL_TRADE"] else sorted(
         b["matrix"]["category"]["GEOPOLITICAL_TRADE"])[0]

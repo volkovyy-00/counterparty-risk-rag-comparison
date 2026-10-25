@@ -97,7 +97,8 @@ def audit(run_a=DEMO_RUN, run_b=AUDIT_B):
     if not (run_a / "manifest.json").exists() or not (run_b / "manifest.json").exists():
         return {"available": False, "reason": f"needs {config.rel(run_a)}/ and {config.rel(run_b)}/ - see real_run.py"}
     ma, mb = (json.loads((d / "manifest.json").read_text()) for d in (run_a, run_b))
-    shown = ("label", "model", "served_models", "taxonomy_prompt_version", "prompt_sha256.3_taxonomy_first",
+    shown = ("label", "model", "served_models", "taxonomy_prompt_version", "taxonomy_split",
+             "prompt_sha256.3_taxonomy_first",
              "taxonomy_version", "taxonomy_sha256", "corpus_manifest_sha256", "git.sha", "created_at", "cache_mode")
     rows = []
     flat_diff = {k: (a, b) for k, a, b in manifest.diff(ma, mb)}
