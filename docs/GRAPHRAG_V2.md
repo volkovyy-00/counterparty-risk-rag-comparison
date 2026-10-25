@@ -36,7 +36,13 @@ plants vs suppliers; natural disaster vs yield or quality problems. Patterns: `g
 rows the query returned, shows the Cypher with its template name and parameters, and opens the usual quote drawer
 from any node. The model writes the answer from those rows only, and the shared verifier checks every claim. A
 query with no rows is stored as empty and gets no model call (for the bridge question the page says "No bridge
-found – the graph won't invent a link"). Three questions are live in the talk (GM + NXPI, most shared vs most
+found – the graph won't invent a link"). The bridge question's rows are ranked in code
+(`graph_qa.rank_bridge`, shown on screen): drivers that are the home country (United States, North America) or
+that at least 80% of the group cite are left out; the rest are ordered by specificity (fewest companies that still
+span both industries), then by type (input, named counterparty, place, policy), and at most 3 are shown. If only
+generic drivers are left, they are shown greyed, the answer says "only generic links – no specific bridge" and no
+model call is made. `python src/driver_dups.py` lists near-duplicate drivers and proposes aliases for
+`config/graph_aliases.yaml`; nothing is added without the author's approval. Three questions are live in the talk (GM + NXPI, most shared vs most
 specific, what links autos to chips); two are kept for Q&A behind **M**. **O** shows the whole graph. There is no
 free-text input: a fixed question with its Cypher on screen is the governance point. Text2Cypher is left out.
 

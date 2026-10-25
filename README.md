@@ -39,24 +39,25 @@ Fallbacks: no Wi-Fi → `make demo`. No Neo4j → nothing changes, because the g
 ```bash
 cp .env.sample .env       # SEC_USER_AGENT, ANTHROPIC_API_KEY (or another provider); never commit .env
 docker compose up -d      # local Neo4j with APOC
-make estimate             # prints the cost estimate; nothing is called
-make real-run             # stops if the estimate is over $5
-make real-run ARGS="--confirm-usd 25"
+make real-run ARGS="--stage core"                       # prints the core estimate (cap $20) and stops
+LLM_MAX_USD=20 make real-run ARGS="--stage core --confirm-usd 20"
+LLM_MAX_USD=10 make real-run ARGS="--stage extras --confirm-usd 10"   # optional, after core
 make label                # a person labels the key in the browser -> config/ground_truth.yaml, status: verified
-make build-demo           # rebuild after labelling: P/R/F1 lose the DRAFT banner
-make check-secrets && git add results/demo_run cache data/corpus && git commit
+make build-demo           # rebuild after labelling: P/R/F1 lose the DRAFT banner (DRAFT=1 builds before that)
+make check-secrets && git add results/demo_run results/spend cache && git commit
 ```
 
-`src/real_run.py` does the following in order:
+The corpus in `data/corpus/edgar_latest/` is frozen; the real run never fetches from EDGAR. `src/real_run.py` runs
+in two stages, each with its own estimate, cap and "go". `LLM_MAX_USD` must be set to the stage cap, and a spend
+log (`results/spend/real_run_<stage>.jsonl`) carries it across every step of the stage.
 
-1. Fetches the 10-Ks, respecting SEC fair-access rules and logging data-quality issues without fixing them.
-2. Builds the graph.
-3. Runs approaches 1, 2, 3 and L, then freezes the result into `results/demo_run/`.
-4. Exports the graph and answers the fixed screen-4 graph questions (`src/graph_qa.py`; read-only Cypher, verified
-   claims, saved to `results/demo_run/graph_qa.json`).
-5. Records run B for the audit trail.
-6. Adds 2 more runs with the cache off for the rerun-consistency figure.
-7. Builds the governance fixtures, the page and the screenshots.
+- **core** (cap $20): builds the graph (calls already in `cache/chat/` replay for free), runs approaches 1, 2, 3
+  and L and freezes them into `results/demo_run/`, exports the graph, answers the fixed screen-4 graph questions
+  (`src/graph_qa.py`; read-only Cypher, verified claims, `results/demo_run/graph_qa.json`), then builds the
+  governance fixtures, the page and the screenshots.
+- **extras** (cap $10): (a) 2 reruns of approach 1 and (b) 1 rerun of approach 3, both with the cache off, for
+  the rerun-consistency figure; (c) audit run B, approach 3 after a model swap. Over the cap, (b) is dropped first,
+  then (c). Approach 2 is not rerun: a graph rebuild is estimated at about $9.4, and screen 6 shows that figure.
 
 Every model call is cached, so `LLM_CACHE=replay python src/run_all.py` reproduces run A with zero API calls.
 
