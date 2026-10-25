@@ -12,6 +12,7 @@ import argparse
 import datetime
 import hashlib
 import json
+import math
 from pathlib import Path
 
 from neo4j import RoutingControl
@@ -62,14 +63,20 @@ WITH d, collect(DISTINCT c.industry) AS inds, collect(DISTINCT c.ticker) AS tick
               chunk_id: x.chunk_id}) AS uses
 WHERE size(tickers) >= $min_shared AND all(i IN $industries WHERE i IN inds)
 RETURN d.id AS id, d.name AS driver, d.type AS type, tickers, uses
-ORDER BY CASE d.type WHEN 'INPUT_COMMODITY' THEN 0 WHEN 'NAMED_COUNTERPARTY' THEN 1
-         WHEN 'REGULATION_POLICY' THEN 2 ELSE 3 END, size(tickers) DESC, driver
+ORDER BY size(tickers), driver
 LIMIT $limit""",
 }
 
 INDUSTRIES = ["auto", "semis"]
 # "Which named place, input or policy": end markets ("Automotive") would link autos to chips by definition.
 BRIDGE_TYPES = ["INPUT_COMMODITY", "NAMED_COUNTERPARTY", "REGULATION_POLICY", "GEOGRAPHY"]
+# Bridge ranking (code, after the query - see rank_bridge): the home country links everyone, so does a driver
+# cited by >= 80% of the group (the same share that makes a RiskFactor generic).
+HOME = {"united states", "north america"}
+BRIDGE_TYPE_ORDER = {"INPUT_COMMODITY": 0, "NAMED_COUNTERPARTY": 1, "GEOGRAPHY": 2, "REGULATION_POLICY": 3}
+BRIDGE_MAX = 3
+GENERIC_ONLY = "Only generic links – no specific bridge: every driver both industries cite is the home country or " \
+               "is cited by most of the group."
 
 # stage=True: the three chips used live in the talk, in this order; the others are for Q&A.
 QUESTIONS = [
@@ -83,7 +90,7 @@ QUESTIONS = [
      "params": {"min_shared": 2, "industries": INDUSTRIES}},
     {"id": "bridge", "label": "What links autos to chips?", "stage": True, "template": "BRIDGE_DRIVERS",
      "question": "Which named place, input or policy links the automakers' risks to the chipmakers' risks?",
-     "params": {"driver_types": BRIDGE_TYPES, "industries": INDUSTRIES, "min_shared": 2, "limit": 5}},
+     "params": {"driver_types": BRIDGE_TYPES, "industries": INDUSTRIES, "min_shared": 2, "limit": 50}},
     {"id": "tsla_on_txn", "label": "TSLA + ON + TXN", "stage": False, "template": "SHARED_AMONG",
      "question": "Which risks do Tesla, onsemi and Texas Instruments share?",
      "params": {"tickers": ["TSLA", "ON", "TXN"], "min_shared": 2, "limit": 8}},
@@ -101,7 +108,8 @@ ASSUME_OUT = 2500  # output tokens per answer, assumed (stated, not measured)
 
 
 def prompt_sha256():
-    text = SYSTEM + json.dumps(TEMPLATES, sort_keys=True) + json.dumps(QUESTIONS, sort_keys=True)
+    text = (SYSTEM + json.dumps(TEMPLATES, sort_keys=True) + json.dumps(QUESTIONS, sort_keys=True)
+            + json.dumps([sorted(HOME), BRIDGE_TYPE_ORDER, BRIDGE_MAX]))
     return hashlib.sha256(text.encode()).hexdigest()
 
 
@@ -111,12 +119,49 @@ def query(drv, q):
                                                database_=config.NEO4J_DATABASE).records]
 
 
+def n_group(drv):
+    return drv.execute_query("MATCH (c:Company) RETURN count(c) AS n", routing_=RoutingControl.READ,
+                             database_=config.NEO4J_DATABASE).records[0]["n"]
+
+
+def bridge_generic(row, n):
+    """Why a bridge driver is generic, or None: the home country, or cited by >= 80% of the n companies."""
+    if row["driver"].strip().lower() in HOME:
+        return "home country"
+    if len(row["tickers"]) >= math.ceil(0.8 * n):
+        return f"cited by {len(row['tickers'])} of {n}"
+    return None
+
+
+def rank_bridge(rows, n, max_n=BRIDGE_MAX):
+    """(rows to show, generic_only). Specific drivers first, fewest companies that still span both industries,
+    then by type (input, named counterparty, place, policy), at most max_n. Generic ones only if nothing else."""
+    key = lambda r: (len(r["tickers"]), BRIDGE_TYPE_ORDER.get(r["type"], 9), r["driver"].lower())  # noqa: E731
+    specific = sorted((r for r in rows if not bridge_generic(r, n)), key=key)
+    if specific:
+        return [dict(r, generic=False) for r in specific[:max_n]], False
+    generic = sorted(rows, key=lambda r: (BRIDGE_TYPE_ORDER.get(r["type"], 9), -len(r["tickers"]), r["driver"].lower()))
+    return [dict(r, generic=True, why_generic=bridge_generic(r, n)) for r in generic[:max_n]], bool(generic)
+
+
+def rows_for(drv, q, n=None):
+    """(rows, generic_only): the query's rows, bridge rows ranked by rank_bridge."""
+    rows = query(drv, q)
+    if q["template"] != "BRIDGE_DRIVERS":
+        return rows, False
+    return rank_bridge(rows, n if n is not None else n_group(drv))
+
+
 def _evidence(row):
-    """Driver rows carry `uses` (one per mention); risk rows carry `evidence` (parallel lists per company)."""
+    """Driver rows carry `uses` (one per mention); risk rows carry `evidence` (parallel lists per company).
+
+    Sorted: collect() returns storage order, which changes on every rebuild, and the prompt must not."""
     if "uses" in row:
-        return [dict(u) for u in row["uses"]]
-    return [{"ticker": e["ticker"], "risk": row["risk"], "quote": qt, "span": sp, "chunk_id": ch}
-            for e in row["evidence"] for qt, sp, ch in zip(e["quotes"], e["spans"], e["chunk_ids"])]
+        ev = [dict(u) for u in row["uses"]]
+    else:
+        ev = [{"ticker": e["ticker"], "risk": row["risk"], "quote": qt, "span": sp, "chunk_id": ch}
+              for e in row["evidence"] for qt, sp, ch in zip(e["quotes"], e["spans"], e["chunk_ids"])]
+    return sorted(ev, key=lambda e: tuple(str(e.get(k) or "") for k in ("ticker", "chunk_id", "span", "risk", "quote")))
 
 
 def to_subgraph(rows, filings):
@@ -136,7 +181,8 @@ def to_subgraph(rows, filings):
         node = {"id": nid, "label": row["driver"] if driver else row["risk"], "degree": len(by_t),
                 "industries": industries}
         if driver:
-            drivers.append(dict(node, type="ExposureDriver", driver_type=row["type"]))
+            drivers.append(dict(node, type="ExposureDriver", driver_type=row["type"], generic=row.get("generic", False),
+                                why_generic=row.get("why_generic"), n_companies=len(row["tickers"])))
         else:
             nodes.append(dict(node, type="RiskFactor", generic=row["generic"], definition=row.get("definition") or "",
                               n_companies=row["n_companies"], role=row["role"]))
@@ -175,11 +221,14 @@ def prompt(q, rows, filings):
     return f"Question: {q['question']}\n\nQuery rows:\n{context}", citer.sources
 
 
-def answer(q, rows, filings):
-    """The model's answer to one question from its rows, verified. No rows -> no call."""
+def answer(q, rows, filings, generic_only=False):
+    """The model's answer to one question from its rows, verified. No rows, or only generic bridge rows -> no call."""
     if not rows:
         return {"empty": True, "summary": "No link found: the query returned no rows, and the graph does not "
                                           "invent one.", "claims": [], "rejected": [], "verification": None}
+    if generic_only:
+        return {"empty": False, "generic_only": True, "summary": GENERIC_ONLY, "claims": [], "rejected": [],
+                "verification": None}
     user, sources = prompt(q, rows, filings)
     with llm.METER.track("graph.qa"):
         reply = llm.chat(SYSTEM, user, schema=CLAIMS_SCHEMA, schema_name="claims", model=config.GRAPH_QA_MODEL,
@@ -195,8 +244,8 @@ def estimate(drv, filings, measure=True):
 
     tok_in, calls, measured = 0, 0, True
     for q in QUESTIONS:
-        rows = query(drv, q)
-        if rows:
+        rows, generic_only = rows_for(drv, q)
+        if rows and not generic_only:
             n, m = _tokens(SYSTEM, prompt(q, rows, filings)[0], measure, config.GRAPH_QA_MODEL)
             tok_in, calls, measured = tok_in + n, calls + 1, measured and m
     row = _row("2 graph QA", calls, tok_in, calls * ASSUME_OUT, model=config.GRAPH_QA_MODEL)
@@ -209,22 +258,25 @@ def run(out=None, filings=None):
     filings = filings or load_corpus()
     out = Path(out or config.RESULTS_DIR / "demo_run" / "graph_qa.json")
     drv = driver()
+    n = n_group(drv)
     items = []
     for q in QUESTIONS:
-        rows = query(drv, q)
+        rows, generic_only = rows_for(drv, q, n)
         before = llm.METER.summary("graph.qa")
-        result = answer(q, rows, filings)
+        result = answer(q, rows, filings, generic_only)
         after = llm.METER.summary("graph.qa")
         usage = {k: round(after.get(k, 0) - before.get(k, 0), 6) for k in after}
         items.append({**{k: q[k] for k in ("id", "label", "question", "stage", "template", "params")},
                       "cypher": TEMPLATES[q["template"]].strip(), "rows": len(rows),
+                      "ranked_by": "graph_qa.rank_bridge" if q["template"] == "BRIDGE_DRIVERS" else None,
                       "subgraph": to_subgraph(rows, filings), **result, "usage": usage})
         v = result["verification"]
         print(f"  {q['id']}: {len(rows)} rows" + (f", {v['accepted']}/{v['claims']} claims verified" if v
+                                                     else " - only generic links, no model call" if generic_only
                                                      else " - empty, no model call"))
     drv.close()
     data = {"questions": items,
-            "build": {"model": config.GRAPH_QA_MODEL, "effort": config.GRAPH_QA_EFFORT,
+            "build": {"model": config.GRAPH_QA_MODEL, "effort": config.GRAPH_QA_EFFORT, "n_group": n,
                       "prompt_sha256": prompt_sha256(),
                       "graph_prompt_version": config.GRAPH_PROMPT_VERSION,
                       "created_at": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"),

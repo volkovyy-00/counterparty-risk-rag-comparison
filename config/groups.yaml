@@ -4,6 +4,7 @@
 #              (a leaf shared by at least one company from each industry).
 #   notes    : facts to double-check, logged by fetch_10k.py as INFO data-quality
 #              notes. They are reminders, not corrections: nothing is changed.
+#   names    : optional short display names for the demo page (the filed name stays in the data).
 default: auto_semis
 
 groups:
@@ -20,6 +21,17 @@ groups:
       MCHP: semis
       "ON": semis  # quoted: bare ON is a YAML boolean
       TXN: semis
+    names:
+      GM: General Motors
+      F: Ford Motor
+      TSLA: Tesla
+      APTV: Aptiv
+      BWA: BorgWarner
+      LEA: Lear
+      NXPI: NXP Semiconductors
+      MCHP: Microchip Technology
+      "ON": onsemi
+      TXN: Texas Instruments
     notes:
       MCHP: "Microchip's fiscal year ends in March; its latest 10-K covers a different period from the calendar-year filers."
       BWA: "BorgWarner spun off PHINIA Inc. in 2023; check that comparisons with older filings use the post-spin company."

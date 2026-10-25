@@ -24,6 +24,43 @@ WORKSHOP_CHECKS = ("document_identity", "ticker_mismatch", "duplicate_company", 
                    "mixed_years", "file_unreferenced")
 APPROACH_ORDER = ["1_plain_rag", "2_graphrag", "3_taxonomy_first", "0_long_context"]
 
+# Page furniture in the 10-K text, dropped from the DISPLAYED quote and context only (offsets and verification use
+# the untouched text). Whole lines, matched after stripping. The page applies the same patterns (DATA.debris).
+DEBRIS = [
+    (r"^(page\s*)?\d{1,3}$", "i"),                                              # page numbers
+    (r"^table of contents$", "i"),
+    (r"^item\s*1a\.?.{0,60}\(continued\)$", "i"),                               # "Item 1A. Risk Factors (Continued)"
+    (r"^(?=.*[A-Z]{2})[^a-z]{0,80}\b(COMPANY|INC|CORPORATION|CORP|N\.V|LTD|PLC|HOLDINGS|SUBSIDIARIES)\b[^a-z]*$",
+     ""),                                                                          # "GENERAL MOTORS COMPANY AND SUBSIDIARIES"
+]
+_DEBRIS = [re.compile(p, re.I if "i" in f else 0) for p, f in DEBRIS]
+# The same furniture inside a quote whose line breaks were flattened ("... and 13 Table of Contents GENERAL MOTORS
+# COMPANY AND SUBSIDIARIES logistics ..."): a page number and/or "Table of Contents", then an optional running head.
+_HEAD = r"(?:[A-Z][A-Z0-9&.,'-]*\s+){0,6}(?:COMPANY|INC|CORPORATION|CORP|N\.V\.|LTD|PLC|HOLDINGS)\.?(?:\s+AND\s+SUBSIDIARIES)?"
+DEBRIS_INLINE = [
+    (rf"(?:^|\s)(?:\d{{1,3}}\s+)?Table of Contents(?:\s+{_HEAD})?(?=\s|$)", ""),
+    (r"(?:^|\s)Item\s*1A\.?[^()]{0,60}\(Continued\)(?=\s|$)", "i"),
+]
+_DEBRIS_INLINE = [re.compile(p, re.I if "i" in f else 0) for p, f in DEBRIS_INLINE]
+
+
+def clean_quote(quote):
+    """A quote for display on one line, without page furniture (line-based first, then flattened)."""
+    out = re.sub(r"\s+", " ", clean_display(quote)).strip()
+    for rx in _DEBRIS_INLINE:
+        out = rx.sub(" ", out)
+    return re.sub(r"\s+", " ", out).strip()
+
+
+def clean_display(text):
+    """`text` without page-furniture lines, for display only. Never feed the result back into offsets. Where a page
+    break cut a sentence (no end punctuation before, lower case after), the two halves are joined with a space."""
+    lines = ["\0" if any(rx.match(ln.strip()) for rx in _DEBRIS) else ln for ln in text.split("\n")]
+    out = "\n".join(lines)
+    out = re.sub(r"(?<=[^.!?:;\s])\s*\0(?:\s*\0)*\s*(?=[a-z])", " ", out)
+    out = re.sub(r"\n*\0(?:\s*\0)*\n*", "\n\n", out)
+    return re.sub(r"\n{3,}", "\n\n", out)
+
 
 def _jsonl(path):
     return [json.loads(line) for line in path.read_text().splitlines()] if path.exists() else []
@@ -54,7 +91,9 @@ def _fmt(v, kind):
     return {"pct": f"{v:.0%}", "f2": f"{v:.2f}", "usd": f"${v:.2f}"}.get(kind, str(v))
 
 
-def decision(card):
+def decision(card, draft=False):
+    """Screen 7 from decision.yaml. A placeholder that resolves to n/a stops the build unless draft=True (then it is
+    shown as [placeholder] under a DRAFT banner)."""
     d = yaml.safe_load((DEMO / "decision.yaml").read_text())
     rows = card["rows"]
     values = {}
@@ -68,7 +107,12 @@ def decision(card):
             f"{name}.companies_covered": _fmt(get("companies_covered"), ""),
             f"{name}.build_cost": _fmt((get("build") or {}).get("cost_usd"), "usd"),
             f"{name}.ask_cost": _fmt((get("ask") or {}).get("cost_usd"), "usd")})
-    fill = lambda s: re.sub(r"\{([\w.]+)\}", lambda m: values.get(m.group(1), "n/a"), s)  # noqa: E731
+    missing = sorted({m for m in re.findall(r"\{([\w.]+)\}", d["recommendation"]) if values.get(m, "n/a") == "n/a"})
+    if missing and not draft:
+        raise SystemExit("Screen 7 has placeholders with no value (n/a): " + ", ".join(missing) +
+                         ". Fill the key and rebuild, or build with --draft (make demo DRAFT=1).")
+    fill = lambda s: re.sub(r"\{([\w.]+)\}", lambda m: values.get(m.group(1), "n/a") if m.group(1) not in missing  # noqa: E731
+                            else f"[{m.group(1)}]", s)
     f1 = {n: ((rows.get("leaf_prf") or {}).get(n) or {}).get("f1") for n in card["columns"]
           if not n.startswith("0_")}
     best = max((n for n in f1 if f1[n] is not None), key=lambda n: f1[n], default=None)
@@ -76,7 +120,8 @@ def decision(card):
             not in d["recommendation"].lower():
         print(f"WARNING: decision.yaml recommends something other than the best leaf-F1 approach ({best}). "
               "Re-read screen 7 against the scorecard.", file=sys.stderr)
-    return {"when_to_use": d["when_to_use"], "recommendation": fill(d["recommendation"]), "caveat": d["caveat"]}
+    return {"when_to_use": d["when_to_use"], "recommendation": fill(d["recommendation"]), "caveat": d["caveat"],
+            "missing": missing}
 
 
 def load_run(run_dir, fixture):
@@ -101,7 +146,7 @@ def load_run(run_dir, fixture):
     return man, approaches, card, reruns, fake
 
 
-def build(run_dir, out, fixture=False):
+def build(run_dir, out, fixture=False, draft=False):
     man, approaches, card, reruns, fake = load_run(run_dir, fixture)
     run_dir = Path(run_dir)
     corpus_dir = config.DATA_DIR / "corpus" / man["corpus"]
@@ -112,6 +157,8 @@ def build(run_dir, out, fixture=False):
     graph_path = run_dir / "graph.json"
     qa_path = run_dir / "graph_qa.json"
     gov_path = run_dir / "governance.json"
+    est_path = run_dir / "estimates.json"
+    estimates = json.loads(est_path.read_text()) if est_path.exists() else {}
     from evaluate import load_ground_truth
 
     gt = load_ground_truth(man["corpus"])
@@ -121,9 +168,12 @@ def build(run_dir, out, fixture=False):
                  "git": man.get("git", {}), "pricing_checked": man.get("pricing_checked"), "fixture": fake,
                  "key_status": gt["status"] if gt else "none", "labeller": gt["labeller"] if gt else "",
                  "effort": man.get("effort"), "embed_model": man.get("embed_model"), "knobs": man.get("knobs", {}),
-                 "min_shared": man["knobs"]["min_shared"]},
+                 "min_shared": man["knobs"]["min_shared"], "draft": draft,
+                 "rebuild_usd": estimates.get("approach2_rebuild_usd")},
+        "debris": DEBRIS, "debris_inline": DEBRIS_INLINE,
         "scoring_rule": scoring_rule_commit(),
-        "filings": [dict(f, industry=config.INDUSTRY.get(f["ticker"], "other")) for f in man["filings"]],
+        "filings": [dict(f, industry=config.INDUSTRY.get(f["ticker"], "other"),
+                         short_name=config.DISPLAY_NAMES.get(f["ticker"], f["company"])) for f in man["filings"]],
         "texts": texts,
         "dq": {"edgar": dq, "workshop": workshop},
         "approaches": approaches,
@@ -132,11 +182,11 @@ def build(run_dir, out, fixture=False):
         "graph": json.loads(graph_path.read_text()) if graph_path.exists() else None,
         "graph_qa": json.loads(qa_path.read_text()) if qa_path.exists() else None,
         "governance": json.loads(gov_path.read_text()) if gov_path.exists() else None,
-        "decision": decision(card),
+        "decision": decision(card, draft),
         "taxonomy": {"version": taxonomy.VERSION,
                      "categories": [{"id": c, "name": taxonomy.CATEGORY_NAMES[c]} for c in taxonomy.CATEGORY_IDS],
-                     "leaves": [{"id": lid, "category": leaf["category"], "description": leaf["description"]}
-                                for lid, leaf in taxonomy.LEAVES.items()]},
+                     "leaves": [{"id": lid, "category": leaf["category"], "description": leaf["description"],
+                                 "label": taxonomy.leaf_label(lid)} for lid, leaf in taxonomy.LEAVES.items()]},
     }
     html = TEMPLATE.read_text().replace("/*__DATA__*/null", json.dumps(data).replace("</", "<\\/"))
     out = Path(out)
@@ -150,10 +200,11 @@ def main():
     parser.add_argument("--run", default=str(config.RESULTS_DIR / "demo_run"))
     parser.add_argument("--out", default=str(DEMO / "index.html"))
     parser.add_argument("--fixture", action="store_true", help="allow a fake-model run (shown with a banner)")
+    parser.add_argument("--draft", action="store_true", help="allow screen-7 placeholders with no value (DRAFT banner)")
     args = parser.parse_args()
     if not (Path(args.run) / "manifest.json").exists():
         raise SystemExit(f"No recorded run in {args.run}. See README: the real run is frozen with real_run.py.")
-    build(args.run, args.out, args.fixture)
+    build(args.run, args.out, args.fixture, args.draft)
 
 
 if __name__ == "__main__":

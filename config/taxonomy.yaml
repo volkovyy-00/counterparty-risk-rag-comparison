@@ -5,6 +5,7 @@
 # Two levels, both closed lists, both validated in code (validate.py):
 #   category  : id, name, description (given to the LLM), credit_lens (shown only)
 #   leaves    : 2-5 per category. The full leaf id is CATEGORY.leaf, e.g. SUPPLY_CHAIN.semiconductor_supply
+#               optional label: the name shown on screen (display only; never in the prompt)
 #
 # keywords (category and leaf): lower-case words/phrases, a trailing * matches any ending.
 # Used ONLY (a) to map a free-text claim onto the taxonomy when an approach returns no
@@ -50,6 +51,7 @@ categories:
         description: A downgrade of the company's credit rating raises funding cost or limits access.
         keywords: [credit rating*, downgrade*]
       - id: pension_finance_obligations
+        label: Pension and finance obligations
         description: Pension and retiree obligations or a captive finance arm's credit and residual-value risk.
         keywords: [pension*, postretirement, retiree, residual value*, automotive financing, captive finance, credit losses]
 
@@ -63,6 +65,7 @@ categories:
         description: Shortages or allocation of semiconductors and electronic components.
         keywords: [semiconductor shortage*, chip shortage*, supply of semiconductors, semiconductors, microchip*, electronic components]
       - id: single_source
+        label: Single-source suppliers
         description: Dependence on a single or limited number of suppliers for key inputs.
         keywords: [single source*, sole source*, single-source*, sole-source*, limited number of suppliers]
       - id: manufacturing_disruption
@@ -82,6 +85,7 @@ categories:
     keywords: [customer concentration, significant customer*, key customers, partner*, franchise*, distributor*, counterparty]
     leaves:
       - id: auto_oem_customers
+        label: Auto OEM customers
         description: Revenue depends on automotive OEMs (vehicle makers) as customers.
         keywords: [automotive customers, oem*, original equipment manufacturer*, automakers, vehicle manufacturers]
       - id: key_customer_dependence
@@ -120,6 +124,7 @@ categories:
     keywords: [cyber*, security breach, data breach, hacking, ransomware, malware, outage, information technology systems]
     leaves:
       - id: cyberattack_breach
+        label: Cyberattacks and breaches
         description: Cyber-attacks or breaches of the company's systems.
         keywords: [cyber*, ransomware, malware, security breach*, hack*]
       - id: it_system_failure
@@ -149,6 +154,7 @@ categories:
     keywords: [regulat*, litigation, legal proceedings, antitrust, competition law, investigation*, compliance, lawsuit*]
     leaves:
       - id: litigation_investigations
+        label: Litigation and investigations
         description: Lawsuits, government investigations and legal proceedings.
         keywords: [litigation, lawsuit*, legal proceedings, investigation*, class action*]
       - id: product_regulation
@@ -158,6 +164,7 @@ categories:
         description: Dependence on government incentives, subsidies or grants, and conditions attached to them.
         keywords: [incentive*, subsid*, grant*, chips act, inflation reduction act, tax credit*]
       - id: anti_corruption_compliance
+        label: Anti-corruption compliance
         description: Anti-corruption, sanctions compliance and other conduct rules.
         keywords: [anti-corruption, fcpa, bribery, anti-bribery, compliance with laws]
 
@@ -174,6 +181,7 @@ categories:
         description: Export controls or licensing limits on selling products or technology.
         keywords: [export control*, export restriction*, entity list, export licens*]
       - id: china_exposure
+        label: China exposure
         description: Dependence on China (or Taiwan) for sales, supply or operations.
         keywords: [china, chinese, prc, taiwan]
       - id: conflict_sanctions
@@ -190,12 +198,14 @@ categories:
     keywords: [climate, wildfire, weather, natural disaster, catastroph*, pandemic, earthquake, environmental]
     leaves:
       - id: natural_disasters_weather
+        label: Natural disasters and weather
         description: Natural disasters and extreme weather that disrupt operations or suppliers.
         keywords: [natural disaster*, extreme weather, earthquake*, flood*, hurricane*, wildfire*, typhoon*]
       - id: pandemic_health
         description: Pandemics and public-health crises.
         keywords: [pandemic*, covid*, epidemic*, public health]
       - id: climate_disclosure_esg
+        label: Climate disclosure and ESG
         description: Climate-change regulation of disclosures, ESG expectations of stakeholders.
         keywords: [climate change, sustainability, esg, greenhouse gas, climate-related]
 
@@ -212,6 +222,7 @@ categories:
         description: Attracting and retaining skilled engineers and staff.
         keywords: [attract and retain, skilled, talent, engineers, qualified personnel]
       - id: labor_relations_unions
+        label: Labor relations and unions
         description: Unions, collective bargaining, strikes and work stoppages.
         keywords: [union*, collective bargaining, strike*, work stoppage*, labor dispute*, uaw]
 
@@ -235,6 +246,7 @@ categories:
     keywords: [artificial intelligence, ai, generative ai, machine learning, autonomous, self-driving]
     leaves:
       - id: ai_development_use
+        label: AI development and use
         description: Developing or using AI in products or operations.
         keywords: [artificial intelligence, ai, machine learning, generative ai]
       - id: autonomous_driving
@@ -254,6 +266,7 @@ categories:
         description: Changes in tax laws or rates, including the global minimum tax.
         keywords: [tax law*, tax legislation, tax rate*, global minimum tax, pillar two, oecd]
       - id: tax_audits_disputes
+        label: Tax audits and disputes
         description: Tax audits, disputes and uncertain tax positions.
         keywords: [tax audit*, tax authorit*, examination*, uncertain tax]
 
@@ -264,15 +277,18 @@ categories:
     keywords: [acquisition*, merger, divestiture, strategic investment, integration, joint venture]
     leaves:
       - id: acquisitions_integration
+        label: Acquisitions and integration
         description: Buying and integrating other businesses.
         keywords: [acquisition*, integrat*, merger*]
       - id: divestitures_spinoffs
+        label: Divestitures and spin-offs
         description: Selling or spinning off businesses.
         keywords: [divest*, spin-off, spinoff, separation, disposition*]
       - id: restructuring
         description: Restructuring, plant closures and cost-reduction programmes.
         keywords: [restructuring, cost reduction*, plant closure*, footprint]
       - id: joint_ventures_investments
+        label: Joint ventures and investments
         description: Joint ventures, alliances and strategic investments.
         keywords: [joint venture*, alliance*, strategic investment*, equity investment*]
 
@@ -289,6 +305,7 @@ categories:
         description: Warranty claims and reserves.
         keywords: [warranty]
       - id: product_liability_defects
+        label: Product liability and defects
         description: Product defects, quality problems and product-liability claims.
         keywords: [product liability, defect*, quality issue*, quality problem*]
 
@@ -334,8 +351,10 @@ categories:
     keywords: [stock price, share price, common stock, dividend]
     leaves:
       - id: stock_governance
+        label: Stock and governance
         description: Share price volatility, dividends, buybacks, governance and anti-takeover provisions.
         keywords: [stock price, share price, common stock, dividend*, repurchase*, anti-takeover]
       - id: reporting_controls
+        label: Reporting and controls
         description: Financial reporting, internal controls, accounting estimates and impairments.
         keywords: [internal control*, impairment*, goodwill, accounting estimate*, financial reporting]

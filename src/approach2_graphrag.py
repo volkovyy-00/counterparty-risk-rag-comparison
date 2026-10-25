@@ -423,20 +423,23 @@ def _run_v2(drv, question, filings):
     citer, lines = Citer(filings), []
     cite = citer.cite
 
+    order = lambda e: (e["ticker"], e["chunk_id"] or "", e["span"] or "", e["quote"] or "")  # noqa: E731
+    # total orders throughout: Neo4j returns ties in storage order, which changes on every rebuild, and the
+    # prompt (so the cache key) must not
     for r in specific:
-        ids = [cite(e, True) for e in sorted(r["evidence"], key=lambda e: e["ticker"])]
+        ids = [cite(e, True) for e in sorted(r["evidence"], key=order)]
         tag = " (autos and semis)" if r["cross_industry"] else ""
         lines.append(f"RISK '{r['risk']}' shared by {', '.join(r['tickers'])}{tag}; evidence {', '.join(ids)}")
     if generic:
         lines.append("\nALSO SHARED, GENERIC (faced by most companies or mostly boilerplate):")
         for r in generic:
-            ids = [cite(e, False) for e in sorted(r["evidence"], key=lambda e: e["ticker"])]
+            ids = [cite(e, False) for e in sorted(r["evidence"], key=order)]
             lines.append(f"RISK '{r['risk']}' shared by {', '.join(r['tickers'])} (generic); evidence {', '.join(ids)}")
     if drivers:
         lines.append("\nSHARED EXPOSURE DRIVERS (named in the filings):")
         for d in drivers:
-            uses = "; ".join(f"{u['risk']} ({u['ticker']})" for u in sorted(d["uses"], key=lambda u: u["ticker"]))
-            lines.append(f"DRIVER '{d['driver']}' ({d['type']}) shared by {', '.join(d['tickers'])}: {uses}")
+            uses = "; ".join(f"{u['risk']} ({u['ticker']})" for u in sorted(d["uses"], key=lambda u: (u["ticker"], u["risk"])))
+            lines.append(f"DRIVER '{d['driver']}' ({d['type']}) shared by {', '.join(sorted(d['tickers']))}: {uses}")
     sources = citer.sources
     context = "\n".join(citer.blocks) + "\n" + "\n".join(lines) if rows else "(the traversal found no shared risk factors)"
     reply = llm.chat(SYSTEM, f"Question: {question}\n\nGraph results:\n{context}",

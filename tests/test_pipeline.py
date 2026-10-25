@@ -1,5 +1,6 @@
 """Offline tests: python -m pytest tests -q   (Neo4j tests run only if NEO4J_PASSWORD is set)."""
 import json
+import os
 import socket
 import sys
 from pathlib import Path
@@ -262,7 +263,20 @@ def test_scoring_counts_only_shared_pairs():
 
 
 # --------------------------------------------------------------------------- Neo4j (optional)
-@pytest.mark.skipif(not config.NEO4J_PASSWORD, reason="set NEO4J_PASSWORD to run against a local Neo4j")
+def _neo4j_listening():
+    from urllib.parse import urlparse
+
+    u = urlparse(config.NEO4J_URI)
+    try:
+        socket.create_connection((u.hostname or "localhost", u.port or 7687), timeout=1).close()
+        return True
+    except OSError:
+        return False
+
+
+@pytest.mark.skipif(os.environ.get("NEO4J_TEST") != "1" or not config.NEO4J_PASSWORD or not _neo4j_listening(),
+                    reason="opt in with NEO4J_TEST=1: it resets the local Neo4j database, so it would wipe the demo "
+                           "graph (rebuild after: LLM_CACHE=replay python src/approach2_graphrag.py build --reset)")
 def test_graphrag_build_ask_and_export(offline, monkeypatch, tmp_path):
     import approach2_graphrag
     import export_graph
@@ -402,7 +416,7 @@ def test_demo_builds_and_loads_graph_without_neo4j(fixture_run, tmp_path, monkey
     monkeypatch.setattr(config, "NEO4J_PASSWORD", None)
     with pytest.raises(SystemExit, match="not real model output"):
         build_demo.build(fixture_run, tmp_path / "x.html")  # fake runs need --fixture
-    data = build_demo.build(fixture_run, tmp_path / "index.html", fixture=True)
+    data = build_demo.build(fixture_run, tmp_path / "index.html", fixture=True, draft=True)
     assert data["graph"]["resolution"]["risk_factors_exact"] == 3 and data["meta"]["fixture"]
     html = (tmp_path / "index.html").read_text()
     assert "/*__DATA__*/null" not in html and "TEST FIXTURE" in html

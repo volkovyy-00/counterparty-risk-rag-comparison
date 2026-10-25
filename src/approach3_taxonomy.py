@@ -19,7 +19,7 @@ from concurrent.futures import ThreadPoolExecutor
 import config
 import llm
 import taxonomy
-from corpus import chunk_text, pack_sections, split_check, split_risk_factors
+from corpus import chunk_text, pack_sections, split_check, split_paragraphs, split_risk_factors
 
 _BASE = (
     "You are a credit risk analyst classifying the Risk Factors section (Item 1A) of a 10-K filing.\n"
@@ -109,15 +109,20 @@ SCHEMA = {
 def split_filing(filing, method=None):
     """(windows, info) for one filing. windows: [(window_ref, text, [section idx, ...])].
 
-    info: {method, reason, sections}. The heading split falls back to fixed windows (and says why) when
-    corpus.split_check finds too few headings or an oversize section.
+    info: {method, reason, sections}. When corpus.split_check rejects the heading split (too few headings or
+    an oversize section), the paragraph split is tried next (headings that run into the paragraph), then
+    fixed windows; reason says why the heading split was not used.
     """
     method, t, size = method or SPLIT, filing["ticker"], config.TAXO_WINDOW_CHARS
     info = {"method": method, "reason": None, "sections": []}
     if method == "heading":
         sections = split_risk_factors(filing["text"])
         info["reason"] = split_check(sections, size)
-        if info["reason"] is None:
+        if info["reason"] is not None:
+            paragraphs = split_paragraphs(filing["text"])
+            if split_check(paragraphs, size) is None:
+                sections, info["method"] = paragraphs, "paragraph"
+        if info["reason"] is None or info["method"] == "paragraph":
             info["sections"] = sections
             return [(f"{t}:w{n + 1}", w, idxs) for n, (w, idxs) in enumerate(pack_sections(sections, size))], info
         info["method"] = "fixed"
@@ -225,13 +230,13 @@ def split_report(filings, path=None):
         windows, info = split_filing(f, "heading")
         fixed = len(chunk_text(f["text"], size, 0))
         found = split_risk_factors(f["text"])
-        largest = max(len(s["text"]) for s in found)
-        heads = [s["heading"] for s in found if not s["heading"].startswith("(")][:3]
+        largest = max(len(s["text"]) for s in info["sections"] or found)
+        heads = [s["heading"] for s in info["sections"] if not s["heading"].startswith("(")][:3]
         totals["heading"] += len(windows)
         totals["fixed"] += fixed
         rows.append(f"| {f['ticker']} | {len(f['text']):,} | {sum(not s['heading'].startswith('(') for s in found)} | "
                     f"{len(windows)} | {fixed} | {largest:,} | **{info['method']}** | {info['reason'] or ''} | "
-                    + ("<br>".join(h[:90].replace("|", "/") for h in heads) if info["method"] == "heading" else "-")
+                    + ("<br>".join(h[:90].replace("|", "/") for h in heads) if heads else "-")
                     + " |")
     n_heading = sum("| **heading** |" in r for r in rows)
     run_in = [f["ticker"] for f in filings if "run into" in (split_filing(f, "heading")[1]["reason"] or "")]
@@ -239,17 +244,18 @@ def split_report(filings, path=None):
         "# Approach 3: risk-factor split per filing", "",
         f"Corpus `{config.CORPUS}`, window {size:,} characters. Rules: `corpus.split_risk_factors` (plain line rules, "
         "no model call). A heading is a line of 6-60 words ending in a period and followed by a longer line; a "
-        "sub-caption is a short line naming risks (\"Risks Related to ...\"). A filing falls back to the fixed "
-        f"windows if it has fewer than 8 headings or a section over 3x the window.", "",
+        "sub-caption is a short line naming risks (\"Risks Related to ...\"). A filing with fewer than 8 headings or "
+        "a section over 3x the window gets the paragraph split (`corpus.split_paragraphs`), else the fixed windows.", "",
         f"**{n_heading} of {len(rows)} filings split by heading.** Windows sent to the model: "
         f"{totals['heading']} with this split vs {totals['fixed']} with the old fixed windows.", "",
         "| Ticker | Item 1A chars | Headings | Windows | Fixed windows | Largest section | Method | Fallback reason "
         "| First 3 headings |",
         "|---|---|---|---|---|---|---|---|---|", *rows, "",
-    ] + ([f"Why {', '.join(run_in)} fall back: these 10-Ks set each heading in bold at the start of its first "
-          "paragraph. The text extraction keeps the words but not the bold, so heading and body share one line and no "
-          "rule can tell where the heading ends without guessing. They keep the fixed windows, which is what v2 used "
-          "for every filing.", ""] if run_in else [])
+    ] + ([f"Why {', '.join(run_in)} use the paragraph split: these 10-Ks set each heading in bold at the start of "
+          "its first paragraph. The text extraction keeps the words but not the bold, so heading and body share one "
+          "line. Each paragraph whose first sentence reads like a heading becomes a section with that sentence as its "
+          "heading. Continuation paragraphs that read the same way become sections too, so these filings split a "
+          "little finer than the others.", ""] if run_in else [])
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text("\n".join(lines))
     return path

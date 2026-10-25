@@ -1,0 +1,188 @@
+{
+ "label": "run A (prompt taxonomy-v3.0)",
+ "created_at": "2026-10-25T19:48:20Z",
+ "question": "What industry risks connect these counterparties, and which counterparties share each one?",
+ "group": "auto_semis",
+ "corpus": "edgar_latest",
+ "filings": [
+  {
+   "ticker": "GM",
+   "company": "General Motors Co",
+   "accession": "0001467858-26-000013",
+   "filing_date": "2026-01-27",
+   "report_date": "2025-12-31",
+   "fiscal_year_end": "1231",
+   "url": "https://www.sec.gov/Archives/edgar/data/1467858/000146785826000013/gm-20251231.htm"
+  },
+  {
+   "ticker": "F",
+   "company": "FORD MOTOR CO",
+   "accession": "0000037996-26-000015",
+   "filing_date": "2026-02-11",
+   "report_date": "2025-12-31",
+   "fiscal_year_end": "1231",
+   "url": "https://www.sec.gov/Archives/edgar/data/37996/000003799626000015/f-20251231.htm"
+  },
+  {
+   "ticker": "TSLA",
+   "company": "Tesla, Inc.",
+   "accession": "0001628280-26-003952",
+   "filing_date": "2026-01-29",
+   "report_date": "2025-12-31",
+   "fiscal_year_end": "1231",
+   "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm"
+  },
+  {
+   "ticker": "APTV",
+   "company": "Aptiv PLC",
+   "accession": "0001521332-26-000009",
+   "filing_date": "2026-02-06",
+   "report_date": "2025-12-31",
+   "fiscal_year_end": "1231",
+   "url": "https://www.sec.gov/Archives/edgar/data/1521332/000152133226000009/aptv-20251231.htm"
+  },
+  {
+   "ticker": "BWA",
+   "company": "BORGWARNER INC",
+   "accession": "0000908255-26-000011",
+   "filing_date": "2026-02-11",
+   "report_date": "2025-12-31",
+   "fiscal_year_end": "1231",
+   "url": "https://www.sec.gov/Archives/edgar/data/908255/000090825526000011/bwa-20251231.htm"
+  },
+  {
+   "ticker": "LEA",
+   "company": "LEAR CORP",
+   "accession": "0000842162-26-000011",
+   "filing_date": "2026-02-13",
+   "report_date": "2025-12-31",
+   "fiscal_year_end": "1231",
+   "url": "https://www.sec.gov/Archives/edgar/data/842162/000084216226000011/lear-20251231.htm"
+  },
+  {
+   "ticker": "NXPI",
+   "company": "NXP Semiconductors N.V.",
+   "accession": "0001413447-26-000008",
+   "filing_date": "2026-02-19",
+   "report_date": "2025-12-31",
+   "fiscal_year_end": "1231",
+   "url": "https://www.sec.gov/Archives/edgar/data/1413447/000141344726000008/nxpi-20251231.htm"
+  },
+  {
+   "ticker": "MCHP",
+   "company": "MICROCHIP TECHNOLOGY INC",
+   "accession": "0000827054-26-000016",
+   "filing_date": "2026-05-21",
+   "report_date": "2026-03-31",
+   "fiscal_year_end": "0331",
+   "url": "https://www.sec.gov/Archives/edgar/data/827054/000082705426000016/mchp-20260331.htm"
+  },
+  {
+   "ticker": "ON",
+   "company": "ON SEMICONDUCTOR CORP",
+   "accession": "0001097864-26-000006",
+   "filing_date": "2026-02-09",
+   "report_date": "2025-12-31",
+   "fiscal_year_end": "1231",
+   "url": "https://www.sec.gov/Archives/edgar/data/1097864/000109786426000006/on-20251231.htm"
+  },
+  {
+   "ticker": "TXN",
+   "company": "TEXAS INSTRUMENTS INC",
+   "accession": "0000097476-26-000059",
+   "filing_date": "2026-02-06",
+   "report_date": "2025-12-31",
+   "fiscal_year_end": "1231",
+   "url": "https://www.sec.gov/Archives/edgar/data/97476/000009747626000059/txn-20251231.htm"
+  }
+ ],
+ "corpus_manifest_sha256": "98f54b24bd27035f3cadc7f734c63959c7ebf3e563e0c62ab539c0500a7ab761",
+ "provider": "anthropic",
+ "model": "claude-opus-5-5",
+ "effort": "low",
+ "structured_output": "strict",
+ "embed_provider": "local",
+ "embed_model": "BAAI/bge-small-en-v1.5",
+ "taxonomy_version": 2,
+ "taxonomy_sha256": "717e9ebb01a68c9d8fd62e9f2e25eb63fa339708de2dfaf34690a3c7e746bed4",
+ "taxonomy_prompt_version": "taxonomy-v3.0",
+ "taxonomy_split": "heading",
+ "prompt_sha256": {
+  "0_long_context": "fec75c99d63e1d57fb98e3c797dd3ac39e1d3a9178c2f01e34314b870ae07728",
+  "1_plain_rag": "e57df0dad3e34a989feaab271e389af3b4257bcdcba178ae01a02c35044cb38c",
+  "2_graphrag": "2da5ae1e182953de7ed7360ec0146171bc88f2e2e61eb945d04e76b24fb54fee",
+  "3_taxonomy_first": "08f158346eb284c67b838679ec6076f6d3e106c5f37920d7a01ae685b420d5bf",
+  "2_graph_qa": "aa763e81ef70afa22e9bebf18aff680a395058abd23e21a92eb4f86704692679"
+ },
+ "cache_mode": "replay",
+ "approaches": [
+  "1_plain_rag",
+  "2_graphrag",
+  "3_taxonomy_first",
+  "0_long_context"
+ ],
+ "knobs": {
+  "rag_top_k": 12,
+  "rag_chunk_chars": 1500,
+  "graph_chunk_chars": 4000,
+  "graph_resolver": "llm",
+  "graph_mode": "global",
+  "graph_prompt_version": "graph-v2",
+  "graph_v2_chunk_chars": 6000,
+  "graph_sim_min": 0.75,
+  "generic_share": 0.8,
+  "taxo_window_chars": 12000,
+  "min_shared": 2
+ },
+ "pricing_checked": "2026-10-06",
+ "git": {
+  "sha": "f0a0027cb423baa5c06902a72973e5df81677c38",
+  "dirty": true
+ },
+ "served_models": [
+  "claude-opus-5-5"
+ ],
+ "taxonomy_split_by_ticker": {
+  "GM": {
+   "method": "paragraph",
+   "reason": "1 heading line(s) found, fewer than 8: headings likely run into the paragraph"
+  },
+  "F": {
+   "method": "paragraph",
+   "reason": "3 heading line(s) found, fewer than 8: headings likely run into the paragraph"
+  },
+  "TSLA": {
+   "method": "heading",
+   "reason": null
+  },
+  "APTV": {
+   "method": "heading",
+   "reason": null
+  },
+  "BWA": {
+   "method": "heading",
+   "reason": null
+  },
+  "LEA": {
+   "method": "heading",
+   "reason": null
+  },
+  "NXPI": {
+   "method": "heading",
+   "reason": null
+  },
+  "MCHP": {
+   "method": "heading",
+   "reason": null
+  },
+  "ON": {
+   "method": "heading",
+   "reason": null
+  },
+  "TXN": {
+   "method": "heading",
+   "reason": null
+  }
+ },
+ "ground_truth_status": "verified"
+}

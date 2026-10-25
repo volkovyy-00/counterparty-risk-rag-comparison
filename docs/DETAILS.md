@@ -9,8 +9,9 @@ Reference material for the [demo script](../README.md).
 | `manifest.json` | model and served model ids, prompt SHA-256 per approach, taxonomy version and hash, corpus manifest hash, filings (accession, dates), git SHA, cache mode, knobs, pricing date |
 | `approach_<name>.json` | summary, verified claims (with Item 1A character offsets), rejected claims with reasons, verification stats, shared leaves, company x category/leaf matrices, usage (build/ask), eval |
 | `scorecard.json`, `comparison.md` | every metric of SCORING_RULE.md, one column per approach |
-| `reruns/<approach>/run_<k>.json` | verified claims of the cache-off reruns (rerun consistency) |
-| `audit/run_b/` | run B (approach 3, prompt v3.1) for the audit-trail diff |
+| `reruns/<approach>/run_<k>.json` | verified claims of the cache-off reruns (rerun consistency; extras stage) |
+| `estimates.json`, `spend.json` | the stage estimates and the measured live spend per step (`real_run.py`) |
+| `audit/run_b/` | run B (approach 3, prompt v3.0, after a model swap) for the audit-trail diff |
 | `graph.json` | the exported graph (Company, RiskFactor, FACES_RISK) and exact vs fuzzy RiskFactor counts |
 | `governance.json` | precomputed governance moments (the page re-runs them live through serve.py) |
 | `corpus_manifest.csv`, `corpus_data_quality.jsonl` | the filings used and the data-quality log |
@@ -40,7 +41,7 @@ Reference material for the [demo script](../README.md).
 | `GRAPH_SIM_MIN` / `GRAPH_SIM_TOPK` / `GRAPH_LEX_MIN` / `GRAPH_COMPONENT_MAX` | `0.80` / `8` / `90` / `25` | v2 merge candidates: embedding cosine, neighbours, RapidFuzz token_set_ratio, largest group sent to the LLM |
 | `GENERIC_SHARE` | `0.8` | a risk is generic if at least this share of companies face it (or it is mostly boilerplate in 3+) |
 | `GRAPH_AB_TICKERS` | `GM,NXPI,TXN` | filings for the graph A/B (`make graph-ab`) |
-| `TAXO_PROMPT_VERSION` | `taxonomy-v3.0` | v3.x: one label per risk factor plus an unscored `driver` note, on heading windows; `taxonomy-v3.1` (most specific leaf) is run B of the audit trail; `taxonomy-v2.0` / `v2.1` are kept as they were (fixed windows) |
+| `TAXO_PROMPT_VERSION` | `taxonomy-v3.0` | v3.x: one label per risk factor plus an unscored `driver` note, on heading windows; `taxonomy-v3.1` (most specific leaf) stays runnable by hand (it was the old run B); `taxonomy-v2.0` / `v2.1` are kept as they were (fixed windows) |
 | `TAXO_SPLIT` | the version's own | `heading` = whole risk-factor sections packed into windows (`make taxo-split` reports per filing, with the fallback reason); `fixed` = paragraph windows of `TAXO_WINDOW_CHARS`. v2.x accepts only `fixed` |
 | `TAXO_AB_TICKERS` | `NXPI,LEA` | filings for the approach-3 A/B (`make taxo-ab`) |
 | `LLM_MAX_USD` | unset | hard stop for live (uncached) spend in one process; the A/B scripts set it to the confirmed amount |

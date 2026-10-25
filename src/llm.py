@@ -10,6 +10,7 @@ import threading
 import time
 from collections import defaultdict
 from contextlib import contextmanager
+from pathlib import Path
 
 import yaml
 
@@ -99,6 +100,27 @@ def price_usd(model, input_tokens, output_tokens, cache_write_tokens=0, cache_re
     return (input_tokens * price["input"] + output_tokens * price["output"]
             + cache_write_tokens * price.get("cache_write", price["input"])
             + cache_read_tokens * price.get("cache_read", price["input"])) / 1e6
+
+
+def _ledger_prior():
+    """Live spend already logged by earlier steps of the same staged run (LLM_SPEND_LEDGER, one JSON per line)."""
+    path = config.env("LLM_SPEND_LEDGER")
+    if not path or not Path(path).exists():
+        return 0.0
+    return sum(json.loads(line)["usd"] for line in Path(path).read_text().splitlines() if line.strip())
+
+
+def _ledger_add(model, usd):
+    path = config.env("LLM_SPEND_LEDGER")
+    if not path or not usd:
+        return
+    Path(path).parent.mkdir(parents=True, exist_ok=True)
+    with METER._lock, open(path, "a") as fh:
+        fh.write(json.dumps({"step": config.env("LLM_SPEND_STEP", ""), "stage": METER.stage, "model": model,
+                             "usd": round(usd, 6), "at": time.strftime("%Y-%m-%dT%H:%M:%S%z")}) + "\n")
+
+
+_LEDGER_PRIOR = _ledger_prior()  # read once per process; this process's own spend is METER.live_usd
 
 
 # --------------------------------------------------------------------------- cache
@@ -237,14 +259,17 @@ def chat(system, user, schema=None, schema_name="answer", cache=None, timeout=No
     record = _cache_get(path, cache)
     cached = record is not None
     if not cached:
-        if config.LLM_MAX_USD is not None and METER.live_usd >= config.LLM_MAX_USD:
-            raise SpendCapReached(f"live spend ${METER.live_usd:.2f} reached LLM_MAX_USD=${config.LLM_MAX_USD:.2f}")
+        spent = METER.live_usd + _LEDGER_PRIOR
+        if config.LLM_MAX_USD is not None and spent >= config.LLM_MAX_USD:
+            raise SpendCapReached(f"live spend ${spent:.2f} reached LLM_MAX_USD=${config.LLM_MAX_USD:.2f}")
         start = time.perf_counter()
         content, usage, served = _call_chat(system, user, schema, schema_name, timeout, model, effort)
         record = {"model": model or config.LLM_MODEL, "served_model": served, "content": content, **usage,
                   "latency_s": round(time.perf_counter() - start, 3),
                   "recorded_at": time.strftime("%Y-%m-%dT%H:%M:%S%z")}
         _cache_put(path, record, cache)
+        _ledger_add(record["model"], price_usd(record["model"], record["input_tokens"], record["output_tokens"],
+                                               record.get("cache_write_tokens", 0), record.get("cache_read_tokens", 0)))
     METER.served_models.add(record.get("served_model") or f"unknown:{record['model']}")
     METER.add(METER.stage, record["model"], record["input_tokens"], record["output_tokens"], cached, "llm",
               record.get("latency_s", 0.0), record.get("cache_write_tokens", 0), record.get("cache_read_tokens", 0))

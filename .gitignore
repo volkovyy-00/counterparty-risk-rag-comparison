@@ -1,10 +1,34 @@
+# secrets and local environment
 .env
+.venv/
+venv/
 __pycache__/
+*.pyc
 .pytest_cache/
+.DS_Store
+*.log
+scratch/
+
+# caches: LLM replay, token counts, embeddings, model files (Release asset: replay-cache.tar.gz)
+cache/
+
+# raw downloads (the corpus under data/corpus/ is frozen and tracked)
 data/raw/
-results/runs/
+
+# run outputs: only the frozen demo and the spend ledgers are tracked;
+# everything else is local, or in the Release asset results-extra.tar.gz
+results/*
+!results/demo_run/
+!results/spend/
+
+# demo build output and fallbacks (Release asset: fallback.tar.gz)
 demo/index.html
-demo/fallback/*.mp4
+demo/fallback/
 *.mp4
-cache/models/
-cache/embed/
+
+# local Neo4j data and dumps
+neo4j/
+*.dump
+
+# packed Release assets (scripts/build_artifacts.sh)
+dist/

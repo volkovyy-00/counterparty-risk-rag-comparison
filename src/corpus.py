@@ -163,6 +163,39 @@ def split_risk_factors(text):
     return sections
 
 
+_FIRST_SENTENCE = re.compile(r"^(.{20,600}?[.!?])(?=\s+[A-Z“\"(]|\s*$)")
+_LIST_INTRO = re.compile(r"(?i)^(?:we have listed|the following|set forth below|below (?:is|are))\b")
+
+
+def split_paragraphs(text):
+    """Sections for a filing whose headings run into the paragraph (bold lost in extraction).
+
+    A paragraph starts a section when its first sentence reads like a heading (6-60 words, not a
+    continuation such as "In addition") and more text follows on the same line; that sentence is the
+    heading. Continuation paragraphs that also look like this become their own sections, so these
+    filings split a little finer than the heading split. Same section dicts as split_risk_factors.
+    """
+    bounds = []
+    for m in _LINE.finditer(text):
+        line = _clean(m.group())
+        first = _FIRST_SENTENCE.match(line)
+        if not first or _is_debris(line) or _LIST_INTRO.search(line):
+            continue
+        heading = first.group(1)
+        if (6 <= len(heading.split()) <= 60 and (line[:1].isupper() or line[:1] in "\"“")
+                and not _NOT_HEADING.search(line) and len(line) > len(heading) + 80):
+            bounds.append((m.start(), heading))
+    if not bounds or text[:bounds[0][0]].strip():
+        bounds.insert(0, (0, "(introduction)"))
+    sections = []
+    for n, (start, heading) in enumerate(bounds):
+        end = bounds[n + 1][0] if n + 1 < len(bounds) else len(text)
+        end = start + len(text[start:end].rstrip())
+        sections.append({"idx": len(sections) if bounds[0][1] == "(introduction)" else len(sections) + 1,
+                         "start": start, "end": end, "subcaption": "", "heading": heading, "text": text[start:end]})
+    return sections
+
+
 def split_check(sections, size):
     """None if the heading split is usable, else the reason to fall back to fixed windows."""
     headed = [s for s in sections if not s["heading"].startswith("(")]

@@ -1,0 +1,178 @@
+{"step": "(a) Approach 1 reruns, cache off", "stage": "rag.ask", "model": "claude-opus-5-5", "usd": 0.097494, "at": "2026-10-25T20:22:03+0000"}
+{"step": "(a) Approach 1 reruns, cache off", "stage": "rag.ask", "model": "claude-opus-5-5", "usd": 0.097814, "at": "2026-10-25T20:33:35+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.056009, "at": "2026-10-25T20:33:44+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.068769, "at": "2026-10-25T20:33:48+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.074925, "at": "2026-10-25T20:33:50+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.031056, "at": "2026-10-25T20:33:51+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.076693, "at": "2026-10-25T20:33:51+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.036044, "at": "2026-10-25T20:33:56+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.041032, "at": "2026-10-25T20:33:59+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.04182, "at": "2026-10-25T20:34:00+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.04074, "at": "2026-10-25T20:34:00+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.030184, "at": "2026-10-25T20:34:03+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.032428, "at": "2026-10-25T20:34:07+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.030888, "at": "2026-10-25T20:34:07+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.03628, "at": "2026-10-25T20:34:08+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.039568, "at": "2026-10-25T20:34:11+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.024368, "at": "2026-10-25T20:34:12+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.007508, "at": "2026-10-25T20:34:13+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.0399, "at": "2026-10-25T20:34:16+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.041692, "at": "2026-10-25T20:34:18+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.028612, "at": "2026-10-25T20:34:19+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.033424, "at": "2026-10-25T20:34:20+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.0246, "at": "2026-10-25T20:34:23+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.033372, "at": "2026-10-25T20:34:24+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.027544, "at": "2026-10-25T20:34:25+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.035624, "at": "2026-10-25T20:34:28+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.023932, "at": "2026-10-25T20:34:28+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.022904, "at": "2026-10-25T20:34:29+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.040044, "at": "2026-10-25T20:34:33+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.037736, "at": "2026-10-25T20:34:36+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.038292, "at": "2026-10-25T20:34:36+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.031932, "at": "2026-10-25T20:34:36+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.021416, "at": "2026-10-25T20:34:40+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.022632, "at": "2026-10-25T20:34:41+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.035772, "at": "2026-10-25T20:34:41+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.03408, "at": "2026-10-25T20:34:44+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.028712, "at": "2026-10-25T20:34:45+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.005876, "at": "2026-10-25T20:34:46+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.035816, "at": "2026-10-25T20:34:49+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.04034, "at": "2026-10-25T20:34:50+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.0378, "at": "2026-10-25T20:34:54+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.043896, "at": "2026-10-25T20:34:56+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.040856, "at": "2026-10-25T20:34:58+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.047628, "at": "2026-10-25T20:35:03+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.043528, "at": "2026-10-25T20:35:04+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.036024, "at": "2026-10-25T20:35:04+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.035908, "at": "2026-10-25T20:35:06+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.027824, "at": "2026-10-25T20:35:09+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.027, "at": "2026-10-25T20:35:10+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.038876, "at": "2026-10-25T20:35:13+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.04218, "at": "2026-10-25T20:35:15+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.034192, "at": "2026-10-25T20:35:17+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.031956, "at": "2026-10-25T20:35:17+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.03818, "at": "2026-10-25T20:35:21+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.030644, "at": "2026-10-25T20:35:24+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.037792, "at": "2026-10-25T20:35:24+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.034544, "at": "2026-10-25T20:35:24+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.024212, "at": "2026-10-25T20:35:26+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.019204, "at": "2026-10-25T20:35:26+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.018304, "at": "2026-10-25T20:35:29+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.01852, "at": "2026-10-25T20:35:30+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.03448, "at": "2026-10-25T20:35:31+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.0357, "at": "2026-10-25T20:35:32+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.025392, "at": "2026-10-25T20:35:34+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.027636, "at": "2026-10-25T20:35:35+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.025096, "at": "2026-10-25T20:35:36+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.033308, "at": "2026-10-25T20:35:38+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.013472, "at": "2026-10-25T20:35:38+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.027896, "at": "2026-10-25T20:35:40+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.02502, "at": "2026-10-25T20:35:40+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.015976, "at": "2026-10-25T20:35:41+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.025088, "at": "2026-10-25T20:35:44+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.02772, "at": "2026-10-25T20:35:45+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.024688, "at": "2026-10-25T20:35:46+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.039648, "at": "2026-10-25T20:35:47+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.02352, "at": "2026-10-25T20:35:49+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.022568, "at": "2026-10-25T20:35:51+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.035328, "at": "2026-10-25T20:35:54+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.03158, "at": "2026-10-25T20:35:56+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.027896, "at": "2026-10-25T20:35:56+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.035148, "at": "2026-10-25T20:35:58+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.023868, "at": "2026-10-25T20:36:01+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.03242, "at": "2026-10-25T20:36:02+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.03352, "at": "2026-10-25T20:36:07+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.031816, "at": "2026-10-25T20:36:08+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.043584, "at": "2026-10-25T20:36:09+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.033296, "at": "2026-10-25T20:36:09+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.03282, "at": "2026-10-25T20:36:14+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.039504, "at": "2026-10-25T20:36:17+0000"}
+{"step": "(b) Approach 3 rerun, taxonomy-v3.0, cache off", "stage": "taxonomy.build", "model": "claude-opus-5-5", "usd": 0.03404, "at": "2026-10-25T20:36:17+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.027665, "at": "2026-10-25T20:36:43+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.034625, "at": "2026-10-25T20:36:46+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.035853, "at": "2026-10-25T20:36:46+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.035946, "at": "2026-10-25T20:36:48+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.015998, "at": "2026-10-25T20:36:52+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.02082, "at": "2026-10-25T20:36:53+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.021176, "at": "2026-10-25T20:36:54+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.015272, "at": "2026-10-25T20:36:57+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.01842, "at": "2026-10-25T20:36:58+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.018182, "at": "2026-10-25T20:36:58+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.016244, "at": "2026-10-25T20:37:00+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.013344, "at": "2026-10-25T20:37:01+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.01907, "at": "2026-10-25T20:37:03+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.020354, "at": "2026-10-25T20:37:04+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.012814, "at": "2026-10-25T20:37:04+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.004424, "at": "2026-10-25T20:37:05+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.02041, "at": "2026-10-25T20:37:07+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.013016, "at": "2026-10-25T20:37:08+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.021106, "at": "2026-10-25T20:37:10+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.017662, "at": "2026-10-25T20:37:10+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.01321, "at": "2026-10-25T20:37:11+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.017106, "at": "2026-10-25T20:37:12+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.014142, "at": "2026-10-25T20:37:14+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.011872, "at": "2026-10-25T20:37:15+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.012416, "at": "2026-10-25T20:37:15+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.018292, "at": "2026-10-25T20:37:16+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.020242, "at": "2026-10-25T20:37:20+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.015646, "at": "2026-10-25T20:37:20+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.016156, "at": "2026-10-25T20:37:20+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.019678, "at": "2026-10-25T20:37:21+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.010858, "at": "2026-10-25T20:37:23+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.011966, "at": "2026-10-25T20:37:25+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.018556, "at": "2026-10-25T20:37:25+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.01773, "at": "2026-10-25T20:37:25+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.003278, "at": "2026-10-25T20:37:27+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.016666, "at": "2026-10-25T20:37:28+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.014418, "at": "2026-10-25T20:37:29+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.02053, "at": "2026-10-25T20:37:31+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.01868, "at": "2026-10-25T20:37:32+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.020418, "at": "2026-10-25T20:37:34+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.020388, "at": "2026-10-25T20:37:35+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.020544, "at": "2026-10-25T20:37:37+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.020704, "at": "2026-10-25T20:37:39+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.018022, "at": "2026-10-25T20:37:40+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.016054, "at": "2026-10-25T20:37:40+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.014342, "at": "2026-10-25T20:37:42+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.0138, "at": "2026-10-25T20:37:43+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.019758, "at": "2026-10-25T20:37:45+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.015368, "at": "2026-10-25T20:37:46+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.02069, "at": "2026-10-25T20:37:47+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.015446, "at": "2026-10-25T20:37:47+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.01975, "at": "2026-10-25T20:37:51+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.013932, "at": "2026-10-25T20:37:51+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.018126, "at": "2026-10-25T20:37:52+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.018582, "at": "2026-10-25T20:37:52+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.013066, "at": "2026-10-25T20:37:54+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.009952, "at": "2026-10-25T20:37:54+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.01661, "at": "2026-10-25T20:37:56+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.009412, "at": "2026-10-25T20:37:56+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.01792, "at": "2026-10-25T20:37:57+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.011366, "at": "2026-10-25T20:37:58+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.00909, "at": "2026-10-25T20:37:59+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.014508, "at": "2026-10-25T20:37:59+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.010458, "at": "2026-10-25T20:38:00+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.014664, "at": "2026-10-25T20:38:01+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.007366, "at": "2026-10-25T20:38:02+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.014148, "at": "2026-10-25T20:38:02+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.01284, "at": "2026-10-25T20:38:03+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.008668, "at": "2026-10-25T20:38:03+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.013324, "at": "2026-10-25T20:38:06+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.01447, "at": "2026-10-25T20:38:06+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.012444, "at": "2026-10-25T20:38:07+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.019914, "at": "2026-10-25T20:38:07+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.01204, "at": "2026-10-25T20:38:09+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.014388, "at": "2026-10-25T20:38:10+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.011574, "at": "2026-10-25T20:38:10+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.017924, "at": "2026-10-25T20:38:13+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.01398, "at": "2026-10-25T20:38:13+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.016614, "at": "2026-10-25T20:38:15+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.012274, "at": "2026-10-25T20:38:16+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.01921, "at": "2026-10-25T20:38:17+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.0172, "at": "2026-10-25T20:38:17+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.016348, "at": "2026-10-25T20:38:20+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.022032, "at": "2026-10-25T20:38:21+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.01736, "at": "2026-10-25T20:38:22+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.018718, "at": "2026-10-25T20:38:23+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.017702, "at": "2026-10-25T20:38:26+0000"}
+{"step": "(c) Audit run B: approach 3 after a model swap", "stage": "taxonomy.build", "model": "claude-sonnet-5-5", "usd": 0.01745, "at": "2026-10-25T20:38:27+0000"}

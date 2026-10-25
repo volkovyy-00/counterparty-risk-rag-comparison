@@ -25,10 +25,17 @@ TSLA APTV BWA LEA (autos) and NXPI MCHP ON TXN (semis).
 - The human labels the ground truth, never Claude. Keep the Apache-2.0 LICENSE and NOTICE.
 
 ## Repository state
-- Remote https://github.com/volkovyy-00/counterparty-risk-rag-comparison: `main` is at `364ca09`.
-  `standalone` is the same as main; the user should delete it, and also `demo-ready` (old workshop history).
-  This session's proxy cannot delete branches.
-- **Branch `graphrag-v2`** holds GraphRAG v2 and is pushed (the user agreed). Keep pushing small commits there.
+- Remote https://github.com/volkovyy-00/counterparty-risk-rag-comparison: `main` is at `1c3bdc5` and holds
+  GraphRAG v2 and taxonomy v3 (both merged). `standalone`, `demo-ready`, `graphrag-v2` and `taxonomy-v3` are older
+  branches; the user may delete them (this session's proxy cannot delete branches).
+- **Branch `demo`** (from `1c3bdc5`): the real-data demo work as a clean PR into main. It replaces `demo-real`,
+  whose history carried 38 MiB of caches and retaken screenshots: the user approved deleting `demo-real` on origin
+  once `demo` is merged.
+- **Tracked vs Release:** git tracks code, config (with the verified key), `data/corpus/`, `results/demo_run/`
+  and `results/spend/`. The fallback PNGs, the LLM replay cache (`cache/chat`, `cache/count`) and every other
+  `results/` file are in the Release `demo-artifacts-2026-10-25`; `make fetch-artifacts [WHAT=...]` restores them.
+  `make demo` needs none of them. New cache entries or screenshots mean a new Release (tag + the pinned SHA256 in
+  `scripts/fetch_artifacts.sh`).
 - Layout: `src/` code, `config/` YAML (groups, taxonomy, pricing, ground_truth, graph_aliases), `demo/` page,
   `tests/`, `docs/` (DETAILS, REHEARSAL, GRAPHRAG_V2), `data/corpus/edgar_latest/` (frozen 10-K Item 1A text).
 - Tests: 45 passed and 2 skipped without Neo4j; 46 passed and 1 skipped with Neo4j. The remaining skip is the
@@ -70,7 +77,7 @@ See `docs/GRAPHRAG_V2.md`.
   the smaller side (+ natural disaster vs yield), alias keys ("U.S."). The singleton bar was changed with the user's
   approval to "below graph-v2's first run (92.2%)", because A's 70.5% comes from over-merging.
 - **Spend:** $3.41 in total for the A/B series (first $5 cap: $2.05; second $5 cap: $1.36). All calls are in
-  `cache/chat/` (committed), so the 3 A/B filings replay for free in the full build.
+  `cache/chat/` (Release asset `replay-cache.tar.gz`), so the 3 A/B filings replay for free in the full build.
 - **Screen 4 = ask the graph** (`src/graph_qa.py`, `make graph-qa`): 5 fixed questions on 3 read-only Cypher
   templates; the page draws exactly the returned rows, shows Cypher + template + params, opens the quote drawer
   from any node; empty rows → no model call, "No bridge found – the graph won't invent a link". Stage chips:
@@ -88,11 +95,62 @@ See `docs/GRAPHRAG_V2.md`.
 - Two commit messages (535c5ea, a80e81a) have the attribution lines on the subject paragraph; rewriting pushed
   history was not allowed. Harmless.
 
+## Taxonomy v3 (approach 3, merged into main)
+- `TAXO_PROMPT_VERSION=taxonomy-v3.0` is the default: Item 1A is split by risk-factor heading
+  (`corpus.split_risk_factors`) and packed into whole-section windows. The prompt asks for **one label per risk
+  factor** plus an unscored `driver` note. `taxonomy-v2.x` keeps the fixed paragraph windows and its prompt.
+  `taxonomy-v3.1` (adds "prefer the most specific leaf") stays runnable but is no longer the default run B.
+- Split report (`results/taxonomy_split_report.md`, no model call): 8 of 10 filings split by heading. GM and F
+  set their headings in bold inside the first paragraph, so they use the paragraph split (`corpus.split_paragraphs`:
+  each paragraph whose first sentence reads like a heading is a section). Until the core run they fell back to
+  fixed windows with no `[RF n]` markers, and the v3 prompt returned almost nothing for them (GM 5 claims, F 0).
+- Coverage check (`results/taxonomy_coverage.md`): no new leaf justified.
+- A/B on NXPI and LEA (`results/taxonomy_ab/report.md`, $1.15): v3.0 duplicate-label rate 0% (v2.0: 3.7% / 11.1%),
+  quote pass 100% / 96.8%, fewer labels per risk factor (1.05 / 1.03). OTHER drivers listed on screen 5, not scored.
+
 ## Cost estimates (Opus 5.5, input tokens measured, output tokens assumed)
 - Full graph build: v1 $7.97, v2 about $9.6 (v2 extraction now returns somewhat more mentions per chunk).
-- Whole frozen demo with 2 reruns and audit run B: about $50. The user found that too much. Cheaper paths
-  discussed: Sonnet 5.5 (about half the cost), reruns only for approach 1, or skipping audit run B. **The model
-  choice and plan are still open.**
+- The old one-shot freeze (2 reruns of 1, 2, 3 + audit run B) was estimated at $50.79 ($21.01 with no reruns);
+  too much. **Decided (demo-real):** the real run is staged, each stage gated by the user's "go":
+  - `--stage core` (cap $20, `LLM_MAX_USD=20`): graph build, run A of 1, 2, 3, L frozen, graph export, graph QA,
+    governance, page, screenshots. No reruns, no run B.
+  - `--stage extras` (cap $10, `LLM_MAX_USD=10`): (a) 2 reruns of approach 1; (b) 1 rerun of approach 3
+    (taxonomy-v3.0, cache off); (c) audit run B as a **model swap**: approach 3 on Sonnet 5.5, prompt v3.0. Over the
+    cap, (b) is dropped first, then (c). Approach 2 is not rerun (a rebuild costs about $9.6); screen 6 says so.
+
+## demo-real: status (25 Oct 2026, third session)
+- Brief: the real-data demo, staged spend with gates. **Gate 1 (core) and Gate 2 (extras) are done; next is the
+  Final stage** (offline `make demo`, fallbacks, REHEARSAL beats, timings). Nothing is pushed: don't push until
+  the user says "push".
+- Key: verified by the user (YV, 650 cells), cherry-picked from `ground-truth-key` (`f0a0027`); run A re-scored in
+  replay ($0). Leaf F1: RAG 0.03, GraphRAG 0.06, taxonomy 0.74, long context 0.15. The page now builds without
+  `--draft` (the extras gave screen 7 its rerun Jaccard); screenshots are from the non-draft page.
+- Stage 0: `real_run.py --stage core|extras`, spend ledger (`LLM_SPEND_LEDGER`, so `LLM_MAX_USD` holds across
+  steps), bridge ranking in code (`graph_qa.rank_bridge`), `driver_dups.py` (alias *proposals* only), page fixes.
+- Core run, measured (`results/demo_run/spend.json`, ledger `results/spend/real_run_core.jsonl`): **$8.76 of the
+  $20 cap** (estimate $13.94). Graph build $3.94, run A $3.62, graph QA $0.02, then three fixes: GM/F
+  re-classified $0.75, approach-2 ask again $0.43, graph QA again $0.01.
+- Fixed during the core run:
+  - GM and F fell back to fixed windows without `[RF n]` markers; the v3 prompt returned almost nothing (GM 5
+    claims, F 0). They now use the paragraph split (`corpus.split_paragraphs`).
+  - `test_graphrag_build_ask_and_export` resets the local Neo4j, so a test run with Neo4j up wiped the demo graph.
+    It now needs `NEO4J_TEST=1`. The graph was rebuilt from the cache (`LLM_CACHE=replay ... build --reset`, $0),
+    identical: 704 mentions, 360 risk factors.
+  - The approach-2 ask and graph-QA prompts depended on Neo4j's storage order, so a rebuild changed their cache
+    keys. Evidence is now sorted on every field; graph QA replays identically.
+- Run A: L 36/36 claims, 10/10 companies; RAG 13/13, retrieved 8/10 (F and TXN never retrieved), 5/10 in the
+  answer; GraphRAG 19/19, 9/10; taxonomy 410/431 (1 quote, 20 labels rejected), 10/10, 60 shared leaves.
+- `driver_dups.py` on the full graph proposes some wrong aliases (North/South America, Northern Africa/Northern
+  California, Department of War/Commerce, Robotaxi/robotics). Review by hand; don't paste the YAML as is.
+- Extras (Gate 2): estimate $8.44 re-measured (nothing dropped); **measured $4.57 of the $10 cap** (ledger
+  `results/spend/real_run_extras.jsonl`): (a) RAG reruns $0.20, (b) taxonomy rerun $2.92, (c) run B on Sonnet
+  $1.45. `claude-sonnet-5-5` confirmed in the API's models list first.
+  - Rerun Jaccard (leaf): RAG 1.00 over 3 runs (it is consistently narrow: same 1% recall each time), taxonomy
+    0.96 over 2 runs. GraphRAG not rerun (a rebuild ~$9.35); screen 6 says so.
+  - Run B (`results/demo_run/audit/run_b/`, served Sonnet only): 406/413 verified vs run A 410/431; 57 shared
+    leaves vs 60; OTHER 7.9% vs 7.8%; 10/10 companies both; leaf F1 0.75 vs 0.74.
+- Never install `fake_llm` outside the tests' `offline` fixture or `make_fixture`: it writes fake replies into the
+  real `cache/chat/`.
 
 ## Next tasks, in order
 1. Done this session: A/B, screen 4 ask-the-graph, screen 5 (and 2) overflow. Items 2–3 below are kept for
