@@ -80,6 +80,7 @@ a { color:var(--accent); }
 .hm td.cell { width:86px; height:40px; text-align:center; font-weight:700; cursor:pointer; border-radius:3px; }
 .hm td.cell.zero { background:transparent; outline:1px solid var(--line); cursor:default; }
 .hm tr.generic td.cell:not(.zero) { filter:grayscale(100%); }
+.ell { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .legend { display:flex; align-items:center; gap:4px; font-size:22px; }
 .legend span { width:40px; height:22px; display:inline-block; }
 /* drawer */
@@ -398,12 +399,13 @@ function screen5() {
   const cross = heatRows(r, "leaf").filter(x => x.cross && !x.generic).slice(0, 5);
   const ml = r.matrix.leaf;
   const crossHtml = cross.map(x => { const a = T.filter(t => ml[x.label][t] > 0 && industry(t) !== "semis"), s = T.filter(t => ml[x.label][t] > 0 && industry(t) === "semis");
-    return `<div style="margin-bottom:10px"><span class="mono">${esc(leafName(x.label))}</span><br><b>${a.join(" ")}</b> ↔ <b>${s.join(" ")}</b></div>`; }).join("");
+    return `<div style="margin-bottom:10px"><div style="display:flex;gap:12px"><span class="mono ell" style="flex:1">${esc(leafName(x.label))}</span><b>${a.length} auto${a.length === 1 ? "" : "s"} ↔ ${s.length} semi${s.length === 1 ? "" : "s"}</b></div>
+      <div class="muted ell">${a.join(" ")} ↔ ${s.join(" ")}</div></div>`; }).join("");
   const legend = VIRIDIS.filter((_, i) => i % 2 === 0).map(c => `<span style="background:${c}"></span>`).join("");
-  return `<div class="row"><div><table class="hm">${head}${body}</table>
+  return `<div class="row"><div style="flex:1;min-width:0"><table class="hm">${head}${body}</table>
       ${all.length > MAXROWS ? `<div class="small muted">+ ${all.length - MAXROWS} more ${level === "leaf" ? "shared leaves" : "rows"} (ranked lower)</div>` : ""}</div>
-    <div class="col small"><button class="${level === "leaf" ? "on" : ""}" onclick="S.hmLevel=S.hmLevel==='leaf'?'category':'leaf';render()">Leaf level – L</button>
-     <div class="legend" style="margin:14px 0">0 ${legend} ${max} risk factors (number in each cell)</div>
+    <div class="small" style="flex:0 0 520px;min-width:0"><button class="${level === "leaf" ? "on" : ""}" onclick="S.hmLevel=S.hmLevel==='leaf'?'category':'leaf';render()">Leaf level – L</button>
+     <div class="legend" style="margin:14px 0">0 ${legend} ${max} <em class="muted" style="font-style:normal;margin-left:6px">risk factors per cell</em></div>
      <div class="panel"><b>Where autos and semis connect</b> (specific leaves, both industries)<br><br>${crossHtml || "<span class='muted'>none</span>"}</div>
      <div class="panel" style="margin-top:14px">${r.verification.accepted} of ${r.verification.claims} claims verified · ${r.verification.rejected_quote} quotes rejected ·
        ${r.verification.rejected_label} labels rejected<br><span class="muted">Click a cell for every quote. Greyed = generic (≥80% of companies), ranked below specific shared risks.</span></div>
