@@ -565,11 +565,11 @@ function screen5() {
       ${all.length > MAXROWS ? `<div class="small muted">+ ${all.length - MAXROWS} more ${level === "leaf" ? "shared leaves" : "rows"} (ranked lower)</div>` : ""}</div>
     <div class="small" style="flex:0 0 520px;min-width:0"><button class="${level === "leaf" ? "on" : ""}" onclick="S.hmLevel=S.hmLevel==='leaf'?'category':'leaf';render()">Leaf level – L</button>
      <div class="legend" style="margin:14px 0 4px">0 ${legend} ${max} <em class="muted" style="font-style:normal;margin-left:6px">risk factors per cell</em></div>
-     <div class="muted" style="margin-bottom:12px">grey = generic (≥80% of companies) · ↔ = both industries</div>
+     <div class="muted" style="margin-bottom:12px;font-size:19px">grey = generic (≥80% of firms) · ↔ = both industries</div>
      <div class="panel"><b>Where autos and semis connect</b> (specific leaves, both industries)<div style="margin-top:10px">${crossHtml || "<span class='muted'>none</span>"}</div></div>
      ${driverHtml ? `<div class="panel" style="margin-top:14px"><b>OTHER drivers</b> <span class="muted">(not scored)</span><div style="margin-top:8px">${driverHtml}</div></div>` : ""}
      <div class="panel" style="margin-top:14px">${r.verification.accepted} of ${r.verification.claims} claims verified · ${plural(r.verification.rejected_quote, "quote")} rejected ·
-       ${plural(r.verification.rejected_label, "label")} rejected<br><span class="muted">Click a cell for every quote. Generic rows rank below specific shared risks.</span></div>
+       ${plural(r.verification.rejected_label, "label")} rejected<br><span class="muted">Click a cell for every quote.</span></div>
     </div></div>`;
 }
 

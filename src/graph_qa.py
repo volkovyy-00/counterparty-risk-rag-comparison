@@ -153,11 +153,15 @@ def rows_for(drv, q, n=None):
 
 
 def _evidence(row):
-    """Driver rows carry `uses` (one per mention); risk rows carry `evidence` (parallel lists per company)."""
+    """Driver rows carry `uses` (one per mention); risk rows carry `evidence` (parallel lists per company).
+
+    Sorted: collect() returns storage order, which changes on every rebuild, and the prompt must not."""
     if "uses" in row:
-        return [dict(u) for u in row["uses"]]
-    return [{"ticker": e["ticker"], "risk": row["risk"], "quote": qt, "span": sp, "chunk_id": ch}
-            for e in row["evidence"] for qt, sp, ch in zip(e["quotes"], e["spans"], e["chunk_ids"])]
+        ev = [dict(u) for u in row["uses"]]
+    else:
+        ev = [{"ticker": e["ticker"], "risk": row["risk"], "quote": qt, "span": sp, "chunk_id": ch}
+              for e in row["evidence"] for qt, sp, ch in zip(e["quotes"], e["spans"], e["chunk_ids"])]
+    return sorted(ev, key=lambda e: tuple(str(e.get(k) or "") for k in ("ticker", "chunk_id", "span", "risk", "quote")))
 
 
 def to_subgraph(rows, filings):

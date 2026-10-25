@@ -65,7 +65,7 @@ Every model call is cached, so `LLM_CACHE=replay python src/run_all.py` reproduc
 
 ```bash
 make test             # offline; uses a test-only fake model that can never be frozen into results/demo_run/
-NEO4J_PASSWORD=... make test   # also builds and exports a small graph
+NEO4J_TEST=1 NEO4J_PASSWORD=... make test   # also builds a small graph: resets the local Neo4j, so rebuild the demo graph after
 ```
 
 CI: `.github/workflows/tests.yml` runs these tests offline. It needs no secrets.

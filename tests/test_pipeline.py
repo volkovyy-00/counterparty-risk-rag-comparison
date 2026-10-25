@@ -1,5 +1,6 @@
 """Offline tests: python -m pytest tests -q   (Neo4j tests run only if NEO4J_PASSWORD is set)."""
 import json
+import os
 import socket
 import sys
 from pathlib import Path
@@ -273,8 +274,9 @@ def _neo4j_listening():
         return False
 
 
-@pytest.mark.skipif(not config.NEO4J_PASSWORD or not _neo4j_listening(),
-                    reason="needs a running local Neo4j and NEO4J_PASSWORD (offline runs skip it)")
+@pytest.mark.skipif(os.environ.get("NEO4J_TEST") != "1" or not config.NEO4J_PASSWORD or not _neo4j_listening(),
+                    reason="opt in with NEO4J_TEST=1: it resets the local Neo4j database, so it would wipe the demo "
+                           "graph (rebuild after: LLM_CACHE=replay python src/approach2_graphrag.py build --reset)")
 def test_graphrag_build_ask_and_export(offline, monkeypatch, tmp_path):
     import approach2_graphrag
     import export_graph
