@@ -318,7 +318,7 @@ def count_tokens(system, user):
     record = _cache_get(path)
     if record is None:
         resp = _client("anthropic").messages.count_tokens(
-            model=config.LLM_MODEL, system=system, messages=[{"role": "user", "content": user}])
+            model=config.LLM_MODEL, system=system, messages=[{"role": "user", "content": user or "."}])  # API rejects empty
         record = {"model": config.LLM_MODEL, "input_tokens": resp.input_tokens,
                   "recorded_at": time.strftime("%Y-%m-%dT%H:%M:%S%z")}
         _cache_put(path, record)
