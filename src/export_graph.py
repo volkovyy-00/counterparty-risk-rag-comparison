@@ -4,8 +4,10 @@
 
 Nodes: Company and RiskFactor (with degree = number of companies facing it).
 Edges: FACES_RISK, each with the evidence chunk ids it came from.
-Also records the entity-resolution numbers (RiskFactor count after exact-name
-merging vs after fuzzy merging) from results/graph_build_<corpus>.json.
+graph-v2 (default) is exported from the build snapshot (results/graph_snapshot_<corpus>_graph-v2.json), the same
+data that was loaded into Neo4j, and adds: per RiskFactor definition, aliases, idf, boilerplate_share; per edge the
+verified quotes with EDGAR links; ExposureDriver nodes; the resolution counts and the graph-quality metrics.
+graph-v1-workshop is exported from Neo4j as before. Old keys are always filled, so older pages still render.
 """
 import argparse
 import json
@@ -27,7 +29,9 @@ ORDER BY size(tickers) DESC, name
 """
 
 
-def export(path=None):
+def export(path=None, filings=None):
+    if config.GRAPH_PROMPT_VERSION == "graph-v2":
+        return export_v2(path, filings)
     from approach2_graphrag import driver
 
     path = Path(path or config.RESULTS_DIR / "demo_run" / "graph.json")
@@ -63,6 +67,73 @@ def export(path=None):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(graph, indent=1))
     print(f"{len(companies)} companies, {len(risks)} risk factors, {len(edges)} edges -> {config.rel(path)}")
+    return graph
+
+
+def export_v2(path=None, filings=None, snapshot=None):
+    import graph_quality
+    from approach2_graphrag import snapshot_path
+    from corpus import load_corpus
+    from verify import edgar_fragment_url
+
+    path = Path(path or config.RESULTS_DIR / "demo_run" / "graph.json")
+    snap = snapshot or json.loads(snapshot_path().read_text())
+    filings = [f for f in (filings or load_corpus()) if f["ticker"] in snap["tickers"]]
+    url = {f["ticker"]: f.get("url", "") for f in filings}
+    n = max(len(filings), 1)
+    mentions = {m["id"]: m for m in snap["mentions"]}
+    rfs = sorted(snap["risk_factors"], key=lambda r: (-r["n_companies"], r["name"]))
+    nodes = [{"id": f"c:{f['ticker']}", "type": "Company", "label": f["ticker"], "name": f["company"],
+              "industry": config.INDUSTRY.get(f["ticker"], "other"),
+              "degree": sum(f["ticker"] in r["tickers"] for r in rfs)} for f in filings]
+    edges = []
+    for i, r in enumerate(rfs):
+        rid = f"r:{i}"
+        nodes.append({"id": rid, "type": "RiskFactor", "label": r["name"], "degree": r["n_companies"],
+                      "share": round(r["n_companies"] / n, 3), "generic": r["generic"], "industries": r["industries"],
+                      "definition": r["definition"], "aliases": r["aliases"], "idf": r["idf"],
+                      "boilerplate_share": r["boilerplate_share"]})
+        for t in r["tickers"]:
+            ms = sorted((mentions[x] for x in r["mention_ids"] if mentions[x]["ticker"] == t), key=lambda m: m["start"])
+            edges.append({"source": f"c:{t}", "target": rid, "chunks": sorted({m["chunk_id"] for m in ms}),
+                          "quotes": [{"text": m["quote"], "start": m["start"], "end": m["end"],
+                                      "chunk_id": m["chunk_id"], "risk_name": m["risk_name"],
+                                      "edgar_url": edgar_fragment_url(url[t], m["quote"])
+                                      if str(url.get(t, "")).startswith("http") else ""}
+                                     for m in ms[:5]]})
+    drivers, driver_edges = [], []
+    for k, d in enumerate(sorted(snap["drivers"], key=lambda d: (-len(d["tickers"]), d["name"]))):
+        did = f"d:{k}"
+        drivers.append({"id": did, "type": "ExposureDriver", "label": d["name"], "driver_type": d["type"],
+                        "degree": len(d["tickers"]), "aliases": d["aliases"],
+                        "industries": sorted({config.INDUSTRY.get(t, "other") for t in d["tickers"]})})
+        driver_edges += [{"source": f"c:{t}", "target": did} for t in d["tickers"]]
+    a = snap["audit"]
+    top = max((nd for nd in nodes if nd["type"] == "RiskFactor"), key=lambda nd: nd["degree"], default=None)
+    quality = graph_quality.compute_v2(snap, filings)
+    graph = {
+        "corpus": config.CORPUS, "prompt_version": snap["prompt_version"],
+        "nodes": nodes, "edges": edges, "drivers": drivers, "driver_edges": driver_edges,
+        "resolution": {"resolver": snap["resolver"], "prompt_version": snap["prompt_version"],
+                       "mentions": a["mentions"], "risk_factors": a["risk_factors"],
+                       "merges_approved": len(a["merges_approved"]),
+                       "merges_rejected": len(a["merges_rejected"]),
+                       "merges_rejected_by_rule": sum(str(r.get("reason", "")).startswith("rule")
+                                                      for r in a["merges_rejected"]),
+                       "generic_rule": a.get("generic_rule"),
+                       "risk_factors_exact": a["names_exact"], "risk_factors_resolved": a["risk_factors"]},
+        "most_generic": top and {"label": top["label"], "companies": top["degree"], "share": top["share"]},
+        "quality": quality,
+        "build": {"model": config.LLM_MODEL, "chunk_chars": config.GRAPH_V2_CHUNK_CHARS},
+    }
+    build_file = config.RESULTS_DIR / f"graph_build_{config.CORPUS}.json"
+    if build_file.exists():
+        build = json.loads(build_file.read_text())
+        graph["build"] = {k: build.get(k) for k in ("model", "chunk_chars", "usage", "prompt_version", "prompt_sha256")}
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(graph, indent=1))
+    print(f"{len(filings)} companies, {len(rfs)} risk factors ({quality['shared_specific_cross_industry']} specific "
+          f"cross-industry), {len(drivers)} drivers, {len(edges)} edges -> {config.rel(path)}")
     return graph
 
 
