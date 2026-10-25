@@ -48,7 +48,10 @@ def make(out, with_graph=None, corpus="workshop_sample"):
         keys.insert(1, "2")
     run_all.run(keys, out, label="fixture run A (prompt taxonomy-v2.0)")
     if with_graph:
+        import graph_qa
+
         export_graph.export(out / "graph.json")
+        graph_qa.run(out / "graph_qa.json")
     else:  # graph-v2 export comes from the build snapshot, so screen 4 renders without Neo4j
         import approach2_graphrag
         import export_graph

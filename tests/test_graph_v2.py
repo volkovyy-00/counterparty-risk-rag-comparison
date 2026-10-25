@@ -1,6 +1,7 @@
 """Offline tests for GraphRAG v2 (approach 2): chunking, validation, resolution, metrics, export, estimate."""
 import csv
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -320,3 +321,77 @@ def test_demo_page_renders_new_old_and_missing_graph(tmp_path, monkeypatch):
     (run / "graph.json").unlink()
     build_demo.build(run, tmp_path / "none.html", fixture=True)
     assert _page_errors(tmp_path / "none.html", "?screen=4", "No exported graph") == ([], True)
+
+
+# --------------------------------------------------------------------------- ask the graph (screen 4)
+def _qa_rows(filings):
+    """Hand-written query rows in the templates' shapes: one shared risk, one driver."""
+    a, b = filings[0], filings[1]
+    ev = lambda f, s: {"ticker": f["ticker"], "quotes": [f["text"][s:s + 120]], "spans": [f"{s}:{s + 120}"],  # noqa: E731
+                       "chunk_ids": [f"{f['ticker']}-g0"]}
+    risk = {"id": "rf1", "risk": "Export controls", "definition": "", "generic": False, "n_companies": 2,
+            "role": "shared", "evidence": [ev(a, 400), ev(b, 900)]}
+    drv = {"id": "d1", "driver": "China", "type": "GEOGRAPHY", "tickers": [a["ticker"], b["ticker"]],
+           "uses": [{"ticker": f["ticker"], "risk": "Export controls", "quote": f["text"][700:820], "span": "700:820",
+                     "chunk_id": f"{f['ticker']}-g0"} for f in (a, b)]}
+    return risk, drv
+
+
+def test_graph_qa_subgraph_holds_exactly_the_returned_rows(offline):
+    import graph_qa
+
+    risk, drv = _qa_rows(offline)
+    g = graph_qa.to_subgraph([risk, drv], offline)
+    companies = {n["label"] for n in g["nodes"] if n["type"] == "Company"}
+    assert companies == {offline[0]["ticker"], offline[1]["ticker"]}  # only companies the rows mention
+    assert [n["label"] for n in g["nodes"] if n["type"] == "RiskFactor"] == ["Export controls"]
+    assert [d["label"] for d in g["drivers"]] == ["China"]
+    assert len(g["edges"]) == 2 and len(g["driver_edges"]) == 2
+    q = g["edges"][0]["quotes"][0]
+    f = next(f for f in offline if f"c:{f['ticker']}" == g["edges"][0]["source"])
+    assert f["text"][q["start"]:q["end"]] == q["text"]
+    assert graph_qa.to_subgraph([], offline) == {"nodes": [], "edges": [], "drivers": [], "driver_edges": []}
+
+
+def test_graph_qa_answer_is_verified_and_empty_rows_make_no_call(offline, monkeypatch):
+    import graph_qa
+
+    risk, drv = _qa_rows(offline)
+    out = graph_qa.answer(graph_qa.QUESTIONS[0], [risk, drv], offline)
+    assert not out["empty"] and out["verification"]["claims"] == len(out["claims"]) + len(out["rejected"])
+    monkeypatch.setattr(llm, "chat", lambda *a, **k: pytest.fail("no model call for an empty result"))
+    empty = graph_qa.answer(graph_qa.QUESTIONS[2], [], offline)
+    assert empty["empty"] and not empty["claims"] and "invent" in empty["summary"]
+
+
+def test_graph_qa_questions_are_fixed_and_stage_order_is_set():
+    import graph_qa
+
+    assert [q["id"] for q in graph_qa.QUESTIONS if q["stage"]] == ["gm_nxpi", "shared_vs_specific", "bridge"]
+    assert all(q["template"] in graph_qa.TEMPLATES for q in graph_qa.QUESTIONS)
+    for cypher in graph_qa.TEMPLATES.values():  # read-only by construction (and run in READ transactions)
+        assert not re.search(r"\b(CREATE|MERGE|DELETE|SET|REMOVE|DROP)\b", cypher)
+
+
+def test_demo_page_asks_the_graph(tmp_path, monkeypatch, offline):
+    import build_demo
+    import graph_qa
+    from tests import make_fixture
+
+    run = make_fixture.make(tmp_path / "run", with_graph=False)
+    monkeypatch.setattr(config, "NEO4J_PASSWORD", None)
+    risk, drv = _qa_rows(offline)
+    items = []
+    for q, rows in zip(graph_qa.QUESTIONS, ([risk], [risk], [], [risk, drv], [risk])):
+        items.append({**{k: q[k] for k in ("id", "label", "question", "stage", "template", "params")},
+                      "cypher": graph_qa.TEMPLATES[q["template"]].strip(), "rows": len(rows),
+                      "subgraph": graph_qa.to_subgraph(rows, offline), **graph_qa.answer(q, rows, offline)})
+    (run / "graph_qa.json").write_text(json.dumps({"questions": items, "build": {}}))
+    build_demo.build(run, tmp_path / "qa.html", fixture=True)
+    for query, text in (("?screen=4", "Cypher used"), ("?screen=4&qa=bridge", "No bridge found"),
+                        ("?screen=4&qa=gm_nxpi&risk=1", "Item 1A characters"), ("?screen=4&qa=tsla_on_txn", "Fewer"),
+                        ("?screen=4&overview=1", "verified mentions")):
+        res = _page_errors(tmp_path / "qa.html", query, text)
+        if res is None:
+            pytest.skip("no browser")
+        assert res == ([], True), query

@@ -54,6 +54,7 @@ def prompt_hashes():
     import approach1_rag
     import approach2_graphrag
     import approach3_taxonomy
+    import graph_qa
     from answer import CLAIMS_SCHEMA
 
     claims = json.dumps(CLAIMS_SCHEMA, sort_keys=True)
@@ -63,7 +64,7 @@ def prompt_hashes():
         "2_graphrag": sha256(approach2_graphrag.SYSTEM + approach2_graphrag.EXTRACTION_INSTRUCTION + claims)
         if config.GRAPH_PROMPT_VERSION == "graph-v1-workshop" else _graph_v2_hash(approach2_graphrag.SYSTEM, claims),
         "3_taxonomy_first": sha256(approach3_taxonomy.system() + json.dumps(approach3_taxonomy.SCHEMA, sort_keys=True)),
-    }
+    } | ({"2_graph_qa": graph_qa.prompt_sha256()} if config.GRAPH_PROMPT_VERSION == "graph-v2" else {})
 
 
 def build(filings, approaches, label=""):

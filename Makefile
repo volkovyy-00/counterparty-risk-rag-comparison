@@ -3,7 +3,7 @@ PY ?= python
 PORT ?= 8000
 
 .PHONY: demo demo-live check build-demo screenshots check-secrets test real-run estimate label record-help \
-	graph-quality graph-check graph-ab
+	graph-quality graph-check graph-ab graph-qa
 
 demo: check build-demo            ## offline: no network, no Neo4j
 	$(PY) src/serve.py --port $(PORT)
@@ -36,6 +36,9 @@ estimate:
 
 real-run:                         ## spends money: prints the estimate and stops if it is over $$5
 	$(PY) src/real_run.py $(ARGS)
+
+graph-qa:                         ## spends money: screen-4 graph questions from Neo4j; stops unless ARGS="--confirm-usd N"
+	$(PY) src/graph_qa.py $(ARGS)
 
 graph-quality:                    ## approach 2 graph metrics from the build files (no Neo4j, no model call)
 	$(PY) src/graph_quality.py

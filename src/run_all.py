@@ -24,7 +24,7 @@ APPROACHES = {"L": ("0_long_context", "Control: long context"), "1": ("1_plain_r
               "2": ("2_graphrag", "Approach 2 - GraphRAG"), "3": ("3_taxonomy_first", "Approach 3 - taxonomy-first")}
 LATEST = config.RESULTS_DIR / "latest"
 DEMO_RUN = config.RESULTS_DIR / "demo_run"
-KEEP_ON_FREEZE = ("reruns", "audit", "graph.json", "governance.json")  # produced by other steps
+KEEP_ON_FREEZE = ("reruns", "audit", "graph.json", "graph_qa.json", "governance.json")  # produced by other steps
 
 
 def _module(key):

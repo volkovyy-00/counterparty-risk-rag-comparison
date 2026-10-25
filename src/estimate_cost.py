@@ -18,7 +18,8 @@ ASSUME_OUT = {"taxonomy_window": 2500, "graph_chunk": 900, "graph_v2_chunk": 180
 GRAPH_PROMPT_OVERHEAD = 1500  # SimpleKGPipeline extraction template + schema, tokens
 # graph-v2 resolution and ask: stated assumptions until an A/B run measures them.
 ASSUME_V2 = {"mentions_per_chunk": 6, "components_per_mention": 0.15, "resolve_in": 1500, "resolve_out": 600,
-             "ask_evidence_tokens": 30 * 3 * 300 + 10 * 3 * 60}
+             "ask_evidence_tokens": 30 * 3 * 300 + 10 * 3 * 60,
+             "qa_evidence_tokens": 8000}  # graph QA: about 7,000 measured on the 3-filing A/B graph
 
 
 def _tokens(system, user, measure):
@@ -68,9 +69,20 @@ def estimate(filings, reruns=2, audit_run=True, measure=True):
     measured.append(m)
     add("L long-context ask", 1, nL, ASSUME_OUT["claims_answer"])
 
+    # Approach 2, screen 4 - one answer per fixed graph question (no Neo4j here: evidence size assumed).
+    if config.GRAPH_PROMPT_VERSION == "graph-v2":
+        import graph_qa
+
+        qa_sys, m = _tokens(graph_qa.SYSTEM, "", measure)
+        measured.append(m)
+        n_qa = len(graph_qa.QUESTIONS)
+        rows.append(_row("2 graph QA", n_qa, n_qa * (qa_sys + ASSUME_V2["qa_evidence_tokens"]),
+                         n_qa * graph_qa.ASSUME_OUT))
+
     rows.sort(key=lambda r: {"3": 0, "2": 1, "1": 2, "L": 3}[r["stage"][0]])
     one_run = sum(r["cost_usd"] or 0 for r in rows)
-    rerun_cost = reruns * sum(r["cost_usd"] or 0 for r in rows if not r["stage"].startswith("L"))
+    rerun_cost = reruns * sum(r["cost_usd"] or 0 for r in rows
+                              if not r["stage"].startswith("L") and r["stage"] != "2 graph QA")
     audit_cost = rows[0]["cost_usd"] if audit_run else 0  # rows[0] is the taxonomy build
     return {"rows": rows, "one_run_usd": one_run, "reruns_usd": rerun_cost, "audit_run_usd": audit_cost,
             "total_usd": one_run + rerun_cost + audit_cost, "item1a_tokens": nL,

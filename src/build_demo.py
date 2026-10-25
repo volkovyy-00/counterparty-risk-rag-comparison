@@ -110,6 +110,7 @@ def build(run_dir, out, fixture=False):
     dq = _jsonl(run_dir / "corpus_data_quality.jsonl")
     workshop = [i for i in _jsonl(WORKSHOP_DQ) if i["check"] in WORKSHOP_CHECKS]
     graph_path = run_dir / "graph.json"
+    qa_path = run_dir / "graph_qa.json"
     gov_path = run_dir / "governance.json"
     from evaluate import load_ground_truth
 
@@ -129,6 +130,7 @@ def build(run_dir, out, fixture=False):
         "scorecard": card,
         "reruns": reruns,
         "graph": json.loads(graph_path.read_text()) if graph_path.exists() else None,
+        "graph_qa": json.loads(qa_path.read_text()) if qa_path.exists() else None,
         "governance": json.loads(gov_path.read_text()) if gov_path.exists() else None,
         "decision": decision(card),
         "taxonomy": {"version": taxonomy.VERSION,

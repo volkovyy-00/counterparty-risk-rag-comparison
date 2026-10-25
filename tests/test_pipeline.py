@@ -230,7 +230,7 @@ def test_manifest_hashes_and_diff(offline, tmp_path, monkeypatch):
     b = manifest.build(offline, ["3_taxonomy_first"])
     changed = {k for k, _, _ in manifest.diff(a, b)}
     assert "model" in changed and "taxonomy_sha256" not in changed
-    assert set(a["prompt_sha256"]) == {"0_long_context", "1_plain_rag", "2_graphrag", "3_taxonomy_first"}
+    assert set(a["prompt_sha256"]) == {"0_long_context", "1_plain_rag", "2_graphrag", "2_graph_qa", "3_taxonomy_first"}
 
 
 def test_rerun_consistency_jaccard():
@@ -288,6 +288,18 @@ def test_graphrag_build_ask_and_export(offline, monkeypatch, tmp_path):
             rels = {r["t"] for r in approach2_graphrag.driver().execute_query(
                 "MATCH ()-[r]->() RETURN DISTINCT type(r) AS t", database_=config.NEO4J_DATABASE).records}
             assert {"DISCLOSES", "INSTANCE_OF", "FROM_CHUNK", "FACES_RISK", "FILED", "FROM_DOCUMENT"} <= rels
+            import graph_qa  # screen 4: every template runs read-only; the group-wide one always has rows
+            from neo4j import RoutingControl
+            from neo4j.exceptions import ClientError
+
+            qa = graph_qa.run(tmp_path / "graph_qa.json", offline)
+            assert [q["id"] for q in qa["questions"]] == [q["id"] for q in graph_qa.QUESTIONS]
+            by = {q["id"]: q for q in qa["questions"]}
+            assert by["shared_vs_specific"]["rows"] >= 1 and by["shared_vs_specific"]["verification"]
+            assert all(q["empty"] == (q["rows"] == 0) for q in qa["questions"])
+            with pytest.raises(ClientError):
+                approach2_graphrag.driver().execute_query("CREATE (:Probe)", routing_=RoutingControl.READ,
+                                                          database_=config.NEO4J_DATABASE)
         monkeypatch.setattr(config, "GRAPH_MODE", "vector_seeded")  # the workshop's top-k seeded pattern
         seeded = approach2_graphrag.run(config.QUESTION, offline)
         assert seeded["details"]["traversal_rows"] > 0

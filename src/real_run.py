@@ -63,6 +63,7 @@ def main():
     step("Run A: approaches 1, 2, 3 and the long-context control; freeze", "src/run_all.py", "--approaches", "1,2,3,L",
          "--freeze", "--label", "run A (prompt taxonomy-v2.0)")
     step("Export the graph for offline use", "src/export_graph.py")
+    step("Ask the graph: the fixed screen-4 questions", "src/graph_qa.py", "--confirm-usd", f"{budget:.2f}")
     step("Run B for the audit trail: approach 3 with prompt v2.1", "src/run_all.py", "--approaches", "3",
          "--out", str(config.RESULTS_DIR / "demo_run" / "audit" / "run_b"), "--label", "run B (prompt taxonomy-v2.1)",
          env={"TAXO_PROMPT_VERSION": "taxonomy-v2.1"})

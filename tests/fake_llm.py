@@ -28,7 +28,7 @@ def _sentences(text):
 def _claims_from_excerpts(user, per_excerpt=2):
     """Claims for prompts made of '[ref] TICKER ...' excerpts (approaches 1, 2 and L)."""
     claims = []
-    for ref, ticker, body in re.findall(r"^\[([\w:.-]+)\] ([A-Z]+)[^\n]*\n(.*?)(?=^\[|^RISK |\Z)", user, re.S | re.M):
+    for ref, ticker, body in re.findall(r"^\[([\w:.-]+)\] ([A-Z]+)[^\n]*\n(.*?)(?=^\[|^RISK |^DRIVER |\Z)", user, re.S | re.M):
         n = 0
         for s in _sentences(body):
             leaves = taxonomy.leaves_for(s)
