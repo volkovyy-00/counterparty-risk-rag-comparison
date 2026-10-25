@@ -9,7 +9,9 @@
 Keyword fallback: a claim that arrives with no taxonomy label at all (e.g. a
 model that answers in free text) is mapped onto a leaf by the keyword lists in
 taxonomy.yaml and flagged `fallback`. A claim WITH a label that is not in the
-taxonomy is rejected, never re-mapped.
+taxonomy is rejected, never re-mapped. A claim an approach already marked with
+`label_error` (approach 3's one-label rules) is rejected as a label, with that reason.
+`driver` and `secondary` pass through unchanged; nothing downstream scores them.
 """
 import re
 import unicodedata
@@ -94,14 +96,14 @@ def verify_claims(claims, filings, sources=None):
     by_ticker = {f["ticker"]: f for f in filings}
     accepted, rejected, fallbacks = [], [], 0
     for raw in claims:
-        claim = {k: raw.get(k, "") for k in ("company", "category", "leaf", "quote", "source_ref", "risk")}
-        claim["fallback"] = False
+        claim = {k: raw.get(k, "") for k in ("company", "category", "leaf", "quote", "source_ref", "risk", "driver")}
+        claim.update(secondary=bool(raw.get("secondary")), fallback=False)  # driver, secondary: shown, never scored
         if not claim["category"] and not claim["leaf"]:  # unlabelled: keyword fallback
             guess = taxonomy.leaves_for(f"{claim['risk']} {claim['quote']}")
             if guess:
                 claim.update(leaf=guess[0], category=taxonomy.category_of(guess[0]), fallback=True)
                 fallbacks += 1
-        reason = validate_label(claim, by_ticker)
+        reason = raw.get("label_error") or validate_label(claim, by_ticker)  # label_error: an approach's own rule
         if reason:
             rejected.append(dict(claim, reason=reason, check="label"))
             continue

@@ -79,8 +79,47 @@ def _fake_groups(user):
             for g in groups.values()]
 
 
+def _first_leaf_sentences(text):
+    seen, out = set(), []
+    for s in _sentences(text):
+        leaves = taxonomy.leaves_for(s)
+        if leaves and leaves[0] not in seen:
+            seen.add(leaves[0])
+            out.append((s, leaves))
+    return out
+
+
+def _fake_v3_sections(excerpt):
+    """taxonomy-v3: one label per [RF n] section - the first keyword leaf, OTHER with a driver if none."""
+    out = []
+    for n, heading, body in re.findall(r"^\[RF (\d+)\] ([^\n]*)\n(.*?)(?=^\[RF |\Z)", excerpt, re.S | re.M):
+        if heading.startswith("(") or re.search(r"\(part (?!1/)\d+/\d+\)$", heading):
+            continue
+        body = re.sub(r"^Sub-caption: [^\n]*\n", "", body.lstrip("\n"))
+        hits = [(s, taxonomy.leaves_for(s)) for s in _sentences(body)]
+        s, leaves = next(((s, lv) for s, lv in hits if lv), (hits[0][0] if hits else "", []))
+        if not s:
+            continue
+        leaf = leaves[0] if leaves else "OTHER.reporting_controls"
+        driver = taxonomy.LEAVES[leaf].get("keywords", ["general"])[0].rstrip("*") if leaves else "unclassified"
+        out.append({"rf": int(n), "heading": heading, "category": taxonomy.category_of(leaf), "leaf": leaf,
+                    "quote": s[:200], "driver": driver, "secondary": False})
+    return out
+
+
 def fake_call_chat(system, user, schema, schema_name, timeout=None, model=None, effort=None):
-    if schema_name == "risk_factors":
+    if schema_name == "risk_factors" and "rf" in schema["properties"]["risk_factors"]["items"]["properties"]:
+        excerpt = user.split("\n\n", 1)[1]
+        if "[RF " in excerpt:
+            out = _fake_v3_sections(excerpt)
+        else:  # v3 prompt on fixed windows (a filing that fell back): one label per keyword leaf, no rf
+            out = [{"rf": -1, "heading": s[:60], "category": taxonomy.category_of(lv[0]), "leaf": lv[0],
+                    "quote": s[:200], "driver": "keyword", "secondary": False}
+                   for s, lv in _first_leaf_sentences(excerpt)]
+        out.append({"rf": -1, "heading": "fabricated", "category": "OTHER", "leaf": "OTHER.stock_governance",
+                    "quote": FABRICATED, "driver": "fabricated", "secondary": False})
+        content = {"risk_factors": out}
+    elif schema_name == "risk_factors":
         excerpt = user.split("\n\n", 1)[1]
         out, seen = [], set()
         for s in _sentences(excerpt):
