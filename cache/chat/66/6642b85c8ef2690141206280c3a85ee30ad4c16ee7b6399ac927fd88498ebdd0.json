@@ -1,0 +1,128 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Mexico labor reforms increasing labor costs",
+    "risk_name": "Labor cost inflation from wage regulation",
+    "detail": "Mexico minimum wage up ~13%, 12%, 20% in 2026/2025/2024; proposed 48-to-40 hour work week from 2027",
+    "quote": "The government of Mexico has indicated it may implement other labor reforms, such as an initiative to shorten the work week from 48 to 40 hours, as early as January 1, 2027, through a gradual reduction of two hours per year.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Mexico",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Changes in trade laws and tariffs on imports",
+    "risk_name": "Import tariff cost increase",
+    "detail": "Manufacturing in China and Mexico; USMCA benefits; U.S. tariffs of at least 10% from April 2, 2025 and retaliation",
+    "quote": "Changes in laws or policies governing the terms of trade, and in particular increased trade restrictions, tariffs, taxes or non-tariff barriers on imports from countries where we manufacture products, such as China and Mexico, could have a material adverse effect on our business and financial results.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Mexico",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "United States-Mexico-Canada Agreement",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Armed conflicts in the Middle East",
+    "risk_name": "Geopolitical conflict disruption",
+    "detail": "Middle East conflicts since October 2023 could spread and affect global economy and supply chains",
+    "quote": "The outbreak of armed conflicts in the Middle East beginning in October 2023 has also created numerous uncertainties, including the risk that the conflicts spread throughout the broader region, and their impact on the global economy and supply chains.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Middle East",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Russia-Ukraine conflict and sanctions",
+    "risk_name": "Sanctions and geopolitical conflict",
+    "detail": "E.U. and U.S. sanctions on Russia; possible Russian retaliation incl. energy restrictions, asset expropriation",
+    "quote": "While the sanctions announced to date have not had a material adverse impact on us, any further sanctions imposed or actions taken by these countries, and any retaliatory measures by Russia in response, including restrictions on energy supplies from Russia to countries in the region and asset expropriations, could increase our costs, reduce our sales and earnings or otherwise have an adverse effect on our operations.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Russia",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Ukraine",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "European Union",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Raw material supply from Ukraine and Russia",
+    "risk_name": "Raw material supply disruption",
+    "detail": "Copper, aluminum, palladium and neon gases sourced from Ukraine/Russia; price volatility and logistics costs",
+    "quote": "Ukraine and Russia are significant global producers of raw materials used in our supply chain, including copper, aluminum, palladium and neon gases.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Ukraine",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Russia",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "copper",
+      "type": "INPUT_COMMODITY"
+     },
+     {
+      "name": "aluminum",
+      "type": "INPUT_COMMODITY"
+     },
+     {
+      "name": "palladium",
+      "type": "INPUT_COMMODITY"
+     },
+     {
+      "name": "neon gases",
+      "type": "INPUT_COMMODITY"
+     }
+    ]
+   },
+   {
+    "heading": "European economic weakness from the conflict",
+    "risk_name": "Regional economic downturn exposure",
+    "detail": "Europe ~32% of 2025 net sales; $11 million Ukraine asset impairment in 2023",
+    "quote": "However, the impacts of the conflict have adversely impacted, and may continue to adversely impact, global economies, and in particular, the European economy, a region which accounted for approximately 32% of our net sales for the year ended December 31, 2025.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Europe",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1826,
+ "output_tokens": 1498,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 11.483,
+ "recorded_at": "2026-10-25T18:19:57+0000"
+}

@@ -1,0 +1,67 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Dependence on automotive and industrial end-markets",
+    "risk_name": "End-market concentration",
+    "detail": "Automotive ~51% and industrial ~28% of 2025 revenue; exposure to EV demand fluctuations",
+    "quote": "Sales into the automotive and industrial end-markets represented approximately 51% and 28% of our revenue, respectively, for the year ended December 31, 2025.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "automotive",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "industrial",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "EVs",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Dependence on automotive and industrial end-markets",
+    "risk_name": "Customer concentration",
+    "detail": "One distributor accounted for ~11% of 2025 and 10% of 2024 revenue",
+    "quote": "We had one customer, a distributor, whose revenue accounted for approximately 11% and 10% of the total revenue for the years ended 2025 and 2024, respectively, across all reportable segments.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Dependence on automotive and industrial end-markets",
+    "risk_name": "Fixed-price long-term contract risk",
+    "detail": "Long-term supply agreements with fixed pricing; customers seek to amend or cancel delivery terms",
+    "quote": "Further, to the extent we have long-term supply agreements with our customers that include fixed pricing, we could be subject to fluctuating manufacturing costs that could negatively impact our profitability. Additionally, under our long-term supply agreements, we could incur certain obligations if we are not able to fulfill our commitments.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Our operating results depend, in part, on the performance of independent distributors.",
+    "risk_name": "Distributor dependence",
+    "detail": "Distributors not bound by minimum sales; reliance on distributor sales reports for revenue recognition",
+    "quote": "These independent distributors also generally represent product lines offered by several companies and are not subject to any minimum sales requirements or obligation to market our products to their customers. Accordingly, distributors could reduce their sales efforts for our products or choose to terminate their representation of us.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Tariffs, trade policies or geopolitical conditions could reduce demand",
+    "risk_name": "Tariffs and export controls",
+    "detail": "Generic statement",
+    "quote": "The imposition of or increase in tariffs, export controls and other trade restrictions as a result of international trade disputes or changes in trade policies or political conditions may adversely affect our sales and profitability.",
+    "specificity": "boilerplate",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1523,
+ "output_tokens": 930,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 6.982,
+ "recorded_at": "2026-10-25T18:21:56+0000"
+}

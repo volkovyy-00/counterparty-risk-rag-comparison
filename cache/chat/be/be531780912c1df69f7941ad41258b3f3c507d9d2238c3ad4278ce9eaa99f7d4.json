@@ -1,0 +1,77 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 7,
+    "heading": "Rapid technological change in markets we serve requires us to develop new technologies and products.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.technology_change",
+    "quote": "Rapid technological change in markets we serve could contribute to shortened product life cycles and a decline in average selling prices of our products.",
+    "driver": "",
+    "secondary": false
+   },
+   {
+    "rf": 8,
+    "heading": "We face supply chain and manufacturing risks.",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.single_source",
+    "quote": "We do not have long-term contracts with all of these suppliers, and the number of alternate suppliers is limited.",
+    "driver": "key materials and subcontractors",
+    "secondary": false
+   },
+   {
+    "rf": 9,
+    "heading": "Our continued success depends in part on our ability to retain, train and recruit a sufficient number of qualified employees in a competitive environment.",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.skilled_talent",
+    "quote": "Skilled and experienced personnel in our industry, including engineering, management, sales, technical and staff personnel, are in high demand, and competition for their talents is intense.",
+    "driver": "",
+    "secondary": false
+   },
+   {
+    "rf": 10,
+    "heading": "Our results of operations and our reputation could be affected by warranty claims, product liability claims, product recalls or legal proceedings.",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.product_liability_defects",
+    "quote": "Claims based on warranty, product liability, epidemic or delivery failures, or other grounds relating to our products, software, manufacturing, services, designs, communications or cybersecurity could lead to significant expenses as we defend the claims or pay damage awards or settlements.",
+    "driver": "",
+    "secondary": false
+   },
+   {
+    "rf": 11,
+    "heading": "Our results of operations could be adversely affected by distributors\u2019 promotion of competing product lines or our distributors\u2019 financial performance and operations.",
+    "category": "CUSTOMER_CONCENTRATION",
+    "leaf": "CUSTOMER_CONCENTRATION.distributor_channel",
+    "quote": "Our distributors carry competing product lines, and our sales could be affected if semiconductor distributors promote competing products over our products.",
+    "driver": "semiconductor distributors",
+    "secondary": false
+   },
+   {
+    "rf": 11,
+    "heading": "Our results of operations could be adversely affected by distributors\u2019 promotion of competing product lines or our distributors\u2019 financial performance and operations.",
+    "category": "CUSTOMER_CONCENTRATION",
+    "leaf": "CUSTOMER_CONCENTRATION.customer_credit",
+    "quote": "if our distributors suffer financial difficulties that result in their inability to pay amounts owed to us.",
+    "driver": "distributor receivables",
+    "secondary": true
+   },
+   {
+    "rf": 12,
+    "heading": "Our operations could be affected by the complex laws, rules and regulations to which our business is subject.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.litigation_investigations",
+    "quote": "From time to time, we receive inquiries from government entities, which could result in enforcement actions or litigation leading to potential disruptions to our operations, or significant fines, penalties or other legal liability.",
+    "driver": "",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3131,
+ "output_tokens": 1124,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 7.692,
+ "recorded_at": "2026-10-25T18:47:07+0000"
+}

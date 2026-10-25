@@ -1,0 +1,68 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 30,
+    "heading": "Demand for AI-related products is subject to concentration and investment-cycle risk, and any slowdown or shift in AI spending could reduce demand for our products, pressure margins, and adversely affect our operating results.",
+    "category": "MACRO_DEMAND",
+    "leaf": "MACRO_DEMAND.cyclical_demand",
+    "quote": "Demand for AI-related products is subject to concentration and investment-cycle risk, and any slowdown or shift in AI spending could reduce demand for our products, pressure margins, and adversely affect our operating results.",
+    "driver": "AI spending cycle",
+    "secondary": false
+   },
+   {
+    "rf": 31,
+    "heading": "We also face AI\u2011related risks in acquisitions and strategic relationships, including regulatory violations or cybersecurity risks arising from an acquired company\u2019s or partner\u2019s use of AI. In addition, competition for talent with AI expertise has intensified, and our ability to attract, retain and train personnel with appropriate AI skills and literacy is critical to our innovation and product roadmap.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.acquisitions_integration",
+    "quote": "We also face AI\u2011related risks in acquisitions and strategic relationships, including regulatory violations or cybersecurity risks arising from an acquired company\u2019s or partner\u2019s use of AI.",
+    "driver": "acquired company AI use",
+    "secondary": false
+   },
+   {
+    "rf": 31,
+    "heading": "We also face AI\u2011related risks in acquisitions and strategic relationships, including regulatory violations or cybersecurity risks arising from an acquired company\u2019s or partner\u2019s use of AI. In addition, competition for talent with AI expertise has intensified, and our ability to attract, retain and train personnel with appropriate AI skills and literacy is critical to our innovation and product roadmap.",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.skilled_talent",
+    "quote": "In addition, competition for talent with AI expertise has intensified, and our ability to attract, retain and train personnel with appropriate AI skills and literacy is critical to our innovation and product roadmap.",
+    "driver": "AI talent",
+    "secondary": true
+   },
+   {
+    "rf": 32,
+    "heading": "We face risks related to security vulnerabilities in our products.",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.product_cybersecurity",
+    "quote": "these products could still be hacked or the encryption schemes could be compromised, breached, or circumvented by motivated and sophisticated attackers, including attackers using powerful new AI-driven technologies.",
+    "driver": "",
+    "secondary": false
+   },
+   {
+    "rf": 33,
+    "heading": "We face risks to our business and proprietary confidential information due to use of AI.",
+    "category": "AI_EMERGING_TECH",
+    "leaf": "AI_EMERGING_TECH.ai_development_use",
+    "quote": "our employees and consultants may use these tools on an unauthorized basis and our partners may use these tools, which poses additional risks relating to the protection of data, including the potential exposure of our proprietary confidential or other controlled information to unauthorized recipients",
+    "driver": "employee AI tool use",
+    "secondary": false
+   },
+   {
+    "rf": 34,
+    "heading": "Issues relating to the use of our technologies, including AI, may result in reputational or financial harm and liability.",
+    "category": "AI_EMERGING_TECH",
+    "leaf": "AI_EMERGING_TECH.ai_development_use",
+    "quote": "AI introduces new legal, social and ethical issues, risks and challenges that may slow adoption of AI-enabled products and services, reduce market acceptance, delay commercialization, alter customer purchasing behavior, or adversely affect our business model, competitive position and operating results.",
+    "driver": "responsible AI use",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3337,
+ "output_tokens": 1248,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 9.899,
+ "recorded_at": "2026-10-25T18:46:42+0000"
+}

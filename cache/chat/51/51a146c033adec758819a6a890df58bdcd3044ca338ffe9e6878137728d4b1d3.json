@@ -1,0 +1,48 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Exposure to economic, geopolitical, or other events in volatile markets and global supply chain",
+    "risk_name": "Geopolitical instability and nationalization",
+    "detail": "Global operations exposed to nationalization of facilities or IP, exchange/import controls, war, terrorism disrupting supply chain",
+    "quote": "This could include governmental takeover (i.e., nationalization) of our manufacturing facilities or intellectual property, restrictive exchange or import controls, changes to international trade agreements, disruption of operations as a result of systemic political or economic instability, social unrest, outbreak of war or expansion of hostilities, and acts of terrorism, each of which could impact our supply chain as well as our operations.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Exposure to economic, geopolitical, or other events in volatile markets and global supply chain",
+    "risk_name": "Sanctions and export control restrictions",
+    "detail": "U.S. and other government sanctions could restrict business with countries or affiliates, disrupt production and earnings repatriation",
+    "quote": "Further, the U.S. government, other governments, and international organizations could impose additional sanctions or export controls that could restrict us from doing business directly or indirectly in or with certain countries or parties, which could include affiliates, disrupt our supply chain and production, and potentially impact the repatriation of earnings.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "U.S.",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Products and services subject to market acceptance and significant competition",
+    "risk_name": "Product demand and competition",
+    "detail": "Multi-year vehicle development cycles versus fast-changing preferences; weak demand raises inventory, pricing pressure, lower margins",
+    "quote": "It takes years to design and develop a new vehicle or change an existing vehicle. Because customers\u2019 preferences may change quickly, our new and existing products may not generate sales in sufficient quantities and at costs low enough to be profitable and recoup investment costs.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "automotive and digital and software services industries",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1054,
+ "output_tokens": 725,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 5.884,
+ "recorded_at": "2026-10-25T18:18:37+0000"
+}

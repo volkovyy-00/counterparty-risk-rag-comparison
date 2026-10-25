@@ -1,0 +1,41 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 29,
+    "heading": "If we fail to manage our growth effectively or to integrate successfully any new or future business ventures, acquisitions or strategic alliance into our business, our business could be materially adversely harmed. In addition, the failure to realize the expected benefits of any past or future acquisition could adversely affect our business.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.acquisitions_integration",
+    "quote": "Furthermore, we may not be successful in fully or partially integrating companies that we acquire, including their personnel, financial systems, distribution, operations and general operating procedures.",
+    "driver": "Wind River acquisition",
+    "secondary": false
+   },
+   {
+    "rf": 30,
+    "heading": "We face risks related to cybersecurity for both our infrastructure and products and any cybersecurity breach or failure of one or more key information technology systems, or those of third-parties with which we do business could have a material adverse impact on our business or reputation.",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "Cyberattacks are continually increasing in their frequency, sophistication and intensity. Additionally, some actors are using artificial intelligence technology to launch more automated, targeted and coordinated attacks which further heightens these risks.",
+    "driver": "",
+    "secondary": false
+   },
+   {
+    "rf": 30,
+    "heading": "We face risks related to cybersecurity for both our infrastructure and products and any cybersecurity breach or failure of one or more key information technology systems, or those of third-parties with which we do business could have a material adverse impact on our business or reputation.",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.product_cybersecurity",
+    "quote": "Failure of such products to effectively protect against attacks targeted at our products can negatively affect our brand and harm our business, prospects, customers, financial condition and operating results.",
+    "driver": "connected vehicle products",
+    "secondary": true
+   }
+  ]
+ },
+ "input_tokens": 2143,
+ "output_tokens": 642,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 4.657,
+ "recorded_at": "2026-10-25T18:46:02+0000"
+}

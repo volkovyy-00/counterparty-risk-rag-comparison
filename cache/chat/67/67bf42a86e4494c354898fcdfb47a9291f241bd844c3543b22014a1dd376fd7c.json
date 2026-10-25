@@ -1,0 +1,68 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 1,
+    "heading": "Our portfolio strategy may prove unsuccessful.",
+    "category": "EMISSIONS_EV_TRANSITION",
+    "leaf": "EMISSIONS_EV_TRANSITION.ev_adoption_pace",
+    "quote": "Our balanced portfolio is particularly critical as the automotive industry continues to see electric vehicle adoption volatility across different regions.",
+    "driver": "EV adoption volatility",
+    "secondary": false
+   },
+   {
+    "rf": 2,
+    "heading": "We may not prove successful in our strategy due to many factors, including any of the risks identified in the paragraphs that follow, failure to develop new products that our customers will purchase, technology changes that could render our products obsolete, or the introduction of new technology to which we do not have access, among other things.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.technology_change",
+    "quote": "Our future success is dependent upon us making the right investments at the right times, with the right customers who can rapidly adapt to the market, to support product development in areas of evolving vehicle technologies.",
+    "driver": "eProducts investments",
+    "secondary": false
+   },
+   {
+    "rf": 3,
+    "heading": "Goodwill and indefinite-lived intangible assets, which are subject to periodic impairment evaluations, represent a significant portion of our total assets. An impairment charge on these assets could have a material adverse impact on our financial condition and results of operations.",
+    "category": "OTHER",
+    "leaf": "OTHER.reporting_controls",
+    "quote": "Goodwill and indefinite-lived intangible assets, which are subject to periodic impairment evaluations, represent a significant portion of our total assets. An impairment charge on these assets could have a material adverse impact on our financial condition and results of operations.",
+    "driver": "goodwill impairment",
+    "secondary": false
+   },
+   {
+    "rf": 4,
+    "heading": "We have recorded goodwill and indefinite-lived intangible assets related to acquisitions. We periodically assess these assets to determine if they are impaired. Significant negative industry or macroeconomic trends, disruptions to our business, inability to effectively integrate acquired businesses, unexpected significant changes or planned changes in use of the assets, dispositions and market capitalization declines may impair these assets.",
+    "category": "OTHER",
+    "leaf": "OTHER.reporting_controls",
+    "quote": "Until this headroom grows over time, due to business growth or lower carrying value of the reporting unit, a relatively small decrease in reporting unit fair value can trigger impairment charges.",
+    "driver": "goodwill impairment",
+    "secondary": false
+   },
+   {
+    "rf": 5,
+    "heading": "The failure to realize the expected benefits of acquisitions and other risks associated with acquisitions could adversely affect our business.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.acquisitions_integration",
+    "quote": "If we are unsuccessful in combining companies, the anticipated benefits of the acquisitions may not be realized fully or at all or may take longer to realize than expected.",
+    "driver": "",
+    "secondary": false
+   },
+   {
+    "rf": 6,
+    "heading": "We may not be able to execute dispositions of assets or businesses successfully.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.divestitures_spinoffs",
+    "quote": "When we decide to dispose of assets or a business, we may have difficulty finding buyers or alternative exit strategies on acceptable terms in a timely manner, which could delay our ability to achieve our strategic objectives.",
+    "driver": "",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3240,
+ "output_tokens": 1174,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 9.563,
+ "recorded_at": "2026-10-25T18:46:15+0000"
+}

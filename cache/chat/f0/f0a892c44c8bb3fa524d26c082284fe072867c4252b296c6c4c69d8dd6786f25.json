@@ -1,0 +1,32 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 6,
+    "heading": "Our operating results may be adversely impacted by the inability of our key suppliers to provide us with necessary raw materials, components, or equipment.",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.single_source",
+    "quote": "Although we generally maintain multiple sources for these items, only a limited number of suppliers may be capable of meeting our technical requirements.",
+    "driver": "limited qualified suppliers",
+    "secondary": false
+   },
+   {
+    "rf": 7,
+    "heading": "We may lose sales if critical materials from concentrated sources become restricted or subject to export controls.",
+    "category": "COMMODITY_INPUTS",
+    "leaf": "COMMODITY_INPUTS.critical_minerals",
+    "quote": "In 2025, China imposed and later expanded export restrictions and licensing requirements on certain rare earth elements and related magnets. Although some restrictions were subsequently suspended for certain U.S. end\u2011users, future restrictions or renewed implementation could constrain global supply.",
+    "driver": "China rare earth restrictions",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2381,
+ "output_tokens": 372,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 3.33,
+ "recorded_at": "2026-10-25T18:46:24+0000"
+}

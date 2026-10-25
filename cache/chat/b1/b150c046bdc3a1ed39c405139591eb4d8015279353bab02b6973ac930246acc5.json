@@ -1,0 +1,68 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 52,
+    "heading": "Servicing our debt requires a significant amount of cash, we may not have sufficient cash to fund payments and adverse changes in our credit ratings could increase our borrowing costs and adversely affect our ability to access the debt markets.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.liquidity_funding",
+    "quote": "Our business may not continue to generate sufficient cash flow to service our debt and to fund capital expenditures, dividend payments, share repurchases or acquisitions.",
+    "driver": "Senior Notes, Convertible Debt, Commercial Paper",
+    "secondary": false
+   },
+   {
+    "rf": 52,
+    "heading": "Servicing our debt requires a significant amount of cash, we may not have sufficient cash to fund payments and adverse changes in our credit ratings could increase our borrowing costs and adversely affect our ability to access the debt markets.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.credit_ratings",
+    "quote": "While we have maintained our investment grade rating, in March 2025 we were downgraded by one rating agency and there is no assurance that we will maintain our current credit ratings.",
+    "driver": "March 2025 downgrade",
+    "secondary": true
+   },
+   {
+    "rf": 53,
+    "heading": "Conversion of our Convertible Debt, Series A Preferred Stock or Depositary Shares, or the payment of dividends on Series A Preferred Stock in shares of common stock, will dilute the ownership interest of our existing stockholders.",
+    "category": "OTHER",
+    "leaf": "OTHER.stock_governance",
+    "quote": "the payment of dividends on our Series A Preferred Stock in the form of common stock or the conversion of our outstanding Convertible Debt will dilute the ownership interest of our existing stockholders",
+    "driver": "convertible and preferred dilution",
+    "secondary": false
+   },
+   {
+    "rf": 54,
+    "heading": "The Convertible Debt, Series A Preferred Stock or Depositary Shares may adversely affect the market price of our common stock.",
+    "category": "OTHER",
+    "leaf": "OTHER.stock_governance",
+    "quote": "The market price of our common stock could become more volatile and could be depressed by: (1) investors\u2019 anticipation of the potential resale in the market of a substantial number of additional shares of common stock",
+    "driver": "Series A Preferred overhang",
+    "secondary": false
+   },
+   {
+    "rf": 55,
+    "heading": "Our common stock ranks junior to our Series A Preferred Stock with respect to dividends and amounts payable in the event of our liquidation, winding-up or dissolution.",
+    "category": "OTHER",
+    "leaf": "OTHER.stock_governance",
+    "quote": "unless accumulated dividends have been paid or set aside for payment on all our outstanding Series A Preferred Stock through the most recently completed dividend period, no dividends may be declared or paid on our common stock",
+    "driver": "Series A Preferred seniority",
+    "secondary": false
+   },
+   {
+    "rf": 56,
+    "heading": "Fluctuations in foreign currency exchange rates could adversely impact our operating results.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.fx_exposure",
+    "quote": "In periods when the U.S. dollar declines significantly relative to the British pound, Euro, Thai baht and Taiwan dollar, the",
+    "driver": "Thai baht, Euro exposure",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2842,
+ "output_tokens": 1140,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 8.529,
+ "recorded_at": "2026-10-25T18:46:49+0000"
+}

@@ -1,0 +1,61 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Our technology licensing business exposes us to various risks.",
+    "risk_name": "Technology licensing revenue risk",
+    "detail": "SuperFlash licensing depends on market acceptance, licensee production, royalty audits and disputes, and IP indemnification obligations",
+    "quote": "From time to time, we or our licensees have contested the amount of royalty payments and related claims have resulted and could result in significant legal fees and require significant attention from our management.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "SuperFlash",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Sales into governmental projects, and compliance with associated regulations, could have a material adverse effect on our results of operations.",
+    "risk_name": "Government spending and contracting exposure",
+    "detail": "Significant sales to U.S./foreign government agencies; exposed to appropriations, shutdowns, sequestration and CMMC requirements",
+    "quote": "Future sales into U.S. or foreign government projects are subject to uncertain government appropriations and national defense policies and priorities, including the budgetary process, changes in the timing and spending priorities, the impact of any past or future government shutdowns, contract terminations or renegotiations, future sequestrations",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Cybersecurity Maturity Model Certification (CMMC)",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "FY2023 NDAA prohibition on Chinese-made semiconductors",
+    "risk_name": "Restricted supplier procurement ban",
+    "detail": "Some products made at SMIC, suppliers use YMTC; Section 5949 ban effective December 2027 could hurt U.S. government sales",
+    "quote": "Some of our products are manufactured at SMIC, and some of our suppliers buy products manufactured at YMTC.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "SMIC",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "YMTC",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "FY2023 NDAA",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1664,
+ "output_tokens": 721,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 6.099,
+ "recorded_at": "2026-10-25T18:21:12+0000"
+}

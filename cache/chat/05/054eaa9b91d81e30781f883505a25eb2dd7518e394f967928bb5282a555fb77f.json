@@ -1,0 +1,86 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 28,
+    "heading": "Compliance with and changes in laws could be costly and could affect our operating results.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.anti_corruption_compliance",
+    "quote": "Compliance-related issues in certain countries associated with laws such as the Foreign Corrupt Practices Act and other anti-corruption laws could adversely affect our business.",
+    "driver": "Foreign Corrupt Practices Act",
+    "secondary": false
+   },
+   {
+    "rf": 29,
+    "heading": "Changes in tax laws or tax rates by taxing authorities and the outcome of tax audits could adversely affect our business.",
+    "category": "TAX",
+    "leaf": "TAX.tax_law_changes",
+    "quote": "Changes in tax laws or tax rates, the resolution of tax assessments or audits by various tax authorities, and the inability to fully utilize our tax loss carryforwards and tax credits could adversely affect our operating results.",
+    "driver": "One Big Beautiful Bill Act",
+    "secondary": false
+   },
+   {
+    "rf": 29,
+    "heading": "Changes in tax laws or tax rates by taxing authorities and the outcome of tax audits could adversely affect our business.",
+    "category": "TAX",
+    "leaf": "TAX.tax_audits_disputes",
+    "quote": "We have received tax assessments from various taxing authorities and are currently at varying stages of appeals and/or litigation regarding these matters.",
+    "driver": "tax assessments appeals",
+    "secondary": true
+   },
+   {
+    "rf": 30,
+    "heading": "We are subject to risks related to our international operations.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.international_operations",
+    "quote": "For 2025, approximately 84% of our consolidated net sales were outside the U.S. We also purchase raw materials and other supplies from many different countries around the world.",
+    "driver": "84% non-U.S. sales",
+    "secondary": false
+   },
+   {
+    "rf": 31,
+    "heading": "Our business in China is subject to aggressive competition and is sensitive to economic, political, and market conditions.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.china_exposure",
+    "quote": "In addition, our business in China is sensitive to economic, political, social and market conditions that drive sales volumes in China. If we are unable to maintain our position in the Chinese market or if vehicle sales in China decrease",
+    "driver": "China market",
+    "secondary": false
+   },
+   {
+    "rf": 31,
+    "heading": "Our business in China is subject to aggressive competition and is sensitive to economic, political, and market conditions.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.price_competition",
+    "quote": "Increased competition may result in price reductions, reduced margins and our inability to gain or hold market share.",
+    "driver": "Chinese domestic competitors",
+    "secondary": true
+   },
+   {
+    "rf": 33,
+    "heading": "A downgrade in the ratings of our debt could restrict our ability to access the debt capital markets.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.credit_ratings",
+    "quote": "If ratings for our debt fall below investment grade, our access to the debt capital markets could become restricted and our cost of borrowing or the interest rate for any subsequently issued debt would likely increase.",
+    "driver": "revolver rating grid",
+    "secondary": false
+   },
+   {
+    "rf": 34,
+    "heading": "We rely on sales to major customers and our supply agreements with them are generally requirements contracts, and a decline in the production requirements of any of our customers, and in particular our major customers could adversely impact our revenues and profitability.",
+    "category": "CUSTOMER_CONCENTRATION",
+    "leaf": "CUSTOMER_CONCENTRATION.auto_oem_customers",
+    "quote": "Our worldwide sales in 2025 to Volkswagen and Ford constituted approximately 13% and 12% of our 2025 consolidated net sales, respectively. Sales to the Company\u2019s top ten customers represented 71% of sales",
+    "driver": "Volkswagen and Ford",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3302,
+ "output_tokens": 1375,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 9.342,
+ "recorded_at": "2026-10-25T18:46:25+0000"
+}

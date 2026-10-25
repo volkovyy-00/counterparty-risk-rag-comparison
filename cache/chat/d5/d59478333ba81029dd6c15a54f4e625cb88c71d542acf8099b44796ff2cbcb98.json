@@ -1,0 +1,25 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n471",
+     "n479",
+     "n480",
+     "n501",
+     "n531"
+    ],
+    "canonical_name": "International operations geopolitical and regulatory exposure",
+    "definition": "Risk that operating manufacturing facilities and generating sales across foreign countries exposes the company to geopolitical conflict, political tensions, local regulation and other country-specific risks that can disrupt operations and reduce earnings."
+   }
+  ]
+ },
+ "input_tokens": 293,
+ "output_tokens": 137,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 2.06,
+ "recorded_at": "2026-10-25T18:27:26+0000"
+}

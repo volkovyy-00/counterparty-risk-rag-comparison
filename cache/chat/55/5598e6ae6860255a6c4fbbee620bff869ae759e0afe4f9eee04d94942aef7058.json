@@ -1,0 +1,22 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n278",
+     "n279"
+    ],
+    "canonical_name": "Internal control material weakness",
+    "definition": "Failure to maintain effective internal control over financial reporting could lead to misstatements, loss of investor confidence, or covenant breaches."
+   }
+  ]
+ },
+ "input_tokens": 96,
+ "output_tokens": 91,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 2.27,
+ "recorded_at": "2026-10-25T18:30:58+0000"
+}

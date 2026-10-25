@@ -1,0 +1,46 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "The semiconductor industry requires substantial investment in research and development",
+    "risk_name": "R&D investment and design-win risk",
+    "detail": "Lengthy development cycles; design wins may not yield sales or recover development investment",
+    "quote": "In addition, design wins do not guarantee that we will make customer sales or generate sufficient revenue to recover design and development investments, realize a return on the capital expended or achieve expected gross margins, as expenditures for technology and product development are generally",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Selling to new customers including government entities adds regulations",
+    "risk_name": "Government contracting compliance",
+    "detail": "Expansion to government entities may impose additional regulations and legal obligations",
+    "quote": "Developing and selling new products or expanding sales to new customers, including government entities, may subject us to additional regulations and legal obligations. Our failure to comply with such requirements could increase our operational risks and reduce our competitiveness.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Rapidly evolving technologies and short product life cycles",
+    "risk_name": "Technological obsolescence and price erosion",
+    "detail": "Older product prices fall; contractual obligations may force loss-making production of older products",
+    "quote": "In certain limited cases, we may not be able to cease production of older products, either due to contractual obligations or for customer relationship reasons and, as a result, may be required to bear a loss on such products for a sustained period of time.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "The semiconductor industry is highly competitive and has experienced significant consolidation",
+    "risk_name": "Competitive pressure on margins",
+    "detail": "Competition from global semiconductor majors and niche players; limits price increases and gross margin",
+    "quote": "Competitive pressures may limit our ability to raise prices, and any inability to maintain revenue or raise prices to offset increases in costs could have a significant adverse effect on our gross margin.",
+    "specificity": "boilerplate",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1549,
+ "output_tokens": 662,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 5.603,
+ "recorded_at": "2026-10-25T18:21:53+0000"
+}

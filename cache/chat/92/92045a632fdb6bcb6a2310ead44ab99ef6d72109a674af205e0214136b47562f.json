@@ -1,0 +1,90 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Leshan, China facility exposed to US-China trade restrictions",
+    "risk_name": "US-China trade restriction exposure",
+    "detail": "Leshan, China assembly/test facility owned by 80%-owned JV Leshan-Phoenix; entity list additions, export licenses for China customers",
+    "quote": "The U.S. Department of Commerce may add additional Chinese companies to its restricted entity list or unverified list and regulatory bodies of either country may take other actions that could expand licensing requirements or otherwise impact the market for our products and our revenue.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "United States",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Leshan",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "U.S. Department of Commerce",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "Leshan-Phoenix Semiconductor Company Limited",
+      "type": "NAMED_COUNTERPARTY"
+     }
+    ]
+   },
+   {
+    "heading": "Tariffs on imported components may reduce profitability",
+    "risk_name": "Import tariff cost increase",
+    "detail": "Tariffs on imported components may force price increases, hurting competitiveness",
+    "quote": "In addition, tariffs on components that we import from certain nations that have imposed, or may in the future impose, tariffs may adversely affect our profitability unless we are able to exclude such components from the tariffs or we raise prices for our products, which may result in our products becoming less attractive relative to products offered by our competitors.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Compliance with import and export laws",
+    "risk_name": "Export control compliance penalties",
+    "detail": "U.S. Export Administration Act; penalties up to denial of export privileges or government contract debarment",
+    "quote": "For example, licenses or proper license exceptions are required for the shipment of our products to certain countries under applicable export control regulations, including the provisions of the U.S. Export Administration Act.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "U.S. Export Administration Act",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Our power technologies designed for AI use may not capture market share as expected",
+    "risk_name": "Emerging market demand shortfall",
+    "detail": "Power products for AI data centers; intense competition, possible slower AI adoption due to insufficient power or customer scale-backs",
+    "quote": "In addition, if AI-related technologies fail to achieve the effectiveness or adoption levels currently anticipated, including due to insufficient available power or other utilities, or if our customers delay or scale back their AI deployments, demand for our AI-related products and solutions and returns on associated investments could be materially lower than we currently expect.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "AI data centers",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Issues related to the responsible use of AI may adversely affect our business",
+    "risk_name": "AI regulatory and reputational exposure",
+    "detail": "Association with AI infrastructure may bring reputational harm and regulatory scrutiny; AI regulation may limit adoption",
+    "quote": "Further, because AI has become the focus of significant societal and regulatory debate, including concerns about safety, bias, misuse and environmental impact, our association with AI infrastructure could expose us to reputational harm, stakeholder criticism or increased regulatory scrutiny, even if we do not control the design or use of AI systems that incorporate our products.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "AI infrastructure",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1446,
+ "output_tokens": 1225,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 9.371,
+ "recorded_at": "2026-10-25T18:22:01+0000"
+}

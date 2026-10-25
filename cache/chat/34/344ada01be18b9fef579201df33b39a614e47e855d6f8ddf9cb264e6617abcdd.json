@@ -1,0 +1,61 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "d313",
+     "d316",
+     "d317",
+     "d318",
+     "d319",
+     "d320"
+    ],
+    "canonical_name": "Automotive industry",
+    "definition": "The automotive end market, including vehicle manufacturers, automotive applications and vehicle sales."
+   },
+   {
+    "member_ids": [
+     "d315"
+    ],
+    "canonical_name": "Automotive and truck production",
+    "definition": "Production volumes of automobiles and trucks."
+   },
+   {
+    "member_ids": [
+     "d314"
+    ],
+    "canonical_name": "Automotive and digital and software services industries",
+    "definition": "Combined automotive and digital/software services industries."
+   },
+   {
+    "member_ids": [
+     "d368"
+    ],
+    "canonical_name": "Integrated software and digital services",
+    "definition": "Integrated software and digital services offerings."
+   },
+   {
+    "member_ids": [
+     "d376"
+    ],
+    "canonical_name": "Open source software",
+    "definition": "Software distributed under open source licenses."
+   },
+   {
+    "member_ids": [
+     "d388"
+    ],
+    "canonical_name": "Software",
+    "definition": "The software end market generally."
+   }
+  ]
+ },
+ "input_tokens": 314,
+ "output_tokens": 315,
+ "cache_write_tokens": 523,
+ "cache_read_tokens": 0,
+ "latency_s": 3.744,
+ "recorded_at": "2026-10-25T18:31:02+0000"
+}

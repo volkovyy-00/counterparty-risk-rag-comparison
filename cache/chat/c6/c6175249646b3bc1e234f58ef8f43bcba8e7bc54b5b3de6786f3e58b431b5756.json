@@ -1,0 +1,29 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "d209",
+     "d278"
+    ],
+    "canonical_name": "U.S. Export Administration Regulations (EAR)",
+    "definition": "U.S. Commerce Department regulations controlling the export of dual-use goods, software and technology."
+   },
+   {
+    "member_ids": [
+     "d277"
+    ],
+    "canonical_name": "U.S. Export Administration Act",
+    "definition": "The U.S. statute that authorized controls on exports of dual-use items and served as the basis for the EAR."
+   }
+  ]
+ },
+ "input_tokens": 92,
+ "output_tokens": 204,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 523,
+ "latency_s": 4.211,
+ "recorded_at": "2026-10-25T18:31:35+0000"
+}

@@ -1,0 +1,38 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n61",
+     "n62",
+     "n63",
+     "n75"
+    ],
+    "canonical_name": "Tax audit and assessment disputes",
+    "definition": "Risk that tax authorities audit the company and assess additional taxes beyond reserves, leading to disputes, litigation and unexpected tax liabilities."
+   },
+   {
+    "member_ids": [
+     "n65"
+    ],
+    "canonical_name": "Tax incentive assessment litigation",
+    "definition": "Risk that governments challenge or reassess previously granted tax incentives, resulting in assessments, litigation and collateral requirements."
+   },
+   {
+    "member_ids": [
+     "n411"
+    ],
+    "canonical_name": "Transfer pricing tax disputes",
+    "definition": "Risk that tax authorities challenge intercompany transfer pricing, resulting in additional tax assessments and prolonged disputes."
+   }
+  ]
+ },
+ "input_tokens": 336,
+ "output_tokens": 268,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 3.134,
+ "recorded_at": "2026-10-25T18:29:13+0000"
+}

@@ -1,0 +1,94 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "An increasing interest rate environment may have an adverse effect on borrowing costs for Ford Credit",
+    "risk_name": "Rising interest rate funding costs",
+    "detail": "Ford Credit captive finance arm funding costs; higher rates may be passed to customers",
+    "quote": "An increasing interest rate environment may have an adverse effect on borrowing costs for Ford Credit, making it more expensive to fund our operations or leading to higher rates charged to our customers if these costs are passed on.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Ford Credit",
+      "type": "NAMED_COUNTERPARTY"
+     }
+    ]
+   },
+   {
+    "heading": "Ford Credit could experience higher-than-expected credit losses",
+    "risk_name": "Finance arm credit losses",
+    "detail": "Ford Credit customer and dealer defaults tied to unemployment, consumer debt, dealer profitability, used car prices",
+    "quote": "Credit risk (which is heavily dependent upon economic factors including unemployment, consumer debt service burden, personal income growth, dealer profitability, and used car prices) has a significant impact on Ford Credit\u2019s business.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Ford Credit",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "used car prices",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Lower-than-anticipated residual values or higher return volumes for leased vehicles",
+    "risk_name": "Lease residual value decline",
+    "detail": "Lease returns affected by auction values, propulsion technology changes and related regulation",
+    "quote": "If auction values decrease significantly in the future, return volumes could exceed Ford Credit\u2019s expectations.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Ford Credit",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "propulsion technology",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Pension and OPEB experience could be worse than Ford has assumed",
+    "risk_name": "Pension remeasurement losses",
+    "detail": "Year-end mark-to-market of pension/OPEB on discount rates, asset returns, mortality could produce substantial losses",
+    "quote": "To the extent actual results are less favorable than our assumptions, we may recognize a remeasurement loss in our results, which could be substantial.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Pension and other postretirement liabilities could adversely affect Ford\u2019s liquidity",
+    "risk_name": "Pension funding liquidity drain",
+    "detail": "US defined benefit plans, non-US pensions mainly Europe, retiree health OPEB; may force capex cuts, dividend suspension, refinancing",
+    "quote": "If our cash flows and capital resources are insufficient to meet any pension or OPEB obligations, we could be forced to reduce or delay investments and capital expenditures, suspend dividend payments, seek additional capital, or restructure or refinance our indebtedness.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "United States",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Europe",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Ford and Ford Credit could experience significant litigation, investigations, or adverse publicity",
+    "risk_name": "Litigation and regulatory compliance",
+    "detail": "Past violations by affiliated individuals caused civil or criminal liability; product defect, safety, environmental, financial regulation exposure",
+    "quote": "We spend substantial resources to comply with governmental safety regulations, environmental regulatory obligations concerning our products and operations, consumer and automotive financial regulations, labor and employment regulations and practices, and other standards, but we have experienced employees, contractors, agents, and other individuals affiliated with us violating such laws or regulations from time to time, which at times has resulted in civil or criminal liability, and we cannot ensure that any such violations have not occurred or will not occur in the future, which may further result in civil or criminal liability.",
+    "specificity": "specific",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1685,
+ "output_tokens": 1361,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 10.608,
+ "recorded_at": "2026-10-25T18:18:50+0000"
+}

@@ -1,0 +1,80 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Dependence on global suppliers including single-source suppliers for components",
+    "risk_name": "Component supply shortage",
+    "detail": "Thousands of parts from hundreds of suppliers incl. single-source; supplier insolvency, allocation, localization at new factories",
+    "quote": "Our products contain thousands of parts purchased globally from hundreds of suppliers, including single-source direct suppliers, which exposes us to multiple potential sources of component shortages.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Dependence on global suppliers including single-source suppliers for components",
+    "risk_name": "Import tariff cost increase",
+    "detail": "2025 U.S. trade policy changes, heightened tariffs and retaliatory export controls raised supply chain costs",
+    "quote": "U.S. trade policy alterations in 2025, including heightened import tariffs and subsequent retaliatory measures, have impacted our supply chain costs, and may impact the availability of certain technologies or components, depending on the exact scope of the tariffs ultimately implemented and retaliatory export controls.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "U.S. trade policy",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "import tariffs",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "export controls",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Dependence on global suppliers including single-source suppliers for components",
+    "risk_name": "AI compute resource shortage",
+    "detail": "AI advances demand exponentially greater compute, memory, energy and thermal resources that may be insufficient or unaffordable",
+    "quote": "For example, as companies, including Tesla, have made rapid advancements in AI in recent years, such innovation demands exponentially greater compute, memory, energy and thermal resources, which may prove insufficient in scale or affordability to meet our requirements.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "AI",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "memory",
+      "type": "INPUT_COMMODITY"
+     },
+     {
+      "name": "energy",
+      "type": "INPUT_COMMODITY"
+     }
+    ]
+   },
+   {
+    "heading": "Dependence on global suppliers including single-source suppliers for components",
+    "risk_name": "Raw material cost inflation",
+    "detail": "May fail to negotiate supplier cost reductions amid rising materials pricing",
+    "quote": "Additionally, we may be unsuccessful in our continuous efforts to negotiate with existing suppliers to obtain cost reductions and avoid unfavorable changes to terms, source less expensive suppliers for certain parts and redesign certain parts to make them less expensive to produce, especially in the case of increases in materials pricing.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Need to forecast, purchase, warehouse and transport components at high volumes",
+    "risk_name": "Inventory and logistics mismanagement",
+    "detail": "Rising production scale and variants; risk of storage, transportation and write-off costs",
+    "quote": "If we are unable to accurately match the timing and quantities of component purchases to our actual needs or successfully implement automation, inventory management and other systems to accommodate the increased complexity in our supply chain and parts management, we may incur unexpected production disruption, storage, transportation and write-off costs, which may harm our business and operating results.",
+    "specificity": "specific",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1168,
+ "output_tokens": 1125,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 8.444,
+ "recorded_at": "2026-10-25T18:18:58+0000"
+}

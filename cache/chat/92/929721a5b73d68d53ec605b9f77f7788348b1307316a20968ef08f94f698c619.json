@@ -1,0 +1,80 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "We are subject to extensive environmental regulations that are subject to change and involve significant risks.",
+    "risk_name": "Environmental compliance and legacy liabilities",
+    "detail": "Automotive parts plants; acquired facilities may carry pre-ownership environmental liabilities",
+    "quote": "Through various acquisitions over the years, we have acquired a number of manufacturing facilities, and we cannot assure that we will not incur material costs and liabilities relating to activities that predate our ownership.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Our operations may be affected by greenhouse emissions and climate change and related regulations.",
+    "risk_name": "Climate regulation energy cost increase",
+    "detail": "Plants use electricity and natural gas; GHG rules could raise energy costs, restrict gas use, require allowances",
+    "quote": "Greenhouse gas regulation could increase the price of the electricity we purchase, increase costs for use of natural gas, potentially restrict access to or the use of natural gas, require us to purchase allowances to offset our own emissions or result in an overall increase in costs of raw materials",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "electricity",
+      "type": "INPUT_COMMODITY"
+     },
+     {
+      "name": "natural gas",
+      "type": "INPUT_COMMODITY"
+     }
+    ]
+   },
+   {
+    "heading": "Our operations may be affected by greenhouse emissions and climate change and related regulations.",
+    "risk_name": "Physical climate and weather disruption",
+    "detail": "Extreme weather may damage facilities, disrupt supply chain materials, raise insurance costs",
+    "quote": "In addition, extreme weather events may damage a facility or surrounding infrastructure, making the facility unusable for a time. These factors may impact our decisions to construct new facilities.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "We have been and are exposed to liabilities related to environmental, product warranties, product recalls, litigation and other claims.",
+    "risk_name": "Superfund remediation liability",
+    "detail": "Named potentially responsible party by EPA and state agencies at hazardous waste sites under CERCLA",
+    "quote": "We and certain of our current and former direct and indirect corporate predecessors, subsidiaries and divisions have been identified by the United States Environmental Protection Agency and certain state environmental agencies and private parties as potentially responsible parties at various hazardous waste disposal sites under the Comprehensive Environmental Response, Compensation and Liability Act and equivalent state laws",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "United States Environmental Protection Agency",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "Comprehensive Environmental Response, Compensation and Liability Act",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "We have been and are exposed to liabilities related to environmental, product warranties, product recalls, litigation and other claims.",
+    "risk_name": "Product warranty and recall costs",
+    "detail": "Auto manufacturers increasingly seek supplier contribution for recalls; costs may exceed insurance or accruals",
+    "quote": "As suppliers become more integrally involved in the vehicle design process and assume more of the vehicle assembly functions, auto manufacturers are increasingly looking to their suppliers for contribution when faced with recalls and product warranty claims.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "We are involved, from time to time, in legal proceedings and commercial or contractual disputes, which could have an adverse impact on our business.",
+    "risk_name": "Litigation and uninsured liabilities",
+    "detail": "Generic statement",
+    "quote": "While we maintain insurance for certain risks, the amount of insurance may not be adequate to cover all insured claims and liabilities. The incurrence of significant liabilities for which there is no, or insufficient, insurance coverage could adversely affect our business.",
+    "specificity": "boilerplate",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1722,
+ "output_tokens": 1308,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 9.943,
+ "recorded_at": "2026-10-25T18:20:23+0000"
+}

@@ -1,0 +1,139 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Operating results are affected by a wide variety of factors",
+    "risk_name": "Macroeconomic and geopolitical demand volatility",
+    "detail": "Uncertain conditions in U.S., China and Europe; inflation, interest rates, banking instability",
+    "quote": "general economic, industry, public health or political conditions in the U.S. or internationally, including uncertain economic conditions in U.S., China and Europe, changes in geopolitical conditions, interest rates, persistent inflation, tariffs or instability in the banking sector;",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "U.S.",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Europe",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Operating results are affected by a wide variety of factors",
+    "risk_name": "Trade restrictions and tariffs",
+    "detail": "Tariffs and trade restrictions on business in China or targeting specific companies/products",
+    "quote": "trade restrictions and increase in tariffs, including those on business in China, or focused on specific companies or types of products;",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Operating results are affected by a wide variety of factors",
+    "risk_name": "Customer and channel inventory fluctuations",
+    "detail": "Inventory held by customers and distributors' customers; cancellations and push-outs",
+    "quote": "levels of inventories held by our customers and the customers of our distributors;",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Operating results are affected by a wide variety of factors",
+    "risk_name": "Geopolitical and conflict-driven supply disruption",
+    "detail": "Middle East conflict, Russia's invasion of Ukraine, oil prices, transportation interruptions",
+    "quote": "war (including military conflict in the Middle East and Russia's invasion of Ukraine), worldwide oil prices and supply, transportation interruption, public health concerns (including viral outbreaks and pandemics), fires, natural disasters or disruptions in the transportation system;",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Middle East",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Ukraine",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Russia",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "oil",
+      "type": "INPUT_COMMODITY"
+     }
+    ]
+   },
+   {
+    "heading": "Operating results are affected by a wide variety of factors",
+    "risk_name": "Raw material availability constraints",
+    "detail": "Availability of raw materials including rare earth minerals amid supply chain constraints and trade restrictions",
+    "quote": "availability of raw materials including rare earth minerals, supplies and equipment due to supply chain constraints, disruptions in transportation systems, trade restrictions, or other factors;",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "rare earth minerals",
+      "type": "INPUT_COMMODITY"
+     }
+    ]
+   },
+   {
+    "heading": "Operating results are affected by a wide variety of factors",
+    "risk_name": "Manufacturing capacity constraints",
+    "detail": "Need sufficient wafer foundry, assembly and test capacity; utilization and yield fluctuations",
+    "quote": "our ability to secure sufficient wafer foundry, assembly and testing capacity;",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Operating results are affected by a wide variety of factors",
+    "risk_name": "Process technology transition execution",
+    "detail": "Transition to advanced processes, e.g. first 3nm PCIe Gen 6 Switch at desired volumes",
+    "quote": "our ability to successfully transition to more advanced process technologies to reduce manufacturing costs or introduce more advanced products, and the ability to produce these products at desired volumes, such as our first 3nm PCIe Gen 6 Switch;",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "3nm PCIe Gen 6 Switch",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Operating results are affected by a wide variety of factors",
+    "risk_name": "Counterfeiting and pricing pressure",
+    "detail": "Counterfeit products and competitive pricing pressure reduce sales",
+    "quote": "unauthorized counterfeiting of our products resulting in pricing pressure and loss of sales;",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Operating results are affected by a wide variety of factors",
+    "risk_name": "Operating results volatility",
+    "detail": "Results may miss guidance; period comparisons not meaningful",
+    "quote": "In future periods, our operating results may fall below our public guidance or the expectations of public market analysts and investors, which would likely have a negative effect on the price of our common stock.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Inability of key suppliers to provide raw materials, components, or equipment",
+    "risk_name": "Supplier shortage and cost inflation",
+    "detail": "Limited qualified suppliers; shortages, discontinued equipment parts; supplier cost increases in fiscal 2022-2023",
+    "quote": "From time to time, we have experienced supply shortages, extended lead times, supplier announcements that certain orders could not be fulfilled, or the discontinuation of updates or parts for certain equipment.",
+    "specificity": "specific",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1665,
+ "output_tokens": 1789,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 13.12,
+ "recorded_at": "2026-10-25T18:21:00+0000"
+}

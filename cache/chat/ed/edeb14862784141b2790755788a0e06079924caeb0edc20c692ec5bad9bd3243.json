@@ -1,0 +1,47 @@
+{
+ "model": "claude-haiku-5-5",
+ "served_model": "claude-haiku-5-5",
+ "content": {
+  "summary": "The named input neon links the two sides: APTV cites Ukraine and Russia as significant producers of raw materials including neon, and MCHP names neon among raw materials the semiconductor industry sources from Russia, Belarus and Ukraine, so Ukraine/Russia is the shared place. The memory input is a second, weaker link: MCHP flags constrained memory components, and TSLA flags AI-driven demand for memory and compute resources, but the rows do not show a shared memory risk for the automaker and chipmaker in the same way.",
+  "claims": [
+   {
+    "risk": "Ukraine/Russia neon and raw material supply disruption",
+    "company": "APTV",
+    "category": "COMMODITY_INPUTS",
+    "leaf": "COMMODITY_INPUTS.raw_material_prices",
+    "quote": "Ukraine and Russia are significant global producers of raw materials used in our supply chain, including copper, aluminum, palladium and neon gases.",
+    "source_ref": "APTV-g11"
+   },
+   {
+    "risk": "Ukraine/Russia neon and critical material supply limits",
+    "company": "MCHP",
+    "category": "COMMODITY_INPUTS",
+    "leaf": "COMMODITY_INPUTS.raw_material_prices",
+    "quote": "the broader semiconductor industry relies on raw materials sourced from these regions - such as neon, palladium, cesium, rubidium, and nickel.",
+    "source_ref": "MCHP-g2"
+   },
+   {
+    "risk": "Constrained memory component availability",
+    "company": "MCHP",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.semiconductor_supply",
+    "quote": "availability of the memory components we use may become constrained, have longer lead times, or become more expensive.",
+    "source_ref": "MCHP-g2"
+   },
+   {
+    "risk": "AI demand for memory and compute resources",
+    "company": "TSLA",
+    "category": "AI_EMERGING_TECH",
+    "leaf": "AI_EMERGING_TECH.ai_development_use",
+    "quote": "such innovation demands exponentially greater compute, memory, energy and thermal resources, which may prove insufficient in scale or affordability to meet our requirements.",
+    "source_ref": "TSLA-g1"
+   }
+  ]
+ },
+ "input_tokens": 5093,
+ "output_tokens": 1995,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6532,
+ "latency_s": 8.512,
+ "recorded_at": "2026-10-25T18:48:53+0000"
+}

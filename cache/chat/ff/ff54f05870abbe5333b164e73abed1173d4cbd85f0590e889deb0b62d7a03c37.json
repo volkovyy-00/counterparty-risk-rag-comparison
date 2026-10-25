@@ -1,0 +1,102 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Our operating results may be adversely impacted by the financial viability and performance of our licensees, customers, distributors, resellers or suppliers.",
+    "risk_name": "Counterparty credit and performance risk",
+    "detail": "Financial decline of large licensees, customers, distributors or suppliers could impair receivables collection and raise credit loss allowances",
+    "quote": "The financial decline of a large licensee, customer, reseller or distributor, an important supplier, or a group thereof, could have an adverse impact on our operating results and could result in our inability to collect our accounts receivable balances, higher allowances for credit losses, and higher operating costs as a percentage of net sales.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Exposure to failures of financial institutions holding cash deposits",
+    "risk_name": "Bank counterparty failure",
+    "detail": "Generic statement",
+    "quote": "As a result, we may experience losses on our holdings of cash and cash equivalents due to failures of financial institutions or other related parties.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "We are highly dependent on foreign sales, suppliers, and operations, which exposes us to foreign political and economic risks.",
+    "risk_name": "Foreign sales concentration",
+    "detail": "About 75% of fiscal 2026 net sales foreign, including 18% China and 15% Taiwan",
+    "quote": "During fiscal 2026, approximately 75% of our net sales were made to foreign customers, including 18% in China and 15% in Taiwan.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Taiwan",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "U.S.-China trade tensions and Chinese tariffs",
+    "risk_name": "Trade retaliation and tariff exposure",
+    "detail": "China antidumping probe of U.S. analog semiconductors (Sept 2025) could resume; April 2026 anti-extraterritorial regulation creates liability",
+    "quote": "For example, on September 13, 2025, China's Ministry of Commerce initiated an antidumping investigation of imports into China of analog semiconductors originating in the United States.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "China's Ministry of Commerce",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "analog semiconductors",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "China anti-foreign-sanctions regulation liability",
+    "risk_name": "Conflicting sanctions compliance liability",
+    "detail": "April 13, 2026 China State Council regulation penalizes compliance with foreign trade controls and sanctions",
+    "quote": "This regulation may expose us to potential civil liability, administrative measures, and other remedial actions if the Chinese government determines that we caused harm by complying with certain foreign laws.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "China's State Council",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Chinese government support of domestic semiconductor competitors",
+    "risk_name": "State-backed competition and market exclusion",
+    "detail": "Chinese state investment in domestic semiconductors may restrict access or competitiveness in China",
+    "quote": "The Chinese government may restrict us from participating in the China market, or may prevent us from competing effectively with Chinese companies.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "semiconductor industry",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1573,
+ "output_tokens": 1246,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 9.617,
+ "recorded_at": "2026-10-25T18:21:01+0000"
+}

@@ -1,0 +1,110 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Export controls, sanctions, and trade restrictions are complex and subject to changing interpretation",
+    "risk_name": "Export control and sanctions restrictions",
+    "detail": "BIS semiconductor rules since Oct 2022/Nov 2023, entity lists, Huawei ban, slower license processing, Russia sanctions, VCS restrictions",
+    "quote": "The result of these additional restrictions and the change in the U.S. administration in 2025 is that there has been a slow-down in the processing of export license applications by the U.S. Government and an increased burden on us to conduct additional due diligence imposed by the regulations, as well as by sanctions imposed on Russia for invading Ukraine.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "U.S. Department of Commerce",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "Russia",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Ukraine",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Huawei",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "EAR",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "50% Affiliates Rule",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "U.S. government procurement bans on Chinese telecom equipment",
+    "risk_name": "Government procurement supply chain restrictions",
+    "detail": "FAR and National Defense Authorization Act bar contracts with firms using covered Chinese telecommunications equipment",
+    "quote": "In July 2020, this was expanded to prohibit U.S. governmental agencies from entering into a contract with any company that uses covered telecommunications equipment whether or not the Chinese technology is related to the procurement.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "U.S. Federal Acquisition Regulation",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "National Defense and Authorization Act",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Tariffs and U.S.-China trade tensions",
+    "risk_name": "Import tariff cost increase",
+    "detail": "U.S.-China reciprocal tariffs since 2018, 10% baseline tariff; mitigation through supply chain adjustments may be incomplete",
+    "quote": "Trade tensions between the U.S. and China, have continued to escalate from 2018 to present, and include the U.S. increasing tariffs on Chinese origin goods and China increasing tariffs on U.S. origin goods. Additionally, the U.S. has imposed a baseline 10% tariff on almost all imported goods globally.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Potential Section 232 semiconductor tariffs",
+    "risk_name": "Prospective semiconductor tariffs",
+    "detail": "Section 232 investigation expected to raise semiconductor tariffs; uncertain IEEPA tariff refunds; copper tariffs, de minimis suspension",
+    "quote": "Although semiconductors remain exempt from most of the recent tariff actions, an increase in tariffs on semiconductors is expected to be imposed once the Section 232 investigation into the impact on U.S. national security by imports of semiconductors, semiconductor manufacturing equipment and their derivative products is concluded.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Section 232",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "IEEPA",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "copper",
+      "type": "INPUT_COMMODITY"
+     },
+     {
+      "name": "semiconductors",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1712,
+ "output_tokens": 1279,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 9.499,
+ "recorded_at": "2026-10-25T18:21:36+0000"
+}

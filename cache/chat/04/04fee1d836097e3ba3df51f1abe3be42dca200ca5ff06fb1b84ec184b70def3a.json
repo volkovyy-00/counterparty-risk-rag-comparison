@@ -1,0 +1,45 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n124",
+     "n417"
+    ],
+    "canonical_name": "IT system disruption",
+    "definition": "Failures or outages of the company's information technology systems could disrupt operations and business processes."
+   },
+   {
+    "member_ids": [
+     "n413",
+     "n416"
+    ],
+    "canonical_name": "IT system implementation disruption",
+    "definition": "Implementing new enterprise or internally developed IT systems could disrupt operations and impair financial reporting and internal controls."
+   },
+   {
+    "member_ids": [
+     "n211",
+     "n432"
+    ],
+    "canonical_name": "Automotive technology and mobility disruption",
+    "definition": "Shifts toward electrification, autonomous driving, software services and shared mobility, plus new entrants, could erode the company's competitive position and vehicle demand."
+   },
+   {
+    "member_ids": [
+     "n215"
+    ],
+    "canonical_name": "AI-driven technology shift competitive risk",
+    "definition": "Failure to adapt products to AI-driven technological changes could reduce design wins, sales and margins."
+   }
+  ]
+ },
+ "input_tokens": 359,
+ "output_tokens": 314,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 3.416,
+ "recorded_at": "2026-10-25T18:25:47+0000"
+}

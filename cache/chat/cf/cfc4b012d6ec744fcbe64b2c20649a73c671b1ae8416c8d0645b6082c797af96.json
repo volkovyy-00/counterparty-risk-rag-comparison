@@ -1,0 +1,63 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "We are highly dependent on the services of Elon Musk, Technoking of Tesla and our Chief Executive Officer.",
+    "risk_name": "Key person dependence",
+    "detail": "CEO Elon Musk not full-time; holds management roles at SpaceX, xAI, Neuralink, The Boring Company",
+    "quote": "For example: Mr. Musk also currently holds management positions at Space Exploration Technologies Corp., X.AI Holdings Corp. (\u201cxAI\u201d), Neuralink Corp. and The Boring Company, and is involved in other ventures.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Space Exploration Technologies Corp.",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "X.AI Holdings Corp.",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "Neuralink Corp.",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "The Boring Company",
+      "type": "NAMED_COUNTERPARTY"
+     }
+    ]
+   },
+   {
+    "heading": "Information technology systems could be subject to cyber-attacks or other security incidents",
+    "risk_name": "Cybersecurity breach of information systems",
+    "detail": "Generic list of attack vectors on IT systems and vehicles; data breach notification and litigation exposure",
+    "quote": "To the extent any security incident results in unauthorized access or damage to or acquisition, use, corruption, loss, destruction, alteration or dissemination of our data, including intellectual property and personal information, or our products, vehicles or service offerings, or for it to be believed or reported that any of these occurred, it could disrupt our business, harm our reputation, compel us to comply with applicable data breach notification laws, subject us to time consuming, distracting and expensive litigation, regulatory investigation and oversight, mandatory corrective action, require us to verify the correctness of database contents, or otherwise subject us to liability under laws, regulations and contractual obligations, including those that protect the privacy and security of personal information.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Security incidents at service providers",
+    "risk_name": "Third-party vendor cyber incident",
+    "detail": "Workforce management software provider suffered ransomware; limited ability to monitor provider security",
+    "quote": "Our service providers, including our workforce management software provider, have been subject to ransomware and other security incidents, and we cannot guarantee that our or our service providers\u2019 systems have not been breached or that they do not contain exploitable defects, bugs, or vulnerabilities that could result in a security incident, or other disruption to, our or our service providers\u2019 systems.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Risks in implementing and expanding core IT systems",
+    "risk_name": "IT system implementation disruption",
+    "detail": "New internally developed systems deployed in U.S. and abroad; failure could impair financial reporting and internal controls",
+    "quote": "Moreover, if we do not successfully implement, maintain or expand these systems as planned, our operations may be disrupted, our ability to accurately and/or timely report our financial results could be impaired and deficiencies may arise in our internal control over financial reporting, which may impact our ability to certify our financial results.",
+    "specificity": "specific",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1533,
+ "output_tokens": 1086,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 8.708,
+ "recorded_at": "2026-10-25T18:19:16+0000"
+}

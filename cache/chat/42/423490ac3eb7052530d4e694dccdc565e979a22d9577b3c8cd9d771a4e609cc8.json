@@ -1,0 +1,38 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n98",
+     "n99",
+     "n100"
+    ],
+    "canonical_name": "Cybersecurity breach of information systems",
+    "definition": "Risk that cyberattacks on the company's systems, products or data cause disruption, data loss, privacy liability and compliance costs."
+   },
+   {
+    "member_ids": [
+     "n101",
+     "n353"
+    ],
+    "canonical_name": "Third-party cybersecurity breach",
+    "definition": "Risk that cyber incidents at suppliers, customers or service providers, whose security the company cannot fully monitor, disrupt operations or expose data."
+   },
+   {
+    "member_ids": [
+     "n354"
+    ],
+    "canonical_name": "Uninsured cybersecurity liability",
+    "definition": "Risk that losses from cybersecurity incidents are not covered by insurance or contractual liability limits."
+   }
+  ]
+ },
+ "input_tokens": 403,
+ "output_tokens": 258,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 3.753,
+ "recorded_at": "2026-10-25T18:27:18+0000"
+}

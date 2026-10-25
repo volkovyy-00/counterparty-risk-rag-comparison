@@ -1,0 +1,64 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Limits to ability to reduce emissions and increase fuel economy over given time frames",
+    "risk_name": "Emissions standards compliance risk",
+    "detail": "Electrification core to compliance; low fuel prices and weak EV adoption could constrain sales of profitable ICE vehicles",
+    "quote": "If fuel prices are relatively low and market conditions or the consumer attributes of our vehicles do not lead consumers to purchase electrified vehicles and other highly fuel-efficient vehicles in sufficient numbers, it may be difficult to meet applicable environmental standards in various markets and may constrain our ability to sell internal combustion engine vehicles, including some of the more profitable vehicles in our portfolio.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "electrified vehicles",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "fuel prices",
+      "type": "INPUT_COMMODITY"
+     }
+    ]
+   },
+   {
+    "heading": "Regulatory compliance credit purchase agreements",
+    "risk_name": "Regulatory credit counterparty risk",
+    "detail": "Credit purchase agreements depend on seller delivery; purchases may be significant cash; credits already written off after policy changes",
+    "quote": "If the seller under a credit purchase agreement does not deliver the credits contracted for, it may cause us to be out of compliance with emissions standards or other requirements. Such noncompliance may result in fines, penalties, or other costs, and/or we may need to modify our product plans and be unable to sell certain products.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "EV growth and disruptions may force product plan changes or credit purchases",
+    "risk_name": "Slow EV adoption compliance cost",
+    "detail": "EV growth rates, stop ships, supply limits may require credit purchases (already done) to meet ZEV and fuel economy rules",
+    "quote": "Moreover, the rates of EV growth, production disruptions, stop ships, supply chain limitations, lower-than-planned market acceptance of our vehicles, and/or other circumstances may cause us to modify product plans, or, in some cases, purchase credits, which we have done, in order to comply with emissions standards, fuel economy standards, or ZEV requirements, which could have an adverse effect on our financial condition and results of operations and cause reputational harm.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "ZEV requirements",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "EV growth",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Increased regulatory scrutiny of automaker emission compliance",
+    "risk_name": "Emissions enforcement and compliance cost",
+    "detail": "Stricter enforcement, field actions, approval delays; criminal liability possible in some jurisdictions; third-party vehicle testing",
+    "quote": "Increased scrutiny of automaker emission compliance by regulators around the world has led to new regulations, more stringent enforcement programs, additional field actions, demands for reporting on the field performance of emissions components and higher scrutiny of field data, and delays in regulatory approvals.",
+    "specificity": "specific",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1541,
+ "output_tokens": 1055,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 8.693,
+ "recorded_at": "2026-10-25T18:18:56+0000"
+}

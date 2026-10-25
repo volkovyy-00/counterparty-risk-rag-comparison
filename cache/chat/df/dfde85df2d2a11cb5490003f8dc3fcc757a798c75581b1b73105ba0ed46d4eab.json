@@ -1,0 +1,90 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "AI and information technology systems risks",
+    "risk_name": "AI adoption and data misuse",
+    "detail": "Incorporating AI into systems and product development; risks of IP loss, inaccurate outputs, and competitors using AI more effectively",
+    "quote": "The use of AI in the development of our products and services could also cause loss or theft of intellectual property as well as subject us to risks related to intellectual property infringement or misappropriation, data privacy and cybersecurity.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "AI",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Our business success depends on attracting and retaining qualified personnel.",
+    "risk_name": "Key talent retention",
+    "detail": "Need for engineering, technical and software skilled employees worldwide",
+    "quote": "In particular, any unplanned turnover or inability to attract and retain key employees and employees with engineering, technical and software capabilities in numbers sufficient for our needs could adversely affect our business.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Our profitability and results of operations may be adversely affected by new business launch difficulties.",
+    "risk_name": "New program launch execution",
+    "detail": "Failed launches could delay or shut down customer vehicle production, triggering penalties and work shifting to competitors",
+    "quote": "To the extent we are not able to successfully launch new business, vehicle production at our customers could be significantly delayed or shut down.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Part of our workforce is unionized, which could subject us to work stoppages.",
+    "risk_name": "Labor union work stoppage",
+    "detail": "About 13% of U.S. workforce unionized; New York facility agreement expires September 2028; some international sites unionized",
+    "quote": "As of December 31, 2025, approximately 13% of our U.S. workforce was unionized. We have a domestic collective bargaining agreement for one facility in New York, which expires in September 2028.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "New York",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Work stoppages, production shutdowns and similar events could significantly disrupt our business.",
+    "risk_name": "Production disruption in supply chain",
+    "detail": "Just-in-time automotive delivery; shutdowns at own plants, customers or suppliers halt purchases",
+    "quote": "Because the automotive industry relies heavily on just-in-time delivery of components during the assembly and manufacture of vehicles, a work stoppage or production shutdown at one or more of our manufacturing and assembly facilities could have adverse effects on our business.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "automotive industry",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Our benefit plan expenses and obligations may fluctuate depending on various factors",
+    "risk_name": "Pension underfunding",
+    "detail": "Unfunded defined benefit pension obligations; falling rates could require significant additional contributions",
+    "quote": "The valuation of our future payment obligations under the plans and the related plan assets is subject to significant adverse changes if the credit and capital markets cause interest rates and",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Our benefit plan expenses and obligations may fluctuate depending on various factors",
+    "risk_name": "Retiree medical cost increase",
+    "detail": "Unfunded U.S. post-employment medical benefit plans exposed to rising medical costs",
+    "quote": "We also sponsor post-employment medical benefit plans in the U.S. that are unfunded. If medical costs continue to increase or actuarial assumptions are modified, this could have an adverse effect on our business.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "U.S.",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1710,
+ "output_tokens": 1270,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 9.405,
+ "recorded_at": "2026-10-25T18:20:21+0000"
+}

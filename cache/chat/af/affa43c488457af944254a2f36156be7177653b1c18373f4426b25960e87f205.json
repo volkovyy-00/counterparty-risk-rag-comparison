@@ -1,0 +1,39 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Industry consolidation and customer vertical integration",
+    "risk_name": "Industry consolidation competitive pressure",
+    "detail": "Semiconductor competitor consolidation and customer vertical integration could erode market share and force restructuring",
+    "quote": "Consolidation among competitors and integration among customers could erode our market share, impair our capacity to compete and require us to restructure our operations, any of which could have a material adverse effect on our business.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Competitors may receive governmental subsidies or incentives",
+    "risk_name": "Government subsidy competitive disadvantage",
+    "detail": "US and EU semiconductor funding legislation; risk of not accessing, reduction or clawback of awards, or competitors receiving more",
+    "quote": "For example, the United States and the European Union have enacted legislation to provide funding and incentives for semiconductor research, development, and manufacturing in their respective regions.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "United States",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "European Union",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 418,
+ "output_tokens": 376,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 3.658,
+ "recorded_at": "2026-10-25T18:21:52+0000"
+}

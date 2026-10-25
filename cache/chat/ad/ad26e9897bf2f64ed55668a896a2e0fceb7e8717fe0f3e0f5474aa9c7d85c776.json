@@ -1,0 +1,34 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n158",
+     "n160",
+     "n161",
+     "n291",
+     "n470"
+    ],
+    "canonical_name": "Restructuring charges and execution risk",
+    "definition": "Restructuring actions such as plant closures, capacity realignment and footprint changes may incur significant charges or impairments and fail to deliver the expected savings."
+   },
+   {
+    "member_ids": [
+     "n435",
+     "n436",
+     "n437"
+    ],
+    "canonical_name": "Divestiture execution and residual obligations",
+    "definition": "Divestitures may be poorly executed, create negative synergies, or leave the company with continuing liabilities, indemnity gaps or transition service burdens."
+   }
+  ]
+ },
+ "input_tokens": 420,
+ "output_tokens": 204,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 5.756,
+ "recorded_at": "2026-10-25T18:26:52+0000"
+}

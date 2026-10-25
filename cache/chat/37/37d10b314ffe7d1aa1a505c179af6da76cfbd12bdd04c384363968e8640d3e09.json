@@ -1,0 +1,102 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Ford's receipt of government incentives could be subject to reduction, termination, or clawback",
+    "risk_name": "Government incentive reduction or clawback",
+    "detail": "Grants, forgivable loans, tax abatements; repayment if programs cancelled or job targets missed",
+    "quote": "Further, we may lose or be required to repay incentives or forgivable loans as a result of a change we make to our business strategy, e.g., if we elect not to proceed with a previously planned program or project or do not create as many jobs as initially anticipated.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Brazil incentive assessments and tax challenges",
+    "risk_name": "Tax incentive assessment litigation",
+    "detail": "Brazil federal assessments on prior incentives; S\u00e3o Paulo challenges Bahia tax incentives; collateral posted, more may be required",
+    "quote": "The federal government in Brazil has levied assessments against us concerning the federal incentives we previously received, and the State of S\u00e3o Paulo has challenged the grant to us of tax incentives by the State of Bahia.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Brazil",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "State of S\u00e3o Paulo",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "State of Bahia",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Elimination of U.S. EV purchaser tax credits",
+    "risk_name": "EV tax credit elimination",
+    "detail": "Up to $7,500 per-vehicle credit eliminated in 2025; battery supply chains built to avoid China lose rationale",
+    "quote": "In 2025, Congress eliminated these credits, ending the incentives for purchasers and likewise changing the business rationale to use and create battery supply chains with less control by China.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "foreign entity of concern",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "plug-in vehicles",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Changes to advanced manufacturing production tax credit for batteries",
+    "risk_name": "Manufacturing tax credit eligibility change",
+    "detail": "Battery production credit restricted by prohibited foreign entity rules; years to comply with new criteria for U.S. battery plants",
+    "quote": "The 2025 legislation preserved the advanced manufacturing production tax credit for the domestic manufacture of batteries and battery components (first established in the 2022 legislation), but restricted the eligibility criteria going forward, most notably by imposing criteria for \u201cprohibited foreign entities,\u201d which concern China and other countries.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "advanced manufacturing production tax credit",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "batteries",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "United States",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Access to debt, securitization, or derivative markets could be affected by downgrades or disruption",
+    "risk_name": "Funding access and credit rating downgrade",
+    "detail": "Ford Credit relies on unsecured funding, committed ABS programs and derivatives; reduced originations would hurt vehicle sales support",
+    "quote": "A significant reduction in the amount of receivables Ford Credit purchases or originates would significantly reduce its ongoing results of operations and could adversely affect its ability to support the sale of Ford vehicles.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Ford Credit",
+      "type": "NAMED_COUNTERPARTY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1773,
+ "output_tokens": 1248,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 9.344,
+ "recorded_at": "2026-10-25T18:18:47+0000"
+}

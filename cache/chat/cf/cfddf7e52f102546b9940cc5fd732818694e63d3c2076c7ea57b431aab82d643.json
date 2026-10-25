@@ -1,0 +1,73 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Reputational harm from allegations amplified by social media",
+    "risk_name": "Reputational damage from allegations",
+    "detail": "Allegations on quality, safety, fuel efficiency, sustainability spread via internet and social media, even if unfounded",
+    "quote": "With increased consumer interconnectedness through the internet, social media, and other media, mere allegations relating to quality, safety, reliability, fuel efficiency, sustainability, corporate social responsibility, or other key attributes can negatively impact our reputation or market acceptance of our products or services, even where such allegations prove to be inaccurate or unfounded.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Intense competition from traditional and new entrants",
+    "risk_name": "Competitive pressure from new entrants",
+    "detail": "Chinese EV producers exporting into key markets; new competitors target pickups, utilities, commercial vehicles with lower fixed costs",
+    "quote": "For example, Chinese electrified vehicle producers are exporting their products to some key markets in which we operate.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "electrified vehicles",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Low EV adoption rates and shifting regulatory support",
+    "risk_name": "Weak EV demand",
+    "detail": "Scaled back EV investments; industrywide EV adoption below plan; US regulatory shift away from EV support in 2025; fuel economy compliance at risk",
+    "quote": "Low EV adoption rates may persist, including as a result of the regulatory framework in various markets shifting away from supporting the adoption of electrified vehicles (as was the case in the United States in 2025); any negative perception of our electrified vehicles or EVs in general; an inability to or delay in developing or embracing new technologies or processes; or shifts in consumer preference.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "United States",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "EV adoption",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Failure to achieve climate and decarbonization targets",
+    "risk_name": "Climate target reputational risk",
+    "detail": "SBTi-approved interim emissions targets under reassessment; vehicle CO2 shortfalls could harm reputation, investment returns, customer and investor relations",
+    "quote": "For example, we are exposed to reputational risk if we do not reduce vehicle CO2 emissions in line with our targets or in compliance with applicable regulations.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Paris Agreement",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "Science Based Targets initiative",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1655,
+ "output_tokens": 940,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 7.679,
+ "recorded_at": "2026-10-25T18:18:39+0000"
+}

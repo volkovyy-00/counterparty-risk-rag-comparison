@@ -1,0 +1,167 @@
+{
+ "model": "claude-haiku-5-5",
+ "served_model": "claude-haiku-5-5",
+ "content": {
+  "summary": "The rows show that Tesla, onsemi and Texas Instruments all disclose exposure to high leverage and debt service, foreign currency fluctuations, third-party IP infringement litigation, product recall and warranty costs, and cybersecurity breaches of information systems. Anti-takeover provisions and IT system implementation disruption are shared only by onsemi and Tesla, and reliance on distributors only by onsemi and Texas Instruments; these shared risks are supported by excerpts from each company, but the rows give only partial text for some companies.",
+  "claims": [
+   {
+    "risk": "High leverage and debt service burden",
+    "company": "TSLA",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.liquidity_funding",
+    "quote": "Our consolidated indebtedness may increase our vulnerability to any generally adverse economic and industry conditions.",
+    "source_ref": "TSLA-g10"
+   },
+   {
+    "risk": "High leverage and debt service burden",
+    "company": "ON",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.liquidity_funding",
+    "quote": "The degree to which we are leveraged could have important consequences for our business and operations, including impacting our ability to obtain additional financing in the future for working capital, capital expenditures, acquisitions, and general corporate purposes.",
+    "source_ref": "ON-g11"
+   },
+   {
+    "risk": "High leverage and debt service burden",
+    "company": "TXN",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.liquidity_funding",
+    "quote": "While we believe we will have the ability to service this debt, our ability to make principal and interest payments when due depends upon our future performance, which will be subject to general economic conditions, industry cycles, and business and other factors affecting our operations.",
+    "source_ref": "TXN-g5"
+   },
+   {
+    "risk": "Foreign currency exchange rate fluctuations",
+    "company": "TSLA",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.fx_exposure",
+    "quote": "We transact business globally in multiple currencies and have foreign currency risks related to our revenue, costs of revenue, operating expenses and localized subsidiary debt denominated in currencies other than the U.S. dollar.",
+    "source_ref": "TSLA-g11"
+   },
+   {
+    "risk": "Foreign currency exchange rate fluctuations",
+    "company": "ON",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.fx_exposure",
+    "quote": "a significant portion of our cost of revenue and operating expenses are payable in foreign currencies. As a result, currency fluctuations and changes in foreign exchange regulations can have a material adverse effect on our liquidity and financial condition.",
+    "source_ref": "ON-g7"
+   },
+   {
+    "risk": "Foreign currency exchange rate fluctuations",
+    "company": "TXN",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.fx_exposure",
+    "quote": "our global operations expose us to periods when the U.S. dollar significantly fluctuates in relation to the non-U.S. currencies in which we transact business.",
+    "source_ref": "TXN-g0"
+   },
+   {
+    "risk": "Third-party IP infringement litigation",
+    "company": "TSLA",
+    "category": "IP_TECH_RIGHTS",
+    "leaf": "IP_TECH_RIGHTS.ip_infringement_claims",
+    "quote": "Our competitors or other third parties may hold or obtain patents, copyrights, trademarks or other proprietary rights that could prevent, limit or interfere with our ability to make, use, develop, sell or market our products and services.",
+    "source_ref": "TSLA-g11"
+   },
+   {
+    "risk": "Third-party IP infringement litigation",
+    "company": "ON",
+    "category": "IP_TECH_RIGHTS",
+    "leaf": "IP_TECH_RIGHTS.ip_infringement_claims",
+    "quote": "If our technologies are subject to claims of infringement on the IP rights of others, efforts to address such claims could have a material adverse effect on our results of operations.",
+    "source_ref": "ON-g7"
+   },
+   {
+    "risk": "Third-party IP infringement litigation",
+    "company": "TXN",
+    "category": "IP_TECH_RIGHTS",
+    "leaf": "IP_TECH_RIGHTS.ip_infringement_claims",
+    "quote": "We, directly and indirectly, face infringement claims from third parties, including nonpracticing entities that have acquired patents to pursue enforcement actions against other companies.",
+    "source_ref": "TXN-g5"
+   },
+   {
+    "risk": "Product recall and warranty costs",
+    "company": "TSLA",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.recalls",
+    "quote": "We may choose to or be compelled to undertake product recalls or take other similar actions.",
+    "source_ref": "TSLA-g9"
+   },
+   {
+    "risk": "Product recall and warranty costs",
+    "company": "ON",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.warranty_costs",
+    "quote": "Warranty claims, product liability claims, product recalls, and the failure to comply with the terms and conditions of our contracts, could harm our business, reputation, results of operations and financial condition.",
+    "source_ref": "ON-g6"
+   },
+   {
+    "risk": "Product recall and warranty costs",
+    "company": "TXN",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.recalls",
+    "quote": "Our results of operations and our reputation could be affected by warranty claims, product liability claims, product recalls or legal proceedings.",
+    "source_ref": "TXN-g3"
+   },
+   {
+    "risk": "Cybersecurity breach of information systems",
+    "company": "TSLA",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "Our information technology systems or data, or those of our service providers or customers or users could be subject to cyber-attacks or other security incidents, which could result in data breaches, intellectual property theft, claims, litigation, regulatory investigations, significant liability, reputational damage and other adverse consequences.",
+    "source_ref": "TSLA-g8"
+   },
+   {
+    "risk": "Cybersecurity breach of information systems",
+    "company": "ON",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "We routinely collect and store sensitive data, including confidential and other proprietary information about our business and our employees, customers, suppliers and business partners.",
+    "source_ref": "ON-g8"
+   },
+   {
+    "risk": "Cybersecurity breach of information systems",
+    "company": "TXN",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "Breaches, disruptions or other incidents relating to our information technology systems or the systems of our customers, suppliers and other third parties could be caused by factors such as computer viruses, ransomware, malware, software vulnerabilities, system failures, restricted network access, unauthorized access, terrorism, nation-state espionage, employee malfeasance, use of artificial intelligence (AI) tools, or human error.",
+    "source_ref": "TXN-g1"
+   },
+   {
+    "risk": "IT system implementation disruption",
+    "company": "TSLA",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.it_system_failure",
+    "quote": "Further, the implementation, maintenance, segregation and improvement of these systems require significant management time, support and cost, and there are inherent risks associated with developing, improving and expanding our core systems as well as implementing new systems and updating current systems.",
+    "source_ref": "TSLA-g8"
+   },
+   {
+    "risk": "IT system implementation disruption",
+    "company": "ON",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.it_system_failure",
+    "quote": "Delays in the maintenance, updates, upgrading, or patching of these systems, applications or processes, as well as the actions taken to maintain, update, upgrade and patch, could impair their effectiveness or expose us to security risks.",
+    "source_ref": "ON-g9"
+   },
+   {
+    "risk": "Reliance on third-party distributors",
+    "company": "ON",
+    "category": "CUSTOMER_CONCENTRATION",
+    "leaf": "CUSTOMER_CONCENTRATION.distributor_channel",
+    "quote": "A portion of our sales occurs through global and regional distributors that are not under our control.",
+    "source_ref": "ON-g4"
+   },
+   {
+    "risk": "Reliance on third-party distributors",
+    "company": "TXN",
+    "category": "CUSTOMER_CONCENTRATION",
+    "leaf": "CUSTOMER_CONCENTRATION.distributor_channel",
+    "quote": "Our distributors carry competing product lines, and our sales could be affected if semiconductor distributors promote competing products over our products.",
+    "source_ref": "TXN-g3"
+   }
+  ]
+ },
+ "input_tokens": 21275,
+ "output_tokens": 2975,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6532,
+ "latency_s": 9.685,
+ "recorded_at": "2026-10-25T18:49:03+0000"
+}

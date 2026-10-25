@@ -1,0 +1,79 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Cybersecurity incidents and IT system disruptions",
+    "risk_name": "Cybersecurity breach and data privacy liability",
+    "detail": "Disruption could affect vehicle systems supplied and plants; exposure under EU GDPR, China PIPL, India IT Act, California CCPA",
+    "quote": "To the extent that our business is interrupted, including the vehicle systems and components that we supply to our customers or our plant operations, or data is lost, destroyed or inappropriately accessed, used or disclosed, such disruptions could adversely affect our competitive position, operating capacity, ability to provide our goods and services, relationships with our customers, financial condition, operating results and cash flows",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "European Union General Data Privacy Regulation",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "China Personal Information Protection Law",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "India's Information Technology Act",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "California Consumer Privacy Act",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Dependence on third parties' security measures",
+    "risk_name": "Third-party cybersecurity breach",
+    "detail": "Relies on customers, suppliers and service providers' security; limited monitoring ability; damages recovery may be insufficient",
+    "quote": "Our ability to monitor these third parties' information security practices is limited, and these third parties may not have adequate information security measures in place.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Pandemics and public health crises have disrupted our business",
+    "risk_name": "Pandemic operational disruption",
+    "detail": "Past suspension of operations; risks of component shortages, labor disruption, demand decline, impaired credit access",
+    "quote": "Any such events may adversely impact our global supply chain and global manufacturing operations and cause us to again suspend our operations.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Stakeholder perspectives on climate change and sustainability",
+    "risk_name": "Sustainability expectations reputational risk",
+    "detail": "Generic statement",
+    "quote": "Our failure, or that of our supply base, to adequately meet stakeholder expectations or address stakeholder concerns, including concerns about environmental impacts and similar matters, may result in, among other things, negative sentiment toward us or our products, the loss of business, diluted market valuation, an inability to attract customers or an inability to attract and retain top talent.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Global climate change could adversely affect our business",
+    "risk_name": "Physical climate risk",
+    "detail": "Extreme weather could affect material availability and cost, insurance costs, facility siting",
+    "quote": "Such effects could disrupt our operations by, among other things, impacting the availability and cost of materials needed for manufacturing and could increase insurance and other operating costs.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Impairment charges relating to goodwill and long-lived assets",
+    "risk_name": "Goodwill and asset impairment",
+    "detail": "Generic statement",
+    "quote": "We regularly monitor our goodwill and long-lived assets for impairment indicators.",
+    "specificity": "boilerplate",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1660,
+ "output_tokens": 1101,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 8.803,
+ "recorded_at": "2026-10-25T18:20:47+0000"
+}

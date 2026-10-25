@@ -1,0 +1,77 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 6,
+    "heading": "Our operating results depend, in part, on the performance of independent distributors.",
+    "category": "CUSTOMER_CONCENTRATION",
+    "leaf": "CUSTOMER_CONCENTRATION.distributor_channel",
+    "quote": "A portion of our sales occurs through global and regional distributors that are not under our control. We rely on distributors to grow and develop their customer base and anticipate customer needs",
+    "driver": "independent distributors",
+    "secondary": false
+   },
+   {
+    "rf": 7,
+    "heading": "Changes in, and the regulatory implementation of, tariffs or other government trade policies or geopolitical conditions could reduce demand for our products, limit our ability to sell our products to certain customers or our ability to comply with applicable laws and regulations, which may materially adversely affect our business and results of operations.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.tariffs",
+    "quote": "The imposition of or increase in tariffs, export controls and other trade restrictions as a result of international trade disputes or changes in trade policies or political conditions may adversely affect our sales and profitability.",
+    "driver": "US-China tariffs",
+    "secondary": false
+   },
+   {
+    "rf": 7,
+    "heading": "Changes in, and the regulatory implementation of, tariffs or other government trade policies or geopolitical conditions could reduce demand for our products, limit our ability to sell our products to certain customers or our ability to comply with applicable laws and regulations, which may materially adversely affect our business and results of operations.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.china_exposure",
+    "quote": "our assembly and test operations facility located in Leshan, China, which is owned by Leshan-Phoenix Semiconductor Company Limited, a joint venture company in which we own 80% of the outstanding equity interests, may be subjected to increased costs or additional trade restrictions",
+    "driver": "Leshan China facility",
+    "secondary": true
+   },
+   {
+    "rf": 8,
+    "heading": "Our power technologies designed for AI use may not capture market share as expected, and issues related to the responsible use of AI may adversely affect our business.",
+    "category": "AI_EMERGING_TECH",
+    "leaf": "AI_EMERGING_TECH.ai_development_use",
+    "quote": "Our failure to commercialize new technologies that can power AI data centers in a timely manner or at all could result in a loss of market share, unanticipated costs and inventory obsolescence, which could adversely affect our financial results.",
+    "driver": "AI data center power",
+    "secondary": false
+   },
+   {
+    "rf": 8,
+    "heading": "Our power technologies designed for AI use may not capture market share as expected, and issues related to the responsible use of AI may adversely affect our business.",
+    "category": "AI_EMERGING_TECH",
+    "leaf": "AI_EMERGING_TECH.ai_regulation",
+    "quote": "In addition, compliance with evolving government regulations worldwide related to AI may increase the costs related to the development of AI products and solutions and limit global adoption, which may also adversely impact demand for our AI-related products and solutions.",
+    "driver": "responsible AI use",
+    "secondary": true
+   },
+   {
+    "rf": 9,
+    "heading": "We are exposed to risks related to the use of AI tools by us and others.",
+    "category": "AI_EMERGING_TECH",
+    "leaf": "AI_EMERGING_TECH.ai_development_use",
+    "quote": "We are increasingly incorporating AI tools and capabilities into our business operations where we believe appropriate, which may subject us to significant competitive, legal, regulatory and other risks.",
+    "driver": "internal AI tools",
+    "secondary": false
+   },
+   {
+    "rf": 10,
+    "heading": "We may be unable to attract and retain highly skilled personnel.",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.skilled_talent",
+    "quote": "In the semiconductor industry, the competition for qualified personnel, particularly experienced design engineers and other technical employees, is intense.",
+    "driver": "design engineers",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3202,
+ "output_tokens": 1339,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 9.185,
+ "recorded_at": "2026-10-25T18:46:54+0000"
+}

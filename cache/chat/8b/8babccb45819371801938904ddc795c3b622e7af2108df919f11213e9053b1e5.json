@@ -1,0 +1,23 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n78",
+     "n79",
+     "n80"
+    ],
+    "canonical_name": "Autonomous driving regulatory scrutiny and restrictions",
+    "definition": "Evolving and fragmented federal and state regulation and regulatory scrutiny of driver-assistance and autonomous vehicle technologies could restrict deployment, trigger recalls, fines or liability, and slow adoption."
+   }
+  ]
+ },
+ "input_tokens": 225,
+ "output_tokens": 136,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 2.414,
+ "recorded_at": "2026-10-25T18:28:26+0000"
+}

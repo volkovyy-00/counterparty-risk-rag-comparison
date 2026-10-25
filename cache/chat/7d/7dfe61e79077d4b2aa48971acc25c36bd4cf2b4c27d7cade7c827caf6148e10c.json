@@ -1,0 +1,69 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Expanding manufacturing footprint in Asian markets including China",
+    "risk_name": "International operations expansion exposure",
+    "detail": "Strategy grows footprint in China, Asia and lower-cost regions, increasing exposure to geopolitical and country risks",
+    "quote": "Increasing our manufacturing footprint in Asian markets, including China, and our business relationships with Asian automotive manufacturers are important elements of our long-term strategy. In addition, our strategy includes increasing revenue and expanding our manufacturing footprint in lower-cost regions. As a result, our exposure to the risks described above may be greater in the future.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Asian automotive manufacturers",
+      "type": "NAMED_COUNTERPARTY"
+     }
+    ]
+   },
+   {
+    "heading": "Failure to manage growth or integrate acquisitions could harm business",
+    "risk_name": "Acquisition integration failure",
+    "detail": "Acquired Wind River and Intercable Automotive Solutions in 2022; continues pursuing possibly material deals",
+    "quote": "We have completed a number of acquisitions in recent years, including the acquisitions of Wind River and Intercable Automotive Solutions S.r.l. in 2022.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Wind River",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "Intercable Automotive Solutions S.r.l.",
+      "type": "NAMED_COUNTERPARTY"
+     }
+    ]
+   },
+   {
+    "heading": "Failure to manage growth or integrate acquisitions could harm business",
+    "risk_name": "Goodwill and intangible impairment",
+    "detail": "Failure to integrate acquired companies profitably may impair goodwill and intangibles",
+    "quote": "Likewise, our failure to integrate and manage acquired companies profitably may lead to future impairment of any associated goodwill and intangible asset balances.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Cybersecurity risks for infrastructure and products",
+    "risk_name": "Cybersecurity breach of information systems",
+    "detail": "Covers infrastructure and products; AI-enabled attacks and remote work raise vulnerability",
+    "quote": "Cyberattacks are continually increasing in their frequency, sophistication and intensity. Additionally, some actors are using artificial intelligence technology to launch more automated, targeted and coordinated attacks which further heightens these risks.",
+    "specificity": "boilerplate",
+    "drivers": [
+     {
+      "name": "artificial intelligence",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1538,
+ "output_tokens": 883,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 7.019,
+ "recorded_at": "2026-10-25T18:19:55+0000"
+}

@@ -1,0 +1,60 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Rapid policy change in the United States creating uncertainty",
+    "risk_name": "Policy and trade uncertainty",
+    "detail": "Rapid US policy change and unpredictable trade policy including tariffs hamper long-term planning and capital allocation",
+    "quote": "Rapid policy change in our home market, the United States, is creating uncertainty in our operations and business outlook, and may remain a source of volatility in the future.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "United States",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "tariffs",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Ford's long-term success depends on delivering the Ford+ plan, including improving cost competitiveness",
+    "risk_name": "Strategic plan execution risk",
+    "detail": "Ford+ transformation requires capital allocation across powertrains, services, technology; cost and quality competitiveness needed",
+    "quote": "If we are unable to optimize our capital allocation among vehicles (and propulsion systems among our vehicles), services, technology, and other calls on capital, make sufficient and timely progress to become competitive on cost and quality and ensure that progress is sustainable, or we are otherwise not successful in executing Ford+ (or are delayed for reasons outside of our control), we may not be able to realize the full benefits of our plan, which could have an adverse effect on our financial condition or results of operations.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Slow Ford+ progress could trigger shareholder activism",
+    "risk_name": "Shareholder activism disruption",
+    "detail": "Failure to progress Ford+ at expected pace may increase activism and divert management",
+    "quote": "Furthermore, if we fail to make progress on our plan at the pace that shareholders expect, it may lead to an increase in shareholder activism, which may disrupt the conduct of our business and divert management\u2019s attention and resources.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Product defects resulting in recalls, warranty costs, or launch delays",
+    "risk_name": "Product recall and warranty costs",
+    "detail": "Vehicle defects, including supplier-provided components, drive safety recalls, warranty costs and launch delays",
+    "quote": "We may also be obligated to remedy defects or potentially recall our products due to defective components provided to us by our suppliers, arising from their quality issues or otherwise.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Government safety standards",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1294,
+ "output_tokens": 836,
+ "cache_write_tokens": 2955,
+ "cache_read_tokens": 0,
+ "latency_s": 13.407,
+ "recorded_at": "2026-10-25T18:18:19+0000"
+}

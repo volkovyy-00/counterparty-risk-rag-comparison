@@ -1,0 +1,68 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 35,
+    "heading": "We are sensitive to the effects of our major customers\u2019 labor relations.",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.labor_relations_unions",
+    "quote": "Because of domestic OEMs\u2019 dependence on a single union, we are affected by labor difficulties and work stoppages at OEMs\u2019 facilities, such as the UAW strikes that occurred in 2023.",
+    "driver": "UAW strikes at OEMs",
+    "secondary": false
+   },
+   {
+    "rf": 36,
+    "heading": "We could be adversely affected by supply shortages of components from our suppliers.",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.single_source",
+    "quote": "As a result, we remain dependent on fewer sources of supply for certain components used in the manufacture of our products.",
+    "driver": "rationalized supply base",
+    "secondary": false
+   },
+   {
+    "rf": 37,
+    "heading": "Suppliers\u2019 economic distress could result in supply interruptions and, in turn, disrupt our operations and adversely affect our business.",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.single_source",
+    "quote": "In certain instances, it would be difficult and expensive for us to change suppliers that are critical to our business. On occasion, we must provide financial support to distressed suppliers or take other measures to protect our supply lines.",
+    "driver": "distressed suppliers",
+    "secondary": false
+   },
+   {
+    "rf": 38,
+    "heading": "We are subject to possible insolvency of financial counterparties.",
+    "category": "CUSTOMER_CONCENTRATION",
+    "leaf": "CUSTOMER_CONCENTRATION.customer_credit",
+    "quote": "We are subject to the risk that one or more of these counterparties may become insolvent and, therefore, be unable to meet its obligations under such contracts.",
+    "driver": "financial counterparties",
+    "secondary": false
+   },
+   {
+    "rf": 39,
+    "heading": "The spin-off of PHINIA may not achieve anticipated tax benefits and may expose us to additional tax risks.",
+    "category": "TAX",
+    "leaf": "TAX.tax_audits_disputes",
+    "quote": "If the spin-off is ultimately determined to be taxable, the Company, PHINIA, or the Company\u2019s stockholders could incur income tax liabilities that could be significant.",
+    "driver": "PHINIA spin-off tax treatment",
+    "secondary": false
+   },
+   {
+    "rf": 40,
+    "heading": "Potential liabilities pursuant to the spin-off of PHINIA could materially and adversely affect our business.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.divestitures_spinoffs",
+    "quote": "These agreements provide for specific indemnity and liability obligations of each party and have led, and could in the future lead, to disputes between us.",
+    "driver": "PHINIA indemnity obligations",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3081,
+ "output_tokens": 957,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 6.917,
+ "recorded_at": "2026-10-25T18:46:24+0000"
+}

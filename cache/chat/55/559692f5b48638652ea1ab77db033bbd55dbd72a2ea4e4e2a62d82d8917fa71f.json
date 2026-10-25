@@ -1,0 +1,78 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Maintaining a strong position in the Chinese market",
+    "risk_name": "Customer market share loss in key market",
+    "detail": "Domestic Chinese OEMs gaining share; GM restructured China operations in 2025; traditional OEMs among largest customers",
+    "quote": "For example, in 2025, General Motors (\u201cGM\u201d) restructured their operations in China given challenges in the Chinese market. As GM, along with other traditional OEMs, are among our largest customers, our business and financial results may be adversely affected by decreases in their",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "General Motors",
+      "type": "NAMED_COUNTERPARTY"
+     }
+    ]
+   },
+   {
+    "heading": "Maintaining a strong position in the Chinese market",
+    "risk_name": "Regional demand slowdown",
+    "detail": "Moderating Chinese economic growth lowered automotive production growth; exposure to China vehicle demand",
+    "quote": "Our business in China is sensitive to economic and market conditions that drive automotive sales volumes in China and may be impacted if there are reductions in vehicle demand in China.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Highly competitive automotive technology and component supply industry",
+    "risk_name": "Competitive pricing pressure",
+    "detail": "New disruptive entrants from China and in automated driving and software; OEM consolidation; past resourcing to competitors",
+    "quote": "Furthermore, the rapidly evolving nature of the markets in which we compete has attracted, and may continue to attract, new and disruptive entrants from outside the traditional automotive supply industry, particularly in countries such as China or in areas of evolving vehicle technologies such as automated driving technologies and advanced software.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "automated driving technologies",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Evolution toward autonomous vehicles and mobility on demand",
+    "risk_name": "Technology disruption",
+    "detail": "High development cost of active safety and autonomous driving; car- and ride-sharing may reduce vehicles per capita",
+    "quote": "There has also been an increase in consumer preferences for mobility on demand services, such as car- and ride-sharing, as opposed to automobile ownership, which may result in a long-term reduction in the number of vehicles per capita.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "autonomous driving",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "mobility on demand services",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1556,
+ "output_tokens": 916,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 6.8,
+ "recorded_at": "2026-10-25T18:19:37+0000"
+}

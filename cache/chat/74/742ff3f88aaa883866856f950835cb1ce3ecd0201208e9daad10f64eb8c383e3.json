@@ -1,0 +1,36 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "d195"
+    ],
+    "canonical_name": "Data privacy regulation",
+    "definition": "General laws and regulations governing the collection, use and protection of personal data."
+   },
+   {
+    "member_ids": [
+     "d205",
+     "d207"
+    ],
+    "canonical_name": "EU General Data Protection Regulation (GDPR)",
+    "definition": "The European Union's comprehensive regulation governing personal data protection and privacy."
+   },
+   {
+    "member_ids": [
+     "d206"
+    ],
+    "canonical_name": "EU-U.S. Data Privacy Framework",
+    "definition": "The framework governing transfers of personal data from the EU to the United States."
+   }
+  ]
+ },
+ "input_tokens": 122,
+ "output_tokens": 201,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 523,
+ "latency_s": 2.21,
+ "recorded_at": "2026-10-25T18:31:09+0000"
+}

@@ -1,0 +1,66 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Any unauthorized control or manipulation of our products' systems could result in loss of confidence in us and our products.",
+    "risk_name": "Product cybersecurity vulnerability",
+    "detail": "Vehicles and energy storage products receive remote updates; malicious entities have reportedly attempted access; past hacking reports",
+    "quote": "For example, our vehicles and energy storage products are designed with built-in data connectivity to accept and install periodic remote updates from us to improve or update their functionality.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "energy storage products",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Our business may be adversely affected by any disruptions caused by union activities.",
+    "risk_name": "Labor unionization and work stoppages",
+    "detail": "Union organizing campaigns filed unfair labor practice charges with NLRB; dependence on unionized suppliers and freight companies",
+    "quote": "From time to time, labor unions have engaged in campaigns to organize certain parts of our operations, as part of which such unions have filed unfair labor practice charges against us with the National Labor Relations Board, and they may do so in the future.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "National Labor Relations Board",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "We may choose to or be compelled to undertake product recalls or take other similar actions.",
+    "risk_name": "Product recall costs",
+    "detail": "Prior vehicle recalls from hardware and software safety investigations; FMVSS compliance exposure",
+    "quote": "Recalls for our vehicles have resulted from various hardware and software-related safety or non-compliance investigations.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "U.S. Federal Motor Vehicle Safety Standards",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Our current and future warranty reserves may be insufficient to cover future warranty claims.",
+    "risk_name": "Insufficient warranty reserves",
+    "detail": "Warranties on new and used vehicles; energy system performance guarantees expose company to third-party component failures",
+    "quote": "Under these guarantees, we may bear the risk of electricity production or other performance shortfalls, including in some cases shortfalls caused by failures in components from third party manufacturers.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "energy generation and storage systems",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1636,
+ "output_tokens": 818,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 6.231,
+ "recorded_at": "2026-10-25T18:19:14+0000"
+}

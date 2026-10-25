@@ -1,0 +1,38 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Dependence on efficient operation of interdependent manufacturing processes and third parties",
+    "risk_name": "Manufacturing disruption at interdependent facilities",
+    "detail": "Interdependent owned and third-party facilities; some single-source facilities produce only one end-product",
+    "quote": "Conversely, some of our facilities are single source facilities that only produce one of our end-products, and a disruption at any such facility would materially delay or cease production of the related product.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Dependence on third-party suppliers for components and raw materials",
+    "risk_name": "Specialized supplier dependence",
+    "detail": "Limited number of highly specialized suppliers for key technologies; forecast-based purchase commitments, some long-term",
+    "quote": "We are also dependent upon a limited number of highly specialized third-party suppliers for required components and materials for certain of our key technologies. Arranging for replacement manufacturers and suppliers can be time-consuming and costly, and the number of qualified alternative providers can be extremely limited.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Shortages or cost increases of essential raw materials",
+    "risk_name": "Raw material shortage and cost",
+    "detail": "Generic statement; no minimum supply obligations from raw material suppliers",
+    "quote": "However, shortages could occur in various essential raw materials, and if we are unable to obtain adequate supplies of raw materials in a timely manner, the costs of our raw materials increase significantly, their quality deteriorates or they give rise to compatibility or performance issues in our products, our results of operations could be materially adversely affected.",
+    "specificity": "boilerplate",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1700,
+ "output_tokens": 561,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 4.897,
+ "recorded_at": "2026-10-25T18:21:48+0000"
+}

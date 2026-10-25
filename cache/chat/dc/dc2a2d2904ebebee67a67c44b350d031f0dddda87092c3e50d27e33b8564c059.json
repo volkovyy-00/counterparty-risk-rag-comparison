@@ -1,0 +1,33 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n72",
+     "n414",
+     "n423",
+     "n425"
+    ],
+    "canonical_name": "Disruption at own manufacturing facilities",
+    "definition": "Stoppages, outages, or yield problems at the company's own (or interdependent) manufacturing plants could halt production and reduce revenue and profitability."
+   },
+   {
+    "member_ids": [
+     "n424",
+     "n427",
+     "n428"
+    ],
+    "canonical_name": "Pandemic-related operational disruption",
+    "definition": "Pandemics such as COVID-19 could disrupt the company's plants, workforce, suppliers and customers, reducing production and demand."
+   }
+  ]
+ },
+ "input_tokens": 417,
+ "output_tokens": 196,
+ "cache_write_tokens": 762,
+ "cache_read_tokens": 0,
+ "latency_s": 2.801,
+ "recorded_at": "2026-10-25T18:25:22+0000"
+}

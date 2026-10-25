@@ -1,0 +1,56 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Inadequate protection of unpatented IP (continuation)",
+    "risk_name": "Intellectual property protection failure",
+    "detail": "Some products and technologies not covered by patents; relies on confidentiality agreements that may be breached",
+    "quote": "In addition, some of our products and technologies are not covered by any patents or pending patent applications.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Disruptions or breaches of our information technology systems could irreparably damage our reputation and business",
+    "risk_name": "Cybersecurity breach of information systems",
+    "detail": "Has experienced breaches; AI and quantum computing used to craft attacks; malware could attack products; cyber insurance may be insufficient",
+    "quote": "Further, AI and quantum computing capabilities are increasingly being used to identify vulnerabilities and",
+    "specificity": "boilerplate",
+    "drivers": [
+     {
+      "name": "AI",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "quantum computing",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "We are subject to governmental laws, regulations and other legal obligations related to privacy and data protection",
+    "risk_name": "Data privacy regulatory compliance",
+    "detail": "Collects PII; EU and US state privacy laws more restrictive; fines and reputational damage possible",
+    "quote": "Many foreign countries and governmental bodies, including the European Union and other relevant jurisdictions where we conduct business, have laws and regulations concerning the collection and use of PII and other data obtained from their residents or by businesses operating within their jurisdictions that are currently more restrictive than those in the United States.",
+    "specificity": "boilerplate",
+    "drivers": [
+     {
+      "name": "European Union",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "United States",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1643,
+ "output_tokens": 620,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 5.196,
+ "recorded_at": "2026-10-25T18:22:01+0000"
+}

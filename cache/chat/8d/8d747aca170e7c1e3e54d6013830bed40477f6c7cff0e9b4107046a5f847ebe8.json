@@ -1,0 +1,77 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 13,
+    "heading": "As reporting and disclosure requirements evolve, the failure, or perceived failure, to meet applicable reporting standards or regulatory expectations could adversely affect our results of operations and reputation.",
+    "category": "CLIMATE_NATCAT",
+    "leaf": "CLIMATE_NATCAT.climate_disclosure_esg",
+    "quote": "impose costs, fees or reporting requirements on the direct or indirect use of energy, natural resources, or materials or gases used or emitted into the environment in connection with the manufacture of our products.",
+    "driver": "environmental reporting requirements",
+    "secondary": false
+   },
+   {
+    "rf": 14,
+    "heading": "Our results of operations could be affected by changes in tax-related matters.",
+    "category": "TAX",
+    "leaf": "TAX.tax_law_changes",
+    "quote": "many countries have enacted or begun the process of enacting laws that align with the Organisation for Economic Cooperation and Development\u2019s Base Erosion and Profit Shifting recommendations; application of these laws to U.S.-based multinational corporations remains uncertain.",
+    "driver": "OECD BEPS",
+    "secondary": false
+   },
+   {
+    "rf": 15,
+    "heading": "Our performance depends in part on our ability to enforce our intellectual property rights and to maintain freedom of operation.",
+    "category": "IP_TECH_RIGHTS",
+    "leaf": "IP_TECH_RIGHTS.ip_protection",
+    "quote": "We actively enforce and protect our own intellectual property rights. However, our efforts cannot prevent all misappropriation or improper use of our protected technology and information",
+    "driver": "",
+    "secondary": false
+   },
+   {
+    "rf": 15,
+    "heading": "Our performance depends in part on our ability to enforce our intellectual property rights and to maintain freedom of operation.",
+    "category": "IP_TECH_RIGHTS",
+    "leaf": "IP_TECH_RIGHTS.ip_infringement_claims",
+    "quote": "We, directly and indirectly, face infringement claims from third parties, including nonpracticing entities that have acquired patents to pursue enforcement actions against other companies.",
+    "driver": "nonpracticing entities",
+    "secondary": true
+   },
+   {
+    "rf": 16,
+    "heading": "Our debt could affect our operations and financial condition.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.liquidity_funding",
+    "quote": "our ability to make principal and interest payments when due depends upon our future performance, which will be subject to general economic conditions, industry cycles, and business and other factors affecting our operations",
+    "driver": "debt securities",
+    "secondary": false
+   },
+   {
+    "rf": 17,
+    "heading": "Our results of operations and liquidity could be affected by changes in the financial markets.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.liquidity_funding",
+    "quote": "If we are unable to access these accounts and credit lines (for example, due to instability in the financial markets), our results of operations and financial condition could be adversely affected",
+    "driver": "revolving credit facilities",
+    "secondary": false
+   },
+   {
+    "rf": 18,
+    "heading": "Material impairments of our goodwill could adversely affect our results of operations.",
+    "category": "OTHER",
+    "leaf": "OTHER.reporting_controls",
+    "quote": "We have a significant amount of goodwill on our consolidated balance sheet. Charges associated with impairments of goodwill could adversely affect our financial condition and results of operations.",
+    "driver": "goodwill impairment",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2525,
+ "output_tokens": 1146,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 8.37,
+ "recorded_at": "2026-10-25T18:47:09+0000"
+}

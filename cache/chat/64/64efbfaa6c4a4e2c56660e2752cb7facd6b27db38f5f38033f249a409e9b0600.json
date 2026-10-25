@@ -1,0 +1,39 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Labor-intensive business with unions; strikes or work disruptions could hurt operations",
+    "risk_name": "Labor disruption and strikes",
+    "detail": "Unionized, works council workforce; customer plant strikes matter\u2014UAW strikes at GM, Ford, Stellantis in September 2023 lasted over six weeks",
+    "quote": "In addition, certain UAW-represented employees at GM, Ford and Stellantis initiated labor strikes in September 2023, lasting more than six weeks in duration.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "UAW",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "GM",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "Ford",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "Stellantis",
+      "type": "NAMED_COUNTERPARTY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 305,
+ "output_tokens": 308,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 2.913,
+ "recorded_at": "2026-10-25T18:19:45+0000"
+}

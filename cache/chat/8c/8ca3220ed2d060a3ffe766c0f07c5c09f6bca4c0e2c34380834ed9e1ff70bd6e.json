@@ -1,0 +1,86 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 35,
+    "heading": "We are involved from time to time in legal proceedings and commercial or contractual disputes, which could have an adverse impact on our profitability and consolidated financial position.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.litigation_investigations",
+    "quote": "We are involved in legal proceedings and commercial or contractual disputes that, from time to time, are significant.",
+    "driver": "",
+    "secondary": false
+   },
+   {
+    "rf": 36,
+    "heading": "While we believe our reserves are adequate, the final amounts required to resolve these matters could differ materially from our recorded estimates and our results of operations could be materially affected.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.litigation_investigations",
+    "quote": "No assurance can be given that such proceedings and claims will not have a material adverse effect on our profitability and consolidated financial position.",
+    "driver": "",
+    "secondary": false
+   },
+   {
+    "rf": 37,
+    "heading": "Developments or assertions by us or against us relating to intellectual property rights could materially impact our business.",
+    "category": "IP_TECH_RIGHTS",
+    "leaf": "IP_TECH_RIGHTS.ip_protection",
+    "quote": "Our intellectual property plays an important role in maintaining our competitive position in a number of the markets we serve. Developments or assertions by or against us relating to intellectual property rights could negatively impact our business.",
+    "driver": "",
+    "secondary": false
+   },
+   {
+    "rf": 38,
+    "heading": "Taxing authorities could challenge our historical and future tax positions.",
+    "category": "TAX",
+    "leaf": "TAX.tax_audits_disputes",
+    "quote": "While we believe that we have complied with all applicable tax laws, there can be no assurance that a taxing authority will not have a different interpretation of the law and assess us with additional taxes.",
+    "driver": "",
+    "secondary": false
+   },
+   {
+    "rf": 39,
+    "heading": "Changes in tax laws, tax rates and adverse positions taken by taxing authorities could impact operating results.",
+    "category": "TAX",
+    "leaf": "TAX.tax_law_changes",
+    "quote": "If proposals were enacted that had the effect of limiting our ability to take advantage of the tax treaties between Switzerland and other jurisdictions (including the United States), we could be subjected to increased taxation.",
+    "driver": "Swiss tax treaties",
+    "secondary": false
+   },
+   {
+    "rf": 40,
+    "heading": "Our tax burden could increase as a result of ongoing or future tax audits.",
+    "category": "TAX",
+    "leaf": "TAX.tax_audits_disputes",
+    "quote": "We are subject to periodic tax audits by tax authorities. Tax authorities may not agree with our interpretation of applicable tax laws and regulations. As a result, such tax authorities may assess additional tax, interest and penalties.",
+    "driver": "",
+    "secondary": false
+   },
+   {
+    "rf": 41,
+    "heading": "Our ability to use deferred tax assets may be subject to limitation.",
+    "category": "TAX",
+    "leaf": "TAX.tax_law_changes",
+    "quote": "Further, subsequent changes to applicable tax laws in these jurisdictions could impact our ability to fully benefit from such deferred tax assets.",
+    "driver": "deferred tax assets",
+    "secondary": false
+   },
+   {
+    "rf": 42,
+    "heading": "We may be subject to various Swiss taxes as a result of the reorganization transaction.",
+    "category": "TAX",
+    "leaf": "TAX.tax_law_changes",
+    "quote": "then any dividends paid by Aptiv or share repurchases by Aptiv will generally be subject to a Swiss withholding tax at a rate of 35% which can be reduced depending on the tax residency of the dividend recipient.",
+    "driver": "Swiss withholding tax",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3710,
+ "output_tokens": 1227,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 8.288,
+ "recorded_at": "2026-10-25T18:46:10+0000"
+}

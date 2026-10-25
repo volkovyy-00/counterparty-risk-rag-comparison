@@ -1,0 +1,93 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Ability to obtain and protect patents and intellectual property rights",
+    "risk_name": "Intellectual property protection weakness",
+    "detail": "Patents may lack scope; interference proceedings in USPTO and foreign courts; weaker IP laws in certain foreign countries",
+    "quote": "In addition, the laws of certain foreign countries do not protect our intellectual property rights to the same extent as the laws of the U.S. Infringement of our intellectual property rights by a third-party could result in harm to our competitive position, uncompensated lost market and revenue opportunities for us.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Use of open source software in our software",
+    "risk_name": "Open source license compliance",
+    "detail": "Some software derived from open source; non-compliance could force source code release or stop distribution",
+    "quote": "While we believe we have complied with our obligations under the various applicable licenses for open source software, in the event that the copyright holder of any open source software were to legally establish that we had not complied with the terms of a license for a particular work, we could be required to release the source code of that work to the public and/or stop distribution of that work if the license is terminated which could adversely impact our business and results of operations.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "open source software",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Our reported financial results may be adversely affected by new accounting pronouncements",
+    "risk_name": "Accounting standards changes",
+    "detail": "Generic statement",
+    "quote": "New accounting pronouncements or a change in the interpretation of accounting standards or practices may have a significant effect on our reported financial results and may affect our reporting of transactions completed before the change is effective.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Regulatory authorities could issue new export controls or trade sanctions",
+    "risk_name": "Export control restrictions",
+    "detail": "October 2022 Commerce rules restrict advanced IC and semiconductor manufacturing activity involving China, Hong Kong, Macau; license delays from shutdowns",
+    "quote": "For example, in October 2022, the U.S. Department of Commerce published a regulation that imposed restrictions on activities in or involving China, Hong Kong, and Macau related to advanced computing integrated circuits (ICs), advanced-node ICs, computers and other commodities that contain such ICs, certain semiconductor manufacturing items, and supercomputers.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "U.S. Department of Commerce",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Hong Kong",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Macau",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "advanced computing integrated circuits",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Trade and anti-bribery compliance penalties",
+    "risk_name": "Trade compliance penalties",
+    "detail": "Subject to FCPA, EAR, ITAR; violations may bring denial of export privileges, fines, product seizure",
+    "quote": "Further, determination by a government that we have failed to comply with trade regulations or anti-bribery regulations can result in penalties which may include denial of export privileges, fines, penalties, and seizure of products, or loss of reputation, any of which could have a material adverse effect on our business, sales and earnings.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Foreign Corrupt Practices Act",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "Export Administration Regulations",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "International Traffic in Arms Regulations",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1743,
+ "output_tokens": 1259,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 10.084,
+ "recorded_at": "2026-10-25T18:21:36+0000"
+}

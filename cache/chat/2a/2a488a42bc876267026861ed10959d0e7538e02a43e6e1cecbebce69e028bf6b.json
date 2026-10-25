@@ -1,0 +1,36 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "d346",
+     "d364"
+    ],
+    "canonical_name": "electric and hybrid vehicles",
+    "definition": "End market for battery-electric and hybrid-electric vehicles."
+   },
+   {
+    "member_ids": [
+     "d347"
+    ],
+    "canonical_name": "electric and other alternative fuel vehicles",
+    "definition": "End market for electric vehicles and vehicles powered by other alternative fuels."
+   },
+   {
+    "member_ids": [
+     "d349"
+    ],
+    "canonical_name": "electric vehicles",
+    "definition": "End market for battery-electric vehicles."
+   }
+  ]
+ },
+ "input_tokens": 141,
+ "output_tokens": 181,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 523,
+ "latency_s": 2.517,
+ "recorded_at": "2026-10-25T18:31:23+0000"
+}

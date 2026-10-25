@@ -1,0 +1,77 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 34,
+    "heading": "We may face regulatory challenges to or limitations on our ability to sell vehicles directly.",
+    "category": "CUSTOMER_CONCENTRATION",
+    "leaf": "CUSTOMER_CONCENTRATION.dealer_network",
+    "quote": "we may not be able to sell our vehicles through our own stores in certain states in the U.S. with laws that may be interpreted to impose limitations on this direct-to-consumer sales model.",
+    "driver": "state dealer franchise laws",
+    "secondary": false
+   },
+   {
+    "rf": 35,
+    "heading": "The trading price of our common stock is likely to continue to be volatile.",
+    "category": "OTHER",
+    "leaf": "OTHER.stock_governance",
+    "quote": "The trading price of our common stock has been highly volatile and could continue to be subject to wide fluctuations in response to various factors, some of which are beyond our control.",
+    "driver": "stock price volatility",
+    "secondary": false
+   },
+   {
+    "rf": 36,
+    "heading": "Our financial results may vary significantly from period to period due to fluctuations in our operating costs and other factors.",
+    "category": "OTHER",
+    "leaf": "OTHER.stock_governance",
+    "quote": "Moreover, our financial results may not meet expectations of equity research analysts, ratings agencies or investors, who may be focused only on short-term quarterly financial results. If any of this occurs, the trading price of our stock could fall substantially",
+    "driver": "quarterly results volatility",
+    "secondary": false
+   },
+   {
+    "rf": 37,
+    "heading": "We may fail to meet our publicly announced guidance or other expectations about our business, which could cause our stock price to decline.",
+    "category": "OTHER",
+    "leaf": "OTHER.stock_governance",
+    "quote": "If our guidance varies from actual results, such as due to our assumptions not being met or the impact on our financial performance that could occur as a result of various risks and uncertainties, the market value of our common stock could decline significantly.",
+    "driver": "guidance misses",
+    "secondary": false
+   },
+   {
+    "rf": 38,
+    "heading": "There is a risk that the technologies and initiatives associated with the 2025 CEO Performance Award, including the product goals, are misaligned with current or future consumer demand, resulting in our failure to invest in or pursue another opportunity that generates significant financial returns or leads to greater shareholder value.",
+    "category": "OTHER",
+    "leaf": "OTHER.stock_governance",
+    "quote": "misalignment of consumer demand and the technologies and initiatives associated with the 2025 CEO Performance Award, including the product goals, may impair our ability to realize returns on such investments and could lead to strategic misalignment, underperformance or write-downs of related assets",
+    "driver": "2025 CEO Performance Award",
+    "secondary": false
+   },
+   {
+    "rf": 39,
+    "heading": "If Elon Musk were forced to sell shares of our common stock, either that he has the ability to pledge to secure certain personal loan obligations, or in satisfaction of other obligations, such sales could cause our stock price to decline.",
+    "category": "OTHER",
+    "leaf": "OTHER.stock_governance",
+    "quote": "Mr. Musk may be forced by one or more of the banking institutions to sell shares of Tesla common stock to satisfy his loan obligations if he could not do so through other means.",
+    "driver": "Musk pledged shares",
+    "secondary": false
+   },
+   {
+    "rf": 40,
+    "heading": "Anti-takeover provisions contained in our governing documents, applicable laws and certain of our debt facilities could impair a takeover attempt.",
+    "category": "OTHER",
+    "leaf": "OTHER.stock_governance",
+    "quote": "We are also subject to Section 21.606 of the Texas Business Organizations Code and other provisions of Texas law that limit the ability of shareholders in certain situations to effect certain business combinations.",
+    "driver": "Texas anti-takeover law",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3376,
+ "output_tokens": 1246,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 9.275,
+ "recorded_at": "2026-10-25T18:45:55+0000"
+}

@@ -1,0 +1,77 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 14,
+    "heading": "Changes in administrative policy on the part of the U.S. or other countries, including the imposition of or increases in tariffs, changes to existing trade agreements and any resulting changes in international trade relations, may have an adverse effect on us.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.tariffs",
+    "quote": "In 2025, the U.S. announced significant tariffs on imports from a broad range of countries, including the European Union, Canada, Mexico and China. These tariffs have increased the cost of raw materials and components we purchase",
+    "driver": "U.S. tariffs, USMCA renewal",
+    "secondary": false
+   },
+   {
+    "rf": 15,
+    "heading": "In 2025, we imported approximately $918 million in value to the U.S. Approximately 68% of that value originated in Mexico, approximately 9% originated in Canada and approximately 6% originated in South Korea.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.tariffs",
+    "quote": "In 2025, we imported approximately $918 million in value to the U.S. Approximately 68% of that value originated in Mexico, approximately 9% originated in Canada and approximately 6% originated in South Korea.",
+    "driver": "Mexico imports to U.S.",
+    "secondary": false
+   },
+   {
+    "rf": 16,
+    "heading": "We use important intellectual property in our business. If we are unable to protect our intellectual property or if a third party makes assertions against us or our customers relating to intellectual property rights, our business could be adversely affected.",
+    "category": "IP_TECH_RIGHTS",
+    "leaf": "IP_TECH_RIGHTS.ip_protection",
+    "quote": "as we expand our operations in jurisdictions where the enforcement of intellectual property rights is less robust, the risk of others duplicating our proprietary technologies increases, despite efforts we undertake to protect them.",
+    "driver": "",
+    "secondary": false
+   },
+   {
+    "rf": 16,
+    "heading": "We use important intellectual property in our business. If we are unable to protect our intellectual property or if a third party makes assertions against us or our customers relating to intellectual property rights, our business could be adversely affected.",
+    "category": "IP_TECH_RIGHTS",
+    "leaf": "IP_TECH_RIGHTS.ip_infringement_claims",
+    "quote": "Our inability to protect or enforce our intellectual property rights or claims that we are infringing intellectual property rights of others could adversely affect our business and our competitive position.",
+    "driver": "",
+    "secondary": true
+   },
+   {
+    "rf": 17,
+    "heading": "We are subject to business continuity risks associated with increasing centralization of our information technology (\u201cIT\u201d) systems.",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.it_system_failure",
+    "quote": "we have regionally centralized the information systems that support our business processes such as invoicing, payroll, and general management operations. If the centralized systems are disrupted or disabled, key business processes could be interrupted",
+    "driver": "centralized IT systems",
+    "secondary": false
+   },
+   {
+    "rf": 18,
+    "heading": "A failure of or disruption in our information technology infrastructure, including a disruption related to cybersecurity, could adversely impact our business and operations.",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "Some cyber-attacks depend on human error or manipulation, including phishing attacks, social engineering schemes or ransomware to gain access to systems or carry out disbursement of funds or other frauds",
+    "driver": "ransomware, phishing",
+    "secondary": false
+   },
+   {
+    "rf": 19,
+    "heading": "Our business success depends on attracting and retaining qualified personnel.",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.skilled_talent",
+    "quote": "any unplanned turnover or inability to attract and retain key employees and employees with engineering, technical and software capabilities in numbers sufficient for our needs could adversely affect our business.",
+    "driver": "engineering and software talent",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3269,
+ "output_tokens": 1347,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 9.426,
+ "recorded_at": "2026-10-25T18:46:20+0000"
+}

@@ -1,0 +1,47 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "We may be adversely affected by laws or regulations, including environmental, health and safety and climate change",
+    "risk_name": "Regulatory change compliance costs",
+    "detail": "Customers affected by curtailment of U.S. government incentives for electric and hybrid vehicles",
+    "quote": "For example, certain of our customers may be affected by the curtailment in the United States of government incentives for electric and hybrid vehicles.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "United States",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "electric and hybrid vehicles",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "We may be adversely affected by laws or regulations, including environmental, health and safety and climate change",
+    "risk_name": "Environmental remediation liability",
+    "detail": "Cleanup at multiple present and former facilities; environmental reserves about $4 million at December 31, 2025 may be exceeded",
+    "quote": "While we have environmental reserves of approximately $4 million at December 31, 2025 for the cleanup of presently-known environmental contamination conditions, it cannot be guaranteed that actual costs will not significantly exceed these reserves.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "We may be adversely affected by laws or regulations, including environmental, health and safety and climate change",
+    "risk_name": "Climate regulation compliance costs",
+    "detail": "Greenhouse gas rules could require emission controls, credits, raise energy costs; sustainability goal shortfall reputational risk",
+    "quote": "For example, adoption of greenhouse gas or climate change rules in jurisdictions in which we operate facilities could require installation of emission controls, acquisition of emission credits, emission reductions, or other measures that could be costly, and could also impact utility rates and increase the amount we spend annually for energy.",
+    "specificity": "boilerplate",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1547,
+ "output_tokens": 635,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 5.458,
+ "recorded_at": "2026-10-25T18:20:00+0000"
+}

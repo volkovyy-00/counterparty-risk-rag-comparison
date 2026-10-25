@@ -1,0 +1,60 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Failure to comply with environmental regulations could result in fines and liabilities",
+    "risk_name": "Environmental compliance costs",
+    "detail": "Emission restrictions, carbon taxes, cap and trade; customer contracts constrain speed of abatement changes; possible ramp-down of operations",
+    "quote": "If we are unable to implement the necessary abatement plan, we may be required to ramp down our existing operations significantly or risk noncompliance with regulations.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "carbon taxes",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "emission cap and trade programs",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Expanding laws on energy efficiency, recycling and chemicals in electronics",
+    "risk_name": "Product regulation inventory write-off",
+    "detail": "Electronics recycling, chemical reduction and packaging laws may leave insufficient compliant products and unsaleable inventory",
+    "quote": "It may be difficult for us to timely comply with these laws and we may have insufficient quantities of compliant products to meet customers' needs, thereby adversely impacting our sales and profitability. We may have to write off inventory if we hold unsaleable inventory as a result of changes to regulations.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Sustained adverse climate change poses risks that could harm our results of operations.",
+    "risk_name": "Physical climate disruption",
+    "detail": "Operations in arid or tropical regions exposed to fires, storms, floods, droughts; water and utility shortages",
+    "quote": "Certain of our operations are located in arid or tropical regions, which some experts believe may become vulnerable to more frequent fires, storms, severe floods and droughts.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "water",
+      "type": "INPUT_COMMODITY"
+     }
+    ]
+   },
+   {
+    "heading": "Voluntary ESG initiatives could require costly activities",
+    "risk_name": "Voluntary ESG commitment costs",
+    "detail": "ESG initiatives may require emission limits, process changes, costlier material substitution and offset funding",
+    "quote": "Voluntary actions we may take or have taken as part of our ESG initiatives could require us to limit emissions, change manufacturing processes, substitute materials which may cost more or be less available, fund offset projects, or undertake other costly activities.",
+    "specificity": "specific",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1439,
+ "output_tokens": 800,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 6.965,
+ "recorded_at": "2026-10-25T18:21:43+0000"
+}

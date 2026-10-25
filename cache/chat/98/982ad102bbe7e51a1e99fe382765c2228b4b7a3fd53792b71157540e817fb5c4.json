@@ -1,0 +1,59 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 31,
+    "heading": "The timing of the cash payments to service the 0% Notes, the 0.50% Notes and the 3.875% Notes is not entirely in our control and may require a significant amount of cash, and we may not have sufficient cash flow or the ability to raise the funds necessary to satisfy these obligations in a timely manner.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.liquidity_funding",
+    "quote": "Servicing the Outstanding Notes may require a significant amount of cash, and we may not have sufficient cash flow or the ability to raise the funds necessary to satisfy our obligations under such notes.",
+    "driver": "convertible and senior notes",
+    "secondary": false
+   },
+   {
+    "rf": 32,
+    "heading": "Note hedge and warrant transactions we have entered into may materially adversely affect the value of our common stock.",
+    "category": "OTHER",
+    "leaf": "OTHER.stock_governance",
+    "quote": "The warrant transactions could separately have a dilutive effect on our common stock to the extent that the market price per share of our common stock exceeds $74.34, with respect to the 0% Notes and $156.78 with respect to the 0.50% Notes.",
+    "driver": "note hedge and warrants",
+    "secondary": false
+   },
+   {
+    "rf": 33,
+    "heading": "Counterparty risk with respect to the note hedge transactions, if realized, could have a material adverse impact on our results of operations.",
+    "category": "CUSTOMER_CONCENTRATION",
+    "leaf": "CUSTOMER_CONCENTRATION.customer_credit",
+    "quote": "The option counterparties are financial institutions or affiliates of financial institutions, and we are subject to the risk that these option counterparties may default under the note hedge transactions.",
+    "driver": "note hedge counterparties",
+    "secondary": false
+   },
+   {
+    "rf": 34,
+    "heading": "Provisions in our charter documents may delay or prevent the acquisition of us, which could materially adversely affect the value of our common stock.",
+    "category": "OTHER",
+    "leaf": "OTHER.stock_governance",
+    "quote": "Our certificate of incorporation and by-laws contain provisions that could make it harder for a third party to acquire us without the consent of our Board of Directors.",
+    "driver": "anti-takeover charter provisions",
+    "secondary": false
+   },
+   {
+    "rf": 35,
+    "heading": "The amount and frequency of our share repurchases are affected by a number of factors and may fluctuate.",
+    "category": "OTHER",
+    "leaf": "OTHER.stock_governance",
+    "quote": "Although we have adopted a share repurchase program, we are not obligated to repurchase a specified number or dollar value of shares under our share repurchase program or at all.",
+    "driver": "share repurchase program",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3124,
+ "output_tokens": 899,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 6.476,
+ "recorded_at": "2026-10-25T18:46:59+0000"
+}

@@ -1,0 +1,70 @@
+{
+  "corpus": "edgar_latest",
+  "model": "claude-opus-5-5",
+  "prompt_version": "graph-v2",
+  "prompt_sha256": "3f02af0914b6f8a483a16e9341a06da9f68a353223167cc1005fdccdde721a68",
+  "resolver": "llm",
+  "chunk_chars": 6000,
+  "tickers": [
+    "GM",
+    "F",
+    "TSLA",
+    "APTV",
+    "BWA",
+    "LEA",
+    "NXPI",
+    "MCHP",
+    "ON",
+    "TXN"
+  ],
+  "usage": {
+    "llm_calls": 312.0,
+    "cached_calls": 216.0,
+    "input_tokens": 845531.0,
+    "prompt_cache_read_tokens": 553942.0,
+    "output_tokens": 178951.0,
+    "recorded_latency_s": 1987.647261,
+    "cost_usd": 4.881089,
+    "embed_calls": 742.0,
+    "wall_clock_s": 917.698521
+  },
+  "usage_by_stage": {
+    "graph.build": {
+      "llm_calls": 161.0,
+      "cached_calls": 72.0,
+      "input_tokens": 713854.0,
+      "prompt_cache_read_tokens": 452115.0,
+      "output_tokens": 154922.0,
+      "recorded_latency_s": 1489.819681,
+      "cost_usd": 4.259459,
+      "embed_calls": 161.0,
+      "wall_clock_s": 422.133854
+    },
+    "graph.resolve": {
+      "embed_calls": 581.0,
+      "cached_calls": 144.0,
+      "input_tokens": 131677.0,
+      "prompt_cache_read_tokens": 101827.0,
+      "output_tokens": 24029.0,
+      "recorded_latency_s": 497.82758,
+      "cost_usd": 0.62163,
+      "llm_calls": 151.0,
+      "wall_clock_s": 495.564668
+    }
+  },
+  "graph": {
+    "companies": 10,
+    "chunks": 161,
+    "risk_factors": 360,
+    "faces_risk": 634,
+    "risk_factors_shared": 121
+  },
+  "risk_factors_exact": 581,
+  "risk_factors_resolved": 360,
+  "mentions": 704,
+  "mentions_rejected": 1,
+  "verification_rate": 0.9986,
+  "merges_approved": 118,
+  "merges_rejected": 1930,
+  "drivers": 355
+}

@@ -1,0 +1,67 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Dependence on subsidiaries for cash to service indebtedness",
+    "risk_name": "Structural subordination to subsidiaries",
+    "detail": "Legal, contractual or regulatory restrictions may limit cash upstreamed from subsidiaries to service debt",
+    "quote": "Each subsidiary is a distinct legal entity, and, under certain circumstances, legal, contractual, governmental, or regulatory restrictions may limit our ability to obtain cash from our subsidiaries.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "If interest rates increase, our debt service obligations under our variable rate indebtedness could increase significantly",
+    "risk_name": "Variable rate interest exposure",
+    "detail": "Credit Agreement borrowings at variable rates; swaps may not cover all variable debt",
+    "quote": "Borrowings under certain of our facilities from time to time, including under our Credit Agreement, are at variable rates of interest and as a result expose us to interest rate risk.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Credit Agreement",
+      "type": "NAMED_COUNTERPARTY"
+     }
+    ]
+   },
+   {
+    "heading": "Cash payments to service the 0%, 0.50% and 3.875% Notes may require significant cash",
+    "risk_name": "Convertible note repayment liquidity",
+    "detail": "$804.9M 0% Notes, $1,500.0M 0.50% Notes, $700.0M 3.875% Notes; holder put rights, refinancing uncertain",
+    "quote": "As of December 31, 2025, we had outstanding approximately $804.9 million aggregate principal amount of our 0% Notes, $1,500.0 million aggregate principal amount of our 0.50% Notes and $700.0 million aggregate principal amount of our 3.875% Notes (collectively, the \"Outstanding Notes\").",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Change of control repurchase obligations on Outstanding Notes",
+    "risk_name": "Change of control put obligation",
+    "detail": "3.875% Notes repurchasable at 101% on change of control plus ratings event",
+    "quote": "For example, holders of the 3.875% Notes have the right to require us to repurchase all of their 3.875% Notes upon the occurrence of certain change of control triggering events accompanied by certain ratings events (as described in the indenture governing the 3.875% Notes) at a repurchase price equal to 101% of their principal amount, plus accrued and unpaid interest, if any, accrued prior to, but not including, the repurchase date.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Additional debt, acquisitions or buybacks could intensify debt risks",
+    "risk_name": "Additional leverage and shareholder returns",
+    "detail": "Credit Agreement and 3.875% Notes limit secured debt; acquisitions or stock repurchases could intensify risks",
+    "quote": "If we incur significantly more debt, this could intensify the risks described above. Our decision to use our cash for other purposes, such as to make acquisitions or to repurchase our common stock, could also intensify these risks.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Note hedge and warrant transactions may adversely affect the value of our common stock",
+    "risk_name": "Warrant dilution",
+    "detail": "Warrants dilutive above $74.34 (0% Notes) and $156.78 (0.50% Notes) share prices",
+    "quote": "The warrant transactions could separately have a dilutive effect on our common stock to the extent that the market price per share of our common stock exceeds $74.34, with respect to the 0% Notes and $156.78 with respect to the 0.50% Notes.",
+    "specificity": "specific",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1795,
+ "output_tokens": 1240,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 9.649,
+ "recorded_at": "2026-10-25T18:22:17+0000"
+}

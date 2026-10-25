@@ -1,0 +1,102 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "NHTSA enforcement, consent orders and recall costs",
+    "risk_name": "Regulatory oversight and enforcement",
+    "detail": "2024 NHTSA consent order; independent third party monitors Safety Act adherence and reports to NHTSA",
+    "quote": "For example, as part of a consent order we entered into with NHTSA in 2024, we have retained an independent third party selected by NHTSA to assess the Company\u2019s adherence to the consent order and Safety Act over the term of the consent order and to report on Ford\u2019s progress to NHTSA.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "NHTSA",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "Safety Act",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Recall costs from potentially defective airbag inflators",
+    "risk_name": "Product recall costs",
+    "detail": "3.5 million Takata inflators and 2.5 million vehicles with ARC/Delphi inflators under NHTSA review; supplier recovery limited",
+    "quote": "Of these, approximately 3.5 million of the inflators are in our vehicles. In addition, NHTSA is considering action related to 52 million vehicles containing inflators from ARC Automotive and Delphi Automotive in the United States. Ford has 2.5 million vehicles within this population.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Takata",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "ARC Automotive",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "Delphi Automotive",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "United States",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "NHTSA",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Emissions-related defect reporting and warranty obligations",
+    "risk_name": "Environmental compliance costs",
+    "detail": "Must report and correct emissions defects and honor regulatory emissions warranties, including in the United States",
+    "quote": "Similarly, where required by regulation, we are obligated to honor certain warranties on emissions-related components, which can impose additional obligations beyond our standard warranties and increase our costs.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "United States",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Warranty costs may exceed accruals",
+    "risk_name": "Warranty cost overruns",
+    "detail": "Vehicle complexity, new technologies, quality improvement time, ineffective remedies, parts unavailability and inflation could raise warranty costs",
+    "quote": "If warranty costs are greater than anticipated as a result of increased vehicle and component complexity, the adoption of new technologies, the time it takes to improve the quality of our products and services (or if such efforts are unsuccessful), implementation of additional remedies in the event the initial one is ineffective or parts are unavailable, or otherwise (including as a result of higher repair costs driven by inflation or other economic factors), such costs could continue to have an adverse effect on our financial condition or results of operations.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Quality issues causing launch slowdowns and reputational harm",
+    "risk_name": "Quality-driven launch delays",
+    "detail": "Slowed launches to improve quality; vehicles held for quality control raise inventory and repair costs",
+    "quote": "In an effort to improve quality, we have slowed down and may continue to slow down launches, which may result in lost sales, revenue, and profits and could have an adverse effect on our financial condition or results of operations.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Ford is highly dependent on its suppliers to deliver components",
+    "risk_name": "Supplier disruption and component shortage",
+    "detail": "2025 production disrupted by fires at a major aluminum supplier, effects ongoing; global multi-tier supply network",
+    "quote": "For example, in 2025, our production was disrupted by fires at one of our major aluminum suppliers, the effects of which are ongoing.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "aluminum",
+      "type": "INPUT_COMMODITY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1760,
+ "output_tokens": 1390,
+ "cache_write_tokens": 2955,
+ "cache_read_tokens": 0,
+ "latency_s": 17.35,
+ "recorded_at": "2026-10-25T18:18:23+0000"
+}

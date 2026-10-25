@@ -1,0 +1,93 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Dependence on supply of batteries and battery raw materials",
+    "risk_name": "Battery raw material supply shortage",
+    "detail": "EV production depends on batteries and lithium, cobalt, nickel; offtake agreements obligate purchases; mine underperformance risk",
+    "quote": "For the manufacture of our electrified products, we are dependent on the supply of batteries and the raw materials (e.g., lithium, cobalt, and nickel) used by our suppliers to produce those batteries. Some of these resources are limited, and, as a result, we may be unable to acquire raw materials needed for our products in sufficient amounts that are responsibly sourced or at reasonable prices.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "lithium",
+      "type": "INPUT_COMMODITY"
+     },
+     {
+      "name": "cobalt",
+      "type": "INPUT_COMMODITY"
+     },
+     {
+      "name": "nickel",
+      "type": "INPUT_COMMODITY"
+     },
+     {
+      "name": "batteries",
+      "type": "INPUT_COMMODITY"
+     }
+    ]
+   },
+   {
+    "heading": "Offtake agreements obligate minimum raw material purchases",
+    "risk_name": "Take-or-pay purchase commitments",
+    "detail": "Offtake and long-term contracts require purchase of minimum output from raw materials suppliers",
+    "quote": "As described in the Liquidity and Capital Resources section in Item 7 below, and elsewhere herein, we have entered into and we may, in the future, enter into offtake agreements and other long-term purchase contracts that obligate us, subject to certain conditions such as quality or minimum output, to purchase a certain percentage or minimum amount of output from certain raw materials suppliers.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Shortage of key components or raw materials",
+    "risk_name": "Rare earth export restriction disruption",
+    "detail": "China rare earth export restrictions disrupted production, forced rescheduling, raised premium freight and expedited shipping costs",
+    "quote": "For example, China\u2019s restriction on the export of rare earth minerals, which we and our suppliers utilize for a number of components, has impacted (e.g., rescheduling production, changing operating patterns)",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "rare earth minerals",
+      "type": "INPUT_COMMODITY"
+     }
+    ]
+   },
+   {
+    "heading": "Shortage of key components or raw materials",
+    "risk_name": "Supplier financial distress",
+    "detail": "Traditional and EV-specific component suppliers may face distress or exit, narrowing sourcing options",
+    "quote": "Moreover, as the industry evolves, suppliers of traditional or EV-specific components may face financial distress or choose to exit certain lines of business, further narrowing our sourcing options and potentially leading to higher prices or supply shortages that could have a substantial adverse effect on our results of operations and reputation.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "EV-specific components",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Production could be disrupted by labor issues, disasters and other factors",
+    "risk_name": "Production disruption cash flow loss",
+    "detail": "Ford Blue, Model e, Pro realize no revenue during suspensions while expenses continue; labor, COVID, climate, cyber causes",
+    "quote": "Our Ford Blue, Ford Model e, and Ford Pro operations generally do not realize revenue while our manufacturing operations are suspended, but we continue to incur operating and non-operating expenses, resulting in a deterioration of our cash flow.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Production could be disrupted by labor issues, disasters and other factors",
+    "risk_name": "Labor work stoppage",
+    "detail": "Work stoppages have occurred; collective bargaining disputes, negotiations, plant closure restructuring cited",
+    "quote": "A work stoppage or other limitation on production has occurred, and could in the future occur, at Ford\u2019s facilities, at a facility in its supply chain, or at one of its logistics providers for any number of reasons, including as a result of labor issues, such as shortages of available employees, disputes under existing collective bargaining agreements with labor unions or in connection with negotiation of new collective bargaining agreements, absenteeism, public health issues (e.g., COVID), stay-at-home orders, or in response to potential restructuring actions (e.g., plant closures);",
+    "specificity": "specific",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1661,
+ "output_tokens": 1487,
+ "cache_write_tokens": 2955,
+ "cache_read_tokens": 0,
+ "latency_s": 18.899,
+ "recorded_at": "2026-10-25T18:18:24+0000"
+}

@@ -1,0 +1,22 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "d211",
+     "d279"
+    ],
+    "canonical_name": "U.S. export controls",
+    "definition": "U.S. government restrictions on the export of goods, technology, and software to certain countries or entities."
+   }
+  ]
+ },
+ "input_tokens": 53,
+ "output_tokens": 76,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 523,
+ "latency_s": 2.118,
+ "recorded_at": "2026-10-25T18:32:50+0000"
+}

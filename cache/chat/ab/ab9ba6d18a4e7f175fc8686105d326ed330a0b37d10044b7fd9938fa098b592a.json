@@ -1,0 +1,34 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n341",
+     "n342"
+    ],
+    "canonical_name": "Customer labor strike disruption",
+    "definition": "Strikes or work stoppages at major automaker customers (e.g., UAW strikes) reduce production volumes and demand for the company's products."
+   },
+   {
+    "member_ids": [
+     "n418",
+     "n542",
+     "n543",
+     "n544",
+     "n545",
+     "n546"
+    ],
+    "canonical_name": "Workforce labor strikes and work stoppages",
+    "definition": "Unionized or organizing workforces, collective bargaining disputes, or works council requirements may lead to strikes, work stoppages, or constraints that disrupt the company's own operations and raise costs."
+   }
+  ]
+ },
+ "input_tokens": 480,
+ "output_tokens": 213,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 2.553,
+ "recorded_at": "2026-10-25T18:26:21+0000"
+}

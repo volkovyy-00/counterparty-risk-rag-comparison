@@ -1,0 +1,30 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n330",
+     "n422",
+     "n426"
+    ],
+    "canonical_name": "Raw material supply disruption",
+    "definition": "Risk that shortages or interruptions in the supply and delivery of critical raw materials and components disrupt production and customer deliveries."
+   },
+   {
+    "member_ids": [
+     "n181"
+    ],
+    "canonical_name": "Climate and logistics disruption",
+    "definition": "Risk that extreme weather events and freight or logistics provider interruptions disrupt operations and the movement of goods."
+   }
+  ]
+ },
+ "input_tokens": 246,
+ "output_tokens": 166,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 2.974,
+ "recorded_at": "2026-10-25T18:25:53+0000"
+}

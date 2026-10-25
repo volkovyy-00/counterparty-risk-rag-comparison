@@ -1,0 +1,50 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 23,
+    "heading": "We may not fully realize the anticipated benefits of our completed or future acquisitions or divestitures.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.acquisitions_integration",
+    "quote": "Integration of our acquisitions is complex and may be costly and time consuming and include unanticipated issues, expenses and liabilities. We may not successfully or profitably integrate, operate, maintain and manage any newly acquired operations or employees.",
+    "driver": "",
+    "secondary": false
+   },
+   {
+    "rf": 23,
+    "heading": "We may not fully realize the anticipated benefits of our completed or future acquisitions or divestitures.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.divestitures_spinoffs",
+    "quote": "Further, when we divest assets or a business, it may be difficult to find or complete divestiture opportunities or alternative exit strategies, which may include site closures, timely or on acceptable terms.",
+    "driver": "",
+    "secondary": true
+   },
+   {
+    "rf": 24,
+    "heading": "If we fail to maintain proper and effective internal control and remediate any future control deficiencies, our ability to produce accurate and timely financial statements could be impaired, which could harm our operating results, our ability to operate our business and our reputation with investors.",
+    "category": "OTHER",
+    "leaf": "OTHER.reporting_controls",
+    "quote": "If we cannot remediate future material weaknesses or significant deficiencies in a timely manner, or if we identify additional control deficiencies that individually or together constitute significant deficiencies or material weaknesses, our ability to accurately record, process, and report financial information",
+    "driver": "internal control weaknesses",
+    "secondary": false
+   },
+   {
+    "rf": 25,
+    "heading": "Customer demands for us to implement business practices that are more stringent than legal requirements may reduce our revenue opportunities or cause us to incur higher costs.",
+    "category": "CLIMATE_NATCAT",
+    "leaf": "CLIMATE_NATCAT.climate_disclosure_esg",
+    "quote": "Some of our customers require that we implement practices that are more stringent than those required by applicable laws with respect to labor requirements, the materials contained in our products, energy efficiency, environmental impact or other items.",
+    "driver": "customer ESG requirements",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2979,
+ "output_tokens": 763,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 5.762,
+ "recorded_at": "2026-10-25T18:46:33+0000"
+}

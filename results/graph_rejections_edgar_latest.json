@@ -1,8 +1,23 @@
 {
  "prompt_version": "graph-v2",
- "mentions": 135,
- "accepted": 135,
- "verification_rate": 1.0,
- "reasons": {},
- "rejected": []
+ "mentions": 705,
+ "accepted": 704,
+ "verification_rate": 0.9986,
+ "reasons": {
+  "company_in_name": 1
+ },
+ "rejected": [
+  {
+   "id": "ON-g2-m3",
+   "ticker": "ON",
+   "chunk_id": "ON-g2",
+   "heading": "The semiconductor industry is highly competitive and has experienced significant consolidation",
+   "risk_name": "Competitive pressure on margins",
+   "detail": "Competition from global semiconductor majors and niche players; limits price increases and gross margin",
+   "quote": "Competitive pressures may limit our ability to raise prices, and any inability to maintain revenue or raise prices to offset increases in costs could have a significant adverse effect on our gross margin.",
+   "specificity": "boilerplate",
+   "drivers": [],
+   "reason": "company_in_name"
+  }
+ ]
 }

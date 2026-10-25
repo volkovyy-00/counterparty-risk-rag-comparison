@@ -1,0 +1,86 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "New technologies may present challenges, recalls and erode customer trust",
+    "risk_name": "New technology product failure",
+    "detail": "Electrified vehicles and autonomous driving tech have led to customer claims, government investigations and recalls",
+    "quote": "Moreover, new offerings, including those related to electrified vehicles and autonomous driving technologies, may present technological challenges that could be costly to implement and overcome and have subjected us and may continue to subject us to customer claims, government investigations, and recalls of our vehicles if they do not operate as anticipated.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "electrified vehicles",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "autonomous driving technologies",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Ford may face increased price competition for its products and services",
+    "risk_name": "Industry overcapacity pricing pressure",
+    "detail": "Global auto overcapacity drives incentives; foreign competitors' weak currencies; inability to offset tariffs and commodity costs",
+    "quote": "As a result, we are not necessarily able to set our prices to offset higher marketing incentives, commodity or other cost increases, tariffs, or the impact of adverse currency fluctuations. This risk includes cost advantages foreign competitors may have because of their weaker home market currencies, which may, in turn, enable those competitors to offer their products at lower prices.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "EV market evolution and lower-than-anticipated adoption",
+    "risk_name": "Weak EV demand and impairments",
+    "detail": "US policy cut EV incentives; charges for EV supplier payments, inventory, impairments; battery facility investments may not be recouped",
+    "quote": "The trend may be further exacerbated as recent policy changes in the United States have reduced or eliminated supply- and demand-side EV incentives, which may further slow the adoption of EVs.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "United States",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "EV incentives",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "EV demand",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Battery facility underutilization",
+    "risk_name": "Stranded capacity investment",
+    "detail": "High battery costs hinder EV price parity; underused battery plants may prevent recouping investment",
+    "quote": "Furthermore, given our existing and continued investment in battery production, if we are unable to operate battery facilities at their expected capacity because EV adoption rates or the demand for such batteries is lower-than-anticipated or otherwise, we may be unable to recoup our investments.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "batteries",
+      "type": "INPUT_COMMODITY"
+     }
+    ]
+   },
+   {
+    "heading": "Higher EV adoption could create ICE excess capacity",
+    "risk_name": "Industry overcapacity pricing pressure",
+    "detail": "Rising EV adoption could create excess capacity in ICE trucks and utilities, increasing price competition",
+    "quote": "Conversely, should EV adoption rates increase again in the future, the risk of excess capacity, particularly for internal combustion engine trucks and utilities, may be exacerbated. This excess capacity may further increase price competition in that segment of the market, which could have a substantial adverse effect on our financial condition or results of operations.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "internal combustion engine trucks and utilities",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1233,
+ "output_tokens": 1195,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 9.209,
+ "recorded_at": "2026-10-25T18:18:42+0000"
+}

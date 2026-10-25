@@ -1,0 +1,34 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n333",
+     "n334",
+     "n335",
+     "n336",
+     "n337",
+     "n460"
+    ],
+    "canonical_name": "Foreign currency exchange rate fluctuations",
+    "definition": "Fluctuations in foreign currency exchange rates affect reported revenues, costs, and remeasurement or translation of non-U.S. dollar results and balances, harming financial results."
+   },
+   {
+    "member_ids": [
+     "n475",
+     "n478"
+    ],
+    "canonical_name": "Variable rate debt interest exposure",
+    "definition": "Borrowings bearing floating interest rates expose the company to higher interest expense when rates rise, with hedges possibly not covering all such debt."
+   }
+  ]
+ },
+ "input_tokens": 493,
+ "output_tokens": 212,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 2.753,
+ "recorded_at": "2026-10-25T18:27:14+0000"
+}

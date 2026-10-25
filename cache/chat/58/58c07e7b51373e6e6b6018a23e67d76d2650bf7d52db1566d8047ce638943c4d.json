@@ -1,0 +1,22 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n219",
+     "n220"
+    ],
+    "canonical_name": "Government contracting regulatory compliance",
+    "definition": "Selling to government entities subjects the company to specialized procurement, security and compliance obligations, and failing to meet them can lead to penalties, contract termination, or suspension or debarment."
+   }
+  ]
+ },
+ "input_tokens": 118,
+ "output_tokens": 109,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 2.208,
+ "recorded_at": "2026-10-25T18:29:50+0000"
+}

@@ -1,0 +1,59 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 11,
+    "heading": "Warranty claims, product liability claims, product recalls, and the failure to comply with the terms and conditions of our contracts, could harm our business, reputation, results of operations and financial condition.",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.product_liability_defects",
+    "quote": "We face exposure to warranty and product liability claims if our products fail to perform as expected or their failure results, or is alleged to result, in bodily injury or property damage (or both).",
+    "driver": "semiconductor product defects",
+    "secondary": false
+   },
+   {
+    "rf": 12,
+    "heading": "Currency fluctuations, changes in foreign exchange regulations and repatriation delays and costs could have a material adverse effect on our results of operations and financial condition.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.fx_exposure",
+    "quote": "although a majority of our revenue is denominated in U.S. dollars, a significant portion of our cost of revenue and operating expenses are payable in foreign currencies.",
+    "driver": "foreign-currency costs",
+    "secondary": false
+   },
+   {
+    "rf": 12,
+    "heading": "Currency fluctuations, changes in foreign exchange regulations and repatriation delays and costs could have a material adverse effect on our results of operations and financial condition.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.liquidity_funding",
+    "quote": "Restrictions on repatriation or the inability to use cash held abroad to fund our operations in the United States may have a material adverse effect on our liquidity and financial condition.",
+    "driver": "cash repatriation restrictions",
+    "secondary": true
+   },
+   {
+    "rf": 13,
+    "heading": "If our technologies are subject to claims of infringement on the IP rights of others, efforts to address such claims could have a material adverse effect on our results of operations.",
+    "category": "IP_TECH_RIGHTS",
+    "leaf": "IP_TECH_RIGHTS.ip_infringement_claims",
+    "quote": "We may from time to time be subject to claims that we may be infringing the IP rights of others. If necessary or desirable, we may seek licenses under such IP rights.",
+    "driver": "",
+    "secondary": false
+   },
+   {
+    "rf": 15,
+    "heading": "If we fail to, or are unable to, adequately protect the IP we have developed or licensed, our competitive position, business and results of operations could be materially and adversely affected.",
+    "category": "IP_TECH_RIGHTS",
+    "leaf": "IP_TECH_RIGHTS.ip_protection",
+    "quote": "The enforceability of our patents, trademarks, copyrights, software licenses and other IP is uncertain in certain circumstances. Effective IP protection may be unavailable, limited or not applied for in the United States and internationally.",
+    "driver": "",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3055,
+ "output_tokens": 950,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 7.163,
+ "recorded_at": "2026-10-25T18:46:53+0000"
+}

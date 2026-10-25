@@ -1,0 +1,56 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Cyber attacks on IT systems and data",
+    "risk_name": "Cybersecurity breach of information systems",
+    "detail": "August 2024 incident disrupted servers; manufacturing facilities ran below normal and order fulfillment temporarily impacted",
+    "quote": "For example, in August 2024, we determined that an unauthorized party disrupted our use of certain servers and some of our business operations. As a result, certain of our manufacturing facilities were operating at less than normal levels for a period of time, and our ability to fulfill orders was temporarily impacted.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Government-related sales increase cyber attack exposure",
+    "risk_name": "State-actor cyber attack exposure",
+    "detail": "Significant sales to U.S. government agencies and their suppliers attract attacks; geopolitical tensions heighten risk",
+    "quote": "Due to the types of products we sell and the significant amount of sales we make to government agencies or customers whose principal sales are to U.S. government agencies, we have experienced and expect to continue to experience in the future, attacks on our IT systems and data, including attempts to breach our security, network compromises and attempts to introduce malicious software into our IT systems.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "U.S. government agencies",
+      "type": "NAMED_COUNTERPARTY"
+     }
+    ]
+   },
+   {
+    "heading": "Cybersecurity regulatory compliance costs",
+    "risk_name": "Cybersecurity disclosure regulation compliance",
+    "detail": "SEC rules requiring disclosure of material cybersecurity incidents; noncompliance risks investigations and investor lawsuits",
+    "quote": "Furthermore, our efforts to comply with evolving laws and regulations related to cybersecurity, such as SEC rules requiring disclosure of a material cybersecurity incident, may be costly and any actual or alleged failure to comply could result in investigations, proceedings, investor lawsuits and reputational damage.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "SEC rules requiring disclosure of a material cybersecurity incident",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Misappropriation of IP by employees and third parties",
+    "risk_name": "Intellectual property misappropriation",
+    "detail": "Former employees, customers, licensees, consultants and state actors have misappropriated technology; engineering talent poaching worsens risk",
+    "quote": "This risk would be exacerbated to the extent our competitors for talent, particularly engineering talent, hire our employees.",
+    "specificity": "specific",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1576,
+ "output_tokens": 860,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 6.54,
+ "recorded_at": "2026-10-25T18:21:21+0000"
+}

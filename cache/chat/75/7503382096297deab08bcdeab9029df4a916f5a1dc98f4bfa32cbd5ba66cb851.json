@@ -1,0 +1,78 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Implementation of new business strategy may not succeed or may disrupt operations",
+    "risk_name": "Strategy execution failure",
+    "detail": "New battery energy storage business announced Q4 2025; alternative distribution models may underperform historical arrangements",
+    "quote": "For example, the new battery energy storage business we announced in the fourth quarter of 2025 or our efforts to evaluate and implement alternative distribution models and channels for our products and services from those we have traditionally used may be challenged or may not succeed or be as successful as our historical arrangements.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "battery energy storage",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "External factors including U.S.-China tensions and Chinese EV competition",
+    "risk_name": "Foreign low-cost competition",
+    "detail": "U.S.-China tensions; Chinese electrified vehicle producers exporting into Ford's key markets",
+    "quote": "For example, our business and strategy are susceptible to tensions in U.S.-China relations and the rapid development of the Chinese electrified vehicle industry, with domestic Chinese producers exporting to some key markets in which we operate.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Chinese electrified vehicle industry",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Slower EV adoption leads to capacity cuts, impairments and incentive repayment",
+    "risk_name": "Weak EV demand impairments",
+    "detail": "EV adoption lower than anticipated; capacity reductions, program cancellations, write-downs, possible repayment of government incentives",
+    "quote": "For example, we have taken, and may in the future take, such actions to better match the pace of EV adoption, which has been lower than anticipated industrywide.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "EV adoption",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Charges and financial exposure following strategy changes or venture unwinds",
+    "risk_name": "Divestiture and venture unwind charges",
+    "detail": "December 2025 updated EV strategy and expected disposition of BlueOval SK, LLC investment with related charges",
+    "quote": "For example, in December 2025, we announced our updated EV strategy, the expected disposition of our investment in BlueOval SK, LLC, and the charges we expected to record related to those items.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "BlueOval SK, LLC",
+      "type": "NAMED_COUNTERPARTY"
+     }
+    ]
+   },
+   {
+    "heading": "Ford may not realize the anticipated benefits of restructuring actions and such actions may cause significant charges",
+    "risk_name": "Restructuring charges and execution",
+    "detail": "Plant closures, shift reductions, program cancellations; potential claims and incentive clawbacks; savings may not materialize",
+    "quote": "Such restructuring actions have caused us and may in the future cause us to incur significant costs; record impairments or other charges; subject us to potential claims from employees, suppliers, dealers, other counterparties, or governmental authorities (including a reduction or clawback of",
+    "specificity": "specific",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1429,
+ "output_tokens": 1080,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 9.444,
+ "recorded_at": "2026-10-25T18:18:28+0000"
+}

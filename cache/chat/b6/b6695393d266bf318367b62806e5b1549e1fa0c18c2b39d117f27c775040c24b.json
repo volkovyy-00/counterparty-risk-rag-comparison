@@ -1,0 +1,86 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Failure to develop and deploy secure digital services that appeal to customers could hurt Ford's business",
+    "risk_name": "Digital services adoption shortfall",
+    "detail": "Integrated software/subscription services targeted as larger revenue share; depends on modem activation and subscriber growth",
+    "quote": "If we do not develop, deliver, and make available standardized technologies that customers can easily adopt and use, fail to generate sufficient demand for our integrated software and digital services, or if customers do not opt to activate the modems in our vehicles, which would hinder our ability to offer and sell such services, we may not grow revenue in line with the costs we are investing or achieve profitability on our increasingly digitally-connected products.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "integrated software and digital services",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Shifting data privacy and AI policy affecting digital services",
+    "risk_name": "Data privacy regulation compliance costs",
+    "detail": "Data privacy and AI policy shifts have already caused costs and could cause service lapses across jurisdictions",
+    "quote": "Shifting public policy regarding data privacy and the effects of artificial intelligence has caused and may in the future cause us to incur substantial costs to modify our operations or business practices, reduce consumers\u2019 willingness to engage with our offerings, or cause delays or lapses in the availability of our products or services in various jurisdictions.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "data privacy",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "artificial intelligence",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Dependence on third-party content and technology licenses",
+    "risk_name": "Third-party licensing dependence",
+    "detail": "Third-party content and software licenses may not renew on reasonable terms; providers may compete",
+    "quote": "This includes the right to sell, or offer subscriptions to, third-party content, as well as the right to incorporate specific content into our own services; however, continuation of these third-party licensing and other arrangements, or their renewal on commercially reasonable terms, is not guaranteed or may be unavailable.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Software integration defects, outages and third-party cloud reliance",
+    "risk_name": "Software defects and service outages",
+    "detail": "Reliance on third-party cloud infrastructure; risk of failed over-the-air (OTA) updates causing widespread issues",
+    "quote": "Moreover, the reliance of our services on cloud-based systems and other digital infrastructure owned by third parties creates particular risk. Any outage, misconfiguration, or loss of data within the systems or infrastructure of these third parties could impair the performance of our services from time to time.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "cloud-based systems",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "over-the-air (\u201cOTA\u201d) updates",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "BlueCruise growth, competition and regulatory scrutiny",
+    "risk_name": "Driver assist regulatory scrutiny",
+    "detail": "BlueCruise hands-free system under government investigations including of Ford; failure risks unrecouped investment",
+    "quote": "In addition, autonomous vehicle and driver assist technologies, including BlueCruise, continue to be scrutinized by government regulators and consumers, and actual or perceived failures or misuse of these technologies and features have led to government investigations and inquiries, including of Ford.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "BlueCruise",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "autonomous vehicle and driver assist technologies",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1572,
+ "output_tokens": 1284,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 9.861,
+ "recorded_at": "2026-10-25T18:18:33+0000"
+}

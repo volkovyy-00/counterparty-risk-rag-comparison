@@ -1,0 +1,49 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n47"
+    ],
+    "canonical_name": "AI-related copyright infringement claims",
+    "definition": "Use of AI tools in operations and products may expose the company to copyright or IP infringement claims under an uncertain legal framework."
+   },
+   {
+    "member_ids": [
+     "n167",
+     "n518",
+     "n520",
+     "n521"
+    ],
+    "canonical_name": "Third-party IP infringement litigation",
+    "definition": "Third parties may assert patent or other IP infringement claims against the company, leading to damages, injunctions, redesigns, indemnification or halted sales."
+   },
+   {
+    "member_ids": [
+     "n409",
+     "n519"
+    ],
+    "canonical_name": "Intellectual property disputes and protection",
+    "definition": "The company's large IP portfolio and licensing arrangements expose it to both infringement disputes and challenges protecting its own rights."
+   },
+   {
+    "member_ids": [
+     "n489",
+     "n527",
+     "n529",
+     "n530"
+    ],
+    "canonical_name": "Inability to protect intellectual property",
+    "definition": "The company's patents, confidentiality agreements and other protections may be insufficient or weakly enforced, especially abroad, allowing competitors to copy its technology."
+   }
+  ]
+ },
+ "input_tokens": 566,
+ "output_tokens": 362,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 3.949,
+ "recorded_at": "2026-10-25T18:28:48+0000"
+}

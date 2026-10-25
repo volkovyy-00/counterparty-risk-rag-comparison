@@ -1,0 +1,36 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n264",
+     "n286",
+     "n356",
+     "n357",
+     "n358",
+     "n359"
+    ],
+    "canonical_name": "Cyclical automotive demand downturn",
+    "definition": "Cyclical declines in vehicle sales or production, driven by interest rates, credit and economic conditions, reduce revenue and, given high fixed costs, disproportionately hurt profitability."
+   },
+   {
+    "member_ids": [
+     "n360",
+     "n361",
+     "n362",
+     "n363"
+    ],
+    "canonical_name": "Cyclical semiconductor demand volatility",
+    "definition": "Semiconductor industry cycles cause demand swings, overcapacity, inventory buildup and price erosion that reduce revenue and margins."
+   }
+  ]
+ },
+ "input_tokens": 616,
+ "output_tokens": 222,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 2.83,
+ "recorded_at": "2026-10-25T18:25:32+0000"
+}

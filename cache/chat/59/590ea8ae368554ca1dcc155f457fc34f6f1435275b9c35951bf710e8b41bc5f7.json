@@ -1,0 +1,65 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Underutilized manufacturing lines and excess capacity",
+    "risk_name": "Excess capacity fixed-cost burden",
+    "detail": "Underutilized manufacturing lines raise fixed costs; some lines in China face rising labor costs and instability",
+    "quote": "This excess capacity means we incur increased fixed costs in our products relative to the net revenue we generate, which could have an adverse effect on our results of operations, particularly during economic downturns.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Changes in factors that impact the determination of our non-U.S. pension liabilities may adversely affect us.",
+    "risk_name": "Pension underfunding",
+    "detail": "Mexico and UK plans underfunded by $128 million; non-U.S. pension and retirement obligations net $423 million at Dec 31, 2025",
+    "quote": "Our primary funded non-U.S. plans are located in Mexico and the United Kingdom and were underfunded by $128 million as of December 31, 2025.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Mexico",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "United Kingdom",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "We may suffer future asset impairment and other restructuring charges",
+    "risk_name": "Restructuring charges",
+    "detail": "Ongoing restructuring to realign production capacity and cost structure; may not achieve desired results",
+    "quote": "Charges related to these actions or any further restructuring actions may have a material adverse effect on our results of operations and financial condition. We cannot ensure that any current or future restructuring actions will be completed as planned or achieve the desired results.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "We may suffer future asset impairment and other restructuring charges",
+    "risk_name": "Goodwill impairment charges",
+    "detail": "Q3 2025 $648 million goodwill impairment on Wind River reporting unit due to higher discount rates and lower forecast cash flows",
+    "quote": "The assessment indicated that the carrying value of this reporting unit exceeded its estimated fair value, and as a result, during the third quarter of 2025, the Company recorded a non-cash, pre-tax goodwill impairment charge of approximately $648 million related to the Wind River reporting unit.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Wind River",
+      "type": "NAMED_COUNTERPARTY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1636,
+ "output_tokens": 833,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 7.541,
+ "recorded_at": "2026-10-25T18:19:48+0000"
+}

@@ -1,0 +1,35 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "d153"
+    ],
+    "canonical_name": "U.S. Department of Commerce",
+    "definition": "U.S. federal executive department overseeing trade, export controls, and commerce."
+   },
+   {
+    "member_ids": [
+     "d154"
+    ],
+    "canonical_name": "U.S. Department of Justice",
+    "definition": "U.S. federal executive department responsible for law enforcement and legal matters."
+   },
+   {
+    "member_ids": [
+     "d155"
+    ],
+    "canonical_name": "U.S. Department of War",
+    "definition": "U.S. federal defense department (Department of Defense renamed Department of War) acting as a counterparty."
+   }
+  ]
+ },
+ "input_tokens": 100,
+ "output_tokens": 199,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 523,
+ "latency_s": 3.138,
+ "recorded_at": "2026-10-25T18:31:31+0000"
+}

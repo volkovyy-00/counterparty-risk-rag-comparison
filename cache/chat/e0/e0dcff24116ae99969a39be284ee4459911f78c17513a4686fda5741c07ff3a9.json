@@ -1,0 +1,41 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 21,
+    "heading": "Our technology licensing business exposes us to various risks.",
+    "category": "IP_TECH_RIGHTS",
+    "leaf": "IP_TECH_RIGHTS.ip_protection",
+    "quote": "The success of our licensing business depends on the continued market acceptance of these technologies and on our ability to further develop such technologies, to introduce new technologies, and to enforce our license terms.",
+    "driver": "SuperFlash licensing",
+    "secondary": false
+   },
+   {
+    "rf": 22,
+    "heading": "Sales into governmental projects, and compliance with associated regulations, could have a material adverse effect on our results of operations.",
+    "category": "CUSTOMER_CONCENTRATION",
+    "leaf": "CUSTOMER_CONCENTRATION.key_customer_dependence",
+    "quote": "A significant portion of our sales are from or are derived from government agencies or customers who sell to U.S. or foreign government agencies. Such sales are subject to federal contracting regulations as well as uncertainties regarding governmental spending levels, spending priorities, regulatory and policy changes.",
+    "driver": "U.S. government contracts",
+    "secondary": false
+   },
+   {
+    "rf": 22,
+    "heading": "Sales into governmental projects, and compliance with associated regulations, could have a material adverse effect on our results of operations.",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.anti_corruption_compliance",
+    "quote": "In certain circumstances, failure to comply with these requirements, the terms of government contracts, or with other applicable regulations may result in fines and penalties, or loss of current or future business including our ability to continue as a supplier to U.S. governmental agencies and its contractors for a period of time.",
+    "driver": "CMMC, FAR/DFARS compliance",
+    "secondary": true
+   }
+  ]
+ },
+ "input_tokens": 2969,
+ "output_tokens": 597,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 4.487,
+ "recorded_at": "2026-10-25T18:46:30+0000"
+}

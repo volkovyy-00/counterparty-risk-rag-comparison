@@ -1,0 +1,86 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Tariffs and trade restrictions could adversely affect our business",
+    "risk_name": "Import tariff cost increase",
+    "detail": "Contracts recover substantially all tariff costs to date; future US actions may hurt customer production or mitigation",
+    "quote": "To date, our mitigation efforts have been successful, but we cannot provide any assurance that future government actions will not adversely impact our customers' production or undermine our mitigation efforts, which could in turn adversely impact our business, financial condition and results of operations.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "U.S.",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "USMCA review and renewal in 2026",
+    "risk_name": "Trade agreement renegotiation",
+    "detail": "USMCA subject to trilateral review and renewal in 2026; CAFTA-DR status also uncertain",
+    "quote": "In addition to potential increases in customs duties and tariffs in the United States and other countries, the United States-Mexico-Canada Agreement (\"USMCA\") is subject to trilateral review and renewal in 2026. There can be no assurances that the USMCA will be renewed or, if renewed, any newly negotiated terms in the USMCA will not adversely affect our business.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "USMCA",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "Mexico",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Canada",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "U.S.-China relations and supply chain integration",
+    "risk_name": "Geopolitical trade tension exposure",
+    "detail": "China integrated in key supply chain components; China retaliatory tariffs; possible sanctions and export controls",
+    "quote": "Also, China presents unique risks to U.S. automotive manufacturers due to the strain in U.S.-China relations and the level of integration with key components in our global supply chain.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Adverse developments affecting or financial distress of suppliers",
+    "risk_name": "Supplier financial distress",
+    "detail": "Sole-source and customer-directed suppliers difficult to re-source; force majeure and tariffs affect capacity",
+    "quote": "Furthermore, unfavorable economic or industry conditions in one or more of the regions in which we operate could result in financial distress within our supply base, which could cause a supply disruption and thereby adversely affect our financial condition, operating results and cash flows.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Significant labor dispute involving us, customers or suppliers",
+    "risk_name": "Labor disruption and strikes",
+    "detail": "About 75,000 employees under labor agreements; ~67% of unionized workforce agreements expire in 2026",
+    "quote": "We have labor agreements covering approximately 75,000 employees globally. In the United States and Canada, each of our unionized facilities has a separate collective bargaining agreement with the union that represents the workers at such facility, with each such agreement having an expiration date that is independent of the other agreements. Labor agreements covering approximately 67% of our global unionized work force are scheduled to expire in 2026.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "United States",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Canada",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1623,
+ "output_tokens": 1140,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 8.46,
+ "recorded_at": "2026-10-25T18:20:37+0000"
+}

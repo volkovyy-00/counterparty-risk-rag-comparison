@@ -1,0 +1,69 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Inability to successfully make or integrate strategic acquisitions, joint ventures or investments",
+    "risk_name": "Acquisition integration failure",
+    "detail": "Integration of IT systems, due diligence gaps, customer reactions, key employee loss; often in less familiar markets or regions",
+    "quote": "Missteps or delays in integrating our acquisitions, which could be caused by factors outside of our control, or our failure to realize the expected benefits of the acquisitions on the timeline we anticipate, could materially adversely affect our results of operations and financial condition.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Consolidating acquired businesses may impair financial reporting",
+    "risk_name": "Acquisition accounting restatement risk",
+    "detail": "Acquired businesses may lack GAAP audited statements or compatible controls, risking restatements",
+    "quote": "Any revisions to, inaccuracies in or restatements of our consolidated financial statements due to accounting for our acquisitions could have a material adverse effect on our financial condition and results of operations.",
+    "specificity": "boilerplate",
+    "drivers": [
+     {
+      "name": "GAAP",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "If our goodwill or amortizable intangible assets become impaired, we may be required to record a significant charge to earnings.",
+    "risk_name": "Goodwill impairment charge",
+    "detail": "Triggers include stock price decline, reduced cash flow estimates, slower segment growth; impairments recorded in the past",
+    "quote": "We have in the past recorded, and may in the future be required to record, a significant charge in our consolidated financial statements during the period in which any impairment of our goodwill or amortizable intangible assets is determined, negatively affecting our financial position and results of operations.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Downturns or volatility in general economic conditions could adversely impact our business",
+    "risk_name": "Macroeconomic downturn demand weakness",
+    "detail": "Semiconductor sales track economic cycles; possible US recession; inflation and interest rates raise costs and hit investment portfolio",
+    "quote": "Historically, worldwide semiconductor industry sales have tracked the impacts of adverse economic conditions, specifically financial crises, subsequent recoveries and persistent economic uncertainty. Recent global economic uncertainty could continue and potentially result in certain economies dipping into economic recessions, including in the United States.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "United States",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Macroeconomic events could disrupt supply chain and operations",
+    "risk_name": "Macro event supply chain disruption",
+    "detail": "AI technology valuation concerns, inflation, geopolitical conflict, climate and disasters could disrupt suppliers, distributors and transport",
+    "quote": "In addition to general economic conditions, impacts of other macroeconomic events, such as valuation concerns related to AI technologies, continued inflation and labor market concerns, public health crises, geopolitical tensions or conflicts and risks, climate change and other severe weather and natural disasters and uncertainties in global financial markets, could materially adversely impact our operations or those of our suppliers, third party distributors and sub-contractors.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "AI technologies",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1693,
+ "output_tokens": 1137,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 8.364,
+ "recorded_at": "2026-10-25T18:22:19+0000"
+}

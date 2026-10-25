@@ -1,0 +1,59 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Our existing indebtedness and the inability to access capital markets could restrict our business activities",
+    "risk_name": "Debt covenants and refinancing",
+    "detail": "About $2.7 billion debt outstanding; $2.0 billion undrawn revolver; covenant default and rating downgrade risk",
+    "quote": "As of December 31, 2025, we had approximately $2.7 billion of outstanding indebtedness, as well as $2.0 billion available for borrowing under our revolving credit facility.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "A significant product liability lawsuit, warranty claim or product recall could adversely affect financial performance",
+    "risk_name": "Product liability and recall costs",
+    "detail": "No insurance for warranty or recall; customers may seek contribution; limited product liability coverage",
+    "quote": "We carry insurance for certain product liability claims, but such coverage may be limited. We do not maintain insurance for warranty or recall matters.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Involvement in various legal and regulatory proceedings and claims",
+    "risk_name": "Litigation and regulatory proceedings",
+    "detail": "Generic statement",
+    "quote": "No assurances can be given that such proceedings and claims will not adversely affect our financial condition, operating results and cash flows.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Focus on human rights and environmental laws and customer requirements could cause significant costs",
+    "risk_name": "ESG and supply chain compliance costs",
+    "detail": "Customer-imposed supply chain transparency requirements; complexity of global automotive supply chains",
+    "quote": "Significant challenges may exist to comply with new legislative efforts and increasing customer requirements around supply chain transparency due to the inherent complexity of global automotive supply chains.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "climate change",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "New laws or regulations or changes in existing laws could adversely affect financial performance",
+    "risk_name": "Regulatory change cost increase",
+    "detail": "Generic statement; mentions tariffs, sanctions, data privacy, taxes",
+    "quote": "The introduction of new laws or regulations or changes in existing laws or regulations, or the interpretation thereof, could increase the costs of doing business for us or our customers or suppliers or restrict our actions and adversely affect our financial condition, operating results and cash flows.",
+    "specificity": "boilerplate",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1585,
+ "output_tokens": 836,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 7.12,
+ "recorded_at": "2026-10-25T18:20:51+0000"
+}

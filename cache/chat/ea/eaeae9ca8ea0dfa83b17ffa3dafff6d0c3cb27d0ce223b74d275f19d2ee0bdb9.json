@@ -1,0 +1,93 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Dependence on distributors and their financial condition and operations",
+    "risk_name": "Distributor disruption and export control",
+    "detail": "Arrow Electronics subsidiaries placed on Commerce Entity List Oct 8, 2025; shipments under EAR halted nine days; no material impact",
+    "quote": "For example, on October 8, 2025, certain subsidiaries of Arrow Electronics (Arrow) were placed on the U.S. Department of Commerce Entity List. As a result, we could not ship or transfer products or other items that are governed by the U.S. Export Administration regulations (EAR) to those entities until they were removed from the Entity List.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Arrow Electronics",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "Entity List",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "U.S. Export Administration regulations",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Downturn oversupply causing distributor order push-outs and excess inventory",
+    "risk_name": "Excess inventory and demand downturn",
+    "detail": "Accommodated distributor order push-outs in Q4 FY2023, FY2024, FY2025; obsolete/excess inventory charges reduced gross margins",
+    "quote": "For example, in the fourth quarter of fiscal 2023, in fiscal 2024 and in fiscal 2025, we accommodated requests by end customers to push-out certain distributor orders to help them manage inventory levels and, in some cases, to help other end customers that are experiencing supply shortages.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Business interruptions to our operations or those of our key vendors, licensees or customers",
+    "risk_name": "Cyber incident operational disruption",
+    "detail": "August 2024 unauthorized server disruption reduced manufacturing output and temporarily impaired order fulfillment",
+    "quote": "For example, in August 2024, we determined that an unauthorized party disrupted our use of certain servers and some of our business operations. As a result, certain of our manufacturing facilities were operating at less than normal levels for a period of time, and our ability to fulfill orders was temporarily impacted.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Business interruptions to our operations or those of our key vendors, licensees or customers",
+    "risk_name": "Pandemic manufacturing disruption",
+    "detail": "COVID-19 restrictions hit own plants in U.S., Philippines, Thailand and subcontractors in Malaysia, Taiwan, China",
+    "quote": "Separately, in the first three months of fiscal 2023 and in fiscal 2022, COVID-19 related restrictions adversely impacted our manufacturing operations in the U.S., the Philippines and Thailand along with our subcontractors' manufacturing operations in Malaysia, Taiwan and China.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Philippines",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Thailand",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Malaysia",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Taiwan",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Flooding risk to Thailand facilities",
+    "risk_name": "Natural disaster facility disruption",
+    "detail": "Thailand facilities exposed to recurring severe flooding; production may not shift timely; insurance likely insufficient",
+    "quote": "Also, Thailand has experienced periods of severe flooding in recent years. While our facilities in Thailand have continued to operate normally, there can be no assurance that future flooding in Thailand would not have a material adverse impact on our operations.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Thailand",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1790,
+ "output_tokens": 1303,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 9.916,
+ "recorded_at": "2026-10-25T18:21:15+0000"
+}

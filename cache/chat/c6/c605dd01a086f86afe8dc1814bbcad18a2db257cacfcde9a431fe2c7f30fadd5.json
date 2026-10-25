@@ -1,0 +1,54 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Disruptions to supply chain, manufacturing and product shipments",
+    "risk_name": "Operational disruption from health crises",
+    "detail": "Absenteeism, quarantines, factory closures, port disruptions affecting manufacturing and suppliers, distributors, sub-contractors",
+    "quote": "Any associated worker absenteeism, quarantines and restrictions on certain of our employees\u2019 ability to perform their jobs, office and factory closures or restrictions, labor shortages, disruptions to ports and other shipping infrastructure, border closures and/or other travel or health-related restrictions could, depending on the magnitude of such effects on our manufacturing activities (or activities of our suppliers, third-party distributors or sub-contractors), cause disruption and delay to our supply chain, manufacturing and product shipments.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Underutilization of manufacturing facilities and minimum purchase obligations",
+    "risk_name": "Fixed cost underabsorption",
+    "detail": "Underused own fabs, test facilities and external manufacturers at minimum purchase obligation levels raise unit costs, cut gross profit",
+    "quote": "In addition, if we are unable to utilize our manufacturing facilities, testing facilities and external manufacturers at expected or minimum purchase obligation levels, or if production capacity increases while revenue does not, the fixed costs and other operating expenses associated with these facilities and arrangements will not be fully absorbed, resulting in higher average unit costs and lower gross profits, which could have a material adverse effect on our results of operations.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Demand forecasting errors and inventory obsolescence",
+    "risk_name": "Excess and obsolete inventory",
+    "detail": "Inaccurate forecasts, order cancellations and rapid technological change may cause inventory charges",
+    "quote": "If we purchase or commit to purchase inventory in anticipation of customer demand that does not materialize, or such inventory is rendered obsolete by the rapid pace of technological change, or if customers reduce, delay or cancel orders, we may incur excess or obsolete inventory charges.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "We may be unable to implement certain business strategies and restructuring initiatives",
+    "risk_name": "Restructuring execution risk",
+    "detail": "Restructuring may relocate production, exit product lines; capacity expansion may raise capex",
+    "quote": "Because our strategies and restructuring activities may involve changes to many aspects of our business, including the location of our production facilities and personnel and the potential exit of certain product lines and businesses, our ability to successfully execute these activities depends on a number of factors, many of which are outside of our control.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Transition services risks from prior divestitures",
+    "risk_name": "Divestiture transition services risk",
+    "detail": "Several transition services provided to acquirers of prior divestitures; acquirer failure or financial difficulty could disrupt operations",
+    "quote": "Similarly, the contingent risks associated with transferring our existing operations to an acquirer, as is the case with several transition services being provided in connection with some of our prior divestitures, could materially impact our financial condition or results of operations and/or could disrupt our existing operations, especially if the acquirer is unable to meet its commitments under any transition services agreements or if the acquirer encounters financial difficulty.",
+    "specificity": "specific",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1448,
+ "output_tokens": 1161,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 11.454,
+ "recorded_at": "2026-10-25T18:21:56+0000"
+}

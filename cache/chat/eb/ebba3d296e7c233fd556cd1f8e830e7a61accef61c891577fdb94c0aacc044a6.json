@@ -1,0 +1,29 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n352"
+    ],
+    "canonical_name": "Cyber incident operational disruption",
+    "definition": "Cyberattacks or unauthorized access to IT systems could disrupt manufacturing output and order fulfillment."
+   },
+   {
+    "member_ids": [
+     "n404",
+     "n406"
+    ],
+    "canonical_name": "Natural disaster facility disruption",
+    "definition": "Earthquakes, floods, storms or other natural disasters affecting the company's facilities could halt production, with limited ability to shift output and possibly insufficient insurance."
+   }
+  ]
+ },
+ "input_tokens": 216,
+ "output_tokens": 179,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 2.661,
+ "recorded_at": "2026-10-25T18:25:29+0000"
+}

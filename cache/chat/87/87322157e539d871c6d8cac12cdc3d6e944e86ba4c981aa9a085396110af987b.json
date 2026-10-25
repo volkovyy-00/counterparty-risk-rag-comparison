@@ -1,0 +1,22 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "d175",
+     "d176"
+    ],
+    "canonical_name": "California Consumer Privacy Act (CCPA)",
+    "definition": "California's 2018 consumer data privacy law granting residents rights over the personal information businesses collect about them."
+   }
+  ]
+ },
+ "input_tokens": 70,
+ "output_tokens": 89,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 523,
+ "latency_s": 5.112,
+ "recorded_at": "2026-10-25T18:32:35+0000"
+}

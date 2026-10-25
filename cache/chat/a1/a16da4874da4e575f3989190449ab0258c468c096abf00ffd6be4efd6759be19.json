@@ -1,0 +1,46 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Failure to meet evolving stakeholder expectations or corporate responsibility goals",
+    "risk_name": "ESG expectations and reporting risk",
+    "detail": "Risks include customer loss, unfavorable ESG ratings, compliance costs, and impaired access to and cost of capital",
+    "quote": "Any failure, or perceived failure, to meet evolving stakeholder expectations or industry standards, or achieve our corporate responsibility goals could have an adverse effect on our business, results of operations, financial condition, reputation, or stock price.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "The future trading price of our common stock could be subject to wide fluctuations",
+    "risk_name": "Securities price volatility",
+    "detail": "Volatility could also affect Convertible Debt, Series A Preferred Stock and Depositary Shares",
+    "quote": "The foregoing factors could also cause the market price of our Convertible Debt, Series A Preferred Stock or Depositary Shares to decline or fluctuate substantially.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "The future trading price of our common stock could be subject to wide fluctuations",
+    "risk_name": "Securities class action litigation",
+    "detail": "Volatile stock price could prompt class actions, costing money and management attention",
+    "quote": "If we are sued in a securities class action, we could incur substantial costs, and it could divert management's attention and resources and have an adverse impact on our financial performance and the price of our common stock or Series A Preferred Stock.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "The amount and timing of our share repurchases may fluctuate",
+    "risk_name": "Shareholder return capital allocation",
+    "detail": "$4.00 billion authorization with $1.56 billion remaining; no repurchases in fiscal 2026",
+    "quote": "Although our Board of Directors has authorized share repurchases of up to $4.00 billion, of which $1.56 billion is still available, the authorization does not obligate us to acquire any particular amount of shares.",
+    "specificity": "specific",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1544,
+ "output_tokens": 696,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 5.809,
+ "recorded_at": "2026-10-25T18:21:45+0000"
+}

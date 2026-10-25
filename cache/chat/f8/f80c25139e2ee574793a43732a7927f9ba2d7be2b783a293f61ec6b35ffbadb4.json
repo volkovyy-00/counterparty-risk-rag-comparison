@@ -1,0 +1,59 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 1,
+    "heading": "We operate in a highly competitive industry that has historically had excess manufacturing capacity, and attempts by our competitors to sell more vehicles could have a significant negative effect on our vehicle pricing, market share, and results of operations.",
+    "category": "COMPETITION_DISRUPTION",
+    "leaf": "COMPETITION_DISRUPTION.price_competition",
+    "quote": "In light of any excess capacity and high fixed costs, many industry participants have attempted to sell more vehicles by providing subsidized financing or leasing programs, offering marketing incentives, or reducing vehicle prices.",
+    "driver": "industry excess capacity",
+    "secondary": false
+   },
+   {
+    "rf": 2,
+    "heading": "We refocused our AV strategy on personal vehicles and the execution of this strategy is dependent upon our ability to successfully mitigate unique technological, operational, regulatory, and competitive risks.",
+    "category": "AI_EMERGING_TECH",
+    "leaf": "AI_EMERGING_TECH.autonomous_driving",
+    "quote": "we expect that our AV and ADAS development activities will continue to require significant capital investments and remain subject to a variety of risks inherent with the development of new technologies, including our ability to continue to develop self-driving software and hardware",
+    "driver": "personal AV strategy",
+    "secondary": false
+   },
+   {
+    "rf": 3,
+    "heading": "We are subject to risks associated with climate change, including evolving regulation of GHG emissions and changing consumer preferences and demand, and the potential increased impacts of severe weather events on our operations and infrastructure.",
+    "category": "EMISSIONS_EV_TRANSITION",
+    "leaf": "EMISSIONS_EV_TRANSITION.emissions_regulation",
+    "quote": "such regulations could require us to further limit emissions associated with customer use of products we sell, change our manufacturing processes or product portfolio, or undertake other activities that may require us to incur additional expense, including the purchase of emissions credits or the payment of penalties",
+    "driver": "GHG emissions rules",
+    "secondary": false
+   },
+   {
+    "rf": 3,
+    "heading": "We are subject to risks associated with climate change, including evolving regulation of GHG emissions and changing consumer preferences and demand, and the potential increased impacts of severe weather events on our operations and infrastructure.",
+    "category": "CLIMATE_NATCAT",
+    "leaf": "CLIMATE_NATCAT.natural_disasters_weather",
+    "quote": "increased intensity, frequency, or duration of storms, droughts, wildfires, or other severe weather events as a result of climate change may disrupt our production and the production, logistics, cost, and procurement of products from our suppliers",
+    "driver": "severe weather events",
+    "secondary": true
+   },
+   {
+    "rf": 4,
+    "heading": "Our business is highly dependent upon global automobile market sales volume, which can be volatile.",
+    "category": "MACRO_DEMAND",
+    "leaf": "MACRO_DEMAND.vehicle_production_volumes",
+    "quote": "Because we have a high proportion of relatively fixed structural costs, small changes in sales volume can have a disproportionately large effect on our profitability.",
+    "driver": "global new vehicle sales",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3238,
+ "output_tokens": 1330,
+ "cache_write_tokens": 6701,
+ "cache_read_tokens": 0,
+ "latency_s": 10.38,
+ "recorded_at": "2026-10-25T18:45:37+0000"
+}

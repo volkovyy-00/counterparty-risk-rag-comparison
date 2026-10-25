@@ -1,0 +1,50 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n88",
+     "n277",
+     "n577"
+    ],
+    "canonical_name": "Tariffs, sanctions and export restrictions",
+    "definition": "Combined trade barriers including import tariffs, quotas, sanctions and export controls could disrupt global operations, raise costs and reduce sales."
+   },
+   {
+    "member_ids": [
+     "n151",
+     "n565",
+     "n566",
+     "n567"
+    ],
+    "canonical_name": "Tariff and trade policy changes",
+    "definition": "Changes and uncertainty in tariffs and trade policy could raise costs, restrict supplies, reduce revenue and hamper planning."
+   },
+   {
+    "member_ids": [
+     "n221",
+     "n248"
+    ],
+    "canonical_name": "Export and trade compliance penalties",
+    "definition": "Violations of export control and trade compliance laws could result in fines, loss of export privileges or debarment."
+   },
+   {
+    "member_ids": [
+     "n274",
+     "n275",
+     "n276"
+    ],
+    "canonical_name": "Export controls and sanctions restrictions",
+    "definition": "Government export controls and sanctions could restrict sales to certain countries or customers, disrupting shipments, production and earnings."
+   }
+  ]
+ },
+ "input_tokens": 690,
+ "output_tokens": 352,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 7.041,
+ "recorded_at": "2026-10-25T18:26:08+0000"
+}

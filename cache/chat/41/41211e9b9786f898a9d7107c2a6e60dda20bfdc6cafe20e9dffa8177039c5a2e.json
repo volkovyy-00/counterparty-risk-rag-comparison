@@ -1,0 +1,68 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Debt agreements may restrict our ability to operate our business",
+    "risk_name": "Restrictive debt covenants",
+    "detail": "Credit Agreement and 3.875% Notes covenants limit debt, liens, M&A, distributions; financial ratio maintenance tests",
+    "quote": "Our debt agreements, including the Credit Agreement and the 3.875% Notes, contain, and any future debt agreements may include, a number of restrictive covenants that impose significant operating and financial restrictions on us and our subsidiaries.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Credit Agreement",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "3.875% Notes",
+      "type": "NAMED_COUNTERPARTY"
+     }
+    ]
+   },
+   {
+    "heading": "May not generate sufficient cash flow to meet debt service obligations",
+    "risk_name": "Insufficient cash flow for debt service",
+    "detail": "May need refinancing, asset sales or capex cuts; refinancing may be barred by debt instruments",
+    "quote": "If we do not generate sufficient cash to satisfy our debt obligations as they come due, we may have to undertake alternative financing plans, such as refinancing or restructuring our debt, selling assets, reducing or delaying capital investments, or seeking to raise additional capital.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Change of control repurchase and collateral enforcement",
+    "risk_name": "Change-of-control repurchase obligation",
+    "detail": "Debt repurchase on change of control may exceed resources; secured holders could seize collateral; Credit Agreement borrowing could be cut",
+    "quote": "If we are unable to repay, refinance or restructure our indebtedness under our collateralized debt, the holders of such debt could proceed against the collateral securing that indebtedness, which could materially negatively impact our results of operations and financial condition.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Credit Agreement",
+      "type": "NAMED_COUNTERPARTY"
+     }
+    ]
+   },
+   {
+    "heading": "Event of default could cross default other indebtedness",
+    "risk_name": "Cross-default acceleration",
+    "detail": "Generic statement",
+    "quote": "If there were an event of default under certain of our agreements relating to our outstanding indebtedness, the holders of the defaulted debt could cause all amounts outstanding with respect to that debt to be due and payable immediately, which default or acceleration of debt could cross default other indebtedness.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Operating subsidiaries may not make cash available for debt repayment",
+    "risk_name": "Structural subordination to subsidiaries",
+    "detail": "Holding company reliant on subsidiary distributions; non-guarantor subsidiaries have no repayment obligation",
+    "quote": "Repayment of our indebtedness is dependent on the generation of cash flow by our subsidiaries and their ability to make such cash available to us, by dividend, debt repayment or otherwise.",
+    "specificity": "boilerplate",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1759,
+ "output_tokens": 1013,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 8.505,
+ "recorded_at": "2026-10-25T18:22:10+0000"
+}

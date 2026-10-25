@@ -1,0 +1,73 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Regulation of driver assistance, autonomous capability and Robotaxi",
+    "risk_name": "Autonomous vehicle regulatory restrictions",
+    "detail": "Driver assistance features, autonomous ride-hailing launched 2025; standards assume human driver; patchwork rules may slow Robotaxi expansion",
+    "quote": "There are a variety of international, federal and state regulations that may apply to, and may adversely inhibit, the design and capabilities, sale, marketing, registration and operation of driver assistance features, future autonomous capability on customer vehicles, as well as our Robotaxi business.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Robotaxi",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "driver assistance features",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Regulation of energy generation and storage systems",
+    "risk_name": "Energy market regulatory changes",
+    "detail": "Rules on component import/export, electricity pricing, grid interconnection, virtual power plants could deter solar and storage customers",
+    "quote": "If regulations and policies are introduced that adversely impact the import or export of components, or the interconnection, maintenance or use of our solar and energy storage systems, they could deter potential customers from purchasing our solar and energy storage products and services, threaten the economics of our existing contracts and cause us to cease solar and energy storage system sales and services in the relevant jurisdictions",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "solar and energy storage",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "virtual power plant",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Any failure by us to comply with a variety of U.S. and international privacy and consumer protection laws may harm us.",
+    "risk_name": "Data privacy compliance",
+    "detail": "GDPR in EU, California Consumer Privacy Act, varied US state laws, new Asia-Pacific and China privacy/cybersecurity laws",
+    "quote": "For example, the General Data Protection Regulation applies to the processing of personal information collected from individuals located in the European Union requiring certain data protection measures when handling, with a significant risk of fines for noncompliance.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "General Data Protection Regulation",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "European Union",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "California Consumer Privacy Act",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1465,
+ "output_tokens": 885,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 6.798,
+ "recorded_at": "2026-10-25T18:19:25+0000"
+}

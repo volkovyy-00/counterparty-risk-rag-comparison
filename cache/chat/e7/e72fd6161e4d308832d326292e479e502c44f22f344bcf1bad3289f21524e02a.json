@@ -1,0 +1,141 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Third-party service providers face cybersecurity threats",
+    "risk_name": "Third-party cybersecurity breach",
+    "detail": "Wafer foundries, assembly/test contractors, distributors, card processors, SaaS platforms hold company and customer data",
+    "quote": "Third-party service providers, such as wafer foundries, assembly and test contractors, distributors, credit card processors, SaaS platforms, and other vendors have access to portions of our and our customers' data or software.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Contract liability limits and insurance may not cover cybersecurity losses",
+    "risk_name": "Uninsured cybersecurity liability",
+    "detail": "No insurance coverage specifically for cybersecurity matters; contract liability limits may be absent or insufficient",
+    "quote": "We do not have insurance coverage specifically for cybersecurity matters.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Significant and evolving risks related to AI",
+    "risk_name": "Technology shift competitive risk",
+    "detail": "Must adapt products to AI-driven market changes; failure could reduce design wins, sales and margins",
+    "quote": "Failure to respond timely could impair our competitive position, reduce design wins and sales, and negatively affect our margins.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "AI",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Concentration and investment-cycle risk in AI demand",
+    "risk_name": "End-market demand cyclicality",
+    "detail": "Slowdown or shift in AI spending could reduce demand and pressure margins",
+    "quote": "Demand for AI-related products is subject to concentration and investment-cycle risk, and any slowdown or shift in AI spending could reduce demand for our products, pressure margins, and adversely affect our operating results.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "AI spending",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "AI amplifies cybersecurity threats",
+    "risk_name": "Cybersecurity breach of information systems",
+    "detail": "AI-enhanced attacks, deep fakes of leaders, AI-generated code introducing vulnerabilities",
+    "quote": "Threats may also be introduced by our employees', our customers\u2019, or our partners\u2019 use of AI tools, including where AI\u2011generated source code incorporated into products or systems introduces malicious code or security vulnerabilities.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "AI",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Internal and partner use of AI tools presents further risks",
+    "risk_name": "Intellectual property and data misuse",
+    "detail": "AI tool use may leak confidential data, infringe third-party IP, breach open-source obligations",
+    "quote": "The use of AI tools may result in allegations or claims relating to violation of third\u2011party IP rights, unauthorized access to or use or processing of proprietary, confidential or personal information, failure to comply with open\u2011source software requirements, or other legal or contractual obligations.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "AI tools",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Product security vulnerabilities in AI-enabled applications",
+    "risk_name": "Product security vulnerability liability",
+    "detail": "Products used in cloud, IoT, automotive AI applications; exploited vulnerabilities could cause claims and remediation costs",
+    "quote": "Our products and intellectual property may face heightened security, safety and reliability risks when used in AI\u2011enabled applications, including in the cloud, IoT, automotive and other emerging use cases.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "IoT",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "automotive",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "cloud",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Evolving AI laws and regulations",
+    "risk_name": "AI regulatory compliance cost",
+    "detail": "Conflicting AI frameworks in US, EU and China, including EU AI Act obligations on AI-enabled products",
+    "quote": "New and existing frameworks in the United States, the European Union and China - including the EU AI Act\u2019s risk\u2011based approach - may impose additional compliance, transparency, conformity assessment, monitoring or usage\u2011restriction obligations on AI\u2011enabled products.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "United States",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "European Union",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "EU AI Act",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "AI-related risks in acquisitions and talent competition",
+    "risk_name": "Key talent retention",
+    "detail": "Intensified competition for AI-skilled personnel critical to product roadmap; acquired companies' AI use risks",
+    "quote": "In addition, competition for talent with AI expertise has intensified, and our ability to attract, retain and train personnel with appropriate AI skills and literacy is critical to our innovation and product roadmap.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "AI",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1852,
+ "output_tokens": 1800,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 13.086,
+ "recorded_at": "2026-10-25T18:21:29+0000"
+}

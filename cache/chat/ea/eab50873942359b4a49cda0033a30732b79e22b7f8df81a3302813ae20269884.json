@@ -1,0 +1,36 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n281",
+     "n282"
+    ],
+    "canonical_name": "Equity dilution from convertible securities",
+    "definition": "Conversion or stock settlement of convertible debt and preferred securities, and related hedging activity, may dilute existing shareholders and depress the common stock price."
+   },
+   {
+    "member_ids": [
+     "n283"
+    ],
+    "canonical_name": "Convertible note hedge market impact",
+    "definition": "Hedging transactions by option counterparties tied to convertible notes may buy or sell stock or derivatives, affecting the company's share price."
+   },
+   {
+    "member_ids": [
+     "n284"
+    ],
+    "canonical_name": "Convertible note repayment liquidity",
+    "definition": "Obligations to repay or repurchase convertible notes in cash, including upon holder put rights, may strain liquidity if refinancing is unavailable."
+   }
+  ]
+ },
+ "input_tokens": 289,
+ "output_tokens": 268,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 3.244,
+ "recorded_at": "2026-10-25T18:30:13+0000"
+}

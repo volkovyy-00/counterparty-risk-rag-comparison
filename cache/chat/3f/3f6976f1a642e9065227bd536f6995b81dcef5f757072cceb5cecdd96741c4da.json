@@ -1,0 +1,82 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Differing opinions and regulations regarding responsible use of technologies including AI",
+    "risk_name": "AI ethics and regulatory liability",
+    "detail": "AI-enabled products may draw controversy over human rights, privacy, employment; may slow AI adoption and market acceptance",
+    "quote": "AI introduces new legal, social and ethical issues, risks and challenges that may slow adoption of AI-enabled products and services, reduce market acceptance, delay commercialization, alter customer purchasing behavior, or adversely affect our business model, competitive position and operating results.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "AI",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Failure to comply with privacy, data protection and cybersecurity laws",
+    "risk_name": "Data privacy regulatory compliance",
+    "detail": "Subject to GDPR, UK GDPR, CCPA/CPRA, EU Cyber Resilience Act; fines up to 4% of worldwide revenue or EUR20 million",
+    "quote": "Substantial fines may be imposed for breaches of data protection requirements, which can be up to 4% of a company\u2019s worldwide revenue or 20 million Euros, whichever is greater, and classes of individuals or consumer protection organizations may initiate litigation related to our processing of their personal data.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "GDPR",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "European Union",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Failure to comply with CMMC cybersecurity requirements",
+    "risk_name": "Government contract eligibility loss",
+    "detail": "Non-compliance with CMMC required by U.S. Department of War and prime customers may bar government contracts",
+    "quote": "Over time, failure to comply with CMMC requirements required by the U.S. Department of War and its prime customers may make us ineligible for government contracts.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "CMMC program",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "U.S. Department of War",
+      "type": "NAMED_COUNTERPARTY"
+     }
+    ]
+   },
+   {
+    "heading": "Restrictions on cross-border transfers of personal data from the EEA",
+    "risk_name": "Cross-border data transfer restrictions",
+    "detail": "Relies on SCCs; Schrems II invalidated Privacy Shield; EU-U.S. DPF faces legal challenge; may need costly EEA processing capacity",
+    "quote": "If we are unable to implement sufficient safeguards to ensure that our transfers of personal information from the EEA are lawful, we may face increased exposure to regulatory actions and substantial fines and injunctions against processing personal information from the EEA.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "EEA",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Schrems II",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "EU-U.S. Data Privacy Framework",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1865,
+ "output_tokens": 1019,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 8.037,
+ "recorded_at": "2026-10-25T18:21:26+0000"
+}

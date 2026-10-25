@@ -1,0 +1,68 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 22,
+    "heading": "Changes in factors that impact the determination of our non-U.S. pension liabilities may adversely affect us.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.pension_finance_obligations",
+    "quote": "Our primary funded non-U.S. plans are located in Mexico and the United Kingdom and were underfunded by $128 million as of December 31, 2025.",
+    "driver": "Mexico and UK pension plans",
+    "secondary": false
+   },
+   {
+    "rf": 23,
+    "heading": "We may suffer future asset impairment and other restructuring charges, including write downs of long-lived assets, goodwill, or intangible assets.",
+    "category": "OTHER",
+    "leaf": "OTHER.reporting_controls",
+    "quote": "during the third quarter of 2025, the Company recorded a non-cash, pre-tax goodwill impairment charge of approximately $648 million related to the Wind River reporting unit.",
+    "driver": "Wind River goodwill impairment",
+    "secondary": false
+   },
+   {
+    "rf": 23,
+    "heading": "We may suffer future asset impairment and other restructuring charges, including write downs of long-lived assets, goodwill, or intangible assets.",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.restructuring",
+    "quote": "Charges related to these actions or any further restructuring actions may have a material adverse effect on our results of operations and financial condition.",
+    "driver": "capacity realignment",
+    "secondary": true
+   },
+   {
+    "rf": 24,
+    "heading": "Employee strikes and labor-related disruptions involving us or one or more of our customers or suppliers may adversely affect our operations.",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.labor_relations_unions",
+    "quote": "certain UAW-represented employees at GM, Ford and Stellantis initiated labor strikes in September 2023, lasting more than six weeks in duration.",
+    "driver": "UAW strikes",
+    "secondary": false
+   },
+   {
+    "rf": 25,
+    "heading": "Public health crises and other global health pandemics, epidemics and disease outbreaks and the measures taken in response thereto could adversely impact our business, financial condition, results of operations and cash flows.",
+    "category": "CLIMATE_NATCAT",
+    "leaf": "CLIMATE_NATCAT.pandemic_health",
+    "quote": "A significant public health crisis, such as the COVID-19 pandemic, could adversely impact our business as well as those of our suppliers and customers.",
+    "driver": "COVID-19",
+    "secondary": false
+   },
+   {
+    "rf": 26,
+    "heading": "We are exposed to foreign currency fluctuations as a result of our substantial global operations, which may affect our financial results.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.fx_exposure",
+    "quote": "significant changes in currency exchange rates, particularly the Euro, Chinese Yuan (Renminbi) and Mexican Peso, could cause fluctuations in the reported results of our businesses\u2019 operations that could negatively affect our results of operations.",
+    "driver": "Euro, Renminbi, Mexican Peso",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2955,
+ "output_tokens": 1046,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 7.833,
+ "recorded_at": "2026-10-25T18:46:04+0000"
+}

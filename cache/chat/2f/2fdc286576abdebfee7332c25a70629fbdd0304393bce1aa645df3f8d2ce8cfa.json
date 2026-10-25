@@ -1,0 +1,72 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Dependence on third-party dealers for services sales",
+    "risk_name": "Dealer channel dependence",
+    "detail": "Majority of connectivity, digital and software services sales go through third-party dealers; investment in dealer programs may not yield sales",
+    "quote": "While we continue to invest in direct-to-consumer sales methods for our connectivity, digital and physical services, and integrated software services offerings, we are dependent on the efforts of third-party dealers for the majority of our sales in this space.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Fraudulent or abusive activities by end users of digital services",
+    "risk_name": "Digital services fraud and abuse",
+    "detail": "Stolen credentials, non-payment for services, terms-of-service violations on Ford digital services",
+    "quote": "These include unauthorized use of accounts through stolen credentials, failure to pay for services accessed, or other activities that violate our terms of service.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Ford's ability to maintain a competitive cost structure could be affected by labor or other constraints",
+    "risk_name": "Union labor cost increase",
+    "detail": "Recent UAW and Unifor contracts caused significant cost increases; non-union competitors; constraints on closing plants in US, Canada, Europe",
+    "quote": "Our recent labor contracts, including those with the International Union, United Automobile, Aerospace and Agricultural Implement Workers of America (\u201cUAW\u201d) in the United States and Unifor in Canada, have resulted in significant cost increases. If we are unable to offset these costs, it could have a significant adverse effect on our business.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "UAW",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "Unifor",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "United States",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Canada",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Ford's ability to attract, develop, grow, support, and reward talent is critical",
+    "risk_name": "Talent attraction and retention",
+    "detail": "Intense competition for software, electrification and integrated services talent raising compensation",
+    "quote": "While we have been successful in attracting talent in recent years, as with any company, the ability to continue to attract talent is important, particularly in growth areas vital to our success such as software, electrification and adjacent technologies, and integrated services.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "electrification",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "software",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1293,
+ "output_tokens": 885,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 6.859,
+ "recorded_at": "2026-10-25T18:18:31+0000"
+}

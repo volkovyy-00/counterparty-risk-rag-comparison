@@ -1,0 +1,77 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 21,
+    "heading": "Our current and future warranty reserves may be insufficient to cover future warranty claims.",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.warranty_costs",
+    "quote": "If our warranty reserves are inadequate to cover future warranty claims on our products, our financial condition and operating results may be harmed.",
+    "driver": "vehicle and energy warranties",
+    "secondary": false
+   },
+   {
+    "rf": 22,
+    "heading": "Our insurance coverage strategy may not be adequate to protect us from all business risks.",
+    "category": "OTHER",
+    "leaf": "OTHER.reporting_controls",
+    "quote": "As a general matter, we do not maintain as much insurance coverage as many other companies do, and in some cases, we do not maintain any at all.",
+    "driver": "limited insurance coverage",
+    "secondary": false
+   },
+   {
+    "rf": 23,
+    "heading": "Our debt agreements contain covenant restrictions that may limit our ability to operate our business.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.liquidity_funding",
+    "quote": "Furthermore, our failure to comply with our debt covenants could result in a default under our debt agreements, which could permit the holders to accelerate our obligation to repay the debt.",
+    "driver": "debt covenants",
+    "secondary": false
+   },
+   {
+    "rf": 24,
+    "heading": "Additional funds may not be available to us when we need or want them.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.liquidity_funding",
+    "quote": "We cannot be certain that additional funds will be available to us on favorable terms when required, or at all.",
+    "driver": "capital-intensive AI expansion",
+    "secondary": false
+   },
+   {
+    "rf": 25,
+    "heading": "We may be negatively impacted by any early obsolescence of our manufacturing and other equipment.",
+    "category": "OTHER",
+    "leaf": "OTHER.reporting_controls",
+    "quote": "The useful life of any equipment that would be retired early as a result would be shortened, causing such depreciation to be accelerated, and our results of operations may be harmed.",
+    "driver": "accelerated equipment depreciation",
+    "secondary": false
+   },
+   {
+    "rf": 26,
+    "heading": "There is no guarantee that we will have sufficient cash flow from our business to pay our indebtedness or that we will not incur additional indebtedness.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.liquidity_funding",
+    "quote": "Our business may not continue to generate cash flow from operations in the future sufficient to satisfy our obligations under our existing indebtedness and any future indebtedness we may incur, and to make necessary capital expenditures.",
+    "driver": "$8.18 billion indebtedness",
+    "secondary": false
+   },
+   {
+    "rf": 27,
+    "heading": "We are exposed to fluctuations in currency exchange rates.",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.fx_exposure",
+    "quote": "To the extent we have significant revenues denominated in such foreign currencies, any strengthening of the U.S. dollar would tend to reduce our revenues as measured in U.S. dollars, as we have historically experienced.",
+    "driver": "U.S. dollar strength",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3106,
+ "output_tokens": 1103,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 8.003,
+ "recorded_at": "2026-10-25T18:45:49+0000"
+}

@@ -1,0 +1,55 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Changes in immigration laws may hinder hiring of engineering personnel",
+    "risk_name": "Immigration policy talent constraints",
+    "detail": "U.S.-based R&D teams; stricter immigration controls could affect non-U.S. engineers and foreign graduates from U.S. universities",
+    "quote": "In the U.S., where a portion of our research and development teams are based, stricter immigration controls could adversely affect the employment status of non-U.S. engineers and other key technical employees, as well as our ability to hire new non-U.S. employees.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "U.S.",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "U.S. immigration policies",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Success depends on contributions of senior management team",
+    "risk_name": "Key management retention",
+    "detail": "No employment agreements with U.S. senior management; past transitions due to retirements",
+    "quote": "Because we have no employment agreements with our U.S. senior management team, they could leave with little or no notice, which could make it more difficult for us to execute our planned business strategy.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Events for which we are self-insured or exceed insurance limits may hurt profitability and liquidity",
+    "risk_name": "Self-insurance loss exposure",
+    "detail": "Self-insures health, property, product defects, cybersecurity, environmental, political and IP risks",
+    "quote": "The risks and exposures that we self-insure include, but are not limited to, employee health matters, certain property matters, product defects, cybersecurity matters, employment risks, environmental matters, political risks, and intellectual property matters.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Attacks on IT systems and security breaches could adversely affect our business",
+    "risk_name": "Cybersecurity breach of information systems",
+    "detail": "Continues to be target of IT attacks; exposure includes ransom-style attacks, cloud services and third-party providers",
+    "quote": "We rely on the uninterrupted operation of complex IT systems and networks to operate our business.",
+    "specificity": "boilerplate",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1475,
+ "output_tokens": 718,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 5.831,
+ "recorded_at": "2026-10-25T18:21:18+0000"
+}

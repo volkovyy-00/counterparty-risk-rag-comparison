@@ -1,0 +1,50 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 1,
+    "heading": "We may experience issues or delays in developing, launching and ramping the production of our products, services and features, or we may be unable to control our manufacturing costs.",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.manufacturing_disruption",
+    "quote": "Bottlenecks and other unexpected challenges such as those we experienced in the past may arise during our production ramps, and we must address them promptly while continuing to improve manufacturing processes and reducing costs.",
+    "driver": "Cybercab production ramp",
+    "secondary": false
+   },
+   {
+    "rf": 2,
+    "heading": "Our suppliers may fail to deliver components according to schedules, prices, quality and volumes that are acceptable to us, or we may be unable to manage these components effectively.",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.single_source",
+    "quote": "Our products contain thousands of parts purchased globally from hundreds of suppliers, including single-source direct suppliers, which exposes us to multiple potential sources of component shortages.",
+    "driver": "single-source suppliers",
+    "secondary": false
+   },
+   {
+    "rf": 3,
+    "heading": "We may be unable to meet our projected construction timelines, costs and production ramps at new factories, or we may experience difficulties in generating and maintaining demand for products manufactured there and related services.",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.manufacturing_disruption",
+    "quote": "The construction of and commencement and ramp of production at these factories are subject to a number of uncertainties inherent in all new manufacturing operations, including ongoing compliance with regulatory requirements, procurement and maintenance of construction, environmental and operational licenses and permitting",
+    "driver": "new factory ramps",
+    "secondary": false
+   },
+   {
+    "rf": 3,
+    "heading": "We may be unable to meet our projected construction timelines, costs and production ramps at new factories, or we may experience difficulties in generating and maintaining demand for products manufactured there and related services.",
+    "category": "MACRO_DEMAND",
+    "leaf": "MACRO_DEMAND.cyclical_demand",
+    "quote": "maintaining and complying with the terms of any debt financing that we obtain to fund them or generating and maintaining demand for the vehicles and energy products we manufacture there, our business, prospects, operating results and financial condition may be harmed.",
+    "driver": "",
+    "secondary": true
+   }
+  ]
+ },
+ "input_tokens": 2883,
+ "output_tokens": 814,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 6.749,
+ "recorded_at": "2026-10-25T18:45:40+0000"
+}

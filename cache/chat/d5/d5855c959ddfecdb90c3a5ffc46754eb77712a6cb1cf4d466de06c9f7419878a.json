@@ -1,0 +1,81 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Our tax burden could increase as a result of ongoing or future tax audits.",
+    "risk_name": "Tax audit assessment exposure",
+    "detail": "Generic statement",
+    "quote": "Therefore, there can be no assurance that we will accurately predict the outcomes of any tax audit or other tax dispute or that issues raised by tax authorities will be resolved at a financial cost that does not exceed our related reserves.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Our ability to use deferred tax assets may be subject to limitation.",
+    "risk_name": "Deferred tax asset limitation",
+    "detail": "Generic statement; depends on taxable income in certain countries",
+    "quote": "We have deferred tax assets in certain countries, and our ability to use such assets will depend on our taxable income generation in the relevant countries.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "We may be subject to various Swiss taxes as a result of the reorganization transaction.",
+    "risk_name": "Tax residency change tax exposure",
+    "detail": "New Jersey parent tax-resident in Switzerland; up to ~15% effective rate in Schaffhausen in 2025 plus capital taxes",
+    "quote": "The overall (federal, cantonal, communal) effective corporate income tax rate may vary, but amount to a maximum of approximately 15% in 2025 for companies resident in Schaffhausen, Switzerland, depending on the amount of taxable net profit and respective cantonal/communal multiplier.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Switzerland",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Schaffhausen",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Jersey",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "We may be subject to various Swiss taxes as a result of the reorganization transaction.",
+    "risk_name": "Dividend withholding tax exposure",
+    "detail": "35% Swiss withholding on dividends/buybacks unless paid from capital contribution reserves, partly transferred to EDS business in Separation",
+    "quote": "If it does not have qualifying capital contribution reserves (Reserven aus Kapitaleinlagen) and is not able to secure an efficient second virtual line of trading, then any dividends paid by Aptiv or share repurchases by Aptiv will generally be subject to a Swiss withholding tax at a rate of 35% which can be reduced depending on the tax residency of the dividend recipient.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Switzerland",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Swiss withholding tax",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "We may be subject to various Swiss taxes as a result of the reorganization transaction.",
+    "risk_name": "Equity issuance stamp tax",
+    "detail": "1% Swiss issuance stamp tax on share issuances and equity increases; also VAT and securities transfer stamp tax",
+    "quote": "Finally, Aptiv is also subject to a Swiss issuance stamp tax levied at a rate of 1% on the fair value of share issuances and increases of our equity, other than in connection with qualifying restructurings like the Transaction.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Swiss issuance stamp tax",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1707,
+ "output_tokens": 1134,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 8.07,
+ "recorded_at": "2026-10-25T18:20:05+0000"
+}

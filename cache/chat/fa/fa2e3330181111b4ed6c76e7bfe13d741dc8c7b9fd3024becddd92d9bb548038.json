@@ -1,0 +1,30 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Difficulties launching new programs to customers' timing, performance and quality standards",
+    "risk_name": "New program launch execution failure",
+    "detail": "Automotive program launches depend on customer design changes, tooling readiness, skilled labor; failures may trigger commercial or litigation claims and reputational harm",
+    "quote": "Given the complexity of new program launches, we may experience difficulties managing product quality, timeliness and associated costs. Failure by us to successfully launch a new product could result in commercial or litigation claims against us which could have a material adverse effect on our profitability.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "New program launch costs ahead of customer vehicle introductions",
+    "risk_name": "Upfront launch cost recovery risk",
+    "detail": "Significant cost ramp for new programs while sales depend on timing and success of customers' new vehicle introductions",
+    "quote": "In addition, new program launches require a significant ramp up of costs; however, our sales related to these new programs generally are dependent upon the timing and success of our customers\u2019 introduction of new vehicles.",
+    "specificity": "specific",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 451,
+ "output_tokens": 377,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 3.469,
+ "recorded_at": "2026-10-25T18:19:41+0000"
+}

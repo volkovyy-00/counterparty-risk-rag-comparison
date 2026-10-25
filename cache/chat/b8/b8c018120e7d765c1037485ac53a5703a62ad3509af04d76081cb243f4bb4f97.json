@@ -1,0 +1,124 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Reliance on foreign operations and suppliers exposes us to foreign risks",
+    "risk_name": "Natural disaster and political instability at facilities",
+    "detail": "Assembly, test and finished goods warehouses near Bangkok, Thailand; past flooding and political instability",
+    "quote": "In addition, we own product assembly and testing facilities, and finished goods warehouses near Bangkok, Thailand, which has experienced periods of political instability and severe flooding in the past.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Thailand",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Reliance on foreign operations and suppliers exposes us to foreign risks",
+    "risk_name": "Geopolitical disruption of foundry supply",
+    "detail": "China-Taiwan relations could disrupt Taiwan-based third-party wafer foundries and subcontractors",
+    "quote": "political instability, including changes in relations between China and Taiwan which could disrupt the operations of our Taiwan-based third-party wafer foundries, and subcontractors;",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Taiwan",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Reliance on foreign operations and suppliers exposes us to foreign risks",
+    "risk_name": "Currency controls on cash flows",
+    "detail": "Currency controls in China could affect amount and timing of customer payments",
+    "quote": "restrictions on the transfer of funds, including currency controls in China, which could negatively affect the amount and timing of certain customer payments, and as a results our cash flows;",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Reliance on foreign operations and suppliers exposes us to foreign risks",
+    "risk_name": "Trade policy and tariff restrictions",
+    "detail": "Tariffs and restrictions on supplies including rare earth minerals could limit production and raise costs",
+    "quote": "Further changes in trade policy, tariffs, additional taxes, or restrictions on supplies,",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "rare earth minerals",
+      "type": "INPUT_COMMODITY"
+     }
+    ]
+   },
+   {
+    "heading": "Geopolitical instability in the Middle East may disrupt critical semiconductor materials",
+    "risk_name": "Critical materials supply disruption",
+    "detail": "Qatar supplies over one-third of helium; Iranian drone strikes halted facilities; two-thirds of bromine from Israel and Jordan",
+    "quote": "For example, Qatar accounts for more than one\u2011third of the world\u2019s helium production, and recent Iranian drone strikes halted operations at major helium facilities.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Middle East",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Qatar",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Iran",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Israel",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Jordan",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "helium",
+      "type": "INPUT_COMMODITY"
+     },
+     {
+      "name": "bromine",
+      "type": "INPUT_COMMODITY"
+     }
+    ]
+   },
+   {
+    "heading": "Geopolitical instability in the Middle East may increase fuel costs",
+    "risk_name": "Fuel and logistics cost increase",
+    "detail": "Middle East conflict raises fuel prices; ocean, air and trucking logistics face surcharges, rerouting and delays",
+    "quote": "Significant increases in fuel costs, reductions in carrier capacity, or extended transit times could materially increase our transportation and distribution expenses.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Middle East",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "fuel",
+      "type": "INPUT_COMMODITY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1763,
+ "output_tokens": 1306,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 9.52,
+ "recorded_at": "2026-10-25T18:21:07+0000"
+}

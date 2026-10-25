@@ -1,0 +1,103 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Increased tariffs and government restrictions could reduce demand for our products",
+    "risk_name": "China trade restrictions on sales",
+    "detail": "China restrictions on raw materials and Micron-containing products; possible revived antidumping probe on US analog chips; buy-Chinese directives",
+    "quote": "The Chinese government may also re-initiate the suspended antidumping investigation into imports of analog chips originating in the United States and aggressively enforce the new regulation intended to combat the extraterritorial application of foreign trade controls, sanctions and other measures",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Micron",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "antidumping investigation",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "analog chips",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Evolving U.S. export controls may harm competitiveness",
+    "risk_name": "Export control market share loss",
+    "detail": "Non-US customers may shift to suppliers not subject to US export controls; foreign competitors gain investment",
+    "quote": "It is also possible that evolving U.S. export controls may encourage our non-U.S. customers to purchase from companies not subject to U.S. export controls, thereby harming our business, market position, and financial results.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "U.S. export controls",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Trade barriers may limit access to equipment and raw materials",
+    "risk_name": "Rare earth supply restriction",
+    "detail": "Retaliatory trade measures could limit access to rare earth minerals, equipment, components and M&A approvals",
+    "quote": "Further changes in trade or national security protection policy, tariffs, additional taxes, restrictions on exports or other trade barriers, including those taken against the U.S. in retaliation for U.S. policies, may limit our ability to obtain equipment, components or raw materials (including rare earth minerals), limit our ability to produce products",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "rare earth minerals",
+      "type": "INPUT_COMMODITY"
+     }
+    ]
+   },
+   {
+    "heading": "Outcome of income tax examinations and disputes",
+    "risk_name": "Transfer pricing tax dispute",
+    "detail": "IRS transfer pricing disputes fiscal 2007-2015 settled September 2025; returns open from fiscal 2007",
+    "quote": "The disputed amounts for fiscal 2013 to fiscal 2016 largely relate to transfer pricing matters. In December 2023, we filed a petition in the U.S. Tax Court challenging the 2014 to 2015 Notice. In September 2025, we reached a settlement with the IRS for fiscal 2007 to fiscal 2015.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "IRS",
+      "type": "NAMED_COUNTERPARTY"
+     }
+    ]
+   },
+   {
+    "heading": "Malaysian tax assessment dispute",
+    "risk_name": "Foreign tax assessment liability",
+    "detail": "Malaysian IRB fiscal 2020 assessment up to MYR 1.9 billion (~$480.2 million); decision possibly within 18 months",
+    "quote": "If the adjustment is upheld by the highest court that has jurisdiction over this matter in Malaysia, it could result in income taxes and penalties up to MYR 1.9 billion (approximately $480.2 million based on the exchange rate as of March 31, 2026).",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Malaysia",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Malaysian Inland Revenue Board",
+      "type": "NAMED_COUNTERPARTY"
+     }
+    ]
+   },
+   {
+    "heading": "Exposure to greater income tax liabilities and tax law changes",
+    "risk_name": "Tax law change exposure",
+    "detail": "Generic statement",
+    "quote": "We are a U.S.-based multinational company subject to tax in many U.S. and foreign jurisdictions. Our income tax obligations could be affected by many factors, including changes to our operating structure, intercompany arrangements and tax planning strategies.",
+    "specificity": "boilerplate",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1934,
+ "output_tokens": 1408,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 10.205,
+ "recorded_at": "2026-10-25T18:21:39+0000"
+}

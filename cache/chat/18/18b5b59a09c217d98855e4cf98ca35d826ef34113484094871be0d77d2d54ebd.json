@@ -1,0 +1,86 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Joint venture risks (continuation)",
+    "risk_name": "Joint venture partner and control risk",
+    "detail": "Partner conflicts, ownership changes, FCPA compliance control, limits on selling JV interests",
+    "quote": "Additionally, our ability to sell our interest in a joint venture may be subject to contractual and other limitations.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Foreign Corrupt Practices Act",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Our inability to effectively manage the timing, quality and costs of new program launches could adversely affect our financial performance.",
+    "risk_name": "Program launch execution risk",
+    "detail": "Tier 1 supplier coordinating numerous suppliers; launch cost ramp ahead of customer vehicle introduction timing",
+    "quote": "In addition, new program launches require a significant ramp up of costs; however, our sales related to these new programs generally are dependent upon the timing and success of our customers' introduction of new vehicles.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "We operate in a highly competitive industry and efforts by our competitors, as well as new entrants to the industry, to gain market share could adversely affect our financial performance.",
+    "risk_name": "Competitive pricing pressure",
+    "detail": "Chinese automakers and lower-return Chinese suppliers gaining share; new EV entrants pressure pricing and margins",
+    "quote": "Traditional automakers are experiencing increased competitive pressures as Chinese domestic automakers continue to expand their market share both in and beyond China. Chinese domestic suppliers that may have lower financial return expectations are also challenging traditional automotive suppliers for market share.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "electric and hybrid vehicles",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "If we do not respond appropriately, the evolution of the global transportation industry toward electrification could adversely affect our business.",
+    "risk_name": "EV transition demand uncertainty",
+    "detail": "Slower EV adoption in United States due to emissions rule and tax incentive changes; program volume cuts and cancellations",
+    "quote": "The adoption of such vehicles, particularly electric vehicles, has been slower than anticipated, particularly in the United States, as a result of, among other things, changes in government carbon emissions regulations and tax incentives, as well as prevailing consumer preferences.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "United States",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "electric vehicles",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "carbon emissions regulations and tax incentives",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Our increasing use of AI and other emerging technologies may expose us to operational, legal and regulatory risks that could adversely affect our business and reputation.",
+    "risk_name": "AI adoption operational risk",
+    "detail": "AI tools used in production processes and administrative functions; flawed algorithms, data, privacy risks",
+    "quote": "We currently incorporate AI-powered tools into certain internal business operations, such as in our production processes and in certain of our administrative functions. AI algorithms may be flawed, and datasets may be insufficient, inaccurate, biased or otherwise problematic.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "AI",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1648,
+ "output_tokens": 1182,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 9.354,
+ "recorded_at": "2026-10-25T18:20:45+0000"
+}

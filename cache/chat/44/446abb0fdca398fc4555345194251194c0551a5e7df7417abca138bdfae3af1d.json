@@ -1,0 +1,32 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 40,
+    "heading": "Regulatory authorities in jurisdictions into or from which we ship our products or import supplies could issue new export controls or trade sanctions, levy fines, restrict or delay our ability to export products or import supplies, or increase costs associated with the manufacture or transfer of products.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.export_controls",
+    "quote": "Licenses or license exceptions are often required for the shipment of our products to certain countries as well as for releases of our technology and software to foreign nationals.",
+    "driver": "U.S. EAR license requirements",
+    "secondary": false
+   },
+   {
+    "rf": 41,
+    "heading": "Export controls, sanctions, and trade restrictions are increasingly complex and subject to discretionary interpretation by regulatory authorities, with requirements that may change through guidance, enforcement, or licensing decisions. Even where we believe authorizations apply, differing or changing regulatory interpretations could disrupt shipments, delay revenue recognition, require product or customer changes, and adversely affect our operating results.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.export_controls",
+    "quote": "To date, the U.S. Department of Commerce has issued a number of regulations that further restrict transactions involving semiconductors and related products.",
+    "driver": "U.S. semiconductor export restrictions",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 3462,
+ "output_tokens": 495,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 4.357,
+ "recorded_at": "2026-10-25T18:46:39+0000"
+}

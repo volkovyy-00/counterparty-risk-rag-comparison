@@ -1,0 +1,47 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Violations of anti-bribery, trade sanctions and other laws by employees or partners",
+    "risk_name": "Anti-corruption and trade compliance violations",
+    "detail": "Exposure under U.S. FCPA and U.K. Bribery Act; operates in regions with government corruption; reliance on third-party conduct",
+    "quote": "In particular, the U.S. Foreign Corrupt Practices Act, the U.K. Bribery Act and similar anti-bribery laws in other jurisdictions generally prohibit companies and their intermediaries from making improper payments to government officials for the purpose of obtaining or retaining business, and we operate in many parts of the world that have experienced government corruption to some degree.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "U.S. Foreign Corrupt Practices Act",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "U.K. Bribery Act",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Compliance with environmental laws could cause significant costs",
+    "risk_name": "Environmental compliance and remediation costs",
+    "detail": "Generic statement; manufacturing facilities subject to environmental laws and possible remediation of unknown conditions",
+    "quote": "Material future expenditures may be necessary if compliance standards change or material unknown conditions that require remediation are discovered.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Intellectual property developments or assertions could hurt performance",
+    "risk_name": "Intellectual property protection and infringement",
+    "detail": "Large patent, trademark portfolio and numerous licensing arrangements; generic infringement exposure",
+    "quote": "Also, while we believe we have the necessary rights to use all of the intellectual property we use, if we are found to infringe on the rights of others, we could be adversely impacted.",
+    "specificity": "boilerplate",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1101,
+ "output_tokens": 629,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 5.903,
+ "recorded_at": "2026-10-25T18:20:51+0000"
+}

@@ -1,0 +1,68 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Our industry is cyclical and a decline in production levels of our major customers could adversely affect our financial performance",
+    "risk_name": "Cyclical auto production decline",
+    "detail": "Sales tied to automaker production volumes and content per vehicle; sensitive to rates, inflation, EV/hybrid preferences, tariffs",
+    "quote": "Our sales are driven by the number of vehicles produced by our automotive manufacturer customers and our content per vehicle. The automotive industry is cyclical and sensitive to general economic conditions, including interest rates, inflation, consumer demand and spending levels, and geopolitical issues.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "electric and hybrid vehicles",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Chinese automakers gaining share from traditional automaker customers",
+    "risk_name": "Customer market share loss",
+    "detail": "Chinese domestic automakers expanding via EVs in and outside China, eroding share of traditional automakers that are Lear's largest customers",
+    "quote": "Chinese domestic automakers, in particular, continue to expand their market share in China (through electric vehicles) and outside of China with both innovative designs and attractive pricing. As a result, several traditional automakers have experienced declines in revenue and market share.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "electric vehicles",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Concentration of business and need to diversify",
+    "risk_name": "Customer concentration",
+    "detail": "Must diversify by customer, product, platform and geography; may not succeed",
+    "quote": "Further, our ability to reduce the risks inherent in certain concentrations of business, and thereby maintain our financial performance in the future, will depend, in part, on our ability to continue to diversify our sales on a customer, product, platform and geographic basis to reflect the market overall. We may not be successful in such diversification.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Increases in the costs and restrictions on the availability of raw materials, energy, commodities, components and labor",
+    "risk_name": "Input cost and availability volatility",
+    "detail": "Mitigation strategies and customer negotiations may not offset cost increases; supply affected by policy, disasters",
+    "quote": "Increases in the costs of raw materials, energy, commodities, product components and labor, or restrictions on the availability thereof, could adversely affect our financial condition, operating results and cash flows.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Our failure to execute our strategic objectives could adversely affect our financial performance",
+    "risk_name": "Strategy execution failure",
+    "detail": "Four pillars: Seating features leadership, E-Systems margin expansion, automation/digital investments, employee and sustainability initiatives",
+    "quote": "Our strategy is based on four pillars designed to drive growth and profitability: (1) extend our market leadership position in Seating with priceable features, including modularity and thermal comfort systems; (2) expand margins in E-Systems through a focused portfolio that leverages our strong operating capabilities and customer relationships;",
+    "specificity": "specific",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1600,
+ "output_tokens": 1088,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 8.425,
+ "recorded_at": "2026-10-25T18:20:36+0000"
+}

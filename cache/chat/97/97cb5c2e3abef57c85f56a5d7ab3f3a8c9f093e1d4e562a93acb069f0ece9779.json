@@ -1,0 +1,39 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n462",
+     "n464",
+     "n465",
+     "n466",
+     "n467"
+    ],
+    "canonical_name": "New vehicle program launch execution failure",
+    "definition": "Risk that new automotive programs or products are launched late, over budget or unsuccessfully, causing added costs, customer penalties, lost business and reputational harm."
+   },
+   {
+    "member_ids": [
+     "n490"
+    ],
+    "canonical_name": "New product introduction failure",
+    "definition": "Risk that newly introduced products fail to achieve market acceptance or are not developed and launched successfully, harming revenue and returns on development investment."
+   },
+   {
+    "member_ids": [
+     "n492"
+    ],
+    "canonical_name": "New vehicle technology product defects",
+    "definition": "Risk that new technologies such as electrified vehicles and autonomous driving systems perform poorly or defectively, leading to customer claims, government investigations and recalls."
+   }
+  ]
+ },
+ "input_tokens": 363,
+ "output_tokens": 279,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 8.66,
+ "recorded_at": "2026-10-25T18:29:10+0000"
+}

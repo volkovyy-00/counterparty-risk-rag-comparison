@@ -1,0 +1,54 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Acquisitions may be complex, costly and fail to deliver expected benefits",
+    "risk_name": "Acquisition integration risk",
+    "detail": "Prior acquisitions led to third-party claims, litigation and governmental investigations; acquisitions may be funded via Revolving Credit Facility, Commercial Paper or debt",
+    "quote": "In particular, in connection with\n25\n\nTable of Contents\n\ncertain of our prior acquisitions, we became involved with third-party claims, litigation, governmental investigations and disputes related to such businesses and transactions.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Divestitures may be difficult and leave continuing liabilities",
+    "risk_name": "Divestiture execution and residual liabilities",
+    "detail": "Possible site closures; continuing obligations to former employees, customers, vendors, landlords",
+    "quote": "Even following a divestiture or other exit strategy, we may have certain continuing obligations to former employees, customers, vendors, landlords or other third parties. We may also have continuing liabilities related to former employees, assets or businesses.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Joint development agreements and strategic relationships carry similar risks",
+    "risk_name": "Strategic alliance execution risk",
+    "detail": "Generic statement",
+    "quote": "These transactions are subject to a number of risks similar to those we face with our acquisitions including our ability to realize the expected benefits of any such transaction, to successfully market and sell products resulting from such transactions or to successfully integrate any technology developed through such transactions.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "As a result of our acquisition activity our goodwill and intangible assets increased significantly and we may in the future incur impairments",
+    "risk_name": "Goodwill and intangible impairment",
+    "detail": "Goodwill $6.70 billion and net intangibles $2.03 billion at March 31, 2026; no goodwill impairment ever recorded",
+    "quote": "As of March 31, 2026, we had goodwill of $6.70 billion and net intangible assets of $2.03 billion.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Failure to maintain effective internal control could impair financial reporting",
+    "risk_name": "Internal control weakness",
+    "detail": "Generic statement",
+    "quote": "If we fail to maintain proper and effective internal control and remediate any future control deficiencies, our ability to produce accurate and timely financial statements could be impaired, which could harm our operating results, our ability to operate our business and our reputation with investors.",
+    "specificity": "boilerplate",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1705,
+ "output_tokens": 879,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 6.507,
+ "recorded_at": "2026-10-25T18:21:15+0000"
+}

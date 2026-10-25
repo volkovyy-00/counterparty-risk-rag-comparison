@@ -1,0 +1,84 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Failure to execute strategic objectives",
+    "risk_name": "Strategic execution and acquisition integration",
+    "detail": "Failure to identify, develop, complete or integrate organic investments and acquisitions",
+    "quote": "Our failure to execute our strategic objectives could adversely affect our financial condition, operating results and cash flows. Moreover, there can be no assurances that, even if implemented, our strategic objectives will be successful.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "The lack of commercial success of or an increase in directed component sourcing for a vehicle model for which we are a significant supplier could adversely affect our financial performance.",
+    "risk_name": "Program volume and insourcing loss",
+    "detail": "Purchase orders cover life-of-program requirements, not fixed quantities; risk of model failure, OEM insourcing or directed sourcing",
+    "quote": "It is possible that a particular vehicle model is not successful with consumers or that our customers elect to manufacture our products internally, purchase our products from other suppliers or increase the extent to which they require us to utilize specific suppliers or materials in the manufacture of our products.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Our inability to achieve product cost reductions to offset customer-imposed price reductions could adversely affect our financial performance.",
+    "risk_name": "Customer price-down margin pressure",
+    "detail": "Automotive OEM contracts require annual price reductions over vehicle production life while supplier bears design and engineering",
+    "quote": "Our customer contracts generally provide for annual price reductions over the production life of the vehicle, while requiring us to assume significant responsibility for the design, development and engineering of our products.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "International trade policies, such as tariffs, sanctions, export controls and other trade restrictions, could adversely affect our financial performance.",
+    "risk_name": "Import tariff cost increase",
+    "detail": "U.S. tariffs since January 2025 affect China, Mexico, Canada and steel, aluminum, automobile parts; may raise costs and hit customer production",
+    "quote": "As of the date of this Report, many of the tariffs announced, implemented or threatened by the current U.S. administration apply to (a) the countries in which we do business or from which we purchase, either directly or indirectly, materials or components, including China, Mexico and Canada, and (b) the materials or components that we purchase, either directly or indirectly, or produce, including steel, aluminum and automobile parts, among others, and therefore could adversely impact our business by increasing our operating costs, requiring us to incur significant costs to transition to alternative suppliers if our mitigation efforts are unsuccessful, or negatively impacting our customers' production.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Mexico",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Canada",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "steel",
+      "type": "INPUT_COMMODITY"
+     },
+     {
+      "name": "aluminum",
+      "type": "INPUT_COMMODITY"
+     },
+     {
+      "name": "United States",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Sanctions, export controls and other trade restrictions",
+    "risk_name": "Sanctions and export control restrictions",
+    "detail": "U.S. and foreign sanctions and export controls affecting the automotive industry",
+    "quote": "In addition to tariffs, the U.S. and foreign governments have implemented sanctions, export controls and other trade restrictions that impact industries around the world, including the automotive industry.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "export controls",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1669,
+ "output_tokens": 1239,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 9.65,
+ "recorded_at": "2026-10-25T18:20:38+0000"
+}

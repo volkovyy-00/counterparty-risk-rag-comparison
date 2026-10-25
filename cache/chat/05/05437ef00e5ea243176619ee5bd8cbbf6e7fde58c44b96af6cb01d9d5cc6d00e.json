@@ -1,0 +1,107 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Changes in effective tax rates and tax laws",
+    "risk_name": "Tax law and rate changes",
+    "detail": "Exposure to OECD BEPS-aligned jurisdictions, transfer pricing challenges, tax incentive performance obligations, deferred tax asset valuation",
+    "quote": "These include changes in tax rates, tax laws, and tax regulations and how those laws are interpreted in jurisdictions where our income is earned. This also applies to jurisdictions that align with the Organisation for Economic Co-operation and Development\u2019s Base Erosion Profit Shifting recommendations.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Base Erosion Profit Shifting",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Policies implemented globally by current or future administrations",
+    "risk_name": "Trade policy and tariff changes",
+    "detail": "U.S. and global changes to tariffs, taxes, trade, labor, environment could raise tax rate and costs, reduce revenue",
+    "quote": "If implemented, these changes could increase our effective tax rate, decrease our revenue and increase our selling, general, administrative and/or manufacturing costs, which could have a material adverse effect on our business, results of operations or financial conditions.",
+    "specificity": "boilerplate",
+    "drivers": [
+     {
+      "name": "U.S.",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Policies implemented globally by current or future administrations",
+    "risk_name": "Sanctions and geopolitical conflict",
+    "detail": "Ceased shipments to Russia and Belarus; sales into region hurt but not material; possible Russian retaliatory cyber-attacks",
+    "quote": "Because the actions by Russia against Ukraine are in conflict with our Guiding Values, we chose to cease shipments into Russia and Belarus, and we will continue to comply with applicable U.S. sanctions imposed on Russia, Belarus, and Russia-controlled areas of Ukraine.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Russia",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Belarus",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Ukraine",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "U.S. sanctions",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Policies implemented globally by current or future administrations",
+    "risk_name": "AI and cybersecurity regulation compliance",
+    "detail": "EU AI Act conformity assessments, China generative AI rules, U.S. federal and state AI/cybersecurity frameworks",
+    "quote": "The EU AI Act, which has a phased implementation schedule, imposes requirements on AI systems based on their risk classification, and may require conformity assessments, registration, and ongoing monitoring for certain AI systems.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "EU AI Act",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "China\u2019s generative AI regulations",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "EU",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "AI",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "We are subject to stringent environmental, climate change and other regulations",
+    "risk_name": "Environmental and climate regulation costs",
+    "detail": "Hazardous substances, greenhouse gas emissions limits, GHG reporting with third-party assurance; possible material substitution",
+    "quote": "Regulations could require us to change manufacturing processes, substitute materials which may cost more or be less available, obtain new permits and undertake other costly activities.",
+    "specificity": "boilerplate",
+    "drivers": [
+     {
+      "name": "greenhouse gases",
+      "type": "INPUT_COMMODITY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1550,
+ "output_tokens": 1281,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 9.713,
+ "recorded_at": "2026-10-25T18:21:41+0000"
+}

@@ -1,0 +1,98 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Autonomous vehicle and driver assist regulation and scrutiny",
+    "risk_name": "Autonomous driving regulatory scrutiny",
+    "detail": "NHTSA and NTSB information requests about BlueCruise; state patchwork rules; crash reporting could lead to recalls, fines",
+    "quote": "Further, autonomous vehicle and driver assist technologies continue to be scrutinized by the government and consumers, and actual or perceived failures or misuse of these technologies and features have led to government investigations and inquiries, including of Ford, which has responded to information requests from NHTSA and the National Transportation Safety Board about our BlueCruise system.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "NHTSA",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "National Transportation Safety Board",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "BlueCruise",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "autonomous vehicles",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Ford and Ford Credit could be affected by more stringent privacy, data and AI laws",
+    "risk_name": "Data privacy regulatory compliance",
+    "detail": "Privacy, data access and AI laws across US and other countries; vendor liability; AI adoption intensifies risk",
+    "quote": "The rapid evolution and increased adoption of artificial intelligence technologies may intensify these risks.",
+    "specificity": "boilerplate",
+    "drivers": [
+     {
+      "name": "artificial intelligence",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Ford Credit could be subject to new or increased credit and consumer protection regulations",
+    "risk_name": "Consumer finance regulation",
+    "detail": "Ford Credit subject to Truth-in-Lending, Consumer Leasing, Equal Credit Opportunity, Fair Credit Reporting Acts",
+    "quote": "In the United States, for example, Ford Credit\u2019s operations are subject to regulation and supervision under various federal, state, and local laws, including the federal Truth-in-Lending Act, Consumer Leasing Act, Equal Credit Opportunity Act, and Fair Credit Reporting Act.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Truth-in-Lending Act",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "Consumer Leasing Act",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "Equal Credit Opportunity Act",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "Fair Credit Reporting Act",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "United States",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "CFPB supervision of Ford Credit under Dodd-Frank",
+    "risk_name": "Financial regulator supervision and enforcement",
+    "detail": "CFPB supervises Ford Credit as large nonbank auto lender; possible consent orders, customer remuneration, fines",
+    "quote": "The CFPB has authority to supervise and examine the largest nonbank automotive finance companies, such as Ford Credit, for compliance with consumer financial protection laws.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Dodd-Frank Act",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "Consumer Financial Protection Bureau",
+      "type": "NAMED_COUNTERPARTY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1764,
+ "output_tokens": 1177,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 8.61,
+ "recorded_at": "2026-10-25T18:18:57+0000"
+}

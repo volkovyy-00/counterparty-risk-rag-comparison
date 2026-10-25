@@ -1,0 +1,111 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Cyclical and competitive vehicle demand amid macroeconomic conditions",
+    "risk_name": "Cyclical consumer demand downturn",
+    "detail": "Auto sales cyclical; rising interest rates may cause consumers to cut spending on vehicles",
+    "quote": "Rising interest rates may lead to consumers to increasingly pull back spending, including on our products, which may harm our demand, business and operating results.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Robotaxi service success depends on adoption of autonomous driving",
+    "risk_name": "New market adoption uncertainty",
+    "detail": "Robotaxi launched June 2025; plans to mass produce Cybercab; depends on consumer acceptance of autonomous driving",
+    "quote": "Upon launching our Robotaxi service in June 2025, we also entered into the autonomous ride-hailing service market, and have plans to mass produce Cybercab, a purpose-built Robotaxi product.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Robotaxi",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "Cybercab",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "autonomous driving",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "We face strong competition for our products and services from a growing list of established and new competitors.",
+    "risk_name": "Competitive pricing pressure",
+    "detail": "Many entrants in EV, hybrid and self-driving markets; domestic-assembly incentives may favour competitors",
+    "quote": "In addition, certain government and economic incentives which provide benefits to manufacturers who assemble domestically or have local suppliers, may provide a greater benefit to our competitors, which could negatively impact our profitability.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "electric and other alternative fuel vehicles",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "self-driving technology",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Competition in energy generation and storage business",
+    "risk_name": "Electricity price competition",
+    "detail": "Competition from utilities; lower electricity prices could reduce product appeal and raise customer defaults",
+    "quote": "In addition, decreases in the retail or wholesale prices of electricity from utilities or other renewable energy sources could make our products less attractive to customers and lead to an increased rate of customer defaults.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "energy generation and storage",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "electricity",
+      "type": "INPUT_COMMODITY"
+     }
+    ]
+   },
+   {
+    "heading": "Growth of our business is also dependent upon our ability to develop and commercialize Bots, including Optimus",
+    "risk_name": "New product commercialization risk",
+    "detail": "Optimus humanoid robots not yet commercialized; significant cash investment with uncertain demand",
+    "quote": "While this development requires significant cash investments and management resources, there is no guarantee this business will be successful. We have yet to commercialize Bots and cannot predict how demand for Bots will develop, either from commercial or consumer applications.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Optimus",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "robotics",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Issues with lithium-ion cells or components manufactured at our Gigafactories",
+    "risk_name": "In-house component production disruption",
+    "detail": "Vehicle and storage growth depends on lithium-ion cell, module, pack and drive unit production at Gigafactories",
+    "quote": "Our plan to grow the volume and profitability of our vehicles and energy storage products depends on significant lithium-ion battery cell production.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "lithium-ion battery cell",
+      "type": "INPUT_COMMODITY"
+     },
+     {
+      "name": "Gigafactories",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1625,
+ "output_tokens": 1363,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 10.738,
+ "recorded_at": "2026-10-25T18:19:08+0000"
+}

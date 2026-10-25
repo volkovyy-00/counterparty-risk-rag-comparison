@@ -1,0 +1,67 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Supply chain interruptions and inconsistent production schedule",
+    "risk_name": "Supply chain disruption cost increase",
+    "detail": "Component shortages, labor shortages led to supplier claims for reimbursement beyond agreed terms; Ford has made payments",
+    "quote": "As a result of this disrupted production schedule, we have received and continue to receive claims from our supply base for reimbursement of costs beyond our original agreed terms.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Climate and logistics disruptions to supply chain",
+    "risk_name": "Climate and logistics disruption",
+    "detail": "Wildfires, droughts, flooding, extreme temperatures; freight carrier and logistics provider interruptions",
+    "quote": "Given the worldwide scope of our supply chain and operations, we and our suppliers face a risk of disruption or operating inefficiencies that may increase costs due to the adverse physical effects of climate change, which are predicted to increase the frequency and severity of weather and other natural events, e.g., wildfires, extended droughts, flooding, and extreme temperatures.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Single or limited source components",
+    "risk_name": "Single-source supplier dependence",
+    "detail": "Many components single/limited-sourced; suppliers may threaten disruption as negotiating leverage; could impact fuel economy compliance",
+    "quote": "Many components used in our products are available only from a single or limited number of suppliers and, therefore, cannot be re-sourced quickly or inexpensively to another supplier (due to long lead times, specialized tooling, rigorous validation requirements, and new contractual commitments that may be required by another supplier before ramping up to provide the components or materials, etc.).",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Model changeover and production complexity delays",
+    "risk_name": "Production launch disruption",
+    "detail": "Model changeovers require downtime; vehicle complexity raises delay risk; may affect fuel economy standards strategy",
+    "quote": "In addition, when we undertake a model changeover, significant downtime at one or more of our production facilities may be required, and our ability to return to full production may be delayed if we experience production difficulties at one of our facilities or a supplier\u2019s facility.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Ford may not realize anticipated benefits of alliances, joint ventures, acquisitions",
+    "risk_name": "Strategic alliance execution risk",
+    "detail": "JVs and alliances complex, capital intensive, regulatory approvals; limited control over joint ventures",
+    "quote": "Further, to the extent we share ownership, control, or management with another party in a joint venture, our ability to influence the joint venture may be limited, and we may be unable to prevent misconduct or implement our compliance or internal control systems.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Critical material offtake agreements and supplier investments",
+    "risk_name": "Raw material offtake investment risk",
+    "detail": "Offtake agreements and investments in raw material and battery suppliers; suppliers in less developed markets may not adopt sustainability standards",
+    "quote": "In order to secure critical materials to manufacture our products, we have entered into and may, in the future, enter into offtake agreements and other long-term purchase contracts with raw materials and other suppliers and make investments in certain raw material, battery, and suppliers; however, we may not realize the anticipated benefits of these actions",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "battery",
+      "type": "INPUT_COMMODITY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1563,
+ "output_tokens": 1191,
+ "cache_write_tokens": 2955,
+ "cache_read_tokens": 0,
+ "latency_s": 20.324,
+ "recorded_at": "2026-10-25T18:18:26+0000"
+}

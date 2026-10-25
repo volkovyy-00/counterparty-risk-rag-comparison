@@ -1,0 +1,85 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Maintaining a strong position in the Chinese market",
+    "risk_name": "Geographic market concentration and competition",
+    "detail": "About 21% of 2025 net sales from China; aggressive competition, Chinese OEMs gaining share and insourcing Tier 1 components",
+    "quote": "Domestic Chinese OEMs continue to expand their market share in and outside of China, and are increasingly insourcing certain components once sourced from Tier 1 suppliers.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "A downgrade in the ratings of our debt could restrict our ability to access the debt capital markets",
+    "risk_name": "Credit rating downgrade",
+    "detail": "Revolver interest cost tied to rating grid; falling below investment grade would restrict market access and raise borrowing costs",
+    "quote": "Our revolving credit agreement includes an increase in interest rates if the ratings for our debt are downgraded. The interest cost on our revolving credit agreement is based on a rating grid.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Reliance on major customers under requirements contracts",
+    "risk_name": "Customer concentration",
+    "detail": "Volkswagen 13% and Ford 12% of 2025 sales; top ten customers 71%; requirements contracts with no minimum purchases",
+    "quote": "Our worldwide sales in 2025 to Volkswagen and Ford constituted approximately 13% and 12% of our 2025 consolidated net sales, respectively. Sales to the Company\u2019s top ten customers represented 71% of sales for the year ended December 31, 2025.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Volkswagen",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "Ford",
+      "type": "NAMED_COUNTERPARTY"
+     }
+    ]
+   },
+   {
+    "heading": "We are sensitive to the effects of our major customers\u2019 labor relations",
+    "risk_name": "Customer labor disruption",
+    "detail": "Ford, Stellantis, GM depend on UAW; 2023 UAW strikes affected business",
+    "quote": "Because of domestic OEMs\u2019 dependence on a single union, we are affected by labor difficulties and work stoppages at OEMs\u2019 facilities, such as the UAW strikes that occurred in 2023.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Ford",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "Stellantis",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "General Motors",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "UAW",
+      "type": "NAMED_COUNTERPARTY"
+     }
+    ]
+   },
+   {
+    "heading": "We could be adversely affected by supply shortages of components from our suppliers",
+    "risk_name": "Component supply shortage",
+    "detail": "Supply base rationalization leaves dependence on fewer sources for certain components",
+    "quote": "In an effort to manage and reduce the cost of purchased goods and services, we have been rationalizing our supply base. As a result, we remain dependent on fewer sources of supply for certain components used in the manufacture of our products.",
+    "specificity": "specific",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1727,
+ "output_tokens": 1074,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 8.413,
+ "recorded_at": "2026-10-25T18:20:28+0000"
+}

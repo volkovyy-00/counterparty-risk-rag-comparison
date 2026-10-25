@@ -1,0 +1,42 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n176",
+     "n179"
+    ],
+    "canonical_name": "Climate and greenhouse gas regulation costs",
+    "definition": "Greenhouse gas and climate-related regulations could require emission controls, credits, reporting and higher energy costs, raising compliance expenses."
+   },
+   {
+    "member_ids": [
+     "n226",
+     "n227",
+     "n228"
+    ],
+    "canonical_name": "Vehicle emissions regulation compliance costs",
+    "definition": "Vehicle emissions and fuel economy rules, enforcement actions and emissions warranty obligations could impose penalties, credit purchases, recalls and limits on profitable sales."
+   },
+   {
+    "member_ids": [
+     "n229",
+     "n230",
+     "n243",
+     "n453",
+     "n550"
+    ],
+    "canonical_name": "Environmental compliance and remediation liability",
+    "definition": "Environmental, health and safety laws could impose compliance costs and cleanup liability for contamination at current, former or third-party hazardous waste sites."
+   }
+  ]
+ },
+ "input_tokens": 626,
+ "output_tokens": 306,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 4.847,
+ "recorded_at": "2026-10-25T18:28:01+0000"
+}

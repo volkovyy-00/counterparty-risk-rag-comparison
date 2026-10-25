@@ -1,0 +1,46 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n11"
+    ],
+    "canonical_name": "Acquisition accounting restatement risk",
+    "definition": "Acquired businesses may lack GAAP-audited financial statements or compatible internal controls, creating risk of financial restatements."
+   },
+   {
+    "member_ids": [
+     "n13",
+     "n14",
+     "n15",
+     "n16",
+     "n141"
+    ],
+    "canonical_name": "Acquisition execution and integration failure",
+    "definition": "Failure to identify, complete, price or integrate acquisitions and related strategic transactions may result in losses, liabilities or failure to realize expected benefits."
+   },
+   {
+    "member_ids": [
+     "n49"
+    ],
+    "canonical_name": "Joint venture and alliance execution",
+    "definition": "Joint ventures and strategic alliances are complex, capital intensive, require regulatory approvals and offer limited control, risking underperformance."
+   },
+   {
+    "member_ids": [
+     "n468"
+    ],
+    "canonical_name": "Strategic transformation plan execution",
+    "definition": "Failure to execute a broad strategic transformation plan, including capital allocation and cost and quality competitiveness, may harm results."
+   }
+  ]
+ },
+ "input_tokens": 474,
+ "output_tokens": 350,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 5.35,
+ "recorded_at": "2026-10-25T18:27:11+0000"
+}

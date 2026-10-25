@@ -1,0 +1,80 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Our ability to attract, develop, engage and retain qualified employees could affect our ability to execute our strategy.",
+    "risk_name": "Talent attraction and retention",
+    "detail": "Generic statement",
+    "quote": "Failure to attract, develop, engage and retain qualified employees, whether as a result of an insufficient number of qualified applicants, difficulty in recruiting new employees or inadequate resources to train, integrate and retain qualified employees, could impair our ability to execute our business strategy and could adversely affect our business.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Our substantial international operations make us vulnerable to risks associated with volatile economic and political environments.",
+    "risk_name": "International political and economic instability",
+    "detail": "Facilities in Mexico, Africa, Asia, Central/South America, Europe; strategy expands in lower-cost regions; cartel violence noted",
+    "quote": "We have substantial international operations, with manufacturing and distribution facilities in many foreign countries, including Mexico and countries in Africa, Asia, Central and South America, and Europe. Some of the markets in which we do business may have volatile economic and/or political environments.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Mexico",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Africa",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Asia",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Central and South America",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Europe",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Trade wars, tariffs, sanctions and export controls in international operations",
+    "risk_name": "Trade restrictions and tariffs",
+    "detail": "Listed among international risks; lower-cost region expansion increases exposure",
+    "quote": "\u2013trade wars, tariffs, sanctions, export controls or other trade restrictions;",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Currency fluctuations and controls in international operations",
+    "risk_name": "Foreign currency exchange risk",
+    "detail": "Currency fluctuations, controls, hedging ability, commodity pricing discrepancies across exchanges",
+    "quote": "\u2013currency exchange rate fluctuations, discrepancies in commodity pricing between different exchanges, currency controls and the ability to economically hedge currencies;",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Certain of our operations are conducted through joint ventures which have unique risks.",
+    "risk_name": "Joint venture partner risk",
+    "detail": "Joint ventures particularly in Asia; shared ownership and decision making with partners",
+    "quote": "Certain of our operations, particularly in Asia, are conducted through joint ventures. With respect to our joint ventures, we may share ownership and management responsibilities with one or more partners that may not share our goals and objectives.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Asia",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1301,
+ "output_tokens": 998,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 7.945,
+ "recorded_at": "2026-10-25T18:20:37+0000"
+}

@@ -1,0 +1,295 @@
+{
+ "model": "claude-haiku-5-5",
+ "served_model": "claude-haiku-5-5",
+ "content": {
+  "summary": "Across the excerpts, all five companies share exposure to import tariffs and trade-policy costs, and Ford, BorgWarner, Lear, Microchip and onsemi each show cybersecurity or IT-breach risk and product-recall or warranty risk in some form. Shared risks like FX, impairment, talent and acquisition integration appear in several but not all five companies, and the rows do not support a claim for every name on each risk.",
+  "claims": [
+   {
+    "risk": "Tariffs raise costs and limit sales",
+    "company": "F",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.tariffs",
+    "quote": "Steps taken by governments to implement local content requirements, restrict export and import activities, or apply or consider applying additional or new tariffs on automobiles, parts, and other products and materials have disrupted supply chains, imposed additional costs on our business",
+    "source_ref": "F-g8"
+   },
+   {
+    "risk": "Tariffs raise input costs",
+    "company": "BWA",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.tariffs",
+    "quote": "These tariffs have increased the cost of raw materials and components we purchase, and to the extent the tariffs announced to date or announced in the future become or remain effective and are maintained",
+    "source_ref": "BWA-g3"
+   },
+   {
+    "risk": "Tariffs raise operating costs",
+    "company": "LEA",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.tariffs",
+    "quote": "could adversely impact our business by increasing our operating costs, requiring us to incur significant costs to transition to alternative suppliers if our mitigation efforts are unsuccessful",
+    "source_ref": "LEA-g1"
+   },
+   {
+    "risk": "Tariffs and trade restrictions pressure margins",
+    "company": "MCHP",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.tariffs",
+    "quote": "tariffs on components that we import from certain nations that have imposed, or may in the future impose, tariffs may adversely affect our profitability unless we are able to exclude such components from the tariffs",
+    "source_ref": "ON-g5"
+   },
+   {
+    "risk": "Tariffs on components and trade actions",
+    "company": "ON",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.tariffs",
+    "quote": "tariffs on components that we import from certain nations that have imposed, or may in the future impose, tariffs may adversely affect our profitability unless we are able to exclude such components from the tariffs",
+    "source_ref": "ON-g5"
+   },
+   {
+    "risk": "Product recalls and warranty costs",
+    "company": "F",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.recalls",
+    "quote": "Ford\u2019s products have been and could continue to be affected by defects that result in recall campaigns, increased warranty costs, or delays in new model launches",
+    "source_ref": "F-g0"
+   },
+   {
+    "risk": "Warranty and recall claims",
+    "company": "BWA",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.warranty_costs",
+    "quote": "A recall claim brought against us, or a product warranty claim brought against us, could adversely impact our results of operations.",
+    "source_ref": "BWA-g6"
+   },
+   {
+    "risk": "Product liability and recall exposure",
+    "company": "LEA",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.warranty_costs",
+    "quote": "A significant product liability lawsuit, warranty claim or product recall involving us or one of our major customers could adversely affect our financial performance.",
+    "source_ref": "LEA-g9"
+   },
+   {
+    "risk": "Warranty and product liability claims",
+    "company": "MCHP",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.product_liability_defects",
+    "quote": "We face exposure to warranty and product liability claims if our products fail to perform as expected or their failure results, or is alleged to result, in bodily injury or property damage",
+    "source_ref": "MCHP-g20"
+   },
+   {
+    "risk": "Product liability and recall exposure",
+    "company": "ON",
+    "category": "PRODUCT_SAFETY_RECALL",
+    "leaf": "PRODUCT_SAFETY_RECALL.product_liability_defects",
+    "quote": "Because the systems into which our products are integrated have a higher cost of goods than the products we sell, the expenses and damages we are asked to pay may be significantly higher than the revenue and profits we received.",
+    "source_ref": "MCHP-g20"
+   },
+   {
+    "risk": "Cyber-attacks on IT systems",
+    "company": "F",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "we, our suppliers, service providers, and dealers have been the target of cybersecurity incidents and such threats are continuing and evolving",
+    "source_ref": "F-g7"
+   },
+   {
+    "risk": "Cyber-attacks on IT systems",
+    "company": "BWA",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "IT systems are vulnerable to disruptions, including those resulting from natural disasters, cyber-attacks or failures in third-party provided services.",
+    "source_ref": "BWA-g4"
+   },
+   {
+    "risk": "Cyber-attacks on IT systems",
+    "company": "LEA",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "These types of incidents have become more prevalent and pervasive across industries, including our industry, and are expected to continue, if not increase, in the future.",
+    "source_ref": "LEA-g5"
+   },
+   {
+    "risk": "Cyber-attacks and IT disruption",
+    "company": "MCHP",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "Any improper handling of confidential data, or significant disruption to our systems or networks, including, but not limited to, any that may relate to new system implementations, computer viruses, security breaches or incidents, cyber-attacks",
+    "source_ref": "MCHP-g14"
+   },
+   {
+    "risk": "Cyber-attacks and IT breaches",
+    "company": "ON",
+    "category": "CYBER_IT",
+    "leaf": "CYBER_IT.cyberattack_breach",
+    "quote": "We have experienced and expect to continue to experience disruptions, failures or breaches of our information technology environment, such as those caused by computer viruses, illegal hacking, criminal fraud or impersonation",
+    "source_ref": "ON-g8"
+   },
+   {
+    "risk": "Currency fluctuations affect results",
+    "company": "BWA",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.fx_exposure",
+    "quote": "Significant foreign currency fluctuations and the associated translation of those foreign currencies to U.S. Dollars could adversely affect our business.",
+    "source_ref": "BWA-g7"
+   },
+   {
+    "risk": "Currency fluctuations affect results",
+    "company": "LEA",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.fx_exposure",
+    "quote": "currency exchange rate fluctuations, discrepancies in commodity pricing between different exchanges, currency controls and the ability to economically hedge currencies",
+    "source_ref": "LEA-g3"
+   },
+   {
+    "risk": "Currency fluctuations affect results",
+    "company": "MCHP",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.fx_exposure",
+    "quote": "We use forward currency exchange contracts in an attempt to reduce the adverse earnings impact from the effect of exchange rate fluctuations on our non-U.S. dollar net balance sheet exposures.",
+    "source_ref": "MCHP-g29"
+   },
+   {
+    "risk": "Currency fluctuations affect liquidity",
+    "company": "ON",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.fx_exposure",
+    "quote": "currency fluctuations and changes in foreign exchange regulations can have a material adverse effect on our liquidity and financial condition.",
+    "source_ref": "ON-g7"
+   },
+   {
+    "risk": "Goodwill and asset impairment charges",
+    "company": "BWA",
+    "category": "OTHER",
+    "leaf": "OTHER.reporting_controls",
+    "quote": "When impairment charges are triggered, they tend to be material due to the size of the assets involved.",
+    "source_ref": "BWA-g0"
+   },
+   {
+    "risk": "Goodwill and asset impairment charges",
+    "company": "LEA",
+    "category": "OTHER",
+    "leaf": "OTHER.reporting_controls",
+    "quote": "In the event that we determine that our goodwill or long-lived assets are impaired, we may be required to record a significant charge to earnings that could adversely affect our financial condition and operating results.",
+    "source_ref": "LEA-g8"
+   },
+   {
+    "risk": "Goodwill and asset impairment charges",
+    "company": "MCHP",
+    "category": "OTHER",
+    "leaf": "OTHER.reporting_controls",
+    "quote": "If in future periods, we determine that our goodwill or intangible assets are impaired, we will be required to write down these assets which would have a negative effect on our consolidated financial statements.",
+    "source_ref": "MCHP-g12"
+   },
+   {
+    "risk": "Goodwill and asset impairment charges",
+    "company": "ON",
+    "category": "OTHER",
+    "leaf": "OTHER.reporting_controls",
+    "quote": "We have in the past recorded, and may in the future be required to record, a significant charge in our consolidated financial statements during the period in which any impairment of our goodwill or amortizable intangible assets is determined",
+    "source_ref": "ON-g15"
+   },
+   {
+    "risk": "Skilled talent attraction and retention",
+    "company": "F",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.skilled_talent",
+    "quote": "Ford\u2019s ability to attract, develop, grow, support, and reward talent is critical to its success and competitiveness.",
+    "source_ref": "F-g6"
+   },
+   {
+    "risk": "Skilled talent attraction and retention",
+    "company": "BWA",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.skilled_talent",
+    "quote": "any unplanned turnover or inability to attract and retain key employees and employees with engineering, technical and software capabilities in numbers sufficient for our needs could adversely affect our business.",
+    "source_ref": "BWA-g5"
+   },
+   {
+    "risk": "Skilled talent attraction and retention",
+    "company": "LEA",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.skilled_talent",
+    "quote": "Our ability to attract, develop, engage and retain qualified employees could affect our ability to execute our strategy.",
+    "source_ref": "LEA-g3"
+   },
+   {
+    "risk": "Skilled talent attraction and retention",
+    "company": "MCHP",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.skilled_talent",
+    "quote": "Our business relies on our ability to attract and retain qualified employees across various functions, including management, technical, marketing, sales, research and development, manufacturing, and operations.",
+    "source_ref": "MCHP-g13"
+   },
+   {
+    "risk": "Litigation and legal proceedings",
+    "company": "F",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.litigation_investigations",
+    "quote": "Ford and Ford Credit have experienced and could continue to experience unusual or significant litigation, governmental investigations, or adverse publicity arising out of alleged defects in products",
+    "source_ref": "F-g14"
+   },
+   {
+    "risk": "Litigation and legal proceedings",
+    "company": "LEA",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.litigation_investigations",
+    "quote": "We are involved in various legal and regulatory proceedings and claims that, from time to time, are significant.",
+    "source_ref": "LEA-g9"
+   },
+   {
+    "risk": "Litigation and legal proceedings",
+    "company": "MCHP",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.litigation_investigations",
+    "quote": "We are currently, and in the future may be, involved in legal proceedings, investigations or claims regarding intellectual property rights, product defects, breach of contracts, tax matters, export controls and sanctions",
+    "source_ref": "MCHP-g19"
+   },
+   {
+    "risk": "Litigation and legal proceedings",
+    "company": "ON",
+    "category": "REGULATION_LEGAL",
+    "leaf": "REGULATION_LEGAL.litigation_investigations",
+    "quote": "We have been and may be subject to or involved in litigation or threatened litigation, the outcome of which may be difficult to predict, and which may be costly to defend",
+    "source_ref": "ON-g16"
+   },
+   {
+    "risk": "Acquisition integration failure",
+    "company": "BWA",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.acquisitions_integration",
+    "quote": "If we are unsuccessful in combining companies, the anticipated benefits of the acquisitions may not be realized fully or at all or may take longer to realize than expected.",
+    "source_ref": "BWA-g1"
+   },
+   {
+    "risk": "Acquisition integration failure",
+    "company": "LEA",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.acquisitions_integration",
+    "quote": "our failure to execute our strategic objectives could adversely affect our financial condition, operating results and cash flows.",
+    "source_ref": "LEA-g1"
+   },
+   {
+    "risk": "Acquisition integration failure",
+    "company": "MCHP",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.acquisitions_integration",
+    "quote": "Integration of our acquisitions is complex and may be costly and time consuming and include unanticipated issues, expenses and liabilities.",
+    "source_ref": "MCHP-g12"
+   },
+   {
+    "risk": "Acquisition integration failure",
+    "company": "ON",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.acquisitions_integration",
+    "quote": "Missteps or delays in integrating our acquisitions, which could be caused by factors outside of our control, or our failure to realize the expected benefits of the acquisitions on the timeline we anticipate",
+    "source_ref": "ON-g15"
+   }
+  ]
+ },
+ "input_tokens": 25138,
+ "output_tokens": 4828,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6532,
+ "latency_s": 14.854,
+ "recorded_at": "2026-10-25T18:49:19+0000"
+}

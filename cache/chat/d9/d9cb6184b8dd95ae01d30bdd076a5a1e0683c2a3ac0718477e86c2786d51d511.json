@@ -1,0 +1,56 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Past material weaknesses in internal controls; future weaknesses possible",
+    "risk_name": "Internal control material weakness",
+    "detail": "Prior material weaknesses in income tax accounting and IT system access, remediated fiscal 2020; failures could breach debt covenants",
+    "quote": "Failure to maintain effective internal controls could result in violations of applicable securities laws, stock exchange listing requirements, and the covenants under our debt agreements, subject us to litigation and investigations, negatively affect investor confidence in our financial statements, and adversely impact our stock price and our ability to access capital markets.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Sarbanes-Oxley Act of 2002",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Customer demands for practices more stringent than legal requirements",
+    "risk_name": "Customer-imposed compliance cost increase",
+    "detail": "Customers require stricter labor, materials, energy efficiency, environmental practices; suppliers may refuse or charge more; risk of disqualification",
+    "quote": "The cost to implement such practices may cause us to incur higher costs and reduce our profitability, and if we do not implement such practices, such customers may disqualify us as a supplier, resulting in decreased revenue opportunities.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Must attract and retain qualified personnel amid intensified competition",
+    "risk_name": "Talent retention and wage inflation",
+    "detail": "Competition for AI talent, work-from-home, minimum wage increases; dependence on direct manufacturing labor force",
+    "quote": "Competition for qualified personnel has intensified for a variety of reasons, including the high demand for employees in rapidly developing fields such as AI, the increase in work-from-home arrangements and increases in minimum wages and wage inflation in our industry.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "AI",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Global reduction in force may hurt morale and employer attractiveness",
+    "risk_name": "Workforce reduction morale impact",
+    "detail": "Global reduction in force implemented Q4 fiscal 2025, completed Q1 fiscal 2026",
+    "quote": "In the fourth quarter of fiscal 2025, we implemented a global reduction of our work force, which we completed in the first quarter of fiscal 2026. That reduction in force may have negatively affected employee morale and could diminish our attractiveness as an employer.",
+    "specificity": "specific",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1625,
+ "output_tokens": 852,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 7.003,
+ "recorded_at": "2026-10-25T18:21:18+0000"
+}

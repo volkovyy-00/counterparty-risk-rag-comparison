@@ -1,0 +1,29 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "d2"
+    ],
+    "canonical_name": "Asia",
+    "definition": "The Asian continent as a geographic region of operations, sourcing, or sales."
+   },
+   {
+    "member_ids": [
+     "d3",
+     "d4"
+    ],
+    "canonical_name": "Asia Pacific",
+    "definition": "The Asia-Pacific region, including Asia, Australia, and Pacific nations, as a business reporting region."
+   }
+  ]
+ },
+ "input_tokens": 74,
+ "output_tokens": 136,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 523,
+ "latency_s": 2.472,
+ "recorded_at": "2026-10-25T18:31:25+0000"
+}

@@ -1,0 +1,59 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Cybersecurity breaches and IT system failures (continued)",
+    "risk_name": "Cybersecurity breach of information systems",
+    "detail": "Generic statement; no material breach to date; Board oversight",
+    "quote": "While we continuously seek to expand and improve our information technology systems and maintain adequate disclosure controls and procedures, there can be no assurance that we can adequately anticipate all trends of the market, technology landscapes and threat landscapes, and there can be no assurance that such measures will prevent interruptions or security breaches that could adversely affect our business.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "We may incur material losses and costs as a result of warranty claims, product recalls, product liability and intellectual property infringement actions",
+    "risk_name": "Product warranty and liability claims",
+    "detail": "Complex fabrication; product flaws could cause re-work, replacement costs, lost revenue and order cancellations",
+    "quote": "If flaws in either the design or manufacture of our products were to occur, we could experience a rate of failure in our products that could result in significant delays in shipment and product re-work or replacement costs.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "We may incur material losses and costs as a result of warranty claims, product recalls, product liability and intellectual property infringement actions",
+    "risk_name": "Product recall costs",
+    "detail": "OEMs seek supplier contribution for recalls; global vehicle recalls above historical levels; NHTSA can mandate recalls",
+    "quote": "However, as suppliers become more integrally involved in the vehicle design process and assume more of the vehicle assembly functions, OEMs continue to look to their suppliers for contribution when faced with recalls and product liability claims. The number of vehicles recalled globally by OEMs has increased above historical levels.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "National Highway Traffic Safety Administration",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "We may incur material losses and costs as a result of warranty claims, product recalls, product liability and intellectual property infringement actions",
+    "risk_name": "Warranty reserve inadequacy",
+    "detail": "OEMs may hold company responsible for repair/replacement under new vehicle warranties; final amounts may differ from reserves",
+    "quote": "Depending on the terms under which we supply products to a vehicle manufacturer, a vehicle manufacturer may attempt to hold us responsible for some or all of the repair or replacement costs of products under new vehicle warranties when the OEM asserts that the product supplied did not perform as warranted.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "We may incur material losses and costs as a result of warranty claims, product recalls, product liability and intellectual property infringement actions",
+    "risk_name": "Intellectual property infringement claims",
+    "detail": "Adoption of new technology raises exposure to third-party IP infringement claims",
+    "quote": "In addition, as we adopt new technology, we face an inherent risk of exposure to the claims of others that we have allegedly violated their intellectual property rights.",
+    "specificity": "boilerplate",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1618,
+ "output_tokens": 1042,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 8.146,
+ "recorded_at": "2026-10-25T18:19:59+0000"
+}

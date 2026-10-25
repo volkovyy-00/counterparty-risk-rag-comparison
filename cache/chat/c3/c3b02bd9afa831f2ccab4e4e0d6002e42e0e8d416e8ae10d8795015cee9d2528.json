@@ -1,0 +1,131 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Interruption in supply of raw materials, components, or equipment",
+    "risk_name": "Component supply shortage",
+    "detail": "Memory components may become constrained, costlier with longer lead times as memory makers shift to advanced products; supplier consolidation",
+    "quote": "For example, as memory manufacturers transition to more advanced products, availability of the memory components we use may become constrained, have longer lead times, or become more expensive.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "memory components",
+      "type": "INPUT_COMMODITY"
+     }
+    ]
+   },
+   {
+    "heading": "Tariffs, trade restrictions, and evolving global trade policies",
+    "risk_name": "Import tariff cost increase",
+    "detail": "Semiconductors exempt under Section 232 investigation, but chemicals, metals, equipment inputs face country-specific tariffs; retaliatory tariffs since 2018",
+    "quote": "Although semiconductors currently remain exempt from certain U.S. tariffs under the ongoing Section 232 investigation, many inputs used in semiconductor manufacturing - including chemicals, metals, and equipment - remain subject to country specific tariffs or may become subject to new duties.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Section 232",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "chemicals",
+      "type": "INPUT_COMMODITY"
+     },
+     {
+      "name": "metals",
+      "type": "INPUT_COMMODITY"
+     }
+    ]
+   },
+   {
+    "heading": "Tariffs and trade restrictions also affect our customers",
+    "risk_name": "Customer production disruption demand loss",
+    "detail": "2025 government actions on Nexperia restricted mature-node discretes and logic, causing auto and consumer electronics customer shortages",
+    "quote": "For example, in 2025, government actions involving Nexperia (including export control measures and interventions affecting its operations and cross-border shipments) resulted in restricted availability of certain mature-node semiconductors (such as discrete devices and standard logic) that are widely used by automotive and consumer electronics manufacturers.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Nexperia",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "automotive",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "consumer electronics",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "IEEPA tariff refund timing and amount uncertain",
+    "risk_name": "Tariff refund recovery uncertainty",
+    "detail": "Supreme Court ruled IEEPA tariffs unconstitutional Feb 2026; CBP refunds via CAPE portal; timing and amount unclear",
+    "quote": "Although Microchip was the importer of record for products that were subject to tariffs imposed under IEEPA and should be entitled to a refund, the timing and the amount of any such recovery is not yet clear.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "International Emergency Economic Powers Act (IEEPA)",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "U.S. Customs and Border Protection (CBP)",
+      "type": "NAMED_COUNTERPARTY"
+     }
+    ]
+   },
+   {
+    "heading": "We may lose sales if critical materials from concentrated sources become restricted or subject to export controls.",
+    "risk_name": "Critical materials export restriction",
+    "detail": "Rare earths and metals from few countries; industry relies on neon, palladium, cesium, rubidium, nickel from Russia, Belarus, Ukraine",
+    "quote": "Although we do not purchase significant amounts of materials, components or equipment from Russia, Belarus, or Ukraine, the broader semiconductor industry relies on raw materials sourced from these regions - such as neon, palladium, cesium, rubidium, and nickel.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Russia",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Belarus",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Ukraine",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "neon",
+      "type": "INPUT_COMMODITY"
+     },
+     {
+      "name": "palladium",
+      "type": "INPUT_COMMODITY"
+     },
+     {
+      "name": "cesium",
+      "type": "INPUT_COMMODITY"
+     },
+     {
+      "name": "rubidium",
+      "type": "INPUT_COMMODITY"
+     },
+     {
+      "name": "nickel",
+      "type": "INPUT_COMMODITY"
+     },
+     {
+      "name": "rare earth elements",
+      "type": "INPUT_COMMODITY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1678,
+ "output_tokens": 1501,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 10.844,
+ "recorded_at": "2026-10-25T18:21:00+0000"
+}

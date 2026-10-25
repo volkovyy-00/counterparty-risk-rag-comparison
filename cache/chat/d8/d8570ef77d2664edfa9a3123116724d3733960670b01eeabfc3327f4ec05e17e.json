@@ -1,0 +1,22 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "d291",
+     "d292"
+    ],
+    "canonical_name": "Zero-emission vehicle (ZEV) sales requirements",
+    "definition": "Government mandates requiring automakers to sell a minimum share of zero-emission vehicles."
+   }
+  ]
+ },
+ "input_tokens": 59,
+ "output_tokens": 90,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 523,
+ "latency_s": 1.911,
+ "recorded_at": "2026-10-25T18:33:04+0000"
+}

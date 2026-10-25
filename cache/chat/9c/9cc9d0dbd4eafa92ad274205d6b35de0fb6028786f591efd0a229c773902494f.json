@@ -1,0 +1,51 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "The market price of our common stock is likely to be influenced by our Convertible Debt, Series A Preferred Stock or Depositary Shares",
+    "risk_name": "Equity dilution from convertible securities",
+    "detail": "Conversion of Convertible Debt, Series A Preferred Stock or Depositary Shares and hedging/arbitrage may depress common stock price",
+    "quote": "The market price of our common stock could become more volatile and could be depressed by: (1) investors\u2019 anticipation of the potential resale in the market of a substantial number of additional shares of common stock received upon conversion of the Convertible Debt, Series A Preferred Stock or Depositary Shares;",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Our common stock ranks junior to our Series A Preferred Stock",
+    "risk_name": "Preferred stock structural seniority",
+    "detail": "Series A Preferred liquidation preference of $1,000 per share plus accumulated dividends; common dividends blocked until preferred dividends paid",
+    "quote": "Likewise, in the event of our voluntary or involuntary liquidation, winding-up or dissolution, no distribution of our assets may be made to holders of our common stock until we have paid to holders of our Series A Preferred Stock a liquidation preference equal to $1,000 per share plus accumulated and unpaid dividends.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Fluctuations in foreign currency exchange rates could adversely impact our operating results",
+    "risk_name": "Foreign exchange rate volatility",
+    "detail": "Dollar weakness vs pound, euro, Thai baht, Taiwan dollar raises costs at European and Thailand subsidiaries; uses forward contracts",
+    "quote": "In periods when the U.S. dollar declines significantly relative to the British pound, Euro, Thai baht and Taiwan dollar, the\n41\n\nTable of Contents\n\noperational costs in our European and Thailand subsidiaries are adversely affected.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Thailand",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Europe",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Taiwan",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1050,
+ "output_tokens": 761,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 6.106,
+ "recorded_at": "2026-10-25T18:21:49+0000"
+}

@@ -1,0 +1,81 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Disruptions in the supply of raw materials and other supplies may adversely affect our profitability.",
+    "risk_name": "Raw material supply disruption",
+    "detail": "Inputs include copper, metals, petroleum-based resins, chemicals, electronic components and semiconductors",
+    "quote": "We and our customers use a broad range of materials and supplies, including copper and other metals, petroleum-based resins, chemicals, electronic components and semiconductors. A significant disruption in the supply of these materials for any reason could decrease our production and shipping levels, which could materially increase our operating costs and materially decrease our profit margins.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "copper",
+      "type": "INPUT_COMMODITY"
+     },
+     {
+      "name": "petroleum-based resins",
+      "type": "INPUT_COMMODITY"
+     },
+     {
+      "name": "semiconductors",
+      "type": "INPUT_COMMODITY"
+     },
+     {
+      "name": "electronic components",
+      "type": "INPUT_COMMODITY"
+     }
+    ]
+   },
+   {
+    "heading": "Just-in-time logistics vulnerability and customer line-stoppage claims",
+    "risk_name": "Customer production stoppage liability",
+    "detail": "Just-in-time delivery to OEM plants; customers may recoup losses including lost profits if Aptiv halts assembly lines",
+    "quote": "Additionally, if we are the cause for a customer being forced to halt production, the customer may seek to recoup all of its losses and expenses from us. These losses and expenses could be significant and may include consequential losses such as lost profits.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Supply chain disruptions and elevated inventory levels",
+    "risk_name": "Excess inventory working capital drag",
+    "detail": "Inventories substantially above customary levels at Dec 31, 2025 and 2024 due to OEM production volatility; tariff actions add uncertainty",
+    "quote": "However, as a result of our customers\u2019 recent production volatility and cancellations, among other things, our balance of productive, raw and component material inventories has increased substantially from customary levels as of both December 31, 2025 and 2024.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Trade policy and tariff uncertainty in the automotive industry",
+    "risk_name": "Tariff and trade policy uncertainty",
+    "detail": "Rapidly evolving trade policies and tariff actions increase automotive industry uncertainty",
+    "quote": "For example, as a result of the rapidly evolving trade policies and tariff actions, the uncertainty in the automotive industry has increased, which could adversely affect our business and financial results.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "tariff actions",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "The cyclical nature of automotive sales and production can adversely affect our business.",
+    "risk_name": "Cyclical end-market demand",
+    "detail": "Business tied to automotive OEM vehicle production; lower global auto sales directly cut earnings and cash flows",
+    "quote": "Lower global automotive sales would be expected to result in substantially all of our automotive OEM customers lowering vehicle production schedules, which has a direct impact on our earnings and cash flows.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "automotive sales",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1721,
+ "output_tokens": 1097,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 8.759,
+ "recorded_at": "2026-10-25T18:19:34+0000"
+}

@@ -1,0 +1,77 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Quarterly results fluctuations may cause stock price to fall",
+    "risk_name": "Quarterly results volatility",
+    "detail": "Fluctuations tied to entering new markets and introducing new products; analysts focused on short-term results",
+    "quote": "As a result of these factors, we believe that quarter-to-quarter comparisons of our financial results, especially in the short term, are not necessarily meaningful and that these comparisons cannot be relied upon as indicators of future performance.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "We may fail to meet our publicly announced guidance or other expectations about our business",
+    "risk_name": "Failure to meet guidance",
+    "detail": "Guidance previously inaccurate on timing of new product manufacturing ramps",
+    "quote": "Correctly identifying key factors affecting business conditions and predicting future events is inherently an uncertain process, and our guidance may not ultimately be accurate and has in the past been inaccurate in certain respects, such as the timing of new product manufacturing ramps.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "2025 CEO Performance Award technologies may be misaligned with consumer demand",
+    "risk_name": "Strategic investment misallocation",
+    "detail": "2025 CEO Performance Award product goals may steer long-timeline, capital-heavy investments; possible asset write-downs",
+    "quote": "Our investments in these technologies and initiatives, including those underlying the product goals, frequently involve long development timelines and substantial capital, and there is no assurance that these investments will deliver the expected business, financial or reputational benefits.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "2025 CEO Performance Award",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Forced sales of pledged shares by Elon Musk could depress stock price",
+    "risk_name": "Insider share pledge sales",
+    "detail": "CEO Musk has pledged shares for personal loans; may sell for ventures or 2018 award tax obligations",
+    "quote": "If Mr. Musk were to choose to partially secure any loans with pledges of Tesla common stock that he owns, and the price of our common stock were to decline substantially, Mr. Musk may be forced by one or more of the banking institutions to sell shares of Tesla common stock to satisfy his loan obligations if he could not do so through other means.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Elon Musk",
+      "type": "NAMED_COUNTERPARTY"
+     }
+    ]
+   },
+   {
+    "heading": "Anti-takeover provisions could impair a takeover attempt",
+    "risk_name": "Anti-takeover provisions",
+    "detail": "Texas Business Organizations Code Section 21.606 limits combinations",
+    "quote": "We are also subject to Section 21.606 of the Texas Business Organizations Code and other provisions of Texas law that limit the ability of shareholders in certain situations to effect certain business combinations.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Section 21.606 of the Texas Business Organizations Code",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Change in control may accelerate debt facilities",
+    "risk_name": "Change-of-control debt acceleration",
+    "detail": "Change in control may trigger acceleration of certain debt facilities",
+    "quote": "In addition, a change in control may cause the acceleration of certain of our debt facilities.",
+    "specificity": "boilerplate",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1642,
+ "output_tokens": 1142,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 9.983,
+ "recorded_at": "2026-10-25T18:19:35+0000"
+}

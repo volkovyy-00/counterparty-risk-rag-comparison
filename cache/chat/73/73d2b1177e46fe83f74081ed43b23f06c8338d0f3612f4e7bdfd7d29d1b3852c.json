@@ -1,0 +1,60 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Currency fluctuations and foreign exchange regulations",
+    "risk_name": "Foreign currency exchange risk",
+    "detail": "Revenue mostly USD but significant costs in foreign currencies from Asia/Pacific and European operations",
+    "quote": "We have sizeable operations in the Asia/Pacific region and Europe and, although a majority of our revenue is denominated in U.S. dollars, a significant portion of our cost of revenue and operating expenses are payable in foreign currencies.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Asia/Pacific",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Europe",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Repatriation of funds held outside the United States",
+    "risk_name": "Cash repatriation restrictions",
+    "detail": "Lower US cash could impair ability to make interest and principal payments on debt",
+    "quote": "If we have a lower amount of cash and cash equivalents in the United States, our financial flexibility may be reduced, which could have a material adverse effect on our ability to make interest and principal payments due under our various debt obligations.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "United States",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Claims of infringement on the IP rights of others",
+    "risk_name": "IP infringement litigation",
+    "detail": "Generic statement; possible damages, injunctions, customer indemnification, suspension of manufacture",
+    "quote": "The failure to obtain a license from a third party for IP that we use could cause us to incur substantial liabilities or to suspend the manufacture or shipment of products or our use of processes requiring such technologies.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Failure to adequately protect developed or licensed IP",
+    "risk_name": "Intellectual property protection weakness",
+    "detail": "Patents, mask works, trademarks may lapse or be invalidated; enforcement may provoke counterclaims",
+    "quote": "Further, our assertion of IP rights often results in the other party seeking to assert alleged IP rights of its own against us, which may materially and adversely impact our business.",
+    "specificity": "boilerplate",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1544,
+ "output_tokens": 734,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 5.901,
+ "recorded_at": "2026-10-25T18:22:02+0000"
+}

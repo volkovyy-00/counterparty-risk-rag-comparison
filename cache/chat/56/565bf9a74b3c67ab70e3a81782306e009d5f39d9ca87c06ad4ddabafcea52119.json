@@ -1,0 +1,28 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n316"
+    ],
+    "canonical_name": "Customer and supplier counterparty credit risk",
+    "definition": "Financial deterioration of customers, licensees, distributors or suppliers could impair collection of receivables and increase credit loss allowances."
+   },
+   {
+    "member_ids": [
+     "n317"
+    ],
+    "canonical_name": "Regulatory credit purchase counterparty risk",
+    "definition": "Purchased regulatory emissions credits depend on sellers delivering them, require significant cash, and may lose value or be written off after policy changes."
+   }
+  ]
+ },
+ "input_tokens": 133,
+ "output_tokens": 181,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 3.102,
+ "recorded_at": "2026-10-25T18:27:41+0000"
+}

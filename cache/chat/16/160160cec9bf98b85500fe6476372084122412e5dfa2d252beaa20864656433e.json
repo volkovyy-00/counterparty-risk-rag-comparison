@@ -1,0 +1,43 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n142",
+     "n146",
+     "n149",
+     "n515",
+     "n148"
+    ],
+    "canonical_name": "Tax law and rate changes",
+    "definition": "Changes in domestic or international tax laws, rates, incentives or their interpretation could raise the company's effective tax rate, reduce incentives or impair deferred tax assets."
+   },
+   {
+    "member_ids": [
+     "n144",
+     "n145",
+     "n147",
+     "n503"
+    ],
+    "canonical_name": "Global minimum tax law changes",
+    "definition": "Implementation of OECD Pillar Two global minimum tax and related BEPS rules could increase the company's tax burden and compliance costs."
+   },
+   {
+    "member_ids": [
+     "n143",
+     "n152"
+    ],
+    "canonical_name": "Tax residency and treaty change exposure",
+    "definition": "Changes to the company's tax residency or to applicable tax treaties, including legislative action deeming it resident elsewhere, could increase its tax liabilities."
+   }
+  ]
+ },
+ "input_tokens": 677,
+ "output_tokens": 295,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 6.383,
+ "recorded_at": "2026-10-25T18:28:41+0000"
+}

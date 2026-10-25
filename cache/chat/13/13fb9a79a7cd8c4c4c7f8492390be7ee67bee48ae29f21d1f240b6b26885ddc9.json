@@ -1,0 +1,92 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Financing programs and consumer protection compliance for leases",
+    "risk_name": "Consumer finance regulatory compliance",
+    "detail": "Vehicle leasing and energy system lease/financing/PPA arrangements subject to financial and consumer protection laws",
+    "quote": "If we do not successfully monitor and comply with applicable national, state and/or local financial regulations and consumer protection laws governing these transactions, we may become subject to enforcement actions or penalties.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Profitability of leased vehicles depends on residual value projections",
+    "risk_name": "Lease residual value risk",
+    "detail": "Price cuts on new vehicles may lower used vehicle residual values and leasing profitability",
+    "quote": "We have made in the past and may make in the future certain adjustments to our prices from time to time in the ordinary course of business, which may impact the residual values of our vehicles and reduce the profitability of our vehicle leasing program.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Funding of leasing program relies on financing and partners",
+    "risk_name": "Leasing program funding access",
+    "detail": "Leasing growth depends on internal funds, partners or other financing; lack may limit vehicle deliveries",
+    "quote": "If we are unable to adequately fund our leasing program through internal funds, partners or other financing sources, and compelling alternative financing programs are not available for our customers who may expect or need such options, we may be unable to grow our vehicle deliveries.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Residual value guarantees to customers and partners",
+    "risk_name": "Residual value guarantee obligations",
+    "detail": "Guarantees on certain financing programs may be triggered if resale values fall below agreed residuals",
+    "quote": "If the actual resale values of any vehicles resold by our vehicle customers and partners are lower than the residual values we have agreed to with them, the residual value guarantees may be triggered and, as a result, our financial condition and operating results may be harmed.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Financing and sales programs expose company to customer credit risk",
+    "risk_name": "Customer credit losses",
+    "detail": "Customer defaults in downturn could cause credit losses and asset impairments",
+    "quote": "If a significant number of our customers default, we may incur substantial credit losses and/or impairment charges with respect to the underlying assets.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "If we are unable to attract, hire and retain key employees and qualified personnel, our ability to compete may be harmed.",
+    "risk_name": "Key person dependence",
+    "detail": "Highly dependent on CEO Elon Musk; no key employees bound by fixed-term employment agreements",
+    "quote": "In particular, we are highly dependent on the services of Elon Musk, Technoking of Tesla and our Chief Executive Officer. None of our key employees is bound by an employment agreement for any specific term",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Elon Musk",
+      "type": "NAMED_COUNTERPARTY"
+     }
+    ]
+   },
+   {
+    "heading": "Competition for talent in automotive and technology labor markets",
+    "risk_name": "Talent retention and competition",
+    "detail": "Competitive labor market for automotive, AI and EV engineering talent near engineering and manufacturing centers",
+    "quote": "Employees may leave Tesla or choose other employers over Tesla due to various factors, such as a very competitive labor market for talented individuals with automotive or technology, including AI, experience, or any negative publicity related to us.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "AI",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "electric vehicles",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Equity-based compensation requires shareholder approvals",
+    "risk_name": "Equity compensation approval risk",
+    "detail": "Reliance on equity awards; failure to win shareholder approval for plan increases would require more cash compensation",
+    "quote": "If we are unable to obtain the requisite shareholder approvals for such future increases, we may have to expend additional cash to compensate our employees and our ability to retain and hire qualified personnel may be harmed.",
+    "specificity": "specific",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1567,
+ "output_tokens": 1422,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 12.065,
+ "recorded_at": "2026-10-25T18:19:18+0000"
+}

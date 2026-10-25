@@ -1,0 +1,41 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 42,
+    "heading": "The outcome of future examinations of our income tax returns and existing tax disputes could have an adverse effect on our results of operations.",
+    "category": "TAX",
+    "leaf": "TAX.tax_audits_disputes",
+    "quote": "If the adjustment is upheld by the highest court that has jurisdiction over this matter in Malaysia, it could result in income taxes and penalties up to MYR 1.9 billion (approximately $480.2 million based on the exchange rate as of March 31, 2026).",
+    "driver": "Malaysian IRB assessment",
+    "secondary": false
+   },
+   {
+    "rf": 43,
+    "heading": "We are a U.S.-based multinational company subject to tax in many U.S. and foreign jurisdictions. Our income tax obligations could be affected by many factors, including changes to our operating structure, intercompany arrangements and tax planning strategies.",
+    "category": "TAX",
+    "leaf": "TAX.tax_law_changes",
+    "quote": "These include changes in tax rates, tax laws, and tax regulations and how those laws are interpreted in jurisdictions where our income is earned. This also applies to jurisdictions that align with the Organisation for Economic Co-operation and Development\u2019s Base Erosion Profit Shifting recommendations.",
+    "driver": "OECD BEPS",
+    "secondary": false
+   },
+   {
+    "rf": 44,
+    "heading": "Our business, financial condition and operating results may be adversely impacted by policies implemented globally by the current or future administrations.",
+    "category": "GEOPOLITICAL_TRADE",
+    "leaf": "GEOPOLITICAL_TRADE.tariffs",
+    "quote": "The U.S. and certain other global jurisdictions in which we operate, have taken and have threatened to take significant legislative and policy changes in areas including but not limited to tariffs, taxes and trade, labor, and the environment.",
+    "driver": "U.S. tariff and trade policy",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2672,
+ "output_tokens": 633,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 4.642,
+ "recorded_at": "2026-10-25T18:46:40+0000"
+}

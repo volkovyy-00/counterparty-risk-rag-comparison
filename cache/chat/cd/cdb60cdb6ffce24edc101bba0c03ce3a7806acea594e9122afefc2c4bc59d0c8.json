@@ -1,0 +1,48 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "We may experience issues or delays in developing, launching and ramping the production of our products, services and features",
+    "risk_name": "Product launch and production ramp delays",
+    "detail": "Depends on autonomous driving, Cybercab Robotaxi, mass-market vehicles, Bots; past ramp bottlenecks; cost and profitability targets at risk",
+    "quote": "In particular, our future business depends on development of our driver assistance systems and autonomous driving solutions and increasing the production of mass-market vehicles, including Cybercab, our purpose-built Robotaxi product.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Cybercab",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "autonomous driving",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "AI development challenges including energy and processing power for data centers",
+    "risk_name": "AI compute and energy constraints",
+    "detail": "AI services face energy availability and cost, processing power limitations and substantial data center power requirements",
+    "quote": "In addition, as we continue to develop our artificial intelligence services and products, we may face many additional challenges, including the availability and cost of energy, processing power limitations and the substantial power requirements for our data centers.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "artificial intelligence",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "energy",
+      "type": "INPUT_COMMODITY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1009,
+ "output_tokens": 496,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 4.056,
+ "recorded_at": "2026-10-25T18:18:54+0000"
+}

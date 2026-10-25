@@ -1,0 +1,68 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Government investigations have resulted in fines, penalties, orders, or oversight",
+    "risk_name": "Regulatory enforcement and monitorship",
+    "detail": "2024 NHTSA consent order requires independent third party monitoring Safety Act adherence and reporting progress",
+    "quote": "For example, as part of a consent order we entered into with NHTSA in 2024, we have retained an independent third party selected by NHTSA to assess the Company\u2019s adherence to the consent order and Safety Act over the term of the consent order and to report on Ford\u2019s progress to NHTSA.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "NHTSA",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "Safety Act",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Litigation and class actions despite regulatory compliance",
+    "risk_name": "Litigation and jury verdict exposure",
+    "detail": "Larger jury verdicts, punitive damages, growing international class actions; insurance may be insufficient",
+    "quote": "Furthermore, regulatory investigations and litigation, including class actions, are becoming more prevalent in some international markets, potentially leading to increasing fines, damage awards, and settlement costs. While we have an insurance program that provides coverage for certain claims, it may not be sufficient to cover the losses incurred.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Need to modify product plans and facilities to comply with shifting regulations",
+    "risk_name": "Emissions regulation volatility",
+    "detail": "US rollback of GHG/EV rules vs California ZEV mandates; 2025 federal law ending state authority under challenge",
+    "quote": "In parallel, California continues to enact increasingly strict emissions standards and requirements for ZEVs (standards that some other states are adopting), and those actions are also the subject of legal challenges. In 2025, federal legislation, which is currently subject to challenge, eliminated the authority of California and other states to implement and enforce most of their standards and ZEV sales requirements.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "California",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "United States",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "ZEV sales requirements",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Local content and import requirements",
+    "risk_name": "Local content requirements",
+    "detail": "Governments regulate local product content or impose import requirements to protect domestic producers",
+    "quote": "In addition, many governments regulate local product content or impose import requirements with the aim of creating jobs, protecting domestic producers, and influencing the balance of payments.",
+    "specificity": "boilerplate",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1740,
+ "output_tokens": 905,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 7.43,
+ "recorded_at": "2026-10-25T18:18:49+0000"
+}

@@ -1,0 +1,71 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "If our warranty reserves are inadequate to cover future warranty claims on our products",
+    "risk_name": "Inadequate warranty reserves",
+    "detail": "Uncertainty greater for recently introduced products and those planned at significantly higher volumes",
+    "quote": "Such estimates are inherently uncertain and changes to our historical or projected experience, especially with respect to products that we have introduced relatively recently and/or that we expect to produce at significantly greater volumes than our past products, may cause material changes to our warranty reserves in the future.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Our insurance coverage strategy may not be adequate to protect us from all business risks",
+    "risk_name": "Underinsurance and uninsured losses",
+    "detail": "Maintains less insurance than many companies, sometimes none; significant deductibles and self-insured retentions",
+    "quote": "As a general matter, we do not maintain as much insurance coverage as many other companies do, and in some cases, we do not maintain any at all.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Our debt agreements contain covenant restrictions that may limit our ability to operate our business",
+    "risk_name": "Debt covenant restrictions",
+    "detail": "Limits on additional debt and liens; minimum liquidity requirement; breach could trigger acceleration",
+    "quote": "In addition, under certain circumstances we are required to maintain a certain amount of liquidity. As a result of these covenants, our ability to respond to changes in business and economic conditions and engage in beneficial transactions, including to obtain additional financing as needed, may be restricted.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Additional funds may not be available to us when we need or want them",
+    "risk_name": "Access to capital and refinancing",
+    "detail": "Capital-intensive expansion, AI-enabled fleet and Bots production; may need funding to refinance indebtedness",
+    "quote": "Our business and our future plans for expansion, supporting infrastructure for our businesses, and AI innovations, including growth in our fleet of AI-enabled company-operated assets and new businesses, such as our development and production of Bots, are capital-intensive, and the specific timing of cash inflows and outflows may fluctuate substantially from period to period.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "AI",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "Bots",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "We may be negatively impacted by any early obsolescence of our manufacturing and other equipment",
+    "risk_name": "Equipment obsolescence and accelerated depreciation",
+    "detail": "Product or process changes may retire installed manufacturing equipment early",
+    "quote": "The useful life of any equipment that would be retired early as a result would be shortened, causing such depreciation to be accelerated, and our results of operations may be harmed.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "There is no guarantee that we will have sufficient cash flow from our business to pay our indebtedness",
+    "risk_name": "Debt service capacity",
+    "detail": "$8.18 billion aggregate principal indebtedness at December 31, 2025; may incur additional debt",
+    "quote": "As of December 31, 2025, we and our subsidiaries had outstanding $8.18 billion in aggregate principal amount of indebtedness (see Note 9, Debt, to the consolidated financial statements included elsewhere in this Annual Report on Form 10-K).",
+    "specificity": "specific",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1628,
+ "output_tokens": 1179,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 8.855,
+ "recorded_at": "2026-10-25T18:19:17+0000"
+}

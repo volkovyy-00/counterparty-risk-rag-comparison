@@ -1,0 +1,31 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n172",
+     "n173",
+     "n174",
+     "n175"
+    ],
+    "canonical_name": "Government incentive reduction or clawback",
+    "definition": "Government grants, subsidies, or tax incentives received for investments may be reduced, terminated, or clawed back if conditions such as job, capex, or R&D commitments are not met or programs change."
+   },
+   {
+    "member_ids": [
+     "n506"
+    ],
+    "canonical_name": "Loss of EV government incentives",
+    "definition": "Repeal or restriction of consumer, manufacturing, and charging infrastructure EV tax credits and regulatory credit programs could reduce demand and revenue."
+   }
+  ]
+ },
+ "input_tokens": 313,
+ "output_tokens": 207,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 762,
+ "latency_s": 3.194,
+ "recorded_at": "2026-10-25T18:28:44+0000"
+}

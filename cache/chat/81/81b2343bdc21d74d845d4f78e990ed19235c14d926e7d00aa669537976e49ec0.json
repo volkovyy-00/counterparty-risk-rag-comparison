@@ -1,0 +1,73 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Conflict minerals disclosure and sourcing requirements",
+    "risk_name": "Conflict minerals compliance cost",
+    "detail": "SEC Dodd-Frank conflict minerals rules on DRC-sourced minerals; annual Form SD since 2014; customers may disqualify supplier, inventory write-offs",
+    "quote": "If we are unable to meet customer requirements, customers may disqualify us as a supplier, resulting in a permanent or temporary loss of sales to such customer or a reduction in purchases from us, and we may have to write off inventory if it cannot be sold.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Dodd-Frank Wall Street Reform and Consumer Protection Act",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "Democratic Republic of Congo",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Responsible Minerals Initiative",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Failure to meet ESG expectations could adversely affect business",
+    "risk_name": "Product diversion to sanctioned markets",
+    "detail": "Stopped sales to Russia and Belarus in March 2022, but Russian entities still indirectly obtained products",
+    "quote": "However, we have been made aware that there are entities in Russia that indirectly obtained our products after March 2022 despite the preventative measures we took and continue to take.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Russia",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Belarus",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Ukraine",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Failure to meet ESG expectations could adversely affect business",
+    "risk_name": "Climate disclosure regulatory compliance",
+    "detail": "California climate disclosure rules and EU CSRD; net zero and renewable energy goals expose company to scrutiny",
+    "quote": "In addition, we are or expect to become subject to various new or proposed climate-related and other sustainability laws and regulations, including, for example, the state of California's new climate change disclosure requirements and the EU's Corporate Sustainability Reporting Directive.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "California",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "Corporate Sustainability Reporting Directive",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1820,
+ "output_tokens": 807,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2955,
+ "latency_s": 6.474,
+ "recorded_at": "2026-10-25T18:21:43+0000"
+}

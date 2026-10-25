@@ -1,0 +1,28 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "d304"
+    ],
+    "canonical_name": "AI infrastructure",
+    "definition": "End market for computing, networking, and data center hardware and software that supports artificial intelligence workloads."
+   },
+   {
+    "member_ids": [
+     "d338"
+    ],
+    "canonical_name": "Communication Infrastructure",
+    "definition": "End market for telecommunications and networking equipment such as wireless and wired network infrastructure."
+   }
+  ]
+ },
+ "input_tokens": 71,
+ "output_tokens": 138,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 523,
+ "latency_s": 2.757,
+ "recorded_at": "2026-10-25T18:33:07+0000"
+}

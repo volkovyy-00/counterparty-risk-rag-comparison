@@ -1,0 +1,143 @@
+{
+ "model": "claude-haiku-5-5",
+ "served_model": "claude-haiku-5-5",
+ "content": {
+  "summary": "GM and NXP Semiconductors both disclose risks of disruption at their own manufacturing facilities, reliance on joint ventures and partners, physical climate and extreme-weather disruption, single or limited-source supplier dependence, data privacy regulation compliance costs, pension funding obligations, restructuring execution, and labor strikes or work stoppages. Each claim below is supported by an excerpt from each company's own filing.",
+  "claims": [
+   {
+    "risk": "Disruption at own manufacturing facilities",
+    "company": "GM",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.manufacturing_disruption",
+    "quote": "Any significant disruption at one of our manufacturing facilities could disrupt our production schedule.",
+    "source_ref": "GM-g7"
+   },
+   {
+    "risk": "Disruption at own manufacturing facilities",
+    "company": "NXPI",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.manufacturing_disruption",
+    "quote": "Further, we may suffer disruptions in our manufacturing operations, either due to production difficulties such as those described above or as a result of external factors beyond our control",
+    "source_ref": "NXPI-g5"
+   },
+   {
+    "risk": "Joint venture partner and control risk",
+    "company": "GM",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.joint_ventures_investments",
+    "quote": "Our primary joint venture agreement for our China JVs expires in 2027, and we are in negotiations with our partner for a new agreement.",
+    "source_ref": "GM-g6"
+   },
+   {
+    "risk": "Joint venture partner and control risk",
+    "company": "NXPI",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.joint_ventures_investments",
+    "quote": "we often do not control these partnerships and joint ventures, and actions taken by any of our partners or the termination of these joint ventures could adversely affect our business.",
+    "source_ref": "NXPI-g8"
+   },
+   {
+    "risk": "Physical climate and extreme weather disruption",
+    "company": "GM",
+    "category": "CLIMATE_NATCAT",
+    "leaf": "CLIMATE_NATCAT.natural_disasters_weather",
+    "quote": "increased intensity, frequency, or duration of storms, droughts, wildfires, or other severe weather events as a result of climate change may disrupt our production",
+    "source_ref": "GM-g4"
+   },
+   {
+    "risk": "Physical climate and extreme weather disruption",
+    "company": "NXPI",
+    "category": "CLIMATE_NATCAT",
+    "leaf": "CLIMATE_NATCAT.natural_disasters_weather",
+    "quote": "climate change could cause certain natural disasters, such as drought, wildfires, storms, flooding or rising sea levels, to occur more frequently or with greater intensity.",
+    "source_ref": "NXPI-g7"
+   },
+   {
+    "risk": "Single or limited-source supplier dependence",
+    "company": "GM",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.single_source",
+    "quote": "In some instances, we purchase systems, components, raw materials, and parts that are ultimately derived from a single source and may be at an increased risk for supply disruptions.",
+    "source_ref": "GM-g7"
+   },
+   {
+    "risk": "Single or limited-source supplier dependence",
+    "company": "NXPI",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.single_source",
+    "quote": "A failure by our suppliers to deliver our requirements could result in disruptions to our manufacturing operations.",
+    "source_ref": "NXPI-g5"
+   },
+   {
+    "risk": "Data privacy regulation compliance costs",
+    "company": "GM",
+    "category": "PRIVACY_DATA",
+    "leaf": "PRIVACY_DATA.privacy_regulation",
+    "quote": "Complying with these new laws has significantly increased, and may continue to increase, our operating costs and is driving increased complexity in our operations.",
+    "source_ref": "GM-g10"
+   },
+   {
+    "risk": "Data privacy regulation compliance costs",
+    "company": "NXPI",
+    "category": "PRIVACY_DATA",
+    "leaf": "PRIVACY_DATA.privacy_regulation",
+    "quote": "global privacy legislation, enforcement, and policy activity, such as the EU General Data Privacy Regulation, are rapidly expanding and creating a complex regulatory compliance environment.",
+    "source_ref": "NXPI-g8"
+   },
+   {
+    "risk": "Pension underfunding and contribution requirements",
+    "company": "GM",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.pension_finance_obligations",
+    "quote": "Future funding requirements generally increase if the discount rate decreases or if actual asset returns are lower than expected asset returns, assuming other factors are held constant.",
+    "source_ref": "GM-g12"
+   },
+   {
+    "risk": "Pension underfunding and contribution requirements",
+    "company": "NXPI",
+    "category": "RATES_FX_FUNDING",
+    "leaf": "RATES_FX_FUNDING.pension_finance_obligations",
+    "quote": "Negative performance of the financial markets could also have a material impact on funding requirements and net periodic pension costs.",
+    "source_ref": "NXPI-g15"
+   },
+   {
+    "risk": "Restructuring charges and execution risk",
+    "company": "GM",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.restructuring",
+    "quote": "We have made and may need to make additional changes to our global production footprint and workforce, which could require significant capital expenditures and could result in asset impairments and other charges, including restructuring charges",
+    "source_ref": "GM-g4"
+   },
+   {
+    "risk": "Restructuring charges and execution risk",
+    "company": "NXPI",
+    "category": "STRATEGY_MA",
+    "leaf": "STRATEGY_MA.restructuring",
+    "quote": "We may from time to time restructure parts of our organization. Any such restructuring may impact customer satisfaction, and the costs of implementation may be difficult to predict.",
+    "source_ref": "NXPI-g3"
+   },
+   {
+    "risk": "Workforce labor strikes and work stoppages",
+    "company": "GM",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.labor_relations_unions",
+    "quote": "we may be subject to an increased risk of strikes, work stoppages, or other types of conflicts with labor unions and employees.",
+    "source_ref": "GM-g7"
+   },
+   {
+    "risk": "Workforce labor strikes and work stoppages",
+    "company": "NXPI",
+    "category": "TALENT_LABOR",
+    "leaf": "TALENT_LABOR.labor_relations_unions",
+    "quote": "if our unionized employees were to engage in a strike or other work stoppage, our business and operating results could be materially harmed.",
+    "source_ref": "NXPI-g4"
+   }
+  ]
+ },
+ "input_tokens": 8045,
+ "output_tokens": 2248,
+ "cache_write_tokens": 6532,
+ "cache_read_tokens": 0,
+ "latency_s": 7.056,
+ "recorded_at": "2026-10-25T18:48:30+0000"
+}

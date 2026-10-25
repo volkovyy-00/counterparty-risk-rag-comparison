@@ -1,0 +1,32 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "risk_factors": [
+   {
+    "rf": 8,
+    "heading": "We are dependent on wafer foundries and other contractors, as are our SuperFlash and other licensees.",
+    "category": "SUPPLY_CHAIN",
+    "leaf": "SUPPLY_CHAIN.outsourced_manufacturing",
+    "quote": "We rely on outside wafer foundries for a significant portion of our wafer fabrication needs. Specifically, during fiscal 2026 and fiscal 2025, approximately 65% and 64%, respectively, of our net sales came from products that were produced at outside wafer foundries.",
+    "driver": "outside wafer foundries",
+    "secondary": false
+   },
+   {
+    "rf": 9,
+    "heading": "Our operating results may be adversely impacted by the financial viability and performance of our licensees, customers, distributors, resellers or suppliers.",
+    "category": "CUSTOMER_CONCENTRATION",
+    "leaf": "CUSTOMER_CONCENTRATION.customer_credit",
+    "quote": "The financial decline of a large licensee, customer, reseller or distributor, an important supplier, or a group thereof, could have an adverse impact on our operating results and could result in our inability to collect our accounts receivable balances, higher allowances for credit losses",
+    "driver": "counterparty financial viability",
+    "secondary": false
+   }
+  ]
+ },
+ "input_tokens": 2165,
+ "output_tokens": 426,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 6701,
+ "latency_s": 3.587,
+ "recorded_at": "2026-10-25T18:46:26+0000"
+}
