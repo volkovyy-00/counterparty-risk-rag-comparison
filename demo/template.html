@@ -624,7 +624,8 @@ function screen6() {
 function screen7() {
   header("7 · Decision");
   const d = DATA.decision;
-  return `${!keyVerified() ? "<div style='height:44px'></div>" : ""}<h2>When to use which</h2>
+  const banner = !keyVerified() || (DATA.meta.draft && (DATA.decision.missing || []).length);  // same test as banners()
+  return `${banner ? "<div style='height:44px'></div>" : ""}<h2>When to use which</h2>
     ${["1_plain_rag", "2_graphrag", "3_taxonomy_first"].map(k => `<div class="panel" style="margin-bottom:14px;font-size:30px">${esc(d.when_to_use[k])}</div>`).join("")}
     <h2 style="margin-top:30px">What I would take to a risk committee</h2>
     <div class="panel" style="font-size:32px;border-width:4px;border-color:var(--fg)">${esc(d.recommendation)}</div>
