@@ -25,10 +25,10 @@ TSLA APTV BWA LEA (autos) and NXPI MCHP ON TXN (semis).
 - The human labels the ground truth, never Claude. Keep the Apache-2.0 LICENSE and NOTICE.
 
 ## Repository state
-- Remote https://github.com/volkovyy-00/counterparty-risk-rag-comparison: `main` is at `364ca09`.
-  `standalone` is the same as main; the user should delete it, and also `demo-ready` (old workshop history).
-  This session's proxy cannot delete branches.
-- **Branch `graphrag-v2`** holds GraphRAG v2 and is pushed (the user agreed). Keep pushing small commits there.
+- Remote https://github.com/volkovyy-00/counterparty-risk-rag-comparison: `main` is at `1c3bdc5` and holds
+  GraphRAG v2 and taxonomy v3 (both merged). `standalone`, `demo-ready`, `graphrag-v2` and `taxonomy-v3` are older
+  branches; the user may delete them (this session's proxy cannot delete branches).
+- **Branch `demo-real`** (from `1c3bdc5`): the real-data demo work. Not pushed until the user says "push".
 - Layout: `src/` code, `config/` YAML (groups, taxonomy, pricing, ground_truth, graph_aliases), `demo/` page,
   `tests/`, `docs/` (DETAILS, REHEARSAL, GRAPHRAG_V2), `data/corpus/edgar_latest/` (frozen 10-K Item 1A text).
 - Tests: 45 passed and 2 skipped without Neo4j; 46 passed and 1 skipped with Neo4j. The remaining skip is the
@@ -88,11 +88,26 @@ See `docs/GRAPHRAG_V2.md`.
 - Two commit messages (535c5ea, a80e81a) have the attribution lines on the subject paragraph; rewriting pushed
   history was not allowed. Harmless.
 
+## Taxonomy v3 (approach 3, merged into main)
+- `TAXO_PROMPT_VERSION=taxonomy-v3.0` is the default: Item 1A is split by risk-factor heading
+  (`corpus.split_risk_factors`) and packed into whole-section windows. The prompt asks for **one label per risk
+  factor** plus an unscored `driver` note. `taxonomy-v2.x` keeps the fixed paragraph windows and its prompt.
+  `taxonomy-v3.1` (adds "prefer the most specific leaf") stays runnable but is no longer the default run B.
+- Split report (`results/taxonomy_split_report.md`, no model call): 8 of 10 filings split by heading; GM and F fall
+  back to fixed windows because their headings run into the paragraph. 85 windows vs 83 fixed.
+- Coverage check (`results/taxonomy_coverage.md`): no new leaf justified.
+- A/B on NXPI and LEA (`results/taxonomy_ab/report.md`, $1.15): v3.0 duplicate-label rate 0% (v2.0: 3.7% / 11.1%),
+  quote pass 100% / 96.8%, fewer labels per risk factor (1.05 / 1.03). OTHER drivers listed on screen 5, not scored.
+
 ## Cost estimates (Opus 5.5, input tokens measured, output tokens assumed)
 - Full graph build: v1 $7.97, v2 about $9.6 (v2 extraction now returns somewhat more mentions per chunk).
-- Whole frozen demo with 2 reruns and audit run B: about $50. The user found that too much. Cheaper paths
-  discussed: Sonnet 5.5 (about half the cost), reruns only for approach 1, or skipping audit run B. **The model
-  choice and plan are still open.**
+- The old one-shot freeze (2 reruns of 1, 2, 3 + audit run B) was estimated at $50.79 ($21.01 with no reruns);
+  too much. **Decided (demo-real):** the real run is staged, each stage gated by the user's "go":
+  - `--stage core` (cap $20, `LLM_MAX_USD=20`): graph build, run A of 1, 2, 3, L frozen, graph export, graph QA,
+    governance, page, screenshots. No reruns, no run B.
+  - `--stage extras` (cap $10, `LLM_MAX_USD=10`): (a) 2 reruns of approach 1; (b) 1 rerun of approach 3
+    (taxonomy-v3.0, cache off); (c) audit run B as a **model swap**: approach 3 on Sonnet 5.5, prompt v3.0. Over the
+    cap, (b) is dropped first, then (c). Approach 2 is not rerun (a rebuild costs about $9.6); screen 6 says so.
 
 ## Next tasks, in order
 1. Done this session: A/B, screen 4 ask-the-graph, screen 5 (and 2) overflow. Items 2–3 below are kept for
