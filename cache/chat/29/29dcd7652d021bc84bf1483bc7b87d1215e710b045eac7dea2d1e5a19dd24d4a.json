@@ -1,0 +1,23 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "d83",
+     "d84",
+     "d85"
+    ],
+    "canonical_name": "Automotive market",
+    "definition": "The automotive end market, including vehicles and automotive applications that use a company's products."
+   }
+  ]
+ },
+ "input_tokens": 90,
+ "output_tokens": 72,
+ "cache_write_tokens": 523,
+ "cache_read_tokens": 0,
+ "latency_s": 1.66,
+ "recorded_at": "2026-10-25T13:42:52+0000"
+}

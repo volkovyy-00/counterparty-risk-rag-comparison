@@ -7,3 +7,4 @@ demo/index.html
 demo/fallback/*.mp4
 *.mp4
 cache/models/
+cache/embed/

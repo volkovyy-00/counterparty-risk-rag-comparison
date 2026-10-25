@@ -1,0 +1,38 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Failure to renegotiate collective bargaining agreements or consult works councils could harm business",
+    "risk_name": "Labor union and works council disruption",
+    "detail": "Collective bargaining agreements, social plans; works council consultation required for restructurings, acquisitions and divestitures",
+    "quote": "We are also required to consult with our employee representatives, such as works councils, on items such as restructurings, acquisitions and divestitures.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Our working capital needs are difficult to predict.",
+    "risk_name": "Working capital volatility from long product cycles",
+    "detail": "Long development-to-delivery period drives high inventory and WIP; stockpiling across many specifications",
+    "quote": "The comparatively long period between the time at which we commence development of a product and the time at which it may be delivered to a customer leads to high inventory and work-in-progress levels.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Costs relating to product defects, product liability and warranty claims",
+    "risk_name": "Semiconductor product defect liability claims",
+    "detail": "Replacement cost of defective semiconductors often exceeds device value; customer recalls may be charged back; personal injury exposure",
+    "quote": "Moreover, since the cost of replacing defective semiconductor devices is often much higher than the value of the devices themselves, we may at times face damage claims from customers in excess of the amounts they pay us for our products, including consequential damages.",
+    "specificity": "specific",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1217,
+ "output_tokens": 499,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2784,
+ "latency_s": 4.832,
+ "recorded_at": "2026-10-25T13:40:04+0000"
+}

@@ -1,0 +1,56 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "If we do not deliver new products, services, technologies, and customer experiences in response to increased competition, our business could suffer",
+    "risk_name": "Technology disruption from new automotive competitors",
+    "detail": "Start-ups, tech-backed software and ridesharing entrants; need to commercialize EVs, AV, connected services and AI beyond core ICE business",
+    "quote": "To successfully execute our long-term strategy, we must continue to develop and commercialize new products and services, including products and services that are outside of our historically core ICE business, such as EVs and AV capabilities, software-enabled connected services, future features and services based on AI, and other new businesses.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "EVs",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "AV capabilities",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "AI",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Our ability to attract and retain talented and highly skilled employees is critical to our success",
+    "risk_name": "Shortage of skilled software engineering talent",
+    "detail": "Vehicles and connected services rely on complex software and hardware; competitive market for skilled workers",
+    "quote": "In particular, our vehicles and connected services increasingly rely on software and hardware that is highly technical and complex, and our success in this area is dependent upon our ability to retain and recruit the best talent.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Our ability to maintain profitability is dependent upon timely funding and introduction of new vehicle models",
+    "risk_name": "New vehicle launch and acceptance risk",
+    "detail": "Development cycle of two years or more; EV launches; high fixed costs from PP&E investment",
+    "quote": "The new vehicle development process can take two years or more, and a number of factors may lengthen that time period.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "EVs",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1676,
+ "output_tokens": 673,
+ "cache_write_tokens": 2784,
+ "cache_read_tokens": 0,
+ "latency_s": 9.589,
+ "recorded_at": "2026-10-25T13:39:38+0000"
+}

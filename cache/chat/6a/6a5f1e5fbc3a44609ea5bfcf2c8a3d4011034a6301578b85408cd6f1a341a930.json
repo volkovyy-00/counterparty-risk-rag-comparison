@@ -1,0 +1,60 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Environmental, health and safety laws and permits compliance",
+    "risk_name": "Environmental compliance and remediation liability",
+    "detail": "Strict, joint and several liability at current and historical manufacturing facilities for hazardous substance contamination",
+    "quote": "As with other companies engaged in similar activities or that own or operate real property, we face inherent risks of environmental liability at our current and historical manufacturing facilities.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Climate change initiatives may increase production costs",
+    "risk_name": "Climate regulation raising energy and production costs",
+    "detail": "Carbon taxes, carbon offsets, higher energy prices and lower-carbon equipment or materials could raise production costs",
+    "quote": "Public and private initiatives to address climate change may result in an increase in the cost of production due to increase in the prices of energy, introduction of energy or carbon tax or the purchase of carbon offsets.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "carbon tax",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "energy",
+      "type": "INPUT_COMMODITY"
+     }
+    ]
+   },
+   {
+    "heading": "Interruptions in our information technology systems could adversely affect our business",
+    "risk_name": "IT system interruption",
+    "detail": "Generic statement",
+    "quote": "Any significant interruption in our business applications, systems or networks, including but not limited to new system implementations, computer viruses, cyberattacks, security breaches, facility issues or energy blackouts could have a material adverse impact on our business, financial condition and results of operations.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Computer systems subject to attempted security breaches and cybersecurity incidents",
+    "risk_name": "Cyberattack theft of proprietary technology",
+    "detail": "Has experienced cyber-attacks; risk of misappropriating proprietary technology; AI-enabled attacks cited",
+    "quote": "For example, as AI continues to evolve, cyber attackers could also use AI to develop malicious code and increasingly sophisticated phishing attempts.",
+    "specificity": "boilerplate",
+    "drivers": [
+     {
+      "name": "AI",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1534,
+ "output_tokens": 739,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2784,
+ "latency_s": 7.185,
+ "recorded_at": "2026-10-25T13:40:16+0000"
+}

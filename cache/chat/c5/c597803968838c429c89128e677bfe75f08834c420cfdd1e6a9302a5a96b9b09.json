@@ -1,0 +1,11 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": "{\"nodes\": [{\"id\": \"0\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Manufacturing disruptions\"}}, {\"id\": \"1\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Severe weather events\"}}, {\"id\": \"2\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Loss of manufacturing capacity\"}}, {\"id\": \"3\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Supplier concentration\"}}, {\"id\": \"4\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Supplier delivery failures\"}}, {\"id\": \"5\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Supplier price increases\"}}, {\"id\": \"6\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Raw material shortages\"}}, {\"id\": \"7\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Tariffs and trade restrictions\"}}, {\"id\": \"8\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Inflation\"}}, {\"id\": \"9\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Inability to raise prices\"}}, {\"id\": \"10\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Third-party manufacturing dependence\"}}, {\"id\": \"11\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Semiconductor supply shortages\"}}, {\"id\": \"12\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Gross margin pressure\"}}, {\"id\": \"13\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Volatile outsourcing costs\"}}, {\"id\": \"14\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Long-term supply agreement nonperformance\"}}, {\"id\": \"15\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Equipment substitution difficulty\"}}], \"relationships\": []}",
+ "input_tokens": 1786,
+ "output_tokens": 661,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 0,
+ "latency_s": 5.231,
+ "recorded_at": "2026-10-25T13:33:37+0000"
+}

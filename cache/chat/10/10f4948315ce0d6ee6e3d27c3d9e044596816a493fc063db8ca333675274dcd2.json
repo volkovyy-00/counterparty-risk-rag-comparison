@@ -1,0 +1,73 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "We may become party to intellectual property claims or litigation that could cause us to incur substantial costs",
+    "risk_name": "Patent infringement litigation and injunction exposure",
+    "detail": "Has received infringement communications; treble damages possible in United States; injunctions could halt product sales",
+    "quote": "In the event that we cannot obtain or take the view that we don\u2019t need a license, these parties may file lawsuits against us seeking damages (and potentially treble damages in the United States) or an injunction against the sale of our products that incorporate allegedly infringed intellectual property or against the operation of our business as presently conducted.",
+    "specificity": "boilerplate",
+    "drivers": [
+     {
+      "name": "United States",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "AI use may expose company to IP claims",
+    "risk_name": "AI-related copyright infringement claims",
+    "detail": "Use of AI for productivity and in products may trigger copyright or IP misappropriation claims amid legal uncertainty",
+    "quote": "Additionally, and in part due to ongoing uncertainties in the legal framework around AI, our use of AI technologies for productivity and in our products and services may expose us to copyright infringement or other intellectual property misappropriation claims.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "AI",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Loss of our key management and other personnel could affect our business",
+    "risk_name": "Key personnel and engineer retention",
+    "detail": "Depends on senior engineers; competitive market for skilled engineers",
+    "quote": "The market for qualified employees, including skilled engineers and other individuals with the required technical expertise to succeed in our business, is highly competitive and the loss of qualified employees or an inability to attract, retain and motivate the additional highly skilled employees required for the operation and expansion of our business could hinder our ability to successfully conduct research activities or develop marketable products.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "CEO transition may not be successful",
+    "risk_name": "CEO succession transition disruption",
+    "detail": "Kurt Sievers retired October 28, 2025; Rafael Sotomayor succeeded as President and CEO",
+    "quote": "Effective October 28, 2025, Kurt Sievers voluntarily retired as our CEO and executive director and Rafael Sotomayor succeeded Mr. Sievers as President and CEO and temporary executive director of the Company.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "United States civil liabilities may not be enforceable against us",
+    "risk_name": "Foreign incorporation limits US judgment enforcement",
+    "detail": "Incorporated in the Netherlands; substantial assets and some directors and officers outside the United States",
+    "quote": "We are incorporated under the laws of the Netherlands and substantial portions of our assets are located outside of the United States. In addition, certain members of our board and officers reside outside the United States.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Netherlands",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "United States",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1240,
+ "output_tokens": 1037,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2784,
+ "latency_s": 8.413,
+ "recorded_at": "2026-10-25T13:40:22+0000"
+}

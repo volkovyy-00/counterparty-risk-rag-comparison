@@ -1,0 +1,11 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": "{\"nodes\": [{\"id\": \"0\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Intellectual property infringement claims\"}}, {\"id\": \"1\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Costly litigation\"}}, {\"id\": \"2\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"License availability\"}}, {\"id\": \"3\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Reputational damage\"}}, {\"id\": \"4\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Intellectual property protection\"}}, {\"id\": \"5\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"AI legal uncertainty\"}}, {\"id\": \"6\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Key personnel loss\"}}, {\"id\": \"7\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Talent attraction and retention\"}}, {\"id\": \"8\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"CEO transition\"}}, {\"id\": \"9\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Enforceability of US civil liabilities\"}}], \"relationships\": []}",
+ "input_tokens": 1723,
+ "output_tokens": 403,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 0,
+ "latency_s": 3.543,
+ "recorded_at": "2026-10-25T13:33:43+0000"
+}

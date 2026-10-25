@@ -1,0 +1,11 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": "{\"nodes\": [{\"id\": \"0\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Supplier cybersecurity breaches\"}}, {\"id\": \"1\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Supplier liquidity constraints\"}}, {\"id\": \"2\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Key materials shortages\"}}, {\"id\": \"3\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Geopolitical tensions\"}}, {\"id\": \"4\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Geographic sourcing concentration\"}}, {\"id\": \"5\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Export controls\"}}, {\"id\": \"6\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Manufacturing technology implementation delays\"}}, {\"id\": \"7\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Capital investment returns\"}}, {\"id\": \"8\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Third-party manufacturing dependence\"}}, {\"id\": \"9\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Supplier concentration\"}}, {\"id\": \"10\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Intellectual property misappropriation\"}}, {\"id\": \"11\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Supplier regulatory noncompliance\"}}, {\"id\": \"12\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Talent retention and recruitment\"}}, {\"id\": \"13\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Senior management succession\"}}, {\"id\": \"14\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Immigration policy changes\"}}], \"relationships\": []}",
+ "input_tokens": 1740,
+ "output_tokens": 623,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 0,
+ "latency_s": 4.819,
+ "recorded_at": "2026-10-25T13:34:05+0000"
+}

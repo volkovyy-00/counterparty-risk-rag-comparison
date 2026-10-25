@@ -1,0 +1,51 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Our operations could be affected by the complex laws, rules and regulations to which our business is subject.",
+    "risk_name": "Complex regulatory compliance cost burden",
+    "detail": "Generic list of regulated areas; government inquiries could lead to enforcement or fines",
+    "quote": "Compliance with these laws, rules and regulations may be onerous and expensive and could restrict our ability to manufacture or ship our products and operate our business.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Environmental, safety and health rules affecting manufacturing jurisdictions",
+    "risk_name": "Environmental rules restricting manufacturing materials",
+    "detail": "Possible abatement equipment requirements, material/process bans, energy and emissions fees; substitutes may be unavailable or costly",
+    "quote": "A substitute for a prohibited material or process might not be available, or might not be available at reasonable cost.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Our results of operations could be affected by changes in tax-related matters.",
+    "risk_name": "Multijurisdiction tax rate increase",
+    "detail": "Facilities in 30+ countries; deferred tax assets realizability; OECD BEPS rules uncertain for U.S. multinationals",
+    "quote": "In addition, many countries have enacted or begun the process of enacting laws that align with the Organisation for Economic Cooperation and Development\u2019s Base Erosion and Profit Shifting recommendations; application of these laws to U.S.-based multinational corporations remains uncertain.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Base Erosion and Profit Shifting recommendations",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Government incentives could be reduced, modified or clawed back",
+    "risk_name": "Government incentive clawback or termination",
+    "detail": "Received tax and other government incentives for investments; scrutiny on how earned and spent",
+    "quote": "Such incentives could be subject to reduction, modification, clawback or termination, and such changes to these incentives could adversely affect our results of operations, financial condition and reputation.",
+    "specificity": "specific",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1399,
+ "output_tokens": 717,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2784,
+ "latency_s": 5.808,
+ "recorded_at": "2026-10-25T13:40:35+0000"
+}

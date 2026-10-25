@@ -1,0 +1,28 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n76"
+    ],
+    "canonical_name": "Joint venture compliance and misconduct exposure",
+    "definition": "Limited control over joint ventures may result in partners failing to follow the company's governance, reporting or compliance standards, leading to fines and reputational harm."
+   },
+   {
+    "member_ids": [
+     "n77"
+    ],
+    "canonical_name": "Joint venture funding and execution shortfalls",
+    "definition": "Alliances and joint ventures may impose funding or take-or-pay obligations and may fail to meet production timing or quality targets."
+   }
+  ]
+ },
+ "input_tokens": 135,
+ "output_tokens": 182,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 658,
+ "latency_s": 4.527,
+ "recorded_at": "2026-10-25T13:42:40+0000"
+}

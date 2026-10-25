@@ -1,0 +1,43 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "groups": [
+   {
+    "member_ids": [
+     "n6",
+     "n66"
+    ],
+    "canonical_name": "Import tariff cost increases",
+    "definition": "New or higher tariffs on imported vehicles, parts and materials and changes to trade agreements raise costs that mitigation may not fully offset."
+   },
+   {
+    "member_ids": [
+     "n48"
+    ],
+    "canonical_name": "Export control and anti-corruption compliance",
+    "definition": "Violations of or changes in export controls, sanctions, foreign investment rules and anti-corruption laws could result in penalties and restrictions on business."
+   },
+   {
+    "member_ids": [
+     "n82"
+    ],
+    "canonical_name": "Customer loss from trade measures",
+    "definition": "Large customers may curtail purchases due to sourcing policy changes, tariffs, export controls or other trade measures."
+   },
+   {
+    "member_ids": [
+     "n118"
+    ],
+    "canonical_name": "Combined tariffs and export controls disruption",
+    "definition": "New or increased US and China tariffs, export controls and sanctions could disrupt trade and harm sales and operations."
+   }
+  ]
+ },
+ "input_tokens": 310,
+ "output_tokens": 329,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 658,
+ "latency_s": 4.993,
+ "recorded_at": "2026-10-25T13:42:01+0000"
+}

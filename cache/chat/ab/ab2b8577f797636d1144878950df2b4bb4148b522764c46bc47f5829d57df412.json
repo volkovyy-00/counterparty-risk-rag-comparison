@@ -1,0 +1,11 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": "{\"nodes\": [{\"id\": \"0\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Increased competition\"}}, {\"id\": \"1\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Changing consumer preferences\"}}, {\"id\": \"2\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Industry disruption\"}}, {\"id\": \"3\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Technology development uncertainty\"}}, {\"id\": \"4\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Access to capital\"}}, {\"id\": \"5\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Rising cost of capital\"}}, {\"id\": \"6\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"AI integration challenges\"}}, {\"id\": \"7\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Evolving regulatory standards\"}}, {\"id\": \"8\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Software and hardware defects\"}}, {\"id\": \"9\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Talent attraction and retention\"}}, {\"id\": \"10\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Regulatory landscape changes\"}}], \"relationships\": []}",
+ "input_tokens": 1739,
+ "output_tokens": 443,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 0,
+ "latency_s": 7.923,
+ "recorded_at": "2026-10-25T13:32:27+0000"
+}

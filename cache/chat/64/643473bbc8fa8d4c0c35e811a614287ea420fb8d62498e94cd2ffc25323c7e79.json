@@ -1,0 +1,11 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": "{\"nodes\": [{\"id\": \"0\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Rising R&D costs\"}}, {\"id\": \"1\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Evolving industry requirements\"}}, {\"id\": \"2\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"AI adoption risks\"}}, {\"id\": \"3\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Biased or inaccurate AI outputs\"}}, {\"id\": \"4\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Technology obsolescence\"}}, {\"id\": \"5\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Cybersecurity incidents\"}}, {\"id\": \"6\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"AI regulatory uncertainty\"}}, {\"id\": \"7\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"New product development failure\"}}, {\"id\": \"8\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Intense competition\"}}, {\"id\": \"9\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Competitor consolidation\"}}, {\"id\": \"10\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Pricing pressure\"}}, {\"id\": \"11\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Inflation\"}}, {\"id\": \"12\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"End-market demand fluctuations\"}}, {\"id\": \"13\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Economic conditions\"}}, {\"id\": \"14\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Customer order volatility\"}}], \"relationships\": []}",
+ "input_tokens": 1739,
+ "output_tokens": 600,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 0,
+ "latency_s": 4.717,
+ "recorded_at": "2026-10-25T13:33:32+0000"
+}

@@ -1,0 +1,3860 @@
+{
+  "corpus": "edgar_latest",
+  "model": "claude-opus-5-5",
+  "prompt_version": "graph-v1-workshop",
+  "prompt_sha256": "5b60f8b6d77ec59aacc99bc3eea733f808808c6dad2fda84d58e5f9415f856e9",
+  "resolver": "fuzzy",
+  "chunk_chars": 4000,
+  "tickers": [
+    "GM",
+    "NXPI",
+    "TXN"
+  ],
+  "usage": {
+    "embed_calls": 47.0,
+    "cached_calls": 94.0,
+    "input_tokens": 81380.0,
+    "prompt_cache_read_tokens": 0.0,
+    "output_tokens": 27548.0,
+    "recorded_latency_s": 332.41506,
+    "cost_usd": 0.87648,
+    "llm_calls": 47.0,
+    "wall_clock_s": 3.696689
+  },
+  "usage_by_stage": {
+    "graph.build": {
+      "embed_calls": 47.0,
+      "cached_calls": 94.0,
+      "input_tokens": 81380.0,
+      "prompt_cache_read_tokens": 0.0,
+      "output_tokens": 27548.0,
+      "recorded_latency_s": 332.41506,
+      "cost_usd": 0.87648,
+      "llm_calls": 47.0,
+      "wall_clock_s": 3.696689
+    },
+    "graph.resolve": {}
+  },
+  "graph": {
+    "companies": 3,
+    "chunks": 47,
+    "risk_factors": 95,
+    "faces_risk": 139,
+    "risk_factors_shared": 28
+  },
+  "risk_factors_exact": 521,
+  "risk_factors_resolved": 95,
+  "risk_factor_names": [
+    {
+      "name": "Additional debt incurrence",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Business operations interruptions",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "CEO transition",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Capital investment returns",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Captive finance dependence",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Carbon taxes",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Catastrophic weather events",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Changing consumer preferences",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Charging infrastructure limitations",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Collective bargaining constraints",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Collective bargaining renegotiation",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Competitor consolidation",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Competitor independent development",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Conflict minerals sourcing",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Credit rating downgrades",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Cross-border investment restrictions",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Currency movement restrictions",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Currency transfer restrictions",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Custom product cancellations",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Customer credit defaults",
+      "tickers": [
+        "TXN",
+        "GM"
+      ]
+    },
+    {
+      "name": "Customer order volatility",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Cybersecurity breaches",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Data privacy breaches",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Debt refinancing risk",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Declining selling prices",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Demographic trends",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Design win failures",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Differing shareholder rights",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Employee malfeasance",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Energy blackouts",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Enforcement of U.S. judgments",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Equipment substitution difficulty",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Equity investment impairment",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Foreign financing difficulties",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Geopolitical conflicts",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Geopolitical instability",
+      "tickers": [
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Geopolitical tensions",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Geopolitical uncertainty",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Global economic downturn",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Gross margin pressure",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Hazardous substance contamination",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Hazardous substance exposure",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "High inventory levels",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Human rights impacts",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "IT system interruptions",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Inability to raise prices",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Inadequate insurance coverage",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Inadequate intellectual property protection",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Increased competition",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Industry consolidation",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Inflationary pressures",
+      "tickers": [
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Insufficient cash flow",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Internal control weaknesses",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Inventory forecasting errors",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Inventory obsolescence",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Inventory write-offs",
+      "tickers": [
+        "TXN",
+        "GM"
+      ]
+    },
+    {
+      "name": "Joint venture profitability",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Key personnel retention",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "License availability",
+      "tickers": [
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Limited control over partnerships",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Long-term purchase commitments",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Low-cost foreign competitors",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Lower used vehicle prices",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Macroeconomic downturn",
+      "tickers": [
+        "TXN",
+        "GM"
+      ]
+    },
+    {
+      "name": "Manufacturing operations disruption",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Manufacturing process complexity",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Nation-state espionage",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Natural disasters",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Negative stakeholder perception",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Operational complexity",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Partner financial difficulties",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Personal injury claims",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Price erosion",
+      "tickers": [
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Product quality issues",
+      "tickers": [
+        "TXN",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Profit margin variability",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Raw material availability",
+      "tickers": [
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Repatriation restrictions",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Reputational harm",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Restricted entity listings",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Revenue unpredictability",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Rising research and development costs",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Sales mandates",
+      "tickers": [
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Sanctions",
+      "tickers": [
+        "TXN",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Senior management succession",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Service of process difficulties",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Slow EV adoption",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Stakeholder interest conflicts",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Strategy execution failure",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Subsidy repayment demands",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Substantial indebtedness",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Supply chain model changes",
+      "tickers": [
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Technology licensing dependence",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Terrorist attacks",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Third-party component vulnerabilities",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Unemployment levels",
+      "tickers": [
+        "GM"
+      ]
+    }
+  ],
+  "risk_factor_names_exact": [
+    {
+      "name": "AI adoption risks",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "AI integration challenges",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "AI intellectual property uncertainty",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "AI legal uncertainty",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "AI regulation",
+      "tickers": [
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "AI regulatory uncertainty",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "AI tool misuse",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "AI training data access",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "AI-enabled cyber attacks",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "AI-enabled cyberattacks",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "AI-related security risks",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Access to capital",
+      "tickers": [
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Accounting principle changes",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Accounting standard changes",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Acquisition integration risks",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Acquisition security risks",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Actuarial assumption changes",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Additional debt incurrence",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Adverse economic conditions",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Adverse government policy changes",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Adverse publicity",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Anti-corruption law compliance",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Armed conflicts",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Asset impairments",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Autonomous vehicle development",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Autonomous vehicle development risks",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Autonomous vehicle safety concerns",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Average selling price erosion",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Battery cost reduction",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Battery supply constraints",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Battery technology changes",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Biased or inaccurate AI outputs",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Brand and reputation damage",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Brand reputation damage",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Bribery and corruption",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Business operations interruptions",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "CEO transition",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Capital investment returns",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Capital markets access",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Captive finance dependence",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Carbon taxes",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Catastrophic weather events",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Changes in laws and regulations",
+      "tickers": [
+        "TXN",
+        "GM"
+      ]
+    },
+    {
+      "name": "Changes in tax laws",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Changing consumer preferences",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Charging infrastructure availability",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Charging infrastructure limitations",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "China market operations",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "China market risks",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "China revenue concentration",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Civil or criminal penalties",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Climate change",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Climate change and severe weather",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Climate change regulation",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Climate disclosure requirements",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Collective bargaining agreements",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Collective bargaining constraints",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Collective bargaining renegotiation",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Competitive disadvantage from leverage",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Competitive pressure",
+      "tickers": [
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Competitive pricing pressure",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Competitive product development",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Competitor consolidation",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Competitor independent development",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Complex regulatory compliance",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Conflict minerals sourcing",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Connected vehicle vulnerabilities",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Consumer acceptance",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Consumer acceptance of technologies",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Costly litigation",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Counterfeit products",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Credit rating downgrades",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Critical infrastructure disruptions",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Critical materials access",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Critical materials shortages",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Cross-border investment restrictions",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Cross-default risk",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Currency exchange rate fluctuations",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Currency fluctuations",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Currency movement restrictions",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Currency transfer restrictions",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Custom product cancellations",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Customer concentration",
+      "tickers": [
+        "TXN",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Customer credit defaults",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Customer indemnification obligations",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Customer inventory adjustments",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Customer liquidity constraints",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Customer loan defaults",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Customer order volatility",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Customer regulatory sanctions",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Cybersecurity and privacy risks",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Cybersecurity breaches",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Cybersecurity incidents",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Cybersecurity regulations",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Data loss or leakage",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Data loss or theft",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Data privacy breaches",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Data privacy regulation",
+      "tickers": [
+        "TXN",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Data privacy regulations",
+      "tickers": [
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Dealer and franchise regulations",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Debt covenant noncompliance",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Debt obligations",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Debt refinancing risk",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Debt service obligations",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Declining EV demand",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Declining customer demand",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Declining selling prices",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Deferred tax asset realization",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Deferred tax asset valuation",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Demand fluctuations",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Demand forecasting difficulty",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Demand forecasting errors",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Demand reduction",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Demand volatility",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Demographic trends",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Design win failures",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Differing shareholder rights",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Distributor disputes",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Distributor financial difficulties",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Distributor promotion of competitors",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Dividend and repurchase fluctuations",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Dividend discontinuation",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "ESG disclosure requirements",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "EV strategy execution",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Economic and political instability",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Economic conditions",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Economic recession",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Economic slowdown or recession",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Economic uncertainty",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Emissions and climate concerns",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Emissions and fuel economy regulations",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Emissions credit costs",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Emissions credit impairment",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Emissions regulation",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Emissions regulations",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Emissions standards violations",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Employee malfeasance",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Employee misappropriation of technology",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "End market demand fluctuations",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "End-market demand fluctuations",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Energy blackouts",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Energy price increases",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Energy price volatility",
+      "tickers": [
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Enforceability of US civil liabilities",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Enforcement of U.S. judgments",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Environmental and climate regulation",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Environmental contamination liability",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Environmental liability",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Environmental regulation changes",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Environmental regulation compliance",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Environmental regulations",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Environmental, health and safety regulations",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Epidemics",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Epidemics and pandemics",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Equipment substitution difficulty",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Equity investment impairment",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Evolving industry requirements",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Evolving laws and regulations",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Evolving regulatory frameworks",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Evolving regulatory standards",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Evolving technology regulation",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Export control violations",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Export controls",
+      "tickers": [
+        "TXN",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Export controls and sanctions",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Extensive government regulation",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Extensive regulatory compliance",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Failure to complete acquisitions",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Failure to introduce new products",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Financial market instability",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Financial market volatility",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Financial services regulation",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Financing availability",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Financing market competition",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Foreign civil liability uncertainty",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Foreign corporate law governance",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Foreign currency exchange rates",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Foreign currency exchange volatility",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Foreign currency fluctuations",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Foreign financing difficulties",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Foreign government regulation",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Foreign investment restrictions",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Foreign minimum funding requirements",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Fuel economy regulations",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Fuel economy standards",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Fuel price fluctuations",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Fuel price volatility",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Funding availability and cost",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "General economic conditions",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Geographic concentration of facilities",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Geographic sourcing concentration",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Geopolitical and policy actions",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Geopolitical conflicts",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Geopolitical instability",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Geopolitical risk",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Geopolitical tensions",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Geopolitical uncertainty",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Global economic downturn",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Global minimum tax",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Global regulatory compliance",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Global supply chain dependence",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Global tax reform",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Goodwill and intangible impairment",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Goodwill impairment",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Government enforcement actions",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Government incentive changes",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Government incentive scrutiny",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Government leadership changes",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Government policy changes",
+      "tickers": [
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Government scrutiny",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Government subsidy reduction",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Government-backed foreign competition",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Gross margin pressure",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Hazardous substance contamination",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Hazardous substance exposure",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Health and safety compliance costs",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "High fixed costs",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "High fixed labor costs",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "High inventory levels",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Human rights impacts",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "IT system disruptions",
+      "tickers": [
+        "TXN",
+        "GM"
+      ]
+    },
+    {
+      "name": "IT system interruptions",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Immigration policy changes",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Inability to meet demand",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Inability to raise prices",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Inadequate insurance coverage",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Inadequate intellectual property protection",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Increased competition",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Increased regulatory scrutiny",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Industry consolidation",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Industry cyclicality",
+      "tickers": [
+        "TXN",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Industry disruption",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Industry excess capacity",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Industry overcapacity",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Inflation",
+      "tickers": [
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Inflationary pressures",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Infrastructure disruptions",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Insider negligence or malfeasance",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Insufficient cash flow",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Intellectual property challenges",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Intellectual property infringement",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Intellectual property infringement claims",
+      "tickers": [
+        "TXN",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Intellectual property litigation",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Intellectual property litigation costs",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Intellectual property misappropriation",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Intellectual property monetization",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Intellectual property protection",
+      "tickers": [
+        "TXN",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Intense competition",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Intense industry competition",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Intense market competition",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Interest rate changes",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Interest rate fluctuations",
+      "tickers": [
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Internal control weaknesses",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "International business risks",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "International operations risk",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "International operations risks",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Inventory forecasting errors",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Inventory management challenges",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Inventory obsolescence",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Inventory write-downs",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Inventory write-offs",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Investment illiquidity",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Joint venture agreement expiration",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Joint venture dependence",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Joint venture execution delays",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Joint venture funding obligations",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Joint venture profitability",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Joint venture risks",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Key employee retention",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Key material costs",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Key materials shortages",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Key personnel loss",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Key personnel retention",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Key talent retention",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Labor and safety regulations",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Labor conditions",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Labor disputes and work stoppages",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Labor disruptions and shortages",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Labor regulations and unions",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Labor relations and strikes",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Labor shortages",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Labor strikes and work stoppages",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Lease residual value risk",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Legal proceedings",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "License availability",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Limited access to financing",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Limited control over partnerships",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Limited joint venture control",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Liquidity access constraints",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Liquidity and credit access",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Litigation and investigations",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Litigation and legal liability",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Litigation and regulatory action",
+      "tickers": [
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Litigation and regulatory penalties",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Litigation costs",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Litigation outcomes",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Litigation risk",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Loan portfolio credit performance",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Local product requirements",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Logistics cost increases",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Logistics cost instability",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Long product development cycles",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Long-term purchase commitments",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Long-term supply agreement nonperformance",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Loss of manufacturing capacity",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Loss of tax incentives",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Low-cost foreign competitors",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Lower EV production volumes",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Lower used vehicle prices",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Lower used vehicle pricing",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Macroeconomic downturn",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Macroeconomic downturns",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Manufacturing cost reduction challenges",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Manufacturing disruptions",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Manufacturing facility disruptions",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Manufacturing operations disruption",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Manufacturing overcapacity",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Manufacturing problems",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Manufacturing process complexity",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Manufacturing scale-up challenges",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Manufacturing technology implementation delays",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Market share loss",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Material substitution unavailability",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Nation-state espionage",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Nationalization and expropriation",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Natural disasters",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Negative stakeholder perception",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "New product development failure",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "New product introduction",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "New system implementation",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "New technology adoption",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Non-tariff trade barriers",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Offtake agreement obligations",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Oil supply shortages",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Operational complexity",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Pandemic disruptions",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Pandemics and epidemics",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Partner financial difficulties",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Partner misconduct",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Patent challenges or invalidation",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Patent infringement claims",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Pension funding obligations",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Pension liability exposure",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Permit and licensing requirements",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Personal data compromise",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Personal data exposure",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Personal injury claims",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Political and economic conditions",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Political and social instability",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Political instability",
+      "tickers": [
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Political pressures",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Price erosion",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Pricing pressure",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Pricing pressure and incentives",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Privacy and data protection regulation",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Privacy litigation",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Privacy regulatory liability",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Product concentration",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Product defects",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Product delivery delays",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Product development delays",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Product launch execution",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Product liability",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Product liability claims",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Product line concentration",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Product profitability",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Product quality issues",
+      "tickers": [
+        "TXN",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Product recalls",
+      "tickers": [
+        "TXN",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Product recalls and defects",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Product safety concerns",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Product safety recalls",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Product security vulnerabilities",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Profit margin variability",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Proprietary data loss",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Proprietary information theft",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Protectionist government policies",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Public health crises",
+      "tickers": [
+        "TXN",
+        "GM"
+      ]
+    },
+    {
+      "name": "R&D investment returns",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Ransomware and malware",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Rapid technological change",
+      "tickers": [
+        "TXN",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Raw material availability",
+      "tickers": [
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Raw material cost increases",
+      "tickers": [
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Raw material price increases",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Raw material price volatility",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Raw material shortages",
+      "tickers": [
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Raw material sourcing",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Raw material supplier investments",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Raw material supply constraints",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Refinancing risk",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Regulatory and policy changes",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Regulatory approval of transactions",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Regulatory changes",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Regulatory compliance costs",
+      "tickers": [
+        "TXN",
+        "GM"
+      ]
+    },
+    {
+      "name": "Regulatory compliance failures",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Regulatory compliance requirements",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Regulatory developments",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Regulatory fines and sanctions",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Regulatory landscape changes",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Regulatory uncertainty",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Repatriation restrictions",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Reporting and disclosure requirements",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Reputational damage",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Reputational harm",
+      "tickers": [
+        "TXN",
+        "GM"
+      ]
+    },
+    {
+      "name": "Restricted entity listings",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Restrictive debt covenants",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Restructuring charges",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Restructuring risks",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Revenue unpredictability",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Right to repair laws",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Rising R&D costs",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Rising cost of capital",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Rising energy costs",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Rising interest rates",
+      "tickers": [
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Rising labor costs",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Rising research and development costs",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Rising security costs",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Safety performance standards",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Sales mandates",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Sales volume volatility",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Sanctions",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Section 232 trade investigations",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Securities class action litigation",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Semiconductor supply constraints",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Semiconductor supply shortages",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Senior management succession",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Service of process difficulties",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Severe weather events",
+      "tickers": [
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Shifting consumer preferences",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Significant capital requirements",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Single-source supplier dependence",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Slow EV adoption",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Slow consumer adoption",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Software and hardware defects",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Software development risk",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Stakeholder interest conflicts",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Stock price volatility",
+      "tickers": [
+        "TXN",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Stock repurchase fluctuations",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Strategic change execution",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Strategic partnership execution",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Strategic shift execution",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Strategy execution failure",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Subsidy repayment demands",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Substantial indebtedness",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Supplier claims",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Supplier concentration",
+      "tickers": [
+        "TXN",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Supplier cost recovery limitations",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Supplier cybersecurity breaches",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Supplier delivery failures",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Supplier disputes",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Supplier disruptions",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Supplier financial distress",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Supplier liquidity constraints",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Supplier performance failure",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Supplier price increases",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Supplier quality issues",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Supplier regulatory noncompliance",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Supply chain decoupling",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Supply chain disruption",
+      "tickers": [
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Supply chain disruptions",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Supply chain model changes",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Sustainability regulation uncertainty",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Talent attraction and retention",
+      "tickers": [
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Talent retention and recruitment",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Talent retention challenges",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Tariff changes",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Tariffs",
+      "tickers": [
+        "TXN",
+        "GM"
+      ]
+    },
+    {
+      "name": "Tariffs and customs changes",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Tariffs and trade barriers",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Tariffs and trade measures",
+      "tickers": [
+        "TXN",
+        "GM"
+      ]
+    },
+    {
+      "name": "Tariffs and trade restrictions",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Tax and customs compliance",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Tax asset challenges",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Tax audits",
+      "tickers": [
+        "TXN",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Tax audits and disputes",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Tax forecast inaccuracy",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Tax incentive realization",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Tax incentive termination",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Tax law changes",
+      "tickers": [
+        "TXN",
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Tax loss carryforward realization",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Tax rate changes",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Tax uncertainties",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Technology development uncertainty",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Technology investment risk",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Technology licensing dependence",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Technology obsolescence",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Terrorism",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Terrorist attacks",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Third-party component vulnerabilities",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Third-party cybersecurity incidents",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Third-party manufacturing dependence",
+      "tickers": [
+        "TXN",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Third-party service disruptions",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Third-party service provider risks",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Trade agreement changes",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Trade barriers",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Trade barriers and restrictions",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Trade compliance changes",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Trade restrictions and sanctions",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Trade sanctions and embargoes",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Trade secret theft",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Transfer pricing disputes",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "U.S.-China trade tensions",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Underutilized manufacturing capacity",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Unemployment levels",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Unfavorable economic conditions",
+      "tickers": [
+        "GM",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Unharmonized international regulations",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Unpatched security vulnerabilities",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Unpredictable working capital needs",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Used vehicle market conditions",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Used vehicle values",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Utility disruptions",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Utility supply disruptions",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Vehicle cybersecurity breaches",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Vehicle system security breaches",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Volatile outsourcing costs",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "War and terrorism",
+      "tickers": [
+        "TXN"
+      ]
+    },
+    {
+      "name": "Warranty claims",
+      "tickers": [
+        "TXN",
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Water and utility availability",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Water scarcity",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Weak EV demand",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Weak consumer confidence",
+      "tickers": [
+        "GM"
+      ]
+    },
+    {
+      "name": "Weak foreign IP enforcement",
+      "tickers": [
+        "NXPI"
+      ]
+    },
+    {
+      "name": "Weakening economic conditions",
+      "tickers": [
+        "GM"
+      ]
+    }
+  ]
+}

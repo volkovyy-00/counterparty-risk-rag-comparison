@@ -1,0 +1,11 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": "{\"nodes\": [{\"id\": \"0\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Industry overcapacity\"}}, {\"id\": \"1\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Intense competition\"}}, {\"id\": \"2\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Supply chain disruptions\"}}, {\"id\": \"3\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Geopolitical and policy actions\"}}, {\"id\": \"4\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Raw material supply constraints\"}}, {\"id\": \"5\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Long-term purchase commitments\"}}, {\"id\": \"6\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"High fixed labor costs\"}}, {\"id\": \"7\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Collective bargaining agreements\"}}, {\"id\": \"8\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Pricing pressure and incentives\"}}, {\"id\": \"9\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Currency fluctuations\"}}, {\"id\": \"10\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Tariffs and trade measures\"}}, {\"id\": \"11\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Competitor consolidation\"}}, {\"id\": \"12\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Low-cost foreign competitors\"}}, {\"id\": \"13\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Protectionist government policies\"}}, {\"id\": \"14\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Autonomous vehicle development risks\"}}, {\"id\": \"15\", \"label\": \"RiskFactor\", \"properties\": {\"name\": \"Strategic shift execution\"}}], \"relationships\": []}",
+ "input_tokens": 1820,
+ "output_tokens": 658,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 0,
+ "latency_s": 9.657,
+ "recorded_at": "2026-10-25T13:32:29+0000"
+}

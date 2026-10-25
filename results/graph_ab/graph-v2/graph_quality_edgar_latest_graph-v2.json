@@ -1,0 +1,59 @@
+{
+ "prompt_version": "graph-v2",
+ "resolver": "llm",
+ "filings": 3,
+ "quote_verification_rate": 1.0,
+ "paragraph_coverage": 0.8376,
+ "mentions": 135,
+ "mentions_rejected": 0,
+ "mentions_per_filing": {
+  "GM": 48,
+  "NXPI": 63,
+  "TXN": 24
+ },
+ "canonical_risk_factors": 116,
+ "singleton_share": 0.9224,
+ "shared_specific": 7,
+ "shared_specific_cross_industry": 2,
+ "generic_risk_factors": 2,
+ "most_generic": {
+  "name": "Skilled engineering talent attraction and retention",
+  "companies": 3
+ },
+ "examples_shared_specific": [
+  "Data privacy regulation compliance costs",
+  "IP infringement and misappropriation claims",
+  "Restructuring and strategic change execution",
+  "Semiconductor defect liability and recall costs",
+  "Semiconductor end-market demand volatility"
+ ],
+ "shared_drivers": 7,
+ "examples_shared_drivers": [
+  "China (GM, NXPI, TXN)",
+  "import tariffs (GM, NXPI, TXN)",
+  "Automotive (NXPI, TXN)",
+  "U.S. (GM, NXPI)",
+  "United States (NXPI, TXN)"
+ ],
+ "resolution": {
+  "names_exact": 135,
+  "components": 19,
+  "merges_approved": 14,
+  "merges_rejected_llm": 34,
+  "merges_rejected_rule": 0
+ },
+ "tokens_and_cost": {
+  "graph.build": {
+   "input_tokens": 151305,
+   "output_tokens": 30258,
+   "llm_calls": 36,
+   "cost_usd": 0.883
+  },
+  "graph.resolve": {
+   "input_tokens": 19698,
+   "output_tokens": 5048,
+   "llm_calls": 24,
+   "cost_usd": 0.128
+  }
+ }
+}

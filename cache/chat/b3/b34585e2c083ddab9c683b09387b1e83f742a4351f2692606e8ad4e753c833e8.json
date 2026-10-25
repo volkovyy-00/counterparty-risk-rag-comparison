@@ -1,0 +1,65 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Difficulty enforcing U.S. judgments against the Company and its directors in the Netherlands",
+    "risk_name": "Cross-border judgment enforcement limitations",
+    "detail": "No US-Netherlands treaty on mutual judgment enforcement; claims must be relitigated before Dutch courts",
+    "quote": "In order to obtain a judgment which is enforceable in the Netherlands, the claim must be relitigated before a competent court of the Netherlands; the relevant Netherlands court has discretion to attach such weight to a judgment of the courts of the United States as it deems appropriate;",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Netherlands",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "United States",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "We are a Dutch public company with limited liability. The rights of our stockholders may be different from the rights of stockholders governed by the laws of U.S. jurisdictions.",
+    "risk_name": "Dutch corporate law stakeholder governance",
+    "detail": "Dutch naamloze vennootschap; board must by Dutch law weigh company, employee and stakeholder interests, not only stockholders",
+    "quote": "In the performance of its duties, our board of directors is required by Dutch law to consider the interests of our company, its stockholders, its employees and other stakeholders, in all cases with due observation of the principles of reasonableness and fairness.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Netherlands",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Our debt obligations expose us to risks that could adversely affect our financial condition",
+    "risk_name": "Substantial indebtedness and debt service burden",
+    "detail": "$12,290 million principal debt outstanding at December 31, 2025; cash flow diverted to principal and interest",
+    "quote": "As of December 31, 2025, we had outstanding indebtedness with an aggregate principal amount of $12,290 million. Our substantial indebtedness could have a material adverse effect on our business by:",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Exposure to increased interest rates on revolving credit facility borrowings",
+    "risk_name": "Variable-rate revolver interest rate exposure",
+    "detail": "$2,500 million RCF restated to $3,000 million on February 6, 2026; loans may bear variable interest",
+    "quote": "\u2022exposing us to the risk of increased interest rates in the event we have borrowings under our $2,500 million revolving credit facility agreement (the \u201cRCF Agreement\u201d), which was restated to $3,000 million as per February 6, 2026, because loans under the RCF Agreement may bear interest at a variable rate;",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "RCF Agreement",
+      "type": "NAMED_COUNTERPARTY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1559,
+ "output_tokens": 942,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2784,
+ "latency_s": 7.67,
+ "recorded_at": "2026-10-25T13:40:23+0000"
+}

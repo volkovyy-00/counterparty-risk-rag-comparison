@@ -1,0 +1,35 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Cybersecurity and privacy breach risks",
+    "risk_name": "Cybersecurity breach and data theft",
+    "detail": "Generic threats including state-sponsored intrusions; rising security spend",
+    "quote": "Computer hackers and others routinely attempt to breach the security of technology products, services, and systems, and those of customers, suppliers, and some of those attempts may be successful.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Employee misappropriation of proprietary technology",
+    "risk_name": "Insider theft of proprietary technology",
+    "detail": "Identified instances of former employees misappropriating technology, some possibly violating export controls, reported to authorities",
+    "quote": "We have identified instances of employee misappropriation or theft of certain proprietary technology by individuals who are no longer employed by NXP. In some cases, such misappropriation may result in the violation of applicable export control regulations, which we report to relevant authorities as appropriate.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "export control regulations",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 830,
+ "output_tokens": 366,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2784,
+ "latency_s": 3.548,
+ "recorded_at": "2026-10-25T13:40:14+0000"
+}

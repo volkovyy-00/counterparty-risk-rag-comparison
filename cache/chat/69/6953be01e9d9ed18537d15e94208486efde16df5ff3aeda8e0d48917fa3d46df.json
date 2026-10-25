@@ -1,0 +1,59 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Consequences of substantial leverage (bullet list continuation)",
+    "risk_name": "High leverage limiting financial flexibility",
+    "detail": "Leverage may trigger indenture defaults, restrict acquisitions, limit financing and cause competitive disadvantage",
+    "quote": "limiting our ability to obtain additional financial for working capital, capital expenditures, restructurings, product development, research and development, debt service requirements, investments, acquisitions and general corporate or other purposes; and",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Despite our level of indebtedness, we may still incur significantly more debt",
+    "risk_name": "Additional debt incurrence increasing leverage",
+    "detail": "Generic statement",
+    "quote": "Despite our level of indebtedness, we may still incur significantly more debt, which could further exacerbate the risks described above and affect our ability to service and repay our debt.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "If we do not comply with the covenants in our debt agreements or fail to generate sufficient cash to service and repay our debt, it could adversely affect our operating results and our financial condition.",
+    "risk_name": "Covenant breach triggering cross-default acceleration",
+    "detail": "Covenants under RCF Agreement, EIB loan facilities and unsecured note indentures; acceleration could cause cross defaults",
+    "quote": "The RCF Agreement, European Investment Bank (EIB) loan facilities and the indentures governing our unsecured notes or any other debt arrangements that we may have require us to comply with various covenants.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "European Investment Bank",
+      "type": "NAMED_COUNTERPARTY"
+     }
+    ]
+   },
+   {
+    "heading": "If we do not comply with the covenants in our debt agreements or fail to generate sufficient cash to service and repay our debt",
+    "risk_name": "Refinancing risk and insufficient debt service cash",
+    "detail": "Refinancing dependent on capital markets; may be at higher rates with more onerous covenants",
+    "quote": "Our ability to restructure or refinance our debt will depend on the condition of the capital markets and our financial condition at such time. Any refinancing of our debt could be at higher interest rates and may require us to comply with more onerous covenants, which could further restrict our business operations.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "The rating of our debt by major rating agencies may further improve or deteriorate, which could affect our additional borrowing capacity and financing costs.",
+    "risk_name": "Credit rating downgrade raising borrowing costs",
+    "detail": "Generic statement",
+    "quote": "Actual or anticipated changes or downgrades in our credit ratings, including any announcement that our ratings are under further review for a downgrade, could affect our market value and/or increase our corporate borrowing costs.",
+    "specificity": "boilerplate",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1363,
+ "output_tokens": 964,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2784,
+ "latency_s": 8.174,
+ "recorded_at": "2026-10-25T13:40:25+0000"
+}

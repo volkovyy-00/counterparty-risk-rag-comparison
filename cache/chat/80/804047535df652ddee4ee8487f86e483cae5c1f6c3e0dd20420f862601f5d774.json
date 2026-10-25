@@ -1,0 +1,69 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "We operate in a highly competitive industry that has historically had excess manufacturing capacity",
+    "risk_name": "Industry overcapacity driving pricing incentives",
+    "detail": "High fixed labor costs and collective bargaining limits on closing plants force subsidized financing, incentives, price cuts",
+    "quote": "In light of any excess capacity and high fixed costs, many industry participants have attempted to sell more vehicles by providing subsidized financing or leasing programs, offering marketing incentives, or reducing vehicle prices.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Need for North American-focused supply chain for ICE and EVs",
+    "risk_name": "North American raw materials supply shortfall",
+    "detail": "Raw material demand exceeds North American capacity; multi-year supply agreements and supplier investments require high inventory and long-term purchase commitments",
+    "quote": "These agreements may require us to hold higher-than-normal levels of raw materials inventory and to make long-term commitments to purchase raw materials. Expected demand for these raw materials currently exceeds the North American capacity of the existing supply chain.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "North America",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "electric vehicles",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Low-cost manufacturers from China and India entering markets",
+    "risk_name": "Low-cost foreign OEM competition",
+    "detail": "Chinese and Indian manufacturers compete in emerging and established markets, already hurting pricing and share",
+    "quote": "Manufacturers in countries that have lower production costs, such as China and India, have become competitors in key emerging markets and have begun offering their products in established markets, as well as low-cost alternatives to established entry-level automobiles.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "China",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "India",
+      "type": "GEOGRAPHY"
+     }
+    ]
+   },
+   {
+    "heading": "Foreign government policies and import tariffs",
+    "risk_name": "Protectionist policies and import tariffs",
+    "detail": "Foreign governments may favor domestic manufacturers over GM and JV partners; tariffs may challenge global business",
+    "quote": "In addition, foreign governments may decide to implement tax and other policies that favor their domestic manufacturers at the expense of international manufacturers, including GM and its joint venture partners. Introduction or modification of import tariffs or tariff-related measures may lead to further challenges for GM and our global business.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "import tariffs",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1055,
+ "output_tokens": 886,
+ "cache_write_tokens": 2784,
+ "cache_read_tokens": 0,
+ "latency_s": 10.459,
+ "recorded_at": "2026-10-25T13:39:39+0000"
+}

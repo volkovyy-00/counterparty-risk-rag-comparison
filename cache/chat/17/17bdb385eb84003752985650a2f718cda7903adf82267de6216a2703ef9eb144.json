@@ -1,0 +1,56 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Refocused AV strategy on personal vehicles dependent on mitigating technological, operational, regulatory and competitive risks",
+    "risk_name": "Autonomous vehicle development and commercialization risk",
+    "detail": "Wound down Cruise robotaxi after Dec 2024 refocus; acquired Cruise minority stake Feb 2025; AV/ADAS still capital intensive, needs AI talent and data",
+    "quote": "While we expect our refocused AV strategy to be less capital intensive than the Cruise robotaxi plan, we expect that our AV and ADAS development activities will continue to require significant capital investments and remain subject to a variety of risks inherent with the development of new technologies, including our ability to continue to develop self-driving software and hardware; attract and retain key software talent with expertise in AI and machine learning; access sufficient capital; access high-quality data to train the AI models deployed in our AV and ADAS technologies; and respond to significant competition from both established automotive companies and technology companies, some of which may have more resources and capital to devote to AV technologies than we do.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "Cruise",
+      "type": "NAMED_COUNTERPARTY"
+     },
+     {
+      "name": "AV and ADAS technologies",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "AI",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Risks associated with climate change, GHG regulation and changing consumer demand",
+    "risk_name": "Evolving emissions regulation and EV demand shift",
+    "detail": "Federal easing of emissions/fuel economy rules slowed North American EV demand; possible emissions credit purchases or penalties; ICE cost/demand pressure",
+    "quote": "In addition, the reduction in the stringency of emissions regulations has slowed and may continue to slow consumer demand for EVs in North America. These requirements may increase the cost of, and/or diminish demand for, our ICE vehicles.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "North America",
+      "type": "GEOGRAPHY"
+     },
+     {
+      "name": "EVs",
+      "type": "TECHNOLOGY_END_MARKET"
+     },
+     {
+      "name": "emissions and fuel economy regulations",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   }
+  ]
+ },
+ "input_tokens": 1718,
+ "output_tokens": 769,
+ "cache_write_tokens": 2784,
+ "cache_read_tokens": 0,
+ "latency_s": 9.317,
+ "recorded_at": "2026-10-25T13:39:37+0000"
+}

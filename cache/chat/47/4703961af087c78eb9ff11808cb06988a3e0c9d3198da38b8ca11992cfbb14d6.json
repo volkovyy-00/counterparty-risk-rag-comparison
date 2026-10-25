@@ -1,0 +1,68 @@
+{
+ "model": "claude-opus-5-5",
+ "served_model": "claude-opus-5-5",
+ "content": {
+  "mentions": [
+   {
+    "heading": "Changes in expected demand for our products could have a material adverse effect on our results of operations.",
+    "risk_name": "Cyclical semiconductor demand volatility",
+    "detail": "Semiconductor cyclicality; large customer curtailments from sourcing changes, inventory adjustments, tariffs or export controls",
+    "quote": "The cyclical nature of the semiconductor market occasionally leads to significant and rapid increases and decreases in product demand.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "semiconductor market",
+      "type": "TECHNOLOGY_END_MARKET"
+     }
+    ]
+   },
+   {
+    "heading": "Changes in expected demand for our products could have a material adverse effect on our results of operations.",
+    "risk_name": "Large customer purchase curtailment from trade measures",
+    "detail": "Loss of large customers due to sourcing policy changes, tariffs, export controls or other trade measures",
+    "quote": "Additionally, the loss or significant curtailment of purchases by one or more of our large customers, including curtailments due to a change in the design or manufacturing sourcing policies or practices of these customers, the timing of customer or distributor inventory adjustments, changes in demand for customer products, tariffs, export controls or other trade measures, may adversely affect our results of operations and financial condition.",
+    "specificity": "specific",
+    "drivers": [
+     {
+      "name": "tariffs",
+      "type": "REGULATION_POLICY"
+     },
+     {
+      "name": "export controls",
+      "type": "REGULATION_POLICY"
+     }
+    ]
+   },
+   {
+    "heading": "Ability to match inventory and production with product mix",
+    "risk_name": "Inventory forecasting mismatch and obsolescence",
+    "detail": "Manufactures ahead for high customer service; inaccurate forecasts cause excess or obsolete inventory",
+    "quote": "Our manufacturing forecasts are based on multiple assumptions, and if inaccurate, could cause us to hold inadequate, excess or obsolete inventory that would reduce our profit margins and adversely affect our results of operations and financial condition.",
+    "specificity": "specific",
+    "drivers": []
+   },
+   {
+    "heading": "Our operating results and our reputation could be adversely affected by cybersecurity events, breaches, disruptions or other incidents relating to our information technology systems.",
+    "risk_name": "Cybersecurity breach disrupting manufacturing",
+    "detail": "Generic statement; mentions nation-state espionage and AI tools as threat vectors",
+    "quote": "Cybersecurity or other threats to our information technology systems or the systems of our customers, suppliers and other third parties are frequent, increasingly sophisticated and constantly evolving, thereby making them more difficult to detect, mitigate and defend against.",
+    "specificity": "boilerplate",
+    "drivers": []
+   },
+   {
+    "heading": "Our ability to successfully implement strategic, business and organizational changes could affect our business plans and results of operations.",
+    "risk_name": "Strategic change and restructuring execution",
+    "detail": "Generic statement",
+    "quote": "We may not achieve or sustain the expected growth, cost savings or other benefits of strategic, business and organizational changes, and charges associated with these actions could differ materially in amount and timing from our expectations.",
+    "specificity": "boilerplate",
+    "drivers": []
+   }
+  ]
+ },
+ "input_tokens": 1208,
+ "output_tokens": 1049,
+ "cache_write_tokens": 0,
+ "cache_read_tokens": 2784,
+ "latency_s": 8.6,
+ "recorded_at": "2026-10-25T13:40:33+0000"
+}
