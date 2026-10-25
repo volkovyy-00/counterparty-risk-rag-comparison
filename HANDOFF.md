@@ -112,8 +112,11 @@ See `docs/GRAPHRAG_V2.md`.
     cap, (b) is dropped first, then (c). Approach 2 is not rerun (a rebuild costs about $9.6); screen 6 says so.
 
 ## demo-real: status (25 Oct 2026, third session)
-- Brief: the real-data demo, staged spend with gates. **Gate 1 (core) is done; stopped, waiting for "go extras" or
-  "skip extras".** Nothing is pushed: don't push until the user says "push".
+- Brief: the real-data demo, staged spend with gates. **Gate 1 (core) is done; the user said they will go extras
+  next.** Nothing is pushed: don't push until the user says "push".
+- Key: verified by the user (YV, 650 cells), cherry-picked from `ground-truth-key` (`f0a0027`); run A re-scored in
+  replay ($0). Leaf F1: RAG 0.03, GraphRAG 0.06, taxonomy 0.74, long context 0.15. The page stays `--draft` only
+  because screen 7 cites `3_taxonomy_first.rerun_jaccard`, which extras step (b) produces.
 - Stage 0: `real_run.py --stage core|extras`, spend ledger (`LLM_SPEND_LEDGER`, so `LLM_MAX_USD` holds across
   steps), bridge ranking in code (`graph_qa.rank_bridge`), `driver_dups.py` (alias *proposals* only), page fixes.
 - Core run, measured (`results/demo_run/spend.json`, ledger `results/spend/real_run_core.jsonl`): **$8.76 of the
