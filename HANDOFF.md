@@ -112,14 +112,26 @@ See `docs/GRAPHRAG_V2.md`.
     cap, (b) is dropped first, then (c). Approach 2 is not rerun (a rebuild costs about $9.6); screen 6 says so.
 
 ## demo-real: status (25 Oct 2026, third session)
-- Brief: the real-data demo, staged spend with gates. **Stopped at Gate 1, waiting for "go core".** Nothing has been
-  spent on this branch. Don't push until the user says "push".
-- Stage 0 is done: `real_run.py --stage core|extras`, spend ledger (`LLM_SPEND_LEDGER`, so `LLM_MAX_USD` holds across
-  steps), bridge ranking in code (`graph_qa.rank_bridge`), `driver_dups.py` (alias *proposals* only), and page fixes
-  (wrapped labels, screen-4 headline/core Cypher/C key, coverage wording, quote debris, leaf labels, scorecard
-  headline, screen-7 `--draft` guard, CET, short names). Tests: 67 passed, 2 skipped offline.
-- Measured core estimate: $13.94 (36 of 161 graph-build calls replay from the A/B cache). Extras: $8.18
-  ((a) $0.31, (b) $5.22, (c) Sonnet $2.65). An approach-2 rebuild is estimated at $9.35.
+- Brief: the real-data demo, staged spend with gates. **Gate 1 (core) is done; stopped, waiting for "go extras" or
+  "skip extras".** Nothing is pushed: don't push until the user says "push".
+- Stage 0: `real_run.py --stage core|extras`, spend ledger (`LLM_SPEND_LEDGER`, so `LLM_MAX_USD` holds across
+  steps), bridge ranking in code (`graph_qa.rank_bridge`), `driver_dups.py` (alias *proposals* only), page fixes.
+- Core run, measured (`results/demo_run/spend.json`, ledger `results/spend/real_run_core.jsonl`): **$8.76 of the
+  $20 cap** (estimate $13.94). Graph build $3.94, run A $3.62, graph QA $0.02, then three fixes: GM/F
+  re-classified $0.75, approach-2 ask again $0.43, graph QA again $0.01.
+- Fixed during the core run:
+  - GM and F fell back to fixed windows without `[RF n]` markers; the v3 prompt returned almost nothing (GM 5
+    claims, F 0). They now use the paragraph split (`corpus.split_paragraphs`).
+  - `test_graphrag_build_ask_and_export` resets the local Neo4j, so a test run with Neo4j up wiped the demo graph.
+    It now needs `NEO4J_TEST=1`. The graph was rebuilt from the cache (`LLM_CACHE=replay ... build --reset`, $0),
+    identical: 704 mentions, 360 risk factors.
+  - The approach-2 ask and graph-QA prompts depended on Neo4j's storage order, so a rebuild changed their cache
+    keys. Evidence is now sorted on every field; graph QA replays identically.
+- Run A: L 36/36 claims, 10/10 companies; RAG 13/13, retrieved 8/10 (F and TXN never retrieved), 5/10 in the
+  answer; GraphRAG 19/19, 9/10; taxonomy 410/431 (1 quote, 20 labels rejected), 10/10, 60 shared leaves.
+- `driver_dups.py` on the full graph proposes some wrong aliases (North/South America, Northern Africa/Northern
+  California, Department of War/Commerce, Robotaxi/robotics). Review by hand; don't paste the YAML as is.
+- Extras estimate: $8.18 ((a) $0.31, (b) $5.22, (c) Sonnet $2.65). An approach-2 rebuild is estimated at $9.35.
 - The user's rule for extras: over $10, drop (b) first, then (c). Confirm the Sonnet model id against the API's
   models list before Gate 2.
 - Never install `fake_llm` outside the tests' `offline` fixture or `make_fixture`: it writes fake replies into the
