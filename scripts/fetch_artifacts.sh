@@ -13,7 +13,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 TAG=demo-artifacts-2026-10-25
-BASE="https://github.com/volkovyy-00/counterparty-risk-rag-comparison/releases/download/$TAG"
+BASE=${ARTIFACTS_BASE:-"https://github.com/volkovyy-00/counterparty-risk-rag-comparison/releases/download/$TAG"}  # or a mirror
 declare -A FILE=([fallback]=fallback.tar.gz [cache]=replay-cache.tar.gz [results]=results-extra.tar.gz)
 declare -A SHA=(
   [fallback]=a5563f589ddc3b68f1e8706a9d99dbd0b01d3b15eaf07998d694bb079ec2063b
