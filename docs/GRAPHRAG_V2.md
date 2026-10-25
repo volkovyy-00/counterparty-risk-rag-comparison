@@ -29,6 +29,21 @@ If a proposed group mixes two sides of a known pair, the smaller side is split o
 price; physical climate vs climate regulation; export controls vs import tariffs; recalls vs product liability; own
 plants vs suppliers; natural disaster vs yield or quality problems. Patterns: `graph_resolve.KEEP_APART`.
 
+## Screen 4: ask the graph
+
+`src/graph_qa.py` holds five fixed questions, each bound to one parameterised Cypher template
+(`SHARED_AMONG`, `SHARED_VS_SPECIFIC`, `BRIDGE_DRIVERS`), run in a READ transaction. The page draws exactly the
+rows the query returned, shows the Cypher with its template name and parameters, and opens the usual quote drawer
+from any node. The model writes the answer from those rows only, and the shared verifier checks every claim. A
+query with no rows is stored as empty and gets no model call (for the bridge question the page says "No bridge
+found – the graph won't invent a link"). Three questions are live in the talk (GM + NXPI, most shared vs most
+specific, what links autos to chips); two are kept for Q&A behind **M**. **O** shows the whole graph. There is no
+free-text input: a fixed question with its Cypher on screen is the governance point. Text2Cypher is left out.
+
+The real run calls it right after `export_graph.py` (estimate row "2 graph QA", about $0.50). To answer the
+questions on another saved graph, reload it first with no model call:
+`python src/approach2_graphrag.py load --reset --snapshot <graph_snapshot_….json>`, then `make graph-qa`.
+
 ## Files
 
 | File | Contents |
@@ -40,6 +55,7 @@ plants vs suppliers; natural disaster vs yield or quality problems. Patterns: `g
 | `src/graph_quality.py` | metrics from the build files, no Neo4j |
 | `src/graph_check.py` | the hand-check CSV and its score |
 | `src/graph_ab.py` | the A/B with its cost gate and report |
+| `src/graph_qa.py` | screen 4: fixed questions, read-only Cypher templates, verified answers |
 
 Outputs in `results/`:
 - `graph_extract_<corpus>_graph-v2.jsonl`: raw replies.

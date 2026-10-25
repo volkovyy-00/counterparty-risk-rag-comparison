@@ -32,7 +32,7 @@ Keys: **1–7** switch screens, **G** governance, **T** timer, **D** dark theme,
 **F/O/A** run the governance checks (G). The beat-by-beat script is in [docs/REHEARSAL.md](docs/REHEARSAL.md).
 
 Fallbacks: no Wi-Fi → `make demo`. No Neo4j → nothing changes, because the graph comes from
-`results/demo_run/graph.json`. No browser → open the PNGs in `demo/fallback/` (`make screenshots`).
+`results/demo_run/graph.json` and the graph answers from `results/demo_run/graph_qa.json`. No browser → open the PNGs in `demo/fallback/` (`make screenshots`).
 
 ## Producing the frozen run (once, online – this is the only step that spends money)
 
@@ -52,7 +52,8 @@ make check-secrets && git add results/demo_run cache data/corpus && git commit
 1. Fetches the 10-Ks, respecting SEC fair-access rules and logging data-quality issues without fixing them.
 2. Builds the graph.
 3. Runs approaches 1, 2, 3 and L, then freezes the result into `results/demo_run/`.
-4. Exports the graph.
+4. Exports the graph and answers the fixed screen-4 graph questions (`src/graph_qa.py`; read-only Cypher, verified
+   claims, saved to `results/demo_run/graph_qa.json`).
 5. Records run B for the audit trail.
 6. Adds 2 more runs with the cache off for the rerun-consistency figure.
 7. Builds the governance fixtures, the page and the screenshots.
