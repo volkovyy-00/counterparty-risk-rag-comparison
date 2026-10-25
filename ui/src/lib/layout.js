@@ -3,8 +3,8 @@
 export function placeNodes(comps, items, edges, W, H) {
   const left = comps.filter(c => c.industry !== "semis"), right = comps.filter(c => c.industry === "semis");
   const pos = {};
-  const place = (arr, x) => arr.forEach((c, i) => pos[c.id] = { x, y: 60 + (H - 120) * (arr.length === 1 ? .5 : i / (arr.length - 1)) });
-  place(left, 80); place(right, W - 80);
+  const place = (arr, x) => arr.forEach((c, i) => pos[c.id] = { x, y: 60 + (H - 100) * (arr.length === 1 ? .5 : i / (arr.length - 1)) });
+  place(left, 70); place(right, W - 70);
   const nb = {};
   edges.forEach(e => (nb[e.target] = nb[e.target] || []).push(e.source));
   const side = n => {
