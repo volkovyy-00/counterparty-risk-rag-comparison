@@ -28,12 +28,10 @@ TSLA APTV BWA LEA (autos) and NXPI MCHP ON TXN (semis).
 - Remote https://github.com/volkovyy-00/counterparty-risk-rag-comparison: `main` is at `364ca09`.
   `standalone` is the same as main; the user should delete it, and also `demo-ready` (old workshop history).
   This session's proxy cannot delete branches.
-- **Branch `graphrag-v2`** holds GraphRAG v2: 10 commits on top of `main`, plus this file. The user's spec
-  said to commit locally and not push. Push it only if the user agrees (it's needed for the next session to see
-  it).
+- **Branch `graphrag-v2`** holds GraphRAG v2 and is pushed (the user agreed). Keep pushing small commits there.
 - Layout: `src/` code, `config/` YAML (groups, taxonomy, pricing, ground_truth, graph_aliases), `demo/` page,
   `tests/`, `docs/` (DETAILS, REHEARSAL, GRAPHRAG_V2), `data/corpus/edgar_latest/` (frozen 10-K Item 1A text).
-- Tests: 39 passed and 2 skipped without Neo4j; 40 passed and 1 skipped with Neo4j. The remaining skip is the
+- Tests: 45 passed and 2 skipped without Neo4j; 46 passed and 1 skipped with Neo4j. The remaining skip is the
   "frozen demo run" check, because `results/demo_run/` doesn't exist yet.
 
 ## Environment (cloud container)
@@ -64,16 +62,36 @@ See `docs/GRAPHRAG_V2.md`.
   plus a full-filing view. **The user confirmed this drawer is right as it is.** Screen 6 has a graph-quality
   row.
 
+## Done on 25 Oct 2026 (second session)
+- **Graph A/B ran and passes** (`results/graph_ab_2026-10-25.md`, history in `docs/GRAPHRAG_V2.md`). B went
+  from coverage 83.8% / singletons 92.2% / 7 shared specific to 89.0% / 74.8% / 18 (10 auto ↔ semis), no
+  keep-apart breach. Fixes: comparable risk names, a mention per later paragraph with another driver, page-break
+  fragments joined, candidates from names (cosine 0.75), components of 12, same-words merge, keep-apart splits only
+  the smaller side (+ natural disaster vs yield), alias keys ("U.S."). The singleton bar was changed with the user's
+  approval to "below graph-v2's first run (92.2%)", because A's 70.5% comes from over-merging.
+- **Spend:** $3.41 in total for the A/B series (first $5 cap: $2.05; second $5 cap: $1.36). All calls are in
+  `cache/chat/` (committed), so the 3 A/B filings replay for free in the full build.
+- **Screen 4 = ask the graph** (`src/graph_qa.py`, `make graph-qa`): 5 fixed questions on 3 read-only Cypher
+  templates; the page draws exactly the returned rows, shows Cypher + template + params, opens the quote drawer
+  from any node; empty rows → no model call, "No bridge found – the graph won't invent a link". Stage chips:
+  GM + NXPI, most shared vs most specific (landing), what links autos to chips; M shows 2 more; O whole graph.
+  No free-text input; Text2Cypher left out. Rehearsal beat 4 is timed per chip. Answers are NOT computed yet: they
+  come from the real run (step after `export_graph.py`, estimate row ~$0.49).
+- `python src/approach2_graphrag.py load --reset --snapshot <file>` reloads a saved v2 graph with no model call.
+- **Screen 5 overflow fixed** (fixed 520px side column, cross-leaf counts; cells unchanged) and **screen 2
+  overflow fixed** (132px; 6 findings + "N more"). All 23 screenshot states fit at 1920×1080 and 1280×720.
+- Two commit messages (535c5ea, a80e81a) have the attribution lines on the subject paragraph; rewriting pushed
+  history was not allowed. Harmless.
+
 ## Cost estimates (Opus 5.5, input tokens measured, output tokens assumed)
-- Graph A/B on GM, NXPI and TXN: **$3.67** (A $1.57 + B $2.11). Waiting for the user's "go" (cap $5):
-  `make graph-ab ARGS="--confirm-usd 5"`.
-- Full graph build: v1 $7.97, v2 $9.64.
+- Full graph build: v1 $7.97, v2 about $9.6 (v2 extraction now returns somewhat more mentions per chunk).
 - Whole frozen demo with 2 reruns and audit run B: about $50. The user found that too much. Cheaper paths
   discussed: Sonnet 5.5 (about half the cost), reruns only for approach 1, or skipping audit run B. **The model
   choice and plan are still open.**
 
 ## Next tasks, in order
-1. **Ask the user** whether to push `graphrag-v2` (for continuity) and whether to run the A/B now.
+1. Done this session: A/B, screen 4 ask-the-graph, screen 5 (and 2) overflow. Items 2–3 below are kept for
+   reference.
 2. **Screen 4 as "ask the graph"** (the user wants it; the plan was drafted but not yet approved in detail):
    - Predefined question chips.
    - Each question runs a fixed, parameterised, read-only Cypher template; the LLM writes the answer from the
@@ -95,7 +113,7 @@ See `docs/GRAPHRAG_V2.md`.
      calls, under $1.
 3. Pre-existing bug: **screen 5 overflows by 178 px with 10 companies** at every size. Fix it (approach 3's
    screen; outside the GraphRAG change).
-4. The real run, after the user decides on model and budget: `make estimate`, then `make real-run ARGS="--confirm-usd N"`.
+4. The real run (now includes graph QA), after the user decides on model and budget: `make estimate`, then `make real-run ARGS="--confirm-usd N"`.
 5. The user labels the key (`make label`); then the timed dry run (`docs/REHEARSAL.md`) and the recording.
 
 ## Working notes
