@@ -1,0 +1,3046 @@
+{
+ "questions": [
+  {
+   "id": "gm_nxpi",
+   "label": "GM + NXPI",
+   "question": "Which risks do GM and NXP Semiconductors both disclose?",
+   "stage": true,
+   "template": "SHARED_AMONG",
+   "params": {
+    "tickers": [
+     "GM",
+     "NXPI"
+    ],
+    "min_shared": 2,
+    "limit": 8
+   },
+   "cypher": "MATCH (c:Company)-[f:FACES_RISK]->(r:RiskFactor)\nWHERE c.ticker IN $tickers\nWITH r, collect({ticker: c.ticker, quotes: f.quotes[0..2], spans: f.spans[0..2], chunk_ids: f.chunk_ids[0..2]}) AS evidence\nWHERE size(evidence) >= $min_shared\nRETURN r.id AS id, r.name AS risk, r.definition AS definition, coalesce(r.generic, false) AS generic,\n       r.n_companies AS n_companies, 'shared' AS role, evidence\nORDER BY size(evidence) DESC, generic, r.n_companies, risk\nLIMIT $limit",
+   "rows": 8,
+   "ranked_by": null,
+   "subgraph": {
+    "nodes": [
+     {
+      "id": "c:GM",
+      "type": "Company",
+      "label": "GM",
+      "name": "General Motors Co",
+      "industry": "auto"
+     },
+     {
+      "id": "c:NXPI",
+      "type": "Company",
+      "label": "NXPI",
+      "name": "NXP Semiconductors N.V.",
+      "industry": "semis"
+     },
+     {
+      "id": "r:rf50",
+      "label": "Disruption at own manufacturing facilities",
+      "degree": 2,
+      "industries": [
+       "auto",
+       "semis"
+      ],
+      "type": "RiskFactor",
+      "generic": false,
+      "definition": "Stoppages, outages, or yield problems at the company's own (or interdependent) manufacturing plants could halt production and reduce revenue and profitability.",
+      "n_companies": 4,
+      "role": "shared"
+     },
+     {
+      "id": "r:rf160",
+      "label": "Joint venture partner and control risk",
+      "degree": 2,
+      "industries": [
+       "auto",
+       "semis"
+      ],
+      "type": "RiskFactor",
+      "generic": false,
+      "definition": "Risk that limited or shared control over joint ventures, partner conflicts, defaults or dependence, and weaker compliance oversight could harm operations, cause penalties or reputational damage.",
+      "n_companies": 4,
+      "role": "shared"
+     },
+     {
+      "id": "r:rf129",
+      "label": "Physical climate and extreme weather disruption",
+      "degree": 2,
+      "industries": [
+       "auto",
+       "semis"
+      ],
+      "type": "RiskFactor",
+      "generic": false,
+      "definition": "Extreme weather events and physical climate effects such as storms, floods, droughts, and wildfires may damage facilities, disrupt operations, utilities, and supply chains, and raise costs including insurance.",
+      "n_companies": 5,
+      "role": "shared"
+     },
+     {
+      "id": "r:rf268",
+      "label": "Single or limited-source supplier dependence",
+      "degree": 2,
+      "industries": [
+       "auto",
+       "semis"
+      ],
+      "type": "RiskFactor",
+      "generic": false,
+      "definition": "Reliance on sole, single or limited-source suppliers for key components, materials or technologies means a supplier failure or disruption could delay production, raise costs or reduce product availability.",
+      "n_companies": 5,
+      "role": "shared"
+     },
+     {
+      "id": "r:rf162",
+      "label": "Data privacy regulation compliance costs",
+      "degree": 2,
+      "industries": [
+       "auto",
+       "semis"
+      ],
+      "type": "RiskFactor",
+      "generic": false,
+      "definition": "Expanding and varied data privacy, data localization and related regulations across jurisdictions could impose significant compliance costs, investigations, penalties or operational disruptions.",
+      "n_companies": 6,
+      "role": "shared"
+     },
+     {
+      "id": "r:rf298",
+      "label": "Pension underfunding and contribution requirements",
+      "degree": 2,
+      "industries": [
+       "auto",
+       "semis"
+      ],
+      "type": "RiskFactor",
+      "generic": false,
+      "definition": "Declines in discount rates or plan asset returns may leave defined benefit pension and retiree obligations underfunded, requiring higher cash contributions and increasing pension expense.",
+      "n_companies": 6,
+      "role": "shared"
+     },
+     {
+      "id": "r:rf115",
+      "label": "Restructuring charges and execution risk",
+      "degree": 2,
+      "industries": [
+       "auto",
+       "semis"
+      ],
+      "type": "RiskFactor",
+      "generic": false,
+      "definition": "Restructuring actions such as plant closures, capacity realignment and footprint changes may incur significant charges or impairments and fail to deliver the expected savings.",
+      "n_companies": 6,
+      "role": "shared"
+     },
+     {
+      "id": "r:rf285",
+      "label": "Workforce labor strikes and work stoppages",
+      "degree": 2,
+      "industries": [
+       "auto",
+       "semis"
+      ],
+      "type": "RiskFactor",
+      "generic": false,
+      "definition": "Unionized or organizing workforces, collective bargaining disputes, or works council requirements may lead to strikes, work stoppages, or constraints that disrupt the company's own operations and raise costs.",
+      "n_companies": 7,
+      "role": "shared"
+     }
+    ],
+    "edges": [
+     {
+      "source": "c:GM",
+      "target": "r:rf50",
+      "quotes": [
+       {
+        "text": "We may not be able to easily shift production to other facilities or to make up for lost production.",
+        "start": 38056,
+        "end": 38156,
+        "chunk_id": "GM-g7",
+        "risk_name": "Disruption at own manufacturing facilities"
+       }
+      ]
+     },
+     {
+      "source": "c:NXPI",
+      "target": "r:rf50",
+      "quotes": [
+       {
+        "text": "Further, we may suffer disruptions in our manufacturing operations, either due to production difficulties such as those described above or as a result of external factors beyond our control, such as the disruption to our Austin, Texas manufacturing facilities caused by the February 2021 winter storm.",
+        "start": 26720,
+        "end": 27021,
+        "chunk_id": "NXPI-g5",
+        "risk_name": "Disruption at own manufacturing facilities"
+       }
+      ]
+     },
+     {
+      "source": "c:GM",
+      "target": "r:rf160",
+      "quotes": [
+       {
+        "text": "If we are unable to successfully source and execute on strategic business relationships in the future, our overall growth could be impaired, and our business, prospects, and results of operations could be materially adversely affected.",
+        "start": 30157,
+        "end": 30392,
+        "chunk_id": "GM-g5",
+        "risk_name": "Joint venture partner and control risk"
+       },
+       {
+        "text": "Our primary joint venture agreement for our China JVs expires in 2027, and we are in negotiations with our partner for a new agreement.",
+        "start": 31671,
+        "end": 31806,
+        "chunk_id": "GM-g6",
+        "risk_name": "Joint venture partner and control risk"
+       }
+      ]
+     },
+     {
+      "source": "c:NXPI",
+      "target": "r:rf160",
+      "quotes": [
+       {
+        "text": "If we do not achieve the anticipated benefits of these joint ventures, or if newly established joint ventures are not able to begin production in the expected timing or achieve expected efficiency and quality, our business and results of operations may be adversely affected.",
+        "start": 39445,
+        "end": 39720,
+        "chunk_id": "NXPI-g8",
+        "risk_name": "Joint venture partner and control risk"
+       }
+      ]
+     },
+     {
+      "source": "c:GM",
+      "target": "r:rf129",
+      "quotes": [
+       {
+        "text": "In addition, increased intensity, frequency, or duration of storms, droughts, wildfires, or other severe weather events as a result of climate change may disrupt our production and the production, logistics, cost, and procurement of products from our suppliers, timely delivery of vehicles to customers and operations of our dealers, and could negatively impact working conditions at our plants and those of our suppliers and dealers.",
+        "start": 20406,
+        "end": 20840,
+        "chunk_id": "GM-g4",
+        "risk_name": "Physical climate and extreme weather disruption"
+       }
+      ]
+     },
+     {
+      "source": "c:NXPI",
+      "target": "r:rf129",
+      "quotes": [
+       {
+        "text": "Such natural disasters pose physical risks to our manufacturing, IT facilities or our suppliers\u2019 facilities, or could disrupt the availability of water and utilities necessary for the operation of our manufacturing facilities or our suppliers\u2019 facilities resulting in increased operating costs and business disruption, such as the disruption to our Austin, Texas manufacturing facilities caused by the February 2021 winter storm and weather-related disruption of water and utilities to these facilities.",
+        "start": 34178,
+        "end": 34681,
+        "chunk_id": "NXPI-g7",
+        "risk_name": "Physical climate and extreme weather disruption"
+       }
+      ]
+     },
+     {
+      "source": "c:GM",
+      "target": "r:rf268",
+      "quotes": [
+       {
+        "text": "In some instances, we purchase systems, components, raw materials, and parts that are ultimately derived from a single source and may be at an increased risk for supply disruptions.",
+        "start": 39498,
+        "end": 39679,
+        "chunk_id": "GM-g7",
+        "risk_name": "Single or limited-source supplier dependence"
+       }
+      ]
+     },
+     {
+      "source": "c:NXPI",
+      "target": "r:rf268",
+      "quotes": [
+       {
+        "text": "Supply disruptions may also occur due to shortages in critical materials, such as silicon wafers or specialized chemicals. In addition, the imposition of tariffs or other trade restrictions may significantly increase the costs, and otherwise adversely impact the availability of certain raw materials and supplies needed for our manufacturing operations.",
+        "start": 27858,
+        "end": 28212,
+        "chunk_id": "NXPI-g5",
+        "risk_name": "Single or limited-source supplier dependence"
+       }
+      ]
+     },
+     {
+      "source": "c:GM",
+      "target": "r:rf162",
+      "quotes": [
+       {
+        "text": "Complying with these new laws has significantly increased, and may continue to increase, our operating costs and is driving increased complexity in our operations.",
+        "start": 53065,
+        "end": 53228,
+        "chunk_id": "GM-g10",
+        "risk_name": "Data privacy regulation compliance costs"
+       }
+      ]
+     },
+     {
+      "source": "c:NXPI",
+      "target": "r:rf162",
+      "quotes": [
+       {
+        "text": "Furthermore, global privacy legislation, enforcement, and policy activity, such as the EU General Data Privacy Regulation, are rapidly expanding and creating a complex regulatory compliance environment. Costs to comply with and implement these privacy-related and data protection measures could be significant.",
+        "start": 41971,
+        "end": 42281,
+        "chunk_id": "NXPI-g8",
+        "risk_name": "Data privacy regulation compliance costs"
+       }
+      ]
+     },
+     {
+      "source": "c:GM",
+      "target": "r:rf298",
+      "quotes": [
+       {
+        "text": "Future funding requirements generally increase if the discount rate decreases or if actual asset returns are lower than expected asset returns, assuming other factors are held constant.",
+        "start": 66106,
+        "end": 66291,
+        "chunk_id": "GM-g12",
+        "risk_name": "Pension underfunding and contribution requirements"
+       }
+      ]
+     },
+     {
+      "source": "c:NXPI",
+      "target": "r:rf298",
+      "quotes": [
+       {
+        "text": "As of December 31, 2025, we had recognized a net accrued benefit liability of $342 million, representing the unfunded benefit obligations of our defined pension plans.",
+        "start": 74014,
+        "end": 74181,
+        "chunk_id": "NXPI-g15",
+        "risk_name": "Pension underfunding and contribution requirements"
+       }
+      ]
+     },
+     {
+      "source": "c:GM",
+      "target": "r:rf115",
+      "quotes": [
+       {
+        "text": "We have made and may need to make additional changes to our global production footprint and workforce, which could require significant capital expenditures and could result in asset impairments and other charges, including restructuring charges, any of which could be material.",
+        "start": 25759,
+        "end": 26036,
+        "chunk_id": "GM-g4",
+        "risk_name": "Restructuring charges and execution risk"
+       }
+      ]
+     },
+     {
+      "source": "c:NXPI",
+      "target": "r:rf115",
+      "quotes": [
+       {
+        "text": "The costs of implementing any restructurings, changes or cost savings steps may differ from our estimates and any negative impacts on our revenues or otherwise of such restructurings, changes or steps, such as situations in which customer satisfaction is negatively impacted, may be larger than originally estimated.",
+        "start": 18330,
+        "end": 18646,
+        "chunk_id": "NXPI-g3",
+        "risk_name": "Restructuring charges and execution risk"
+       }
+      ]
+     },
+     {
+      "source": "c:GM",
+      "target": "r:rf285",
+      "quotes": [
+       {
+        "text": "In addition, substantially all of our hourly employees are represented by unions and covered by collective bargaining agreements that must be negotiated from time-to-time, including at the local facility level.",
+        "start": 38422,
+        "end": 38632,
+        "chunk_id": "GM-g7",
+        "risk_name": "Workforce labor strikes and work stoppages"
+       }
+      ]
+     },
+     {
+      "source": "c:NXPI",
+      "target": "r:rf285",
+      "quotes": [
+       {
+        "text": "We are also required to consult with our employee representatives, such as works councils, on items such as restructurings, acquisitions and divestitures.",
+        "start": 19150,
+        "end": 19304,
+        "chunk_id": "NXPI-g4",
+        "risk_name": "Workforce labor strikes and work stoppages"
+       }
+      ]
+     }
+    ],
+    "drivers": [],
+    "driver_edges": []
+   },
+   "empty": false,
+   "summary": "GM and NXP Semiconductors both disclose risks of disruption at their own manufacturing facilities, reliance on joint ventures and partners, physical climate and extreme-weather disruption, single or limited-source supplier dependence, data privacy regulation compliance costs, pension funding obligations, restructuring execution, and labor strikes or work stoppages. Each claim below is supported by an excerpt from each company's own filing.",
+   "claims": [
+    {
+     "company": "GM",
+     "category": "SUPPLY_CHAIN",
+     "leaf": "SUPPLY_CHAIN.manufacturing_disruption",
+     "quote": "Any significant disruption at one of our manufacturing facilities could disrupt our production schedule.",
+     "source_ref": "GM-g7",
+     "risk": "Disruption at own manufacturing facilities",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 36967,
+     "end": 37071,
+     "in_cited_source": true
+    },
+    {
+     "company": "NXPI",
+     "category": "SUPPLY_CHAIN",
+     "leaf": "SUPPLY_CHAIN.manufacturing_disruption",
+     "quote": "Further, we may suffer disruptions in our manufacturing operations, either due to production difficulties such as those described above or as a result of external factors beyond our control",
+     "source_ref": "NXPI-g5",
+     "risk": "Disruption at own manufacturing facilities",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 26720,
+     "end": 26909,
+     "in_cited_source": true
+    },
+    {
+     "company": "GM",
+     "category": "STRATEGY_MA",
+     "leaf": "STRATEGY_MA.joint_ventures_investments",
+     "quote": "Our primary joint venture agreement for our China JVs expires in 2027, and we are in negotiations with our partner for a new agreement.",
+     "source_ref": "GM-g6",
+     "risk": "Joint venture partner and control risk",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 31671,
+     "end": 31806,
+     "in_cited_source": true
+    },
+    {
+     "company": "NXPI",
+     "category": "STRATEGY_MA",
+     "leaf": "STRATEGY_MA.joint_ventures_investments",
+     "quote": "we often do not control these partnerships and joint ventures, and actions taken by any of our partners or the termination of these joint ventures could adversely affect our business.",
+     "source_ref": "NXPI-g8",
+     "risk": "Joint venture partner and control risk",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 37996,
+     "end": 38179,
+     "in_cited_source": true
+    },
+    {
+     "company": "GM",
+     "category": "CLIMATE_NATCAT",
+     "leaf": "CLIMATE_NATCAT.natural_disasters_weather",
+     "quote": "increased intensity, frequency, or duration of storms, droughts, wildfires, or other severe weather events as a result of climate change may disrupt our production",
+     "source_ref": "GM-g4",
+     "risk": "Physical climate and extreme weather disruption",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 20419,
+     "end": 20582,
+     "in_cited_source": true
+    },
+    {
+     "company": "NXPI",
+     "category": "CLIMATE_NATCAT",
+     "leaf": "CLIMATE_NATCAT.natural_disasters_weather",
+     "quote": "climate change could cause certain natural disasters, such as drought, wildfires, storms, flooding or rising sea levels, to occur more frequently or with greater intensity.",
+     "source_ref": "NXPI-g7",
+     "risk": "Physical climate and extreme weather disruption",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 34005,
+     "end": 34177,
+     "in_cited_source": true
+    },
+    {
+     "company": "GM",
+     "category": "SUPPLY_CHAIN",
+     "leaf": "SUPPLY_CHAIN.single_source",
+     "quote": "In some instances, we purchase systems, components, raw materials, and parts that are ultimately derived from a single source and may be at an increased risk for supply disruptions.",
+     "source_ref": "GM-g7",
+     "risk": "Single or limited-source supplier dependence",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 39498,
+     "end": 39679,
+     "in_cited_source": true
+    },
+    {
+     "company": "NXPI",
+     "category": "SUPPLY_CHAIN",
+     "leaf": "SUPPLY_CHAIN.single_source",
+     "quote": "A failure by our suppliers to deliver our requirements could result in disruptions to our manufacturing operations.",
+     "source_ref": "NXPI-g5",
+     "risk": "Single or limited-source supplier dependence",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 28407,
+     "end": 28522,
+     "in_cited_source": true
+    },
+    {
+     "company": "GM",
+     "category": "PRIVACY_DATA",
+     "leaf": "PRIVACY_DATA.privacy_regulation",
+     "quote": "Complying with these new laws has significantly increased, and may continue to increase, our operating costs and is driving increased complexity in our operations.",
+     "source_ref": "GM-g10",
+     "risk": "Data privacy regulation compliance costs",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 53065,
+     "end": 53228,
+     "in_cited_source": true
+    },
+    {
+     "company": "NXPI",
+     "category": "PRIVACY_DATA",
+     "leaf": "PRIVACY_DATA.privacy_regulation",
+     "quote": "global privacy legislation, enforcement, and policy activity, such as the EU General Data Privacy Regulation, are rapidly expanding and creating a complex regulatory compliance environment.",
+     "source_ref": "NXPI-g8",
+     "risk": "Data privacy regulation compliance costs",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 41984,
+     "end": 42173,
+     "in_cited_source": true
+    },
+    {
+     "company": "GM",
+     "category": "RATES_FX_FUNDING",
+     "leaf": "RATES_FX_FUNDING.pension_finance_obligations",
+     "quote": "Future funding requirements generally increase if the discount rate decreases or if actual asset returns are lower than expected asset returns, assuming other factors are held constant.",
+     "source_ref": "GM-g12",
+     "risk": "Pension underfunding and contribution requirements",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 66106,
+     "end": 66291,
+     "in_cited_source": true
+    },
+    {
+     "company": "NXPI",
+     "category": "RATES_FX_FUNDING",
+     "leaf": "RATES_FX_FUNDING.pension_finance_obligations",
+     "quote": "Negative performance of the financial markets could also have a material impact on funding requirements and net periodic pension costs.",
+     "source_ref": "NXPI-g15",
+     "risk": "Pension underfunding and contribution requirements",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 74618,
+     "end": 74753,
+     "in_cited_source": true
+    },
+    {
+     "company": "GM",
+     "category": "STRATEGY_MA",
+     "leaf": "STRATEGY_MA.restructuring",
+     "quote": "We have made and may need to make additional changes to our global production footprint and workforce, which could require significant capital expenditures and could result in asset impairments and other charges, including restructuring charges",
+     "source_ref": "GM-g4",
+     "risk": "Restructuring charges and execution risk",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 25759,
+     "end": 26003,
+     "in_cited_source": true
+    },
+    {
+     "company": "NXPI",
+     "category": "STRATEGY_MA",
+     "leaf": "STRATEGY_MA.restructuring",
+     "quote": "We may from time to time restructure parts of our organization. Any such restructuring may impact customer satisfaction, and the costs of implementation may be difficult to predict.",
+     "source_ref": "NXPI-g3",
+     "risk": "Restructuring charges and execution risk",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 17803,
+     "end": 17984,
+     "in_cited_source": true
+    },
+    {
+     "company": "GM",
+     "category": "TALENT_LABOR",
+     "leaf": "TALENT_LABOR.labor_relations_unions",
+     "quote": "we may be subject to an increased risk of strikes, work stoppages, or other types of conflicts with labor unions and employees.",
+     "source_ref": "GM-g7",
+     "risk": "Workforce labor strikes and work stoppages",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 38646,
+     "end": 38773,
+     "in_cited_source": true
+    },
+    {
+     "company": "NXPI",
+     "category": "TALENT_LABOR",
+     "leaf": "TALENT_LABOR.labor_relations_unions",
+     "quote": "if our unionized employees were to engage in a strike or other work stoppage, our business and operating results could be materially harmed.",
+     "source_ref": "NXPI-g4",
+     "risk": "Workforce labor strikes and work stoppages",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 18918,
+     "end": 19058,
+     "in_cited_source": true
+    }
+   ],
+   "rejected": [],
+   "verification": {
+    "claims": 16,
+    "accepted": 16,
+    "rejected": 0,
+    "rejected_label": 0,
+    "rejected_quote": 0,
+    "keyword_fallback": 0,
+    "quote_coverage": 1.0,
+    "not_in_cited_source": 0
+   },
+   "usage": {
+    "llm_calls": 1.0,
+    "cached_calls": 1.0,
+    "input_tokens": 14577.0,
+    "prompt_cache_read_tokens": 0.0,
+    "output_tokens": 2248.0,
+    "recorded_latency_s": 7.056,
+    "cost_usd": 0.002582,
+    "wall_clock_s": 0.000651
+   }
+  },
+  {
+   "id": "shared_vs_specific",
+   "label": "Most shared vs most specific",
+   "question": "What is the risk most widely shared across all ten companies, and what is the most widely shared specific risk linking autos and semis?",
+   "stage": true,
+   "template": "SHARED_VS_SPECIFIC",
+   "params": {
+    "min_shared": 2,
+    "industries": [
+     "auto",
+     "semis"
+    ]
+   },
+   "cypher": "CALL () {\n  MATCH (c:Company)-[:FACES_RISK]->(r:RiskFactor)\n  WITH r, count(DISTINCT c) AS n\n  ORDER BY n DESC, coalesce(r.boilerplate_share, 0) DESC, r.name LIMIT 1\n  RETURN r, 'most shared' AS role\n  UNION\n  MATCH (c:Company)-[:FACES_RISK]->(r:RiskFactor)\n  WHERE NOT coalesce(r.generic, false)\n  WITH r, count(DISTINCT c) AS n, collect(DISTINCT c.industry) AS inds\n  WHERE n >= $min_shared AND all(i IN $industries WHERE i IN inds)\n  WITH r, n ORDER BY n DESC, coalesce(r.boilerplate_share, 0), r.name LIMIT 1\n  RETURN r, 'most specific' AS role\n}\nMATCH (c:Company)-[f:FACES_RISK]->(r)\nWITH r, role, collect({ticker: c.ticker, quotes: f.quotes[0..2], spans: f.spans[0..2], chunk_ids: f.chunk_ids[0..2]}) AS evidence\nRETURN r.id AS id, r.name AS risk, r.definition AS definition, coalesce(r.generic, false) AS generic,\n       r.n_companies AS n_companies, role, evidence\nORDER BY role",
+   "rows": 2,
+   "ranked_by": null,
+   "subgraph": {
+    "nodes": [
+     {
+      "id": "c:APTV",
+      "type": "Company",
+      "label": "APTV",
+      "name": "Aptiv PLC",
+      "industry": "auto"
+     },
+     {
+      "id": "c:BWA",
+      "type": "Company",
+      "label": "BWA",
+      "name": "BORGWARNER INC",
+      "industry": "auto"
+     },
+     {
+      "id": "c:F",
+      "type": "Company",
+      "label": "F",
+      "name": "FORD MOTOR CO",
+      "industry": "auto"
+     },
+     {
+      "id": "c:GM",
+      "type": "Company",
+      "label": "GM",
+      "name": "General Motors Co",
+      "industry": "auto"
+     },
+     {
+      "id": "c:LEA",
+      "type": "Company",
+      "label": "LEA",
+      "name": "LEAR CORP",
+      "industry": "auto"
+     },
+     {
+      "id": "c:MCHP",
+      "type": "Company",
+      "label": "MCHP",
+      "name": "MICROCHIP TECHNOLOGY INC",
+      "industry": "semis"
+     },
+     {
+      "id": "c:NXPI",
+      "type": "Company",
+      "label": "NXPI",
+      "name": "NXP Semiconductors N.V.",
+      "industry": "semis"
+     },
+     {
+      "id": "c:ON",
+      "type": "Company",
+      "label": "ON",
+      "name": "ON SEMICONDUCTOR CORP",
+      "industry": "semis"
+     },
+     {
+      "id": "c:TSLA",
+      "type": "Company",
+      "label": "TSLA",
+      "name": "Tesla, Inc.",
+      "industry": "auto"
+     },
+     {
+      "id": "c:TXN",
+      "type": "Company",
+      "label": "TXN",
+      "name": "TEXAS INSTRUMENTS INC",
+      "industry": "semis"
+     },
+     {
+      "id": "r:rf72",
+      "label": "Cybersecurity breach of information systems",
+      "degree": 10,
+      "industries": [
+       "auto",
+       "semis"
+      ],
+      "type": "RiskFactor",
+      "generic": true,
+      "definition": "Risk that cyberattacks on the company's systems, products or data cause disruption, data loss, privacy liability and compliance costs.",
+      "n_companies": 10,
+      "role": "most shared"
+     },
+     {
+      "id": "r:rf285",
+      "label": "Workforce labor strikes and work stoppages",
+      "degree": 7,
+      "industries": [
+       "auto",
+       "semis"
+      ],
+      "type": "RiskFactor",
+      "generic": false,
+      "definition": "Unionized or organizing workforces, collective bargaining disputes, or works council requirements may lead to strikes, work stoppages, or constraints that disrupt the company's own operations and raise costs.",
+      "n_companies": 7,
+      "role": "most specific"
+     }
+    ],
+    "edges": [
+     {
+      "source": "c:APTV",
+      "target": "r:rf72",
+      "quotes": [
+       {
+        "text": "Cyberattacks are continually increasing in their frequency, sophistication and intensity. Additionally, some actors are using artificial intelligence technology to launch more automated, targeted and coordinated attacks which further heightens these risks.",
+        "start": 58512,
+        "end": 58768,
+        "chunk_id": "APTV-g12",
+        "risk_name": "Cybersecurity breach of information systems"
+       },
+       {
+        "text": "While we continuously seek to expand and improve our information technology systems and maintain adequate disclosure controls and procedures, there can be no assurance that we can adequately anticipate all trends of the market, technology landscapes and threat landscapes, and there can be no assurance that such measures will prevent interruptions or security breaches that could adversely affect our business.",
+        "start": 61575,
+        "end": 61986,
+        "chunk_id": "APTV-g14",
+        "risk_name": "Cybersecurity breach of information systems"
+       }
+      ]
+     },
+     {
+      "source": "c:BWA",
+      "target": "r:rf72",
+      "quotes": [
+       {
+        "text": "Future attacks or disruptions could potentially lead to the inappropriate disclosure of confidential information, including our intellectual property or employee data, improper use of our systems and networks, access to and manipulation and destruction of our or third-party data, production downtimes, lost revenues, inappropriate disbursement of funds and both internal and external supply shortages.",
+        "start": 26209,
+        "end": 26611,
+        "chunk_id": "BWA-g4",
+        "risk_name": "Cybersecurity breach of information systems"
+       }
+      ]
+     },
+     {
+      "source": "c:F",
+      "target": "r:rf72",
+      "quotes": [
+       {
+        "text": "This risk exposure rises as we continue to develop and produce vehicles with increased connectivity. Moreover, we, our suppliers, service providers, and dealers have been the target of cybersecurity incidents and such threats are continuing and evolving, which may cause cybersecurity incidents to be more difficult to detect for periods of time.",
+        "start": 37749,
+        "end": 38095,
+        "chunk_id": "F-g7",
+        "risk_name": "Cybersecurity breach of information systems"
+       }
+      ]
+     },
+     {
+      "source": "c:GM",
+      "target": "r:rf72",
+      "quotes": [
+       {
+        "text": "We are unable to comprehensively apply patches or mitigate all such vulnerabilities before they may be exploited by a threat actor. We have also acquired and in the future may acquire companies with vulnerabilities or unsophisticated security measures, which exposes us to potentially significant cybersecurity risks.",
+        "start": 46656,
+        "end": 46973,
+        "chunk_id": "GM-g8",
+        "risk_name": "Cybersecurity breach of information systems"
+       },
+       {
+        "text": "We and our third-party providers regularly experience cyberattacks and security incidents, such as phishing attacks, and we expect cyberattacks and incidents to continue in varying degrees, including due to the rapid evolution and adoption of AI.",
+        "start": 47499,
+        "end": 47745,
+        "chunk_id": "GM-g9",
+        "risk_name": "Cybersecurity breach of information systems"
+       }
+      ]
+     },
+     {
+      "source": "c:LEA",
+      "target": "r:rf72",
+      "quotes": [
+       {
+        "text": "In particular, ransomware or other attacks that are intended to disrupt our and our customers' business operations are becoming increasingly prevalent, particularly for manufacturing companies, and can lead to significant interruptions in operations and the ability to provide products or services, loss of sensitive data and income, reputational harm and diversion of funds.",
+        "start": 29623,
+        "end": 29998,
+        "chunk_id": "LEA-g5",
+        "risk_name": "Cybersecurity breach of information systems"
+       },
+       {
+        "text": "It may also be difficult and/or costly to detect, investigate, mitigate, contain and remediate a security incident. Our efforts to do so may not be successful.",
+        "start": 33577,
+        "end": 33736,
+        "chunk_id": "LEA-g6",
+        "risk_name": "Cybersecurity breach of information systems"
+       }
+      ]
+     },
+     {
+      "source": "c:MCHP",
+      "target": "r:rf72",
+      "quotes": [
+       {
+        "text": "We rely on the uninterrupted operation of complex IT systems and networks to operate our business.",
+        "start": 77919,
+        "end": 78017,
+        "chunk_id": "MCHP-g14",
+        "risk_name": "Cybersecurity breach of information systems"
+       },
+       {
+        "text": "For example, in August 2024, we determined that an unauthorized party disrupted our use of certain servers and some of our business operations. As a result, certain of our manufacturing facilities were operating at less than normal levels for a period of time, and our ability to fulfill orders was temporarily impacted.",
+        "start": 80299,
+        "end": 80619,
+        "chunk_id": "MCHP-g15",
+        "risk_name": "Cybersecurity breach of information systems"
+       }
+      ]
+     },
+     {
+      "source": "c:NXPI",
+      "target": "r:rf72",
+      "quotes": [
+       {
+        "text": "We have, from time to time, experienced cyber-attacks attempting to obtain access to and misuse our computer systems and networks. Such incidents could result in the misappropriation of our proprietary information and technology, the compromise of personal and confidential information of our employees, customers or suppliers or interrupt our business.",
+        "start": 48641,
+        "end": 48994,
+        "chunk_id": "NXPI-g10",
+        "risk_name": "Cybersecurity breach of information systems"
+       }
+      ]
+     },
+     {
+      "source": "c:ON",
+      "target": "r:rf72",
+      "quotes": [
+       {
+        "text": "Further, AI and quantum computing capabilities are increasingly being used to identify vulnerabilities and",
+        "start": 42697,
+        "end": 42803,
+        "chunk_id": "ON-g8",
+        "risk_name": "Cybersecurity breach of information systems"
+       }
+      ]
+     },
+     {
+      "source": "c:TSLA",
+      "target": "r:rf72",
+      "quotes": [
+       {
+        "text": "To the extent any security incident results in unauthorized access or damage to or acquisition, use, corruption, loss, destruction, alteration or dissemination of our data, including intellectual property and personal information, or our products, vehicles or service offerings, or for it to be believed or reported that any of these occurred, it could disrupt our business, harm our reputation, compel us to comply with applicable data breach notification laws, subject us to time consuming, distracting and expensive litigation, regulatory investigation and oversight, mandatory corrective action, require us to verify the correctness of database contents, or otherwise subject us to liability under laws, regulations and contractual obligations, including those that protect the privacy and security of personal information.",
+        "start": 40313,
+        "end": 41140,
+        "chunk_id": "TSLA-g8",
+        "risk_name": "Cybersecurity breach of information systems"
+       },
+       {
+        "text": "Notwithstanding our efforts to protect the security and integrity of our customers\u2019 personal information, we may be required to expend significant resources to comply with data breach requirements if, for example, third parties improperly obtain and use the personal information of our customers or we otherwise experience a data loss with respect to the personal information we process and handle.",
+        "start": 72406,
+        "end": 72804,
+        "chunk_id": "TSLA-g15",
+        "risk_name": "Cybersecurity breach of information systems"
+       }
+      ]
+     },
+     {
+      "source": "c:TXN",
+      "target": "r:rf72",
+      "quotes": [
+       {
+        "text": "Cybersecurity or other threats to our information technology systems or the systems of our customers, suppliers and other third parties are frequent, increasingly sophisticated and constantly evolving, thereby making them more difficult to detect, mitigate and defend against.",
+        "start": 8000,
+        "end": 8276,
+        "chunk_id": "TXN-g1",
+        "risk_name": "Cybersecurity breach of information systems"
+       }
+      ]
+     },
+     {
+      "source": "c:APTV",
+      "target": "r:rf285",
+      "quotes": [
+       {
+        "text": "In addition, certain UAW-represented employees at GM, Ford and Stellantis initiated labor strikes in September 2023, lasting more than six weeks in duration.",
+        "start": 43044,
+        "end": 43201,
+        "chunk_id": "APTV-g9",
+        "risk_name": "Workforce labor strikes and work stoppages"
+       }
+      ]
+     },
+     {
+      "source": "c:BWA",
+      "target": "r:rf285",
+      "quotes": [
+       {
+        "text": "As of December 31, 2025, approximately 13% of our U.S. workforce was unionized. We have a domestic collective bargaining agreement for one facility in New York, which expires in September 2028.",
+        "start": 30992,
+        "end": 31185,
+        "chunk_id": "BWA-g5",
+        "risk_name": "Workforce labor strikes and work stoppages"
+       }
+      ]
+     },
+     {
+      "source": "c:F",
+      "target": "r:rf285",
+      "quotes": [
+       {
+        "text": "A work stoppage or other limitation on production has occurred, and could in the future occur, at Ford\u2019s facilities, at a facility in its supply chain, or at one of its logistics providers for any number of reasons, including as a result of labor issues, such as shortages of available employees, disputes under existing collective bargaining agreements with labor unions or in connection with negotiation of new collective bargaining agreements, absenteeism, public health issues (e.g., COVID), stay-at-home orders, or in response to potential restructuring actions (e.g., plant closures);",
+        "start": 13465,
+        "end": 14055,
+        "chunk_id": "F-g2",
+        "risk_name": "Workforce labor strikes and work stoppages"
+       }
+      ]
+     },
+     {
+      "source": "c:GM",
+      "target": "r:rf285",
+      "quotes": [
+       {
+        "text": "In addition, substantially all of our hourly employees are represented by unions and covered by collective bargaining agreements that must be negotiated from time-to-time, including at the local facility level.",
+        "start": 38422,
+        "end": 38632,
+        "chunk_id": "GM-g7",
+        "risk_name": "Workforce labor strikes and work stoppages"
+       }
+      ]
+     },
+     {
+      "source": "c:LEA",
+      "target": "r:rf285",
+      "quotes": [
+       {
+        "text": "We have labor agreements covering approximately 75,000 employees globally. In the United States and Canada, each of our unionized facilities has a separate collective bargaining agreement with the union that represents the workers at such facility, with each such agreement having an expiration date that is independent of the other agreements. Labor agreements covering approximately 67% of our global unionized work force are scheduled to expire in 2026.",
+        "start": 15581,
+        "end": 16037,
+        "chunk_id": "LEA-g2",
+        "risk_name": "Workforce labor strikes and work stoppages"
+       }
+      ]
+     },
+     {
+      "source": "c:NXPI",
+      "target": "r:rf285",
+      "quotes": [
+       {
+        "text": "We are also required to consult with our employee representatives, such as works councils, on items such as restructurings, acquisitions and divestitures.",
+        "start": 19150,
+        "end": 19304,
+        "chunk_id": "NXPI-g4",
+        "risk_name": "Workforce labor strikes and work stoppages"
+       }
+      ]
+     },
+     {
+      "source": "c:TSLA",
+      "target": "r:rf285",
+      "quotes": [
+       {
+        "text": "From time to time, labor unions have engaged in campaigns to organize certain parts of our operations, as part of which such unions have filed unfair labor practice charges against us with the National Labor Relations Board, and they may do so in the future.",
+        "start": 46009,
+        "end": 46267,
+        "chunk_id": "TSLA-g9",
+        "risk_name": "Workforce labor strikes and work stoppages"
+       }
+      ]
+     }
+    ],
+    "drivers": [],
+    "driver_edges": []
+   },
+   "empty": false,
+   "summary": "The risk shared by the most companies is cybersecurity breach of information systems, disclosed by all ten (APTV, BWA, F, GM, LEA, MCHP, NXPI, ON, TSLA, TXN). The most widely shared specific risk spanning autos and semis is workforce labor strikes and work stoppages, disclosed by seven companies including automakers APTV, BWA, F, GM, LEA and TSLA and semiconductor maker NXPI. The rows support these claims only through the excerpts quoted, and do not show a semiconductor-specific supply risk shared across autos and semis.",
+   "claims": [
+    {
+     "company": "APTV",
+     "category": "CYBER_IT",
+     "leaf": "CYBER_IT.cyberattack_breach",
+     "quote": "We face risks related to cybersecurity for both our infrastructure and products and any cybersecurity breach or failure of one or more key information technology systems, or those of third-parties with which we do business could have a material adverse impact on our business or reputation.",
+     "source_ref": "APTV-g12",
+     "risk": "Cybersecurity breach of IT systems",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 57601,
+     "end": 57891,
+     "in_cited_source": true
+    },
+    {
+     "company": "BWA",
+     "category": "CYBER_IT",
+     "leaf": "CYBER_IT.cyberattack_breach",
+     "quote": "We rely on the capacity, reliability and security of our IT systems and infrastructure to operate our business. IT systems are vulnerable to disruptions, including those resulting from natural disasters, cyber-attacks or failures in third-party provided services.",
+     "source_ref": "BWA-g4",
+     "risk": "Cybersecurity breach of IT systems",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 24841,
+     "end": 25104,
+     "in_cited_source": true
+    },
+    {
+     "company": "TXN",
+     "category": "CYBER_IT",
+     "leaf": "CYBER_IT.cyberattack_breach",
+     "quote": "Breaches, disruptions or other incidents relating to our information technology systems or the systems of our customers, suppliers and other third parties could be caused by factors such as computer viruses, ransomware, malware, software vulnerabilities, system failures",
+     "source_ref": "TXN-g1",
+     "risk": "Cybersecurity breach of IT systems",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 6937,
+     "end": 7207,
+     "in_cited_source": true
+    },
+    {
+     "company": "NXPI",
+     "category": "TALENT_LABOR",
+     "leaf": "TALENT_LABOR.labor_relations_unions",
+     "quote": "if our unionized employees were to engage in a strike or other work stoppage, our business and operating results could be materially harmed.",
+     "source_ref": "NXPI-g4",
+     "risk": "Labor strikes and work stoppages",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 18918,
+     "end": 19058,
+     "in_cited_source": true
+    },
+    {
+     "company": "TSLA",
+     "category": "TALENT_LABOR",
+     "leaf": "TALENT_LABOR.labor_relations_unions",
+     "quote": "Any work stoppages or strikes organized by such unions could delay the manufacture and sale of our products and may harm our business and operating results.",
+     "source_ref": "TSLA-g9",
+     "risk": "Labor strikes and work stoppages",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 46545,
+     "end": 46701,
+     "in_cited_source": true
+    }
+   ],
+   "rejected": [],
+   "verification": {
+    "claims": 5,
+    "accepted": 5,
+    "rejected": 0,
+    "rejected_label": 0,
+    "rejected_quote": 0,
+    "keyword_fallback": 0,
+    "quote_coverage": 1.0,
+    "not_in_cited_source": 0
+   },
+   "usage": {
+    "llm_calls": 1.0,
+    "cached_calls": 0.0,
+    "input_tokens": 21017.0,
+    "prompt_cache_read_tokens": 0.0,
+    "output_tokens": 2636.0,
+    "recorded_latency_s": 12.956,
+    "cost_usd": 0.003419,
+    "wall_clock_s": 12.957662
+   }
+  },
+  {
+   "id": "bridge",
+   "label": "What links autos to chips?",
+   "question": "Which named place, input or policy links the automakers' risks to the chipmakers' risks?",
+   "stage": true,
+   "template": "BRIDGE_DRIVERS",
+   "params": {
+    "driver_types": [
+     "INPUT_COMMODITY",
+     "NAMED_COUNTERPARTY",
+     "REGULATION_POLICY",
+     "GEOGRAPHY"
+    ],
+    "industries": [
+     "auto",
+     "semis"
+    ],
+    "min_shared": 2,
+    "limit": 50
+   },
+   "cypher": "MATCH (c:Company)-[:DISCLOSES]->(x:RiskMention)-[:INVOLVES]->(d:ExposureDriver)\nWHERE d.type IN $driver_types\nMATCH (x)-[:INSTANCE_OF]->(r:RiskFactor)\nWITH d, collect(DISTINCT c.industry) AS inds, collect(DISTINCT c.ticker) AS tickers,\n     collect({ticker: c.ticker, risk: r.name, quote: x.quote, span: toString(x.start) + ':' + toString(x.end),\n              chunk_id: x.chunk_id}) AS uses\nWHERE size(tickers) >= $min_shared AND all(i IN $industries WHERE i IN inds)\nRETURN d.id AS id, d.name AS driver, d.type AS type, tickers, uses\nORDER BY size(tickers), driver\nLIMIT $limit",
+   "rows": 3,
+   "ranked_by": "graph_qa.rank_bridge",
+   "subgraph": {
+    "nodes": [
+     {
+      "id": "c:APTV",
+      "type": "Company",
+      "label": "APTV",
+      "name": "Aptiv PLC",
+      "industry": "auto"
+     },
+     {
+      "id": "c:GM",
+      "type": "Company",
+      "label": "GM",
+      "name": "General Motors Co",
+      "industry": "auto"
+     },
+     {
+      "id": "c:MCHP",
+      "type": "Company",
+      "label": "MCHP",
+      "name": "MICROCHIP TECHNOLOGY INC",
+      "industry": "semis"
+     },
+     {
+      "id": "c:TSLA",
+      "type": "Company",
+      "label": "TSLA",
+      "name": "Tesla, Inc.",
+      "industry": "auto"
+     }
+    ],
+    "edges": [],
+    "drivers": [
+     {
+      "id": "d:d78",
+      "label": "memory",
+      "degree": 2,
+      "industries": [
+       "auto",
+       "semis"
+      ],
+      "type": "ExposureDriver",
+      "driver_type": "INPUT_COMMODITY",
+      "generic": false,
+      "why_generic": null,
+      "n_companies": 2
+     },
+     {
+      "id": "d:d82",
+      "label": "neon",
+      "degree": 2,
+      "industries": [
+       "auto",
+       "semis"
+      ],
+      "type": "ExposureDriver",
+      "driver_type": "INPUT_COMMODITY",
+      "generic": false,
+      "why_generic": null,
+      "n_companies": 2
+     },
+     {
+      "id": "d:d84",
+      "label": "oil",
+      "degree": 2,
+      "industries": [
+       "auto",
+       "semis"
+      ],
+      "type": "ExposureDriver",
+      "driver_type": "INPUT_COMMODITY",
+      "generic": false,
+      "why_generic": null,
+      "n_companies": 2
+     }
+    ],
+    "driver_edges": [
+     {
+      "source": "c:MCHP",
+      "target": "d:d78",
+      "quotes": [
+       {
+        "text": "For example, as memory manufacturers transition to more advanced products, availability of the memory components we use may become constrained, have longer lead times, or become more expensive.",
+        "start": 11754,
+        "end": 11947,
+        "chunk_id": "MCHP-g2",
+        "risk_name": "Component and semiconductor supply shortages"
+       }
+      ]
+     },
+     {
+      "source": "c:TSLA",
+      "target": "d:d78",
+      "quotes": [
+       {
+        "text": "For example, as companies, including Tesla, have made rapid advancements in AI in recent years, such innovation demands exponentially greater compute, memory, energy and thermal resources, which may prove insufficient in scale or affordability to meet our requirements.",
+        "start": 5155,
+        "end": 5424,
+        "chunk_id": "TSLA-g1",
+        "risk_name": "AI compute and energy resource constraints"
+       }
+      ]
+     },
+     {
+      "source": "c:APTV",
+      "target": "d:d82",
+      "quotes": [
+       {
+        "text": "Ukraine and Russia are significant global producers of raw materials used in our supply chain, including copper, aluminum, palladium and neon gases.",
+        "start": 52809,
+        "end": 52957,
+        "chunk_id": "APTV-g11",
+        "risk_name": "Raw material supply disruption"
+       }
+      ]
+     },
+     {
+      "source": "c:MCHP",
+      "target": "d:d82",
+      "quotes": [
+       {
+        "text": "Although we do not purchase significant amounts of materials, components or equipment from Russia, Belarus, or Ukraine, the broader semiconductor industry relies on raw materials sourced from these regions - such as neon, palladium, cesium, rubidium, and nickel.",
+        "start": 15925,
+        "end": 16187,
+        "chunk_id": "MCHP-g2",
+        "risk_name": "Critical materials export restrictions"
+       }
+      ]
+     },
+     {
+      "source": "c:GM",
+      "target": "d:d84",
+      "quotes": [
+       {
+        "text": "Any near-term shift in consumer preferences toward smaller, more fuel-efficient vehicles, whether as a result of increases in the price of oil or any sustained shortage of oil, including as a result of global political instability (such as related to ongoing conflicts globally), concerns about fuel consumption or GHG emissions, or other reasons, could weaken the demand for our higher margin vehicles.",
+        "start": 10522,
+        "end": 10925,
+        "chunk_id": "GM-g1",
+        "risk_name": "Product concentration in high-margin vehicles"
+       }
+      ]
+     },
+     {
+      "source": "c:MCHP",
+      "target": "d:d84",
+      "quotes": [
+       {
+        "text": "war (including military conflict in the Middle East and Russia's invasion of Ukraine), worldwide oil prices and supply, transportation interruption, public health concerns (including viral outbreaks and pandemics), fires, natural disasters or disruptions in the transportation system;",
+        "start": 7118,
+        "end": 7402,
+        "chunk_id": "MCHP-g1",
+        "risk_name": "Armed conflict disrupting global supply chains"
+       }
+      ]
+     }
+    ]
+   },
+   "empty": false,
+   "summary": "The rows link automakers to chipmakers mainly through 'neon' and 'memory' as shared inputs. Neon is named for APTV (an automotive supplier) and MCHP (a chipmaker), with Russia/Ukraine supply disruption as the shared risk. Memory is named for TSLA and MCHP, with component shortages as the shared risk. 'Oil' links GM and MCHP only weakly, via armed conflict and oil supply, and the rows do not link it to a shared chip risk.",
+   "claims": [
+    {
+     "company": "APTV",
+     "category": "COMMODITY_INPUTS",
+     "leaf": "COMMODITY_INPUTS.raw_material_prices",
+     "quote": "Ukraine and Russia are significant global producers of raw materials used in our supply chain, including copper, aluminum, palladium and neon gases.",
+     "source_ref": "APTV-g11",
+     "risk": "Neon and critical materials supply disruption",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 52809,
+     "end": 52957,
+     "in_cited_source": true
+    },
+    {
+     "company": "MCHP",
+     "category": "GEOPOLITICAL_TRADE",
+     "leaf": "GEOPOLITICAL_TRADE.conflict_sanctions",
+     "quote": "the broader semiconductor industry relies on raw materials sourced from these regions - such as neon, palladium, cesium, rubidium, and nickel.",
+     "source_ref": "MCHP-g2",
+     "risk": "Neon and critical materials supply disruption",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 16045,
+     "end": 16187,
+     "in_cited_source": true
+    },
+    {
+     "company": "MCHP",
+     "category": "SUPPLY_CHAIN",
+     "leaf": "SUPPLY_CHAIN.semiconductor_supply",
+     "quote": "as memory manufacturers transition to more advanced products, availability of the memory components we use may become constrained, have longer lead times, or become more expensive.",
+     "source_ref": "MCHP-g2",
+     "risk": "Memory component availability constraints",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 11767,
+     "end": 11947,
+     "in_cited_source": true
+    },
+    {
+     "company": "TSLA",
+     "category": "SUPPLY_CHAIN",
+     "leaf": "SUPPLY_CHAIN.single_source",
+     "quote": "Our products contain thousands of parts purchased globally from hundreds of suppliers, including single-source direct suppliers, which exposes us to multiple potential sources of component shortages.",
+     "source_ref": "TSLA-g1",
+     "risk": "Memory and component shortage exposure",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 3580,
+     "end": 3779,
+     "in_cited_source": true
+    }
+   ],
+   "rejected": [],
+   "verification": {
+    "claims": 4,
+    "accepted": 4,
+    "rejected": 0,
+    "rejected_label": 0,
+    "rejected_quote": 0,
+    "keyword_fallback": 0,
+    "quote_coverage": 1.0,
+    "not_in_cited_source": 0
+   },
+   "usage": {
+    "llm_calls": 1.0,
+    "cached_calls": 0.0,
+    "input_tokens": 11625.0,
+    "prompt_cache_read_tokens": 6532.0,
+    "output_tokens": 732.0,
+    "recorded_latency_s": 3.35,
+    "cost_usd": 0.001529,
+    "wall_clock_s": 3.351722
+   }
+  },
+  {
+   "id": "tsla_on_txn",
+   "label": "TSLA + ON + TXN",
+   "question": "Which risks do Tesla, onsemi and Texas Instruments share?",
+   "stage": false,
+   "template": "SHARED_AMONG",
+   "params": {
+    "tickers": [
+     "TSLA",
+     "ON",
+     "TXN"
+    ],
+    "min_shared": 2,
+    "limit": 8
+   },
+   "cypher": "MATCH (c:Company)-[f:FACES_RISK]->(r:RiskFactor)\nWHERE c.ticker IN $tickers\nWITH r, collect({ticker: c.ticker, quotes: f.quotes[0..2], spans: f.spans[0..2], chunk_ids: f.chunk_ids[0..2]}) AS evidence\nWHERE size(evidence) >= $min_shared\nRETURN r.id AS id, r.name AS risk, r.definition AS definition, coalesce(r.generic, false) AS generic,\n       r.n_companies AS n_companies, 'shared' AS role, evidence\nORDER BY size(evidence) DESC, generic, r.n_companies, risk\nLIMIT $limit",
+   "rows": 8,
+   "ranked_by": null,
+   "subgraph": {
+    "nodes": [
+     {
+      "id": "c:ON",
+      "type": "Company",
+      "label": "ON",
+      "name": "ON SEMICONDUCTOR CORP",
+      "industry": "semis"
+     },
+     {
+      "id": "c:TSLA",
+      "type": "Company",
+      "label": "TSLA",
+      "name": "Tesla, Inc.",
+      "industry": "auto"
+     },
+     {
+      "id": "c:TXN",
+      "type": "Company",
+      "label": "TXN",
+      "name": "TEXAS INSTRUMENTS INC",
+      "industry": "semis"
+     },
+     {
+      "id": "r:rf77",
+      "label": "High leverage and debt service burden",
+      "degree": 3,
+      "industries": [
+       "auto",
+       "semis"
+      ],
+      "type": "RiskFactor",
+      "generic": false,
+      "definition": "Substantial outstanding indebtedness requires significant cash for debt service, may require refinancing or asset sales, and can restrict financial and operational flexibility.",
+      "n_companies": 4,
+      "role": "shared"
+     },
+     {
+      "id": "r:rf238",
+      "label": "Foreign currency exchange rate fluctuations",
+      "degree": 3,
+      "industries": [
+       "auto",
+       "semis"
+      ],
+      "type": "RiskFactor",
+      "generic": false,
+      "definition": "Fluctuations in foreign currency exchange rates affect reported revenues, costs, and remeasurement or translation of non-U.S. dollar results and balances, harming financial results.",
+      "n_companies": 7,
+      "role": "shared"
+     },
+     {
+      "id": "r:rf121",
+      "label": "Third-party IP infringement litigation",
+      "degree": 3,
+      "industries": [
+       "auto",
+       "semis"
+      ],
+      "type": "RiskFactor",
+      "generic": true,
+      "definition": "Third parties may assert patent or other IP infringement claims against the company, leading to damages, injunctions, redesigns, indemnification or halted sales.",
+      "n_companies": 6,
+      "role": "shared"
+     },
+     {
+      "id": "r:rf123",
+      "label": "Product recall and warranty costs",
+      "degree": 3,
+      "industries": [
+       "auto",
+       "semis"
+      ],
+      "type": "RiskFactor",
+      "generic": true,
+      "definition": "Risk that defective products trigger recalls and warranty claims, with customers such as OEMs seeking contribution, generating costs that may exceed insurance or accruals.",
+      "n_companies": 9,
+      "role": "shared"
+     },
+     {
+      "id": "r:rf72",
+      "label": "Cybersecurity breach of information systems",
+      "degree": 3,
+      "industries": [
+       "auto",
+       "semis"
+      ],
+      "type": "RiskFactor",
+      "generic": true,
+      "definition": "Risk that cyberattacks on the company's systems, products or data cause disruption, data loss, privacy liability and compliance costs.",
+      "n_companies": 10,
+      "role": "shared"
+     },
+     {
+      "id": "r:rf38",
+      "label": "Anti-takeover provisions",
+      "degree": 2,
+      "industries": [
+       "auto",
+       "semis"
+      ],
+      "type": "RiskFactor",
+      "generic": false,
+      "definition": "",
+      "n_companies": 2,
+      "role": "shared"
+     },
+     {
+      "id": "r:rf283",
+      "label": "IT system implementation disruption",
+      "degree": 2,
+      "industries": [
+       "auto",
+       "semis"
+      ],
+      "type": "RiskFactor",
+      "generic": false,
+      "definition": "Implementing new enterprise or internally developed IT systems could disrupt operations and impair financial reporting and internal controls.",
+      "n_companies": 2,
+      "role": "shared"
+     },
+     {
+      "id": "r:rf113",
+      "label": "Reliance on third-party distributors",
+      "degree": 2,
+      "industries": [
+       "semis"
+      ],
+      "type": "RiskFactor",
+      "generic": false,
+      "definition": "Dependence on independent distributors, who may carry competing lines, lack minimum purchase obligations, or face credit problems, exposes revenue to their performance and reporting.",
+      "n_companies": 2,
+      "role": "shared"
+     }
+    ],
+    "edges": [
+     {
+      "source": "c:ON",
+      "target": "r:rf77",
+      "quotes": [
+       {
+        "text": "As of December 31, 2025, we had $3,004.9 million of outstanding principal relating to our indebtedness.",
+        "start": 58393,
+        "end": 58496,
+        "chunk_id": "ON-g11",
+        "risk_name": "High leverage and debt service burden"
+       }
+      ]
+     },
+     {
+      "source": "c:TSLA",
+      "target": "r:rf77",
+      "quotes": [
+       {
+        "text": "As of December 31, 2025, we and our subsidiaries had outstanding $8.18 billion in aggregate principal amount of indebtedness (see Note 9, Debt, to the consolidated financial statements included elsewhere in this Annual Report on Form 10-K).",
+        "start": 54152,
+        "end": 54392,
+        "chunk_id": "TSLA-g10",
+        "risk_name": "High leverage and debt service burden"
+       }
+      ]
+     },
+     {
+      "source": "c:TXN",
+      "target": "r:rf77",
+      "quotes": [
+       {
+        "text": "In addition, our obligation to make principal and interest payments could divert funds that otherwise might be invested in our operations or returned to shareholders, or could cause us to raise funds by, for example, issuing new debt or equity or selling assets.",
+        "start": 25927,
+        "end": 26189,
+        "chunk_id": "TXN-g5",
+        "risk_name": "High leverage and debt service burden"
+       }
+      ]
+     },
+     {
+      "source": "c:ON",
+      "target": "r:rf238",
+      "quotes": [
+       {
+        "text": "We have sizeable operations in the Asia/Pacific region and Europe and, although a majority of our revenue is denominated in U.S. dollars, a significant portion of our cost of revenue and operating expenses are payable in foreign currencies.",
+        "start": 34298,
+        "end": 34538,
+        "chunk_id": "ON-g7",
+        "risk_name": "Foreign currency exchange rate fluctuations"
+       }
+      ]
+     },
+     {
+      "source": "c:TSLA",
+      "target": "r:rf238",
+      "quotes": [
+       {
+        "text": "To the extent we have significant revenues denominated in such foreign currencies, any strengthening of the U.S. dollar would tend to reduce our revenues as measured in U.S. dollars, as we have historically experienced.",
+        "start": 56297,
+        "end": 56516,
+        "chunk_id": "TSLA-g11",
+        "risk_name": "Foreign currency exchange rate fluctuations"
+       }
+      ]
+     },
+     {
+      "source": "c:TXN",
+      "target": "r:rf238",
+      "quotes": [
+       {
+        "text": "In addition, our global operations expose us to periods when the U.S. dollar significantly fluctuates in relation to the non-U.S. currencies in which we transact business. The remeasurement of non-U.S. dollar transactions can have an adverse effect on our results of operations and financial condition.",
+        "start": 3192,
+        "end": 3494,
+        "chunk_id": "TXN-g0",
+        "risk_name": "Foreign currency exchange rate fluctuations"
+       }
+      ]
+     },
+     {
+      "source": "c:ON",
+      "target": "r:rf121",
+      "quotes": [
+       {
+        "text": "The failure to obtain a license from a third party for IP that we use could cause us to incur substantial liabilities or to suspend the manufacture or shipment of products or our use of processes requiring such technologies.",
+        "start": 35984,
+        "end": 36208,
+        "chunk_id": "ON-g7",
+        "risk_name": "Third-party IP infringement litigation"
+       }
+      ]
+     },
+     {
+      "source": "c:TSLA",
+      "target": "r:rf121",
+      "quotes": [
+       {
+        "text": "From time to time, the holders of such intellectual property rights may assert their rights and urge us to take licenses and/or may bring suits alleging infringement or misappropriation of such rights, which could result in substantial costs, negative publicity and management attention, regardless of merit.",
+        "start": 57824,
+        "end": 58132,
+        "chunk_id": "TSLA-g11",
+        "risk_name": "Third-party IP infringement litigation"
+       },
+       {
+        "text": "Further, if we are determined to have or believe there is a high likelihood that we have infringed upon a third party\u2019s intellectual property rights, we may be required to cease making, selling or incorporating certain components or intellectual property into the goods and services we offer, to pay substantial damages and/or license royalties, to redesign our products and services and/or to establish and maintain alternative branding for our products and services.",
+        "start": 59450,
+        "end": 59918,
+        "chunk_id": "TSLA-g12",
+        "risk_name": "Third-party IP infringement litigation"
+       }
+      ]
+     },
+     {
+      "source": "c:TXN",
+      "target": "r:rf121",
+      "quotes": [
+       {
+        "text": "We, directly and indirectly, face infringement claims from third parties, including nonpracticing entities that have acquired patents to pursue enforcement actions against other companies.",
+        "start": 24010,
+        "end": 24198,
+        "chunk_id": "TXN-g5",
+        "risk_name": "Third-party IP infringement litigation"
+       }
+      ]
+     },
+     {
+      "source": "c:ON",
+      "target": "r:rf123",
+      "quotes": [
+       {
+        "text": "As suppliers become more integrally involved in electrical design, OEMs are increasingly expecting them to warrant their products and are looking to them for contributions when faced with product liability claims or recalls.",
+        "start": 32203,
+        "end": 32427,
+        "chunk_id": "ON-g6",
+        "risk_name": "Product recall and warranty costs"
+       }
+      ]
+     },
+     {
+      "source": "c:TSLA",
+      "target": "r:rf123",
+      "quotes": [
+       {
+        "text": "Recalls for our vehicles have resulted from various hardware and software-related safety or non-compliance investigations.",
+        "start": 46896,
+        "end": 47018,
+        "chunk_id": "TSLA-g9",
+        "risk_name": "Product recall and warranty costs"
+       }
+      ]
+     },
+     {
+      "source": "c:TXN",
+      "target": "r:rf123",
+      "quotes": [
+       {
+        "text": "In addition, it is possible for a customer to recall a product containing a TI part, for example with respect to products used in automotive applications or handheld electronics, which may cause us to incur costs and expenses relating to the recall.",
+        "start": 16200,
+        "end": 16449,
+        "chunk_id": "TXN-g3",
+        "risk_name": "Product recall and warranty costs"
+       }
+      ]
+     },
+     {
+      "source": "c:ON",
+      "target": "r:rf72",
+      "quotes": [
+       {
+        "text": "Further, AI and quantum computing capabilities are increasingly being used to identify vulnerabilities and",
+        "start": 42697,
+        "end": 42803,
+        "chunk_id": "ON-g8",
+        "risk_name": "Cybersecurity breach of information systems"
+       }
+      ]
+     },
+     {
+      "source": "c:TSLA",
+      "target": "r:rf72",
+      "quotes": [
+       {
+        "text": "To the extent any security incident results in unauthorized access or damage to or acquisition, use, corruption, loss, destruction, alteration or dissemination of our data, including intellectual property and personal information, or our products, vehicles or service offerings, or for it to be believed or reported that any of these occurred, it could disrupt our business, harm our reputation, compel us to comply with applicable data breach notification laws, subject us to time consuming, distracting and expensive litigation, regulatory investigation and oversight, mandatory corrective action, require us to verify the correctness of database contents, or otherwise subject us to liability under laws, regulations and contractual obligations, including those that protect the privacy and security of personal information.",
+        "start": 40313,
+        "end": 41140,
+        "chunk_id": "TSLA-g8",
+        "risk_name": "Cybersecurity breach of information systems"
+       },
+       {
+        "text": "Notwithstanding our efforts to protect the security and integrity of our customers\u2019 personal information, we may be required to expend significant resources to comply with data breach requirements if, for example, third parties improperly obtain and use the personal information of our customers or we otherwise experience a data loss with respect to the personal information we process and handle.",
+        "start": 72406,
+        "end": 72804,
+        "chunk_id": "TSLA-g15",
+        "risk_name": "Cybersecurity breach of information systems"
+       }
+      ]
+     },
+     {
+      "source": "c:TXN",
+      "target": "r:rf72",
+      "quotes": [
+       {
+        "text": "Cybersecurity or other threats to our information technology systems or the systems of our customers, suppliers and other third parties are frequent, increasingly sophisticated and constantly evolving, thereby making them more difficult to detect, mitigate and defend against.",
+        "start": 8000,
+        "end": 8276,
+        "chunk_id": "TXN-g1",
+        "risk_name": "Cybersecurity breach of information systems"
+       }
+      ]
+     },
+     {
+      "source": "c:ON",
+      "target": "r:rf38",
+      "quotes": [
+       {
+        "text": "Our certificate of incorporation and by-laws contain provisions that could make it harder for a third party to acquire us without the consent of our Board of Directors.",
+        "start": 75027,
+        "end": 75195,
+        "chunk_id": "ON-g14",
+        "risk_name": "Anti-takeover provisions"
+       }
+      ]
+     },
+     {
+      "source": "c:TSLA",
+      "target": "r:rf38",
+      "quotes": [
+       {
+        "text": "We are also subject to Section 21.606 of the Texas Business Organizations Code and other provisions of Texas law that limit the ability of shareholders in certain situations to effect certain business combinations.",
+        "start": 83127,
+        "end": 83341,
+        "chunk_id": "TSLA-g17",
+        "risk_name": "Anti-takeover provisions"
+       }
+      ]
+     },
+     {
+      "source": "c:ON",
+      "target": "r:rf283",
+      "quotes": [
+       {
+        "text": "In addition, we are currently making, and will continue to make, substantial investments in our information technology systems, infrastructure and personnel, including a new enterprise resource planning system implemented in the third quarter of 2025, in certain cases with the assistance of strategic partners and other third-party service providers.",
+        "start": 46812,
+        "end": 47163,
+        "chunk_id": "ON-g9",
+        "risk_name": "IT system implementation disruption"
+       }
+      ]
+     },
+     {
+      "source": "c:TSLA",
+      "target": "r:rf283",
+      "quotes": [
+       {
+        "text": "Moreover, if we do not successfully implement, maintain or expand these systems as planned, our operations may be disrupted, our ability to accurately and/or timely report our financial results could be impaired and deficiencies may arise in our internal control over financial reporting, which may impact our ability to certify our financial results.",
+        "start": 42766,
+        "end": 43117,
+        "chunk_id": "TSLA-g8",
+        "risk_name": "IT system implementation disruption"
+       }
+      ]
+     },
+     {
+      "source": "c:ON",
+      "target": "r:rf113",
+      "quotes": [
+       {
+        "text": "These independent distributors also generally represent product lines offered by several companies and are not subject to any minimum sales requirements or obligation to market our products to their customers. Accordingly, distributors could reduce their sales efforts for our products or choose to terminate their representation of us.",
+        "start": 21545,
+        "end": 21881,
+        "chunk_id": "ON-g4",
+        "risk_name": "Reliance on third-party distributors"
+       }
+      ]
+     },
+     {
+      "source": "c:TXN",
+      "target": "r:rf113",
+      "quotes": [
+       {
+        "text": "In 2025, less than 20% of our revenue was generated from sales of our products through distributors. Our distributors carry competing product lines, and our sales could be affected if semiconductor distributors promote competing products over our products.",
+        "start": 16919,
+        "end": 17175,
+        "chunk_id": "TXN-g3",
+        "risk_name": "Reliance on third-party distributors"
+       }
+      ]
+     }
+    ],
+    "drivers": [],
+    "driver_edges": []
+   },
+   "empty": false,
+   "summary": "Tesla, onsemi and Texas Instruments share several risks in the excerpts: foreign currency exchange rate exposure, third-party IP infringement claims, product recall and warranty costs, and cybersecurity breaches of information systems. Debt service burden is also shared by all three, though the TI excerpt on that point is not a debt risk, so only ON and TSLA are supported for leverage. Claims are limited to each company's own excerpts.",
+   "claims": [
+    {
+     "company": "ON",
+     "category": "RATES_FX_FUNDING",
+     "leaf": "RATES_FX_FUNDING.fx_exposure",
+     "quote": "a significant portion of our cost of revenue and operating expenses are payable in foreign currencies. As a result, currency fluctuations and changes in foreign exchange regulations can have a material adverse effect on our liquidity and financial condition.",
+     "source_ref": "ON-g7",
+     "risk": "Foreign currency exchange rate exposure",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 34436,
+     "end": 34694,
+     "in_cited_source": true
+    },
+    {
+     "company": "TSLA",
+     "category": "RATES_FX_FUNDING",
+     "leaf": "RATES_FX_FUNDING.fx_exposure",
+     "quote": "We transact business globally in multiple currencies and have foreign currency risks related to our revenue, costs of revenue, operating expenses and localized subsidiary debt denominated in currencies other than the U.S. dollar.",
+     "source_ref": "TSLA-g11",
+     "risk": "Foreign currency exchange rate exposure",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 56067,
+     "end": 56296,
+     "in_cited_source": true
+    },
+    {
+     "company": "TXN",
+     "category": "RATES_FX_FUNDING",
+     "leaf": "RATES_FX_FUNDING.fx_exposure",
+     "quote": "our global operations expose us to periods when the U.S. dollar significantly fluctuates in relation to the non-U.S. currencies in which we transact business.",
+     "source_ref": "TXN-g0",
+     "risk": "Foreign currency exchange rate exposure",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 3205,
+     "end": 3363,
+     "in_cited_source": true
+    },
+    {
+     "company": "ON",
+     "category": "IP_TECH_RIGHTS",
+     "leaf": "IP_TECH_RIGHTS.ip_infringement_claims",
+     "quote": "If our technologies are subject to claims of infringement on the IP rights of others, efforts to address such claims could have a material adverse effect on our results of operations.",
+     "source_ref": "ON-g7",
+     "risk": "Third-party IP infringement claims",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 35501,
+     "end": 35684,
+     "in_cited_source": true
+    },
+    {
+     "company": "TSLA",
+     "category": "IP_TECH_RIGHTS",
+     "leaf": "IP_TECH_RIGHTS.ip_infringement_claims",
+     "quote": "Our competitors or other third parties may hold or obtain patents, copyrights, trademarks or other proprietary rights that could prevent, limit or interfere with our ability to make, use, develop, sell or market our products and services",
+     "source_ref": "TSLA-g11",
+     "risk": "Third-party IP infringement claims",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 57518,
+     "end": 57755,
+     "in_cited_source": true
+    },
+    {
+     "company": "TXN",
+     "category": "IP_TECH_RIGHTS",
+     "leaf": "IP_TECH_RIGHTS.ip_infringement_claims",
+     "quote": "We, directly and indirectly, face infringement claims from third parties, including nonpracticing entities that have acquired patents to pursue enforcement actions against other companies.",
+     "source_ref": "TXN-g5",
+     "risk": "Third-party IP infringement claims",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 24010,
+     "end": 24198,
+     "in_cited_source": true
+    },
+    {
+     "company": "ON",
+     "category": "PRODUCT_SAFETY_RECALL",
+     "leaf": "PRODUCT_SAFETY_RECALL.recalls",
+     "quote": "In addition, if any of our designed products are or are alleged to be defective, we may be required to participate in their recall.",
+     "source_ref": "ON-g6",
+     "risk": "Product recall and warranty costs",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 32071,
+     "end": 32202,
+     "in_cited_source": true
+    },
+    {
+     "company": "TSLA",
+     "category": "PRODUCT_SAFETY_RECALL",
+     "leaf": "PRODUCT_SAFETY_RECALL.recalls",
+     "quote": "In the future, we may voluntarily or involuntarily initiate recalls or field actions if any of our products are determined by us or a regulator to contain a safety defect or be noncompliant with applicable laws and regulations",
+     "source_ref": "TSLA-g9",
+     "risk": "Product recall and warranty costs",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 47374,
+     "end": 47600,
+     "in_cited_source": true
+    },
+    {
+     "company": "TXN",
+     "category": "PRODUCT_SAFETY_RECALL",
+     "leaf": "PRODUCT_SAFETY_RECALL.recalls",
+     "quote": "it is possible for a customer to recall a product containing a TI part, for example with respect to products used in automotive applications or handheld electronics, which may cause us to incur costs and expenses relating to the recall.",
+     "source_ref": "TXN-g3",
+     "risk": "Product recall and warranty costs",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 16213,
+     "end": 16449,
+     "in_cited_source": true
+    },
+    {
+     "company": "ON",
+     "category": "CYBER_IT",
+     "leaf": "CYBER_IT.cyberattack_breach",
+     "quote": "We have experienced and expect to continue to experience disruptions, failures or breaches of our information technology environment, such as those caused by computer viruses, illegal hacking, criminal fraud or impersonation",
+     "source_ref": "ON-g8",
+     "risk": "Cybersecurity breach of information systems",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 40981,
+     "end": 41205,
+     "in_cited_source": true
+    },
+    {
+     "company": "TSLA",
+     "category": "CYBER_IT",
+     "leaf": "CYBER_IT.cyberattack_breach",
+     "quote": "Our information technology systems or data, or those of our service providers or customers or users could be subject to cyber-attacks or other security incidents, which could result in data breaches, intellectual property theft",
+     "source_ref": "TSLA-g8",
+     "risk": "Cybersecurity breach of information systems",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 38852,
+     "end": 39079,
+     "in_cited_source": true
+    },
+    {
+     "company": "TXN",
+     "category": "CYBER_IT",
+     "leaf": "CYBER_IT.cyberattack_breach",
+     "quote": "Breaches, disruptions or other incidents relating to our information technology systems or the systems of our customers, suppliers and other third parties could be caused by factors such as computer viruses, ransomware, malware",
+     "source_ref": "TXN-g1",
+     "risk": "Cybersecurity breach of information systems",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 6937,
+     "end": 7164,
+     "in_cited_source": true
+    }
+   ],
+   "rejected": [],
+   "verification": {
+    "claims": 12,
+    "accepted": 12,
+    "rejected": 0,
+    "rejected_label": 0,
+    "rejected_quote": 0,
+    "keyword_fallback": 0,
+    "quote_coverage": 1.0,
+    "not_in_cited_source": 0
+   },
+   "usage": {
+    "llm_calls": 1.0,
+    "cached_calls": 0.0,
+    "input_tokens": 28199.0,
+    "prompt_cache_read_tokens": 6532.0,
+    "output_tokens": 1911.0,
+    "recorded_latency_s": 6.841,
+    "cost_usd": 0.003775,
+    "wall_clock_s": 6.842973
+   }
+  },
+  {
+   "id": "five",
+   "label": "F, BWA, LEA, MCHP, ON",
+   "question": "Which risks do Ford, BorgWarner, Lear, Microchip and onsemi share?",
+   "stage": false,
+   "template": "SHARED_AMONG",
+   "params": {
+    "tickers": [
+     "F",
+     "BWA",
+     "LEA",
+     "MCHP",
+     "ON"
+    ],
+    "min_shared": 3,
+    "limit": 8
+   },
+   "cypher": "MATCH (c:Company)-[f:FACES_RISK]->(r:RiskFactor)\nWHERE c.ticker IN $tickers\nWITH r, collect({ticker: c.ticker, quotes: f.quotes[0..2], spans: f.spans[0..2], chunk_ids: f.chunk_ids[0..2]}) AS evidence\nWHERE size(evidence) >= $min_shared\nRETURN r.id AS id, r.name AS risk, r.definition AS definition, coalesce(r.generic, false) AS generic,\n       r.n_companies AS n_companies, 'shared' AS role, evidence\nORDER BY size(evidence) DESC, generic, r.n_companies, risk\nLIMIT $limit",
+   "rows": 8,
+   "ranked_by": null,
+   "subgraph": {
+    "nodes": [
+     {
+      "id": "c:BWA",
+      "type": "Company",
+      "label": "BWA",
+      "name": "BORGWARNER INC",
+      "industry": "auto"
+     },
+     {
+      "id": "c:F",
+      "type": "Company",
+      "label": "F",
+      "name": "FORD MOTOR CO",
+      "industry": "auto"
+     },
+     {
+      "id": "c:LEA",
+      "type": "Company",
+      "label": "LEA",
+      "name": "LEAR CORP",
+      "industry": "auto"
+     },
+     {
+      "id": "c:MCHP",
+      "type": "Company",
+      "label": "MCHP",
+      "name": "MICROCHIP TECHNOLOGY INC",
+      "industry": "semis"
+     },
+     {
+      "id": "c:ON",
+      "type": "Company",
+      "label": "ON",
+      "name": "ON SEMICONDUCTOR CORP",
+      "industry": "semis"
+     },
+     {
+      "id": "r:rf211",
+      "label": "Import tariff cost increase",
+      "degree": 5,
+      "industries": [
+       "auto",
+       "semis"
+      ],
+      "type": "RiskFactor",
+      "generic": true,
+      "definition": "",
+      "n_companies": 8,
+      "role": "shared"
+     },
+     {
+      "id": "r:rf123",
+      "label": "Product recall and warranty costs",
+      "degree": 5,
+      "industries": [
+       "auto",
+       "semis"
+      ],
+      "type": "RiskFactor",
+      "generic": true,
+      "definition": "Risk that defective products trigger recalls and warranty claims, with customers such as OEMs seeking contribution, generating costs that may exceed insurance or accruals.",
+      "n_companies": 9,
+      "role": "shared"
+     },
+     {
+      "id": "r:rf72",
+      "label": "Cybersecurity breach of information systems",
+      "degree": 5,
+      "industries": [
+       "auto",
+       "semis"
+      ],
+      "type": "RiskFactor",
+      "generic": true,
+      "definition": "Risk that cyberattacks on the company's systems, products or data cause disruption, data loss, privacy liability and compliance costs.",
+      "n_companies": 10,
+      "role": "shared"
+     },
+     {
+      "id": "r:rf238",
+      "label": "Foreign currency exchange rate fluctuations",
+      "degree": 4,
+      "industries": [
+       "auto",
+       "semis"
+      ],
+      "type": "RiskFactor",
+      "generic": false,
+      "definition": "Fluctuations in foreign currency exchange rates affect reported revenues, costs, and remeasurement or translation of non-U.S. dollar results and balances, harming financial results.",
+      "n_companies": 7,
+      "role": "shared"
+     },
+     {
+      "id": "r:rf46",
+      "label": "Goodwill and asset impairment charges",
+      "degree": 4,
+      "industries": [
+       "auto",
+       "semis"
+      ],
+      "type": "RiskFactor",
+      "generic": false,
+      "definition": "Declines in business performance, failed acquisitions or adverse market conditions may require impairment charges against goodwill, intangibles or other long-lived assets, reducing earnings and equity.",
+      "n_companies": 7,
+      "role": "shared"
+     },
+     {
+      "id": "r:rf52",
+      "label": "Skilled talent attraction and retention",
+      "degree": 4,
+      "industries": [
+       "auto",
+       "semis"
+      ],
+      "type": "RiskFactor",
+      "generic": false,
+      "definition": "Intense competition for engineering, software and technical talent may raise compensation costs or prevent the company from hiring and retaining the skilled workforce it needs.",
+      "n_companies": 7,
+      "role": "shared"
+     },
+     {
+      "id": "r:rf122",
+      "label": "Litigation and legal claims",
+      "degree": 4,
+      "industries": [
+       "auto",
+       "semis"
+      ],
+      "type": "RiskFactor",
+      "generic": true,
+      "definition": "Risk that lawsuits, legal claims and regulatory proceedings result in substantial costs, damages, penalties or restrictions on the business.",
+      "n_companies": 5,
+      "role": "shared"
+     },
+     {
+      "id": "r:rf10",
+      "label": "Acquisition execution and integration failure",
+      "degree": 4,
+      "industries": [
+       "auto",
+       "semis"
+      ],
+      "type": "RiskFactor",
+      "generic": true,
+      "definition": "Failure to identify, complete, price or integrate acquisitions and related strategic transactions may result in losses, liabilities or failure to realize expected benefits.",
+      "n_companies": 7,
+      "role": "shared"
+     }
+    ],
+    "edges": [
+     {
+      "source": "c:BWA",
+      "target": "r:rf211",
+      "quotes": [
+       {
+        "text": "In 2025, the U.S. announced significant tariffs on imports from a broad range of countries, including the European Union, Canada, Mexico and China. These tariffs have increased the cost of raw materials and components we purchase",
+        "start": 19820,
+        "end": 20049,
+        "chunk_id": "BWA-g3",
+        "risk_name": "Import tariff cost increase"
+       }
+      ]
+     },
+     {
+      "source": "c:F",
+      "target": "r:rf211",
+      "quotes": [
+       {
+        "text": "Tariffs implemented to date in the United States and elsewhere have caused significant disruption, increased costs, and uncertainty in the automotive industry, including for Ford, other OEMs, suppliers, and dealers, as well as customers.",
+        "start": 44727,
+        "end": 44964,
+        "chunk_id": "F-g8",
+        "risk_name": "Import tariff cost increase"
+       }
+      ]
+     },
+     {
+      "source": "c:LEA",
+      "target": "r:rf211",
+      "quotes": [
+       {
+        "text": "As of the date of this Report, many of the tariffs announced, implemented or threatened by the current U.S. administration apply to (a) the countries in which we do business or from which we purchase, either directly or indirectly, materials or components, including China, Mexico and Canada, and (b) the materials or components that we purchase, either directly or indirectly, or produce, including steel, aluminum and automobile parts, among others, and therefore could adversely impact our business by increasing our operating costs, requiring us to incur significant costs to transition to alternative suppliers if our mitigation efforts are unsuccessful, or negatively impacting our customers' production.",
+        "start": 9525,
+        "end": 10235,
+        "chunk_id": "LEA-g1",
+        "risk_name": "Import tariff cost increase"
+       },
+       {
+        "text": "To date, our mitigation efforts have been successful, but we cannot provide any assurance that future government actions will not adversely impact our customers' production or undermine our mitigation efforts, which could in turn adversely impact our business, financial condition and results of operations.",
+        "start": 12247,
+        "end": 12554,
+        "chunk_id": "LEA-g2",
+        "risk_name": "Import tariff cost increase"
+       }
+      ]
+     },
+     {
+      "source": "c:MCHP",
+      "target": "r:rf211",
+      "quotes": [
+       {
+        "text": "Although semiconductors currently remain exempt from certain U.S. tariffs under the ongoing Section 232 investigation, many inputs used in semiconductor manufacturing - including chemicals, metals, and equipment - remain subject to country specific tariffs or may become subject to new duties.",
+        "start": 12774,
+        "end": 13067,
+        "chunk_id": "MCHP-g2",
+        "risk_name": "Import tariff cost increase"
+       },
+       {
+        "text": "Trade tensions between the U.S. and China, have continued to escalate from 2018 to present, and include the U.S. increasing tariffs on Chinese origin goods and China increasing tariffs on U.S. origin goods. Additionally, the U.S. has imposed a baseline 10% tariff on almost all imported goods globally.",
+        "start": 122750,
+        "end": 123052,
+        "chunk_id": "MCHP-g22",
+        "risk_name": "Import tariff cost increase"
+       }
+      ]
+     },
+     {
+      "source": "c:ON",
+      "target": "r:rf211",
+      "quotes": [
+       {
+        "text": "In addition, tariffs on components that we import from certain nations that have imposed, or may in the future impose, tariffs may adversely affect our profitability unless we are able to exclude such components from the tariffs or we raise prices for our products, which may result in our products becoming less attractive relative to products offered by our competitors.",
+        "start": 24606,
+        "end": 24978,
+        "chunk_id": "ON-g5",
+        "risk_name": "Import tariff cost increase"
+       }
+      ]
+     },
+     {
+      "source": "c:BWA",
+      "target": "r:rf123",
+      "quotes": [
+       {
+        "text": "As suppliers become more integrally involved in the vehicle design process and assume more of the vehicle assembly functions, auto manufacturers are increasingly looking to their suppliers for contribution when faced with recalls and product warranty claims.",
+        "start": 37384,
+        "end": 37642,
+        "chunk_id": "BWA-g6",
+        "risk_name": "Product recall and warranty costs"
+       }
+      ]
+     },
+     {
+      "source": "c:F",
+      "target": "r:rf123",
+      "quotes": [
+       {
+        "text": "We may also be obligated to remedy defects or potentially recall our products due to defective components provided to us by our suppliers, arising from their quality issues or otherwise.",
+        "start": 4139,
+        "end": 4325,
+        "chunk_id": "F-g0",
+        "risk_name": "Product recall and warranty costs"
+       },
+       {
+        "text": "Of these, approximately 3.5 million of the inflators are in our vehicles. In addition, NHTSA is considering action related to 52 million vehicles containing inflators from ARC Automotive and Delphi Automotive in the United States. Ford has 2.5 million vehicles within this population.",
+        "start": 5540,
+        "end": 5824,
+        "chunk_id": "F-g1",
+        "risk_name": "Product recall and warranty costs"
+       }
+      ]
+     },
+     {
+      "source": "c:LEA",
+      "target": "r:rf123",
+      "quotes": [
+       {
+        "text": "We carry insurance for certain product liability claims, but such coverage may be limited. We do not maintain insurance for warranty or recall matters.",
+        "start": 47252,
+        "end": 47403,
+        "chunk_id": "LEA-g9",
+        "risk_name": "Product recall and warranty costs"
+       }
+      ]
+     },
+     {
+      "source": "c:MCHP",
+      "target": "r:rf123",
+      "quotes": [
+       {
+        "text": "Because the systems into which our products are integrated have a higher cost of goods than the products we sell, the expenses and damages we are asked to pay may be significantly higher than the revenue and profits we received.",
+        "start": 108471,
+        "end": 108699,
+        "chunk_id": "MCHP-g20",
+        "risk_name": "Product recall and warranty costs"
+       }
+      ]
+     },
+     {
+      "source": "c:ON",
+      "target": "r:rf123",
+      "quotes": [
+       {
+        "text": "As suppliers become more integrally involved in electrical design, OEMs are increasingly expecting them to warrant their products and are looking to them for contributions when faced with product liability claims or recalls.",
+        "start": 32203,
+        "end": 32427,
+        "chunk_id": "ON-g6",
+        "risk_name": "Product recall and warranty costs"
+       }
+      ]
+     },
+     {
+      "source": "c:BWA",
+      "target": "r:rf72",
+      "quotes": [
+       {
+        "text": "Future attacks or disruptions could potentially lead to the inappropriate disclosure of confidential information, including our intellectual property or employee data, improper use of our systems and networks, access to and manipulation and destruction of our or third-party data, production downtimes, lost revenues, inappropriate disbursement of funds and both internal and external supply shortages.",
+        "start": 26209,
+        "end": 26611,
+        "chunk_id": "BWA-g4",
+        "risk_name": "Cybersecurity breach of information systems"
+       }
+      ]
+     },
+     {
+      "source": "c:F",
+      "target": "r:rf72",
+      "quotes": [
+       {
+        "text": "This risk exposure rises as we continue to develop and produce vehicles with increased connectivity. Moreover, we, our suppliers, service providers, and dealers have been the target of cybersecurity incidents and such threats are continuing and evolving, which may cause cybersecurity incidents to be more difficult to detect for periods of time.",
+        "start": 37749,
+        "end": 38095,
+        "chunk_id": "F-g7",
+        "risk_name": "Cybersecurity breach of information systems"
+       }
+      ]
+     },
+     {
+      "source": "c:LEA",
+      "target": "r:rf72",
+      "quotes": [
+       {
+        "text": "In particular, ransomware or other attacks that are intended to disrupt our and our customers' business operations are becoming increasingly prevalent, particularly for manufacturing companies, and can lead to significant interruptions in operations and the ability to provide products or services, loss of sensitive data and income, reputational harm and diversion of funds.",
+        "start": 29623,
+        "end": 29998,
+        "chunk_id": "LEA-g5",
+        "risk_name": "Cybersecurity breach of information systems"
+       },
+       {
+        "text": "It may also be difficult and/or costly to detect, investigate, mitigate, contain and remediate a security incident. Our efforts to do so may not be successful.",
+        "start": 33577,
+        "end": 33736,
+        "chunk_id": "LEA-g6",
+        "risk_name": "Cybersecurity breach of information systems"
+       }
+      ]
+     },
+     {
+      "source": "c:MCHP",
+      "target": "r:rf72",
+      "quotes": [
+       {
+        "text": "We rely on the uninterrupted operation of complex IT systems and networks to operate our business.",
+        "start": 77919,
+        "end": 78017,
+        "chunk_id": "MCHP-g14",
+        "risk_name": "Cybersecurity breach of information systems"
+       },
+       {
+        "text": "For example, in August 2024, we determined that an unauthorized party disrupted our use of certain servers and some of our business operations. As a result, certain of our manufacturing facilities were operating at less than normal levels for a period of time, and our ability to fulfill orders was temporarily impacted.",
+        "start": 80299,
+        "end": 80619,
+        "chunk_id": "MCHP-g15",
+        "risk_name": "Cybersecurity breach of information systems"
+       }
+      ]
+     },
+     {
+      "source": "c:ON",
+      "target": "r:rf72",
+      "quotes": [
+       {
+        "text": "Further, AI and quantum computing capabilities are increasingly being used to identify vulnerabilities and",
+        "start": 42697,
+        "end": 42803,
+        "chunk_id": "ON-g8",
+        "risk_name": "Cybersecurity breach of information systems"
+       }
+      ]
+     },
+     {
+      "source": "c:BWA",
+      "target": "r:rf238",
+      "quotes": [
+       {
+        "text": "Additionally, significant changes in currency exchange rates, particularly the Euro, Korean Won and Chinese Renminbi, could cause fluctuations in the reported results of our businesses\u2019 operations that could negatively affect our results of operations.",
+        "start": 44253,
+        "end": 44505,
+        "chunk_id": "BWA-g7",
+        "risk_name": "Foreign currency exchange rate fluctuations"
+       }
+      ]
+     },
+     {
+      "source": "c:LEA",
+      "target": "r:rf238",
+      "quotes": [
+       {
+        "text": "\u2013currency exchange rate fluctuations, discrepancies in commodity pricing between different exchanges, currency controls and the ability to economically hedge currencies;",
+        "start": 19378,
+        "end": 19547,
+        "chunk_id": "LEA-g3",
+        "risk_name": "Foreign currency exchange rate fluctuations"
+       }
+      ]
+     },
+     {
+      "source": "c:MCHP",
+      "target": "r:rf238",
+      "quotes": [
+       {
+        "text": "In periods when the U.S. dollar declines significantly relative to the British pound, Euro, Thai baht and Taiwan dollar, the\n41\n\nTable of Contents\n\noperational costs in our European and Thailand subsidiaries are adversely affected.",
+        "start": 159145,
+        "end": 159376,
+        "chunk_id": "MCHP-g29",
+        "risk_name": "Foreign currency exchange rate fluctuations"
+       }
+      ]
+     },
+     {
+      "source": "c:ON",
+      "target": "r:rf238",
+      "quotes": [
+       {
+        "text": "We have sizeable operations in the Asia/Pacific region and Europe and, although a majority of our revenue is denominated in U.S. dollars, a significant portion of our cost of revenue and operating expenses are payable in foreign currencies.",
+        "start": 34298,
+        "end": 34538,
+        "chunk_id": "ON-g7",
+        "risk_name": "Foreign currency exchange rate fluctuations"
+       }
+      ]
+     },
+     {
+      "source": "c:BWA",
+      "target": "r:rf46",
+      "quotes": [
+       {
+        "text": "Any charges relating to such impairments, such as those recorded for the years ended December 31, 2025 and 2024, could adversely affect our results of operations in the periods recognized.",
+        "start": 5438,
+        "end": 5626,
+        "chunk_id": "BWA-g0",
+        "risk_name": "Goodwill and asset impairment charges"
+       }
+      ]
+     },
+     {
+      "source": "c:LEA",
+      "target": "r:rf46",
+      "quotes": [
+       {
+        "text": "We regularly monitor our goodwill and long-lived assets for impairment indicators.",
+        "start": 39318,
+        "end": 39400,
+        "chunk_id": "LEA-g7",
+        "risk_name": "Goodwill and asset impairment charges"
+       },
+       {
+        "text": "In the event that we determine that our goodwill or long-lived assets are impaired, we may be required to record a significant charge to earnings that could adversely affect our financial condition and operating results.",
+        "start": 40619,
+        "end": 40839,
+        "chunk_id": "LEA-g8",
+        "risk_name": "Goodwill and asset impairment charges"
+       }
+      ]
+     },
+     {
+      "source": "c:MCHP",
+      "target": "r:rf46",
+      "quotes": [
+       {
+        "text": "As of March 31, 2026, we had goodwill of $6.70 billion and net intangible assets of $2.03 billion.",
+        "start": 68053,
+        "end": 68151,
+        "chunk_id": "MCHP-g12",
+        "risk_name": "Goodwill and asset impairment charges"
+       }
+      ]
+     },
+     {
+      "source": "c:ON",
+      "target": "r:rf46",
+      "quotes": [
+       {
+        "text": "We have in the past recorded, and may in the future be required to record, a significant charge in our consolidated financial statements during the period in which any impairment of our goodwill or amortizable intangible assets is determined, negatively affecting our financial position and results of operations.",
+        "start": 80628,
+        "end": 80941,
+        "chunk_id": "ON-g15",
+        "risk_name": "Goodwill and asset impairment charges"
+       }
+      ]
+     },
+     {
+      "source": "c:BWA",
+      "target": "r:rf52",
+      "quotes": [
+       {
+        "text": "In particular, any unplanned turnover or inability to attract and retain key employees and employees with engineering, technical and software capabilities in numbers sufficient for our needs could adversely affect our business.",
+        "start": 29409,
+        "end": 29636,
+        "chunk_id": "BWA-g5",
+        "risk_name": "Skilled talent attraction and retention"
+       }
+      ]
+     },
+     {
+      "source": "c:F",
+      "target": "r:rf52",
+      "quotes": [
+       {
+        "text": "While we have been successful in attracting talent in recent years, as with any company, the ability to continue to attract talent is important, particularly in growth areas vital to our success such as software, electrification and adjacent technologies, and integrated services.",
+        "start": 34871,
+        "end": 35151,
+        "chunk_id": "F-g6",
+        "risk_name": "Skilled talent attraction and retention"
+       }
+      ]
+     },
+     {
+      "source": "c:LEA",
+      "target": "r:rf52",
+      "quotes": [
+       {
+        "text": "Failure to attract, develop, engage and retain qualified employees, whether as a result of an insufficient number of qualified applicants, difficulty in recruiting new employees or inadequate resources to train, integrate and retain qualified employees, could impair our ability to execute our business strategy and could adversely affect our business.",
+        "start": 17476,
+        "end": 17828,
+        "chunk_id": "LEA-g3",
+        "risk_name": "Skilled talent attraction and retention"
+       }
+      ]
+     },
+     {
+      "source": "c:MCHP",
+      "target": "r:rf52",
+      "quotes": [
+       {
+        "text": "Competition for qualified personnel has intensified for a variety of reasons, including the high demand for employees in rapidly developing fields such as AI, the increase in work-from-home arrangements and increases in minimum wages and wage inflation in our industry.",
+        "start": 73649,
+        "end": 73918,
+        "chunk_id": "MCHP-g13",
+        "risk_name": "Skilled talent attraction and retention"
+       },
+       {
+        "text": "In addition, competition for talent with AI expertise has intensified, and our ability to attract, retain and train personnel with appropriate AI skills and literacy is critical to our innovation and product roadmap.",
+        "start": 91190,
+        "end": 91406,
+        "chunk_id": "MCHP-g16",
+        "risk_name": "Skilled talent attraction and retention"
+       }
+      ]
+     },
+     {
+      "source": "c:F",
+      "target": "r:rf122",
+      "quotes": [
+       {
+        "text": "We spend substantial resources to comply with governmental safety regulations, environmental regulatory obligations concerning our products and operations, consumer and automotive financial regulations, labor and employment regulations and practices, and other standards, but we have experienced employees, contractors, agents, and other individuals affiliated with us violating such laws or regulations from time to time, which at times has resulted in civil or criminal liability, and we cannot ensure that any such violations have not occurred or will not occur in the future, which may further result in civil or criminal liability.",
+        "start": 75976,
+        "end": 76612,
+        "chunk_id": "F-g14",
+        "risk_name": "Litigation and legal claims"
+       }
+      ]
+     },
+     {
+      "source": "c:LEA",
+      "target": "r:rf122",
+      "quotes": [
+       {
+        "text": "No assurances can be given that such proceedings and claims will not adversely affect our financial condition, operating results and cash flows.",
+        "start": 48234,
+        "end": 48378,
+        "chunk_id": "LEA-g9",
+        "risk_name": "Litigation and legal claims"
+       }
+      ]
+     },
+     {
+      "source": "c:MCHP",
+      "target": "r:rf122",
+      "quotes": [
+       {
+        "text": "These legal proceedings and claims, even if meritless, have in the past and could in the future result in unexpected and substantial costs to us.",
+        "start": 106519,
+        "end": 106664,
+        "chunk_id": "MCHP-g19",
+        "risk_name": "Litigation and legal claims"
+       }
+      ]
+     },
+     {
+      "source": "c:ON",
+      "target": "r:rf122",
+      "quotes": [
+       {
+        "text": "Even if we are able to estimate losses related to these actions, the ultimate amount of loss may be materially higher than our estimates. Any resolution of litigation, or threatened litigation, could involve the payment of damages or expenses by us, which may be significant or involve an agreement with terms that restrict the operation of our business.",
+        "start": 84003,
+        "end": 84357,
+        "chunk_id": "ON-g16",
+        "risk_name": "Litigation and legal claims"
+       }
+      ]
+     },
+     {
+      "source": "c:BWA",
+      "target": "r:rf10",
+      "quotes": [
+       {
+        "text": "However, the amount of information we can obtain about a potential growth opportunity can be limited, and we can give no assurance that past or future business ventures, acquisitions, and strategic alliances will positively affect our financial performance or will perform as planned.",
+        "start": 2579,
+        "end": 2863,
+        "chunk_id": "BWA-g0",
+        "risk_name": "Acquisition execution and integration failure"
+       },
+       {
+        "text": "If we are unsuccessful in combining companies, the anticipated benefits of the acquisitions may not be realized fully or at all or may take longer to realize than expected. Further, there is potential for unknown or inestimable liabilities relating to the acquired businesses.",
+        "start": 6153,
+        "end": 6429,
+        "chunk_id": "BWA-g1",
+        "risk_name": "Acquisition execution and integration failure"
+       }
+      ]
+     },
+     {
+      "source": "c:LEA",
+      "target": "r:rf10",
+      "quotes": [
+       {
+        "text": "Our failure to execute our strategic objectives could adversely affect our financial condition, operating results and cash flows. Moreover, there can be no assurances that, even if implemented, our strategic objectives will be successful.",
+        "start": 5899,
+        "end": 6137,
+        "chunk_id": "LEA-g1",
+        "risk_name": "Acquisition execution and integration failure"
+       }
+      ]
+     },
+     {
+      "source": "c:MCHP",
+      "target": "r:rf10",
+      "quotes": [
+       {
+        "text": "In particular, in connection with\n25\n\nTable of Contents\n\ncertain of our prior acquisitions, we became involved with third-party claims, litigation, governmental investigations and disputes related to such businesses and transactions.",
+        "start": 65435,
+        "end": 65668,
+        "chunk_id": "MCHP-g12",
+        "risk_name": "Acquisition execution and integration failure"
+       }
+      ]
+     },
+     {
+      "source": "c:ON",
+      "target": "r:rf10",
+      "quotes": [
+       {
+        "text": "Missteps or delays in integrating our acquisitions, which could be caused by factors outside of our control, or our failure to realize the expected benefits of the acquisitions on the timeline we anticipate, could materially adversely affect our results of operations and financial condition.",
+        "start": 78546,
+        "end": 78838,
+        "chunk_id": "ON-g15",
+        "risk_name": "Acquisition execution and integration failure"
+       }
+      ]
+     }
+    ],
+    "drivers": [],
+    "driver_edges": []
+   },
+   "empty": false,
+   "summary": "The rows show several shared risks across the five companies: tariff-driven cost increases (BWA, F, LEA, MCHP, ON), product recall and warranty costs (BWA, F, LEA, MCHP, ON), cybersecurity breaches of IT systems (all five), foreign currency fluctuation (BWA, LEA, MCHP, ON), and skilled talent retention (BWA, F, LEA, MCHP). Litigation and acquisition integration also recur, but the rows only show tariff/recall/cyber/FX/talent for the named set, and quotes are drawn from each company's own excerpts.",
+   "claims": [
+    {
+     "company": "BWA",
+     "category": "GEOPOLITICAL_TRADE",
+     "leaf": "GEOPOLITICAL_TRADE.tariffs",
+     "quote": "These tariffs have increased the cost of raw materials and components we purchase, and to the extent the tariffs announced to date or announced in the future become or remain effective and are maintained, these tariffs would likely further increase",
+     "source_ref": "BWA-g3",
+     "risk": "Tariff-driven cost increases",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 19968,
+     "end": 20216,
+     "in_cited_source": true
+    },
+    {
+     "company": "F",
+     "category": "GEOPOLITICAL_TRADE",
+     "leaf": "GEOPOLITICAL_TRADE.tariffs",
+     "quote": "Tariffs implemented to date in the United States and elsewhere have caused significant disruption, increased costs, and uncertainty in the automotive industry, including for Ford, other OEMs, suppliers, and dealers, as well as customers.",
+     "source_ref": "F-g8",
+     "risk": "Tariff-driven cost increases",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 44727,
+     "end": 44964,
+     "in_cited_source": true
+    },
+    {
+     "company": "LEA",
+     "category": "GEOPOLITICAL_TRADE",
+     "leaf": "GEOPOLITICAL_TRADE.tariffs",
+     "quote": "tariffs announced, implemented or threatened by the current U.S. administration apply to (a) the countries in which we do business or from which we purchase, either directly or indirectly, materials or components, including China, Mexico and Canada",
+     "source_ref": "LEA-g1",
+     "risk": "Tariff-driven cost increases",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 9568,
+     "end": 9816,
+     "in_cited_source": true
+    },
+    {
+     "company": "MCHP",
+     "category": "GEOPOLITICAL_TRADE",
+     "leaf": "GEOPOLITICAL_TRADE.tariffs",
+     "quote": "many inputs used in semiconductor manufacturing - including chemicals, metals, and equipment - remain subject to country specific tariffs or may become subject to new duties.",
+     "source_ref": "MCHP-g2",
+     "risk": "Tariff-driven cost increases",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 12893,
+     "end": 13067,
+     "in_cited_source": true
+    },
+    {
+     "company": "ON",
+     "category": "GEOPOLITICAL_TRADE",
+     "leaf": "GEOPOLITICAL_TRADE.tariffs",
+     "quote": "tariffs on components that we import from certain nations that have imposed, or may in the future impose, tariffs may adversely affect our profitability unless we are able to exclude such components from the tariffs",
+     "source_ref": "ON-g5",
+     "risk": "Tariff-driven cost increases",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 24619,
+     "end": 24834,
+     "in_cited_source": true
+    },
+    {
+     "company": "BWA",
+     "category": "PRODUCT_SAFETY_RECALL",
+     "leaf": "PRODUCT_SAFETY_RECALL.warranty_costs",
+     "quote": "We provide product warranties to our customers for some of our products. Under these product warranties, we may be required to bear costs and expenses for the repair or replacement of these products.",
+     "source_ref": "BWA-g6",
+     "risk": "Product recall and warranty costs",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 37184,
+     "end": 37383,
+     "in_cited_source": true
+    },
+    {
+     "company": "F",
+     "category": "PRODUCT_SAFETY_RECALL",
+     "leaf": "PRODUCT_SAFETY_RECALL.recalls",
+     "quote": "Ford\u2019s products have been and could continue to be affected by defects that result in recall campaigns, increased warranty costs, or delays in new model launches",
+     "source_ref": "F-g0",
+     "risk": "Product recall and warranty costs",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 3551,
+     "end": 3712,
+     "in_cited_source": true
+    },
+    {
+     "company": "LEA",
+     "category": "PRODUCT_SAFETY_RECALL",
+     "leaf": "PRODUCT_SAFETY_RECALL.recalls",
+     "quote": "A significant product liability lawsuit, warranty claim or product recall involving us or one of our major customers could adversely affect our financial performance.",
+     "source_ref": "LEA-g9",
+     "risk": "Product recall and warranty costs",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 46583,
+     "end": 46749,
+     "in_cited_source": true
+    },
+    {
+     "company": "BWA",
+     "category": "CYBER_IT",
+     "leaf": "CYBER_IT.cyberattack_breach",
+     "quote": "IT systems are vulnerable to disruptions, including those resulting from natural disasters, cyber-attacks or failures in third-party provided services.",
+     "source_ref": "BWA-g4",
+     "risk": "Cybersecurity breach of IT systems",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 24953,
+     "end": 25104,
+     "in_cited_source": true
+    },
+    {
+     "company": "F",
+     "category": "CYBER_IT",
+     "leaf": "CYBER_IT.cyberattack_breach",
+     "quote": "we, our suppliers, service providers, and dealers have been the target of cybersecurity incidents and such threats are continuing and evolving",
+     "source_ref": "F-g7",
+     "risk": "Cybersecurity breach of IT systems",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 37860,
+     "end": 38002,
+     "in_cited_source": true
+    },
+    {
+     "company": "LEA",
+     "category": "CYBER_IT",
+     "leaf": "CYBER_IT.cyberattack_breach",
+     "quote": "ransomware or other attacks that are intended to disrupt our and our customers' business operations are becoming increasingly prevalent, particularly for manufacturing companies",
+     "source_ref": "LEA-g5",
+     "risk": "Cybersecurity breach of IT systems",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 29638,
+     "end": 29815,
+     "in_cited_source": true
+    },
+    {
+     "company": "MCHP",
+     "category": "CYBER_IT",
+     "leaf": "CYBER_IT.cyberattack_breach",
+     "quote": "Any improper handling of confidential data, or significant disruption to our systems or networks, including, but not limited to, any that may relate to new system implementations, computer viruses, security breaches or incidents, cyber-attacks",
+     "source_ref": "MCHP-g14",
+     "risk": "Cybersecurity breach of IT systems",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 78018,
+     "end": 78261,
+     "in_cited_source": true
+    },
+    {
+     "company": "ON",
+     "category": "CYBER_IT",
+     "leaf": "CYBER_IT.cyberattack_breach",
+     "quote": "Disruptions or breaches of our information technology systems could irreparably damage our reputation and our business, expose us to liability and materially adversely affect our results of operations.",
+     "source_ref": "ON-g8",
+     "risk": "Cybersecurity breach of IT systems",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 40467,
+     "end": 40668,
+     "in_cited_source": true
+    },
+    {
+     "company": "BWA",
+     "category": "RATES_FX_FUNDING",
+     "leaf": "RATES_FX_FUNDING.fx_exposure",
+     "quote": "Significant foreign currency fluctuations and the associated translation of those foreign currencies to U.S. Dollars could adversely affect our business.",
+     "source_ref": "BWA-g7",
+     "risk": "Foreign currency exchange rate fluctuations",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 44099,
+     "end": 44252,
+     "in_cited_source": true
+    },
+    {
+     "company": "LEA",
+     "category": "RATES_FX_FUNDING",
+     "leaf": "RATES_FX_FUNDING.fx_exposure",
+     "quote": "currency exchange rate fluctuations, discrepancies in commodity pricing between different exchanges, currency controls and the ability to economically hedge currencies",
+     "source_ref": "LEA-g3",
+     "risk": "Foreign currency exchange rate fluctuations",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 19379,
+     "end": 19546,
+     "in_cited_source": true
+    },
+    {
+     "company": "MCHP",
+     "category": "RATES_FX_FUNDING",
+     "leaf": "RATES_FX_FUNDING.fx_exposure",
+     "quote": "the value of our non-U.S. dollar transactions can have an adverse effect on our results of operations and financial condition.",
+     "source_ref": "MCHP-g29",
+     "risk": "Foreign currency exchange rate fluctuations",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 158737,
+     "end": 158863,
+     "in_cited_source": true
+    },
+    {
+     "company": "ON",
+     "category": "RATES_FX_FUNDING",
+     "leaf": "RATES_FX_FUNDING.fx_exposure",
+     "quote": "a significant portion of our cost of revenue and operating expenses are payable in foreign currencies. As a result, currency fluctuations and changes in foreign exchange regulations can have a material adverse effect",
+     "source_ref": "ON-g7",
+     "risk": "Foreign currency exchange rate fluctuations",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 34436,
+     "end": 34652,
+     "in_cited_source": true
+    },
+    {
+     "company": "BWA",
+     "category": "TALENT_LABOR",
+     "leaf": "TALENT_LABOR.skilled_talent",
+     "quote": "any unplanned turnover or inability to attract and retain key employees and employees with engineering, technical and software capabilities in numbers sufficient for our needs could adversely affect our business.",
+     "source_ref": "BWA-g5",
+     "risk": "Skilled talent retention",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 29424,
+     "end": 29636,
+     "in_cited_source": true
+    },
+    {
+     "company": "F",
+     "category": "TALENT_LABOR",
+     "leaf": "TALENT_LABOR.skilled_talent",
+     "quote": "If we lose existing employees, are unable to attract talent with needed skills, or we are unable to develop existing employees, particularly with the introduction of new technologies",
+     "source_ref": "F-g6",
+     "risk": "Skilled talent retention",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 35430,
+     "end": 35612,
+     "in_cited_source": true
+    },
+    {
+     "company": "LEA",
+     "category": "TALENT_LABOR",
+     "leaf": "TALENT_LABOR.skilled_talent",
+     "quote": "Failure to attract, develop, engage and retain qualified employees, whether as a result of an insufficient number of qualified applicants, difficulty in recruiting new employees",
+     "source_ref": "LEA-g3",
+     "risk": "Skilled talent retention",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 17476,
+     "end": 17653,
+     "in_cited_source": true
+    },
+    {
+     "company": "MCHP",
+     "category": "TALENT_LABOR",
+     "leaf": "TALENT_LABOR.skilled_talent",
+     "quote": "Our failure to attract and retain hardware and software engineers, as well as sales and marketing personnel, could delay product development and introduction",
+     "source_ref": "MCHP-g13",
+     "risk": "Skilled talent retention",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "start": 73919,
+     "end": 74076,
+     "in_cited_source": true
+    }
+   ],
+   "rejected": [
+    {
+     "company": "MCHP",
+     "category": "PRODUCT_SAFETY_RECALL",
+     "leaf": "PRODUCT_SAFETY_RECALL.product_liability_defects",
+     "quote": "We face exposure to warranty and product liability claims if our products fail to perform as expected or their failure results, or is alleged to result, in bodily injury or property damage (or both).",
+     "source_ref": "MCHP-g20",
+     "risk": "Product recall and warranty costs",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "reason": "quote is from ON's filing, not MCHP's",
+     "check": "quote"
+    },
+    {
+     "company": "ON",
+     "category": "PRODUCT_SAFETY_RECALL",
+     "leaf": "PRODUCT_SAFETY_RECALL.product_liability_defects",
+     "quote": "Payments we may make in connection with these customer claims may adversely affect the results of our operations.",
+     "source_ref": "MCHP-g20",
+     "risk": "Product recall and warranty costs",
+     "driver": "",
+     "secondary": false,
+     "fallback": false,
+     "reason": "quote is from MCHP's filing, not ON's",
+     "check": "quote"
+    }
+   ],
+   "verification": {
+    "claims": 23,
+    "accepted": 21,
+    "rejected": 2,
+    "rejected_label": 0,
+    "rejected_quote": 2,
+    "keyword_fallback": 0,
+    "quote_coverage": 0.913,
+    "not_in_cited_source": 0
+   },
+   "usage": {
+    "llm_calls": 1.0,
+    "cached_calls": 0.0,
+    "input_tokens": 31670.0,
+    "prompt_cache_read_tokens": 6532.0,
+    "output_tokens": 3374.0,
+    "recorded_latency_s": 11.724,
+    "cost_usd": 0.004854,
+    "wall_clock_s": 11.726555
+   }
+  }
+ ],
+ "build": {
+  "model": "claude-haiku-5-5",
+  "effort": "low",
+  "n_group": 10,
+  "prompt_sha256": "aa763e81ef70afa22e9bebf18aff680a395058abd23e21a92eb4f86704692679",
+  "graph_prompt_version": "graph-v2",
+  "created_at": "2026-10-25T19:11:30+00:00",
+  "usage": {
+   "llm_calls": 5.0,
+   "cached_calls": 1.0,
+   "input_tokens": 107088.0,
+   "prompt_cache_read_tokens": 19596.0,
+   "output_tokens": 10901.0,
+   "recorded_latency_s": 41.927,
+   "cost_usd": 0.016159,
+   "wall_clock_s": 34.879563
+  }
+ }
+}

@@ -1,0 +1,85 @@
+{
+ "core": {
+  "total_usd": 13.9446,
+  "input_measured": true,
+  "rows": [
+   {
+    "stage": "3 taxonomy build",
+    "calls": 85,
+    "input_tokens": 597651,
+    "output_tokens": 212500,
+    "cost_usd": 5.218568
+   },
+   {
+    "stage": "2 graph build",
+    "calls": 125,
+    "input_tokens": 454937,
+    "output_tokens": 225000,
+    "cost_usd": 5.247250599999999
+   },
+   {
+    "stage": "2 graph resolve",
+    "calls": 112,
+    "input_tokens": 168000,
+    "output_tokens": 67200,
+    "cost_usd": 2.016
+   },
+   {
+    "stage": "2 graph ask",
+    "calls": 1,
+    "input_tokens": 31374,
+    "output_tokens": 6000,
+    "cost_usd": 0.245496
+   },
+   {
+    "stage": "2 graph QA",
+    "calls": 5,
+    "input_tokens": 60930,
+    "output_tokens": 12500,
+    "cost_usd": 0.012343
+   },
+   {
+    "stage": "1 RAG ask",
+    "calls": 1,
+    "input_tokens": 8902,
+    "output_tokens": 6000,
+    "cost_usd": 0.155608
+   },
+   {
+    "stage": "L long-context ask",
+    "calls": 1,
+    "input_tokens": 232341,
+    "output_tokens": 6000,
+    "cost_usd": 1.049364
+   }
+  ]
+ },
+ "approach2_rebuild_usd": 9.35,
+ "extras": {
+  "total_usd": 8.4373,
+  "input_measured": true,
+  "rows": [
+   {
+    "stage": "(a) approach 1 reruns (2, cache off)",
+    "calls": 2,
+    "input_tokens": 17804,
+    "output_tokens": 12000,
+    "cost_usd": 0.311216
+   },
+   {
+    "stage": "(b) approach 3 rerun (1, taxonomy-v3.0, cache off)",
+    "calls": 88,
+    "input_tokens": 616098,
+    "output_tokens": 220000,
+    "cost_usd": 5.391569
+   },
+   {
+    "stage": "(c) audit run B: approach 3 on claude-sonnet-5-5 (model swap, taxonomy-v3.0)",
+    "calls": 88,
+    "input_tokens": 616098,
+    "output_tokens": 220000,
+    "cost_usd": 2.734543
+   }
+  ]
+ }
+}

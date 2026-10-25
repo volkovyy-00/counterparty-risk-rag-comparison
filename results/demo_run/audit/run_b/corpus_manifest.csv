@@ -1,0 +1,11 @@
+ticker,company,cik,form,accession,filing_date,report_date,fiscal_year_end,url,item1a_chars,item1a_file,source
+GM,General Motors Co,1467858,10-K,0001467858-26-000013,2026-01-27,2025-12-31,1231,https://www.sec.gov/Archives/edgar/data/1467858/000146785826000013/gm-20251231.htm,67316,item1a/GM.txt,sec_edgar
+F,FORD MOTOR CO,37996,10-K,0000037996-26-000015,2026-02-11,2025-12-31,1231,https://www.sec.gov/Archives/edgar/data/37996/000003799626000015/f-20251231.htm,93665,item1a/F.txt,sec_edgar
+TSLA,"Tesla, Inc.",1318605,10-K,0001628280-26-003952,2026-01-29,2025-12-31,1231,https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm,83766,item1a/TSLA.txt,sec_edgar
+APTV,Aptiv PLC,1521332,10-K,0001521332-26-000009,2026-02-06,2025-12-31,1231,https://www.sec.gov/Archives/edgar/data/1521332/000152133226000009/aptv-20251231.htm,93048,item1a/APTV.txt,sec_edgar
+BWA,BORGWARNER INC,908255,10-K,0000908255-26-000011,2026-02-11,2025-12-31,1231,https://www.sec.gov/Archives/edgar/data/908255/000090825526000011/bwa-20251231.htm,58256,item1a/BWA.txt,sec_edgar
+LEA,LEAR CORP,842162,10-K,0000842162-26-000011,2026-02-13,2025-12-31,1231,https://www.sec.gov/Archives/edgar/data/842162/000084216226000011/lear-20251231.htm,54380,item1a/LEA.txt,sec_edgar
+NXPI,NXP Semiconductors N.V.,1413447,10-K,0001413447-26-000008,2026-02-19,2025-12-31,1231,https://www.sec.gov/Archives/edgar/data/1413447/000141344726000008/nxpi-20251231.htm,78414,item1a/NXPI.txt,sec_edgar
+MCHP,MICROCHIP TECHNOLOGY INC,827054,10-K,0000827054-26-000016,2026-05-21,2026-03-31,0331,https://www.sec.gov/Archives/edgar/data/827054/000082705426000016/mchp-20260331.htm,159643,item1a/MCHP.txt,sec_edgar
+ON,ON SEMICONDUCTOR CORP,1097864,10-K,0001097864-26-000006,2026-02-09,2025-12-31,1231,https://www.sec.gov/Archives/edgar/data/1097864/000109786426000006/on-20251231.htm,86958,item1a/ON.txt,sec_edgar
+TXN,TEXAS INSTRUMENTS INC,97476,10-K,0000097476-26-000059,2026-02-06,2025-12-31,1231,https://www.sec.gov/Archives/edgar/data/97476/000009747626000059/txn-20251231.htm,27418,item1a/TXN.txt,sec_edgar
