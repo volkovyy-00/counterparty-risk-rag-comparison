@@ -68,7 +68,10 @@ LLM_MODEL = env("LLM_MODEL", "claude-opus-5-5" if LLM_PROVIDER == "anthropic" el
 # Sampling temperature is sent to OpenAI-style providers only ("none" = don't send).
 # Current Anthropic models accept only their default sampling, so it is never sent there.
 LLM_TEMPERATURE = env("LLM_TEMPERATURE", "0")
-LLM_EFFORT = env("LLM_EFFORT", "low")  # Anthropic output_config.effort: low | medium | high | xhigh | max
+LLM_EFFORT = env("LLM_EFFORT", "low")
+# Screen-4 graph answers: a short summary and quoted claims from a few query rows - a small model is enough.
+GRAPH_QA_MODEL = env("GRAPH_QA_MODEL", "claude-haiku-5-5" if LLM_PROVIDER == "anthropic" else LLM_MODEL)
+GRAPH_QA_EFFORT = env("GRAPH_QA_EFFORT", "low")  # Anthropic output_config.effort: low | medium | high | xhigh | max
 # strict : the provider enforces the JSON schema (OpenAI strict mode, Anthropic output_config.format)
 # json   : schema is only described in the prompt (local models); the code validator still applies
 LLM_STRUCTURED = env("LLM_STRUCTURED", "strict")

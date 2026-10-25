@@ -40,7 +40,8 @@ found – the graph won't invent a link"). Three questions are live in the talk 
 specific, what links autos to chips); two are kept for Q&A behind **M**. **O** shows the whole graph. There is no
 free-text input: a fixed question with its Cypher on screen is the governance point. Text2Cypher is left out.
 
-The real run calls it right after `export_graph.py` (estimate row "2 graph QA", about $0.50). To answer the
+The answers use `GRAPH_QA_MODEL` (default Claude Haiku 5.5, effort low; the rest of the pipeline keeps
+`LLM_MODEL`). The real run calls it right after `export_graph.py` (estimate row "2 graph QA", about $0.01). To answer the
 questions on another saved graph, reload it first with no model call:
 `python src/approach2_graphrag.py load --reset --snapshot <graph_snapshot_….json>`, then `make graph-qa`.
 

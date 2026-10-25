@@ -182,7 +182,8 @@ def answer(q, rows, filings):
                                           "invent one.", "claims": [], "rejected": [], "verification": None}
     user, sources = prompt(q, rows, filings)
     with llm.METER.track("graph.qa"):
-        reply = llm.chat(SYSTEM, user, schema=CLAIMS_SCHEMA, schema_name="claims")
+        reply = llm.chat(SYSTEM, user, schema=CLAIMS_SCHEMA, schema_name="claims", model=config.GRAPH_QA_MODEL,
+                         effort=config.GRAPH_QA_EFFORT)
     accepted, rejected, stats = verify_claims(reply["claims"], filings, sources)
     return {"empty": False, "summary": reply["summary"], "claims": accepted, "rejected": rejected,
             "verification": stats}
@@ -196,9 +197,9 @@ def estimate(drv, filings, measure=True):
     for q in QUESTIONS:
         rows = query(drv, q)
         if rows:
-            n, m = _tokens(SYSTEM, prompt(q, rows, filings)[0], measure)
+            n, m = _tokens(SYSTEM, prompt(q, rows, filings)[0], measure, config.GRAPH_QA_MODEL)
             tok_in, calls, measured = tok_in + n, calls + 1, measured and m
-    row = _row("2 graph QA", calls, tok_in, calls * ASSUME_OUT)
+    row = _row("2 graph QA", calls, tok_in, calls * ASSUME_OUT, model=config.GRAPH_QA_MODEL)
     return dict(row, measured=measured)
 
 
@@ -223,7 +224,8 @@ def run(out=None, filings=None):
                                                      else " - empty, no model call"))
     drv.close()
     data = {"questions": items,
-            "build": {"model": config.LLM_MODEL, "prompt_sha256": prompt_sha256(),
+            "build": {"model": config.GRAPH_QA_MODEL, "effort": config.GRAPH_QA_EFFORT,
+                      "prompt_sha256": prompt_sha256(),
                       "graph_prompt_version": config.GRAPH_PROMPT_VERSION,
                       "created_at": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"),
                       "usage": llm.METER.summary("graph.qa")}}
@@ -246,7 +248,8 @@ def main():
     est = estimate(drv, filings, measure)
     drv.close()
     how = "measured" if est["measured"] else "estimated as characters / 4"
-    print(f"Graph QA estimate ({config.LLM_MODEL}): {est['calls']} calls, {est['input_tokens']:,} input tokens "
+    print(f"Graph QA estimate ({config.GRAPH_QA_MODEL}, effort {config.GRAPH_QA_EFFORT}): {est['calls']} calls, "
+          f"{est['input_tokens']:,} input tokens "
           f"({how}), {est['output_tokens']:,} output tokens (assumed) = ${est['cost_usd'] or 0:.2f}")
     if (est["cost_usd"] or 0) > args.confirm_usd:
         raise SystemExit(f"Nothing was spent. Re-run with --confirm-usd N (N >= {est['cost_usd'] or 0:.2f}).")

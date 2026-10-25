@@ -22,9 +22,9 @@ ASSUME_V2 = {"mentions_per_chunk": 6, "components_per_mention": 0.15, "resolve_i
              "qa_evidence_tokens": 8000}  # graph QA: about 7,000 measured on the 3-filing A/B graph
 
 
-def _tokens(system, user, measure):
+def _tokens(system, user, measure, model=None):
     if measure:
-        n = llm.count_tokens(system, user)
+        n = llm.count_tokens(system, user, model)
         if n is not None:
             return n, True
     return (len(system) + len(user)) // 4, False
@@ -73,11 +73,11 @@ def estimate(filings, reruns=2, audit_run=True, measure=True):
     if config.GRAPH_PROMPT_VERSION == "graph-v2":
         import graph_qa
 
-        qa_sys, m = _tokens(graph_qa.SYSTEM, "", measure)
+        qa_sys, m = _tokens(graph_qa.SYSTEM, "", measure, config.GRAPH_QA_MODEL)
         measured.append(m)
         n_qa = len(graph_qa.QUESTIONS)
         rows.append(_row("2 graph QA", n_qa, n_qa * (qa_sys + ASSUME_V2["qa_evidence_tokens"]),
-                         n_qa * graph_qa.ASSUME_OUT))
+                         n_qa * graph_qa.ASSUME_OUT, model=config.GRAPH_QA_MODEL))
 
     rows.sort(key=lambda r: {"3": 0, "2": 1, "1": 2, "L": 3}[r["stage"][0]])
     one_run = sum(r["cost_usd"] or 0 for r in rows)
@@ -91,8 +91,8 @@ def estimate(filings, reruns=2, audit_run=True, measure=True):
             "graph_ab": graph_ab(filings, measure)}
 
 
-def _row(stage, calls, tok_in, tok_out, cache_write=0, cache_read=0):
-    cost = llm.price_usd(config.LLM_MODEL, tok_in, tok_out, cache_write, cache_read)
+def _row(stage, calls, tok_in, tok_out, cache_write=0, cache_read=0, model=None):
+    cost = llm.price_usd(model or config.LLM_MODEL, tok_in, tok_out, cache_write, cache_read)
     return {"stage": stage, "calls": calls, "input_tokens": tok_in + cache_write + cache_read,
             "output_tokens": tok_out, "cost_usd": cost}
 

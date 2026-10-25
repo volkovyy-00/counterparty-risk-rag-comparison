@@ -167,9 +167,9 @@ def _parse_json(text):
     return json.loads(text)
 
 
-def _call_chat(system, user, schema, schema_name, timeout=None):
+def _call_chat(system, user, schema, schema_name, timeout=None, model=None, effort=None):
     """One provider call. Returns (content, usage dict, served model id)."""
-    provider, model = config.LLM_PROVIDER, config.LLM_MODEL
+    provider, model = config.LLM_PROVIDER, model or config.LLM_MODEL
     strict = schema is not None and config.LLM_STRUCTURED == "strict"
     if schema is not None and not strict:
         system += _json_instruction(schema)
@@ -181,7 +181,7 @@ def _call_chat(system, user, schema, schema_name, timeout=None):
         # Current Claude models: no sampling parameters, no forced tool_choice. Structured output
         # goes through output_config.format; the system prompt is marked for prompt caching
         # because the taxonomy prompt repeats on every call.
-        output_config = {"effort": config.LLM_EFFORT}
+        output_config = {"effort": effort or config.LLM_EFFORT}
         if strict:
             output_config["format"] = {"type": "json_schema", "schema": schema}
         with client.messages.stream(
@@ -212,26 +212,28 @@ def _call_chat(system, user, schema, schema_name, timeout=None):
 
 
 # --------------------------------------------------------------------------- public API
-def request_key(system, user, schema=None):
-    return {"provider": config.LLM_PROVIDER, "model": config.LLM_MODEL,
+def request_key(system, user, schema=None, model=None, effort=None):
+    return {"provider": config.LLM_PROVIDER, "model": model or config.LLM_MODEL,
             "temperature": None if config.LLM_PROVIDER == "anthropic" else config.LLM_TEMPERATURE,
-            "effort": config.LLM_EFFORT if config.LLM_PROVIDER == "anthropic" else None,
+            "effort": (effort or config.LLM_EFFORT) if config.LLM_PROVIDER == "anthropic" else None,
             "structured": config.LLM_STRUCTURED, "system": system, "user": user, "schema": schema}
 
 
-def chat(system, user, schema=None, schema_name="answer", cache=None, timeout=None, return_record=False):
+def chat(system, user, schema=None, schema_name="answer", cache=None, timeout=None, return_record=False, model=None,
+         effort=None):
     """Return the model's reply: a dict when `schema` is given, else a string.
 
     cache   : override LLM_CACHE for this call (the live demo step uses "off")
     timeout : seconds, no retries (the live demo step); default = LLM_TIMEOUT_S with retries
+    model, effort : override LLM_MODEL / LLM_EFFORT for this call (e.g. the screen-4 graph answers)
     """
-    path = _cache_path("chat", request_key(system, user, schema))
+    path = _cache_path("chat", request_key(system, user, schema, model, effort))
     record = _cache_get(path, cache)
     cached = record is not None
     if not cached:
         start = time.perf_counter()
-        content, usage, served = _call_chat(system, user, schema, schema_name, timeout)
-        record = {"model": config.LLM_MODEL, "served_model": served, "content": content, **usage,
+        content, usage, served = _call_chat(system, user, schema, schema_name, timeout, model, effort)
+        record = {"model": model or config.LLM_MODEL, "served_model": served, "content": content, **usage,
                   "latency_s": round(time.perf_counter() - start, 3),
                   "recorded_at": time.strftime("%Y-%m-%dT%H:%M:%S%z")}
         _cache_put(path, record, cache)
@@ -306,7 +308,7 @@ def graphrag_adapters():
     return MeteredLLM(model_name=config.LLM_MODEL), MeteredEmbedder()
 
 
-def count_tokens(system, user):
+def count_tokens(system, user, model=None):
     """Input tokens the provider would bill for this prompt (Anthropic count_tokens; cached).
 
     Returns None for providers without a counting endpoint - callers must say "not measured"
@@ -314,12 +316,13 @@ def count_tokens(system, user):
     """
     if config.LLM_PROVIDER != "anthropic":
         return None
-    path = _cache_path("count", {"model": config.LLM_MODEL, "system": system, "user": user})
+    model = model or config.LLM_MODEL
+    path = _cache_path("count", {"model": model, "system": system, "user": user})
     record = _cache_get(path)
     if record is None:
         resp = _client("anthropic").messages.count_tokens(
-            model=config.LLM_MODEL, system=system, messages=[{"role": "user", "content": user or "."}])  # API rejects empty
-        record = {"model": config.LLM_MODEL, "input_tokens": resp.input_tokens,
+            model=model, system=system, messages=[{"role": "user", "content": user or "."}])  # API rejects empty
+        record = {"model": model, "input_tokens": resp.input_tokens,
                   "recorded_at": time.strftime("%Y-%m-%dT%H:%M:%S%z")}
         _cache_put(path, record)
     return record["input_tokens"]

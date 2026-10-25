@@ -79,7 +79,7 @@ def _fake_groups(user):
             for g in groups.values()]
 
 
-def fake_call_chat(system, user, schema, schema_name, timeout=None):
+def fake_call_chat(system, user, schema, schema_name, timeout=None, model=None, effort=None):
     if schema_name == "risk_factors":
         excerpt = user.split("\n\n", 1)[1]
         out, seen = [], set()
