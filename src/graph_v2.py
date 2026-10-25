@@ -46,12 +46,21 @@ def _split_long(text, start, end, size):
 
 
 def paragraphs(text, size=None):
-    """(start, end) of every paragraph (blocks separated by a blank line); blocks over `size` are cut."""
+    """(start, end) of every paragraph (blocks separated by a blank line); blocks over `size` are cut.
+    A block that starts in lower case continues the previous one (a page break in the filing), so they are joined."""
     size = size or config.GRAPH_V2_CHUNK_CHARS
-    out = []
+    blocks = []
     for m in _PARA.finditer(text):
-        if m.group().strip():
-            out += _split_long(text, m.start(), m.end(), size)
+        s = m.group().strip()
+        if not s:
+            continue
+        if blocks and s[0].islower():
+            blocks[-1] = (blocks[-1][0], m.end())
+        else:
+            blocks.append((m.start(), m.end()))
+    out = []
+    for s, e in blocks:
+        out += _split_long(text, s, e, size)
     return out
 
 
@@ -120,7 +129,7 @@ FEW_SHOT = [
         ),
         "output": {"mentions": [
             {"heading": "Dependence on the price and availability of aircraft fuel",
-             "risk_name": "Jet fuel price volatility",
+             "risk_name": "Fuel price volatility",
              "detail": "Fuel is second-largest expense; hedges at most 20%; +$10/bbl adds about $400 million a year",
              "quote": "A sustained increase of $10 per barrel would raise our annual fuel expense by approximately "
                       "$400 million.",
@@ -128,7 +137,7 @@ FEW_SHOT = [
              "drivers": [{"name": "Middle East", "type": "GEOGRAPHY"},
                          {"name": "aircraft fuel", "type": "INPUT_COMMODITY"}]},
             {"heading": "Reliance on a single aircraft manufacturer",
-             "risk_name": "Single-source aircraft supplier dependence",
+             "risk_name": "Single-source supplier dependence",
              "detail": "All narrow-body aircraft from Airbus; A321neo delivery delays already cut capacity",
              "quote": "All of our narrow-body aircraft are built by Airbus, and delivery delays of the A321neo have "
                       "already forced us to reduce planned capacity.",
@@ -174,14 +183,19 @@ never output a company name or ticker as a risk.
 UNIT. Return one mention per distinct risk factor in the excerpt. A risk factor is usually a heading sentence followed \
 by one or more paragraphs. If one risk factor clearly covers two different drivers (for example a named input \
 shortage and a separate regulation), return two mentions, each with its own quote. For a bullet list, return one \
-mention per substantive bullet; if the bullets are only a few words each, return one mention for the whole list.
+mention per substantive bullet; if the bullets are only a few words each, return one mention for the whole list. \
+If a later paragraph of the same risk factor raises a different driver or consequence (for example a pension \
+shortfall, a financing subsidiary, a tax exposure, a named market), return a separate mention for it that quotes \
+that paragraph. Do not add a mention only to quote a paragraph that repeats one already returned.
 
 FIELDS
 - heading: the risk factor's heading sentence, or a 5-12 word paraphrase if it has none.
-- risk_name: 3-7 words that name the driver and its mechanism of harm, worded so another company could use the same \
-name, but never vaguer than the text. Write "Semiconductor supply shortage", not "Supply chain issues"; "Customer \
-concentration in auto OEMs", not "Concentration". Noun phrase in sentence case. Do not start with "Risk of" or \
-"Risks related to". No company names, no tickers.
+- risk_name: 2-6 words naming the risk the way a credit analyst labels it when comparing companies across \
+industries: the driver and how it hurts, without this company's products, programmes, places or counterparties \
+(those go in detail and drivers). Two companies facing the same risk should get the same risk_name. Write \
+"Semiconductor supply shortage", not "Foundry wafer shortage for microcontrollers"; "Customer concentration", not \
+"Customer concentration in auto OEMs"; but never vaguer than the text: not "Supply chain issues". Noun phrase in \
+sentence case. Do not start with "Risk of" or "Risks related to". No company names, no tickers.
 - detail: at most 25 words on what is specific to this company: named places, inputs, programmes, customers, \
 magnitudes. Say "Generic statement" if there is nothing specific.
 - quote: 1-3 consecutive sentences copied EXACTLY, character for character, from the excerpt (15-60 words) that \

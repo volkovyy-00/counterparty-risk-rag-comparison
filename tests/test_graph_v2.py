@@ -37,6 +37,20 @@ def test_graph_chunks_keep_paragraphs_whole_with_raw_offsets():
             assert sum(c["start"] <= s and e <= c["end"] for c in chunks) == 1
 
 
+def test_page_break_fragments_join_the_previous_paragraph():
+    text = "Our pension plans may need more cash than planned.\n\nFunding depends on returns and the level\n\nof interest rates.\n\nTariffs may raise costs."
+    pars = [text[s:e].strip() for s, e in graph_v2.paragraphs(text)]
+    assert pars == ["Our pension plans may need more cash than planned.",
+                    "Funding depends on returns and the level\n\nof interest rates.", "Tariffs may raise costs."]
+
+
+def test_keep_apart_split_drops_only_the_smaller_side():
+    names = ["Natural disaster disruption of fabs", "Severe weather disruption", "Fab yield problems"]
+    rule, out = graph_resolve.keep_apart_split(names)
+    assert rule.startswith("natural disaster") and out == [2]
+    assert graph_resolve.keep_apart_split(names[:2]) is None
+
+
 def test_long_block_is_cut_at_line_or_sentence_ends():
     text = "Risks related to our business\n\n" + " ".join(f"Sentence number {i} is here." for i in range(600))
     chunks = graph_v2.graph_chunks(_filing(text), size=2000)

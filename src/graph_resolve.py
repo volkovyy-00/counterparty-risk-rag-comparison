@@ -63,6 +63,8 @@ KEEP_APART = [
      r"\b(regulat|emission|greenhouse|carbon|standard)"),
     ("export controls vs import tariffs", r"\bexport", r"\b(import|tariff)"),
     ("recalls vs product liability", r"\brecall", r"\bliabilit"),
+    ("natural disaster vs yield or quality problems", r"\b(natural disaster|weather|earthquake|flood|storm|hurricane)",
+     r"\b(yield|quality|defect)"),
     ("own plants vs suppliers", r"\b(own plant|our plant|manufacturing facilit|plant|factor(y|ies))", r"\bsupplier"),
 ]
 
@@ -177,11 +179,17 @@ def _adjudicate(system, schema_name, lines, ids):
 
 def keep_apart_violation(names):
     """The KEEP_APART rule that `names` (one proposed group) breaks, or None."""
+    found = keep_apart_split(names)
+    return found and found[0]
+
+
+def keep_apart_split(names):
+    """(rule, positions of the smaller side) for the first KEEP_APART rule `names` breaks, or None."""
     for label, a, b in KEEP_APART:
-        side_a = [n for n in names if re.search(a, n, re.I) and not re.search(b, n, re.I)]
-        side_b = [n for n in names if re.search(b, n, re.I) and not re.search(a, n, re.I)]
+        side_a = [k for k, n in enumerate(names) if re.search(a, n, re.I) and not re.search(b, n, re.I)]
+        side_b = [k for k, n in enumerate(names) if re.search(b, n, re.I) and not re.search(a, n, re.I)]
         if side_a and side_b:
-            return label
+            return label, (side_b if len(side_b) <= len(side_a) else side_a)
     return None
 
 
@@ -226,11 +234,16 @@ def resolve_risks(mentions, filings, resolver=None):
                                         "groups": [[display[nid.index(x)] for x in g["members"]] for g in decided]})
             for g in decided:
                 idx = [nid.index(x) for x in g["members"]]
-                rule = keep_apart_violation([display[i] for i in idx]) if len(idx) > 1 else None
-                if rule:
+                # A broken rule splits off the smaller side as singletons; the rest of the group stands.
+                while len(idx) > 1 and (found := keep_apart_split([display[i] for i in idx])):
+                    rule, out = found
                     audit["merges_rejected"].append({"members": [display[i] for i in idx], "reason": f"rule: {rule}",
+                                                     "split_off": [display[idx[k]] for k in out],
                                                      "proposed_name": g["canonical_name"]})
-                    groups += [{"members": [i], "canonical_name": "", "definition": ""} for i in idx]
+                    groups += [{"members": [idx[k]], "canonical_name": "", "definition": ""} for k in out]
+                    idx = [i for k, i in enumerate(idx) if k not in out]
+                if len(idx) == 1 and len(g["members"]) > 1:
+                    groups.append({"members": idx, "canonical_name": "", "definition": ""})
                     continue
                 if len(idx) > 1:
                     audit["merges_approved"].append({"members": [display[i] for i in idx],
