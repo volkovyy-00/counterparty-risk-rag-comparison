@@ -26,7 +26,7 @@ export function Drawers({ detail }) {
     <>
       <div class={`scrim ${d || (S.detail && detail) ? "open" : ""}`} onClick={() => set({ drawer: null, detail: false })} />
       <Shell open={!!d} title={d?.title} onClose={() => set({ drawer: null })}
-        sub={d && `${NAMES[d.approach] || d.approach} · ${d.claims.length} verified claim${d.claims.length === 1 ? "" : "s"} · each quote located verbatim in the company's own Item 1A`}>
+        sub={d && (d.sub || `${NAMES[d.approach] || d.approach} · ${d.claims.length} verified claim${d.claims.length === 1 ? "" : "s"} · each quote located verbatim in the company's own Item 1A`)}>
         {d?.claims.map((c, i) => <Claim key={i} c={c} onFull={() => set({ full: c })} />)}
       </Shell>
       <Shell open={!d && S.detail && !!detail} cls="detail" title="Details" sub="What the speaker does not point at: the machinery behind this screen."

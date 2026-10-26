@@ -146,6 +146,50 @@ def load_run(run_dir, fixture):
     return man, approaches, card, reruns, fake
 
 
+CONSOLE_DIR = config.RESULTS_DIR / "console"
+
+
+def rag_asks(run_dir, approaches):
+    """Plain-RAG asks for the console: the main question (frozen run) first, then the recorded narrower ones."""
+    from console_asks import chunk_spans
+    from corpus import load_corpus
+
+    r = approaches.get("1_plain_rag")
+    if not r or r.get("error"):
+        return []
+    spans = chunk_spans(load_corpus(config.DATA_DIR / "corpus" / json.loads((Path(run_dir) / "manifest.json")
+                                                                            .read_text())["corpus"]))
+    d = r["details"]
+    main = {"id": "main", "label": "The main question", "main": True, "question": None,
+            "retrieved": [dict(c, end=spans.get(c["chunk_id"], (c["start"], c["start"]))[1]) for c in d.get("retrieved", [])],
+            "chunks_indexed": d.get("chunks_indexed"), "top_k": d.get("top_k"), "result": None,
+            "recorded_at": d.get("answer_recorded_at")}
+    path = CONSOLE_DIR / "rag_asks.json"
+    extra = json.loads(path.read_text())["asks"] if path.exists() else []
+    return [main] + extra
+
+
+def graph_main(run_dir, approaches):
+    """Approach 2's answer to the main question as a console ask: its global query and the risks it returned."""
+    import approach2_graphrag as a2
+
+    r, path = approaches.get("2_graphrag"), Path(run_dir) / "graph.json"
+    if not r or r.get("error") or not path.exists():
+        return None
+    g = json.loads(path.read_text())
+    rows = r["details"].get("traversal") or []
+    by_label = {n["label"]: n for n in g["nodes"] if n["type"] == "RiskFactor"}
+    risks = [by_label[x["risk"]] for x in rows if x["risk"] in by_label]
+    ids = {n["id"] for n in risks}
+    edges = [e for e in g["edges"] if e["target"] in ids]
+    tickers = sorted({e["source"] for e in edges})
+    companies = [n for n in g["nodes"] if n["id"] in tickers]
+    return {"id": "main", "label": "The main question", "template": "SHARED_RISKS", "cypher": a2.SHARED_RISKS_V2_CYPHER.strip(),
+            "params": {"min_shared": config.MIN_SHARED}, "rows": r["details"].get("traversal_rows", len(rows)),
+            "ranked": f"ranked in code: up to {a2.MAX_SPECIFIC} specific and {a2.MAX_GENERIC} generic risks, {len(risks)} kept",
+            "subgraph": {"nodes": companies + risks, "edges": edges, "drivers": [], "driver_edges": []}}
+
+
 def collect(run_dir, fixture=False, draft=False):
     """Every number, quote and text the page shows, as one JSON-ready dict."""
     man, approaches, card, reruns, fake = load_run(run_dir, fixture)
@@ -184,6 +228,8 @@ def collect(run_dir, fixture=False, draft=False):
         "graph_qa": json.loads(qa_path.read_text()) if qa_path.exists() else None,
         "governance": json.loads(gov_path.read_text()) if gov_path.exists() else None,
         "decision": decision(card, draft),
+        "rag_asks": rag_asks(run_dir, approaches),
+        "graph_main": graph_main(run_dir, approaches),
         "taxonomy": {"version": taxonomy.VERSION,
                      "categories": [{"id": c, "name": taxonomy.CATEGORY_NAMES[c]} for c in taxonomy.CATEGORY_IDS],
                      "leaves": [{"id": lid, "category": leaf["category"], "description": leaf["description"],

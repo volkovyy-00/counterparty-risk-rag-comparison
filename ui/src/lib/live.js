@@ -1,6 +1,7 @@
 // Live calls to src/serve.py. Each streams NDJSON lines:
 //   {"type": "token", "text": "..."}        answer text as the model writes it
-//   {"type": "stage", "text": "..."}        what the server is doing (retrieving, routing, querying)
+//   {"type": "stage", "step": 1, "text"}   which pipeline step the server is on (retrieving, routing, querying)
+//   {"type": "retrieved", ...}             plain RAG only: the top-k chunks, before the answer
 //   {"type": "plan", ...}                  graph ask only: template, params, Cypher and the rows, before the answer
 //   {"type": "result", ...}                 the verified result (same contract as results/demo_run/)
 //   {"type": "replay", "note": "..."}       the server fell back (timeout, error, cap reached)
@@ -11,7 +12,7 @@ export async function status() {
   try { return await (await fetch("/api/status")).json(); } catch (e) { return { live: false }; }
 }
 
-export async function stream(path, body, { onToken, onStage, onPlan, deadlineMs = 30000, signal } = {}) {
+export async function stream(path, body, { onToken, onStage, onPlan, onEvent, deadlineMs = 30000, signal } = {}) {
   const ctl = new AbortController(), timer = setTimeout(() => ctl.abort(), deadlineMs);
   signal?.addEventListener("abort", () => ctl.abort());
   try {
@@ -29,10 +30,11 @@ export async function stream(path, body, { onToken, onStage, onPlan, deadlineMs 
         const line = buf.slice(0, i).trim(); buf = buf.slice(i + 1);
         if (!line) continue;
         const msg = JSON.parse(line);
+        onEvent?.(msg);
         if (msg.type === "token") onToken?.(msg.text);
         else if (msg.type === "stage") onStage?.(msg.text);
         else if (msg.type === "plan") onPlan?.(msg);
-        else final = msg;
+        else if (msg.type === "result" || msg.type === "replay") final = msg;
       }
     }
     return final || { type: "replay", note: "the live answer ended without a result" };

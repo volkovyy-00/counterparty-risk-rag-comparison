@@ -1,0 +1,198 @@
+{
+ "asks": [
+  {
+   "id": "tsla_cells",
+   "label": "Tesla's battery cells",
+   "question": "What does Tesla disclose about its dependence on battery cell suppliers?",
+   "retrieved": [
+    {
+     "chunk_id": "TSLA-011",
+     "ticker": "TSLA",
+     "score": 0.7494,
+     "start": 13603,
+     "end": 15652
+    },
+    {
+     "chunk_id": "GM-006",
+     "ticker": "GM",
+     "score": 0.7308,
+     "start": 5828,
+     "end": 7436
+    },
+    {
+     "chunk_id": "TSLA-033",
+     "ticker": "TSLA",
+     "score": 0.7254,
+     "start": 38077,
+     "end": 39577
+    },
+    {
+     "chunk_id": "TSLA-025",
+     "ticker": "TSLA",
+     "score": 0.7226,
+     "start": 29357,
+     "end": 30857
+    },
+    {
+     "chunk_id": "TSLA-041",
+     "ticker": "TSLA",
+     "score": 0.7179,
+     "start": 47907,
+     "end": 49233
+    },
+    {
+     "chunk_id": "TSLA-012",
+     "ticker": "TSLA",
+     "score": 0.7133,
+     "start": 15452,
+     "end": 16869
+    },
+    {
+     "chunk_id": "TSLA-010",
+     "ticker": "TSLA",
+     "score": 0.7129,
+     "start": 12303,
+     "end": 13803
+    },
+    {
+     "chunk_id": "TSLA-018",
+     "ticker": "TSLA",
+     "score": 0.7043,
+     "start": 21547,
+     "end": 22553
+    },
+    {
+     "chunk_id": "TSLA-054",
+     "ticker": "TSLA",
+     "score": 0.7027,
+     "start": 61913,
+     "end": 63413
+    },
+    {
+     "chunk_id": "TSLA-019",
+     "ticker": "TSLA",
+     "score": 0.6994,
+     "start": 22353,
+     "end": 23251
+    },
+    {
+     "chunk_id": "TSLA-026",
+     "ticker": "TSLA",
+     "score": 0.6926,
+     "start": 30657,
+     "end": 32841
+    },
+    {
+     "chunk_id": "TSLA-024",
+     "ticker": "TSLA",
+     "score": 0.6916,
+     "start": 28057,
+     "end": 29557
+    }
+   ],
+   "chunks_indexed": 707,
+   "top_k": 12,
+   "result": null,
+   "recorded_at": null
+  },
+  {
+   "id": "gm_f_ev",
+   "label": "GM and Ford: the EV shift",
+   "question": "How are GM and Ford exposed to the transition to electric vehicles?",
+   "retrieved": [
+    {
+     "chunk_id": "F-058",
+     "ticker": "F",
+     "score": 0.7276,
+     "start": 62809,
+     "end": 64308
+    },
+    {
+     "chunk_id": "F-046",
+     "ticker": "F",
+     "score": 0.7188,
+     "start": 50382,
+     "end": 51882
+    },
+    {
+     "chunk_id": "F-076",
+     "ticker": "F",
+     "score": 0.7087,
+     "start": 82698,
+     "end": 84198
+    },
+    {
+     "chunk_id": "F-074",
+     "ticker": "F",
+     "score": 0.7043,
+     "start": 79731,
+     "end": 80881
+    },
+    {
+     "chunk_id": "F-081",
+     "ticker": "F",
+     "score": 0.7027,
+     "start": 87691,
+     "end": 89575
+    },
+    {
+     "chunk_id": "GM-044",
+     "ticker": "GM",
+     "score": 0.6998,
+     "start": 48799,
+     "end": 49425
+    },
+    {
+     "chunk_id": "BWA-012",
+     "ticker": "BWA",
+     "score": 0.6987,
+     "start": 12440,
+     "end": 14096
+    },
+    {
+     "chunk_id": "F-052",
+     "ticker": "F",
+     "score": 0.6966,
+     "start": 56723,
+     "end": 58194
+    },
+    {
+     "chunk_id": "GM-050",
+     "ticker": "GM",
+     "score": 0.6962,
+     "start": 55664,
+     "end": 57036
+    },
+    {
+     "chunk_id": "LEA-022",
+     "ticker": "LEA",
+     "score": 0.6961,
+     "start": 25277,
+     "end": 27300
+    },
+    {
+     "chunk_id": "GM-017",
+     "ticker": "GM",
+     "score": 0.6945,
+     "start": 17438,
+     "end": 18938
+    },
+    {
+     "chunk_id": "LEA-021",
+     "ticker": "LEA",
+     "score": 0.6939,
+     "start": 23977,
+     "end": 25477
+    }
+   ],
+   "chunks_indexed": 707,
+   "top_k": 12,
+   "result": null,
+   "recorded_at": null
+  }
+ ],
+ "embed_model": "BAAI/bge-small-en-v1.5",
+ "top_k": 12,
+ "created_at": "2026-10-26T17:11:28+00:00",
+ "usage": {}
+}
