@@ -15,7 +15,7 @@ export function Ask({ chips = [], current, onAsk, placeholder, busy, inputRef, e
       </form>
       {(chips.length > 0 || extra) && <div class="chips">
         {chips.map(c => <button key={c.id} class="chip" aria-pressed={current === c.id} disabled={busy}
-          onClick={() => onAsk(c.question, c.id)}>{c.label}</button>)}
+          onClick={() => { setText(c.question); onAsk(c.question, c.id); }}>{c.label}</button>)}
         {extra}
       </div>}
     </div>

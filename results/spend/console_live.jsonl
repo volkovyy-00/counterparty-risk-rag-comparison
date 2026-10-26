@@ -1,0 +1,5 @@
+{"step": "console live", "stage": "rag", "model": "claude-opus-5-5", "usd": 0.039913, "at": "2026-10-26T17:23:56+0000"}
+{"step": "console live", "stage": "graph.route", "model": "claude-haiku-5-5", "usd": 0.000128, "at": "2026-10-26T17:24:00+0000"}
+{"step": "console live", "stage": "graph.answer", "model": "claude-opus-5-5", "usd": 0.119496, "at": "2026-10-26T17:24:18+0000"}
+{"step": "console live", "stage": "graph.route", "model": "claude-haiku-5-5", "usd": 0.00016, "at": "2026-10-26T17:24:20+0000"}
+{"step": "console live", "stage": "graph.answer", "model": "claude-opus-5-5", "usd": 0.099378, "at": "2026-10-26T17:24:35+0000"}

@@ -27,7 +27,7 @@ DEMO_DIR = config.ROOT / "demo"
 RUN_DIR = config.RESULTS_DIR / "demo_run"
 SPEND_LOG = config.RESULTS_DIR / "spend" / "console_live.jsonl"
 # Assumed cost of one live ask, checked against the cap before the call (the real cost is logged after it).
-ASK_USD = {"rag": 0.08, "graph": 0.08}
+ASK_USD = {"rag": 0.06, "graph": 0.15}  # measured 26 Oct: $0.04 and $0.10-0.12
 ROUTE_MODEL = config.env("CONSOLE_ROUTE_MODEL", config.GRAPH_QA_MODEL)
 GRAPH_ANSWER_MODEL = config.env("CONSOLE_GRAPH_MODEL", config.LLM_MODEL)
 
