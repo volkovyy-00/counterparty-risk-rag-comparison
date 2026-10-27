@@ -72,6 +72,10 @@ def test_rag_stream_retrieves_then_answers_with_verified_claims(live):
     res = events[-1]["result"]
     assert res["verification"]["claims"] >= res["verification"]["accepted"]
     assert all(c["start"] is not None for c in res["claims"])  # every shown claim located in its filing
+    note = res["note"]  # written from the verified claims; code drops tickers no claim supports
+    assert note and note["points"] and "ZZZZ" not in note["points"][0]["tickers"]
+    assert set(note["covered"]) == {c["company"] for c in res["claims"]}
+    assert set(note["not_reached"]).isdisjoint(note["covered"])
 
 
 def test_rag_stream_falls_back_on_timeout_error_and_cap(live, monkeypatch, tmp_path):

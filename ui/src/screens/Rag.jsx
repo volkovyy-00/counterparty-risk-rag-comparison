@@ -12,6 +12,7 @@ import { Ledger } from "../components/Claims.jsx";
 // A recorded ask with its question and answer filled in (the main one's answer is the frozen approach-1 result).
 const ASKS = () => (DATA.rag_asks || []).map(a => a.main
   ? { ...a, question: DATA.meta.question, result: DATA.approaches["1_plain_rag"] } : a);
+const noteFor = a => (DATA.notes || {})[`rag:${a.id}`] || null;
 const companiesIn = r => [...new Set((r?.claims || []).map(c => c.company))];
 const citedIds = r => new Set((r?.claims || []).map(c => c.source_ref));
 
@@ -22,6 +23,7 @@ function stepsFor(st) {
     { label: `Search ${a?.chunks_indexed ?? "all"} chunks`, detail: `top ${k} by cosine similarity`, done: `${k} chunks · ${got.length} ${got.length === 1 ? "company" : "companies"}` },
     { label: "Model writes the answer", detail: `from those ${k} chunks only`, done: st?.missing ? "not recorded" : `${v?.claims ?? 0} claims, each with a quote` },
     { label: "Verifier checks every quote", detail: "verbatim, in the cited chunk", done: v ? `${v.accepted} of ${v.claims} verified` : "–" },
+    { label: "Analyst note", detail: "from the verified claims only", done: st?.anote ? `${st.anote.points.length} points` : "not recorded" },
   ];
 }
 
@@ -40,7 +42,11 @@ function replay(set, a, asked, note) {
     const ms = Math.max(1800, Math.min(4200, text.length * 9));
     let stopType = () => {};
     steps.push({ ms: 400 }, { ms: ms + 150, run: () => { upd({ at: 2 }); stopType = typeOut(text, ms, t => upd({ text: t })); } },
-      { ms: 900, run: () => upd({ at: 3, result: a.result, text }) }, { ms: 0, run: () => upd({ at: 4, running: false }) });
+      { ms: 900, run: () => upd({ at: 3, result: a.result, text }) });
+    const an = noteFor(a);
+    if (an) steps.push({ ms: 400, run: () => upd({ at: 4, anote: an, noteText: "" }) },
+      { ms: 1700, run: () => { stopType = typeOut(an.takeaway, 1500, t => upd({ noteText: t })); } });
+    steps.push({ ms: 0, run: () => upd({ at: 5, running: false, noteText: an?.takeaway }) });
     const stopPlay = play(steps);
     cancel = () => { stopPlay(); stopType(); };
     return;
@@ -72,7 +78,7 @@ export async function askRag(S, set, question, id) {
     },
     onToken: t => upd({ at: 2, text: st.text + t }),
   });
-  if (msg.type === "result") return upd({ at: 4, running: false, result: msg.result, text: msg.result.summary, seconds: msg.seconds,
+  if (msg.type === "result") return upd({ at: 5, running: false, result: msg.result, anote: msg.result.note, noteText: msg.result.note?.takeaway, text: msg.result.summary, seconds: msg.seconds,
     ask: { ...st.ask, retrieved: msg.retrieved || st.ask.retrieved, chunks_indexed: msg.chunks_indexed || st.ask.chunks_indexed }, shown: 99 });
   if (recorded) return replay(set, recorded, question, msg.note);
   if (st.ask.retrieved.length) return upd({ at: 2, running: false, missing: true, note: msg.note, liveRetrieval: true, shown: 99 });
@@ -106,7 +112,8 @@ export function View() {
             {wrongQ && <div class="note">{st.note}. The answer below is to that question, not to the one typed.</div>}
             {st.missing
               ? <div class="note">{st.liveRetrieval ? "Retrieval above is live." : "Retrieval above is recorded."} The answer to this question is not recorded{st.note ? ` (${st.note})` : ""}.</div>
-              : <Output source={`written from the ${a?.top_k || 12} retrieved chunks only`} text={st.at >= 2 ? st.text : null} streaming={st.at === 2} />}
+              : <Output source={`written from the ${a?.top_k || 12} retrieved chunks only`} text={st.at >= 2 ? st.text : null} streaming={st.at === 2}
+                note={st.at >= 4 ? st.anote : null} noteText={st.noteText} done={st.at >= 5} />}
             {r && <div><div class="label">Verified findings · click one for its quotes in the filings</div>
               <Findings claims={r.claims} approach="1_plain_rag" max={5} title="Plain RAG · verified claims" /></div>}
           </div>

@@ -1,0 +1,69 @@
+{
+ "notes": {
+  "rag:main": {
+   "takeaway": "The only cross-industry link is joint-venture and partner dependence (NXPI, ON, LEA, GM); EV adoption volatility hits GM and BWA together; otherwise risks are idiosyncratic, with no clear concentration.",
+   "points": [
+    {
+     "risk": "Joint venture partner dependence",
+     "tickers": [
+      "NXPI",
+      "ON",
+      "LEA",
+      "GM"
+     ],
+     "why": "Spans semis and autos; NXPI relies on uncontrolled JVs for manufacturing, so a partner failure could disrupt chip supply and impair invested capital."
+    },
+    {
+     "risk": "EV adoption volatility",
+     "tickers": [
+      "GM",
+      "BWA"
+     ],
+     "why": "Shared end-market shock: slower EV uptake hits OEM cash flows and supplier volumes at once; GM also exposed via raw-material supplier investments."
+    },
+    {
+     "risk": "IT and cyber disruption",
+     "tickers": [
+      "GM",
+      "BWA"
+     ],
+     "why": "Largely boilerplate; third-party or centralized system outages could interrupt operations, but no common provider is identified."
+    },
+    {
+     "risk": "Corporate structure changes",
+     "tickers": [
+      "APTV"
+     ],
+     "why": "Separation yields smaller, less diversified entities, potentially weakening standalone credit profiles of the resulting companies."
+    },
+    {
+     "risk": "Financial counterparty default",
+     "tickers": [
+      "ON"
+     ],
+     "why": "ON faces default risk from financial institutions on note hedge transactions, a funding-side exposure."
+    }
+   ],
+   "caveat": "Claims cover few companies per risk and describe exposure, not magnitude, so shared supplier or customer links cannot be confirmed.",
+   "covered": [
+    "APTV",
+    "BWA",
+    "GM",
+    "LEA",
+    "MCHP",
+    "NXPI",
+    "ON",
+    "TSLA"
+   ],
+   "not_reached": [
+    "F",
+    "TXN"
+   ],
+   "claims": 13,
+   "recorded_at": "2026-10-27T08:12:36+0000"
+  }
+ },
+ "prompt": "You are a senior credit analyst writing a note a risk committee reads in thirty seconds. You get a question about a group of counterparties and the claims an automatic verifier accepted. Each claim is a company ticker, a risk and a sentence quoted verbatim from that company's latest 10-K, Item 1A Risk Factors. Use ONLY these claims: no outside knowledge, no numbers, dates or names that are not in a quote.\n\nWrite:\n- takeaway: one sentence (at most 30 words) that answers the question and says what it means for counterparty credit risk: a concentration, a shock several counterparties would feel at once, or that the evidence shows nothing specific.\n- points: 3 to 5 risks, most decision-relevant first. Prefer risks that several companies share, and that link the two industries, over risks every filer states. For each give a short risk name (2-5 words), the tickers whose claims support it, and why it matters for credit in at most 25 words (the transmission: a common supplier, a shared policy or trade shock, funding and refinancing, demand from the same end market). Call boilerplate boilerplate.\n- caveat: one short sentence on what this evidence cannot tell (for example, only two companies were reached, or quotes describe exposure, not size). Do not repeat the takeaway.",
+ "created_at": "2026-10-27T08:12:36+00:00",
+ "usage": {}
+}

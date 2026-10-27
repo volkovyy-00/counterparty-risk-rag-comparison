@@ -230,6 +230,7 @@ def collect(run_dir, fixture=False, draft=False):
         "decision": decision(card, draft),
         "rag_asks": rag_asks(run_dir, approaches),
         "graph_main": graph_main(run_dir, approaches),
+        "notes": json.loads((CONSOLE_DIR / "notes.json").read_text())["notes"] if (CONSOLE_DIR / "notes.json").exists() else {},
         "taxonomy": {"version": taxonomy.VERSION,
                      "categories": [{"id": c, "name": taxonomy.CATEGORY_NAMES[c]} for c in taxonomy.CATEGORY_IDS],
                      "leaves": [{"id": lid, "category": leaf["category"], "description": leaf["description"],

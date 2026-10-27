@@ -135,6 +135,10 @@ def fake_call_chat(system, user, schema, schema_name, timeout=None, model=None, 
         content = {"mentions": _fake_mentions(user)}
     elif schema_name in ("risk_groups", "driver_groups"):
         content = {"groups": _fake_groups(user)}
+    elif schema_name == "analyst_note":  # one point per claimed ticker, plus one ticker no claim supports
+        tks = list(dict.fromkeys(re.findall(r"^\[\d+\] ([A-Z]+) \|", user, re.M)))
+        content = {"takeaway": "fake takeaway", "caveat": "fake caveat",
+                   "points": [{"risk": "fake risk", "tickers": tks[:2] + ["ZZZZ"], "why": "fake"}]}
     elif schema_name == "claims":
         content = {"summary": "fake summary", "claims": _claims_from_excerpts(user)}
     else:  # neo4j-graphrag entity extraction prompt (V1, JSON in text)

@@ -27,7 +27,7 @@ DEMO_DIR = config.ROOT / "demo"
 RUN_DIR = config.RESULTS_DIR / "demo_run"
 SPEND_LOG = config.RESULTS_DIR / "spend" / "console_live.jsonl"
 # Assumed cost of one live ask, checked against the cap before the call (the real cost is logged after it).
-ASK_USD = {"rag": 0.06, "graph": 0.15}  # measured 26 Oct: $0.04 and $0.10-0.12
+ASK_USD = {"rag": 0.06, "graph": 0.15, "note": 0.03}  # measured 26 Oct: $0.04 and $0.10-0.12
 ROUTE_MODEL = config.env("CONSOLE_ROUTE_MODEL", config.GRAPH_QA_MODEL)
 GRAPH_ANSWER_MODEL = config.env("CONSOLE_GRAPH_MODEL", config.LLM_MODEL)
 
@@ -195,6 +195,7 @@ class Live:
         result = finalise({"approach": "1_plain_rag", "summary": reply["summary"], "raw_claims": reply["claims"],
                            "sources": {c["chunk_id"]: c["text"] for c in got}, "details": {}}, self.filings)
         result.pop("sources", None)
+        result["note"] = yield from self._note(question, result["claims"])
         yield {"type": "result", "result": result, "retrieved": retrieved, "chunks_indexed": len(chunks),
                "seconds": round(time.perf_counter() - start, 1)}
 
@@ -268,9 +269,28 @@ class Live:
             yield {"type": "replay", "note": f"live call failed ({type(exc).__name__})", "closest": qid}
             return
         yield {"type": "stage", "step": 4, "text": "checking every quote"}
+        res["note"] = yield from self._note(question, res.get("claims") or [], step=5)
         yield {"type": "result", "result": dict(q, rows=len(rows), cypher=graph_qa.TEMPLATES[template].strip(),
                                                 subgraph=sub, **res),
                "routed": routed, "seconds": round(time.perf_counter() - start, 1)}
+
+    def _note(self, question, claims, step=4):
+        """The analyst note from the verified claims (src/analyst_note.py), or None: the answer stands without it."""
+        import analyst_note
+
+        if not claims or not self.spend.allows(ASK_USD["note"]):
+            return None
+        yield {"type": "stage", "step": step, "text": "writing the analyst note"}
+
+        def write():
+            note, record = analyst_note.write(question, claims, cache="off", timeout=LIVE_TIMEOUT_S)
+            self.spend.add("note", record)
+            return note
+
+        try:
+            return self._deadline(write, timeout=LIVE_TIMEOUT_S + 2)
+        except Exception:  # timeout or provider error: the verified answer is shown without a note
+            return None
 
     def _graph_answer(self, q, rows):
         import graph_qa

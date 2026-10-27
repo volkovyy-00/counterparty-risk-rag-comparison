@@ -37,6 +37,7 @@ function stepsFor(st) {
     { label: "Draw what came back", detail: "only the rows, nothing added", done: g ? `${g.nodes.length + (g.drivers || []).length} nodes · ${g.edges.length + (g.driver_edges || []).length} links` : "" },
     { label: "Model answers from the rows", detail: "quotes each company", done: q?.empty || q?.generic_only ? "no model call" : `${q?.verification?.claims ?? 0} claims` },
     { label: "Verifier checks every quote", detail: "verbatim, in the filing", done: v ? `${v.accepted} of ${v.claims} verified` : "nothing to check" },
+    { label: "Analyst note", detail: "from the verified claims only", done: st?.anote ? `${st.anote.points.length} points` : "not recorded" },
   ];
 }
 
@@ -50,9 +51,15 @@ function replay(set, q, asked, note) {
   let stopType = () => {};
   const steps = [{ ms: 700, run: () => set({ graph: base, focus: null }) }, { ms: 700, run: () => upd({ at: 1 }) }, { ms: 50, run: () => upd({ at: 2 }) }];
   for (let i = 1; i <= 12; i++) steps.push({ ms: 110, run: () => upd({ reveal: i / 12 }) });
-  if (q.empty || q.generic_only) steps.push({ ms: 0, run: () => upd({ at: 5, text, result: q, running: false }) });
-  else steps.push({ ms: 300, run: () => upd({ at: 3 }) }, { ms: ms + 150, run: () => { stopType = typeOut(text, ms, t => upd({ text: t })); } },
-    { ms: 900, run: () => upd({ at: 4, text, result: q }) }, { ms: 0, run: () => upd({ at: 5, running: false }) });
+  const an = (DATA.notes || {})[`graph:${q.id}`] || null;
+  if (q.empty || q.generic_only) steps.push({ ms: 0, run: () => upd({ at: 6, text, result: q, running: false }) });
+  else {
+    steps.push({ ms: 300, run: () => upd({ at: 3 }) }, { ms: ms + 150, run: () => { stopType = typeOut(text, ms, t => upd({ text: t })); } },
+      { ms: 900, run: () => upd({ at: 4, text, result: q }) });
+    if (an) steps.push({ ms: 400, run: () => upd({ at: 5, anote: an, noteText: "" }) },
+      { ms: 1700, run: () => { stopType = typeOut(an.takeaway, 1500, t => upd({ noteText: t })); } });
+    steps.push({ ms: 0, run: () => upd({ at: 6, running: false, noteText: an?.takeaway }) });
+  }
   const stopPlay = play(steps);
   cancel = () => { stopPlay(); stopType(); };
 }
@@ -77,7 +84,7 @@ export async function askGraph(S, set, question, id) {
       setTimeout(() => st.at < 3 && upd({ at: 3 }), 1300); },
     onToken: t => upd({ text: st.text + t }),
   });
-  if (msg.type === "result") return upd({ at: 5, running: false, reveal: 1, ask: { ...st.ask, ...msg.result }, result: msg.result,
+  if (msg.type === "result") return upd({ at: 6, running: false, reveal: 1, anote: msg.result.note, noteText: msg.result.note?.takeaway, ask: { ...st.ask, ...msg.result }, result: msg.result,
     text: msg.result.summary, seconds: msg.seconds, routed: msg.routed });
   const back = asks.find(a => a.id === msg.closest) || recorded || m.ask;
   replay(set, back, question, back === recorded ? msg.note : `${msg.note}; closest recorded question: “${back.question}”`);
@@ -151,7 +158,8 @@ export function View() {
             {wrongQ && <div class="note">{st.note}. The answer below is to that question, not to the one typed.</div>}
             {st.at >= 3 && q && <h2 class="headline">{headline(q)}</h2>}
             <Output source={q?.rows != null ? `written from the ${q.rows} query rows only` : "written from the query rows only"} streaming={st.at === 3}
-              text={st.at >= 3 ? (q?.generic_only ? (g.drivers || []).map(d => `${d.label}: ${d.why_generic || "generic"}`).join(" · ") : st.text) : null} />
+              text={st.at >= 3 ? (q?.generic_only ? (g.drivers || []).map(d => `${d.label}: ${d.why_generic || "generic"}`).join(" · ") : st.text) : null}
+              note={st.at >= 5 ? st.anote : null} noteText={st.noteText} done={st.at >= 6} />
             {st.at >= 4 && st.result?.claims?.length > 0 && <div><div class="label">Verified findings · click one for its quotes in the filings</div>
               <Findings claims={st.result.claims} approach="2_graphrag" max={5} title="GraphRAG · verified claims" /></div>}
             {q?.cypher && st.at >= 1 && <div class="rule-top cy">
