@@ -1,14 +1,13 @@
-import { DATA, filings, local } from "../lib/data.js";
-import { Check, X, ArrowUpRight } from "lucide-preact";
+import { DATA, filings } from "../lib/data.js";
+import { ArrowUpRight } from "lucide-preact";
 
 // "2026-01-27" -> "27 Jan 2026": fits a tile on one line.
 const fmtDate = d => { const [y, m, day] = String(d || "").split("-");
   return y && m ? `${+day} ${"Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split(" ")[+m - 1]} ${y}` : d; };
 
 export function View() {
-  const r = DATA.scoring_rule, m = DATA.meta, F = filings();
+  const m = DATA.meta, F = filings();
   const A = F.filter(f => f.industry !== "semis"), S = F.filter(f => f.industry === "semis");
-  const predates = r.committed_at && new Date(r.committed_at) < new Date(m.created_at);
   // Each tile opens that company's 10-K on SEC EDGAR, in a new tab.
   const tile = f => {
     const link = f.url?.startsWith("http");
@@ -29,12 +28,6 @@ export function View() {
           <span>{A.length} automakers and suppliers</span><span>{S.length} chipmakers</span></div>
         <div class="tiles" style={{ "--na": A.length, "--ns": S.length }}>{A.map(tile)}<div />{S.map(tile)}</div>
         <div class="meta" style={{ marginTop: "var(--s4)" }}>Latest 10-K each, Item 1A Risk Factors only, from SEC EDGAR. Click a company to open its filing.</div>
-      </div>
-      <div class="rule-top" style={{ fontSize: "var(--t-lead)", display: "flex", gap: "var(--s5)", alignItems: "baseline", flexWrap: "wrap" }}>
-        <span>Scoring rule committed <b>{r.committed_at ? local(r.committed_at) : "never"}</b> <span class="mono ink3">{(r.sha || "").slice(0, 7)}</span></span>
-        <span class="ink3">→</span><span>results recorded <b>{local(m.created_at)}</b></span>
-        {predates ? <b style={{ color: "var(--live)" }}><Check size="1em" style={{ verticalAlign: "-0.12em" }} /> rule predates results</b>
-          : <b style={{ color: "var(--bad)" }}><X size="1em" /> rule does not predate results</b>}
       </div>
     </div>
   );

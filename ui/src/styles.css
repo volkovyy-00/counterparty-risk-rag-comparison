@@ -274,9 +274,10 @@ a.tile:hover .go { color: var(--ink); }
 .tile .fp { font-size: var(--t-meta); color: var(--ink-3); }
 .sev { font-size: var(--t-meta); font-weight: 700; letter-spacing: 0.06em; font-stretch: 112%; padding: 0 0.4rem; border: 1.5px solid currentColor; border-radius: 2px; }
 .sev.ERROR { color: var(--bad); } .sev.WARN { color: var(--ink); } .sev.INFO { color: var(--ink-3); }
-.finding { display: grid; grid-template-columns: 5rem minmax(0, 1fr); gap: var(--s4); padding: var(--s4) 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
-.finding .what { font-size: var(--t-body); }
-.finding .d { font-size: var(--t-meta); color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* Data gate findings (screen 2); .finding below is the verified-claims list */
+.dq-finding { display: grid; grid-template-columns: 5rem minmax(0, 1fr); gap: var(--s4); padding: var(--s4) 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
+.dq-finding .what { font-size: var(--t-body); }
+.dq-finding .d { font-size: var(--t-meta); color: var(--ink-2); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
 td.best { background: var(--surface); font-weight: 700; color: var(--ink); }
 .verdict { font-size: var(--t-display); font-weight: 700; letter-spacing: 0.04em; font-stretch: 112%; line-height: 1; }
 .verdict.rejected { color: var(--bad); } .verdict.accepted { color: var(--live); }

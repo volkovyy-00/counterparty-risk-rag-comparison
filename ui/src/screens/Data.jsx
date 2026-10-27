@@ -5,14 +5,14 @@ const PRI = { document_identity: 0, ticker_mismatch: 1, duplicate_company: 2, fi
 const edgar = () => DATA.dq.edgar.slice().sort((a, b) => ORDER[a.severity] - ORDER[b.severity]);
 const workshop = () => DATA.dq.workshop.slice().sort((a, b) => (PRI[a.check] ?? 9) - (PRI[b.check] ?? 9));
 const Finding = ({ i }) => (
-  <div class="finding"><span><span class={`sev ${i.severity}`}>{i.severity}</span></span>
+  <div class="dq-finding"><span><span class={`sev ${i.severity}`}>{i.severity}</span></span>
     <div style={{ minWidth: 0 }}><div class="what"><b>{i.check.replace(/_/g, " ")}</b> · {short(i.subject, 40)}</div><div class="d">{i.detail}</div></div></div>);
 
 export function View() {
   const ed = DATA.dq.edgar, ws = DATA.dq.workshop, n = (L, s) => L.filter(i => i.severity === s).length;
   return (
     <div class="screen">
-      <div class="cols" style={{ gridTemplateColumns: "1fr 1fr", flex: 1 }}>
+      <div class="cols" style={{ gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr)", flex: 1 }}>
         <div>
           <div class="label">SEC EDGAR set, {DATA.filings.length} filings</div>
           <div style={{ display: "flex", gap: "var(--s7)", marginBottom: "var(--s5)" }}>
