@@ -10,8 +10,8 @@ from pathlib import Path
 
 import config
 
-LOCAL_TEMPLATES = ("SHARED_AMONG", "SHARED_VS_SPECIFIC", "MOST_COMMON", "WHO_FACES", "COMPANY_PEERS", "UNIQUE_TO",
-                   "CROSS_INDUSTRY", "INDUSTRY_ONLY")  # the last six: src/graph_patterns.py
+LOCAL_TEMPLATES = ("SHARED_AMONG", "SHARED_VS_SPECIFIC", "MOST_COMMON", "WHO_FACES", "COMPANY_RISKS", "COMPANY_PEERS", "UNIQUE_TO",
+                   "CROSS_INDUSTRY", "INDUSTRY_ONLY")  # the last seven: src/graph_patterns.py
 
 
 def load(path=None):
@@ -86,6 +86,12 @@ def who_faces(g, risks):
     return _ranked(g, lambda n, es: n["label"] in want, lambda n, es: (-len(es), n["label"]), "asked about")
 
 
+def company_risks(g, ticker, limit=8):
+    """Specific risks first, then how many companies share each: the profile, with who else is linked."""
+    return _ranked(g, lambda n, es: ticker in es, lambda n, es: (bool(n.get("generic")), -len(es), _bp(n), n["label"]),
+                   "company profile", limit)
+
+
 def company_peers(g, ticker, limit=6):
     return _ranked(g, lambda n, es: ticker in es and not n.get("generic") and len(es) >= 2,
                    lambda n, es: (-len(es), _bp(n), n["label"]), "shared with peers", limit)
@@ -116,6 +122,8 @@ def rows_for(g, template, params):
         return most_common(g, p.get("industry"), p.get("specific_only", False), p.get("limit", 5))
     if template == "WHO_FACES":
         return who_faces(g, p["risks"])
+    if template == "COMPANY_RISKS":
+        return company_risks(g, p["ticker"], p.get("limit", 8))
     if template == "COMPANY_PEERS":
         return company_peers(g, p["ticker"], p.get("limit", 6))
     if template == "UNIQUE_TO":

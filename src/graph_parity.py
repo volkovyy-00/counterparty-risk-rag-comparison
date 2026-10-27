@@ -23,6 +23,8 @@ CASES = [
     ("SHARED_VS_SPECIFIC", {"min_shared": 2, "industries": ["auto", "semis"]}),
     ("MOST_COMMON", {"industry": None, "specific_only": False, "limit": 5}),
     ("MOST_COMMON", {"industry": "semis", "specific_only": True, "limit": 5}),
+    ("COMPANY_RISKS", {"ticker": "TSLA", "limit": 8}),
+    ("COMPANY_RISKS", {"ticker": "NXPI", "limit": 8}),
     ("COMPANY_PEERS", {"ticker": "TSLA", "limit": 6}),
     ("COMPANY_PEERS", {"ticker": "TXN", "limit": 6}),
     ("UNIQUE_TO", {"ticker": "F", "limit": 6}),

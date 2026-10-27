@@ -31,7 +31,7 @@ function headline(q) {
 
 // The read-only query patterns a typed question can be routed to (src/graph_patterns.py), in the room's words.
 export const PATTERNS = ["the most common risks, overall or in one industry", "risks two or more named companies share",
-  "which companies face a given risk", "who shares one company's specific risks", "risks only one company discloses",
+  "which companies face a given risk", "one company's main risks", "who shares one company's specific risks", "risks only one company discloses",
   "specific risks linking autos and chips", "risks only one industry discloses"];
 
 // The parameters the router filled, short: tickers, an industry, risk names.
@@ -162,7 +162,7 @@ export function View() {
         <Strip on={focusCos || comps} part={focusCos ? comps : []} />
         <div class="figure"><b>{st && st.at >= 2 ? (focusCos || comps).length : "–"}</b><span>of {groupN()}<br />{focusCos ? "on this node" : "in the rows"}</span></div>
       </div>
-      {!st ? <div class="empty-ask"><p class="serif">GraphRAG answers from a knowledge graph of the ten filings. The question is routed to one of {PATTERNS.length + 2} read-only query patterns; the model only sees the rows that come back.</p>
+      {!st ? <div class="empty-ask"><p class="serif">GraphRAG answers from a knowledge graph of the ten filings. The question is routed to one of {PATTERNS.length + 1} read-only query patterns; the model only sees the rows that come back.</p>
         <p class="meta">Type a question, pick one above, or press R for the main question.</p></div>
         : st.unanswered ? <Unanswered st={st} can={PATTERNS} onAsk={(text, id) => askGraph(S, set, text, id)} /> : (
         <div class="graph-ask">

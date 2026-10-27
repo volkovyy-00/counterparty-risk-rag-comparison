@@ -32,6 +32,13 @@ WHERE r.name IN $risks
 WITH r, collect({_EVIDENCE}) AS evidence
 {_RETURN.format(role="'asked about'")}
 ORDER BY size(evidence) DESC, risk""",
+    "COMPANY_RISKS": f"""
+MATCH (:Company {{ticker: $ticker}})-[:FACES_RISK]->(r:RiskFactor)
+MATCH (c:Company)-[f:FACES_RISK]->(r)
+WITH r, collect({_EVIDENCE}) AS evidence
+{_RETURN.format(role="'company profile'")}
+ORDER BY generic, size(evidence) DESC, coalesce(r.boilerplate_share, 0), risk
+LIMIT $limit""",
     "COMPANY_PEERS": f"""
 MATCH (:Company {{ticker: $ticker}})-[:FACES_RISK]->(r:RiskFactor)
 WHERE NOT coalesce(r.generic, false)
@@ -73,6 +80,8 @@ ROUTES = {
                     "NXP have in common?'",
     "WHO_FACES": "which companies disclose a given risk or topic (risks: pick 1-3 names from the shortlist). E.g. "
                  "'who is exposed to rare earths?'",
+    "COMPANY_RISKS": "one company's main risks, its risk profile (tickers: exactly one). E.g. 'what are Tesla's "
+                     "main risks?'",
     "COMPANY_PEERS": "one company's specific risks that other companies also disclose, i.e. who it is linked to "
                      "(tickers: exactly one). E.g. 'who shares Tesla's risks?'",
     "UNIQUE_TO": "risks only one company discloses (tickers: exactly one). E.g. 'what is unique to Ford?'",
@@ -83,7 +92,7 @@ ROUTES = {
     "SHARED_RISKS": "the overall question: what risks connect all the companies and who shares each.",
     "NONE": "anything else (not about these companies' disclosed risks, or needs numbers, dates or prices).",
 }
-LIMITS = {"MOST_COMMON": 5, "COMPANY_PEERS": 6, "UNIQUE_TO": 6, "CROSS_INDUSTRY": 6, "INDUSTRY_ONLY": 6}
+LIMITS = {"MOST_COMMON": 5, "COMPANY_RISKS": 8, "COMPANY_PEERS": 6, "UNIQUE_TO": 6, "CROSS_INDUSTRY": 6, "INDUSTRY_ONLY": 6}
 LOCAL = tuple(CYPHER)
 
 
@@ -101,7 +110,7 @@ def params_for(pattern, tickers, industry, risks, specific_only):
         return {"industry": ind, "specific_only": bool(specific_only), "limit": lim}, None
     if pattern == "WHO_FACES":
         return ({"risks": risks[:3]}, None) if risks else (None, "no risk in the graph matches it")
-    if pattern in ("COMPANY_PEERS", "UNIQUE_TO"):
+    if pattern in ("COMPANY_RISKS", "COMPANY_PEERS", "UNIQUE_TO"):
         return ({"ticker": tickers[0], "limit": lim}, None) if len(tickers) == 1 else (None, "it needs one company")
     if pattern == "CROSS_INDUSTRY":
         return {"industries": graph_qa.INDUSTRIES, "limit": lim}, None
