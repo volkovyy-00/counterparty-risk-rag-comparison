@@ -33,10 +33,10 @@ function stepsFor(st) {
   const tks = q?.params?.tickers;
   return [
     { label: "Route to a fixed query", detail: "picks a template, never writes Cypher", done: q ? `${q.template}${tks ? ` · ${tks.join(", ")}` : ""}` : "" },
-    { label: "Run read-only Cypher", detail: "on the exported graph", done: q ? `${q.rows} rows` : "" },
+    { label: "Read-only Cypher", detail: "on the exported graph", done: q ? `${q.rows} rows` : "" },
     { label: "Draw what came back", detail: "only the rows, nothing added", done: g ? `${g.nodes.length + (g.drivers || []).length} nodes · ${g.edges.length + (g.driver_edges || []).length} links` : "" },
-    { label: "Model answers from the rows", detail: "quotes each company", done: q?.empty || q?.generic_only ? "no model call" : `${q?.verification?.claims ?? 0} claims` },
-    { label: "Verifier checks every quote", detail: "verbatim, in the filing", done: v ? `${v.accepted} of ${v.claims} verified` : "nothing to check" },
+    { label: "Model answers", detail: "from the rows only", done: q?.empty || q?.generic_only ? "no model call" : `${q?.verification?.claims ?? 0} claims` },
+    { label: "Verifier checks quotes", detail: "verbatim, in the filing", done: v ? `${v.accepted} of ${v.claims} verified` : "nothing to check" },
     { label: "Analyst note", detail: "from the verified claims only", done: st?.anote ? `${st.anote.points.length} points` : "not recorded" },
   ];
 }

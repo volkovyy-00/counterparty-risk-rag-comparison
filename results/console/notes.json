@@ -61,9 +61,478 @@
    ],
    "claims": 13,
    "recorded_at": "2026-10-27T08:12:36+0000"
+  },
+  "rag:tsla_cells": {
+   "takeaway": "Tesla relies on few qualified cell suppliers (Panasonic, CATL) with limited flexibility to switch; GM shares battery cost and sourcing exposure, a common EV supply-chain shock risk.",
+   "points": [
+    {
+     "risk": "Concentrated cell suppliers",
+     "tickers": [
+      "TSLA"
+     ],
+     "why": "Only a very limited number of qualified suppliers; disruption at Panasonic or CATL could curtail vehicle and storage output, hitting revenue and cash flow."
+    },
+    {
+     "risk": "Battery cell cost pressure",
+     "tickers": [
+      "TSLA",
+      "GM"
+     ],
+     "why": "Both automakers cite battery cell costs; replacement cells at greater cost or failure to cut costs squeezes margins across EV counterparties together."
+    },
+    {
+     "risk": "Critical mineral prices",
+     "tickers": [
+      "TSLA",
+      "GM"
+     ],
+     "why": "Lithium, nickel and material sourcing drive cell cost and availability; a commodity shock would hit both automakers' EV economics at once."
+    },
+    {
+     "risk": "Production scale dependence",
+     "tickers": [
+      "TSLA"
+     ],
+     "why": "Growth and profitability depend on significant cell production; shortfalls delay volume plans that underpin earnings and debt capacity."
+    }
+   ],
+   "caveat": "Quotes describe exposure, not size or contract terms, and no supplier or semiconductor counterparty claims link the cell dependence to other names.",
+   "covered": [
+    "GM",
+    "TSLA"
+   ],
+   "not_reached": [
+    "F",
+    "APTV",
+    "BWA",
+    "LEA",
+    "NXPI",
+    "MCHP",
+    "ON",
+    "TXN"
+   ],
+   "claims": 5,
+   "recorded_at": "2026-10-27T08:30:28+0000"
+  },
+  "rag:gm_f_ev": {
+   "takeaway": "GM and Ford face the same EV-transition squeeze: regulation forcing costly EV mix, uncertain demand, and infrastructure gaps, a shared policy shock that would hit both counterparties' margins simultaneously.",
+   "points": [
+    {
+     "risk": "Emissions regulation cost",
+     "tickers": [
+      "GM",
+      "F"
+     ],
+     "why": "Shared policy shock: mandates may force credit purchases, penalties or higher vehicle costs, compressing margins at both automakers at once."
+    },
+    {
+     "risk": "EV demand mismatch",
+     "tickers": [
+      "GM",
+      "F"
+     ],
+     "why": "Demand too slow risks unprofitable EVs and non-compliance; too fast risks lost share and accelerated ICE asset charges. Either way, earnings volatility."
+    },
+    {
+     "risk": "Industrial and trade policy",
+     "tickers": [
+      "F"
+     ],
+     "why": "Changes to EV and battery incentives or battery supply-chain rules could abruptly alter product profitability."
+    },
+    {
+     "risk": "EV price competition",
+     "tickers": [
+      "F"
+     ],
+     "why": "Excess capacity and competitive pricing, particularly for electrified vehicles, pressure margins and cash generation."
+    },
+    {
+     "risk": "Charging and battery supply",
+     "tickers": [
+      "GM",
+      "F"
+     ],
+     "why": "Common external dependency on infrastructure and battery raw materials; largely generic industry language, closer to boilerplate."
+    }
+   ],
+   "caveat": "Only GM and Ford claims were accepted, and the quotes describe exposure, not magnitude, so supplier and semiconductor linkages cannot be assessed.",
+   "covered": [
+    "F",
+    "GM"
+   ],
+   "not_reached": [
+    "TSLA",
+    "APTV",
+    "BWA",
+    "LEA",
+    "NXPI",
+    "MCHP",
+    "ON",
+    "TXN"
+   ],
+   "claims": 8,
+   "recorded_at": "2026-10-27T08:30:33+0000"
+  },
+  "graph:main": {
+   "takeaway": "Shared supply-chain and funding risks link these counterparties: autos depend on single-source suppliers while semis flag production disruption, so one supply shock could hit several names simultaneously.",
+   "points": [
+    {
+     "risk": "Single-source supplier dependence",
+     "tickers": [
+      "F",
+      "GM",
+      "APTV"
+     ],
+     "why": "Components cannot be re-sourced quickly; a disruption at a shared supplier, possibly a chipmaker, would hit several automakers' revenue and cash flow at once."
+    },
+    {
+     "risk": "Rating-linked borrowing costs",
+     "tickers": [
+      "BWA",
+      "MCHP",
+      "NXPI"
+     ],
+     "why": "Downgrades raise interest costs via rating grids and could impair refinancing access, so credit deterioration could compound across both industries."
+    },
+    {
+     "risk": "Government incentive dependence",
+     "tickers": [
+      "F",
+      "NXPI"
+     ],
+     "why": "Incentives could be reduced, terminated or clawed back; a shared policy shift would pressure earnings in both autos and semis."
+    },
+    {
+     "risk": "Disaster and weather disruption",
+     "tickers": [
+      "GM",
+      "TXN",
+      "NXPI"
+     ],
+     "why": "Severe weather or production-process problems interrupt output; semis' manufacturing interruptions would transmit to automakers' supply."
+    },
+    {
+     "risk": "Trade and geopolitical exposure",
+     "tickers": [
+      "LEA",
+      "MCHP"
+     ],
+     "why": "US-China strain and export licensing requirements represent a common trade shock to integrated auto-semis supply chains."
+    }
+   ],
+   "caveat": "Quotes describe exposure, not magnitude, and silence from a counterparty on a risk does not mean it lacks that exposure.",
+   "covered": [
+    "APTV",
+    "BWA",
+    "F",
+    "GM",
+    "LEA",
+    "MCHP",
+    "NXPI",
+    "ON",
+    "TSLA",
+    "TXN"
+   ],
+   "not_reached": [],
+   "claims": 19,
+   "recorded_at": "2026-10-27T08:30:40+0000"
+  },
+  "graph:gm_nxpi": {
+   "takeaway": "GM and NXPI share supply-chain, manufacturing disruption and climate exposures, so an operational or supplier shock could hit both buyer and chip supplier at once; most other overlaps are boilerplate.",
+   "points": [
+    {
+     "risk": "Single-source supply dependence",
+     "tickers": [
+      "GM",
+      "NXPI"
+     ],
+     "why": "GM buys single-sourced parts and NXPI depends on its own suppliers; a chip-chain failure could stall both, compounding exposure to the same chain."
+    },
+    {
+     "risk": "Manufacturing disruption",
+     "tickers": [
+      "GM",
+      "NXPI"
+     ],
+     "why": "Plant outages at either cut production schedules; a disruption at a chip supplier could cascade into automaker output and cash flow."
+    },
+    {
+     "risk": "Climate and severe weather",
+     "tickers": [
+      "GM",
+      "NXPI"
+     ],
+     "why": "Both cite storms, droughts and wildfires; one regional event could disrupt production at both simultaneously, a correlated shock."
+    },
+    {
+     "risk": "Joint venture dependence",
+     "tickers": [
+      "GM",
+      "NXPI"
+     ],
+     "why": "GM's China JV agreement expires in 2027 under renegotiation; NXPI often lacks control of partnerships. Earnings partly rely on partners."
+    },
+    {
+     "risk": "Pension, labor, restructuring, privacy",
+     "tickers": [
+      "GM",
+      "NXPI"
+     ],
+     "why": "Largely boilerplate; pension funding sensitivity to markets and discount rates is the most credit-relevant, affecting cash calls in downturns."
+    }
+   ],
+   "caveat": "Quotes show exposure, not magnitude, and do not establish that GM actually buys from NXPI.",
+   "covered": [
+    "GM",
+    "NXPI"
+   ],
+   "not_reached": [
+    "F",
+    "TSLA",
+    "APTV",
+    "BWA",
+    "LEA",
+    "MCHP",
+    "ON",
+    "TXN"
+   ],
+   "claims": 16,
+   "recorded_at": "2026-10-27T08:30:46+0000"
+  },
+  "graph:shared_vs_specific": {
+   "takeaway": "Cybersecurity breach is the most widely evidenced risk (APTV, BWA, TXN), and labor stoppage risk links autos and semis (TSLA, NXPI); both are largely boilerplate, signaling no specific concentration.",
+   "points": [
+    {
+     "risk": "Cyberattack and IT breach",
+     "tickers": [
+      "APTV",
+      "BWA",
+      "TXN"
+     ],
+     "why": "Spans both industries and third-party systems; a breach at a shared supplier or customer could disrupt several counterparties, though wording is largely boilerplate."
+    },
+    {
+     "risk": "Strikes and work stoppages",
+     "tickers": [
+      "TSLA",
+      "NXPI"
+     ],
+     "why": "The only cross-industry link beyond cyber; stoppages could delay production and sales, pressuring cash flow, but quotes show exposure, not likelihood."
+    },
+    {
+     "risk": "Third-party system dependence",
+     "tickers": [
+      "APTV",
+      "BWA",
+      "TXN"
+     ],
+     "why": "Each cites failures at suppliers, customers or service providers, a channel through which one disruption could hit multiple counterparties at once."
+    }
+   ],
+   "caveat": "Only five of ten companies were reached, and the quotes describe exposure, not its size or probability.",
+   "covered": [
+    "APTV",
+    "BWA",
+    "NXPI",
+    "TSLA",
+    "TXN"
+   ],
+   "not_reached": [
+    "GM",
+    "F",
+    "LEA",
+    "MCHP",
+    "ON"
+   ],
+   "claims": 5,
+   "recorded_at": "2026-10-27T08:30:51+0000"
+  },
+  "graph:bridge": {
+   "takeaway": "Neon and palladium sourced from Ukraine/Russia link APTV and MCHP: a conflict or sanctions shock could hit auto supplier and chipmaker inputs simultaneously, a shared supply concentration.",
+   "points": [
+    {
+     "risk": "Ukraine/Russia raw materials",
+     "tickers": [
+      "APTV",
+      "MCHP"
+     ],
+     "why": "Both name neon and palladium from these regions; one geopolitical or sanctions shock would raise costs or disrupt output at both ends of the chain."
+    },
+    {
+     "risk": "Memory component constraints",
+     "tickers": [
+      "MCHP"
+     ],
+     "why": "Memory supply may tighten, lengthen lead times or cost more, which could pass downstream as chip shortages to auto customers."
+    },
+    {
+     "risk": "Single-source component shortages",
+     "tickers": [
+      "TSLA"
+     ],
+     "why": "Reliance on single-source suppliers among hundreds means any upstream chip or material disruption can halt production and pressure cash flow."
+    }
+   ],
+   "caveat": "Only three of ten counterparties are covered, and the quotes describe exposure, not its size or financial impact.",
+   "covered": [
+    "APTV",
+    "MCHP",
+    "TSLA"
+   ],
+   "not_reached": [
+    "GM",
+    "F",
+    "BWA",
+    "LEA",
+    "NXPI",
+    "ON",
+    "TXN"
+   ],
+   "claims": 4,
+   "recorded_at": "2026-10-27T08:30:57+0000"
+  },
+  "graph:tsla_on_txn": {
+   "takeaway": "All three share FX, IP, recall and cyber risks; recalls are the real cross-industry link, since an auto product defect can pass costs from Tesla back to its chip suppliers.",
+   "points": [
+    {
+     "risk": "Automotive recall cost pass-through",
+     "tickers": [
+      "TSLA",
+      "ON",
+      "TXN"
+     ],
+     "why": "An auto safety defect can hit the automaker and its chip suppliers at once. TXN explicitly cites customer recalls of automotive products containing its parts."
+    },
+    {
+     "risk": "Foreign exchange exposure",
+     "tickers": [
+      "TSLA",
+      "ON",
+      "TXN"
+     ],
+     "why": "A dollar move hits all three together. ON flags liquidity and financial condition effects, and TSLA cites localized subsidiary debt in non-dollar currencies."
+    },
+    {
+     "risk": "Cyber breach, shared systems",
+     "tickers": [
+      "TSLA",
+      "ON",
+      "TXN"
+     ],
+     "why": "Largely boilerplate. TXN and TSLA cite breaches via customers and suppliers, a possible channel for one incident to spread along the supply chain."
+    },
+    {
+     "risk": "IP infringement claims",
+     "tickers": [
+      "TSLA",
+      "ON",
+      "TXN"
+     ],
+     "why": "Boilerplate. Each company faces its own third-party claims, so there is little correlated credit transmission across these counterparties."
+    }
+   ],
+   "caveat": "The quotes describe exposure, not size, and they do not show whether Tesla actually buys from onsemi or Texas Instruments.",
+   "covered": [
+    "ON",
+    "TSLA",
+    "TXN"
+   ],
+   "not_reached": [
+    "GM",
+    "F",
+    "APTV",
+    "BWA",
+    "LEA",
+    "NXPI",
+    "MCHP"
+   ],
+   "claims": 12,
+   "recorded_at": "2026-10-27T08:31:06+0000"
+  },
+  "graph:five": {
+   "takeaway": "All five share tariff exposure on imported inputs across autos and semis, a common trade-policy shock that would squeeze margins at once; other shared risks are largely boilerplate.",
+   "points": [
+    {
+     "risk": "Tariffs on imported inputs",
+     "tickers": [
+      "F",
+      "BWA",
+      "LEA",
+      "MCHP",
+      "ON"
+     ],
+     "why": "One trade-policy shock raises input costs for the OEM, its suppliers and chipmakers together, compressing margins along the same chain simultaneously."
+    },
+    {
+     "risk": "Recalls and warranty costs",
+     "tickers": [
+      "F",
+      "BWA",
+      "LEA"
+     ],
+     "why": "A defect at the OEM or a major customer can cascade to suppliers, as Lear notes recalls involving major customers hit its results."
+    },
+    {
+     "risk": "Foreign currency exposure",
+     "tickers": [
+      "BWA",
+      "LEA",
+      "MCHP",
+      "ON"
+     ],
+     "why": "Non-dollar costs and translation can erode earnings across suppliers and chipmakers at once; largely standard multinational disclosure."
+    },
+    {
+     "risk": "Cyberattack disruption",
+     "tickers": [
+      "F",
+      "BWA",
+      "LEA",
+      "MCHP",
+      "ON"
+     ],
+     "why": "Ford and Lear cite threats spanning suppliers and customers, a possible chain disruption, but mostly boilerplate."
+    },
+    {
+     "risk": "Skilled talent retention",
+     "tickers": [
+      "F",
+      "BWA",
+      "LEA",
+      "MCHP"
+     ],
+     "why": "Boilerplate; engineering and software talent shortages could delay products but are not a direct credit transmission channel."
+    }
+   ],
+   "caveat": "The quotes describe exposure, not magnitude, so they cannot rank which counterparty would be hit hardest or quantify tariff costs.",
+   "covered": [
+    "BWA",
+    "F",
+    "LEA",
+    "MCHP",
+    "ON"
+   ],
+   "not_reached": [
+    "GM",
+    "TSLA",
+    "APTV",
+    "NXPI",
+    "TXN"
+   ],
+   "claims": 21,
+   "recorded_at": "2026-10-27T08:31:14+0000"
   }
  },
  "prompt": "You are a senior credit analyst writing a note a risk committee reads in thirty seconds. You get a question about a group of counterparties and the claims an automatic verifier accepted. Each claim is a company ticker, a risk and a sentence quoted verbatim from that company's latest 10-K, Item 1A Risk Factors. Use ONLY these claims: no outside knowledge, no numbers, dates or names that are not in a quote.\n\nWrite:\n- takeaway: one sentence (at most 30 words) that answers the question and says what it means for counterparty credit risk: a concentration, a shock several counterparties would feel at once, or that the evidence shows nothing specific.\n- points: 3 to 5 risks, most decision-relevant first. Prefer risks that several companies share, and that link the two industries, over risks every filer states. For each give a short risk name (2-5 words), the tickers whose claims support it, and why it matters for credit in at most 25 words (the transmission: a common supplier, a shared policy or trade shock, funding and refinancing, demand from the same end market). Call boilerplate boilerplate.\n- caveat: one short sentence on what this evidence cannot tell (for example, only two companies were reached, or quotes describe exposure, not size). Do not repeat the takeaway.",
- "created_at": "2026-10-27T08:12:36+00:00",
- "usage": {}
+ "created_at": "2026-10-27T08:31:14+00:00",
+ "usage": {
+  "llm_calls": 8.0,
+  "cached_calls": 0.0,
+  "input_tokens": 14434.0,
+  "prompt_cache_read_tokens": 6153.0,
+  "output_tokens": 3795.0,
+  "recorded_latency_s": 54.983,
+  "cost_usd": 0.111134
+ }
 }
