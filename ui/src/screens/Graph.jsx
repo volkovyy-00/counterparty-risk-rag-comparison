@@ -37,7 +37,7 @@ function stepsFor(st) {
     { label: "Draw what came back", detail: "only the rows, nothing added", done: g ? `${g.nodes.length + (g.drivers || []).length} nodes · ${g.edges.length + (g.driver_edges || []).length} links` : "" },
     { label: "Model answers", detail: "from the rows only", done: q?.empty || q?.generic_only ? "no model call" : `${q?.verification?.claims ?? 0} claims` },
     { label: "Verifier checks quotes", detail: "verbatim, in the filing", done: v ? `${v.accepted} of ${v.claims} verified` : "nothing to check" },
-    { label: "Analyst note", detail: "from the verified claims only", done: st?.anote ? `${st.anote.points.length} points` : "not recorded" },
+    { label: "Analyst note", detail: "from the verified claims only", done: st?.anote ? `takeaway + ${Math.min(3, st.anote.points.length)} points` : "not recorded" },
   ];
 }
 
@@ -54,7 +54,8 @@ function replay(set, q, asked, note) {
   const an = (DATA.notes || {})[`graph:${q.id}`] || null;
   if (q.empty || q.generic_only) steps.push({ ms: 0, run: () => upd({ at: 6, text, result: q, running: false }) });
   else {
-    steps.push({ ms: 300, run: () => upd({ at: 3 }) }, { ms: ms + 150, run: () => { stopType = typeOut(text, ms, t => upd({ text: t })); } },
+    steps.push({ ms: 300, run: () => upd({ at: 3 }) }, an ? { ms: 1800, run: () => upd({ text }) }
+      : { ms: ms + 150, run: () => { stopType = typeOut(text, ms, t => upd({ text: t })); } },
       { ms: 900, run: () => upd({ at: 4, text, result: q }) });
     if (an) steps.push({ ms: 400, run: () => upd({ at: 5, anote: an, noteText: "" }) },
       { ms: 1700, run: () => { stopType = typeOut(an.takeaway, 1500, t => upd({ noteText: t })); } });
@@ -159,6 +160,7 @@ export function View() {
             {st.at >= 3 && q && <h2 class="headline">{headline(q)}</h2>}
             <Output source={q?.rows != null ? `written from the ${q.rows} query rows only` : "written from the query rows only"} streaming={st.at === 3}
               text={st.at >= 3 ? (q?.generic_only ? (g.drivers || []).map(d => `${d.label}: ${d.why_generic || "generic"}`).join(" · ") : st.text) : null}
+              wait={!q?.empty && !q?.generic_only && st.at < 6 && (st.mode === "live" || (DATA.notes || {})[`graph:${q?.id}`]) ? ["Routing", "Running the query", "Drawing the rows", "Writing the answer", "Checking every quote", "Writing the analyst note"][st.at] : null}
               note={st.at >= 5 ? st.anote : null} noteText={st.noteText} done={st.at >= 6} />
             {st.at >= 4 && st.result?.claims?.length > 0 && <div><div class="label">Verified findings · click one for its quotes in the filings</div>
               <Findings claims={st.result.claims} approach="2_graphrag" max={5} title="GraphRAG · verified claims" /></div>}

@@ -23,7 +23,7 @@ function stepsFor(st) {
     { label: `Search ${a?.chunks_indexed ?? "all"} chunks`, detail: `top ${k} by cosine similarity`, done: `${k} chunks · ${got.length} ${got.length === 1 ? "company" : "companies"}` },
     { label: "Model writes the answer", detail: `from those ${k} chunks only`, done: st?.missing ? "not recorded" : `${v?.claims ?? 0} claims, each with a quote` },
     { label: "Verifier checks every quote", detail: "verbatim, in the cited chunk", done: v ? `${v.accepted} of ${v.claims} verified` : "–" },
-    { label: "Analyst note", detail: "from the verified claims only", done: st?.anote ? `${st.anote.points.length} points` : "not recorded" },
+    { label: "Analyst note", detail: "from the verified claims only", done: st?.anote ? `takeaway + ${Math.min(3, st.anote.points.length)} points` : "not recorded" },
   ];
 }
 
@@ -41,9 +41,11 @@ function replay(set, a, asked, note) {
   else {
     const ms = Math.max(1800, Math.min(4200, text.length * 9));
     let stopType = () => {};
-    steps.push({ ms: 400 }, { ms: ms + 150, run: () => { upd({ at: 2 }); stopType = typeOut(text, ms, t => upd({ text: t })); } },
-      { ms: 900, run: () => upd({ at: 3, result: a.result, text }) });
     const an = noteFor(a);
+    // With a note, the panel waits for it: the approach's own answer is not typed out first, then replaced.
+    steps.push({ ms: 400 }, an ? { ms: 1800, run: () => upd({ at: 2, text }) }
+      : { ms: ms + 150, run: () => { upd({ at: 2 }); stopType = typeOut(text, ms, t => upd({ text: t })); } },
+      { ms: 900, run: () => upd({ at: 3, result: a.result, text }) });
     if (an) steps.push({ ms: 400, run: () => upd({ at: 4, anote: an, noteText: "" }) },
       { ms: 1700, run: () => { stopType = typeOut(an.takeaway, 1500, t => upd({ noteText: t })); } });
     steps.push({ ms: 0, run: () => upd({ at: 5, running: false, noteText: an?.takeaway }) });
@@ -113,6 +115,7 @@ export function View() {
             {st.missing
               ? <div class="note">{st.liveRetrieval ? "Retrieval above is live." : "Retrieval above is recorded."} The answer to this question is not recorded{st.note ? ` (${st.note})` : ""}.</div>
               : <Output source={`written from the ${a?.top_k || 12} retrieved chunks only`} text={st.at >= 2 ? st.text : null} streaming={st.at === 2}
+                wait={st.at < 5 && (st.mode === "live" || noteFor(a || {})) ? ["Searching", "Searching", "Writing the answer", "Checking every quote", "Writing the analyst note"][st.at] : null}
                 note={st.at >= 4 ? st.anote : null} noteText={st.noteText} done={st.at >= 5} />}
             {r && <div><div class="label">Verified findings · click one for its quotes in the filings</div>
               <Findings claims={r.claims} approach="1_plain_rag" max={5} title="Plain RAG · verified claims" /></div>}
