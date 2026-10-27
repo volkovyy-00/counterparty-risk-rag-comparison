@@ -1,9 +1,10 @@
-import { useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import { Search, CornerDownLeft } from "lucide-preact";
 
-// A typed question plus chips for the fixed ones. onAsk(text, chipId|null).
-export function Ask({ chips = [], current, onAsk, placeholder, busy, inputRef, extra }) {
+// A typed question plus chips for the fixed ones. onAsk(text, chipId|null). `asked`: the question on screen, kept in the box.
+export function Ask({ chips = [], current, onAsk, placeholder, busy, inputRef, extra, asked }) {
   const [text, setText] = useState("");
+  useEffect(() => { if (asked) setText(asked); }, [asked]);
   const submit = e => { e.preventDefault(); if (text.trim() && !busy) onAsk(text.trim(), null); };
   return (
     <div class="askrow">

@@ -32,24 +32,26 @@ ROUTE_MODEL = config.env("CONSOLE_ROUTE_MODEL", config.GRAPH_QA_MODEL)
 GRAPH_ANSWER_MODEL = config.env("CONSOLE_GRAPH_MODEL", config.LLM_MODEL)
 
 ROUTE_SYSTEM = (
-    "You route a question about the 10-K risk factors of a fixed group of companies to ONE fixed, read-only graph "
-    "query. You never write a query. Templates:\n"
-    "SHARED_AMONG: which risks do the named companies share (needs at least two tickers).\n"
-    "SHARED_VS_SPECIFIC: the risk shared most widely, and the most widely shared specific risk linking autos and "
-    "chips.\n"
-    "BRIDGE_DRIVERS: which named place, input or policy links the automakers' risks to the chipmakers' risks.\n"
-    "SHARED_RISKS: the overall question, what risks connect all the companies and who shares each.\n"
-    "NONE: the question is not about shared risks of these companies.\n"
-    "Companies (ticker: name): {companies}. Return the template, the tickers it needs (empty if none) and a "
-    "one-line reason."
+    "You route a question about the 10-K risk factors of a fixed group of companies to ONE read-only graph query "
+    "pattern and fill its parameters. You never write a query. Patterns:\n{patterns}\n"
+    "Companies (ticker: name, industry): {companies}.\n"
+    "Risk shortlist (the graph's risk names closest to the question; use only these for risks): {risks}.\n"
+    "Return the pattern, the tickers it needs (empty if none), the industry (auto, semis or none), the risks (empty "
+    "unless WHO_FACES), specific_only (true if the question asks to skip boilerplate) and a one-line reason."
 )
+RISK_SHORTLIST = 12
 
 
 def route_schema():
-    return {"type": "object", "additionalProperties": False, "required": ["template", "tickers", "reason"],
-            "properties": {"template": {"type": "string", "enum": ["SHARED_AMONG", "SHARED_VS_SPECIFIC", "BRIDGE_DRIVERS",
-                                                                     "SHARED_RISKS", "NONE"]},
+    import graph_patterns
+
+    return {"type": "object", "additionalProperties": False,
+            "required": ["template", "tickers", "industry", "risks", "specific_only", "reason"],
+            "properties": {"template": {"type": "string", "enum": list(graph_patterns.ROUTES)},
                            "tickers": {"type": "array", "items": {"type": "string", "enum": config.TICKERS}},
+                           "industry": {"type": "string", "enum": ["auto", "semis", "none"]},
+                           "risks": {"type": "array", "items": {"type": "string"}},
+                           "specific_only": {"type": "boolean"},
                            "reason": {"type": "string"}}}
 
 
@@ -91,6 +93,7 @@ class Live:
         self.graph = None
         self.spend = spend or Spend()
         self.pool = ThreadPoolExecutor(4)
+        self._risk_vecs = None
 
     def prepare(self):
         """Load chunks and their embeddings (from the cache; a local embedding model fills any gap for free)."""
@@ -199,28 +202,52 @@ class Live:
         yield {"type": "result", "result": result, "retrieved": retrieved, "chunks_indexed": len(chunks),
                "seconds": round(time.perf_counter() - start, 1)}
 
-    def route(self, question):
-        """(template, params, reason): the model picks a fixed template and its tickers; code checks them."""
-        import graph_qa
+    def shortlist(self, question, k=RISK_SHORTLIST):
+        """The graph's risk names closest to the question, by the same local embedding as plain RAG (free)."""
+        import numpy as np
+
         import llm
 
-        names = ", ".join(f"{f['ticker']}: {f['company']}" for f in self.filings)
-        reply, record = llm.chat(ROUTE_SYSTEM.format(companies=names), question, schema=route_schema(),
-                                 schema_name="route", model=ROUTE_MODEL, effort="low", cache="off",
-                                 timeout=LIVE_TIMEOUT_S, return_record=True)
+        risks = [n for n in self.graph["nodes"] if n["type"] == "RiskFactor"]
+        if self._risk_vecs is None:
+            saved = config.LLM_CACHE
+            config.LLM_CACHE = "readwrite" if config.EMBED_PROVIDER == "local" else saved
+            try:
+                self._risk_vecs = np.array(llm.embed([f"{n['label']}. {n.get('definition') or ''}" for n in risks]),
+                                           dtype=np.float32)
+            finally:
+                config.LLM_CACHE = saved
+        q = np.array(llm.embed([question])[0], dtype=np.float32)
+        sims = self._risk_vecs @ q / (np.linalg.norm(self._risk_vecs, axis=1) * (np.linalg.norm(q) or 1) + 1e-9)
+        return [risks[i]["label"] for i in np.argsort(-sims)[:k]]
+
+    def route(self, question):
+        """(template, params, reason): the model picks a pattern and its parameters; code checks them."""
+        import graph_patterns
+        import llm
+
+        shortlist = self.shortlist(question)
+        names = ", ".join(f"{f['ticker']}: {f['company']}, {config.INDUSTRY.get(f['ticker'], 'other')}"
+                          for f in self.filings)
+        patterns = "\n".join(f"{k}: {v}" for k, v in graph_patterns.ROUTES.items())
+        system = ROUTE_SYSTEM.format(patterns=patterns, companies=names, risks="; ".join(shortlist))
+        reply, record = llm.chat(system, question, schema=route_schema(), schema_name="route", model=ROUTE_MODEL,
+                                 effort="low", cache="off", timeout=LIVE_TIMEOUT_S, return_record=True)
         self.spend.add("graph.route", record)
-        t, tickers = reply["template"], [x for x in dict.fromkeys(reply.get("tickers") or []) if x in config.TICKERS]
-        if t == "SHARED_AMONG":
-            if len(tickers) < 2:
-                return "NONE", {}, "names fewer than two companies"
-            return t, {"tickers": tickers, "min_shared": 2 if len(tickers) <= 3 else 3, "limit": 8}, reply["reason"]
-        if t == "SHARED_VS_SPECIFIC":
-            return t, {"min_shared": 2, "industries": graph_qa.INDUSTRIES}, reply["reason"]
-        return t, {}, reply["reason"]
+        t = reply["template"]
+        if t in ("NONE", "SHARED_RISKS", "BRIDGE_DRIVERS"):
+            return t, {}, reply["reason"]
+        tickers = [x for x in dict.fromkeys(reply.get("tickers") or []) if x in config.TICKERS]
+        risks = [r for r in dict.fromkeys(reply.get("risks") or []) if r in shortlist]
+        params, why = graph_patterns.params_for(t, tickers, reply.get("industry"), risks, reply.get("specific_only"))
+        if params is None:
+            return "NONE", {}, f"{t} cannot run: {why}"
+        return t, params, reply["reason"]
 
     def graph_stream(self, question, qid=None):
         """Graph ask: route to a template, run it over the exported graph, answer from the rows, verify."""
         import graph_local
+        import graph_patterns
         import graph_qa
 
         if self.graph is None:
@@ -231,7 +258,7 @@ class Live:
         if not self.spend.allows(ASK_USD["graph"]):
             yield {"type": "replay", "note": f"live spend cap ${self.spend.cap:.2f} reached", "closest": qid}
             return
-        yield {"type": "stage", "step": 0, "text": "choosing a fixed query"}
+        yield {"type": "stage", "step": 0, "text": "choosing a query pattern"}
         if qid in fixed:
             q = fixed[qid]
             template, params, reason = q["template"], q["params"], "fixed question"
@@ -251,15 +278,15 @@ class Live:
             yield {"type": "replay", "note": "the bridge query needs every mention's quote; showing its recording",
                    "closest": "bridge"}
             return
-        if template not in graph_local.LOCAL_TEMPLATES:
-            yield {"type": "replay", "note": f"no fixed query answers this ({reason})"}
+        if template not in graph_local.LOCAL_TEMPLATES:  # say so; never show another question's answer as this one's
+            yield {"type": "unanswered", "note": reason}
             return
         yield {"type": "stage", "step": 1, "text": "running the read-only query"}
         rows = graph_local.rows_for(self.graph, template, params)
         sub = graph_qa.to_subgraph(rows, self.filings)
         q = {"id": qid or "typed", "question": question, "template": template, "params": params}
         yield {"type": "plan", "id": q["id"], "template": template, "params": params,
-               "cypher": graph_qa.TEMPLATES[template].strip(), "rows": len(rows), "subgraph": sub}
+               "cypher": graph_patterns.CYPHER[template].strip(), "rows": len(rows), "subgraph": sub}
         try:
             res = self._deadline(self._graph_answer, q, rows, timeout=LIVE_TIMEOUT_S + 2)
         except FutureTimeout:
@@ -270,7 +297,7 @@ class Live:
             return
         yield {"type": "stage", "step": 4, "text": "checking every quote"}
         res["note"] = yield from self._note(question, res.get("claims") or [], step=5)
-        yield {"type": "result", "result": dict(q, rows=len(rows), cypher=graph_qa.TEMPLATES[template].strip(),
+        yield {"type": "result", "result": dict(q, rows=len(rows), cypher=graph_patterns.CYPHER[template].strip(),
                                                 subgraph=sub, **res),
                "routed": routed, "seconds": round(time.perf_counter() - start, 1)}
 

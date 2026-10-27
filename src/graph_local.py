@@ -1,4 +1,4 @@
-"""The screen-4 Cypher templates evaluated in Python over the exported graph (results/demo_run/graph.json).
+"""The screen-4 Cypher templates and the console's patterns (src/graph_patterns.py) evaluated in Python over the exported graph (results/demo_run/graph.json).
 
 The stage laptop has no Neo4j. These functions return the same rows as graph_qa.TEMPLATES do in Neo4j (same
 filters, same order, same limits), in the same row shape, so graph_qa.prompt / to_subgraph / answer work unchanged.
@@ -10,7 +10,8 @@ from pathlib import Path
 
 import config
 
-LOCAL_TEMPLATES = ("SHARED_AMONG", "SHARED_VS_SPECIFIC")
+LOCAL_TEMPLATES = ("SHARED_AMONG", "SHARED_VS_SPECIFIC", "MOST_COMMON", "WHO_FACES", "COMPANY_PEERS", "UNIQUE_TO",
+                   "CROSS_INDUSTRY", "INDUSTRY_ONLY")  # the last six: src/graph_patterns.py
 
 
 def load(path=None):
@@ -58,9 +59,69 @@ def shared_vs_specific(g, min_shared=2, industries=("auto", "semis")):
     return out
 
 
+def _bp(n):
+    return n.get("boilerplate_share") or 0
+
+
+def _ranked(g, keep, key, role, limit=None):
+    """Rows for every risk whose {ticker: edge} map passes keep(node, edges), sorted by key(node, edges)."""
+    nodes, faces = {n["id"]: n for n in g["nodes"]}, _faces(g)
+    got = sorted(((nodes[rid], es) for rid, es in faces.items() if keep(nodes[rid], es)), key=lambda x: key(*x))
+    return [_row(n, es, role) for n, es in got[:limit]]
+
+
+def most_common(g, industry=None, specific_only=False, limit=5):
+    nodes, faces = {n["id"]: n for n in g["nodes"]}, _faces(g)
+    got = []
+    for rid, es in faces.items():
+        es = {t: e for t, e in es.items() if industry is None or config.INDUSTRY.get(t) == industry}
+        if es and not (specific_only and nodes[rid].get("generic")):
+            got.append((nodes[rid], es))
+    got.sort(key=lambda x: (-len(x[1]), -_bp(x[0]), x[0]["label"]))
+    return [_row(n, es, "most common") for n, es in got[:limit]]
+
+
+def who_faces(g, risks):
+    want = set(risks)
+    return _ranked(g, lambda n, es: n["label"] in want, lambda n, es: (-len(es), n["label"]), "asked about")
+
+
+def company_peers(g, ticker, limit=6):
+    return _ranked(g, lambda n, es: ticker in es and not n.get("generic") and len(es) >= 2,
+                   lambda n, es: (-len(es), _bp(n), n["label"]), "shared with peers", limit)
+
+
+def unique_to(g, ticker, limit=6):
+    return _ranked(g, lambda n, es: set(es) == {ticker}, lambda n, es: (_bp(n), n["label"]), "only this company", limit)
+
+
+def cross_industry(g, industries=("auto", "semis"), limit=6):
+    inds = lambda es: {config.INDUSTRY.get(t, "other") for t in es}  # noqa: E731
+    return _ranked(g, lambda n, es: not n.get("generic") and set(industries) <= inds(es),
+                   lambda n, es: (-len(es), _bp(n), n["label"]), "both industries", limit)
+
+
+def industry_only(g, industry, limit=6):
+    return _ranked(g, lambda n, es: len(es) >= 2 and {config.INDUSTRY.get(t, "other") for t in es} == {industry},
+                   lambda n, es: (-len(es), _bp(n), n["label"]), "one industry only", limit)
+
+
 def rows_for(g, template, params):
     if template == "SHARED_AMONG":
         return shared_among(g, params["tickers"], params.get("min_shared", 2), params.get("limit", 8))
     if template == "SHARED_VS_SPECIFIC":
         return shared_vs_specific(g, params.get("min_shared", 2), params.get("industries", ("auto", "semis")))
+    p = params
+    if template == "MOST_COMMON":
+        return most_common(g, p.get("industry"), p.get("specific_only", False), p.get("limit", 5))
+    if template == "WHO_FACES":
+        return who_faces(g, p["risks"])
+    if template == "COMPANY_PEERS":
+        return company_peers(g, p["ticker"], p.get("limit", 6))
+    if template == "UNIQUE_TO":
+        return unique_to(g, p["ticker"], p.get("limit", 6))
+    if template == "CROSS_INDUSTRY":
+        return cross_industry(g, p.get("industries", ("auto", "semis")), p.get("limit", 6))
+    if template == "INDUSTRY_ONLY":
+        return industry_only(g, p["industry"], p.get("limit", 6))
     raise ValueError(f"{template} is not evaluated locally")

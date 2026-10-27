@@ -241,6 +241,10 @@ mark { background: var(--mark); color: var(--ink); box-shadow: inset 0 -2px 0 va
 pre.cypher { margin: 0; font-family: var(--mono); font-size: var(--t-mono); line-height: 1.5; color: var(--ink-2); white-space: pre-wrap; overflow-wrap: anywhere; }
 pre.cypher .kw { color: var(--ink); font-weight: 600; }
 pre.cypher .pr { color: var(--ink-2); font-style: italic; }
+.params { margin-top: var(--s2); font-size: var(--t-mono); color: var(--ink-3); overflow-wrap: anywhere; }
+.unanswered { max-width: 80ch; gap: var(--s5); }
+.unanswered > p.serif { margin: 0; font-size: var(--t-lead); color: var(--ink); }
+.unanswered .chip { text-align: left; }
 
 /* ---------------------------------------------------------------- heatmap */
 .hm { border-collapse: separate; border-spacing: 4px; font-size: var(--t-table); }
@@ -396,9 +400,9 @@ td.best { background: var(--surface); font-weight: 700; color: var(--ink); }
 .finding .fq .quote { font-style: italic; }
 .tile .fp { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .output.note p { font-size: var(--t-lead); }
-.output .points { list-style: none; margin: var(--s4) 0 0; padding: 0; display: flex; flex-direction: column; gap: var(--s3); max-width: 70ch; }
-.output .points li { font-size: var(--t-body); line-height: 1.45; color: var(--ink-2); padding-left: 1.1em; text-indent: -1.1em; }
-.output .points li::before { content: "–"; display: inline-block; width: 1.1em; text-indent: 0; color: var(--ink-3); }
+.output .points, .unanswered .points { list-style: none; margin: var(--s4) 0 0; padding: 0; display: flex; flex-direction: column; gap: var(--s3); max-width: 70ch; }
+.output .points li, .unanswered .points li { font-size: var(--t-body); line-height: 1.45; color: var(--ink-2); padding-left: 1.1em; text-indent: -1.1em; }
+.output .points li::before, .unanswered .points li::before { content: "–"; display: inline-block; width: 1.1em; text-indent: 0; color: var(--ink-3); }
 .output .points b { font-weight: 600; color: var(--ink); }
 .output .points .tks .tk { font-weight: 600; font-stretch: 100%; letter-spacing: 0; }
 .output p.caveat { margin-top: var(--s4); font-size: var(--t-table); font-style: italic; color: var(--ink-3); max-width: 70ch; }

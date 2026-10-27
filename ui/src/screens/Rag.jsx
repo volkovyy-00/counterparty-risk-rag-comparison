@@ -8,6 +8,7 @@ import { Steps } from "../components/Steps.jsx";
 import { Findings } from "../components/Findings.jsx";
 import { Output } from "../components/Output.jsx";
 import { Ledger } from "../components/Claims.jsx";
+import { Unanswered } from "../components/Unanswered.jsx";
 
 // A recorded ask with its question and answer filled in (the main one's answer is the frozen approach-1 result).
 const ASKS = () => (DATA.rag_asks || []).map(a => a.main
@@ -62,7 +63,9 @@ export async function askRag(S, set, question, id) {
   const recorded = m.exact ? m.ask : null;
   if (!S.server?.live && !S.server?.retrieval) {
     if (recorded) return replay(set, recorded, question, S.server ? "live asks are off on this server" : "offline copy, no server");
-    return replay(set, m.ask, question, `no recording of this question; closest recorded one: “${m.ask.question}”`);
+    cancel();  // never show another question's answer under this one
+    return set({ rag: { mode: "none", asked: question, at: -1, unanswered: { suggest: m.ask,
+      why: "This copy has no server behind it, so it cannot search the filings for a new question. Only the recorded questions can run." } } });
   }
   // The server embeds and retrieves for real (free, on this laptop); it answers only when live asks are on.
   cancel();
@@ -84,10 +87,10 @@ export async function askRag(S, set, question, id) {
     ask: { ...st.ask, retrieved: msg.retrieved || st.ask.retrieved, chunks_indexed: msg.chunks_indexed || st.ask.chunks_indexed }, shown: 99 });
   if (recorded) return replay(set, recorded, question, msg.note);
   if (st.ask.retrieved.length) return upd({ at: 2, running: false, missing: true, note: msg.note, liveRetrieval: true, shown: 99 });
-  return replay(set, m.ask, question, `${msg.note}; closest recorded question: “${m.ask.question}”`);
+  set({ rag: { mode: "none", asked: question, at: -1, unanswered: { suggest: m.ask, why: `The live ask did not finish (${msg.note}).` } } });
 }
 
-export const mode = S => { const st = S.rag; if (!st) return null;
+export const mode = S => { const st = S.rag; if (!st || st.unanswered) return null;
   if (st.liveRetrieval) return { mode: "live", running: false, why: "retrieval live, no answer" };
   return { mode: st.mode, running: st.running && st.mode === "live", seconds: st.seconds, recorded: st.mode === "replay" ? st.recorded : null, why: st.note }; };
 export const onKey = (e, S, set) => { if (e.key.toUpperCase() === "R") askRag(S, set, DATA.meta.question, "main"); };
@@ -100,14 +103,14 @@ export function View() {
   const wrongQ = st && st.ask?.question && st.asked && st.ask.question !== st.asked && closest([st.ask], st.asked).score < 0.6;
   return (
     <div class="screen ask-screen">
-      <Ask chips={chips} current={!st?.running && st?.ask?.id} busy={st?.running && st.mode === "live"} inputRef={S.refs.rag}
+      <Ask chips={chips} asked={st?.asked} current={!st?.running && st?.ask?.id} busy={st?.running && st.mode === "live"} inputRef={S.refs.rag}
         placeholder="Ask the filings, e.g. What industry risks connect all counterparties?" onAsk={(q, id) => askRag(S, set, q, id)} />
       <Steps steps={stepsFor(st)} at={st ? st.at : -1} />
       <div class="stripline">
         <Strip on={inAns} part={inCtx} />
         <div class="figure"><b>{r ? inAns.length : st ? inCtx.length : "–"}</b><span>of {N} {r ? "in the answer" : "retrieved"}<br />{r ? `${inCtx.length} retrieved` : ""}</span></div>
       </div>
-      {!st ? <Empty /> : (
+      {!st ? <Empty /> : st.unanswered ? <Unanswered st={st} onAsk={(q, id) => askRag(S, set, q, id)} /> : (
         <div class="ask-grid">
           <div class="ask-answer">
             <div class="asked">{st.asked}</div>

@@ -116,7 +116,40 @@ def test_graph_stream_replays_what_it_cannot_run_live(live, monkeypatch):
     assert list(live.graph_stream("x", "main"))[-1]["closest"] == "main"
     monkeypatch.setattr(live, "route", lambda q: ("NONE", {}, "not about shared risks"))
     last = list(live.graph_stream("What is the weather in Prague?"))[-1]
-    assert last["type"] == "replay" and "no fixed query" in last["note"]
+    assert last == {"type": "unanswered", "note": "not about shared risks"}  # never another question's answer
+
+
+def test_router_fills_pattern_parameters_and_code_checks_them(live):
+    import graph_patterns
+
+    template, params, _ = live.route("Which companies are exposed to semiconductor supply shortages?")
+    shortlist = live.shortlist("Which companies are exposed to semiconductor supply shortages?")
+    assert template == "WHO_FACES" and params == {"risks": [shortlist[0]]}  # the risk off the shortlist is dropped
+    events = list(live.graph_stream("Which companies are exposed to semiconductor supply shortages?"))
+    plan = next(e for e in events if e["type"] == "plan")
+    assert plan["cypher"] == graph_patterns.CYPHER["WHO_FACES"].strip() and plan["rows"] == 1
+    assert graph_patterns.params_for("COMPANY_PEERS", ["GM", "F"], "none", [], False) == (None, "it needs one company")
+    assert graph_patterns.params_for("INDUSTRY_ONLY", [], "none", [], False)[0] is None
+    assert graph_patterns.params_for("MOST_COMMON", [], "semis", [], True)[0] == {
+        "industry": "semis", "specific_only": True, "limit": 5}
+
+
+def test_every_pattern_matches_neo4j_when_one_is_running():
+    """src/graph_parity.py against a live Neo4j (docker compose up -d); skipped when none is reachable."""
+    neo4j = pytest.importorskip("neo4j")
+    import graph_local
+    import graph_parity
+
+    try:
+        drv = neo4j.GraphDatabase.driver(config.NEO4J_URI, auth=(config.NEO4J_USERNAME, config.NEO4J_PASSWORD))
+        drv.verify_connectivity()
+        n = drv.execute_query("MATCH (c:Company) RETURN count(c) AS n", database_=config.NEO4J_DATABASE).records[0]["n"]
+    except Exception:
+        pytest.skip("no Neo4j reachable")
+    if not n:
+        pytest.skip("Neo4j is empty: run python src/graph_parity.py --load")
+    with drv:
+        assert graph_parity.run(drv, graph_local.load(RUN / "graph.json")) == 0
 
 
 def test_server_streams_replay_when_live_is_off():

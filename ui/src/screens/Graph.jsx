@@ -9,6 +9,7 @@ import { Steps } from "../components/Steps.jsx";
 import { Findings } from "../components/Findings.jsx";
 import { Output } from "../components/Output.jsx";
 import { ForceGraph } from "../components/ForceGraph.jsx";
+import { Unanswered } from "../components/Unanswered.jsx";
 
 // Every recorded graph ask: the main question (approach 2's global query + its frozen answer), then the fixed questions.
 const QS = () => DATA.graph_qa?.questions || [];
@@ -28,11 +29,19 @@ function headline(q) {
   return `${risks.length} shared risks; ${cross.length} specific ones link autos and chips`;
 }
 
+// The read-only query patterns a typed question can be routed to (src/graph_patterns.py), in the room's words.
+export const PATTERNS = ["the most common risks, overall or in one industry", "risks two or more named companies share",
+  "which companies face a given risk", "who shares one company's specific risks", "risks only one company discloses",
+  "specific risks linking autos and chips", "risks only one industry discloses"];
+
+// The parameters the router filled, short: tickers, an industry, risk names.
+const paramText = p => !p ? "" : [p.tickers?.join(", "), p.ticker, p.industry, p.risks?.map(r => short(r, 28)).join("; "),
+  p.specific_only ? "specific only" : null].filter(Boolean).join(" · ");
+
 function stepsFor(st) {
-  const q = st?.ask, g = q?.subgraph, v = st?.result?.verification;
-  const tks = q?.params?.tickers;
+  const q = st?.ask, g = q?.subgraph, v = st?.result?.verification, pt = paramText(q?.params);
   return [
-    { label: "Route to a fixed query", detail: "picks a template, never writes Cypher", done: q ? `${q.template}${tks ? ` · ${tks.join(", ")}` : ""}` : "" },
+    { label: "Route to a query pattern", detail: "fills its parameters, never writes Cypher", done: q ? `${q.template}${pt ? ` · ${pt}` : ""}` : st?.unanswered ? "no pattern fits" : "" },
     { label: "Read-only Cypher", detail: "on the exported graph", done: q ? `${q.rows} rows` : "" },
     { label: "Draw what came back", detail: "only the rows, nothing added", done: g ? `${g.nodes.length + (g.drivers || []).length} nodes · ${g.edges.length + (g.driver_edges || []).length} links` : "" },
     { label: "Model answers", detail: "from the rows only", done: q?.empty || q?.generic_only ? "no model call" : `${q?.verification?.claims ?? 0} claims` },
@@ -69,9 +78,12 @@ export async function askGraph(S, set, question, id) {
   if (S.graph?.running && S.graph.mode === "live") return;
   const asks = ASKS(), byId = id && asks.find(a => a.id === id), m = byId ? { ask: byId, exact: true } : closest(asks, question);
   const recorded = m.exact ? m.ask : null;
+  // Never show another question's answer under this one: say why it cannot run here, and offer the closest one.
+  const unanswered = why => { cancel(); set({ graph: { mode: "none", asked: question, at: -1, unanswered: { why, suggest: m.ask } }, focus: null }); };
   if (!S.server?.live) {
     if (recorded) return replay(set, recorded, question, S.server ? "live asks are off on this server" : "offline copy, no server");
-    return replay(set, m.ask, question, `no recording of this question; closest recorded one: “${m.ask.question}”`);
+    return unanswered(S.server ? "Live asks are off on this server, so only the recorded questions can run."
+      : "This copy has no server behind it, so only the recorded questions can run.");
   }
   cancel();
   let st = { mode: "live", running: true, asked: question, at: 0, reveal: 0, text: "" };
@@ -87,11 +99,16 @@ export async function askGraph(S, set, question, id) {
   });
   if (msg.type === "result") return upd({ at: 6, running: false, reveal: 1, anote: msg.result.note, noteText: msg.result.note?.takeaway, ask: { ...st.ask, ...msg.result }, result: msg.result,
     text: msg.result.summary, seconds: msg.seconds, routed: msg.routed });
-  const back = asks.find(a => a.id === msg.closest) || recorded || m.ask;
-  replay(set, back, question, back === recorded ? msg.note : `${msg.note}; closest recorded question: “${back.question}”`);
+  if (msg.type === "unanswered") return unanswered(`None of the graph's query patterns answers this (${msg.note}).`);
+  const back = asks.find(a => a.id === msg.closest) || recorded;
+  if (back) return replay(set, back, question, msg.note);
+  // The query ran live but the answer did not come back: keep the live rows and graph, say what is missing.
+  if (st.ask?.subgraph) return upd({ at: 3, running: false, reveal: 1, missing: msg.note });
+  unanswered(`The live ask did not finish (${msg.note}).`);
 }
 
 export const mode = S => { if (S.overview) return null; const st = S.graph; if (!st) return null;
+  if (st.unanswered) return null;
   return { mode: st.mode, running: st.running && st.mode === "live", seconds: st.seconds, recorded: st.mode === "replay" ? st.recorded : null, why: st.note }; };
 
 export function onKey(e, S, set) {
@@ -137,7 +154,7 @@ export function View() {
   const hasMore = asks.some(x => !x.stage);
   return (
     <div class="screen ask-screen">
-      <Ask chips={chips} current={!st?.running && q?.id} busy={st?.running && st.mode === "live"} inputRef={S.refs.graph}
+      <Ask chips={chips} asked={st?.asked} current={!st?.running && q?.id} busy={st?.running && st.mode === "live"} inputRef={S.refs.graph}
         placeholder="Ask the graph, e.g. Which risks do GM and NXP both disclose?" onAsk={(text, id) => askGraph(S, set, text, id)}
         extra={hasMore && <button class="chip" style={{ borderStyle: "dashed" }} onClick={() => set({ qaMore: !S.qaMore })}>{S.qaMore ? "Fewer" : "More questions"}</button>} />
       <Steps steps={stepsFor(st)} at={st ? st.at : -1} />
@@ -145,8 +162,9 @@ export function View() {
         <Strip on={focusCos || comps} part={focusCos ? comps : []} />
         <div class="figure"><b>{st && st.at >= 2 ? (focusCos || comps).length : "–"}</b><span>of {groupN()}<br />{focusCos ? "on this node" : "in the rows"}</span></div>
       </div>
-      {!st ? <div class="empty-ask"><p class="serif">GraphRAG answers from a knowledge graph of the ten filings. The question is routed to one of a few fixed, read-only queries; the model only sees the rows that come back.</p>
-        <p class="meta">Type a question, pick one above, or press R for the main question.</p></div> : (
+      {!st ? <div class="empty-ask"><p class="serif">GraphRAG answers from a knowledge graph of the ten filings. The question is routed to one of {PATTERNS.length + 2} read-only query patterns; the model only sees the rows that come back.</p>
+        <p class="meta">Type a question, pick one above, or press R for the main question.</p></div>
+        : st.unanswered ? <Unanswered st={st} can={PATTERNS} onAsk={(text, id) => askGraph(S, set, text, id)} /> : (
         <div class="graph-ask">
           <div class="graph-pane">
             {st.at >= 2 && q?.subgraph ? <ForceGraph g={g} selected={S.focus} onSelect={id => set({ focus: id })} reveal={st.reveal ?? 1} />
@@ -158,15 +176,17 @@ export function View() {
             <div class="asked">{st.asked}</div>
             {wrongQ && <div class="note">{st.note}. The answer below is to that question, not to the one typed.</div>}
             {st.at >= 3 && q && <h2 class="headline">{headline(q)}</h2>}
+            {st.missing && <div class="note">The query and the graph above ran live; the answer did not arrive ({st.missing}).</div>}
             <Output source={q?.rows != null ? `written from the ${q.rows} query rows only` : "written from the query rows only"} streaming={st.at === 3}
               text={st.at >= 3 ? (q?.generic_only ? (g.drivers || []).map(d => `${d.label}: ${d.why_generic || "generic"}`).join(" · ") : st.text) : null}
-              wait={!q?.empty && !q?.generic_only && st.at < 6 && (st.mode === "live" || (DATA.notes || {})[`graph:${q?.id}`]) ? ["Routing", "Running the query", "Drawing the rows", "Writing the answer", "Checking every quote", "Writing the analyst note"][st.at] : null}
+              wait={!st.missing && !q?.empty && !q?.generic_only && st.at < 6 && (st.mode === "live" || (DATA.notes || {})[`graph:${q?.id}`]) ? ["Routing", "Running the query", "Drawing the rows", "Writing the answer", "Checking every quote", "Writing the analyst note"][st.at] : null}
               note={st.at >= 5 ? st.anote : null} noteText={st.noteText} done={st.at >= 6} />
             {st.at >= 4 && st.result?.claims?.length > 0 && <div><div class="label">Verified findings · click one for its quotes in the filings</div>
               <Findings claims={st.result.claims} approach="2_graphrag" max={5} title="GraphRAG · verified claims" /></div>}
             {q?.cypher && st.at >= 1 && <div class="rule-top cy">
               <div class="label">Read-only Cypher · {q.template} <span class="kbd">C</span></div>
-              <Cypher text={cypherCore(q.cypher).split("\n").slice(0, 3).join("\n")} /></div>}
+              <Cypher text={cypherCore(q.cypher).split("\n").slice(0, 3).join("\n")} />
+              {paramText(q.params) && <div class="params mono">{Object.entries(q.params).filter(([k]) => k !== "limit").map(([k, v]) => `$${k} = ${JSON.stringify(v)}`).join("   ")}</div>}</div>}
           </div>
         </div>)}
     </div>
