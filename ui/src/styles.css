@@ -396,11 +396,12 @@ td.best { background: var(--surface); font-weight: 700; color: var(--ink); }
 .finding .fq .quote { font-style: italic; }
 .tile .fp { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .output.note p { font-size: var(--t-lead); }
-.output .points { list-style: none; margin: var(--s4) 0 0; padding: 0; display: flex; flex-direction: column; gap: var(--s2); }
-.output .points li { display: flex; gap: var(--s3); align-items: baseline; flex-wrap: wrap; font-size: var(--t-body); }
-.output .points li::before { content: "–"; color: var(--ink-3); }
-.output .points b { font-weight: 600; margin-right: var(--s2); }
-.output .points .tk { font-size: var(--t-table); }
+.output .points { list-style: none; margin: var(--s4) 0 0; padding: 0; display: flex; flex-direction: column; gap: var(--s3); max-width: 70ch; }
+.output .points li { font-size: var(--t-body); line-height: 1.45; color: var(--ink-2); padding-left: 1.1em; text-indent: -1.1em; }
+.output .points li::before { content: "–"; display: inline-block; width: 1.1em; text-indent: 0; color: var(--ink-3); }
+.output .points b { font-weight: 600; color: var(--ink); }
+.output .points .tks .tk { font-weight: 600; font-stretch: 100%; letter-spacing: 0; }
+.output p.caveat { margin-top: var(--s4); font-size: var(--t-table); font-style: italic; color: var(--ink-3); max-width: 70ch; }
 .output .foot { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s5); margin-top: var(--s4); font-size: var(--t-meta); color: var(--ink-3); }
 .output .link { all: unset; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; color: var(--ink-3); }
 .output .link:hover { color: var(--ink); }

@@ -23,7 +23,7 @@ function stepsFor(st) {
     { label: `Search ${a?.chunks_indexed ?? "all"} chunks`, detail: `top ${k} by cosine similarity`, done: `${k} chunks · ${got.length} ${got.length === 1 ? "company" : "companies"}` },
     { label: "Model writes the answer", detail: `from those ${k} chunks only`, done: st?.missing ? "not recorded" : `${v?.claims ?? 0} claims, each with a quote` },
     { label: "Verifier checks every quote", detail: "verbatim, in the cited chunk", done: v ? `${v.accepted} of ${v.claims} verified` : "–" },
-    { label: "Analyst note", detail: "from the verified claims only", done: st?.anote ? `takeaway + ${Math.min(3, st.anote.points.length)} points` : "not recorded" },
+    { label: "Analyst note", detail: "from the verified claims only", done: st?.anote ? `takeaway + ${st.anote.points.length} points` : "not recorded" },
   ];
 }
 
