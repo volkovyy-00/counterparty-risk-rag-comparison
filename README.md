@@ -27,7 +27,16 @@ After a fresh clone, this is all you need: no API key, no Neo4j, no download.
 pip install -r requirements.txt
 make demo            # builds demo/index.html from results/demo_run/ and opens it
 make demo-live       # same, plus the one live step (plain-RAG ask; 20 s deadline, then the recorded answer)
+make console         # the console (ui/, prebuilt in demo/console/): recorded questions only, no API calls
+make console-live    # the console with typed questions: ANTHROPIC_API_KEY in .env, spend capped at LIVE_MAX_USD ($3)
 ```
+
+In the console, a typed plain-RAG question is embedded on the laptop and answered from its top-12 chunks; a typed
+GraphRAG question is routed by a small model to one of nine read-only Cypher patterns (`src/graph_patterns.py`), which
+fills its parameters but never writes Cypher. The pattern runs over `results/demo_run/graph.json` and returns the same
+rows as Neo4j (`python src/graph_parity.py` checks it against a running one). A question no pattern answers says so.
+Opened as a claude.ai page with no server behind it, the console runs typed GraphRAG questions in the browser on the
+viewer's own Claude account (`ui/src/lib/browserLive.js`, the same prompts and checks, tested against the Python).
 
 Keys: **1–7** switch screens, **G** governance, **T** timer, **D** dark theme, **Esc** closes a panel. Inside screens:
 **R** runs the live RAG ask (screen 3), **H** hides generic nodes (4), **L** switches to the leaf level (5), and
