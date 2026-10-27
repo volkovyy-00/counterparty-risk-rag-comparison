@@ -7,6 +7,7 @@ import { Strip } from "../components/Strip.jsx";
 import { Ask } from "../components/Ask.jsx";
 import { Steps } from "../components/Steps.jsx";
 import { Findings } from "../components/Findings.jsx";
+import { Output } from "../components/Output.jsx";
 import { ForceGraph } from "../components/ForceGraph.jsx";
 
 // Every recorded graph ask: the main question (approach 2's global query + its frozen answer), then the fixed questions.
@@ -149,9 +150,10 @@ export function View() {
             <div class="asked">{st.asked}</div>
             {wrongQ && <div class="note">{st.note}. The answer below is to that question, not to the one typed.</div>}
             {st.at >= 3 && q && <h2 class="headline">{headline(q)}</h2>}
-            {st.at >= 3 ? <div class={`answer ${st.at === 3 ? "streaming" : ""}`}>{q?.generic_only ? (g.drivers || []).map(d => `${d.label}: ${d.why_generic || "generic"}`).join(" · ") : st.text}</div>
-              : <div><div class="skeleton" style={{ width: "80%" }} /><div class="skeleton" style={{ width: "55%" }} /></div>}
-            {st.at >= 4 && st.result?.claims?.length > 0 && <Findings claims={st.result.claims} approach="2_graphrag" max={5} title="GraphRAG · verified claims" />}
+            <Output source={q?.rows != null ? `written from the ${q.rows} query rows only` : "written from the query rows only"} streaming={st.at === 3}
+              text={st.at >= 3 ? (q?.generic_only ? (g.drivers || []).map(d => `${d.label}: ${d.why_generic || "generic"}`).join(" · ") : st.text) : null} />
+            {st.at >= 4 && st.result?.claims?.length > 0 && <div><div class="label">Verified findings · click one for its quotes in the filings</div>
+              <Findings claims={st.result.claims} approach="2_graphrag" max={5} title="GraphRAG · verified claims" /></div>}
             {q?.cypher && st.at >= 1 && <div class="rule-top cy">
               <div class="label">Read-only Cypher · {q.template} <span class="kbd">C</span></div>
               <Cypher text={cypherCore(q.cypher).split("\n").slice(0, 3).join("\n")} /></div>}

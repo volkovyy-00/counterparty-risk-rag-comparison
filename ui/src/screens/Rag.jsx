@@ -6,6 +6,7 @@ import { Strip } from "../components/Strip.jsx";
 import { Ask } from "../components/Ask.jsx";
 import { Steps } from "../components/Steps.jsx";
 import { Findings } from "../components/Findings.jsx";
+import { Output } from "../components/Output.jsx";
 import { Ledger } from "../components/Claims.jsx";
 
 // A recorded ask with its question and answer filled in (the main one's answer is the frozen approach-1 result).
@@ -105,9 +106,9 @@ export function View() {
             {wrongQ && <div class="note">{st.note}. The answer below is to that question, not to the one typed.</div>}
             {st.missing
               ? <div class="note">{st.liveRetrieval ? "Retrieval above is live." : "Retrieval above is recorded."} The answer to this question is not recorded{st.note ? ` (${st.note})` : ""}.</div>
-              : st.at >= 2 ? <div class={`answer ${st.at === 2 ? "streaming" : ""}`}>{st.text}</div>
-              : <div><div class="skeleton" style={{ width: "80%" }} /><div class="skeleton" style={{ width: "55%" }} /></div>}
-            {r && <Findings claims={r.claims} approach="1_plain_rag" max={5} title="Plain RAG · verified claims" />}
+              : <Output source={`written from the ${a?.top_k || 12} retrieved chunks only`} text={st.at >= 2 ? st.text : null} streaming={st.at === 2} />}
+            {r && <div><div class="label">Verified findings · click one for its quotes in the filings</div>
+              <Findings claims={r.claims} approach="1_plain_rag" max={5} title="Plain RAG · verified claims" /></div>}
           </div>
           <Chunks a={a} shown={shown} cited={citedIds(r)} />
         </div>)}

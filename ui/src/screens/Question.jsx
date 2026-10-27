@@ -1,6 +1,10 @@
 import { DATA, filings, local } from "../lib/data.js";
 import { Check, X, ArrowUpRight } from "lucide-preact";
 
+// "2026-01-27" -> "27 Jan 2026": fits a tile on one line.
+const fmtDate = d => { const [y, m, day] = String(d || "").split("-");
+  return y && m ? `${+day} ${"Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split(" ")[+m - 1]} ${y}` : d; };
+
 export function View() {
   const r = DATA.scoring_rule, m = DATA.meta, F = filings();
   const A = F.filter(f => f.industry !== "semis"), S = F.filter(f => f.industry === "semis");
@@ -14,7 +18,7 @@ export function View() {
         {...(link ? { href: f.url, target: "_blank", rel: "noopener" } : {})} title={`10-K ${f.accession}, filed ${f.filing_date}`}>
         <span class={`tk ${f.industry}`}>{f.ticker}{link && <ArrowUpRight class="go" />}</span>
         <div class="nm">{f.short_name || f.company}</div>
-        <div class="fp">10-K · filed {f.filing_date}</div>
+        <div class="fp">10-K · {fmtDate(f.filing_date)}</div>
       </Tag>);
   };
   return (

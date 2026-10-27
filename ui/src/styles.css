@@ -385,3 +385,13 @@ td.best { background: var(--surface); font-weight: 700; color: var(--ink); }
   .graph-pane { height: 60vh; }
   .steps { grid-auto-flow: row; }
 }
+
+/* The model answer: one panel per ask screen, so the room can tell the model's words from the evidence */
+.output { background: var(--surface); border-left: 3px solid var(--ink); border-radius: 0 2px 2px 0; padding: var(--s4) var(--s5) var(--s5); max-width: 66rem; }
+.output header { display: flex; gap: var(--s4); align-items: baseline; margin-bottom: var(--s3); }
+.output .tag { font-size: var(--t-meta); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-stretch: 112%; color: var(--ink); }
+.output .src { font-size: var(--t-meta); color: var(--ink-3); }
+.output p { margin: 0; font-family: var(--serif); font-weight: 400; font-size: var(--t-lead); line-height: 1.5; text-wrap: pretty; max-width: 64ch; }
+.output p.streaming::after { content: ""; display: inline-block; width: 0.5em; height: 1em; vertical-align: text-bottom; margin-left: 3px; background: var(--ink-2); animation: pulse 1s ease-in-out infinite; }
+.finding .fq .quote { font-style: italic; }
+.tile .fp { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
