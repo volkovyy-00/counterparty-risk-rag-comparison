@@ -17,8 +17,14 @@ shown.
 | end | 9:00 | – | Hand over to the governance section (`G`). | | |
 
 Screen 4 in Q&A: **M** shows the two parked questions (*TSLA + ON + TXN*, *F, BWA, LEA, MCHP, ON*); **O** opens the
-whole graph (then **H** hides generic nodes, **X** shows named drivers). There is no free-text box by design: a fixed
-question with its Cypher on screen is the governance point.
+whole graph (then **H** hides generic nodes, **X** shows named drivers).
+
+The console (`make console-live`) takes typed questions. On GraphRAG the question is routed to one of nine read-only
+Cypher patterns and the pattern, its parameters and its Cypher are on screen: the governance point is that the model
+fills parameters and never writes a query. Typed asks to rehearse: "What is the most common risk among the
+counterparties?" (about 25 s), "Which companies are exposed to rare earths or critical minerals?" (about 15 s),
+"Who shares Tesla's specific risks?" (up to 45 s: many claims). A question no pattern answers says so and offers the
+closest recorded one; any timeout or the $3 cap falls back to REPLAY by itself.
 
 Governance section (after the demo, up to 3:00): **G**, then **F** (a planted paraphrase is rejected and the closest
 real sentence is shown), **O** (`SUPPLY_GEOPOLITICS` is rejected by the code validator), **A** (manifest diff between
@@ -37,7 +43,7 @@ running, the page shows the precomputed result and says so. Screenshots: `G1_…
 
 1. **No Wi-Fi.** Use `make demo`. Everything is served from `results/demo_run/`, and nothing calls an API.
 2. **No Neo4j.** Nothing changes. The graph comes from `results/demo_run/graph.json`, and the screen-4 answers from
-   `results/demo_run/graph_qa.json`; nothing is typed on stage, so nothing needs a live query.
+   `results/demo_run/graph_qa.json`, and typed console questions run the patterns over `graph.json`.
 3. **Browser trouble.** Open `demo/index.html` directly as a file. Everything works except the live step, and
    governance uses its precomputed copy.
 4. **Laptop trouble.** Use the PNGs in `demo/fallback/` (`make screenshots`), or the recording below.

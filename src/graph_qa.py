@@ -221,8 +221,9 @@ def prompt(q, rows, filings):
     return f"Question: {q['question']}\n\nQuery rows:\n{context}", citer.sources
 
 
-def answer(q, rows, filings, generic_only=False):
-    """The model's answer to one question from its rows, verified. No rows, or only generic bridge rows -> no call."""
+def answer(q, rows, filings, generic_only=False, cache=None, timeout=None, model=None):
+    """The model's answer to one question from its rows, verified. No rows, or only generic bridge rows -> no call.
+    cache / timeout / model: the console's live ask (src/serve.py) uses cache "off" and a hard deadline."""
     if not rows:
         return {"empty": True, "summary": "No link found: the query returned no rows, and the graph does not "
                                           "invent one.", "claims": [], "rejected": [], "verification": None}
@@ -231,8 +232,8 @@ def answer(q, rows, filings, generic_only=False):
                 "verification": None}
     user, sources = prompt(q, rows, filings)
     with llm.METER.track("graph.qa"):
-        reply = llm.chat(SYSTEM, user, schema=CLAIMS_SCHEMA, schema_name="claims", model=config.GRAPH_QA_MODEL,
-                         effort=config.GRAPH_QA_EFFORT)
+        reply = llm.chat(SYSTEM, user, schema=CLAIMS_SCHEMA, schema_name="claims", model=model or config.GRAPH_QA_MODEL,
+                         effort=config.GRAPH_QA_EFFORT, cache=cache, timeout=timeout)
     accepted, rejected, stats = verify_claims(reply["claims"], filings, sources)
     return {"empty": False, "summary": reply["summary"], "claims": accepted, "rejected": rejected,
             "verification": stats}

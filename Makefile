@@ -4,8 +4,20 @@ PORT ?= 8000
 # DRAFT=1: build the page with screen-7 placeholders unfilled (shown under a DRAFT banner)
 DRAFT ?=
 
-.PHONY: demo demo-live check build-demo screenshots fetch-artifacts check-secrets test real-run estimate label record-help \
+.PHONY: console console-live console-ui demo demo-live check build-demo screenshots fetch-artifacts check-secrets test real-run estimate label record-help \
 	graph-quality graph-check graph-ab graph-qa taxo-split taxo-coverage taxo-ab
+
+console: check console-data      ## the console (ui/, prebuilt in demo/console/), offline: frozen run only
+	$(PY) src/serve.py --port $(PORT) --page console/index.html
+
+console-live: check console-data ## the console with live asks (RAG + graph), REPLAY on any failure
+	$(PY) src/serve.py --port $(PORT) --page console/index.html --live
+
+console-data:
+	$(PY) src/build_demo.py --json demo/console/data.json $(if $(DRAFT),--draft,)
+
+console-ui:                       ## rebuild demo/console/ from ui/ (needs Node; the stage laptop does not)
+	cd ui && npm ci && npx vite build
 
 demo: check build-demo            ## offline: no network, no Neo4j
 	$(PY) src/serve.py --port $(PORT)

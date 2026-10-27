@@ -146,7 +146,52 @@ def load_run(run_dir, fixture):
     return man, approaches, card, reruns, fake
 
 
-def build(run_dir, out, fixture=False, draft=False):
+CONSOLE_DIR = config.RESULTS_DIR / "console"
+
+
+def rag_asks(run_dir, approaches):
+    """Plain-RAG asks for the console: the main question (frozen run) first, then the recorded narrower ones."""
+    from console_asks import chunk_spans
+    from corpus import load_corpus
+
+    r = approaches.get("1_plain_rag")
+    if not r or r.get("error"):
+        return []
+    spans = chunk_spans(load_corpus(config.DATA_DIR / "corpus" / json.loads((Path(run_dir) / "manifest.json")
+                                                                            .read_text())["corpus"]))
+    d = r["details"]
+    main = {"id": "main", "label": "The main question", "main": True, "question": None,
+            "retrieved": [dict(c, end=spans.get(c["chunk_id"], (c["start"], c["start"]))[1]) for c in d.get("retrieved", [])],
+            "chunks_indexed": d.get("chunks_indexed"), "top_k": d.get("top_k"), "result": None,
+            "recorded_at": d.get("answer_recorded_at")}
+    path = CONSOLE_DIR / "rag_asks.json"
+    extra = json.loads(path.read_text())["asks"] if path.exists() else []
+    return [main] + extra
+
+
+def graph_main(run_dir, approaches):
+    """Approach 2's answer to the main question as a console ask: its global query and the risks it returned."""
+    import approach2_graphrag as a2
+
+    r, path = approaches.get("2_graphrag"), Path(run_dir) / "graph.json"
+    if not r or r.get("error") or not path.exists():
+        return None
+    g = json.loads(path.read_text())
+    rows = r["details"].get("traversal") or []
+    by_label = {n["label"]: n for n in g["nodes"] if n["type"] == "RiskFactor"}
+    risks = [by_label[x["risk"]] for x in rows if x["risk"] in by_label]
+    ids = {n["id"] for n in risks}
+    edges = [e for e in g["edges"] if e["target"] in ids]
+    tickers = sorted({e["source"] for e in edges})
+    companies = [n for n in g["nodes"] if n["id"] in tickers]
+    return {"id": "main", "label": "The main question", "template": "SHARED_RISKS", "cypher": a2.SHARED_RISKS_V2_CYPHER.strip(),
+            "params": {"min_shared": config.MIN_SHARED}, "rows": r["details"].get("traversal_rows", len(rows)),
+            "ranked": f"ranked in code: up to {a2.MAX_SPECIFIC} specific and {a2.MAX_GENERIC} generic risks, {len(risks)} kept",
+            "subgraph": {"nodes": companies + risks, "edges": edges, "drivers": [], "driver_edges": []}}
+
+
+def collect(run_dir, fixture=False, draft=False):
+    """Every number, quote and text the page shows, as one JSON-ready dict."""
     man, approaches, card, reruns, fake = load_run(run_dir, fixture)
     run_dir = Path(run_dir)
     corpus_dir = config.DATA_DIR / "corpus" / man["corpus"]
@@ -183,11 +228,34 @@ def build(run_dir, out, fixture=False, draft=False):
         "graph_qa": json.loads(qa_path.read_text()) if qa_path.exists() else None,
         "governance": json.loads(gov_path.read_text()) if gov_path.exists() else None,
         "decision": decision(card, draft),
+        "rag_asks": rag_asks(run_dir, approaches),
+        "graph_main": graph_main(run_dir, approaches),
+        "notes": json.loads((CONSOLE_DIR / "notes.json").read_text())["notes"] if (CONSOLE_DIR / "notes.json").exists() else {},
+        "browser_live": browser_live(texts),
         "taxonomy": {"version": taxonomy.VERSION,
                      "categories": [{"id": c, "name": taxonomy.CATEGORY_NAMES[c]} for c in taxonomy.CATEGORY_IDS],
                      "leaves": [{"id": lid, "category": leaf["category"], "description": leaf["description"],
                                  "label": taxonomy.leaf_label(lid)} for lid, leaf in taxonomy.LEAVES.items()]},
     }
+    return data
+
+
+def browser_live(texts):
+    """What the console needs to run a typed graph question in the browser, on the viewer's own Claude account (the
+    published preview has no server): the same prompts, patterns and paragraph cuts as src/serve.py uses."""
+    import analyst_note
+    import graph_patterns
+    import graph_qa
+    import graph_v2
+
+    return {"graph_system": graph_qa.SYSTEM, "note_system": analyst_note.SYSTEM, "routes": graph_patterns.ROUTES,
+            "cypher": {k: v.strip() for k, v in graph_patterns.CYPHER.items()}, "limits": graph_patterns.LIMITS,
+            "industries": graph_qa.INDUSTRIES, "paragraphs": {t: graph_v2.paragraphs(x) for t, x in texts.items()}}
+
+
+def build(run_dir, out, fixture=False, draft=False):
+    data = collect(run_dir, fixture, draft)
+    fake = data["meta"]["fixture"]
     html = TEMPLATE.read_text().replace("/*__DATA__*/null", json.dumps(data).replace("</", "<\\/"))
     out = Path(out)
     out.write_text(html)
@@ -201,9 +269,16 @@ def main():
     parser.add_argument("--out", default=str(DEMO / "index.html"))
     parser.add_argument("--fixture", action="store_true", help="allow a fake-model run (shown with a banner)")
     parser.add_argument("--draft", action="store_true", help="allow screen-7 placeholders with no value (DRAFT banner)")
+    parser.add_argument("--json", help="write the page data as JSON to this path instead (the console in ui/ reads it)")
     args = parser.parse_args()
     if not (Path(args.run) / "manifest.json").exists():
         raise SystemExit(f"No recorded run in {args.run}. See README: the real run is frozen with real_run.py.")
+    if args.json:
+        data = collect(args.run, args.fixture, args.draft)
+        Path(args.json).parent.mkdir(parents=True, exist_ok=True)
+        Path(args.json).write_text(json.dumps(data))
+        print(f"-> {config.rel(Path(args.json))} ({Path(args.json).stat().st_size / 1e6:.1f} MB)")
+        return
     build(args.run, args.out, args.fixture, args.draft)
 
 
