@@ -1,6 +1,7 @@
 import { DATA, cypherCore, groupN, industry, isCross, oneLine, qaHeadline, riskClaims, short } from "../lib/data.js";
 import { overviewItems } from "../lib/layout.js";
 import { stream } from "../lib/live.js";
+import { graphAsk, sampler } from "../lib/browserLive.js";
 import { closest, play, typeOut } from "../lib/asks.js";
 import { useApp } from "../store.js";
 import { Strip } from "../components/Strip.jsx";
@@ -80,26 +81,30 @@ export async function askGraph(S, set, question, id) {
   const recorded = m.exact ? m.ask : null;
   // Never show another question's answer under this one: say why it cannot run here, and offer the closest one.
   const unanswered = why => { cancel(); set({ graph: { mode: "none", asked: question, at: -1, unanswered: { why, suggest: m.ask } }, focus: null }); };
-  if (!S.server?.live) {
+  // No live server (the published preview): the same pipeline runs in the browser on the viewer's Claude account.
+  const browser = !S.server?.live && !recorded && await sampler();
+  if (!S.server?.live && !browser) {
     if (recorded) return replay(set, recorded, question, S.server ? "live asks are off on this server" : "offline copy, no server");
     return unanswered(S.server ? "Live asks are off on this server, so only the recorded questions can run."
       : "This copy has no server behind it, so only the recorded questions can run.");
   }
   cancel();
-  let st = { mode: "live", running: true, asked: question, at: 0, reveal: 0, text: "" };
+  let st = { mode: "live", running: true, asked: question, at: 0, reveal: 0, text: "", browser: !!browser };
   const upd = p => { st = { ...st, ...p }; set({ graph: st }); };
   upd({}); set({ focus: null });
-  const msg = await stream("/api/graph_ask", { question, qid: id }, {
-    deadlineMs: (S.server.timeout_s || 20) * 1000 + 8000,
+  const handlers = {
+    deadlineMs: (S.server?.timeout_s || 20) * 1000 + 8000,
     onEvent: e => { if (e.type === "stage") upd({ at: e.step }); },
     onPlan: p => { upd({ at: 2, ask: { ...p, question }, reveal: 0 });
       for (let i = 1; i <= 12; i++) setTimeout(() => upd({ reveal: i / 12 }), 100 * i);
       setTimeout(() => st.at < 3 && upd({ at: 3 }), 1300); },
     onToken: t => upd({ text: st.text + t }),
-  });
+  };
+  const msg = browser ? await graphAsk(question, id, handlers) : await stream("/api/graph_ask", { question, qid: id }, handlers);
   if (msg.type === "result") return upd({ at: 6, running: false, reveal: 1, anote: msg.result.note, noteText: msg.result.note?.takeaway, ask: { ...st.ask, ...msg.result }, result: msg.result,
     text: msg.result.summary, seconds: msg.seconds, routed: msg.routed });
-  if (msg.type === "unanswered") return unanswered(`None of the graph's query patterns answers this (${msg.note}).`);
+  if (msg.type === "unanswered") return unanswered(msg.offline ? "This copy cannot reach Claude, so only the recorded questions can run."
+    : `None of the graph's query patterns answers this (${msg.note}).`);
   const back = asks.find(a => a.id === msg.closest) || recorded;
   if (back) return replay(set, back, question, msg.note);
   // The query ran live but the answer did not come back: keep the live rows and graph, say what is missing.
@@ -109,7 +114,8 @@ export async function askGraph(S, set, question, id) {
 
 export const mode = S => { if (S.overview) return null; const st = S.graph; if (!st) return null;
   if (st.unanswered) return null;
-  return { mode: st.mode, running: st.running && st.mode === "live", seconds: st.seconds, recorded: st.mode === "replay" ? st.recorded : null, why: st.note }; };
+  return { mode: st.mode, running: st.running && st.mode === "live", seconds: st.seconds, recorded: st.mode === "replay" ? st.recorded : null,
+    why: st.note || (st.browser ? "in this browser, on your Claude account" : null) }; };
 
 export function onKey(e, S, set) {
   const k = e.key, K = k.toUpperCase();

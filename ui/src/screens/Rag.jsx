@@ -65,7 +65,7 @@ export async function askRag(S, set, question, id) {
     if (recorded) return replay(set, recorded, question, S.server ? "live asks are off on this server" : "offline copy, no server");
     cancel();  // never show another question's answer under this one
     return set({ rag: { mode: "none", asked: question, at: -1, unanswered: { suggest: m.ask,
-      why: "This copy has no server behind it, so it cannot search the filings for a new question. Only the recorded questions can run." } } });
+      why: "Plain RAG embeds a new question with a model on the laptop, and this copy has no server behind it, so only the recorded questions can run here. Typed questions do run live on the GraphRAG screen." } } });
   }
   // The server embeds and retrieves for real (free, on this laptop); it answers only when live asks are on.
   cancel();

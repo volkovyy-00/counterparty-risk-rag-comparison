@@ -128,6 +128,14 @@ export function qaHeadline(q) {
     if (sp) return `Most specific: ${sp.label}, ${sp.n_companies} of ${N}, both industries`;
     if (sh) return `Most shared: ${sh.label}, ${sh.n_companies} of ${N}; no specific risk spans both industries`;
   }
+  const top = risks[0], cos = g.nodes.filter(n => n.type === "Company").length, tk = q.params?.ticker;
+  if (top && q.template === "MOST_COMMON") return `Most common: ${top.label}, ${top.n_companies} of ${N}`;
+  if (top && q.template === "WHO_FACES") return `${cos} of ${N} disclose ${risks.length === 1 ? "it" : "these risks"}`;
+  if (top && q.template === "COMPANY_RISKS") return `${tk}: ${risks.length} risks shown, ${risks.filter(n => n.n_companies > 1).length} shared with peers`;
+  if (top && q.template === "COMPANY_PEERS") return `${tk} is linked to ${cos - 1} companies; widest: ${top.label}, ${top.n_companies} of ${N}`;
+  if (top && q.template === "UNIQUE_TO") return `${risks.length} risks only ${tk} discloses`;
+  if (top && q.template === "CROSS_INDUSTRY") return `${risks.length} specific risks span both industries; widest: ${top.label}, ${top.n_companies} of ${N}`;
+  if (top && q.template === "INDUSTRY_ONLY") return `${risks.length} risks only ${q.params.industry === "auto" ? "automakers and suppliers" : "chipmakers"} disclose`;
   const sp = risks.filter(n => !n.generic).sort((a, b) => a.n_companies - b.n_companies || a.label.localeCompare(b.label))[0];
   return sp ? `${risks.length} shared · most specific: ${sp.label}, ${sp.n_companies} of ${N}` : `${risks.length} shared, all generic`;
 }

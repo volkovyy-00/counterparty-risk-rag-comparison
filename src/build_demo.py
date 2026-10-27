@@ -231,12 +231,26 @@ def collect(run_dir, fixture=False, draft=False):
         "rag_asks": rag_asks(run_dir, approaches),
         "graph_main": graph_main(run_dir, approaches),
         "notes": json.loads((CONSOLE_DIR / "notes.json").read_text())["notes"] if (CONSOLE_DIR / "notes.json").exists() else {},
+        "browser_live": browser_live(texts),
         "taxonomy": {"version": taxonomy.VERSION,
                      "categories": [{"id": c, "name": taxonomy.CATEGORY_NAMES[c]} for c in taxonomy.CATEGORY_IDS],
                      "leaves": [{"id": lid, "category": leaf["category"], "description": leaf["description"],
                                  "label": taxonomy.leaf_label(lid)} for lid, leaf in taxonomy.LEAVES.items()]},
     }
     return data
+
+
+def browser_live(texts):
+    """What the console needs to run a typed graph question in the browser, on the viewer's own Claude account (the
+    published preview has no server): the same prompts, patterns and paragraph cuts as src/serve.py uses."""
+    import analyst_note
+    import graph_patterns
+    import graph_qa
+    import graph_v2
+
+    return {"graph_system": graph_qa.SYSTEM, "note_system": analyst_note.SYSTEM, "routes": graph_patterns.ROUTES,
+            "cypher": {k: v.strip() for k, v in graph_patterns.CYPHER.items()}, "limits": graph_patterns.LIMITS,
+            "industries": graph_qa.INDUSTRIES, "paragraphs": {t: graph_v2.paragraphs(x) for t, x in texts.items()}}
 
 
 def build(run_dir, out, fixture=False, draft=False):
