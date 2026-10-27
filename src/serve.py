@@ -110,6 +110,7 @@ class Live:
             config.LLM_CACHE = saved
         if (self.run_dir / "graph.json").exists():
             self.graph = graph_local.load(self.run_dir / "graph.json")
+            self.shortlist("warm up")  # embeds the 360 risk names now, not inside the first ask's deadline
         return self
 
     def cached_answer(self, note):
