@@ -91,7 +91,7 @@ def _fmt(v, kind):
     return {"pct": f"{v:.0%}", "f2": f"{v:.2f}", "usd": f"${v:.2f}"}.get(kind, str(v))
 
 
-def decision(card, draft=False):
+def decision(card, draft=False, view=None):
     """Screen 7 from decision.yaml. A placeholder that resolves to n/a stops the build unless draft=True (then it is
     shown as [placeholder] under a DRAFT banner)."""
     d = yaml.safe_load((DEMO / "decision.yaml").read_text())
@@ -107,6 +107,10 @@ def decision(card, draft=False):
             f"{name}.companies_covered": _fmt(get("companies_covered"), ""),
             f"{name}.build_cost": _fmt((get("build") or {}).get("cost_usd"), "usd"),
             f"{name}.ask_cost": _fmt((get("ask") or {}).get("cost_usd"), "usd")})
+        v = (view or {}).get(name)
+        if v:
+            values.update({f"{name}.themes": f"{v['themes_found']}/{v['themes_total']}",
+                           f"{name}.precision": _fmt(v["precision"], "pct")})
     missing = sorted({m for m in re.findall(r"\{([\w.]+)\}", d["recommendation"]) if values.get(m, "n/a") == "n/a"})
     if missing and not draft:
         raise SystemExit("Screen 7 has placeholders with no value (n/a): " + ", ".join(missing) +
@@ -227,10 +231,11 @@ def collect(run_dir, fixture=False, draft=False):
         "graph": json.loads(graph_path.read_text()) if graph_path.exists() else None,
         "graph_qa": json.loads(qa_path.read_text()) if qa_path.exists() else None,
         "governance": json.loads(gov_path.read_text()) if gov_path.exists() else None,
-        "decision": decision(card, draft),
+        "decision": decision(card, draft, answer_view(approaches, gt)),
         "rag_asks": rag_asks(run_dir, approaches),
         "graph_main": graph_main(run_dir, approaches),
         "notes": json.loads((CONSOLE_DIR / "notes.json").read_text())["notes"] if (CONSOLE_DIR / "notes.json").exists() else {},
+        "answer_view": answer_view(approaches, gt),
         "browser_live": browser_live(texts),
         "taxonomy": {"version": taxonomy.VERSION,
                      "categories": [{"id": c, "name": taxonomy.CATEGORY_NAMES[c]} for c in taxonomy.CATEGORY_IDS],
@@ -238,6 +243,33 @@ def collect(run_dir, fixture=False, draft=False):
                                  "label": taxonomy.leaf_label(lid)} for lid, leaf in taxonomy.LEAVES.items()]},
     }
     return data
+
+
+def answer_view(approaches, gt):
+    """The results table's plain rows, computed from the same verified claims and hand key as the scorecard, at the
+    theme (taxonomy category) level, and labelled on screen as added after the run:
+      precision : share of the answer's (company, theme) claims the key confirms
+      themes    : shared themes in the key (true for >= 2 companies) that the answer names at least once
+      companies : companies with at least one verified claim
+    The scorecard's leaf/category F1 compares an answer with the key's every exposure, which punishes a short answer
+    for being short; these rows ask how right it is and how much of the picture it names."""
+    if not gt:
+        return None
+    yes = {(t, taxonomy.category_of(leaf)) for t, leaves in gt["yes"].items() for leaf in leaves}
+    by_theme = {}
+    for t, c in yes:
+        by_theme.setdefault(c, set()).add(t)
+    shared = {c for c, ts in by_theme.items() if len(ts) >= config.MIN_SHARED}
+    out = {}
+    for key, r in approaches.items():
+        if r.get("error"):
+            continue
+        pairs = {(c["company"], c["category"]) for c in r.get("claims") or []}
+        named = {c for _, c in pairs}
+        out[key] = {"precision": round(sum(p in yes for p in pairs) / len(pairs), 3) if pairs else None,
+                    "pairs": len(pairs), "themes_found": len(named & shared), "themes_total": len(shared),
+                    "companies": sorted({t for t, _ in pairs})}
+    return out
 
 
 def browser_live(texts):

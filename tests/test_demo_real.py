@@ -182,5 +182,20 @@ def test_screen7_refuses_unfilled_placeholders_unless_draft():
     with pytest.raises(SystemExit, match="placeholders with no value"):
         build_demo.decision(card)
     d = build_demo.decision(card, draft=True)
-    assert "[3_taxonomy_first.leaf_f1]" in d["recommendation"] and "n/a" not in d["recommendation"]
-    assert "90%" in d["recommendation"] and "3_taxonomy_first.leaf_f1" in d["missing"]
+    assert "[3_taxonomy_first.themes]" in d["recommendation"] and "n/a" not in d["recommendation"]
+    assert "90%" in d["recommendation"] and "3_taxonomy_first.themes" in d["missing"]
+
+
+def test_results_table_rows_from_the_frozen_run():
+    """The results table's plain rows: precision against the key, shared themes named, companies reached."""
+    import build_demo
+    import evaluate
+
+    run = config.RESULTS_DIR / "demo_run"
+    man = json.loads((run / "manifest.json").read_text())
+    _, approaches, _, _, _ = build_demo.load_run(run, False)
+    view = build_demo.answer_view(approaches, evaluate.load_ground_truth(man["corpus"]))
+    got = {k: (v["themes_found"], v["themes_total"], len(v["companies"])) for k, v in view.items()}
+    assert got["1_plain_rag"] == (6, 19, 8) and got["2_graphrag"] == (8, 19, 10)
+    assert got["3_taxonomy_first"] == (19, 19, 10)
+    assert view["1_plain_rag"]["precision"] == 1.0 and 0.95 < view["3_taxonomy_first"]["precision"] < 1
