@@ -12,9 +12,9 @@ const runs = c => (card().rows.reruns || {})[c] || 1;
 // Editorial rows (the author's judgement, not measured): how hard each approach is to build, and its trade-offs.
 const COMPLEXITY = { "1_plain_rag": "Low", "2_graphrag": "High", "3_taxonomy_first": "Low", "0_long_context": "Low" };
 const PROS = {
-  "1_plain_rag": ["Cheapest and fastest; nothing to build", "Same answer every rerun"],
+  "1_plain_rag": ["Nothing to build; first answer in minutes", "Same answer every rerun"],
   "2_graphrag": ["Links between companies are explicit", "Every query is read-only Cypher you can inspect"],
-  "3_taxonomy_first": ["Names every shared theme and every company", "Answers without a model call once built"],
+  "3_taxonomy_first": ["Names every shared theme and every company", "No model call per question once built"],
   "0_long_context": ["No retrieval to get wrong", "Nothing to build"],
 };
 const CONS = {
@@ -24,8 +24,11 @@ const CONS = {
   "0_long_context": ["Pays for every filing on every question", "Stops working when filings outgrow the window"],
 };
 const view = c => (DATA.answer_view || {})[c];
-const total = c => { const R = card().rows, b = R.build?.[c], a = R.ask?.[c];
-  return b == null && a == null ? null : (b?.cost_usd || 0) + (a?.cost_usd || 0); };
+// Cost is split the way it is paid: once to build, then on every question. N_ASK questions shows which one dominates.
+const N_ASK = 100;
+const cost = (c, k) => card().rows[k]?.[c]?.cost_usd;
+const costN = c => cost(c, "build") == null && cost(c, "ask") == null ? null : (cost(c, "build") || 0) + N_ASK * (cost(c, "ask") || 0);
+const usd = x => x == null ? NM : `$${x.toFixed(2)}`;
 
 // One table row. get(c) -> the raw value for column c; fmt renders it; val ranks it (dir max|min) to shade the best
 // of the three approaches (the control is never compared).
@@ -56,12 +59,14 @@ export function View() {
           <Row label="Companies in the answer" get={c => view(c)?.companies.length} fmt={x => x == null ? NM : `${x}/${nF}`} val={x => x} dir="max" />
           <Row label="Quote coverage" get={c => R.quote_coverage?.[c]} fmt={pct} val={x => x} dir="max" />
           <Row label="Build complexity" get={c => COMPLEXITY[c]} fmt={x => x} />
-          <Row label="Cost for this answer" get={total} fmt={x => x == null ? NM : `$${x.toFixed(2)}`} val={x => x} dir="min" />
+          <Row label="Build cost (once)" get={c => cost(c, "build")} fmt={usd} val={x => x} dir="min" />
+          <Row label="Model cost per question" get={c => cost(c, "ask")} fmt={usd} val={x => x} dir="min" />
+          <Row label={`Cost of ${N_ASK} questions`} get={costN} fmt={usd} val={x => x} dir="min" />
           <Row small label="Pros" get={c => PROS[c]} fmt={x => <List items={x} mark="+" />} />
           <Row small label="Cons" get={c => CONS[c]} fmt={x => <List items={x} mark="–" />} />
         </tbody>
       </table>
-      <div class="meta">Precision: share of the answer's company-risk claims the hand-labelled key confirms. Themes: of the {view("3_taxonomy_first")?.themes_total ?? "–"} risk themes the key shares across companies, how many the answer names. Both computed after the run from the same verified claims and key ({DATA.meta.key_status}). Cost: build plus one ask. Best of the three approaches is shaded; the control is not compared.</div>
+      <div class="meta">Precision: share of the answer's company-risk claims the hand-labelled key confirms. Themes: of the {view("3_taxonomy_first")?.themes_total ?? "–"} risk themes the key shares across companies, how many the answer names. Both computed after the run from the same verified claims and key ({DATA.meta.key_status}). Cost: build is paid once; every question after that pays the per-question cost. Cost of {N_ASK} questions = build + {N_ASK} × per question. Best of the three approaches is shaded; the control is not compared.</div>
     </div>
   );
 }

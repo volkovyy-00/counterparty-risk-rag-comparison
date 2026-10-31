@@ -11,6 +11,7 @@ when_to_use:
 recommendation: >-
   For a risk committee: taxonomy-first. It names {3_taxonomy_first.themes} shared risk themes, against
   {1_plain_rag.themes} (RAG) and {2_graphrag.themes} (GraphRAG), at {3_taxonomy_first.precision} precision; every claim
-  is traceable to a verbatim quote ({3_taxonomy_first.quote_coverage} coverage). Cost sits in the build
-  ({3_taxonomy_first.build_cost}), not in each question.
+  is traceable to a verbatim quote ({3_taxonomy_first.quote_coverage} coverage). It is low complexity, and its
+  cost is paid once, in the build ({3_taxonomy_first.build_cost}); each question after that costs
+  {3_taxonomy_first.ask_cost} in model calls, against {1_plain_rag.ask_cost} (RAG) and {2_graphrag.ask_cost} (GraphRAG).
 caveat: "The taxonomy is the model of the business: a person owns it, versions it and reviews what falls into OTHER."
