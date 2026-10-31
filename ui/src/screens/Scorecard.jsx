@@ -10,7 +10,7 @@ const usage = u => !u ? NM : !u.llm_calls ? (u.embed_calls ? "no model call" : "
 const runs = c => (card().rows.reruns || {})[c] || 1;
 
 // Editorial rows (the author's judgement, not measured): how hard each approach is to build, and its trade-offs.
-const COMPLEXITY = { "1_plain_rag": "Low", "2_graphrag": "High", "3_taxonomy_first": "Low", "0_long_context": "Low" };
+export const COMPLEXITY = { "1_plain_rag": "Low", "2_graphrag": "High", "3_taxonomy_first": "Low", "0_long_context": "Low" };
 const PROS = {
   "1_plain_rag": ["Nothing to build; first answer in minutes", "Same answer every rerun"],
   "2_graphrag": ["Links between companies are explicit", "Every query is read-only Cypher you can inspect"],
@@ -25,10 +25,10 @@ const CONS = {
 };
 const view = c => (DATA.answer_view || {})[c];
 // Cost is split the way it is paid: once to build, then on every question. N_ASK questions shows which one dominates.
-const N_ASK = 100;
-const cost = (c, k) => card().rows[k]?.[c]?.cost_usd;
-const costN = c => cost(c, "build") == null && cost(c, "ask") == null ? null : (cost(c, "build") || 0) + N_ASK * (cost(c, "ask") || 0);
-const usd = x => x == null ? NM : `$${x.toFixed(2)}`;
+export const N_ASK = 100;
+export const cost = (c, k) => card().rows[k]?.[c]?.cost_usd;
+export const costN = c => cost(c, "build") == null && cost(c, "ask") == null ? null : (cost(c, "build") || 0) + N_ASK * (cost(c, "ask") || 0);
+export const usd = x => x == null ? NM : `$${x.toFixed(2)}`;
 
 // One table row. get(c) -> the raw value for column c; fmt renders it; val ranks it (dir max|min) to shade the best
 // of the three approaches (the control is never compared).
